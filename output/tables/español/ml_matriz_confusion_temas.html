@@ -1,0 +1,472 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Matriz de confusión del clasificador temático</title>
+<style>body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;margin:24px;color:#222}table{border-collapse:collapse;width:100%;font-size:13px}th,td{border:1px solid #ddd;padding:6px 8px;text-align:left;vertical-align:top}th{background:#f3f5f2}caption{text-align:left;font-weight:700;font-size:18px;margin-bottom:4px}.subtitle{color:#666;margin:0 0 14px 0}</style>
+</head>
+<body>
+<h1>Matriz de confusión del clasificador temático</h1><p class="subtitle">Verdad debil de reglas frente a predicción del modelo</p><table>
+ <thead>
+  <tr>
+   <th style="text-align:left;"> verdad </th>
+   <th style="text-align:left;"> prediccion </th>
+   <th style="text-align:right;"> n </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> constituyente </td>
+   <td style="text-align:left;"> constituyente </td>
+   <td style="text-align:right;"> 23 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> constituyente </td>
+   <td style="text-align:left;"> institucionalidad </td>
+   <td style="text-align:right;"> 14 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> constituyente </td>
+   <td style="text-align:left;"> laboral </td>
+   <td style="text-align:right;"> 10 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> economia </td>
+   <td style="text-align:left;"> economia </td>
+   <td style="text-align:right;"> 174 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> economia </td>
+   <td style="text-align:left;"> energia_ambiente </td>
+   <td style="text-align:right;"> 5 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> economia </td>
+   <td style="text-align:left;"> institucionalidad </td>
+   <td style="text-align:right;"> 1 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> economia </td>
+   <td style="text-align:left;"> salud </td>
+   <td style="text-align:right;"> 3 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> economia </td>
+   <td style="text-align:left;"> seguridad </td>
+   <td style="text-align:right;"> 7 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> energia_ambiente </td>
+   <td style="text-align:left;"> economia </td>
+   <td style="text-align:right;"> 12 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> energia_ambiente </td>
+   <td style="text-align:left;"> energia_ambiente </td>
+   <td style="text-align:right;"> 87 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> energia_ambiente </td>
+   <td style="text-align:left;"> energia_tarifas </td>
+   <td style="text-align:right;"> 6 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> energia_ambiente </td>
+   <td style="text-align:left;"> institucionalidad </td>
+   <td style="text-align:right;"> 4 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> energia_ambiente </td>
+   <td style="text-align:left;"> laboral </td>
+   <td style="text-align:right;"> 1 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> energia_ambiente </td>
+   <td style="text-align:left;"> salud </td>
+   <td style="text-align:right;"> 5 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> energia_ambiente </td>
+   <td style="text-align:left;"> seguridad </td>
+   <td style="text-align:right;"> 7 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> energia_ambiente </td>
+   <td style="text-align:left;"> tributaria </td>
+   <td style="text-align:right;"> 2 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> energia_tarifas </td>
+   <td style="text-align:left;"> economia </td>
+   <td style="text-align:right;"> 2 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> energia_tarifas </td>
+   <td style="text-align:left;"> energia_ambiente </td>
+   <td style="text-align:right;"> 14 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> energia_tarifas </td>
+   <td style="text-align:left;"> energia_tarifas </td>
+   <td style="text-align:right;"> 20 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> energia_tarifas </td>
+   <td style="text-align:left;"> internacional </td>
+   <td style="text-align:right;"> 1 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> energia_tarifas </td>
+   <td style="text-align:left;"> salud </td>
+   <td style="text-align:right;"> 7 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> energia_tarifas </td>
+   <td style="text-align:left;"> seguridad </td>
+   <td style="text-align:right;"> 1 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> institucionalidad </td>
+   <td style="text-align:left;"> constituyente </td>
+   <td style="text-align:right;"> 1 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> institucionalidad </td>
+   <td style="text-align:left;"> economia </td>
+   <td style="text-align:right;"> 4 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> institucionalidad </td>
+   <td style="text-align:left;"> energia_ambiente </td>
+   <td style="text-align:right;"> 11 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> institucionalidad </td>
+   <td style="text-align:left;"> institucionalidad </td>
+   <td style="text-align:right;"> 334 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> institucionalidad </td>
+   <td style="text-align:left;"> internacional </td>
+   <td style="text-align:right;"> 12 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> institucionalidad </td>
+   <td style="text-align:left;"> laboral </td>
+   <td style="text-align:right;"> 10 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> institucionalidad </td>
+   <td style="text-align:left;"> reforma_general </td>
+   <td style="text-align:right;"> 1 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> institucionalidad </td>
+   <td style="text-align:left;"> salud </td>
+   <td style="text-align:right;"> 12 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> institucionalidad </td>
+   <td style="text-align:left;"> seguridad </td>
+   <td style="text-align:right;"> 41 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> institucionalidad </td>
+   <td style="text-align:left;"> tributaria </td>
+   <td style="text-align:right;"> 1 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> internacional </td>
+   <td style="text-align:left;"> economia </td>
+   <td style="text-align:right;"> 5 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> internacional </td>
+   <td style="text-align:left;"> energia_ambiente </td>
+   <td style="text-align:right;"> 4 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> internacional </td>
+   <td style="text-align:left;"> institucionalidad </td>
+   <td style="text-align:right;"> 16 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> internacional </td>
+   <td style="text-align:left;"> internacional </td>
+   <td style="text-align:right;"> 208 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> internacional </td>
+   <td style="text-align:left;"> laboral </td>
+   <td style="text-align:right;"> 2 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> internacional </td>
+   <td style="text-align:left;"> seguridad </td>
+   <td style="text-align:right;"> 43 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> laboral </td>
+   <td style="text-align:left;"> economia </td>
+   <td style="text-align:right;"> 21 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> laboral </td>
+   <td style="text-align:left;"> energia_ambiente </td>
+   <td style="text-align:right;"> 2 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> laboral </td>
+   <td style="text-align:left;"> institucionalidad </td>
+   <td style="text-align:right;"> 21 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> laboral </td>
+   <td style="text-align:left;"> internacional </td>
+   <td style="text-align:right;"> 1 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> laboral </td>
+   <td style="text-align:left;"> laboral </td>
+   <td style="text-align:right;"> 183 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> laboral </td>
+   <td style="text-align:left;"> pensional </td>
+   <td style="text-align:right;"> 4 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> laboral </td>
+   <td style="text-align:left;"> salud </td>
+   <td style="text-align:right;"> 13 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> laboral </td>
+   <td style="text-align:left;"> seguridad </td>
+   <td style="text-align:right;"> 2 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> laboral </td>
+   <td style="text-align:left;"> tributaria </td>
+   <td style="text-align:right;"> 1 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> paz_total </td>
+   <td style="text-align:left;"> economia </td>
+   <td style="text-align:right;"> 1 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> paz_total </td>
+   <td style="text-align:left;"> institucionalidad </td>
+   <td style="text-align:right;"> 14 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> paz_total </td>
+   <td style="text-align:left;"> internacional </td>
+   <td style="text-align:right;"> 4 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> paz_total </td>
+   <td style="text-align:left;"> paz_total </td>
+   <td style="text-align:right;"> 54 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> paz_total </td>
+   <td style="text-align:left;"> seguridad </td>
+   <td style="text-align:right;"> 40 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> pensional </td>
+   <td style="text-align:left;"> constituyente </td>
+   <td style="text-align:right;"> 2 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> pensional </td>
+   <td style="text-align:left;"> economia </td>
+   <td style="text-align:right;"> 2 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> pensional </td>
+   <td style="text-align:left;"> institucionalidad </td>
+   <td style="text-align:right;"> 6 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> pensional </td>
+   <td style="text-align:left;"> laboral </td>
+   <td style="text-align:right;"> 9 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> pensional </td>
+   <td style="text-align:left;"> pensional </td>
+   <td style="text-align:right;"> 30 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> pensional </td>
+   <td style="text-align:left;"> salud </td>
+   <td style="text-align:right;"> 5 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> reforma_general </td>
+   <td style="text-align:left;"> energia_ambiente </td>
+   <td style="text-align:right;"> 1 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> reforma_general </td>
+   <td style="text-align:left;"> institucionalidad </td>
+   <td style="text-align:right;"> 10 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> reforma_general </td>
+   <td style="text-align:left;"> laboral </td>
+   <td style="text-align:right;"> 8 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> reforma_general </td>
+   <td style="text-align:left;"> reforma_general </td>
+   <td style="text-align:right;"> 20 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> reforma_general </td>
+   <td style="text-align:left;"> salud </td>
+   <td style="text-align:right;"> 5 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> reforma_general </td>
+   <td style="text-align:left;"> seguridad </td>
+   <td style="text-align:right;"> 6 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> reforma_general </td>
+   <td style="text-align:left;"> tributaria </td>
+   <td style="text-align:right;"> 1 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> salud </td>
+   <td style="text-align:left;"> economia </td>
+   <td style="text-align:right;"> 10 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> salud </td>
+   <td style="text-align:left;"> energia_ambiente </td>
+   <td style="text-align:right;"> 3 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> salud </td>
+   <td style="text-align:left;"> institucionalidad </td>
+   <td style="text-align:right;"> 6 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> salud </td>
+   <td style="text-align:left;"> internacional </td>
+   <td style="text-align:right;"> 8 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> salud </td>
+   <td style="text-align:left;"> laboral </td>
+   <td style="text-align:right;"> 7 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> salud </td>
+   <td style="text-align:left;"> paz_total </td>
+   <td style="text-align:right;"> 1 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> salud </td>
+   <td style="text-align:left;"> salud </td>
+   <td style="text-align:right;"> 266 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> salud </td>
+   <td style="text-align:left;"> seguridad </td>
+   <td style="text-align:right;"> 6 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> salud </td>
+   <td style="text-align:left;"> tributaria </td>
+   <td style="text-align:right;"> 1 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> seguridad </td>
+   <td style="text-align:left;"> constituyente </td>
+   <td style="text-align:right;"> 1 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> seguridad </td>
+   <td style="text-align:left;"> economia </td>
+   <td style="text-align:right;"> 4 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> seguridad </td>
+   <td style="text-align:left;"> energia_ambiente </td>
+   <td style="text-align:right;"> 1 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> seguridad </td>
+   <td style="text-align:left;"> institucionalidad </td>
+   <td style="text-align:right;"> 7 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> seguridad </td>
+   <td style="text-align:left;"> internacional </td>
+   <td style="text-align:right;"> 12 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> seguridad </td>
+   <td style="text-align:left;"> laboral </td>
+   <td style="text-align:right;"> 3 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> seguridad </td>
+   <td style="text-align:left;"> paz_total </td>
+   <td style="text-align:right;"> 2 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> seguridad </td>
+   <td style="text-align:left;"> seguridad </td>
+   <td style="text-align:right;"> 354 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> seguridad </td>
+   <td style="text-align:left;"> tributaria </td>
+   <td style="text-align:right;"> 1 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> tributaria </td>
+   <td style="text-align:left;"> economia </td>
+   <td style="text-align:right;"> 13 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> tributaria </td>
+   <td style="text-align:left;"> energia_tarifas </td>
+   <td style="text-align:right;"> 1 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> tributaria </td>
+   <td style="text-align:left;"> institucionalidad </td>
+   <td style="text-align:right;"> 8 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> tributaria </td>
+   <td style="text-align:left;"> laboral </td>
+   <td style="text-align:right;"> 9 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> tributaria </td>
+   <td style="text-align:left;"> salud </td>
+   <td style="text-align:right;"> 6 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> tributaria </td>
+   <td style="text-align:left;"> seguridad </td>
+   <td style="text-align:right;"> 5 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> tributaria </td>
+   <td style="text-align:left;"> tributaria </td>
+   <td style="text-align:right;"> 49 </td>
+  </tr>
+</tbody>
+</table>
+</body>
+</html>
+

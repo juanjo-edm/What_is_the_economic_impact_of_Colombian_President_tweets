@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>README</title>
+  <style>
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      border: none;
+      border-top: 1px solid #1a1a1a;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+    /* CSS for syntax highlighting */
+    html { -webkit-text-size-adjust: 100%; }
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      {   }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+    code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+    code span.at { color: #7d9029; } /* Attribute */
+    code span.bn { color: #40a070; } /* BaseN */
+    code span.bu { color: #008000; } /* BuiltIn */
+    code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #4070a0; } /* Char */
+    code span.cn { color: #880000; } /* Constant */
+    code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+    code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+    code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+    code span.dt { color: #902000; } /* DataType */
+    code span.dv { color: #40a070; } /* DecVal */
+    code span.er { color: #ff0000; font-weight: bold; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #40a070; } /* Float */
+    code span.fu { color: #06287e; } /* Function */
+    code span.im { color: #008000; font-weight: bold; } /* Import */
+    code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+    code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+    code span.op { color: #666666; } /* Operator */
+    code span.ot { color: #007020; } /* Other */
+    code span.pp { color: #bc7a00; } /* Preprocessor */
+    code span.sc { color: #4070a0; } /* SpecialChar */
+    code span.ss { color: #bb6688; } /* SpecialString */
+    code span.st { color: #4070a0; } /* String */
+    code span.va { color: #19177c; } /* Variable */
+    code span.vs { color: #4070a0; } /* VerbatimString */
+    code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+</head>
+<body>
+<h1 id="guía-de-lectura-y-mantenimiento-del-cuaderno">Guía de lectura y
+mantenimiento del cuaderno</h1>
+<p>El archivo <code>Cuaderno_Paper_Español.Rmd</code> documenta la
+relación entre el discurso presidencial, la conversación pública sobre
+Gustavo Petro y las series económicas colombianas. Su propósito es
+permitir que un par evaluador siga los datos, las transformaciones y las
+especificaciones del estudio hasta sus resultados y limitaciones. El
+HTML es la versión de lectura; el R Markdown es la fuente ejecutable y
+la referencia para revisar el código.</p>
+<h2 id="requisitos-y-dependencias">Requisitos y dependencias</h2>
+<p>El entorno validado utiliza R 4.6.1. Los pipes nativos
+<code>|&gt;</code> requieren R 4.1 o posterior; esto no garantiza por sí
+solo la compatibilidad de todos los paquetes. Para reproducir el estudio
+conviene conservar las versiones registradas en el informe de ejecución,
+además de los mismos datos y semillas.</p>
+<p>Las dependencias directas están declaradas mediante
+<code>library(paquete)</code> al inicio del cuaderno, con un comentario
+sobre su función. Los bloques de librerías aparecen desplegados en el
+HTML. Esa sección es la lista operativa de paquetes; deben estar
+instalados antes de ejecutar el documento. Una dependencia ausente
+produce un error identificable. Las dependencias transitivas son
+gestionadas por R al instalar y cargar los paquetes.</p>
+<table>
+<thead>
+<tr>
+<th>Finalidad</th>
+<th>Paquetes declarados</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Datos, fechas y texto básico</td>
+<td>conflicted, readr, dplyr, tidyr, tibble, vctrs, forcats, lubridate,
+stringr, here</td>
+</tr>
+<tr>
+<td>Figuras y redes</td>
+<td>ggplot2, scales, ggwordcloud, ggrepel, igraph, tidygraph, ggraph,
+DiagrammeR, DiagrammeRsvg, rsvg, ragg, png, grid, graphics,
+grDevices</td>
+</tr>
+<tr>
+<td>Análisis textual y matrices</td>
+<td>quanteda, quanteda.textstats, quanteda.textmodels,
+quanteda.textplots, syuzhet, sentometrics, stm, spacyr, reticulate,
+Matrix</td>
+</tr>
+<tr>
+<td>Econometría y presentación</td>
+<td>stats, tseries, lmtest, vars, zoo, ca, methods, knitr, utils</td>
+</tr>
+</tbody>
+</table>
+<p>Para renderizar también se necesita <code>rmarkdown</code> y una
+instalación accesible de Pandoc. Pandoc puede proceder de Quarto o
+RStudio; <code>RSTUDIO_PANDOC</code> debe apuntar al directorio que
+contiene su ejecutable. El archivo <code>notebook-style.css</code> y la
+bibliografía relativa al proyecto forman parte de la presentación.</p>
+<p>La anotación lingüística requiere Python, spaCy y el modelo español
+<code>es_core_news_sm</code>. El entorno validado utiliza Python 3.11,
+spaCy 3.8.16 y el modelo 3.8.0. La variable <code>SPACYR_PYTHON</code>
+permite indicar el ejecutable; si no está definida, el cuaderno usa el
+entorno de <code>reticulate</code> llamado <code>petro-spacyr</code>.
+Debe comprobarse que ese mismo Python pueda importar spaCy y cargar el
+modelo antes de comenzar. La instalación se realiza fuera del
+cuaderno.</p>
+<p>El notebook consume únicamente
+<code>data/processed/tweets_master.csv</code> y
+<code>data/processed/market_master.csv</code> mediante
+<code>here()</code>. El primero conserva todos los tweets, incluidos
+aquellos cuyo <code>text_clean</code> queda vacío; el filtro de la
+muestra NLP y la clasificación temática se aplican dentro del cuaderno.
+Las redes se exportan como figuras estáticas reproducibles, sin widgets
+interactivos.</p>
+<h2 id="ejecución-desde-una-sesión-limpia">Ejecución desde una sesión
+limpia</h2>
+<ol type="1">
+<li>Conservar una copia del estado actual, incluidos los cambios sin
+confirmar y los insumos de <code>data/</code>. Registrar versiones y
+huellas de los archivos que se compararán.</li>
+<li>Trabajar en una copia temporal del proyecto cuando se validen
+modificaciones: el script escribe los dos masters y el cuaderno escribe
+tablas, figuras y el HTML. No utilizar salidas anteriores como sustituto
+de los cálculos del notebook.</li>
+<li>Abrir una terminal en la raíz que contiene
+<code>Paper_Twitter.Rproj</code>. Configurar las rutas del entorno y
+ejecutar una sesión nueva, sin restaurar un espacio de trabajo
+anterior.</li>
+</ol>
+<div class="sourceCode" id="cb1"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="bu">export</span> <span class="va">RSTUDIO_PANDOC</span><span class="op">=</span><span class="st">&quot;/Applications/quarto/bin/tools/aarch64&quot;</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="bu">export</span> <span class="va">SPACYR_PYTHON</span><span class="op">=</span><span class="st">&quot;</span><span class="va">$HOME</span><span class="st">/.virtualenvs/petro-spacyr/bin/python&quot;</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="st">&quot;</span><span class="va">$SPACYR_PYTHON</span><span class="st">&quot;</span> <span class="at">-c</span> <span class="st">&#39;import spacy; spacy.load(&quot;es_core_news_sm&quot;); print(spacy.__version__)&#39;</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="ex">Rscript</span> <span class="at">--vanilla</span> <span class="at">-e</span> <span class="st">&#39;library(rmarkdown); render(&quot;notebooks/español/Cuaderno_Paper_Español.Rmd&quot;, output_format=&quot;html_notebook&quot;, envir=new.env(parent=globalenv()))&#39;</span></span></code></pre></div>
+<p>Las rutas anteriores corresponden al equipo de referencia y deben
+ajustarse al entorno del evaluador. En cada ejecución se recalculan los
+bloques pesados con sus muestras, semillas y parámetros existentes; no
+se leen resultados guardados como sustituto de esos cálculos.</p>
+<ol start="4" type="1">
+<li>Conservar el registro de errores, mensajes y advertencias por chunk.
+Un render terminado no demuestra, por sí solo, la validez de la
+inferencia. Ante un error, identificar el bloque, el insumo y la
+dependencia; no convertir el fallo en un resultado vacío presentado como
+exitoso.</li>
+<li>Abrir <code>Cuaderno_Paper_Español.nb.html</code> y revisar portada,
+TOC, tablas, ecuaciones y figuras estáticas, incluidas todas las redes.
+Contrastar los productos con la referencia antes de incorporarlos al
+proyecto.</li>
+</ol>
+<h2 id="recorrido-sugerido-para-el-par-evaluador">Recorrido sugerido
+para el par evaluador</h2>
+<ul>
+<li><strong>Datos y cobertura:</strong> revisar las fechas, las fuentes,
+la separación entre tweets presidenciales y conversación pública, los
+identificadores, los filtros y los faltantes. Comprobar qué
+observaciones entran efectivamente en cada muestra.</li>
+<li><strong>Transformaciones:</strong> seguir la construcción de corpus,
+temas, indicadores, sentimiento y redes. Revisar denominadores,
+unidades, ponderaciones y ventanas temporales antes de interpretar sus
+gráficos.</li>
+<li><strong>Modelos:</strong> vincular cada referencia y pregunta con su
+ecuación, variables, muestra, código de estimación y resultado. La
+disponibilidad de una estimación no certifica los supuestos que
+permitirían interpretarla.</li>
+<li><strong>Resultados y límites:</strong> contrastar magnitudes,
+signos, cobertura y diagnósticos con la interpretación escrita.
+Distinguir asociación descriptiva, capacidad predictiva y causalidad; un
+contraste de Granger no identifica por sí mismo un efecto causal ni su
+magnitud económica.</li>
+</ul>
+<p>La revisión debe conservar las decisiones metodológicas pendientes:
+tratamiento de series no estacionarias, calendario después de eliminar
+faltantes, comparaciones múltiples y limitaciones del IPI heredado. En
+el VAR se mantienen la constante y el orden 2; no se calculan IRF. Los
+eventos son descriptivos, conservan sus horizontes y deben leerse junto
+a sus unidades y cobertura efectiva. No añadir diferencias,
+cointegración, controles, HAC o ajustes de significancia sin una
+decisión metodológica documentada.</p>
+<h2 id="convenciones-de-código-y-escritura">Convenciones de código y
+escritura</h2>
+<h3 id="convención-obligatoria-para-resultados-visibles">Convención
+obligatoria para resultados visibles</h3>
+<p>Cada resultado final del cuaderno debe seguir la secuencia:</p>
+<p><code>contexto/objetivo → código → tabla o gráfico → interpretación</code></p>
+<p>Después de cada tabla o gráfico final visible debe aparecer
+inmediatamente un párrafo de interpretación académica. Ese párrafo debe
+explicar qué muestra la salida, destacar el patrón o magnitud principal,
+mencionar categorías, fechas, unidades o relaciones relevantes y
+explicar su significado para la pregunta de investigación. También debe
+señalar limitaciones importantes y evitar afirmar causalidad cuando el
+resultado sea descriptivo, asociativo o de precedencia temporal. Si no
+hay datos suficientes, debe explicarse explícitamente por qué no existe
+evidencia interpretable.</p>
+<p>Las interpretaciones deben derivarse de los valores efectivamente
+producidos en la ejecución reproducible. Una tabla debe enfatizar
+magnitudes y resultados numéricos; un gráfico debe enfatizar patrones
+visuales y comparaciones. El texto debe explicar el resultado, no
+limitarse a narrar el código. Debe distinguirse claramente entre
+descripción, asociación, predicción y causalidad.</p>
+<p>Los objetos auxiliares no requieren interpretación. Solo las tablas y
+figuras finales que aparecen visibles en el cuaderno la requieren; no se
+deben imprimir auxiliares ni duplicar productos finales. Toda figura
+final debe ser autocontenida y poder entenderse sin inspeccionar el
+código que la genera: título, ejes, unidades, leyendas, escalas,
+facetas, categorías, fechas y reglas de etiquetado deben ser suficientes
+para su lectura. En redes, si no es viable etiquetar todos los nodos, se
+debe documentar una regla reproducible y conservar una tabla asociada
+con todos los nodos.</p>
+<p>La validación distingue explícitamente 6 tablas generadas por R y 1
+tabla Markdown de revisión: en total son 7 tablas visibles finales.
+También exige 92 gráficos generados, 92 impresos y 92 interpretaciones
+inmediatas, con una fila por gráfico en la lista de control y
+<code>estado_final = OK</code> en todas ellas.</p>
+<ul>
+<li>Escribir en español académico, con títulos informativos, nombres
+descriptivos y términos consistentes. Explicar las decisiones para un
+economista que pueda no conocer cada paquete de R.</li>
+<li>Utilizar pipes nativos <code>|&gt;</code>. Conservar las
+especificaciones, semillas, filtros, muestras, nombres de salidas, rutas
+y estilo gráfico salvo que el cambio correspondiente haya sido
+autorizado y documentado.</li>
+<li>Dar a cada chunk una etiqueta única y descriptiva. Ninguno puede
+superar <strong>40 líneas interiores</strong>, contando comentarios y
+líneas vacías, sin contar las dos líneas de delimitación.</li>
+<li>Mantener expresiones R completas en cada chunk. Dividir en límites
+entre preparación, transformación, estimación, exportación y
+visualización. No cortar una llamada, una función, un condicional o una
+secuencia de capas gráficas a la mitad.</li>
+<li>Aplicar el patrón obligatorio <strong>explicación Markdown → código
+→ interpretación cuando corresponda</strong>. Un título o un comentario
+dentro del código no sustituye el párrafo previo.</li>
+<li>Indicar en cada introducción el insumo, el propósito, la
+transformación, el objeto producido y su conexión con la etapa
+siguiente. Evitar explicaciones genéricas que solo anuncien que se
+ejecutará código.</li>
+<li>En resultados de modelos, documentar la correspondencia
+<strong>referencia → pregunta → ecuación → datos y muestra → código →
+resultado → interpretación</strong>. Separar la especificación
+ejecutada, los diagnósticos válidos y las decisiones pendientes.</li>
+</ul>
+<h3 id="plantilla-breve">Plantilla breve</h3>
+<p>El siguiente ejemplo muestra la estructura editorial; los nombres y
+la operación deben adaptarse al análisis real.</p>
+<div class="sourceCode" id="cb2"><pre
+class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>El bloque recibe <span class="in">`datos_diarios`</span>, cuya unidad es una fecha y un corpus.</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>Para describir la cobertura observada, cuenta las fechas disponibles por corpus</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>y produce <span class="in">`cobertura_corpus`</span>. Esta tabla permite evaluar la muestra antes de</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>interpretar las estimaciones de la sección siguiente.</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="in">```{r cobertura-por-corpus}</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="in">cobertura_corpus &lt;- datos_diarios |&gt;</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="in">  group_by(corpus) |&gt;</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="in">  summarise(fechas_observadas = n_distinct(date), .groups = &quot;drop&quot;)</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>La interpretación debe informar los conteos obtenidos y las diferencias de</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>cobertura relevantes, sin atribuirles efectos que este resumen no estima.</span></code></pre></div>
+<h3 id="comentarios-dentro-del-código">Comentarios dentro del
+código</h3>
+<p>Cada paso relevante debe llevar un comentario en español que explique
+la operación: qué observaciones se seleccionan, qué variable se
+transforma, qué calcula el modelo o qué producto se guarda. Los
+comentarios internos complementan el párrafo Markdown previo y la
+interpretación; no los sustituyen. Evitar describir paréntesis, repetir
+únicamente el nombre de una función o atribuir propiedades que el código
+no comprueba.</p>
+<p>Conservar los comentarios existentes que sigan describiendo
+correctamente la operación. En cálculos estadísticos, indicar
+denominadores, unidades, ventanas y condiciones de insuficiencia cuando
+sean necesarios para entender el resultado. Distinguir una comprobación
+de disponibilidad de una validación de supuestos.</p>
+<div class="sourceCode" id="cb3"><pre
+class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>El bloque normaliza entidades para comparar variantes de escritura. El vector</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>resultante se utilizará al identificar las menciones correspondientes.</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="in">```{r ejemplo-normalizacion-entidades}</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="in">entidades_limpias &lt;- entidades |&gt;</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="in">  # Unificar mayúsculas y minúsculas antes de comparar nombres.</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="in">  str_to_lower() |&gt;</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="in">  # Retirar espacios exteriores y reducir los espacios interiores repetidos.</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="in">  str_squish()</span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code></pre></div>
+<p>Los comentarios y las líneas vacías cuentan dentro del máximo de 40
+líneas. Usar comentarios breves al final de línea cuando permitan
+conservar una expresión completa. Si hace falta dividir un chunk,
+hacerlo entre expresiones completas, conservar el orden y añadir una
+explicación Markdown antes del nuevo bloque. Una revisión exclusivamente
+documental debe demostrar que las expresiones analizadas por R son
+idénticas antes y después, incluidos argumentos y literales.</p>
+<h3 id="dependencias-y-conflictos">Dependencias y conflictos</h3>
+<p>Añadir cada dependencia directa en la sección inicial mediante
+<code>library(nombre)</code>, con un comentario breve que explique su
+uso en el estudio, antes de su primera utilización. Los chunks de esa
+sección contienen únicamente comentarios, <code>library()</code> y
+<code>conflict_prefer()</code>: no incluyen instalaciones,
+condicionales, bucles, comprobaciones ni funciones auxiliares. Deben
+mantener <code>echo=TRUE</code> y <code>class.source="fold-show"</code>,
+además del límite de 40 líneas y el párrafo introductorio.</p>
+<p>Cuando varios paquetes comparten un nombre, comprobar la
+implementación necesaria y declarar allí
+<code>conflict_prefer("funcion", "paquete")</code>. La preferencia
+afecta a todo el cuaderno: no basta con resolver el primer error
+encontrado. Verificar también las llamadas que ya carecían de prefijo y
+el despacho de clases, especialmente con matrices dispersas y gráficos.
+Las reexportaciones idénticas no requieren nuevas preferencias.</p>
+<p>En el código analítico se usan nombres simples, sin
+<code>paquete::funcion</code>. La única excepción acordada es
+<code>stats_filter &lt;- stats::filter</code>, definida en su propio
+chunk auxiliar y explicada antes del código. <code>stats_filter()</code>
+conserva el filtro estadístico del promedio móvil; <code>filter()</code>
+selecciona filas con dplyr. No reemplazar uno por otro. Las opciones
+globales, declaraciones de variables y <code>save_audit_table()</code>
+permanecen en chunks independientes de las librerías.</p>
+<h2 id="procedimiento-para-futuros-cambios">Procedimiento para futuros
+cambios</h2>
+<ol type="1">
+<li>Registrar la referencia del estado actual antes de editar. Conservar
+los informes históricos: sus huellas y conclusiones describen versiones
+concretas, no todas las versiones posteriores.</li>
+<li>Delimitar el cambio y mantener las explicaciones sustantivas y la
+secuencia analítica. Si se corrige una inconsistencia, registrar
+evidencia, ajuste y resultados afectados; si cambia una especificación,
+documentar su justificación por separado.</li>
+<li>Verificar automáticamente todo el Rmd: etiquetas únicas, sintaxis
+independiente, explicación anterior, máximo de 40 líneas y ausencia de
+llamadas calificadas salvo el alias acordado. Comparar también las
+expresiones analíticas para detectar cambios involuntarios.</li>
+<li>Ejecutar la versión completa mediante <code>Rscript --vanilla</code>
+en una copia temporal. Repetir las 49 comprobaciones numéricas
+existentes y las verificaciones de funciones; comparar muestras,
+identificadores, fechas, indicadores, resultados deterministas y
+gráficos con la referencia.</li>
+<li>Revisar el HTML: librerías desplegadas, ecuaciones legibles, tablas
+completas y figuras disponibles. Conservar y explicar advertencias
+sustantivas. Separar un aviso técnico de un problema de datos o de
+validez econométrica; no ocultar estos últimos para obtener una
+ejecución aparentemente limpia.</li>
+<li>Incorporar únicamente los productos previstos y entregar un registro
+breve con el alcance, el entorno, las comprobaciones, las diferencias y
+las limitaciones. No declarar equivalencia mientras existan diferencias
+inesperadas sin explicar.</li>
+</ol>
+<p>La revisión anterior se conserva en
+<code>../../output/review/</code>. La revisión de dependencias y estilo
+tiene su registro propio en
+<code>../../output/review/librerias_2026-09-05/</code>; cada informe
+debe leerse junto con la versión y el entorno que verificó.</p>
+<p>La revisión de comentarios internos se registra por separado en
+<code>../../output/review/comentarios_2026-09-05/</code>. Su comparación
+de expresiones permite distinguir cambios documentales de cambios de
+implementación.</p>
+</body>
+</html>

@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Métricas globales de redes Quanteda</title>
+<style>body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;margin:24px;color:#222}table{border-collapse:collapse;width:100%;font-size:13px}th,td{border:1px solid #ddd;padding:6px 8px;text-align:left;vertical-align:top}th{background:#f3f5f2}caption{text-align:left;font-weight:700;font-size:18px;margin-bottom:4px}.subtitle{color:#666;margin:0 0 14px 0}</style>
+</head>
+<body>
+<h1>Métricas globales de redes Quanteda</h1><p class="subtitle">Tamaño, densidad, componentes y modularidad</p><table>
+ <thead>
+  <tr>
+   <th style="text-align:left;"> tipo </th>
+   <th style="text-align:left;"> corpus </th>
+   <th style="text-align:left;"> corpus_label </th>
+   <th style="text-align:left;"> red </th>
+   <th style="text-align:left;"> status </th>
+   <th style="text-align:right;"> nodos </th>
+   <th style="text-align:right;"> aristas </th>
+   <th style="text-align:right;"> peso_total </th>
+   <th style="text-align:right;"> densidad </th>
+   <th style="text-align:right;"> componentes </th>
+   <th style="text-align:right;"> componente_principal_pct </th>
+   <th style="text-align:right;"> grado_medio </th>
+   <th style="text-align:right;"> transitividad </th>
+   <th style="text-align:right;"> comunidades_louvain </th>
+   <th style="text-align:right;"> modularidad_louvain </th>
+   <th style="text-align:right;"> diametro_componente_principal </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> Hashtag </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> Todos los corpus </td>
+   <td style="text-align:left;"> Hashtags Quanteda </td>
+   <td style="text-align:left;"> ok </td>
+   <td style="text-align:right;"> 21 </td>
+   <td style="text-align:right;"> 17 </td>
+   <td style="text-align:right;"> 79 </td>
+   <td style="text-align:right;"> 0.0809524 </td>
+   <td style="text-align:right;"> 6 </td>
+   <td style="text-align:right;"> 0.4761905 </td>
+   <td style="text-align:right;"> 1.619048 </td>
+   <td style="text-align:right;"> 0.1463415 </td>
+   <td style="text-align:right;"> 6 </td>
+   <td style="text-align:right;"> 0.6399615 </td>
+   <td style="text-align:right;"> 2 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Mención </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> Todos los corpus </td>
+   <td style="text-align:left;"> Menciones Quanteda </td>
+   <td style="text-align:left;"> ok </td>
+   <td style="text-align:right;"> 73 </td>
+   <td style="text-align:right;"> 160 </td>
+   <td style="text-align:right;"> 2360 </td>
+   <td style="text-align:right;"> 0.0608828 </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:right;"> 0.8219178 </td>
+   <td style="text-align:right;"> 4.383562 </td>
+   <td style="text-align:right;"> 0.4422442 </td>
+   <td style="text-align:right;"> 8 </td>
+   <td style="text-align:right;"> 0.6832145 </td>
+   <td style="text-align:right;"> 7 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Hashtag </td>
+   <td style="text-align:left;"> opinion </td>
+   <td style="text-align:left;"> Lo que opinan de Petro </td>
+   <td style="text-align:left;"> Hashtag - Lo que opinan de Petro </td>
+   <td style="text-align:left;"> ok </td>
+   <td style="text-align:right;"> 29 </td>
+   <td style="text-align:right;"> 28 </td>
+   <td style="text-align:right;"> 97 </td>
+   <td style="text-align:right;"> 0.0689655 </td>
+   <td style="text-align:right;"> 7 </td>
+   <td style="text-align:right;"> 0.5517241 </td>
+   <td style="text-align:right;"> 1.931034 </td>
+   <td style="text-align:right;"> 0.2100000 </td>
+   <td style="text-align:right;"> 8 </td>
+   <td style="text-align:right;"> 0.5826336 </td>
+   <td style="text-align:right;"> 4 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Mención </td>
+   <td style="text-align:left;"> opinion </td>
+   <td style="text-align:left;"> Lo que opinan de Petro </td>
+   <td style="text-align:left;"> Mención - Lo que opinan de Petro </td>
+   <td style="text-align:left;"> ok </td>
+   <td style="text-align:right;"> 60 </td>
+   <td style="text-align:right;"> 120 </td>
+   <td style="text-align:right;"> 1831 </td>
+   <td style="text-align:right;"> 0.0677966 </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 0.7833333 </td>
+   <td style="text-align:right;"> 4.000000 </td>
+   <td style="text-align:right;"> 0.4777397 </td>
+   <td style="text-align:right;"> 9 </td>
+   <td style="text-align:right;"> 0.7044777 </td>
+   <td style="text-align:right;"> 8 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Mención </td>
+   <td style="text-align:left;"> presidente </td>
+   <td style="text-align:left;"> Lo que Petro opina </td>
+   <td style="text-align:left;"> Mención - Lo que Petro opina </td>
+   <td style="text-align:left;"> ok </td>
+   <td style="text-align:right;"> 20 </td>
+   <td style="text-align:right;"> 16 </td>
+   <td style="text-align:right;"> 31 </td>
+   <td style="text-align:right;"> 0.0842105 </td>
+   <td style="text-align:right;"> 7 </td>
+   <td style="text-align:right;"> 0.3500000 </td>
+   <td style="text-align:right;"> 1.600000 </td>
+   <td style="text-align:right;"> 0.4500000 </td>
+   <td style="text-align:right;"> 7 </td>
+   <td style="text-align:right;"> 0.5598335 </td>
+   <td style="text-align:right;"> 3 </td>
+  </tr>
+</tbody>
+</table>
+</body>
+</html>
+

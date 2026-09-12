@@ -1,0 +1,1151 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Trigramas robustos</title>
+<style>body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;margin:24px;color:#222}table{border-collapse:collapse;width:100%;font-size:13px}th,td{border:1px solid #ddd;padding:6px 8px;text-align:left;vertical-align:top}th{background:#f3f5f2}caption{text-align:left;font-weight:700;font-size:18px;margin-bottom:4px}.subtitle{color:#666;margin:0 0 14px 0}</style>
+</head>
+<body>
+<h1>Trigramas robustos</h1><p class="subtitle">Intersección entre lambda y PMI promedio</p><table>
+ <thead>
+  <tr>
+   <th style="text-align:left;"> trigram </th>
+   <th style="text-align:left;"> w1 </th>
+   <th style="text-align:left;"> w2 </th>
+   <th style="text-align:left;"> w3 </th>
+   <th style="text-align:right;"> f123 </th>
+   <th style="text-align:right;"> f1 </th>
+   <th style="text-align:right;"> f2 </th>
+   <th style="text-align:right;"> f3 </th>
+   <th style="text-align:right;"> PMI_avg </th>
+   <th style="text-align:right;"> count </th>
+   <th style="text-align:right;"> lambda </th>
+   <th style="text-align:right;"> z </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> salario_hace_mas </td>
+   <td style="text-align:left;"> salario </td>
+   <td style="text-align:left;"> hace </td>
+   <td style="text-align:left;"> mas </td>
+   <td style="text-align:right;"> 8 </td>
+   <td style="text-align:right;"> 362 </td>
+   <td style="text-align:right;"> 800 </td>
+   <td style="text-align:right;"> 202 </td>
+   <td style="text-align:right;"> 3.8101762 </td>
+   <td style="text-align:right;"> 8 </td>
+   <td style="text-align:right;"> 8.070116 </td>
+   <td style="text-align:right;"> 3.685635 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> programa_jóvenes_paz </td>
+   <td style="text-align:left;"> programa </td>
+   <td style="text-align:left;"> jóvenes </td>
+   <td style="text-align:left;"> paz </td>
+   <td style="text-align:right;"> 8 </td>
+   <td style="text-align:right;"> 189 </td>
+   <td style="text-align:right;"> 286 </td>
+   <td style="text-align:right;"> 1075 </td>
+   <td style="text-align:right;"> 4.5570071 </td>
+   <td style="text-align:right;"> 8 </td>
+   <td style="text-align:right;"> 7.607692 </td>
+   <td style="text-align:right;"> 3.575008 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> presidencial_mayoría_bogotá </td>
+   <td style="text-align:left;"> presidencial </td>
+   <td style="text-align:left;"> mayoría </td>
+   <td style="text-align:left;"> bogotá </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 163 </td>
+   <td style="text-align:right;"> 214 </td>
+   <td style="text-align:right;"> 507 </td>
+   <td style="text-align:right;"> 4.9462349 </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 7.493957 </td>
+   <td style="text-align:right;"> 3.010486 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> recibido_salario_hace </td>
+   <td style="text-align:left;"> recibido </td>
+   <td style="text-align:left;"> salario </td>
+   <td style="text-align:left;"> hace </td>
+   <td style="text-align:right;"> 8 </td>
+   <td style="text-align:right;"> 41 </td>
+   <td style="text-align:right;"> 362 </td>
+   <td style="text-align:right;"> 800 </td>
+   <td style="text-align:right;"> 5.5325061 </td>
+   <td style="text-align:right;"> 8 </td>
+   <td style="text-align:right;"> 7.366441 </td>
+   <td style="text-align:right;"> 2.969002 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> acto_terrorista_puede </td>
+   <td style="text-align:left;"> acto </td>
+   <td style="text-align:left;"> terrorista </td>
+   <td style="text-align:left;"> puede </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 103 </td>
+   <td style="text-align:right;"> 103 </td>
+   <td style="text-align:right;"> 821 </td>
+   <td style="text-align:right;"> 5.9846114 </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 6.677575 </td>
+   <td style="text-align:right;"> 2.680458 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> consejo_nacional_electoral </td>
+   <td style="text-align:left;"> consejo </td>
+   <td style="text-align:left;"> nacional </td>
+   <td style="text-align:left;"> electoral </td>
+   <td style="text-align:right;"> 24 </td>
+   <td style="text-align:right;"> 320 </td>
+   <td style="text-align:right;"> 967 </td>
+   <td style="text-align:right;"> 202 </td>
+   <td style="text-align:right;"> 5.2105818 </td>
+   <td style="text-align:right;"> 24 </td>
+   <td style="text-align:right;"> 6.654807 </td>
+   <td style="text-align:right;"> 3.907874 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> mayoría_bogotá_aumenta </td>
+   <td style="text-align:left;"> mayoría </td>
+   <td style="text-align:left;"> bogotá </td>
+   <td style="text-align:left;"> aumenta </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 214 </td>
+   <td style="text-align:right;"> 507 </td>
+   <td style="text-align:right;"> 60 </td>
+   <td style="text-align:right;"> 5.0449658 </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 6.443539 </td>
+   <td style="text-align:right;"> 2.585765 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> mayoría_situación_igual </td>
+   <td style="text-align:left;"> mayoría </td>
+   <td style="text-align:left;"> situación </td>
+   <td style="text-align:left;"> igual </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 214 </td>
+   <td style="text-align:right;"> 134 </td>
+   <td style="text-align:right;"> 158 </td>
+   <td style="text-align:right;"> 6.2662703 </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 6.214242 </td>
+   <td style="text-align:right;"> 2.495239 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> igual_elecciones_segunda </td>
+   <td style="text-align:left;"> igual </td>
+   <td style="text-align:left;"> elecciones </td>
+   <td style="text-align:left;"> segunda </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 158 </td>
+   <td style="text-align:right;"> 375 </td>
+   <td style="text-align:right;"> 92 </td>
+   <td style="text-align:right;"> 5.3905681 </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 6.172704 </td>
+   <td style="text-align:right;"> 2.477885 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> corte_penal_internacional </td>
+   <td style="text-align:left;"> corte </td>
+   <td style="text-align:left;"> penal </td>
+   <td style="text-align:left;"> internacional </td>
+   <td style="text-align:right;"> 22 </td>
+   <td style="text-align:right;"> 318 </td>
+   <td style="text-align:right;"> 78 </td>
+   <td style="text-align:right;"> 293 </td>
+   <td style="text-align:right;"> 8.4532645 </td>
+   <td style="text-align:right;"> 22 </td>
+   <td style="text-align:right;"> 5.971557 </td>
+   <td style="text-align:right;"> 2.823333 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> blando_pueblo_calle </td>
+   <td style="text-align:left;"> blando </td>
+   <td style="text-align:left;"> pueblo </td>
+   <td style="text-align:left;"> calle </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 31 </td>
+   <td style="text-align:right;"> 1458 </td>
+   <td style="text-align:right;"> 93 </td>
+   <td style="text-align:right;"> 4.5985350 </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 5.842149 </td>
+   <td style="text-align:right;"> 2.338601 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> mas_meses_abuso </td>
+   <td style="text-align:left;"> mas </td>
+   <td style="text-align:left;"> meses </td>
+   <td style="text-align:left;"> abuso </td>
+   <td style="text-align:right;"> 8 </td>
+   <td style="text-align:right;"> 202 </td>
+   <td style="text-align:right;"> 205 </td>
+   <td style="text-align:right;"> 46 </td>
+   <td style="text-align:right;"> 7.2626844 </td>
+   <td style="text-align:right;"> 8 </td>
+   <td style="text-align:right;"> 5.559338 </td>
+   <td style="text-align:right;"> 2.240347 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> programa_colombia_solar </td>
+   <td style="text-align:left;"> programa </td>
+   <td style="text-align:left;"> colombia </td>
+   <td style="text-align:left;"> solar </td>
+   <td style="text-align:right;"> 10 </td>
+   <td style="text-align:right;"> 189 </td>
+   <td style="text-align:right;"> 3609 </td>
+   <td style="text-align:right;"> 79 </td>
+   <td style="text-align:right;"> 3.1045945 </td>
+   <td style="text-align:right;"> 10 </td>
+   <td style="text-align:right;"> 5.494302 </td>
+   <td style="text-align:right;"> 3.281211 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> millones_medio_personas </td>
+   <td style="text-align:left;"> millones </td>
+   <td style="text-align:left;"> medio </td>
+   <td style="text-align:left;"> personas </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 587 </td>
+   <td style="text-align:right;"> 327 </td>
+   <td style="text-align:right;"> 517 </td>
+   <td style="text-align:right;"> 3.3962237 </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 5.465617 </td>
+   <td style="text-align:right;"> 3.259647 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> plan_nacional_desarrollo </td>
+   <td style="text-align:left;"> plan </td>
+   <td style="text-align:left;"> nacional </td>
+   <td style="text-align:left;"> desarrollo </td>
+   <td style="text-align:right;"> 10 </td>
+   <td style="text-align:right;"> 142 </td>
+   <td style="text-align:right;"> 967 </td>
+   <td style="text-align:right;"> 132 </td>
+   <td style="text-align:right;"> 4.8405460 </td>
+   <td style="text-align:right;"> 10 </td>
+   <td style="text-align:right;"> 5.436005 </td>
+   <td style="text-align:right;"> 3.048470 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> colombiano_exijo_manera </td>
+   <td style="text-align:left;"> colombiano </td>
+   <td style="text-align:left;"> exijo </td>
+   <td style="text-align:left;"> manera </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 503 </td>
+   <td style="text-align:right;"> 20 </td>
+   <td style="text-align:right;"> 255 </td>
+   <td style="text-align:right;"> 8.0486538 </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 5.200003 </td>
+   <td style="text-align:right;"> 2.076921 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> muestra_mayoría_situación </td>
+   <td style="text-align:left;"> muestra </td>
+   <td style="text-align:left;"> mayoría </td>
+   <td style="text-align:left;"> situación </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 188 </td>
+   <td style="text-align:right;"> 214 </td>
+   <td style="text-align:right;"> 134 </td>
+   <td style="text-align:right;"> 5.8031791 </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 5.136643 </td>
+   <td style="text-align:right;"> 2.327883 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> personas_parte_clan </td>
+   <td style="text-align:left;"> personas </td>
+   <td style="text-align:left;"> parte </td>
+   <td style="text-align:left;"> clan </td>
+   <td style="text-align:right;"> 6 </td>
+   <td style="text-align:right;"> 517 </td>
+   <td style="text-align:right;"> 456 </td>
+   <td style="text-align:right;"> 151 </td>
+   <td style="text-align:right;"> 4.1589203 </td>
+   <td style="text-align:right;"> 6 </td>
+   <td style="text-align:right;"> 5.112760 </td>
+   <td style="text-align:right;"> 2.968489 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> situación_igual_elecciones </td>
+   <td style="text-align:left;"> situación </td>
+   <td style="text-align:left;"> igual </td>
+   <td style="text-align:left;"> elecciones </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 134 </td>
+   <td style="text-align:right;"> 158 </td>
+   <td style="text-align:right;"> 375 </td>
+   <td style="text-align:right;"> 5.7427860 </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 5.039549 </td>
+   <td style="text-align:right;"> 2.349460 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> presidente_eeuu_donald </td>
+   <td style="text-align:left;"> presidente </td>
+   <td style="text-align:left;"> eeuu </td>
+   <td style="text-align:left;"> donald </td>
+   <td style="text-align:right;"> 10 </td>
+   <td style="text-align:right;"> 3036 </td>
+   <td style="text-align:right;"> 575 </td>
+   <td style="text-align:right;"> 67 </td>
+   <td style="text-align:right;"> 3.8705470 </td>
+   <td style="text-align:right;"> 10 </td>
+   <td style="text-align:right;"> 5.018049 </td>
+   <td style="text-align:right;"> 3.108376 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> civiles_apoya_hecho </td>
+   <td style="text-align:left;"> civiles </td>
+   <td style="text-align:left;"> apoya </td>
+   <td style="text-align:left;"> hecho </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 74 </td>
+   <td style="text-align:right;"> 54 </td>
+   <td style="text-align:right;"> 380 </td>
+   <td style="text-align:right;"> 7.7104236 </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 4.956392 </td>
+   <td style="text-align:right;"> 1.986956 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> general_josé_maría </td>
+   <td style="text-align:left;"> general </td>
+   <td style="text-align:left;"> josé </td>
+   <td style="text-align:left;"> maría </td>
+   <td style="text-align:right;"> 7 </td>
+   <td style="text-align:right;"> 296 </td>
+   <td style="text-align:right;"> 73 </td>
+   <td style="text-align:right;"> 73 </td>
+   <td style="text-align:right;"> 7.9509342 </td>
+   <td style="text-align:right;"> 7 </td>
+   <td style="text-align:right;"> 4.944264 </td>
+   <td style="text-align:right;"> 1.989603 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> juan_fernando_petro </td>
+   <td style="text-align:left;"> juan </td>
+   <td style="text-align:left;"> fernando </td>
+   <td style="text-align:left;"> petro </td>
+   <td style="text-align:right;"> 6 </td>
+   <td style="text-align:right;"> 132 </td>
+   <td style="text-align:right;"> 61 </td>
+   <td style="text-align:right;"> 2451 </td>
+   <td style="text-align:right;"> 6.0355019 </td>
+   <td style="text-align:right;"> 6 </td>
+   <td style="text-align:right;"> 4.940705 </td>
+   <td style="text-align:right;"> 2.377924 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> asesinaron_juventud_unidos </td>
+   <td style="text-align:left;"> asesinaron </td>
+   <td style="text-align:left;"> juventud </td>
+   <td style="text-align:left;"> unidos </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 50 </td>
+   <td style="text-align:right;"> 133 </td>
+   <td style="text-align:right;"> 165 </td>
+   <td style="text-align:right;"> 7.2946024 </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 4.586797 </td>
+   <td style="text-align:right;"> 1.838982 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> historia_colombia_año </td>
+   <td style="text-align:left;"> historia </td>
+   <td style="text-align:left;"> colombia </td>
+   <td style="text-align:left;"> año </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 385 </td>
+   <td style="text-align:right;"> 3609 </td>
+   <td style="text-align:right;"> 634 </td>
+   <td style="text-align:right;"> 0.0890797 </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 4.585886 </td>
+   <td style="text-align:right;"> 2.939224 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> hecho_hamás_acto </td>
+   <td style="text-align:left;"> hecho </td>
+   <td style="text-align:left;"> hamás </td>
+   <td style="text-align:left;"> acto </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 380 </td>
+   <td style="text-align:right;"> 28 </td>
+   <td style="text-align:right;"> 103 </td>
+   <td style="text-align:right;"> 8.4194211 </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 4.489033 </td>
+   <td style="text-align:right;"> 1.796790 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> colombia_general_josé </td>
+   <td style="text-align:left;"> colombia </td>
+   <td style="text-align:left;"> general </td>
+   <td style="text-align:left;"> josé </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 3609 </td>
+   <td style="text-align:right;"> 296 </td>
+   <td style="text-align:right;"> 73 </td>
+   <td style="text-align:right;"> 3.6419288 </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 4.451639 </td>
+   <td style="text-align:right;"> 3.443466 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> organización_mundial_salud </td>
+   <td style="text-align:left;"> organización </td>
+   <td style="text-align:left;"> mundial </td>
+   <td style="text-align:left;"> salud </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 69 </td>
+   <td style="text-align:right;"> 256 </td>
+   <td style="text-align:right;"> 1218 </td>
+   <td style="text-align:right;"> 4.6755737 </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 4.417789 </td>
+   <td style="text-align:right;"> 2.548296 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> elegir_ser_elegido </td>
+   <td style="text-align:left;"> elegir </td>
+   <td style="text-align:left;"> ser </td>
+   <td style="text-align:left;"> elegido </td>
+   <td style="text-align:right;"> 7 </td>
+   <td style="text-align:right;"> 70 </td>
+   <td style="text-align:right;"> 1273 </td>
+   <td style="text-align:right;"> 62 </td>
+   <td style="text-align:right;"> 4.9846585 </td>
+   <td style="text-align:right;"> 7 </td>
+   <td style="text-align:right;"> 4.322472 </td>
+   <td style="text-align:right;"> 2.061923 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> jovenes_asesinados_política </td>
+   <td style="text-align:left;"> jovenes </td>
+   <td style="text-align:left;"> asesinados </td>
+   <td style="text-align:left;"> política </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 41 </td>
+   <td style="text-align:right;"> 103 </td>
+   <td style="text-align:right;"> 667 </td>
+   <td style="text-align:right;"> 6.7989215 </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 4.307458 </td>
+   <td style="text-align:right;"> 1.946754 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> tribunal_superior_bogotá </td>
+   <td style="text-align:left;"> tribunal </td>
+   <td style="text-align:left;"> superior </td>
+   <td style="text-align:left;"> bogotá </td>
+   <td style="text-align:right;"> 7 </td>
+   <td style="text-align:right;"> 49 </td>
+   <td style="text-align:right;"> 113 </td>
+   <td style="text-align:right;"> 507 </td>
+   <td style="text-align:right;"> 7.2199458 </td>
+   <td style="text-align:right;"> 7 </td>
+   <td style="text-align:right;"> 4.289029 </td>
+   <td style="text-align:right;"> 2.006130 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> instituto_nacional_salud </td>
+   <td style="text-align:left;"> instituto </td>
+   <td style="text-align:left;"> nacional </td>
+   <td style="text-align:left;"> salud </td>
+   <td style="text-align:right;"> 8 </td>
+   <td style="text-align:right;"> 25 </td>
+   <td style="text-align:right;"> 967 </td>
+   <td style="text-align:right;"> 1218 </td>
+   <td style="text-align:right;"> 4.1686091 </td>
+   <td style="text-align:right;"> 8 </td>
+   <td style="text-align:right;"> 4.113116 </td>
+   <td style="text-align:right;"> 2.473090 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> rafael_uribe_uribe </td>
+   <td style="text-align:left;"> rafael </td>
+   <td style="text-align:left;"> uribe </td>
+   <td style="text-align:left;"> uribe </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 22 </td>
+   <td style="text-align:right;"> 384 </td>
+   <td style="text-align:right;"> 384 </td>
+   <td style="text-align:right;"> 5.7478202 </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 4.088880 </td>
+   <td style="text-align:right;"> 1.897222 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> bolívar_presidente_colombia </td>
+   <td style="text-align:left;"> bolívar </td>
+   <td style="text-align:left;"> presidente </td>
+   <td style="text-align:left;"> colombia </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 209 </td>
+   <td style="text-align:right;"> 3036 </td>
+   <td style="text-align:right;"> 3609 </td>
+   <td style="text-align:right;"> -0.4753375 </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 4.071504 </td>
+   <td style="text-align:right;"> 2.640408 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> presidente_consolidando_golpe </td>
+   <td style="text-align:left;"> presidente </td>
+   <td style="text-align:left;"> consolidando </td>
+   <td style="text-align:left;"> golpe </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 3036 </td>
+   <td style="text-align:right;"> 8 </td>
+   <td style="text-align:right;"> 235 </td>
+   <td style="text-align:right;"> 8.1327068 </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 4.051351 </td>
+   <td style="text-align:right;"> 1.835290 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> tasa_real_interés </td>
+   <td style="text-align:left;"> tasa </td>
+   <td style="text-align:left;"> real </td>
+   <td style="text-align:left;"> interés </td>
+   <td style="text-align:right;"> 16 </td>
+   <td style="text-align:right;"> 446 </td>
+   <td style="text-align:right;"> 207 </td>
+   <td style="text-align:right;"> 293 </td>
+   <td style="text-align:right;"> 6.3417443 </td>
+   <td style="text-align:right;"> 16 </td>
+   <td style="text-align:right;"> 4.025804 </td>
+   <td style="text-align:right;"> 3.449725 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> así_debe_ser </td>
+   <td style="text-align:left;"> así </td>
+   <td style="text-align:left;"> debe </td>
+   <td style="text-align:left;"> ser </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 684 </td>
+   <td style="text-align:right;"> 1273 </td>
+   <td style="text-align:right;"> 1273 </td>
+   <td style="text-align:right;"> 0.6750386 </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 3.977041 </td>
+   <td style="text-align:right;"> 2.353298 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> encuesta_muestra_mayoría </td>
+   <td style="text-align:left;"> encuesta </td>
+   <td style="text-align:left;"> muestra </td>
+   <td style="text-align:left;"> mayoría </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 43 </td>
+   <td style="text-align:right;"> 188 </td>
+   <td style="text-align:right;"> 214 </td>
+   <td style="text-align:right;"> 6.7165232 </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 3.972307 </td>
+   <td style="text-align:right;"> 1.796431 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> terrorista_puede_ser </td>
+   <td style="text-align:left;"> terrorista </td>
+   <td style="text-align:left;"> puede </td>
+   <td style="text-align:left;"> ser </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 103 </td>
+   <td style="text-align:right;"> 821 </td>
+   <td style="text-align:right;"> 1273 </td>
+   <td style="text-align:right;"> 2.6734919 </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 3.960475 </td>
+   <td style="text-align:right;"> 1.930883 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> asamblea_nacional_constituyente </td>
+   <td style="text-align:left;"> asamblea </td>
+   <td style="text-align:left;"> nacional </td>
+   <td style="text-align:left;"> constituyente </td>
+   <td style="text-align:right;"> 43 </td>
+   <td style="text-align:right;"> 108 </td>
+   <td style="text-align:right;"> 967 </td>
+   <td style="text-align:right;"> 256 </td>
+   <td style="text-align:right;"> 6.6645097 </td>
+   <td style="text-align:right;"> 43 </td>
+   <td style="text-align:right;"> 3.936389 </td>
+   <td style="text-align:right;"> 3.226254 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> apoya_hecho_hamás </td>
+   <td style="text-align:left;"> apoya </td>
+   <td style="text-align:left;"> hecho </td>
+   <td style="text-align:left;"> hamás </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 54 </td>
+   <td style="text-align:right;"> 380 </td>
+   <td style="text-align:right;"> 28 </td>
+   <td style="text-align:right;"> 7.0040016 </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 3.911393 </td>
+   <td style="text-align:right;"> 1.564509 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> obligan_humanidad_américa </td>
+   <td style="text-align:left;"> obligan </td>
+   <td style="text-align:left;"> humanidad </td>
+   <td style="text-align:left;"> américa </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 9 </td>
+   <td style="text-align:right;"> 371 </td>
+   <td style="text-align:right;"> 276 </td>
+   <td style="text-align:right;"> 6.6804647 </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 3.879552 </td>
+   <td style="text-align:right;"> 1.532155 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> consejo_seguridad_naciones </td>
+   <td style="text-align:left;"> consejo </td>
+   <td style="text-align:left;"> seguridad </td>
+   <td style="text-align:left;"> naciones </td>
+   <td style="text-align:right;"> 17 </td>
+   <td style="text-align:right;"> 320 </td>
+   <td style="text-align:right;"> 409 </td>
+   <td style="text-align:right;"> 125 </td>
+   <td style="text-align:right;"> 6.3007093 </td>
+   <td style="text-align:right;"> 17 </td>
+   <td style="text-align:right;"> 3.851924 </td>
+   <td style="text-align:right;"> 1.902274 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> atención_fallo_consejo </td>
+   <td style="text-align:left;"> atención </td>
+   <td style="text-align:left;"> fallo </td>
+   <td style="text-align:left;"> consejo </td>
+   <td style="text-align:right;"> 8 </td>
+   <td style="text-align:right;"> 214 </td>
+   <td style="text-align:right;"> 54 </td>
+   <td style="text-align:right;"> 320 </td>
+   <td style="text-align:right;"> 7.7464651 </td>
+   <td style="text-align:right;"> 8 </td>
+   <td style="text-align:right;"> 3.717010 </td>
+   <td style="text-align:right;"> 1.776704 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> camino_hacia_paz </td>
+   <td style="text-align:left;"> camino </td>
+   <td style="text-align:left;"> hacia </td>
+   <td style="text-align:left;"> paz </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 145 </td>
+   <td style="text-align:right;"> 243 </td>
+   <td style="text-align:right;"> 1075 </td>
+   <td style="text-align:right;"> 4.3051599 </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 3.680365 </td>
+   <td style="text-align:right;"> 2.813569 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> presidente_colombia_general </td>
+   <td style="text-align:left;"> presidente </td>
+   <td style="text-align:left;"> colombia </td>
+   <td style="text-align:left;"> general </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 3036 </td>
+   <td style="text-align:right;"> 3609 </td>
+   <td style="text-align:right;"> 296 </td>
+   <td style="text-align:right;"> -0.8510982 </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 3.652849 </td>
+   <td style="text-align:right;"> 3.665711 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> política_presidente_gustavo </td>
+   <td style="text-align:left;"> política </td>
+   <td style="text-align:left;"> presidente </td>
+   <td style="text-align:left;"> gustavo </td>
+   <td style="text-align:right;"> 6 </td>
+   <td style="text-align:right;"> 667 </td>
+   <td style="text-align:right;"> 3036 </td>
+   <td style="text-align:right;"> 1879 </td>
+   <td style="text-align:right;"> -0.5785779 </td>
+   <td style="text-align:right;"> 6 </td>
+   <td style="text-align:right;"> 3.620679 </td>
+   <td style="text-align:right;"> 2.963137 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> terna_enviada_presidente </td>
+   <td style="text-align:left;"> terna </td>
+   <td style="text-align:left;"> enviada </td>
+   <td style="text-align:left;"> presidente </td>
+   <td style="text-align:right;"> 7 </td>
+   <td style="text-align:right;"> 56 </td>
+   <td style="text-align:right;"> 12 </td>
+   <td style="text-align:right;"> 3036 </td>
+   <td style="text-align:right;"> 9.0676753 </td>
+   <td style="text-align:right;"> 7 </td>
+   <td style="text-align:right;"> 3.619102 </td>
+   <td style="text-align:right;"> 1.617824 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> deuda_acción_climática </td>
+   <td style="text-align:left;"> deuda </td>
+   <td style="text-align:left;"> acción </td>
+   <td style="text-align:left;"> climática </td>
+   <td style="text-align:right;"> 8 </td>
+   <td style="text-align:right;"> 329 </td>
+   <td style="text-align:right;"> 163 </td>
+   <td style="text-align:right;"> 166 </td>
+   <td style="text-align:right;"> 6.3158376 </td>
+   <td style="text-align:right;"> 8 </td>
+   <td style="text-align:right;"> 3.589608 </td>
+   <td style="text-align:right;"> 2.137093 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> construir_social_derecho </td>
+   <td style="text-align:left;"> construir </td>
+   <td style="text-align:left;"> social </td>
+   <td style="text-align:left;"> derecho </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 157 </td>
+   <td style="text-align:right;"> 460 </td>
+   <td style="text-align:right;"> 456 </td>
+   <td style="text-align:right;"> 3.9457431 </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 3.584605 </td>
+   <td style="text-align:right;"> 1.745320 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> agencia_nacional_tierras </td>
+   <td style="text-align:left;"> agencia </td>
+   <td style="text-align:left;"> nacional </td>
+   <td style="text-align:left;"> tierras </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 39 </td>
+   <td style="text-align:right;"> 967 </td>
+   <td style="text-align:right;"> 149 </td>
+   <td style="text-align:right;"> 4.6853298 </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 3.514265 </td>
+   <td style="text-align:right;"> 1.678531 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> comunidad_económica_américa </td>
+   <td style="text-align:left;"> comunidad </td>
+   <td style="text-align:left;"> económica </td>
+   <td style="text-align:left;"> américa </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 113 </td>
+   <td style="text-align:right;"> 152 </td>
+   <td style="text-align:right;"> 276 </td>
+   <td style="text-align:right;"> 6.1427041 </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 3.458413 </td>
+   <td style="text-align:right;"> 1.912412 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> reportan_recibido_salario </td>
+   <td style="text-align:left;"> reportan </td>
+   <td style="text-align:left;"> recibido </td>
+   <td style="text-align:left;"> salario </td>
+   <td style="text-align:right;"> 8 </td>
+   <td style="text-align:right;"> 23 </td>
+   <td style="text-align:right;"> 41 </td>
+   <td style="text-align:right;"> 362 </td>
+   <td style="text-align:right;"> 9.6637140 </td>
+   <td style="text-align:right;"> 8 </td>
+   <td style="text-align:right;"> 3.447375 </td>
+   <td style="text-align:right;"> 1.382090 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> juan_dios_bogotá </td>
+   <td style="text-align:left;"> juan </td>
+   <td style="text-align:left;"> dios </td>
+   <td style="text-align:left;"> bogotá </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 132 </td>
+   <td style="text-align:right;"> 119 </td>
+   <td style="text-align:right;"> 507 </td>
+   <td style="text-align:right;"> 5.9450477 </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 3.431601 </td>
+   <td style="text-align:right;"> 1.654875 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> sociales_favor_pueblo </td>
+   <td style="text-align:left;"> sociales </td>
+   <td style="text-align:left;"> favor </td>
+   <td style="text-align:left;"> pueblo </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 158 </td>
+   <td style="text-align:right;"> 296 </td>
+   <td style="text-align:right;"> 1458 </td>
+   <td style="text-align:right;"> 3.7387568 </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 3.421950 </td>
+   <td style="text-align:right;"> 2.158928 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> corrupción_debe_ser </td>
+   <td style="text-align:left;"> corrupción </td>
+   <td style="text-align:left;"> debe </td>
+   <td style="text-align:left;"> ser </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 433 </td>
+   <td style="text-align:right;"> 1273 </td>
+   <td style="text-align:right;"> 1273 </td>
+   <td style="text-align:right;"> 1.0048531 </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 3.399378 </td>
+   <td style="text-align:right;"> 2.011034 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> bogotá_aumenta_mayoria </td>
+   <td style="text-align:left;"> bogotá </td>
+   <td style="text-align:left;"> aumenta </td>
+   <td style="text-align:left;"> mayoria </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 507 </td>
+   <td style="text-align:right;"> 60 </td>
+   <td style="text-align:right;"> 13 </td>
+   <td style="text-align:right;"> 8.6048514 </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 3.351810 </td>
+   <td style="text-align:right;"> 1.333191 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> hace_mas_meses </td>
+   <td style="text-align:left;"> hace </td>
+   <td style="text-align:left;"> mas </td>
+   <td style="text-align:left;"> meses </td>
+   <td style="text-align:right;"> 8 </td>
+   <td style="text-align:right;"> 800 </td>
+   <td style="text-align:right;"> 202 </td>
+   <td style="text-align:right;"> 205 </td>
+   <td style="text-align:right;"> 5.2131798 </td>
+   <td style="text-align:right;"> 8 </td>
+   <td style="text-align:right;"> 3.325013 </td>
+   <td style="text-align:right;"> 2.654146 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> san_juan_dios </td>
+   <td style="text-align:left;"> san </td>
+   <td style="text-align:left;"> juan </td>
+   <td style="text-align:left;"> dios </td>
+   <td style="text-align:right;"> 17 </td>
+   <td style="text-align:right;"> 172 </td>
+   <td style="text-align:right;"> 132 </td>
+   <td style="text-align:right;"> 119 </td>
+   <td style="text-align:right;"> 8.4155805 </td>
+   <td style="text-align:right;"> 17 </td>
+   <td style="text-align:right;"> 3.303846 </td>
+   <td style="text-align:right;"> 1.611016 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> cámara_comercio_bogotá </td>
+   <td style="text-align:left;"> cámara </td>
+   <td style="text-align:left;"> comercio </td>
+   <td style="text-align:left;"> bogotá </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 114 </td>
+   <td style="text-align:right;"> 77 </td>
+   <td style="text-align:right;"> 507 </td>
+   <td style="text-align:right;"> 6.6788261 </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 3.297311 </td>
+   <td style="text-align:right;"> 1.577968 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ninguna_parte_mundo </td>
+   <td style="text-align:left;"> ninguna </td>
+   <td style="text-align:left;"> parte </td>
+   <td style="text-align:left;"> mundo </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 131 </td>
+   <td style="text-align:right;"> 456 </td>
+   <td style="text-align:right;"> 789 </td>
+   <td style="text-align:right;"> 3.6934462 </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 3.251538 </td>
+   <td style="text-align:right;"> 2.064023 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> entonces_ser_brujo </td>
+   <td style="text-align:left;"> entonces </td>
+   <td style="text-align:left;"> ser </td>
+   <td style="text-align:left;"> brujo </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 293 </td>
+   <td style="text-align:right;"> 1273 </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 5.2826178 </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 3.214814 </td>
+   <td style="text-align:right;"> 1.123601 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> pueblo_trabajador_colombia </td>
+   <td style="text-align:left;"> pueblo </td>
+   <td style="text-align:left;"> trabajador </td>
+   <td style="text-align:left;"> colombia </td>
+   <td style="text-align:right;"> 8 </td>
+   <td style="text-align:right;"> 1458 </td>
+   <td style="text-align:right;"> 113 </td>
+   <td style="text-align:right;"> 3609 </td>
+   <td style="text-align:right;"> 3.5493030 </td>
+   <td style="text-align:right;"> 8 </td>
+   <td style="text-align:right;"> 3.212914 </td>
+   <td style="text-align:right;"> 2.141712 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> llamada_guerra_drogas </td>
+   <td style="text-align:left;"> llamada </td>
+   <td style="text-align:left;"> guerra </td>
+   <td style="text-align:left;"> drogas </td>
+   <td style="text-align:right;"> 6 </td>
+   <td style="text-align:right;"> 50 </td>
+   <td style="text-align:right;"> 281 </td>
+   <td style="text-align:right;"> 92 </td>
+   <td style="text-align:right;"> 6.8998801 </td>
+   <td style="text-align:right;"> 6 </td>
+   <td style="text-align:right;"> 3.065404 </td>
+   <td style="text-align:right;"> 1.448386 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> año_mayor_parte </td>
+   <td style="text-align:left;"> año </td>
+   <td style="text-align:left;"> mayor </td>
+   <td style="text-align:left;"> parte </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 634 </td>
+   <td style="text-align:right;"> 348 </td>
+   <td style="text-align:right;"> 456 </td>
+   <td style="text-align:right;"> 3.3414311 </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 3.062593 </td>
+   <td style="text-align:right;"> 1.893792 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> debate_paramilitarismo_antioquia </td>
+   <td style="text-align:left;"> debate </td>
+   <td style="text-align:left;"> paramilitarismo </td>
+   <td style="text-align:left;"> antioquia </td>
+   <td style="text-align:right;"> 6 </td>
+   <td style="text-align:right;"> 160 </td>
+   <td style="text-align:right;"> 92 </td>
+   <td style="text-align:right;"> 261 </td>
+   <td style="text-align:right;"> 6.9195365 </td>
+   <td style="text-align:right;"> 6 </td>
+   <td style="text-align:right;"> 3.038949 </td>
+   <td style="text-align:right;"> 1.717434 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> bogotá_medellín_cali </td>
+   <td style="text-align:left;"> bogotá </td>
+   <td style="text-align:left;"> medellín </td>
+   <td style="text-align:left;"> cali </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 507 </td>
+   <td style="text-align:right;"> 244 </td>
+   <td style="text-align:right;"> 115 </td>
+   <td style="text-align:right;"> 5.0085831 </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 3.030377 </td>
+   <td style="text-align:right;"> 1.816868 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> latina_jovenes_asesinados </td>
+   <td style="text-align:left;"> latina </td>
+   <td style="text-align:left;"> jovenes </td>
+   <td style="text-align:left;"> asesinados </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 184 </td>
+   <td style="text-align:right;"> 41 </td>
+   <td style="text-align:right;"> 103 </td>
+   <td style="text-align:right;"> 8.3923767 </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 3.019032 </td>
+   <td style="text-align:right;"> 1.364003 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> drogas_obligan_humanidad </td>
+   <td style="text-align:left;"> drogas </td>
+   <td style="text-align:left;"> obligan </td>
+   <td style="text-align:left;"> humanidad </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 92 </td>
+   <td style="text-align:right;"> 9 </td>
+   <td style="text-align:right;"> 371 </td>
+   <td style="text-align:right;"> 10.1555235 </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 2.927481 </td>
+   <td style="text-align:right;"> 1.155422 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> presidente_colombia_gustavo </td>
+   <td style="text-align:left;"> presidente </td>
+   <td style="text-align:left;"> colombia </td>
+   <td style="text-align:left;"> gustavo </td>
+   <td style="text-align:right;"> 53 </td>
+   <td style="text-align:right;"> 3036 </td>
+   <td style="text-align:right;"> 3609 </td>
+   <td style="text-align:right;"> 1879 </td>
+   <td style="text-align:right;"> 1.2217461 </td>
+   <td style="text-align:right;"> 53 </td>
+   <td style="text-align:right;"> 2.873276 </td>
+   <td style="text-align:right;"> 9.277650 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> aumenta_mayoria_caribe </td>
+   <td style="text-align:left;"> aumenta </td>
+   <td style="text-align:left;"> mayoria </td>
+   <td style="text-align:left;"> caribe </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 60 </td>
+   <td style="text-align:right;"> 13 </td>
+   <td style="text-align:right;"> 269 </td>
+   <td style="text-align:right;"> 10.1652460 </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 2.846456 </td>
+   <td style="text-align:right;"> 1.132099 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> billones_pesos_salud </td>
+   <td style="text-align:left;"> billones </td>
+   <td style="text-align:left;"> pesos </td>
+   <td style="text-align:left;"> salud </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 260 </td>
+   <td style="text-align:right;"> 334 </td>
+   <td style="text-align:right;"> 1218 </td>
+   <td style="text-align:right;"> 3.3349515 </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 2.761597 </td>
+   <td style="text-align:right;"> 1.346735 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> petro_presidente_colombia </td>
+   <td style="text-align:left;"> petro </td>
+   <td style="text-align:left;"> presidente </td>
+   <td style="text-align:left;"> colombia </td>
+   <td style="text-align:right;"> 15 </td>
+   <td style="text-align:right;"> 2451 </td>
+   <td style="text-align:right;"> 3036 </td>
+   <td style="text-align:right;"> 3609 </td>
+   <td style="text-align:right;"> -0.6662727 </td>
+   <td style="text-align:right;"> 15 </td>
+   <td style="text-align:right;"> 2.721628 </td>
+   <td style="text-align:right;"> 6.384604 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> dejen_decir_mentiras </td>
+   <td style="text-align:left;"> dejen </td>
+   <td style="text-align:left;"> decir </td>
+   <td style="text-align:left;"> mentiras </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 86 </td>
+   <td style="text-align:right;"> 373 </td>
+   <td style="text-align:right;"> 138 </td>
+   <td style="text-align:right;"> 5.5445595 </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 2.712429 </td>
+   <td style="text-align:right;"> 1.563793 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> militante_colombia_humana </td>
+   <td style="text-align:left;"> militante </td>
+   <td style="text-align:left;"> colombia </td>
+   <td style="text-align:left;"> humana </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 28 </td>
+   <td style="text-align:right;"> 3609 </td>
+   <td style="text-align:right;"> 149 </td>
+   <td style="text-align:right;"> 3.0243439 </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 2.711592 </td>
+   <td style="text-align:right;"> 1.312976 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> hospitales_puestos_salud </td>
+   <td style="text-align:left;"> hospitales </td>
+   <td style="text-align:left;"> puestos </td>
+   <td style="text-align:left;"> salud </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 100 </td>
+   <td style="text-align:right;"> 78 </td>
+   <td style="text-align:right;"> 1218 </td>
+   <td style="text-align:right;"> 6.1224992 </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 2.688153 </td>
+   <td style="text-align:right;"> 1.556383 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> reserva_thomas_van </td>
+   <td style="text-align:left;"> reserva </td>
+   <td style="text-align:left;"> thomas </td>
+   <td style="text-align:left;"> van </td>
+   <td style="text-align:right;"> 9 </td>
+   <td style="text-align:right;"> 39 </td>
+   <td style="text-align:right;"> 50 </td>
+   <td style="text-align:right;"> 333 </td>
+   <td style="text-align:right;"> 9.2266937 </td>
+   <td style="text-align:right;"> 9 </td>
+   <td style="text-align:right;"> 2.666221 </td>
+   <td style="text-align:right;"> 1.247094 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> poder_constituyente_pueblo </td>
+   <td style="text-align:left;"> poder </td>
+   <td style="text-align:left;"> constituyente </td>
+   <td style="text-align:left;"> pueblo </td>
+   <td style="text-align:right;"> 9 </td>
+   <td style="text-align:right;"> 645 </td>
+   <td style="text-align:right;"> 256 </td>
+   <td style="text-align:right;"> 1458 </td>
+   <td style="text-align:right;"> 3.7815210 </td>
+   <td style="text-align:right;"> 9 </td>
+   <td style="text-align:right;"> 2.660147 </td>
+   <td style="text-align:right;"> 1.782706 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> asesinato_personas_parte </td>
+   <td style="text-align:left;"> asesinato </td>
+   <td style="text-align:left;"> personas </td>
+   <td style="text-align:left;"> parte </td>
+   <td style="text-align:right;"> 6 </td>
+   <td style="text-align:right;"> 109 </td>
+   <td style="text-align:right;"> 517 </td>
+   <td style="text-align:right;"> 456 </td>
+   <td style="text-align:right;"> 4.3034650 </td>
+   <td style="text-align:right;"> 6 </td>
+   <td style="text-align:right;"> 2.656005 </td>
+   <td style="text-align:right;"> 2.433432 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> renta_todas_empresas </td>
+   <td style="text-align:left;"> renta </td>
+   <td style="text-align:left;"> todas </td>
+   <td style="text-align:left;"> empresas </td>
+   <td style="text-align:right;"> 9 </td>
+   <td style="text-align:right;"> 83 </td>
+   <td style="text-align:right;"> 395 </td>
+   <td style="text-align:right;"> 210 </td>
+   <td style="text-align:right;"> 6.0326321 </td>
+   <td style="text-align:right;"> 9 </td>
+   <td style="text-align:right;"> 2.643845 </td>
+   <td style="text-align:right;"> 1.551486 </td>
+  </tr>
+</tbody>
+</table>
+</body>
+</html>
+

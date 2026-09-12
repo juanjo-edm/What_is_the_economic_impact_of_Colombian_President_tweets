@@ -1,0 +1,32 @@
+check,passed,exact_match,classification,detail
+data/processed contiene exactamente dos CSV,TRUE,,pass,"market_master.csv, tweets_master.csv"
+esquema tweets_master,TRUE,,pass,
+esquema market_master,TRUE,,pass,
+tweets_master conserva 28.375 filas,TRUE,,pass,
+conteos por corpus,TRUE,,pass,
+"clave (corpus, id) única",TRUE,,pass,
+doc_id estable,TRUE,,pass,
+source_dir relativo,TRUE,,pass,
+muestra NLP de 28.153,TRUE,,pass,
+mercado conserva 1.400 fechas,TRUE,,pass,
+fechas de mercado únicas,TRUE,,pass,
+rango de mercado,TRUE,,pass,
+pendiente TES = TES 10Y - TES 1Y,TRUE,,pass,
+XM sin imputación faltante,TRUE,,pass,
+claves históricas conservadas,TRUE,,pass,
+campos históricos de tweets idénticos,TRUE,,pass,
+claves de la muestra NLP conservadas,TRUE,,pass,
+valores históricos de mercado idénticos,TRUE,,pass,
+regresión temas_reforma_resumen.csv,TRUE,TRUE,exact,comparación exacta por contenido
+regresión wordcloud_sentimientos_nrc.csv,TRUE,TRUE,exact,comparación exacta por contenido
+regresión ipi_resumen.csv,TRUE,TRUE,exact,comparación exacta por contenido
+regresión sentometrics_temas_resumen.csv,TRUE,TRUE,exact,comparación exacta por contenido
+regresión sentometrics_series_diaria_muestra.csv,TRUE,TRUE,exact,comparación exacta por contenido
+regresión wordfish_reformas.csv,TRUE,TRUE,exact,comparación exacta por contenido
+regresión wordfish_terminos_extremos.csv,TRUE,TRUE,exact,comparación exacta por contenido
+regresión stm_topicos_reformas.csv,TRUE,FALSE,expected_runtime_difference,diferencia investigada: STM es estable entre renders limpios con R 4.6.1; la referencia procede de otro estado de ejecución
+regresión stm_tweets_representativos.csv,TRUE,FALSE,expected_runtime_difference,diferencia investigada: STM es estable entre renders limpios con R 4.6.1; la referencia procede de otro estado de ejecución
+regresión granger_resultados_completos.csv,TRUE,TRUE,exact,comparación exacta por contenido
+regresión var_coeficientes.csv,TRUE,TRUE,exact,comparación exacta por contenido
+regresión var_residuos.csv,TRUE,TRUE,exact,comparación exacta por contenido
+regresión eventos_extremos_ipi.csv,TRUE,TRUE,exact,comparación exacta por contenido

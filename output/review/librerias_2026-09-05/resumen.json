@@ -1,0 +1,22 @@
+{
+  "reference_rmd_sha256": "ab5cf4e104b608ad44533801874c8d8e377289c58f8f340b1d4d62ba6e5d12a8",
+  "final_rmd_sha256": "899d11aa172fa985d7adae49328c9e538d1a5d6a4c0a4314f36cd079aeec60b9",
+  "html_sha256": "0397b0804ef5103dfb6d15fe0d2c345169c90d310732342a8a4f1f35bfec2e9e",
+  "chunks": 395,
+  "max_chunk_lines": 40,
+  "libraries": 39,
+  "preferences": 14,
+  "namespace_replacements": 1688,
+  "qualified_bindings_verified": 219,
+  "bare_bindings_verified": 246,
+  "matrix_dispatch_checks": 6,
+  "analytical_objects_equivalent": 360,
+  "raw_objects_equal": 350,
+  "historical_checks_passed": 49,
+  "product_files_byte_identical_to_reference_run": 396,
+  "errors_final_run": 0,
+  "warning_groups_final_run": 6,
+  "messages_final_run": 41,
+  "historical_audits_unchanged": true,
+  "previous_output_files_unchanged": true
+}

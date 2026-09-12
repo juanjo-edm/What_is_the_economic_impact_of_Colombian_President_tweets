@@ -1,0 +1,161 @@
+response,predictor,lag,p_value,significant_05,n_obs,status,dataset,corpus,corpus_label
+colcap,ipi,1,0.4030454837132402,FALSE,1285,ok,opinión temática,opinion,
+colcap,ipi,2,0.22985341149337254,FALSE,1285,ok,opinión temática,opinion,
+colcap,ipi,3,0.4009311391544963,FALSE,1285,ok,opinión temática,opinion,
+colcap,ipi,4,0.49548703514974324,FALSE,1285,ok,opinión temática,opinion,
+colcap,polaridad,1,0.9916894768880451,FALSE,1335,ok,opinión temática,opinion,
+colcap,polaridad,2,0.8634564519006873,FALSE,1335,ok,opinión temática,opinion,
+colcap,polaridad,3,0.9490969137415732,FALSE,1335,ok,opinión temática,opinion,
+colcap,polaridad,4,0.5612739353329816,FALSE,1335,ok,opinión temática,opinion,
+energy_spot_price,ipi,1,0.09642800232556804,FALSE,1348,ok,opinión temática,opinion,
+energy_spot_price,ipi,2,0.15344993490910216,FALSE,1348,ok,opinión temática,opinion,
+energy_spot_price,ipi,3,0.1409858303208149,FALSE,1348,ok,opinión temática,opinion,
+energy_spot_price,ipi,4,0.22616247540863932,FALSE,1348,ok,opinión temática,opinion,
+energy_spot_price,polaridad,1,0.005266478479132699,TRUE,1400,ok,opinión temática,opinion,
+energy_spot_price,polaridad,2,0.022008433842300664,TRUE,1400,ok,opinión temática,opinion,
+energy_spot_price,polaridad,3,0.039744077578029925,TRUE,1400,ok,opinión temática,opinion,
+energy_spot_price,polaridad,4,0.05534889205995483,FALSE,1400,ok,opinión temática,opinion,
+tes_10y,ipi,1,0.8017690232566125,FALSE,1285,ok,opinión temática,opinion,
+tes_10y,ipi,2,0.7406175158634702,FALSE,1285,ok,opinión temática,opinion,
+tes_10y,ipi,3,0.4826119414859116,FALSE,1285,ok,opinión temática,opinion,
+tes_10y,ipi,4,0.607230610044398,FALSE,1285,ok,opinión temática,opinion,
+tes_10y,polaridad,1,0.08673126233964552,FALSE,1335,ok,opinión temática,opinion,
+tes_10y,polaridad,2,0.12616068350555446,FALSE,1335,ok,opinión temática,opinion,
+tes_10y,polaridad,3,0.196550903954367,FALSE,1335,ok,opinión temática,opinion,
+tes_10y,polaridad,4,0.2314197135143814,FALSE,1335,ok,opinión temática,opinion,
+tes_slope_10y_1y,ipi,1,0.5584456688448325,FALSE,1285,ok,opinión temática,opinion,
+tes_slope_10y_1y,ipi,2,0.6009712095277465,FALSE,1285,ok,opinión temática,opinion,
+tes_slope_10y_1y,ipi,3,0.7945772607652476,FALSE,1285,ok,opinión temática,opinion,
+tes_slope_10y_1y,ipi,4,0.7819394215308062,FALSE,1285,ok,opinión temática,opinion,
+tes_slope_10y_1y,polaridad,1,0.5530741416827869,FALSE,1335,ok,opinión temática,opinion,
+tes_slope_10y_1y,polaridad,2,0.5520151490931655,FALSE,1335,ok,opinión temática,opinion,
+tes_slope_10y_1y,polaridad,3,0.44564768709322,FALSE,1335,ok,opinión temática,opinion,
+tes_slope_10y_1y,polaridad,4,0.574767993293004,FALSE,1335,ok,opinión temática,opinion,
+trm,ipi,1,0.12991507846484412,FALSE,1348,ok,opinión temática,opinion,
+trm,ipi,2,0.1761195388100292,FALSE,1348,ok,opinión temática,opinion,
+trm,ipi,3,0.220916334148264,FALSE,1348,ok,opinión temática,opinion,
+trm,ipi,4,0.2587087726963371,FALSE,1348,ok,opinión temática,opinion,
+trm,polaridad,1,0.3500586109051036,FALSE,1400,ok,opinión temática,opinion,
+trm,polaridad,2,0.241584718458817,FALSE,1400,ok,opinión temática,opinion,
+trm,polaridad,3,0.30370571478267244,FALSE,1400,ok,opinión temática,opinion,
+trm,polaridad,4,0.4640368270474833,FALSE,1400,ok,opinión temática,opinion,
+colcap,ipi,1,0.8327829486425509,FALSE,1286,ok,panel por corpus,opinion,Conversación pública sobre Gustavo Petro
+colcap,ipi,2,0.8847293343074004,FALSE,1286,ok,panel por corpus,opinion,Conversación pública sobre Gustavo Petro
+colcap,ipi,3,0.9097697723253688,FALSE,1286,ok,panel por corpus,opinion,Conversación pública sobre Gustavo Petro
+colcap,ipi,4,0.6280076039600629,FALSE,1286,ok,panel por corpus,opinion,Conversación pública sobre Gustavo Petro
+colcap,log_tweets_n,1,0.24351205083963912,FALSE,1335,ok,panel por corpus,opinion,Conversación pública sobre Gustavo Petro
+colcap,log_tweets_n,2,0.5113967276588576,FALSE,1335,ok,panel por corpus,opinion,Conversación pública sobre Gustavo Petro
+colcap,log_tweets_n,3,0.6410470414691525,FALSE,1335,ok,panel por corpus,opinion,Conversación pública sobre Gustavo Petro
+colcap,log_tweets_n,4,0.7231847720455242,FALSE,1335,ok,panel por corpus,opinion,Conversación pública sobre Gustavo Petro
+colcap,polaridad,1,0.9916894768880451,FALSE,1335,ok,panel por corpus,opinion,Conversación pública sobre Gustavo Petro
+colcap,polaridad,2,0.8634564519006873,FALSE,1335,ok,panel por corpus,opinion,Conversación pública sobre Gustavo Petro
+colcap,polaridad,3,0.9490969137415732,FALSE,1335,ok,panel por corpus,opinion,Conversación pública sobre Gustavo Petro
+colcap,polaridad,4,0.5612739353329816,FALSE,1335,ok,panel por corpus,opinion,Conversación pública sobre Gustavo Petro
+energy_spot_price,ipi,1,0.010024947816426877,TRUE,1349,ok,panel por corpus,opinion,Conversación pública sobre Gustavo Petro
+energy_spot_price,ipi,2,0.04014996567974408,TRUE,1349,ok,panel por corpus,opinion,Conversación pública sobre Gustavo Petro
+energy_spot_price,ipi,3,0.06576693665098382,FALSE,1349,ok,panel por corpus,opinion,Conversación pública sobre Gustavo Petro
+energy_spot_price,ipi,4,0.09693907205352337,FALSE,1349,ok,panel por corpus,opinion,Conversación pública sobre Gustavo Petro
+energy_spot_price,log_tweets_n,1,0.7566959876237209,FALSE,1400,ok,panel por corpus,opinion,Conversación pública sobre Gustavo Petro
+energy_spot_price,log_tweets_n,2,0.8926799667371834,FALSE,1400,ok,panel por corpus,opinion,Conversación pública sobre Gustavo Petro
+energy_spot_price,log_tweets_n,3,0.9437810093923367,FALSE,1400,ok,panel por corpus,opinion,Conversación pública sobre Gustavo Petro
+energy_spot_price,log_tweets_n,4,0.9329144167937187,FALSE,1400,ok,panel por corpus,opinion,Conversación pública sobre Gustavo Petro
+energy_spot_price,polaridad,1,0.005266478479132699,TRUE,1400,ok,panel por corpus,opinion,Conversación pública sobre Gustavo Petro
+energy_spot_price,polaridad,2,0.022008433842300664,TRUE,1400,ok,panel por corpus,opinion,Conversación pública sobre Gustavo Petro
+energy_spot_price,polaridad,3,0.039744077578029925,TRUE,1400,ok,panel por corpus,opinion,Conversación pública sobre Gustavo Petro
+energy_spot_price,polaridad,4,0.05534889205995483,FALSE,1400,ok,panel por corpus,opinion,Conversación pública sobre Gustavo Petro
+tes_10y,ipi,1,0.05208540818623076,FALSE,1286,ok,panel por corpus,opinion,Conversación pública sobre Gustavo Petro
+tes_10y,ipi,2,0.09708740421542698,FALSE,1286,ok,panel por corpus,opinion,Conversación pública sobre Gustavo Petro
+tes_10y,ipi,3,0.12692787204520478,FALSE,1286,ok,panel por corpus,opinion,Conversación pública sobre Gustavo Petro
+tes_10y,ipi,4,0.06443608345637372,FALSE,1286,ok,panel por corpus,opinion,Conversación pública sobre Gustavo Petro
+tes_10y,log_tweets_n,1,0.625200714080058,FALSE,1335,ok,panel por corpus,opinion,Conversación pública sobre Gustavo Petro
+tes_10y,log_tweets_n,2,0.2623345645124585,FALSE,1335,ok,panel por corpus,opinion,Conversación pública sobre Gustavo Petro
+tes_10y,log_tweets_n,3,0.1820763730300108,FALSE,1335,ok,panel por corpus,opinion,Conversación pública sobre Gustavo Petro
+tes_10y,log_tweets_n,4,0.2004362659452602,FALSE,1335,ok,panel por corpus,opinion,Conversación pública sobre Gustavo Petro
+tes_10y,polaridad,1,0.08673126233964552,FALSE,1335,ok,panel por corpus,opinion,Conversación pública sobre Gustavo Petro
+tes_10y,polaridad,2,0.12616068350555446,FALSE,1335,ok,panel por corpus,opinion,Conversación pública sobre Gustavo Petro
+tes_10y,polaridad,3,0.196550903954367,FALSE,1335,ok,panel por corpus,opinion,Conversación pública sobre Gustavo Petro
+tes_10y,polaridad,4,0.2314197135143814,FALSE,1335,ok,panel por corpus,opinion,Conversación pública sobre Gustavo Petro
+tes_slope_10y_1y,ipi,1,0.5126775361260112,FALSE,1286,ok,panel por corpus,opinion,Conversación pública sobre Gustavo Petro
+tes_slope_10y_1y,ipi,2,0.505003013416917,FALSE,1286,ok,panel por corpus,opinion,Conversación pública sobre Gustavo Petro
+tes_slope_10y_1y,ipi,3,0.5565030705389071,FALSE,1286,ok,panel por corpus,opinion,Conversación pública sobre Gustavo Petro
+tes_slope_10y_1y,ipi,4,0.722621474609416,FALSE,1286,ok,panel por corpus,opinion,Conversación pública sobre Gustavo Petro
+tes_slope_10y_1y,log_tweets_n,1,0.48203733749931577,FALSE,1335,ok,panel por corpus,opinion,Conversación pública sobre Gustavo Petro
+tes_slope_10y_1y,log_tweets_n,2,0.42392655289119346,FALSE,1335,ok,panel por corpus,opinion,Conversación pública sobre Gustavo Petro
+tes_slope_10y_1y,log_tweets_n,3,0.31435399595364216,FALSE,1335,ok,panel por corpus,opinion,Conversación pública sobre Gustavo Petro
+tes_slope_10y_1y,log_tweets_n,4,0.2600585276394974,FALSE,1335,ok,panel por corpus,opinion,Conversación pública sobre Gustavo Petro
+tes_slope_10y_1y,polaridad,1,0.5530741416827869,FALSE,1335,ok,panel por corpus,opinion,Conversación pública sobre Gustavo Petro
+tes_slope_10y_1y,polaridad,2,0.5520151490931655,FALSE,1335,ok,panel por corpus,opinion,Conversación pública sobre Gustavo Petro
+tes_slope_10y_1y,polaridad,3,0.44564768709322,FALSE,1335,ok,panel por corpus,opinion,Conversación pública sobre Gustavo Petro
+tes_slope_10y_1y,polaridad,4,0.574767993293004,FALSE,1335,ok,panel por corpus,opinion,Conversación pública sobre Gustavo Petro
+trm,ipi,1,0.10807598707127992,FALSE,1349,ok,panel por corpus,opinion,Conversación pública sobre Gustavo Petro
+trm,ipi,2,0.11661603366779626,FALSE,1349,ok,panel por corpus,opinion,Conversación pública sobre Gustavo Petro
+trm,ipi,3,0.17121832168937579,FALSE,1349,ok,panel por corpus,opinion,Conversación pública sobre Gustavo Petro
+trm,ipi,4,0.2756465196410059,FALSE,1349,ok,panel por corpus,opinion,Conversación pública sobre Gustavo Petro
+trm,log_tweets_n,1,0.8466384125451547,FALSE,1400,ok,panel por corpus,opinion,Conversación pública sobre Gustavo Petro
+trm,log_tweets_n,2,0.35722086079004123,FALSE,1400,ok,panel por corpus,opinion,Conversación pública sobre Gustavo Petro
+trm,log_tweets_n,3,0.5197581761235464,FALSE,1400,ok,panel por corpus,opinion,Conversación pública sobre Gustavo Petro
+trm,log_tweets_n,4,0.5752589467264928,FALSE,1400,ok,panel por corpus,opinion,Conversación pública sobre Gustavo Petro
+trm,polaridad,1,0.3500586109051036,FALSE,1400,ok,panel por corpus,opinion,Conversación pública sobre Gustavo Petro
+trm,polaridad,2,0.241584718458817,FALSE,1400,ok,panel por corpus,opinion,Conversación pública sobre Gustavo Petro
+trm,polaridad,3,0.30370571478267244,FALSE,1400,ok,panel por corpus,opinion,Conversación pública sobre Gustavo Petro
+trm,polaridad,4,0.4640368270474833,FALSE,1400,ok,panel por corpus,opinion,Conversación pública sobre Gustavo Petro
+colcap,ipi,1,0.5507237096988893,FALSE,1264,ok,panel por corpus,presidente,Tweets escritos por @petrogustavo
+colcap,ipi,2,0.5958784200030547,FALSE,1264,ok,panel por corpus,presidente,Tweets escritos por @petrogustavo
+colcap,ipi,3,0.6545616174538262,FALSE,1264,ok,panel por corpus,presidente,Tweets escritos por @petrogustavo
+colcap,ipi,4,0.7857629686386749,FALSE,1264,ok,panel por corpus,presidente,Tweets escritos por @petrogustavo
+colcap,log_tweets_n,1,0.7324876893293224,FALSE,1335,ok,panel por corpus,presidente,Tweets escritos por @petrogustavo
+colcap,log_tweets_n,2,0.7375183795018317,FALSE,1335,ok,panel por corpus,presidente,Tweets escritos por @petrogustavo
+colcap,log_tweets_n,3,0.8853148315796608,FALSE,1335,ok,panel por corpus,presidente,Tweets escritos por @petrogustavo
+colcap,log_tweets_n,4,0.8677483479802298,FALSE,1335,ok,panel por corpus,presidente,Tweets escritos por @petrogustavo
+colcap,polaridad,1,0.1584508542629363,FALSE,1335,ok,panel por corpus,presidente,Tweets escritos por @petrogustavo
+colcap,polaridad,2,0.20505929984413376,FALSE,1335,ok,panel por corpus,presidente,Tweets escritos por @petrogustavo
+colcap,polaridad,3,0.19285514345417598,FALSE,1335,ok,panel por corpus,presidente,Tweets escritos por @petrogustavo
+colcap,polaridad,4,0.28119286078287203,FALSE,1335,ok,panel por corpus,presidente,Tweets escritos por @petrogustavo
+energy_spot_price,ipi,1,0.4773177799828707,FALSE,1326,ok,panel por corpus,presidente,Tweets escritos por @petrogustavo
+energy_spot_price,ipi,2,0.7007970443204445,FALSE,1326,ok,panel por corpus,presidente,Tweets escritos por @petrogustavo
+energy_spot_price,ipi,3,0.5949311363910148,FALSE,1326,ok,panel por corpus,presidente,Tweets escritos por @petrogustavo
+energy_spot_price,ipi,4,0.6854931178330286,FALSE,1326,ok,panel por corpus,presidente,Tweets escritos por @petrogustavo
+energy_spot_price,log_tweets_n,1,0.1351659195346235,FALSE,1400,ok,panel por corpus,presidente,Tweets escritos por @petrogustavo
+energy_spot_price,log_tweets_n,2,0.19946087231143056,FALSE,1400,ok,panel por corpus,presidente,Tweets escritos por @petrogustavo
+energy_spot_price,log_tweets_n,3,0.31972397340938863,FALSE,1400,ok,panel por corpus,presidente,Tweets escritos por @petrogustavo
+energy_spot_price,log_tweets_n,4,0.45180491005324774,FALSE,1400,ok,panel por corpus,presidente,Tweets escritos por @petrogustavo
+energy_spot_price,polaridad,1,0.13624548735023126,FALSE,1400,ok,panel por corpus,presidente,Tweets escritos por @petrogustavo
+energy_spot_price,polaridad,2,0.2518631621993479,FALSE,1400,ok,panel por corpus,presidente,Tweets escritos por @petrogustavo
+energy_spot_price,polaridad,3,0.18210359396060144,FALSE,1400,ok,panel por corpus,presidente,Tweets escritos por @petrogustavo
+energy_spot_price,polaridad,4,0.1661210699563019,FALSE,1400,ok,panel por corpus,presidente,Tweets escritos por @petrogustavo
+tes_10y,ipi,1,0.2341524478384502,FALSE,1264,ok,panel por corpus,presidente,Tweets escritos por @petrogustavo
+tes_10y,ipi,2,0.3781760131136265,FALSE,1264,ok,panel por corpus,presidente,Tweets escritos por @petrogustavo
+tes_10y,ipi,3,0.27439058098780356,FALSE,1264,ok,panel por corpus,presidente,Tweets escritos por @petrogustavo
+tes_10y,ipi,4,0.31857702884357253,FALSE,1264,ok,panel por corpus,presidente,Tweets escritos por @petrogustavo
+tes_10y,log_tweets_n,1,0.31834463703656024,FALSE,1335,ok,panel por corpus,presidente,Tweets escritos por @petrogustavo
+tes_10y,log_tweets_n,2,0.13948774605622294,FALSE,1335,ok,panel por corpus,presidente,Tweets escritos por @petrogustavo
+tes_10y,log_tweets_n,3,0.20379928295093563,FALSE,1335,ok,panel por corpus,presidente,Tweets escritos por @petrogustavo
+tes_10y,log_tweets_n,4,0.2511791299706978,FALSE,1335,ok,panel por corpus,presidente,Tweets escritos por @petrogustavo
+tes_10y,polaridad,1,0.15816693845298904,FALSE,1335,ok,panel por corpus,presidente,Tweets escritos por @petrogustavo
+tes_10y,polaridad,2,0.25699367611117657,FALSE,1335,ok,panel por corpus,presidente,Tweets escritos por @petrogustavo
+tes_10y,polaridad,3,0.07406303358200451,FALSE,1335,ok,panel por corpus,presidente,Tweets escritos por @petrogustavo
+tes_10y,polaridad,4,0.1334638679774484,FALSE,1335,ok,panel por corpus,presidente,Tweets escritos por @petrogustavo
+tes_slope_10y_1y,ipi,1,0.25554904008959173,FALSE,1264,ok,panel por corpus,presidente,Tweets escritos por @petrogustavo
+tes_slope_10y_1y,ipi,2,0.25558282443431807,FALSE,1264,ok,panel por corpus,presidente,Tweets escritos por @petrogustavo
+tes_slope_10y_1y,ipi,3,0.0678332108437259,FALSE,1264,ok,panel por corpus,presidente,Tweets escritos por @petrogustavo
+tes_slope_10y_1y,ipi,4,0.12983863861557482,FALSE,1264,ok,panel por corpus,presidente,Tweets escritos por @petrogustavo
+tes_slope_10y_1y,log_tweets_n,1,0.13673816723072466,FALSE,1335,ok,panel por corpus,presidente,Tweets escritos por @petrogustavo
+tes_slope_10y_1y,log_tweets_n,2,0.2267818257812759,FALSE,1335,ok,panel por corpus,presidente,Tweets escritos por @petrogustavo
+tes_slope_10y_1y,log_tweets_n,3,0.408017162495683,FALSE,1335,ok,panel por corpus,presidente,Tweets escritos por @petrogustavo
+tes_slope_10y_1y,log_tweets_n,4,0.42651653558569125,FALSE,1335,ok,panel por corpus,presidente,Tweets escritos por @petrogustavo
+tes_slope_10y_1y,polaridad,1,0.17465802055992183,FALSE,1335,ok,panel por corpus,presidente,Tweets escritos por @petrogustavo
+tes_slope_10y_1y,polaridad,2,0.4122989883579794,FALSE,1335,ok,panel por corpus,presidente,Tweets escritos por @petrogustavo
+tes_slope_10y_1y,polaridad,3,0.3260831848601947,FALSE,1335,ok,panel por corpus,presidente,Tweets escritos por @petrogustavo
+tes_slope_10y_1y,polaridad,4,0.4882177133342628,FALSE,1335,ok,panel por corpus,presidente,Tweets escritos por @petrogustavo
+trm,ipi,1,0.114054705775573,FALSE,1326,ok,panel por corpus,presidente,Tweets escritos por @petrogustavo
+trm,ipi,2,0.2689472347758941,FALSE,1326,ok,panel por corpus,presidente,Tweets escritos por @petrogustavo
+trm,ipi,3,0.42287561094422144,FALSE,1326,ok,panel por corpus,presidente,Tweets escritos por @petrogustavo
+trm,ipi,4,0.026056560204861495,TRUE,1326,ok,panel por corpus,presidente,Tweets escritos por @petrogustavo
+trm,log_tweets_n,1,0.3025053001798424,FALSE,1400,ok,panel por corpus,presidente,Tweets escritos por @petrogustavo
+trm,log_tweets_n,2,0.3178853789608407,FALSE,1400,ok,panel por corpus,presidente,Tweets escritos por @petrogustavo
+trm,log_tweets_n,3,0.6750716023312249,FALSE,1400,ok,panel por corpus,presidente,Tweets escritos por @petrogustavo
+trm,log_tweets_n,4,0.7999645757269956,FALSE,1400,ok,panel por corpus,presidente,Tweets escritos por @petrogustavo
+trm,polaridad,1,0.9470433520992161,FALSE,1400,ok,panel por corpus,presidente,Tweets escritos por @petrogustavo
+trm,polaridad,2,0.4773911726061124,FALSE,1400,ok,panel por corpus,presidente,Tweets escritos por @petrogustavo
+trm,polaridad,3,0.6354291658753293,FALSE,1400,ok,panel por corpus,presidente,Tweets escritos por @petrogustavo
+trm,polaridad,4,0.5120619976821907,FALSE,1400,ok,panel por corpus,presidente,Tweets escritos por @petrogustavo

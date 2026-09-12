@@ -1,0 +1,3 @@
+corpus,corpus_label,meses_esperados,meses_completos,meses_parciales,meses_sin_datos,filas_tweets,dias_observados,cobertura_media_mensual
+opinion,Conversación pública sobre Gustavo Petro,46,43,3,0,13648,1349,0.963165364322447
+presidente,Tweets escritos por @petrogustavo,46,46,0,0,14656,1331,0.9509785429865713

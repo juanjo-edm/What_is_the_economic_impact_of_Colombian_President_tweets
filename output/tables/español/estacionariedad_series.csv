@@ -1,0 +1,8 @@
+variable,p_value,status
+polaridad,0.01,ok
+ipi,0.01,ok
+trm,0.39336044148341254,ok
+colcap,0.43688513759181713,ok
+tes_10y,0.6650791481999166,ok
+tes_slope_10y_1y,0.9458479585240827,ok
+energy_spot_price,0.01,ok

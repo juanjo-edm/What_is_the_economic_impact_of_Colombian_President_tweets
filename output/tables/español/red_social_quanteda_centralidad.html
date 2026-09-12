@@ -1,0 +1,3485 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Centralidad de hashtags y menciones con Quanteda</title>
+<style>body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;margin:24px;color:#222}table{border-collapse:collapse;width:100%;font-size:13px}th,td{border:1px solid #ddd;padding:6px 8px;text-align:left;vertical-align:top}th{background:#f3f5f2}caption{text-align:left;font-weight:700;font-size:18px;margin-bottom:4px}.subtitle{color:#666;margin:0 0 14px 0}</style>
+</head>
+<body>
+<h1>Centralidad de hashtags y menciones con Quanteda</h1><p class="subtitle">Grado, intermediación, PageRank y comunidad Louvain</p><table>
+ <thead>
+  <tr>
+   <th style="text-align:left;"> tipo </th>
+   <th style="text-align:left;"> corpus </th>
+   <th style="text-align:left;"> corpus_label </th>
+   <th style="text-align:left;"> red </th>
+   <th style="text-align:left;"> nodo </th>
+   <th style="text-align:right;"> grado </th>
+   <th style="text-align:right;"> grado_ponderado </th>
+   <th style="text-align:right;"> intermediacion </th>
+   <th style="text-align:right;"> cercania </th>
+   <th style="text-align:right;"> pagerank </th>
+   <th style="text-align:right;"> eigenvector </th>
+   <th style="text-align:right;"> clustering_local </th>
+   <th style="text-align:right;"> comunidad </th>
+   <th style="text-align:right;"> componente </th>
+   <th style="text-align:left;"> status </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> Hashtag </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> Todos los corpus </td>
+   <td style="text-align:left;"> Hashtags Quanteda </td>
+   <td style="text-align:left;"> #colombia </td>
+   <td style="text-align:right;"> 9 </td>
+   <td style="text-align:right;"> 39 </td>
+   <td style="text-align:right;"> 0.1842105 </td>
+   <td style="text-align:right;"> 3.8809035 </td>
+   <td style="text-align:right;"> 0.2066398 </td>
+   <td style="text-align:right;"> 1.0000000 </td>
+   <td style="text-align:right;"> 0.0277778 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Hashtag </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> Todos los corpus </td>
+   <td style="text-align:left;"> Hashtags Quanteda </td>
+   <td style="text-align:left;"> #redprogresista </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 15 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 7.4666667 </td>
+   <td style="text-align:right;"> 0.0529761 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 1.0000000 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Hashtag </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> Todos los corpus </td>
+   <td style="text-align:left;"> Hashtags Quanteda </td>
+   <td style="text-align:left;"> #progresistasigueprogresista </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 13 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 6.1538462 </td>
+   <td style="text-align:right;"> 0.0465168 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 1.0000000 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Hashtag </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> Todos los corpus </td>
+   <td style="text-align:left;"> Hashtags Quanteda </td>
+   <td style="text-align:left;"> #siguemeytesigo </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 12 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 5.8333333 </td>
+   <td style="text-align:right;"> 0.0433642 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 1.0000000 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Hashtag </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> Todos los corpus </td>
+   <td style="text-align:left;"> Hashtags Quanteda </td>
+   <td style="text-align:left;"> #uaencrisis </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 7 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 7.0000000 </td>
+   <td style="text-align:right;"> 0.0476190 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Hashtag </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> Todos los corpus </td>
+   <td style="text-align:left;"> Hashtags Quanteda </td>
+   <td style="text-align:left;"> #bogota </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 7 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 2.2118198 </td>
+   <td style="text-align:right;"> 0.0401519 </td>
+   <td style="text-align:right;"> 0.3458971 </td>
+   <td style="text-align:right;"> 1.0000000 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Hashtag </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> Todos los corpus </td>
+   <td style="text-align:left;"> Hashtags Quanteda </td>
+   <td style="text-align:left;"> #petro </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 7 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 2.5997249 </td>
+   <td style="text-align:right;"> 0.0386687 </td>
+   <td style="text-align:right;"> 0.4980217 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Hashtag </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> Todos los corpus </td>
+   <td style="text-align:left;"> Hashtags Quanteda </td>
+   <td style="text-align:left;"> #venezuela </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 7 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 2.5997249 </td>
+   <td style="text-align:right;"> 0.0386687 </td>
+   <td style="text-align:right;"> 0.4980217 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Hashtag </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> Todos los corpus </td>
+   <td style="text-align:left;"> Hashtags Quanteda </td>
+   <td style="text-align:left;"> #fueraleytondelaua </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 7 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 7.0000000 </td>
+   <td style="text-align:right;"> 0.0476190 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Hashtag </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> Todos los corpus </td>
+   <td style="text-align:left;"> Hashtags Quanteda </td>
+   <td style="text-align:left;"> #barranquilla </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 6 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 1.9004525 </td>
+   <td style="text-align:right;"> 0.0352807 </td>
+   <td style="text-align:right;"> 0.2872654 </td>
+   <td style="text-align:right;"> 1.0000000 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Hashtag </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> Todos los corpus </td>
+   <td style="text-align:left;"> Hashtags Quanteda </td>
+   <td style="text-align:left;"> #cali </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 2.2964763 </td>
+   <td style="text-align:right;"> 0.0296613 </td>
+   <td style="text-align:right;"> 0.3557298 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Hashtag </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> Todos los corpus </td>
+   <td style="text-align:left;"> Hashtags Quanteda </td>
+   <td style="text-align:left;"> #firmesconpetro </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 4.0000000 </td>
+   <td style="text-align:right;"> 0.0476190 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Hashtag </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> Todos los corpus </td>
+   <td style="text-align:left;"> Hashtags Quanteda </td>
+   <td style="text-align:left;"> #medellin </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 2.0837927 </td>
+   <td style="text-align:right;"> 0.0251576 </td>
+   <td style="text-align:right;"> 0.2845838 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Hashtag </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> Todos los corpus </td>
+   <td style="text-align:left;"> Hashtags Quanteda </td>
+   <td style="text-align:left;"> #somosceciliaorozcot </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 4.0000000 </td>
+   <td style="text-align:right;"> 0.0476190 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Hashtag </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> Todos los corpus </td>
+   <td style="text-align:left;"> Hashtags Quanteda </td>
+   <td style="text-align:left;"> #noticia </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 3.0000000 </td>
+   <td style="text-align:right;"> 0.0476190 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Hashtag </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> Todos los corpus </td>
+   <td style="text-align:left;"> Hashtags Quanteda </td>
+   <td style="text-align:left;"> #eln </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 3.0000000 </td>
+   <td style="text-align:right;"> 0.0476190 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 6 </td>
+   <td style="text-align:right;"> 6 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Hashtag </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> Todos los corpus </td>
+   <td style="text-align:left;"> Hashtags Quanteda </td>
+   <td style="text-align:left;"> #política </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 1.8051576 </td>
+   <td style="text-align:right;"> 0.0206539 </td>
+   <td style="text-align:right;"> 0.2134379 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Hashtag </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> Todos los corpus </td>
+   <td style="text-align:left;"> Hashtags Quanteda </td>
+   <td style="text-align:left;"> #paztotal </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 1.8051576 </td>
+   <td style="text-align:right;"> 0.0206539 </td>
+   <td style="text-align:right;"> 0.2134379 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Hashtag </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> Todos los corpus </td>
+   <td style="text-align:left;"> Hashtags Quanteda </td>
+   <td style="text-align:left;"> #ultimahora </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 3.0000000 </td>
+   <td style="text-align:right;"> 0.0476190 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Hashtag </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> Todos los corpus </td>
+   <td style="text-align:left;"> Hashtags Quanteda </td>
+   <td style="text-align:left;"> #gustavopetro </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 1.8051576 </td>
+   <td style="text-align:right;"> 0.0206539 </td>
+   <td style="text-align:right;"> 0.2134379 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Hashtag </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> Todos los corpus </td>
+   <td style="text-align:left;"> Hashtags Quanteda </td>
+   <td style="text-align:left;"> #farc </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 3.0000000 </td>
+   <td style="text-align:right;"> 0.0476190 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 6 </td>
+   <td style="text-align:right;"> 6 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Mención </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> Todos los corpus </td>
+   <td style="text-align:left;"> Menciones Quanteda </td>
+   <td style="text-align:left;"> @kremlinrussia_e </td>
+   <td style="text-align:right;"> 9 </td>
+   <td style="text-align:right;"> 232 </td>
+   <td style="text-align:right;"> 0.0909624 </td>
+   <td style="text-align:right;"> 4.4052128 </td>
+   <td style="text-align:right;"> 0.0296476 </td>
+   <td style="text-align:right;"> 1.0000000 </td>
+   <td style="text-align:right;"> 0.4166667 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Mención </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> Todos los corpus </td>
+   <td style="text-align:left;"> Menciones Quanteda </td>
+   <td style="text-align:left;"> @cnn </td>
+   <td style="text-align:right;"> 8 </td>
+   <td style="text-align:right;"> 225 </td>
+   <td style="text-align:right;"> 0.0764867 </td>
+   <td style="text-align:right;"> 4.3997377 </td>
+   <td style="text-align:right;"> 0.0281941 </td>
+   <td style="text-align:right;"> 0.9978458 </td>
+   <td style="text-align:right;"> 0.5000000 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Mención </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> Todos los corpus </td>
+   <td style="text-align:left;"> Menciones Quanteda </td>
+   <td style="text-align:left;"> @ivancepedacast </td>
+   <td style="text-align:right;"> 15 </td>
+   <td style="text-align:right;"> 221 </td>
+   <td style="text-align:right;"> 0.2548905 </td>
+   <td style="text-align:right;"> 4.9722063 </td>
+   <td style="text-align:right;"> 0.0400347 </td>
+   <td style="text-align:right;"> 0.0179410 </td>
+   <td style="text-align:right;"> 0.2380952 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Mención </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> Todos los corpus </td>
+   <td style="text-align:left;"> Menciones Quanteda </td>
+   <td style="text-align:left;"> @gustavobolivar </td>
+   <td style="text-align:right;"> 13 </td>
+   <td style="text-align:right;"> 218 </td>
+   <td style="text-align:right;"> 0.1343897 </td>
+   <td style="text-align:right;"> 4.5555801 </td>
+   <td style="text-align:right;"> 0.0407653 </td>
+   <td style="text-align:right;"> 0.0073195 </td>
+   <td style="text-align:right;"> 0.2692308 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Mención </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> Todos los corpus </td>
+   <td style="text-align:left;"> Menciones Quanteda </td>
+   <td style="text-align:left;"> @fiscaliacol </td>
+   <td style="text-align:right;"> 11 </td>
+   <td style="text-align:right;"> 214 </td>
+   <td style="text-align:right;"> 0.1600156 </td>
+   <td style="text-align:right;"> 4.1753431 </td>
+   <td style="text-align:right;"> 0.0324777 </td>
+   <td style="text-align:right;"> 0.6030179 </td>
+   <td style="text-align:right;"> 0.2545455 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Mención </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> Todos los corpus </td>
+   <td style="text-align:left;"> Menciones Quanteda </td>
+   <td style="text-align:left;"> @mmflint </td>
+   <td style="text-align:right;"> 6 </td>
+   <td style="text-align:right;"> 173 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 4.0949106 </td>
+   <td style="text-align:right;"> 0.0217001 </td>
+   <td style="text-align:right;"> 0.8543509 </td>
+   <td style="text-align:right;"> 0.8000000 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Mención </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> Todos los corpus </td>
+   <td style="text-align:left;"> Menciones Quanteda </td>
+   <td style="text-align:left;"> @alvarouribevel </td>
+   <td style="text-align:right;"> 10 </td>
+   <td style="text-align:right;"> 166 </td>
+   <td style="text-align:right;"> 0.1983568 </td>
+   <td style="text-align:right;"> 5.0954594 </td>
+   <td style="text-align:right;"> 0.0317941 </td>
+   <td style="text-align:right;"> 0.0279550 </td>
+   <td style="text-align:right;"> 0.2888889 </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Mención </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> Todos los corpus </td>
+   <td style="text-align:left;"> Menciones Quanteda </td>
+   <td style="text-align:left;"> @policiacolombia </td>
+   <td style="text-align:right;"> 8 </td>
+   <td style="text-align:right;"> 161 </td>
+   <td style="text-align:right;"> 0.0872457 </td>
+   <td style="text-align:right;"> 3.9693994 </td>
+   <td style="text-align:right;"> 0.0262889 </td>
+   <td style="text-align:right;"> 0.5556728 </td>
+   <td style="text-align:right;"> 0.3928571 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Mención </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> Todos los corpus </td>
+   <td style="text-align:left;"> Menciones Quanteda </td>
+   <td style="text-align:left;"> @noticiascaracol </td>
+   <td style="text-align:right;"> 11 </td>
+   <td style="text-align:right;"> 152 </td>
+   <td style="text-align:right;"> 0.0837246 </td>
+   <td style="text-align:right;"> 4.0799455 </td>
+   <td style="text-align:right;"> 0.0270034 </td>
+   <td style="text-align:right;"> 0.0142129 </td>
+   <td style="text-align:right;"> 0.4000000 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Mención </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> Todos los corpus </td>
+   <td style="text-align:left;"> Menciones Quanteda </td>
+   <td style="text-align:left;"> @pizarromariajo </td>
+   <td style="text-align:right;"> 9 </td>
+   <td style="text-align:right;"> 136 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 4.4969876 </td>
+   <td style="text-align:right;"> 0.0243159 </td>
+   <td style="text-align:right;"> 0.0071813 </td>
+   <td style="text-align:right;"> 0.4722222 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Mención </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> Todos los corpus </td>
+   <td style="text-align:left;"> Menciones Quanteda </td>
+   <td style="text-align:left;"> @minsaludcol </td>
+   <td style="text-align:right;"> 8 </td>
+   <td style="text-align:right;"> 132 </td>
+   <td style="text-align:right;"> 0.1060250 </td>
+   <td style="text-align:right;"> 3.9811283 </td>
+   <td style="text-align:right;"> 0.0245243 </td>
+   <td style="text-align:right;"> 0.0033487 </td>
+   <td style="text-align:right;"> 0.3571429 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Mención </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> Todos los corpus </td>
+   <td style="text-align:left;"> Menciones Quanteda </td>
+   <td style="text-align:left;"> @xijinping </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 130 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 4.0194031 </td>
+   <td style="text-align:right;"> 0.0170465 </td>
+   <td style="text-align:right;"> 0.6727597 </td>
+   <td style="text-align:right;"> 1.0000000 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Mención </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> Todos los corpus </td>
+   <td style="text-align:left;"> Menciones Quanteda </td>
+   <td style="text-align:left;"> @eltiempo </td>
+   <td style="text-align:right;"> 9 </td>
+   <td style="text-align:right;"> 101 </td>
+   <td style="text-align:right;"> 0.1138498 </td>
+   <td style="text-align:right;"> 4.1988326 </td>
+   <td style="text-align:right;"> 0.0188675 </td>
+   <td style="text-align:right;"> 0.0918607 </td>
+   <td style="text-align:right;"> 0.3333333 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Mención </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> Todos los corpus </td>
+   <td style="text-align:left;"> Menciones Quanteda </td>
+   <td style="text-align:left;"> @ga_jaramillo </td>
+   <td style="text-align:right;"> 6 </td>
+   <td style="text-align:right;"> 98 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 3.8134846 </td>
+   <td style="text-align:right;"> 0.0175513 </td>
+   <td style="text-align:right;"> 0.0031871 </td>
+   <td style="text-align:right;"> 0.6000000 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Mención </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> Todos los corpus </td>
+   <td style="text-align:left;"> Menciones Quanteda </td>
+   <td style="text-align:left;"> @cortesupremaj </td>
+   <td style="text-align:right;"> 6 </td>
+   <td style="text-align:right;"> 95 </td>
+   <td style="text-align:right;"> 0.0661189 </td>
+   <td style="text-align:right;"> 3.7191339 </td>
+   <td style="text-align:right;"> 0.0195502 </td>
+   <td style="text-align:right;"> 0.1327177 </td>
+   <td style="text-align:right;"> 0.3333333 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Mención </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> Todos los corpus </td>
+   <td style="text-align:left;"> Menciones Quanteda </td>
+   <td style="text-align:left;"> @carolinacorcho </td>
+   <td style="text-align:right;"> 7 </td>
+   <td style="text-align:right;"> 93 </td>
+   <td style="text-align:right;"> 0.0669014 </td>
+   <td style="text-align:right;"> 4.5471726 </td>
+   <td style="text-align:right;"> 0.0166575 </td>
+   <td style="text-align:right;"> 0.0050025 </td>
+   <td style="text-align:right;"> 0.4285714 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Mención </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> Todos los corpus </td>
+   <td style="text-align:left;"> Menciones Quanteda </td>
+   <td style="text-align:left;"> @palomavalencial </td>
+   <td style="text-align:right;"> 8 </td>
+   <td style="text-align:right;"> 93 </td>
+   <td style="text-align:right;"> 0.0833333 </td>
+   <td style="text-align:right;"> 4.7578760 </td>
+   <td style="text-align:right;"> 0.0165773 </td>
+   <td style="text-align:right;"> 0.0957751 </td>
+   <td style="text-align:right;"> 0.4285714 </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Mención </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> Todos los corpus </td>
+   <td style="text-align:left;"> Menciones Quanteda </td>
+   <td style="text-align:left;"> @bbc </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 92 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 3.9144210 </td>
+   <td style="text-align:right;"> 0.0119282 </td>
+   <td style="text-align:right;"> 0.5415415 </td>
+   <td style="text-align:right;"> 1.0000000 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Mención </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> Todos los corpus </td>
+   <td style="text-align:left;"> Menciones Quanteda </td>
+   <td style="text-align:left;"> @bluradioco </td>
+   <td style="text-align:right;"> 7 </td>
+   <td style="text-align:right;"> 82 </td>
+   <td style="text-align:right;"> 0.0254304 </td>
+   <td style="text-align:right;"> 3.3934115 </td>
+   <td style="text-align:right;"> 0.0159023 </td>
+   <td style="text-align:right;"> 0.0094789 </td>
+   <td style="text-align:right;"> 0.6666667 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Mención </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> Todos los corpus </td>
+   <td style="text-align:left;"> Menciones Quanteda </td>
+   <td style="text-align:left;"> @supersalud </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 81 </td>
+   <td style="text-align:right;"> 0.0054773 </td>
+   <td style="text-align:right;"> 3.5644223 </td>
+   <td style="text-align:right;"> 0.0152530 </td>
+   <td style="text-align:right;"> 0.0014643 </td>
+   <td style="text-align:right;"> 0.4000000 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Mención </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> Todos los corpus </td>
+   <td style="text-align:left;"> Menciones Quanteda </td>
+   <td style="text-align:left;"> @franciamarquezm </td>
+   <td style="text-align:right;"> 8 </td>
+   <td style="text-align:right;"> 79 </td>
+   <td style="text-align:right;"> 0.0226917 </td>
+   <td style="text-align:right;"> 3.8860078 </td>
+   <td style="text-align:right;"> 0.0166629 </td>
+   <td style="text-align:right;"> 0.0028640 </td>
+   <td style="text-align:right;"> 0.4642857 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Mención </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> Todos los corpus </td>
+   <td style="text-align:left;"> Menciones Quanteda </td>
+   <td style="text-align:left;"> @revistasemana </td>
+   <td style="text-align:right;"> 7 </td>
+   <td style="text-align:right;"> 76 </td>
+   <td style="text-align:right;"> 0.0535994 </td>
+   <td style="text-align:right;"> 4.3402524 </td>
+   <td style="text-align:right;"> 0.0141156 </td>
+   <td style="text-align:right;"> 0.0173194 </td>
+   <td style="text-align:right;"> 0.4285714 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Mención </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> Todos los corpus </td>
+   <td style="text-align:left;"> Menciones Quanteda </td>
+   <td style="text-align:left;"> @lulaoficial </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 75 </td>
+   <td style="text-align:right;"> 0.0039124 </td>
+   <td style="text-align:right;"> 10.2485970 </td>
+   <td style="text-align:right;"> 0.0303495 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 0.3000000 </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Mención </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> Todos los corpus </td>
+   <td style="text-align:left;"> Menciones Quanteda </td>
+   <td style="text-align:left;"> @wradiocolombia </td>
+   <td style="text-align:right;"> 6 </td>
+   <td style="text-align:right;"> 74 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 3.5125054 </td>
+   <td style="text-align:right;"> 0.0144153 </td>
+   <td style="text-align:right;"> 0.0095395 </td>
+   <td style="text-align:right;"> 0.7333333 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Mención </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> Todos los corpus </td>
+   <td style="text-align:left;"> Menciones Quanteda </td>
+   <td style="text-align:left;"> @elespectador </td>
+   <td style="text-align:right;"> 6 </td>
+   <td style="text-align:right;"> 73 </td>
+   <td style="text-align:right;"> 0.0136933 </td>
+   <td style="text-align:right;"> 3.8859132 </td>
+   <td style="text-align:right;"> 0.0135482 </td>
+   <td style="text-align:right;"> 0.0107639 </td>
+   <td style="text-align:right;"> 0.6000000 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Mención </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> Todos los corpus </td>
+   <td style="text-align:left;"> Menciones Quanteda </td>
+   <td style="text-align:left;"> @vickydavilah </td>
+   <td style="text-align:right;"> 6 </td>
+   <td style="text-align:right;"> 72 </td>
+   <td style="text-align:right;"> 0.0888106 </td>
+   <td style="text-align:right;"> 5.0614973 </td>
+   <td style="text-align:right;"> 0.0133719 </td>
+   <td style="text-align:right;"> 0.0413067 </td>
+   <td style="text-align:right;"> 0.4666667 </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Mención </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> Todos los corpus </td>
+   <td style="text-align:left;"> Menciones Quanteda </td>
+   <td style="text-align:left;"> @noticiasrcn </td>
+   <td style="text-align:right;"> 6 </td>
+   <td style="text-align:right;"> 71 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 3.6040521 </td>
+   <td style="text-align:right;"> 0.0133778 </td>
+   <td style="text-align:right;"> 0.0095873 </td>
+   <td style="text-align:right;"> 0.8000000 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Mención </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> Todos los corpus </td>
+   <td style="text-align:left;"> Menciones Quanteda </td>
+   <td style="text-align:left;"> @pgn_col </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 71 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 3.7798203 </td>
+   <td style="text-align:right;"> 0.0126643 </td>
+   <td style="text-align:right;"> 0.1604762 </td>
+   <td style="text-align:right;"> 1.0000000 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Mención </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> Todos los corpus </td>
+   <td style="text-align:left;"> Menciones Quanteda </td>
+   <td style="text-align:left;"> @roybarreras </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 68 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 3.8381364 </td>
+   <td style="text-align:right;"> 0.0132675 </td>
+   <td style="text-align:right;"> 0.0029933 </td>
+   <td style="text-align:right;"> 0.8000000 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Mención </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> Todos los corpus </td>
+   <td style="text-align:left;"> Menciones Quanteda </td>
+   <td style="text-align:left;"> @abdelaespriella </td>
+   <td style="text-align:right;"> 6 </td>
+   <td style="text-align:right;"> 65 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 4.1460971 </td>
+   <td style="text-align:right;"> 0.0123123 </td>
+   <td style="text-align:right;"> 0.0148395 </td>
+   <td style="text-align:right;"> 0.6000000 </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Mención </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> Todos los corpus </td>
+   <td style="text-align:left;"> Menciones Quanteda </td>
+   <td style="text-align:left;"> @mariafdacabal </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 63 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 4.3162935 </td>
+   <td style="text-align:right;"> 0.0122461 </td>
+   <td style="text-align:right;"> 0.0176663 </td>
+   <td style="text-align:right;"> 0.8000000 </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Mención </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> Todos los corpus </td>
+   <td style="text-align:left;"> Menciones Quanteda </td>
+   <td style="text-align:left;"> @aabenedetti </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:right;"> 60 </td>
+   <td style="text-align:right;"> 0.0187793 </td>
+   <td style="text-align:right;"> 3.6784860 </td>
+   <td style="text-align:right;"> 0.0126002 </td>
+   <td style="text-align:right;"> 0.0023737 </td>
+   <td style="text-align:right;"> 0.6666667 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Mención </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> Todos los corpus </td>
+   <td style="text-align:left;"> Menciones Quanteda </td>
+   <td style="text-align:left;"> @ivanduque </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 48 </td>
+   <td style="text-align:right;"> 0.0058685 </td>
+   <td style="text-align:right;"> 4.7354075 </td>
+   <td style="text-align:right;"> 0.0101240 </td>
+   <td style="text-align:right;"> 0.0310854 </td>
+   <td style="text-align:right;"> 0.3333333 </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Mención </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> Todos los corpus </td>
+   <td style="text-align:left;"> Menciones Quanteda </td>
+   <td style="text-align:left;"> @cedemocratico </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 47 </td>
+   <td style="text-align:right;"> 0.0446009 </td>
+   <td style="text-align:right;"> 3.9790350 </td>
+   <td style="text-align:right;"> 0.0107016 </td>
+   <td style="text-align:right;"> 0.0101496 </td>
+   <td style="text-align:right;"> 0.5000000 </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Mención </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> Todos los corpus </td>
+   <td style="text-align:left;"> Menciones Quanteda </td>
+   <td style="text-align:left;"> @cnnee </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:right;"> 45 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 3.4048450 </td>
+   <td style="text-align:right;"> 0.0089975 </td>
+   <td style="text-align:right;"> 0.0024779 </td>
+   <td style="text-align:right;"> 1.0000000 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Mención </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> Todos los corpus </td>
+   <td style="text-align:left;"> Menciones Quanteda </td>
+   <td style="text-align:left;"> @infopresidencia </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:right;"> 44 </td>
+   <td style="text-align:right;"> 0.0109546 </td>
+   <td style="text-align:right;"> 3.4327868 </td>
+   <td style="text-align:right;"> 0.0092914 </td>
+   <td style="text-align:right;"> 0.0009343 </td>
+   <td style="text-align:right;"> 0.3333333 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Mención </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> Todos los corpus </td>
+   <td style="text-align:left;"> Menciones Quanteda </td>
+   <td style="text-align:left;"> @lafm </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:right;"> 41 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 2.9489860 </td>
+   <td style="text-align:right;"> 0.0086634 </td>
+   <td style="text-align:right;"> 0.0026492 </td>
+   <td style="text-align:right;"> 1.0000000 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Mención </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> Todos los corpus </td>
+   <td style="text-align:left;"> Menciones Quanteda </td>
+   <td style="text-align:left;"> @cgr_colombia </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 39 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 3.1815483 </td>
+   <td style="text-align:right;"> 0.0078602 </td>
+   <td style="text-align:right;"> 0.0721977 </td>
+   <td style="text-align:right;"> 1.0000000 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Mención </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> Todos los corpus </td>
+   <td style="text-align:left;"> Menciones Quanteda </td>
+   <td style="text-align:left;"> @jmilei </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:right;"> 39 </td>
+   <td style="text-align:right;"> 0.0019562 </td>
+   <td style="text-align:right;"> 8.7088244 </td>
+   <td style="text-align:right;"> 0.0179874 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 0.3333333 </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Mención </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> Todos los corpus </td>
+   <td style="text-align:left;"> Menciones Quanteda </td>
+   <td style="text-align:left;"> @consejodeestado </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 37 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 3.0439507 </td>
+   <td style="text-align:right;"> 0.0100367 </td>
+   <td style="text-align:right;"> 0.0147069 </td>
+   <td style="text-align:right;"> 0.6666667 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Mención </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> Todos los corpus </td>
+   <td style="text-align:left;"> Menciones Quanteda </td>
+   <td style="text-align:left;"> @col_ejercito </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 34 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 3.4383757 </td>
+   <td style="text-align:right;"> 0.0079434 </td>
+   <td style="text-align:right;"> 0.0875931 </td>
+   <td style="text-align:right;"> 1.0000000 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Mención </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> Todos los corpus </td>
+   <td style="text-align:left;"> Menciones Quanteda </td>
+   <td style="text-align:left;"> @gabrielboric </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 34 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 7.0732488 </td>
+   <td style="text-align:right;"> 0.0142863 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 0.6666667 </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Mención </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> Todos los corpus </td>
+   <td style="text-align:left;"> Menciones Quanteda </td>
+   <td style="text-align:left;"> @pactocol </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:right;"> 34 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 3.3162800 </td>
+   <td style="text-align:right;"> 0.0075078 </td>
+   <td style="text-align:right;"> 0.0019125 </td>
+   <td style="text-align:right;"> 1.0000000 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Mención </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> Todos los corpus </td>
+   <td style="text-align:left;"> Menciones Quanteda </td>
+   <td style="text-align:left;"> @cconstitucional </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 33 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 3.1261861 </td>
+   <td style="text-align:right;"> 0.0086064 </td>
+   <td style="text-align:right;"> 0.0167031 </td>
+   <td style="text-align:right;"> 1.0000000 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Mención </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> Todos los corpus </td>
+   <td style="text-align:left;"> Menciones Quanteda </td>
+   <td style="text-align:left;"> @wilsonariasc </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 32 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 3.5081843 </td>
+   <td style="text-align:right;"> 0.0070366 </td>
+   <td style="text-align:right;"> 0.0018812 </td>
+   <td style="text-align:right;"> 1.0000000 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Mención </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> Todos los corpus </td>
+   <td style="text-align:left;"> Menciones Quanteda </td>
+   <td style="text-align:left;"> @davidracero </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 32 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 3.5593308 </td>
+   <td style="text-align:right;"> 0.0070456 </td>
+   <td style="text-align:right;"> 0.0019479 </td>
+   <td style="text-align:right;"> 1.0000000 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Mención </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> Todos los corpus </td>
+   <td style="text-align:left;"> Menciones Quanteda </td>
+   <td style="text-align:left;"> @juanmansantos </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 31 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 4.0432925 </td>
+   <td style="text-align:right;"> 0.0073158 </td>
+   <td style="text-align:right;"> 0.0055562 </td>
+   <td style="text-align:right;"> 1.0000000 </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Mención </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> Todos los corpus </td>
+   <td style="text-align:left;"> Menciones Quanteda </td>
+   <td style="text-align:left;"> @senadogovco </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 30 </td>
+   <td style="text-align:right;"> 0.0226917 </td>
+   <td style="text-align:right;"> 2.5845775 </td>
+   <td style="text-align:right;"> 0.0115587 </td>
+   <td style="text-align:right;"> 0.0004439 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Mención </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> Todos los corpus </td>
+   <td style="text-align:left;"> Menciones Quanteda </td>
+   <td style="text-align:left;"> @mindefensa </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 28 </td>
+   <td style="text-align:right;"> 0.0226917 </td>
+   <td style="text-align:right;"> 3.0228269 </td>
+   <td style="text-align:right;"> 0.0088533 </td>
+   <td style="text-align:right;"> 0.0457462 </td>
+   <td style="text-align:right;"> 0.3333333 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Mención </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> Todos los corpus </td>
+   <td style="text-align:left;"> Menciones Quanteda </td>
+   <td style="text-align:left;"> @nicolasmaduro </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 26 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 6.9506891 </td>
+   <td style="text-align:right;"> 0.0111033 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 1.0000000 </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Mención </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> Todos los corpus </td>
+   <td style="text-align:left;"> Menciones Quanteda </td>
+   <td style="text-align:left;"> @quinterocalle </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 26 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 3.4777200 </td>
+   <td style="text-align:right;"> 0.0061516 </td>
+   <td style="text-align:right;"> 0.0014640 </td>
+   <td style="text-align:right;"> 0.3333333 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Mención </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> Todos los corpus </td>
+   <td style="text-align:left;"> Menciones Quanteda </td>
+   <td style="text-align:left;"> @caracolradio </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 24 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 2.6498110 </td>
+   <td style="text-align:right;"> 0.0059201 </td>
+   <td style="text-align:right;"> 0.0015990 </td>
+   <td style="text-align:right;"> 1.0000000 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Mención </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> Todos los corpus </td>
+   <td style="text-align:left;"> Menciones Quanteda </td>
+   <td style="text-align:left;"> @camaracolombia </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 23 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 2.3274662 </td>
+   <td style="text-align:right;"> 0.0095872 </td>
+   <td style="text-align:right;"> 0.0000625 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Mención </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> Todos los corpus </td>
+   <td style="text-align:left;"> Menciones Quanteda </td>
+   <td style="text-align:left;"> @laurisarabia </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 23 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 2.9764096 </td>
+   <td style="text-align:right;"> 0.0060039 </td>
+   <td style="text-align:right;"> 0.0005766 </td>
+   <td style="text-align:right;"> 1.0000000 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Mención </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> Todos los corpus </td>
+   <td style="text-align:left;"> Menciones Quanteda </td>
+   <td style="text-align:left;"> @mineducacion </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 20 </td>
+   <td style="text-align:right;"> 0.0003912 </td>
+   <td style="text-align:right;"> 9.1000000 </td>
+   <td style="text-align:right;"> 0.0199926 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 6 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Mención </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> Todos los corpus </td>
+   <td style="text-align:left;"> Menciones Quanteda </td>
+   <td style="text-align:left;"> @lopezobrador_ </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 19 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 7.0704367 </td>
+   <td style="text-align:right;"> 0.0085900 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Mención </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> Todos los corpus </td>
+   <td style="text-align:left;"> Menciones Quanteda </td>
+   <td style="text-align:left;"> @minenergiaco </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 19 </td>
+   <td style="text-align:right;"> 0.0003912 </td>
+   <td style="text-align:right;"> 9.2631579 </td>
+   <td style="text-align:right;"> 0.0199926 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 7 </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Mención </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> Todos los corpus </td>
+   <td style="text-align:left;"> Menciones Quanteda </td>
+   <td style="text-align:left;"> @potus </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 17 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 5.6594630 </td>
+   <td style="text-align:right;"> 0.0083828 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 1.0000000 </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Mención </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> Todos los corpus </td>
+   <td style="text-align:left;"> Menciones Quanteda </td>
+   <td style="text-align:left;"> @cne_colombia </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 14 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 2.4494416 </td>
+   <td style="text-align:right;"> 0.0048933 </td>
+   <td style="text-align:right;"> 0.0063197 </td>
+   <td style="text-align:right;"> 1.0000000 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Mención </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> Todos los corpus </td>
+   <td style="text-align:left;"> Menciones Quanteda </td>
+   <td style="text-align:left;"> @onu_es </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 14 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 2.8102778 </td>
+   <td style="text-align:right;"> 0.0037182 </td>
+   <td style="text-align:right;"> 0.0687168 </td>
+   <td style="text-align:right;"> 1.0000000 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Mención </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> Todos los corpus </td>
+   <td style="text-align:left;"> Menciones Quanteda </td>
+   <td style="text-align:left;"> @fuerzasmilcol </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 14 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 3.1041903 </td>
+   <td style="text-align:right;"> 0.0039979 </td>
+   <td style="text-align:right;"> 0.0476402 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Mención </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> Todos los corpus </td>
+   <td style="text-align:left;"> Menciones Quanteda </td>
+   <td style="text-align:left;"> @danielrmed </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 13 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 6.7407407 </td>
+   <td style="text-align:right;"> 0.0131007 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 6 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Mención </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> Todos los corpus </td>
+   <td style="text-align:left;"> Menciones Quanteda </td>
+   <td style="text-align:left;"> @hollmanmorris </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 12 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 3.3174987 </td>
+   <td style="text-align:right;"> 0.0039622 </td>
+   <td style="text-align:right;"> 0.0005379 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Mención </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> Todos los corpus </td>
+   <td style="text-align:left;"> Menciones Quanteda </td>
+   <td style="text-align:left;"> @elcolombiano </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 11 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 3.0531583 </td>
+   <td style="text-align:right;"> 0.0038014 </td>
+   <td style="text-align:right;"> 0.0061880 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Mención </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> Todos los corpus </td>
+   <td style="text-align:left;"> Menciones Quanteda </td>
+   <td style="text-align:left;"> @superservicios </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 11 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 6.5185185 </td>
+   <td style="text-align:right;"> 0.0118933 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 7 </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Mención </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> Todos los corpus </td>
+   <td style="text-align:left;"> Menciones Quanteda </td>
+   <td style="text-align:left;"> @minhacienda </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 10 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 2.8613109 </td>
+   <td style="text-align:right;"> 0.0036340 </td>
+   <td style="text-align:right;"> 0.0002051 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Mención </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> Todos los corpus </td>
+   <td style="text-align:left;"> Menciones Quanteda </td>
+   <td style="text-align:left;"> @pactohistorico </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 9 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 3.2222118 </td>
+   <td style="text-align:right;"> 0.0034406 </td>
+   <td style="text-align:right;"> 0.0009888 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Mención </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> Todos los corpus </td>
+   <td style="text-align:left;"> Menciones Quanteda </td>
+   <td style="text-align:left;"> @nayibbukele </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 8 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 4.5663617 </td>
+   <td style="text-align:right;"> 0.0051911 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Mención </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> Todos los corpus </td>
+   <td style="text-align:left;"> Menciones Quanteda </td>
+   <td style="text-align:left;"> @cathyjuvinao </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 8 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 3.1334749 </td>
+   <td style="text-align:right;"> 0.0033572 </td>
+   <td style="text-align:right;"> 0.0013695 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Mención </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> Todos los corpus </td>
+   <td style="text-align:left;"> Menciones Quanteda </td>
+   <td style="text-align:left;"> @irenevelezt </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 8 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 5.8666667 </td>
+   <td style="text-align:right;"> 0.0092100 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 7 </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Mención </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> Todos los corpus </td>
+   <td style="text-align:left;"> Menciones Quanteda </td>
+   <td style="text-align:left;"> @ivan_velasquez_ </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 7 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 2.1220069 </td>
+   <td style="text-align:right;"> 0.0039361 </td>
+   <td style="text-align:right;"> 0.0019610 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Mención </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> Todos los corpus </td>
+   <td style="text-align:left;"> Menciones Quanteda </td>
+   <td style="text-align:left;"> @fecode </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 7 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 5.5151515 </td>
+   <td style="text-align:right;"> 0.0080026 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 6 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Mención </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> Todos los corpus </td>
+   <td style="text-align:left;"> Menciones Quanteda </td>
+   <td style="text-align:left;"> @veronicalcocerg </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 7 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 2.5140198 </td>
+   <td style="text-align:right;"> 0.0033098 </td>
+   <td style="text-align:right;"> 0.0001228 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Hashtag </td>
+   <td style="text-align:left;"> opinion </td>
+   <td style="text-align:left;"> Lo que opinan de Petro </td>
+   <td style="text-align:left;"> Hashtag - Lo que opinan de Petro </td>
+   <td style="text-align:left;"> #colombia </td>
+   <td style="text-align:right;"> 13 </td>
+   <td style="text-align:right;"> 46 </td>
+   <td style="text-align:right;"> 0.2658730 </td>
+   <td style="text-align:right;"> 2.4475524 </td>
+   <td style="text-align:right;"> 0.1930865 </td>
+   <td style="text-align:right;"> 1.0000000 </td>
+   <td style="text-align:right;"> 0.0641026 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Hashtag </td>
+   <td style="text-align:left;"> opinion </td>
+   <td style="text-align:left;"> Lo que opinan de Petro </td>
+   <td style="text-align:left;"> Hashtag - Lo que opinan de Petro </td>
+   <td style="text-align:left;"> #redprogresista </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 15 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 7.4666667 </td>
+   <td style="text-align:right;"> 0.0383620 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 1.0000000 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Hashtag </td>
+   <td style="text-align:left;"> opinion </td>
+   <td style="text-align:left;"> Lo que opinan de Petro </td>
+   <td style="text-align:left;"> Hashtag - Lo que opinan de Petro </td>
+   <td style="text-align:left;"> #progresistasigueprogresista </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 13 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 6.1538462 </td>
+   <td style="text-align:right;"> 0.0336846 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 1.0000000 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Hashtag </td>
+   <td style="text-align:left;"> opinion </td>
+   <td style="text-align:left;"> Lo que opinan de Petro </td>
+   <td style="text-align:left;"> Hashtag - Lo que opinan de Petro </td>
+   <td style="text-align:left;"> #siguemeytesigo </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 12 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 5.8333333 </td>
+   <td style="text-align:right;"> 0.0314016 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 1.0000000 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Hashtag </td>
+   <td style="text-align:left;"> opinion </td>
+   <td style="text-align:left;"> Lo que opinan de Petro </td>
+   <td style="text-align:left;"> Hashtag - Lo que opinan de Petro </td>
+   <td style="text-align:left;"> #cali </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:right;"> 11 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 1.7184943 </td>
+   <td style="text-align:right;"> 0.0454862 </td>
+   <td style="text-align:right;"> 0.4558864 </td>
+   <td style="text-align:right;"> 0.6666667 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Hashtag </td>
+   <td style="text-align:left;"> opinion </td>
+   <td style="text-align:left;"> Lo que opinan de Petro </td>
+   <td style="text-align:left;"> Hashtag - Lo que opinan de Petro </td>
+   <td style="text-align:left;"> #bogota </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:right;"> 10 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 1.5993907 </td>
+   <td style="text-align:right;"> 0.0418678 </td>
+   <td style="text-align:right;"> 0.3968304 </td>
+   <td style="text-align:right;"> 0.6666667 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Hashtag </td>
+   <td style="text-align:left;"> opinion </td>
+   <td style="text-align:left;"> Lo que opinan de Petro </td>
+   <td style="text-align:left;"> Hashtag - Lo que opinan de Petro </td>
+   <td style="text-align:left;"> #petro </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 9 </td>
+   <td style="text-align:right;"> 0.0370370 </td>
+   <td style="text-align:right;"> 1.9125683 </td>
+   <td style="text-align:right;"> 0.0411514 </td>
+   <td style="text-align:right;"> 0.4687585 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Hashtag </td>
+   <td style="text-align:left;"> opinion </td>
+   <td style="text-align:left;"> Lo que opinan de Petro </td>
+   <td style="text-align:left;"> Hashtag - Lo que opinan de Petro </td>
+   <td style="text-align:left;"> #medellin </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 8 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 1.5578635 </td>
+   <td style="text-align:right;"> 0.0335912 </td>
+   <td style="text-align:right;"> 0.3754492 </td>
+   <td style="text-align:right;"> 1.0000000 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Hashtag </td>
+   <td style="text-align:left;"> opinion </td>
+   <td style="text-align:left;"> Lo que opinan de Petro </td>
+   <td style="text-align:left;"> Hashtag - Lo que opinan de Petro </td>
+   <td style="text-align:left;"> #uaencrisis </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 7 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 7.0000000 </td>
+   <td style="text-align:right;"> 0.0344828 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Hashtag </td>
+   <td style="text-align:left;"> opinion </td>
+   <td style="text-align:left;"> Lo que opinan de Petro </td>
+   <td style="text-align:left;"> Hashtag - Lo que opinan de Petro </td>
+   <td style="text-align:left;"> #venezuela </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 7 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 1.8453427 </td>
+   <td style="text-align:right;"> 0.0301477 </td>
+   <td style="text-align:right;"> 0.4606389 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Hashtag </td>
+   <td style="text-align:left;"> opinion </td>
+   <td style="text-align:left;"> Lo que opinan de Petro </td>
+   <td style="text-align:left;"> Hashtag - Lo que opinan de Petro </td>
+   <td style="text-align:left;"> #fueraleytondelaua </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 7 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 7.0000000 </td>
+   <td style="text-align:right;"> 0.0344828 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Hashtag </td>
+   <td style="text-align:left;"> opinion </td>
+   <td style="text-align:left;"> Lo que opinan de Petro </td>
+   <td style="text-align:left;"> Hashtag - Lo que opinan de Petro </td>
+   <td style="text-align:left;"> #pasto </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 1.1602210 </td>
+   <td style="text-align:right;"> 0.0193379 </td>
+   <td style="text-align:right;"> 0.1916108 </td>
+   <td style="text-align:right;"> 1.0000000 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Hashtag </td>
+   <td style="text-align:left;"> opinion </td>
+   <td style="text-align:left;"> Lo que opinan de Petro </td>
+   <td style="text-align:left;"> Hashtag - Lo que opinan de Petro </td>
+   <td style="text-align:left;"> #atención </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:right;"> 0.0370370 </td>
+   <td style="text-align:right;"> 1.2367491 </td>
+   <td style="text-align:right;"> 0.0261523 </td>
+   <td style="text-align:right;"> 0.1339310 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 7 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Hashtag </td>
+   <td style="text-align:left;"> opinion </td>
+   <td style="text-align:left;"> Lo que opinan de Petro </td>
+   <td style="text-align:left;"> Hashtag - Lo que opinan de Petro </td>
+   <td style="text-align:left;"> #cartagena </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 1.1647255 </td>
+   <td style="text-align:right;"> 0.0194257 </td>
+   <td style="text-align:right;"> 0.1838384 </td>
+   <td style="text-align:right;"> 1.0000000 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Hashtag </td>
+   <td style="text-align:left;"> opinion </td>
+   <td style="text-align:left;"> Lo que opinan de Petro </td>
+   <td style="text-align:left;"> Hashtag - Lo que opinan de Petro </td>
+   <td style="text-align:left;"> #noticia </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 3.0000000 </td>
+   <td style="text-align:right;"> 0.0344828 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Hashtag </td>
+   <td style="text-align:left;"> opinion </td>
+   <td style="text-align:left;"> Lo que opinan de Petro </td>
+   <td style="text-align:left;"> Hashtag - Lo que opinan de Petro </td>
+   <td style="text-align:left;"> #eln </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 3.0000000 </td>
+   <td style="text-align:right;"> 0.0344828 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Hashtag </td>
+   <td style="text-align:left;"> opinion </td>
+   <td style="text-align:left;"> Lo que opinan de Petro </td>
+   <td style="text-align:left;"> Hashtag - Lo que opinan de Petro </td>
+   <td style="text-align:left;"> #política </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 1.3895015 </td>
+   <td style="text-align:right;"> 0.0158761 </td>
+   <td style="text-align:right;"> 0.1974167 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Hashtag </td>
+   <td style="text-align:left;"> opinion </td>
+   <td style="text-align:left;"> Lo que opinan de Petro </td>
+   <td style="text-align:left;"> Hashtag - Lo que opinan de Petro </td>
+   <td style="text-align:left;"> #paztotal </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 1.3895015 </td>
+   <td style="text-align:right;"> 0.0158761 </td>
+   <td style="text-align:right;"> 0.1974167 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Hashtag </td>
+   <td style="text-align:left;"> opinion </td>
+   <td style="text-align:left;"> Lo que opinan de Petro </td>
+   <td style="text-align:left;"> Hashtag - Lo que opinan de Petro </td>
+   <td style="text-align:left;"> #ultimahora </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 3.0000000 </td>
+   <td style="text-align:right;"> 0.0344828 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Hashtag </td>
+   <td style="text-align:left;"> opinion </td>
+   <td style="text-align:left;"> Lo que opinan de Petro </td>
+   <td style="text-align:left;"> Hashtag - Lo que opinan de Petro </td>
+   <td style="text-align:left;"> #gustavopetro </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 1.3895015 </td>
+   <td style="text-align:right;"> 0.0158761 </td>
+   <td style="text-align:right;"> 0.1974167 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Hashtag </td>
+   <td style="text-align:left;"> opinion </td>
+   <td style="text-align:left;"> Lo que opinan de Petro </td>
+   <td style="text-align:left;"> Hashtag - Lo que opinan de Petro </td>
+   <td style="text-align:left;"> #farc </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 3.0000000 </td>
+   <td style="text-align:right;"> 0.0344828 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Hashtag </td>
+   <td style="text-align:left;"> opinion </td>
+   <td style="text-align:left;"> Lo que opinan de Petro </td>
+   <td style="text-align:left;"> Hashtag - Lo que opinan de Petro </td>
+   <td style="text-align:left;"> #petropresidente </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 2.0000000 </td>
+   <td style="text-align:right;"> 0.0344828 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 6 </td>
+   <td style="text-align:right;"> 6 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Hashtag </td>
+   <td style="text-align:left;"> opinion </td>
+   <td style="text-align:left;"> Lo que opinan de Petro </td>
+   <td style="text-align:left;"> Hashtag - Lo que opinan de Petro </td>
+   <td style="text-align:left;"> #reformatributaria </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 2.0000000 </td>
+   <td style="text-align:right;"> 0.0344828 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 8 </td>
+   <td style="text-align:right;"> 7 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Hashtag </td>
+   <td style="text-align:left;"> opinion </td>
+   <td style="text-align:left;"> Lo que opinan de Petro </td>
+   <td style="text-align:left;"> Hashtag - Lo que opinan de Petro </td>
+   <td style="text-align:left;"> #salud </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 1.0105871 </td>
+   <td style="text-align:right;"> 0.0129454 </td>
+   <td style="text-align:right;"> 0.0616938 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Hashtag </td>
+   <td style="text-align:left;"> opinion </td>
+   <td style="text-align:left;"> Lo que opinan de Petro </td>
+   <td style="text-align:left;"> Hashtag - Lo que opinan de Petro </td>
+   <td style="text-align:left;"> #conpetrohastaelfinal </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 2.0000000 </td>
+   <td style="text-align:right;"> 0.0344828 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 6 </td>
+   <td style="text-align:right;"> 6 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Hashtag </td>
+   <td style="text-align:left;"> opinion </td>
+   <td style="text-align:left;"> Lo que opinan de Petro </td>
+   <td style="text-align:left;"> Hashtag - Lo que opinan de Petro </td>
+   <td style="text-align:left;"> #urgente </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 0.7841673 </td>
+   <td style="text-align:right;"> 0.0162871 </td>
+   <td style="text-align:right;"> 0.0176268 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 7 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Hashtag </td>
+   <td style="text-align:left;"> opinion </td>
+   <td style="text-align:left;"> Lo que opinan de Petro </td>
+   <td style="text-align:left;"> Hashtag - Lo que opinan de Petro </td>
+   <td style="text-align:left;"> #fuerapetro </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 1.1425462 </td>
+   <td style="text-align:right;"> 0.0123082 </td>
+   <td style="text-align:right;"> 0.1316111 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Hashtag </td>
+   <td style="text-align:left;"> opinion </td>
+   <td style="text-align:left;"> Lo que opinan de Petro </td>
+   <td style="text-align:left;"> Hashtag - Lo que opinan de Petro </td>
+   <td style="text-align:left;"> #colombianos </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 1.1425462 </td>
+   <td style="text-align:right;"> 0.0123082 </td>
+   <td style="text-align:right;"> 0.1316111 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Hashtag </td>
+   <td style="text-align:left;"> opinion </td>
+   <td style="text-align:left;"> Lo que opinan de Petro </td>
+   <td style="text-align:left;"> Hashtag - Lo que opinan de Petro </td>
+   <td style="text-align:left;"> #petroeltramposo </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 2.0000000 </td>
+   <td style="text-align:right;"> 0.0344828 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 8 </td>
+   <td style="text-align:right;"> 7 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Mención </td>
+   <td style="text-align:left;"> opinion </td>
+   <td style="text-align:left;"> Lo que opinan de Petro </td>
+   <td style="text-align:left;"> Mención - Lo que opinan de Petro </td>
+   <td style="text-align:left;"> @ivancepedacast </td>
+   <td style="text-align:right;"> 13 </td>
+   <td style="text-align:right;"> 207 </td>
+   <td style="text-align:right;"> 0.2784921 </td>
+   <td style="text-align:right;"> 5.4127509 </td>
+   <td style="text-align:right;"> 0.0462477 </td>
+   <td style="text-align:right;"> 0.0124396 </td>
+   <td style="text-align:right;"> 0.2435897 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Mención </td>
+   <td style="text-align:left;"> opinion </td>
+   <td style="text-align:left;"> Lo que opinan de Petro </td>
+   <td style="text-align:left;"> Mención - Lo que opinan de Petro </td>
+   <td style="text-align:left;"> @gustavobolivar </td>
+   <td style="text-align:right;"> 12 </td>
+   <td style="text-align:right;"> 203 </td>
+   <td style="text-align:right;"> 0.1300409 </td>
+   <td style="text-align:right;"> 4.9675425 </td>
+   <td style="text-align:right;"> 0.0468798 </td>
+   <td style="text-align:right;"> 0.0081633 </td>
+   <td style="text-align:right;"> 0.2727273 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Mención </td>
+   <td style="text-align:left;"> opinion </td>
+   <td style="text-align:left;"> Lo que opinan de Petro </td>
+   <td style="text-align:left;"> Mención - Lo que opinan de Petro </td>
+   <td style="text-align:left;"> @fiscaliacol </td>
+   <td style="text-align:right;"> 8 </td>
+   <td style="text-align:right;"> 166 </td>
+   <td style="text-align:right;"> 0.2431327 </td>
+   <td style="text-align:right;"> 4.0301649 </td>
+   <td style="text-align:right;"> 0.0319393 </td>
+   <td style="text-align:right;"> 0.6879473 </td>
+   <td style="text-align:right;"> 0.2500000 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Mención </td>
+   <td style="text-align:left;"> opinion </td>
+   <td style="text-align:left;"> Lo que opinan de Petro </td>
+   <td style="text-align:left;"> Mención - Lo que opinan de Petro </td>
+   <td style="text-align:left;"> @alvarouribevel </td>
+   <td style="text-align:right;"> 9 </td>
+   <td style="text-align:right;"> 158 </td>
+   <td style="text-align:right;"> 0.2518995 </td>
+   <td style="text-align:right;"> 5.4841942 </td>
+   <td style="text-align:right;"> 0.0358143 </td>
+   <td style="text-align:right;"> 0.0265219 </td>
+   <td style="text-align:right;"> 0.3055556 </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Mención </td>
+   <td style="text-align:left;"> opinion </td>
+   <td style="text-align:left;"> Lo que opinan de Petro </td>
+   <td style="text-align:left;"> Mención - Lo que opinan de Petro </td>
+   <td style="text-align:left;"> @kremlinrussia_e </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:right;"> 144 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 3.4210063 </td>
+   <td style="text-align:right;"> 0.0244182 </td>
+   <td style="text-align:right;"> 1.0000000 </td>
+   <td style="text-align:right;"> 1.0000000 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Mención </td>
+   <td style="text-align:left;"> opinion </td>
+   <td style="text-align:left;"> Lo que opinan de Petro </td>
+   <td style="text-align:left;"> Mención - Lo que opinan de Petro </td>
+   <td style="text-align:left;"> @cnn </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:right;"> 144 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 3.4210063 </td>
+   <td style="text-align:right;"> 0.0244182 </td>
+   <td style="text-align:right;"> 1.0000000 </td>
+   <td style="text-align:right;"> 1.0000000 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Mención </td>
+   <td style="text-align:left;"> opinion </td>
+   <td style="text-align:left;"> Lo que opinan de Petro </td>
+   <td style="text-align:left;"> Mención - Lo que opinan de Petro </td>
+   <td style="text-align:left;"> @noticiascaracol </td>
+   <td style="text-align:right;"> 9 </td>
+   <td style="text-align:right;"> 129 </td>
+   <td style="text-align:right;"> 0.0566920 </td>
+   <td style="text-align:right;"> 4.0461863 </td>
+   <td style="text-align:right;"> 0.0277096 </td>
+   <td style="text-align:right;"> 0.0017265 </td>
+   <td style="text-align:right;"> 0.4722222 </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Mención </td>
+   <td style="text-align:left;"> opinion </td>
+   <td style="text-align:left;"> Lo que opinan de Petro </td>
+   <td style="text-align:left;"> Mención - Lo que opinan de Petro </td>
+   <td style="text-align:left;"> @mmflint </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:right;"> 124 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 3.4027297 </td>
+   <td style="text-align:right;"> 0.0212787 </td>
+   <td style="text-align:right;"> 0.8943104 </td>
+   <td style="text-align:right;"> 1.0000000 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Mención </td>
+   <td style="text-align:left;"> opinion </td>
+   <td style="text-align:left;"> Lo que opinan de Petro </td>
+   <td style="text-align:left;"> Mención - Lo que opinan de Petro </td>
+   <td style="text-align:left;"> @minsaludcol </td>
+   <td style="text-align:right;"> 7 </td>
+   <td style="text-align:right;"> 123 </td>
+   <td style="text-align:right;"> 0.1151373 </td>
+   <td style="text-align:right;"> 4.1963573 </td>
+   <td style="text-align:right;"> 0.0282575 </td>
+   <td style="text-align:right;"> 0.0014743 </td>
+   <td style="text-align:right;"> 0.3333333 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Mención </td>
+   <td style="text-align:left;"> opinion </td>
+   <td style="text-align:left;"> Lo que opinan de Petro </td>
+   <td style="text-align:left;"> Mención - Lo que opinan de Petro </td>
+   <td style="text-align:left;"> @policiacolombia </td>
+   <td style="text-align:right;"> 6 </td>
+   <td style="text-align:right;"> 118 </td>
+   <td style="text-align:right;"> 0.0753945 </td>
+   <td style="text-align:right;"> 3.5916982 </td>
+   <td style="text-align:right;"> 0.0249808 </td>
+   <td style="text-align:right;"> 0.6001794 </td>
+   <td style="text-align:right;"> 0.4666667 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Mención </td>
+   <td style="text-align:left;"> opinion </td>
+   <td style="text-align:left;"> Lo que opinan de Petro </td>
+   <td style="text-align:left;"> Mención - Lo que opinan de Petro </td>
+   <td style="text-align:left;"> @pizarromariajo </td>
+   <td style="text-align:right;"> 6 </td>
+   <td style="text-align:right;"> 112 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 4.8791720 </td>
+   <td style="text-align:right;"> 0.0246372 </td>
+   <td style="text-align:right;"> 0.0070836 </td>
+   <td style="text-align:right;"> 0.7333333 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Mención </td>
+   <td style="text-align:left;"> opinion </td>
+   <td style="text-align:left;"> Lo que opinan de Petro </td>
+   <td style="text-align:left;"> Mención - Lo que opinan de Petro </td>
+   <td style="text-align:left;"> @carolinacorcho </td>
+   <td style="text-align:right;"> 7 </td>
+   <td style="text-align:right;"> 93 </td>
+   <td style="text-align:right;"> 0.0946815 </td>
+   <td style="text-align:right;"> 4.9339511 </td>
+   <td style="text-align:right;"> 0.0205155 </td>
+   <td style="text-align:right;"> 0.0050615 </td>
+   <td style="text-align:right;"> 0.4285714 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Mención </td>
+   <td style="text-align:left;"> opinion </td>
+   <td style="text-align:left;"> Lo que opinan de Petro </td>
+   <td style="text-align:left;"> Mención - Lo que opinan de Petro </td>
+   <td style="text-align:left;"> @ga_jaramillo </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 89 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 3.9011462 </td>
+   <td style="text-align:right;"> 0.0196931 </td>
+   <td style="text-align:right;"> 0.0012034 </td>
+   <td style="text-align:right;"> 0.6000000 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Mención </td>
+   <td style="text-align:left;"> opinion </td>
+   <td style="text-align:left;"> Lo que opinan de Petro </td>
+   <td style="text-align:left;"> Mención - Lo que opinan de Petro </td>
+   <td style="text-align:left;"> @supersalud </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 81 </td>
+   <td style="text-align:right;"> 0.0064290 </td>
+   <td style="text-align:right;"> 3.7474279 </td>
+   <td style="text-align:right;"> 0.0187854 </td>
+   <td style="text-align:right;"> 0.0011046 </td>
+   <td style="text-align:right;"> 0.4000000 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Mención </td>
+   <td style="text-align:left;"> opinion </td>
+   <td style="text-align:left;"> Lo que opinan de Petro </td>
+   <td style="text-align:left;"> Mención - Lo que opinan de Petro </td>
+   <td style="text-align:left;"> @cortesupremaj </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:right;"> 80 </td>
+   <td style="text-align:right;"> 0.0514319 </td>
+   <td style="text-align:right;"> 3.5992074 </td>
+   <td style="text-align:right;"> 0.0195699 </td>
+   <td style="text-align:right;"> 0.2014388 </td>
+   <td style="text-align:right;"> 0.3333333 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Mención </td>
+   <td style="text-align:left;"> opinion </td>
+   <td style="text-align:left;"> Lo que opinan de Petro </td>
+   <td style="text-align:left;"> Mención - Lo que opinan de Petro </td>
+   <td style="text-align:left;"> @franciamarquezm </td>
+   <td style="text-align:right;"> 8 </td>
+   <td style="text-align:right;"> 79 </td>
+   <td style="text-align:right;"> 0.0263004 </td>
+   <td style="text-align:right;"> 4.2117532 </td>
+   <td style="text-align:right;"> 0.0206064 </td>
+   <td style="text-align:right;"> 0.0034818 </td>
+   <td style="text-align:right;"> 0.4285714 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Mención </td>
+   <td style="text-align:left;"> opinion </td>
+   <td style="text-align:left;"> Lo que opinan de Petro </td>
+   <td style="text-align:left;"> Mención - Lo que opinan de Petro </td>
+   <td style="text-align:left;"> @palomavalencial </td>
+   <td style="text-align:right;"> 6 </td>
+   <td style="text-align:right;"> 79 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 4.6434867 </td>
+   <td style="text-align:right;"> 0.0185815 </td>
+   <td style="text-align:right;"> 0.0113333 </td>
+   <td style="text-align:right;"> 0.6000000 </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Mención </td>
+   <td style="text-align:left;"> opinion </td>
+   <td style="text-align:left;"> Lo que opinan de Petro </td>
+   <td style="text-align:left;"> Mención - Lo que opinan de Petro </td>
+   <td style="text-align:left;"> @revistasemana </td>
+   <td style="text-align:right;"> 7 </td>
+   <td style="text-align:right;"> 76 </td>
+   <td style="text-align:right;"> 0.0981882 </td>
+   <td style="text-align:right;"> 4.4784887 </td>
+   <td style="text-align:right;"> 0.0170979 </td>
+   <td style="text-align:right;"> 0.0076720 </td>
+   <td style="text-align:right;"> 0.4285714 </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Mención </td>
+   <td style="text-align:left;"> opinion </td>
+   <td style="text-align:left;"> Lo que opinan de Petro </td>
+   <td style="text-align:left;"> Mención - Lo que opinan de Petro </td>
+   <td style="text-align:left;"> @eltiempo </td>
+   <td style="text-align:right;"> 6 </td>
+   <td style="text-align:right;"> 76 </td>
+   <td style="text-align:right;"> 0.0116891 </td>
+   <td style="text-align:right;"> 3.8896293 </td>
+   <td style="text-align:right;"> 0.0171194 </td>
+   <td style="text-align:right;"> 0.0016506 </td>
+   <td style="text-align:right;"> 0.7333333 </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Mención </td>
+   <td style="text-align:left;"> opinion </td>
+   <td style="text-align:left;"> Lo que opinan de Petro </td>
+   <td style="text-align:left;"> Mención - Lo que opinan de Petro </td>
+   <td style="text-align:left;"> @vickydavilah </td>
+   <td style="text-align:right;"> 6 </td>
+   <td style="text-align:right;"> 72 </td>
+   <td style="text-align:right;"> 0.2291058 </td>
+   <td style="text-align:right;"> 5.3346813 </td>
+   <td style="text-align:right;"> 0.0164594 </td>
+   <td style="text-align:right;"> 0.0516250 </td>
+   <td style="text-align:right;"> 0.4666667 </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Mención </td>
+   <td style="text-align:left;"> opinion </td>
+   <td style="text-align:left;"> Lo que opinan de Petro </td>
+   <td style="text-align:left;"> Mención - Lo que opinan de Petro </td>
+   <td style="text-align:left;"> @bluradioco </td>
+   <td style="text-align:right;"> 6 </td>
+   <td style="text-align:right;"> 72 </td>
+   <td style="text-align:right;"> 0.0128580 </td>
+   <td style="text-align:right;"> 3.3388253 </td>
+   <td style="text-align:right;"> 0.0167019 </td>
+   <td style="text-align:right;"> 0.0010550 </td>
+   <td style="text-align:right;"> 0.8000000 </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Mención </td>
+   <td style="text-align:left;"> opinion </td>
+   <td style="text-align:left;"> Lo que opinan de Petro </td>
+   <td style="text-align:left;"> Mención - Lo que opinan de Petro </td>
+   <td style="text-align:left;"> @noticiasrcn </td>
+   <td style="text-align:right;"> 6 </td>
+   <td style="text-align:right;"> 71 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 3.6377387 </td>
+   <td style="text-align:right;"> 0.0161502 </td>
+   <td style="text-align:right;"> 0.0011928 </td>
+   <td style="text-align:right;"> 0.8000000 </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Mención </td>
+   <td style="text-align:left;"> opinion </td>
+   <td style="text-align:left;"> Lo que opinan de Petro </td>
+   <td style="text-align:left;"> Mención - Lo que opinan de Petro </td>
+   <td style="text-align:left;"> @roybarreras </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 68 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 4.1382580 </td>
+   <td style="text-align:right;"> 0.0163193 </td>
+   <td style="text-align:right;"> 0.0036664 </td>
+   <td style="text-align:right;"> 0.8000000 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Mención </td>
+   <td style="text-align:left;"> opinion </td>
+   <td style="text-align:left;"> Lo que opinan de Petro </td>
+   <td style="text-align:left;"> Mención - Lo que opinan de Petro </td>
+   <td style="text-align:left;"> @wradiocolombia </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 66 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 3.3491179 </td>
+   <td style="text-align:right;"> 0.0153718 </td>
+   <td style="text-align:right;"> 0.0006535 </td>
+   <td style="text-align:right;"> 0.9000000 </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Mención </td>
+   <td style="text-align:left;"> opinion </td>
+   <td style="text-align:left;"> Lo que opinan de Petro </td>
+   <td style="text-align:left;"> Mención - Lo que opinan de Petro </td>
+   <td style="text-align:left;"> @elespectador </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 62 </td>
+   <td style="text-align:right;"> 0.0023378 </td>
+   <td style="text-align:right;"> 3.7377989 </td>
+   <td style="text-align:right;"> 0.0142319 </td>
+   <td style="text-align:right;"> 0.0011510 </td>
+   <td style="text-align:right;"> 0.6000000 </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Mención </td>
+   <td style="text-align:left;"> opinion </td>
+   <td style="text-align:left;"> Lo que opinan de Petro </td>
+   <td style="text-align:left;"> Mención - Lo que opinan de Petro </td>
+   <td style="text-align:left;"> @aabenedetti </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:right;"> 60 </td>
+   <td style="text-align:right;"> 0.0210403 </td>
+   <td style="text-align:right;"> 3.9537772 </td>
+   <td style="text-align:right;"> 0.0154744 </td>
+   <td style="text-align:right;"> 0.0027973 </td>
+   <td style="text-align:right;"> 0.6666667 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Mención </td>
+   <td style="text-align:left;"> opinion </td>
+   <td style="text-align:left;"> Lo que opinan de Petro </td>
+   <td style="text-align:left;"> Mención - Lo que opinan de Petro </td>
+   <td style="text-align:left;"> @abdelaespriella </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 58 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 4.3767247 </td>
+   <td style="text-align:right;"> 0.0138495 </td>
+   <td style="text-align:right;"> 0.0105583 </td>
+   <td style="text-align:right;"> 0.8000000 </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Mención </td>
+   <td style="text-align:left;"> opinion </td>
+   <td style="text-align:left;"> Lo que opinan de Petro </td>
+   <td style="text-align:left;"> Mención - Lo que opinan de Petro </td>
+   <td style="text-align:left;"> @mariafdacabal </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:right;"> 56 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 4.5291572 </td>
+   <td style="text-align:right;"> 0.0135199 </td>
+   <td style="text-align:right;"> 0.0117769 </td>
+   <td style="text-align:right;"> 1.0000000 </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Mención </td>
+   <td style="text-align:left;"> opinion </td>
+   <td style="text-align:left;"> Lo que opinan de Petro </td>
+   <td style="text-align:left;"> Mención - Lo que opinan de Petro </td>
+   <td style="text-align:left;"> @pgn_col </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 53 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 3.6513340 </td>
+   <td style="text-align:right;"> 0.0118337 </td>
+   <td style="text-align:right;"> 0.2327156 </td>
+   <td style="text-align:right;"> 1.0000000 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Mención </td>
+   <td style="text-align:left;"> opinion </td>
+   <td style="text-align:left;"> Lo que opinan de Petro </td>
+   <td style="text-align:left;"> Mención - Lo que opinan de Petro </td>
+   <td style="text-align:left;"> @lulaoficial </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 49 </td>
+   <td style="text-align:right;"> 0.0023378 </td>
+   <td style="text-align:right;"> 8.8202035 </td>
+   <td style="text-align:right;"> 0.0267186 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 0.6666667 </td>
+   <td style="text-align:right;"> 7 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Mención </td>
+   <td style="text-align:left;"> opinion </td>
+   <td style="text-align:left;"> Lo que opinan de Petro </td>
+   <td style="text-align:left;"> Mención - Lo que opinan de Petro </td>
+   <td style="text-align:left;"> @ivanduque </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 48 </td>
+   <td style="text-align:right;"> 0.0070134 </td>
+   <td style="text-align:right;"> 5.0357581 </td>
+   <td style="text-align:right;"> 0.0121652 </td>
+   <td style="text-align:right;"> 0.0452349 </td>
+   <td style="text-align:right;"> 0.3333333 </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Mención </td>
+   <td style="text-align:left;"> opinion </td>
+   <td style="text-align:left;"> Lo que opinan de Petro </td>
+   <td style="text-align:left;"> Mención - Lo que opinan de Petro </td>
+   <td style="text-align:left;"> @infopresidencia </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:right;"> 44 </td>
+   <td style="text-align:right;"> 0.0128580 </td>
+   <td style="text-align:right;"> 3.7018133 </td>
+   <td style="text-align:right;"> 0.0114379 </td>
+   <td style="text-align:right;"> 0.0011044 </td>
+   <td style="text-align:right;"> 0.3333333 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Mención </td>
+   <td style="text-align:left;"> opinion </td>
+   <td style="text-align:left;"> Lo que opinan de Petro </td>
+   <td style="text-align:left;"> Mención - Lo que opinan de Petro </td>
+   <td style="text-align:left;"> @lafm </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:right;"> 40 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 2.9226195 </td>
+   <td style="text-align:right;"> 0.0102368 </td>
+   <td style="text-align:right;"> 0.0003606 </td>
+   <td style="text-align:right;"> 1.0000000 </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Mención </td>
+   <td style="text-align:left;"> opinion </td>
+   <td style="text-align:left;"> Lo que opinan de Petro </td>
+   <td style="text-align:left;"> Mención - Lo que opinan de Petro </td>
+   <td style="text-align:left;"> @jmilei </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:right;"> 39 </td>
+   <td style="text-align:right;"> 0.0040912 </td>
+   <td style="text-align:right;"> 8.9381207 </td>
+   <td style="text-align:right;"> 0.0248706 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 0.1666667 </td>
+   <td style="text-align:right;"> 7 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Mención </td>
+   <td style="text-align:left;"> opinion </td>
+   <td style="text-align:left;"> Lo que opinan de Petro </td>
+   <td style="text-align:left;"> Mención - Lo que opinan de Petro </td>
+   <td style="text-align:left;"> @col_ejercito </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 34 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 3.1543864 </td>
+   <td style="text-align:right;"> 0.0100120 </td>
+   <td style="text-align:right;"> 0.1245153 </td>
+   <td style="text-align:right;"> 1.0000000 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Mención </td>
+   <td style="text-align:left;"> opinion </td>
+   <td style="text-align:left;"> Lo que opinan de Petro </td>
+   <td style="text-align:left;"> Mención - Lo que opinan de Petro </td>
+   <td style="text-align:left;"> @gabrielboric </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 34 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 6.5217391 </td>
+   <td style="text-align:right;"> 0.0190093 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 0.6666667 </td>
+   <td style="text-align:right;"> 7 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Mención </td>
+   <td style="text-align:left;"> opinion </td>
+   <td style="text-align:left;"> Lo que opinan de Petro </td>
+   <td style="text-align:left;"> Mención - Lo que opinan de Petro </td>
+   <td style="text-align:left;"> @cconstitucional </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 33 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 3.0452868 </td>
+   <td style="text-align:right;"> 0.0102245 </td>
+   <td style="text-align:right;"> 0.0338363 </td>
+   <td style="text-align:right;"> 1.0000000 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Mención </td>
+   <td style="text-align:left;"> opinion </td>
+   <td style="text-align:left;"> Lo que opinan de Petro </td>
+   <td style="text-align:left;"> Mención - Lo que opinan de Petro </td>
+   <td style="text-align:left;"> @davidracero </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 32 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 3.8102773 </td>
+   <td style="text-align:right;"> 0.0086558 </td>
+   <td style="text-align:right;"> 0.0022885 </td>
+   <td style="text-align:right;"> 1.0000000 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Mención </td>
+   <td style="text-align:left;"> opinion </td>
+   <td style="text-align:left;"> Lo que opinan de Petro </td>
+   <td style="text-align:left;"> Mención - Lo que opinan de Petro </td>
+   <td style="text-align:left;"> @juanmansantos </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 31 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 4.2940446 </td>
+   <td style="text-align:right;"> 0.0087686 </td>
+   <td style="text-align:right;"> 0.0085019 </td>
+   <td style="text-align:right;"> 1.0000000 </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Mención </td>
+   <td style="text-align:left;"> opinion </td>
+   <td style="text-align:left;"> Lo que opinan de Petro </td>
+   <td style="text-align:left;"> Mención - Lo que opinan de Petro </td>
+   <td style="text-align:left;"> @consejodeestado </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 30 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 2.9583157 </td>
+   <td style="text-align:right;"> 0.0095139 </td>
+   <td style="text-align:right;"> 0.0294987 </td>
+   <td style="text-align:right;"> 1.0000000 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Mención </td>
+   <td style="text-align:left;"> opinion </td>
+   <td style="text-align:left;"> Lo que opinan de Petro </td>
+   <td style="text-align:left;"> Mención - Lo que opinan de Petro </td>
+   <td style="text-align:left;"> @mindefensa </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 28 </td>
+   <td style="text-align:right;"> 0.0263004 </td>
+   <td style="text-align:right;"> 2.8085731 </td>
+   <td style="text-align:right;"> 0.0110292 </td>
+   <td style="text-align:right;"> 0.0666209 </td>
+   <td style="text-align:right;"> 0.3333333 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Mención </td>
+   <td style="text-align:left;"> opinion </td>
+   <td style="text-align:left;"> Lo que opinan de Petro </td>
+   <td style="text-align:left;"> Mención - Lo que opinan de Petro </td>
+   <td style="text-align:left;"> @pactocol </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 27 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 3.5306723 </td>
+   <td style="text-align:right;"> 0.0079204 </td>
+   <td style="text-align:right;"> 0.0018044 </td>
+   <td style="text-align:right;"> 1.0000000 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Mención </td>
+   <td style="text-align:left;"> opinion </td>
+   <td style="text-align:left;"> Lo que opinan de Petro </td>
+   <td style="text-align:left;"> Mención - Lo que opinan de Petro </td>
+   <td style="text-align:left;"> @nicolasmaduro </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 26 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 6.3363119 </td>
+   <td style="text-align:right;"> 0.0146446 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 1.0000000 </td>
+   <td style="text-align:right;"> 7 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Mención </td>
+   <td style="text-align:left;"> opinion </td>
+   <td style="text-align:left;"> Lo que opinan de Petro </td>
+   <td style="text-align:left;"> Mención - Lo que opinan de Petro </td>
+   <td style="text-align:left;"> @quinterocalle </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 26 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 3.7196158 </td>
+   <td style="text-align:right;"> 0.0075528 </td>
+   <td style="text-align:right;"> 0.0015501 </td>
+   <td style="text-align:right;"> 0.3333333 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Mención </td>
+   <td style="text-align:left;"> opinion </td>
+   <td style="text-align:left;"> Lo que opinan de Petro </td>
+   <td style="text-align:left;"> Mención - Lo que opinan de Petro </td>
+   <td style="text-align:left;"> @cedemocratico </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 26 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 4.1148887 </td>
+   <td style="text-align:right;"> 0.0075820 </td>
+   <td style="text-align:right;"> 0.0042905 </td>
+   <td style="text-align:right;"> 1.0000000 </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Mención </td>
+   <td style="text-align:left;"> opinion </td>
+   <td style="text-align:left;"> Lo que opinan de Petro </td>
+   <td style="text-align:left;"> Mención - Lo que opinan de Petro </td>
+   <td style="text-align:left;"> @senadogovco </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 23 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 23.0000000 </td>
+   <td style="text-align:right;"> 0.0166667 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 6 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Mención </td>
+   <td style="text-align:left;"> opinion </td>
+   <td style="text-align:left;"> Lo que opinan de Petro </td>
+   <td style="text-align:left;"> Mención - Lo que opinan de Petro </td>
+   <td style="text-align:left;"> @camaracolombia </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 23 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 23.0000000 </td>
+   <td style="text-align:right;"> 0.0166667 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 6 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Mención </td>
+   <td style="text-align:left;"> opinion </td>
+   <td style="text-align:left;"> Lo que opinan de Petro </td>
+   <td style="text-align:left;"> Mención - Lo que opinan de Petro </td>
+   <td style="text-align:left;"> @laurisarabia </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 23 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 3.1594612 </td>
+   <td style="text-align:right;"> 0.0073587 </td>
+   <td style="text-align:right;"> 0.0008559 </td>
+   <td style="text-align:right;"> 1.0000000 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Mención </td>
+   <td style="text-align:left;"> opinion </td>
+   <td style="text-align:left;"> Lo que opinan de Petro </td>
+   <td style="text-align:left;"> Mención - Lo que opinan de Petro </td>
+   <td style="text-align:left;"> @minenergiaco </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 19 </td>
+   <td style="text-align:right;"> 0.0005845 </td>
+   <td style="text-align:right;"> 9.2631579 </td>
+   <td style="text-align:right;"> 0.0243243 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 9 </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Mención </td>
+   <td style="text-align:left;"> opinion </td>
+   <td style="text-align:left;"> Lo que opinan de Petro </td>
+   <td style="text-align:left;"> Mención - Lo que opinan de Petro </td>
+   <td style="text-align:left;"> @danielrmed </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 13 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 13.0000000 </td>
+   <td style="text-align:right;"> 0.0166667 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 8 </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Mención </td>
+   <td style="text-align:left;"> opinion </td>
+   <td style="text-align:left;"> Lo que opinan de Petro </td>
+   <td style="text-align:left;"> Mención - Lo que opinan de Petro </td>
+   <td style="text-align:left;"> @mineducacion </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 13 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 13.0000000 </td>
+   <td style="text-align:right;"> 0.0166667 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 8 </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Mención </td>
+   <td style="text-align:left;"> opinion </td>
+   <td style="text-align:left;"> Lo que opinan de Petro </td>
+   <td style="text-align:left;"> Mención - Lo que opinan de Petro </td>
+   <td style="text-align:left;"> @hollmanmorris </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 12 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 3.5357113 </td>
+   <td style="text-align:right;"> 0.0048555 </td>
+   <td style="text-align:right;"> 0.0007817 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Mención </td>
+   <td style="text-align:left;"> opinion </td>
+   <td style="text-align:left;"> Lo que opinan de Petro </td>
+   <td style="text-align:left;"> Mención - Lo que opinan de Petro </td>
+   <td style="text-align:left;"> @superservicios </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 11 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 6.5185185 </td>
+   <td style="text-align:right;"> 0.0144701 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 9 </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Mención </td>
+   <td style="text-align:left;"> opinion </td>
+   <td style="text-align:left;"> Lo que opinan de Petro </td>
+   <td style="text-align:left;"> Mención - Lo que opinan de Petro </td>
+   <td style="text-align:left;"> @potus </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 10 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 5.2115813 </td>
+   <td style="text-align:right;"> 0.0079205 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 7 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Mención </td>
+   <td style="text-align:left;"> opinion </td>
+   <td style="text-align:left;"> Lo que opinan de Petro </td>
+   <td style="text-align:left;"> Mención - Lo que opinan de Petro </td>
+   <td style="text-align:left;"> @minhacienda </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 10 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 2.9750571 </td>
+   <td style="text-align:right;"> 0.0044528 </td>
+   <td style="text-align:right;"> 0.0001176 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Mención </td>
+   <td style="text-align:left;"> opinion </td>
+   <td style="text-align:left;"> Lo que opinan de Petro </td>
+   <td style="text-align:left;"> Mención - Lo que opinan de Petro </td>
+   <td style="text-align:left;"> @pactohistorico </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 9 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 3.4077983 </td>
+   <td style="text-align:right;"> 0.0042092 </td>
+   <td style="text-align:right;"> 0.0008934 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Mención </td>
+   <td style="text-align:left;"> opinion </td>
+   <td style="text-align:left;"> Lo que opinan de Petro </td>
+   <td style="text-align:left;"> Mención - Lo que opinan de Petro </td>
+   <td style="text-align:left;"> @nayibbukele </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 8 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 4.7196450 </td>
+   <td style="text-align:right;"> 0.0068364 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 7 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Mención </td>
+   <td style="text-align:left;"> opinion </td>
+   <td style="text-align:left;"> Lo que opinan de Petro </td>
+   <td style="text-align:left;"> Mención - Lo que opinan de Petro </td>
+   <td style="text-align:left;"> @irenevelezt </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 8 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 5.8666667 </td>
+   <td style="text-align:right;"> 0.0112055 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 9 </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Mención </td>
+   <td style="text-align:left;"> opinion </td>
+   <td style="text-align:left;"> Lo que opinan de Petro </td>
+   <td style="text-align:left;"> Mención - Lo que opinan de Petro </td>
+   <td style="text-align:left;"> @ivan_velasquez_ </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 7 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 2.0169251 </td>
+   <td style="text-align:right;"> 0.0048437 </td>
+   <td style="text-align:right;"> 0.0037213 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Mención </td>
+   <td style="text-align:left;"> opinion </td>
+   <td style="text-align:left;"> Lo que opinan de Petro </td>
+   <td style="text-align:left;"> Mención - Lo que opinan de Petro </td>
+   <td style="text-align:left;"> @veronicalcocerg </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 7 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 2.6512374 </td>
+   <td style="text-align:right;"> 0.0040520 </td>
+   <td style="text-align:right;"> 0.0001945 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Mención </td>
+   <td style="text-align:left;"> presidente </td>
+   <td style="text-align:left;"> Lo que Petro opina </td>
+   <td style="text-align:left;"> Mención - Lo que Petro opina </td>
+   <td style="text-align:left;"> @fiscaliacol </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 16 </td>
+   <td style="text-align:right;"> 0.0760234 </td>
+   <td style="text-align:right;"> 1.4025974 </td>
+   <td style="text-align:right;"> 0.1302545 </td>
+   <td style="text-align:right;"> 1.0000000 </td>
+   <td style="text-align:right;"> 0.2000000 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Mención </td>
+   <td style="text-align:left;"> presidente </td>
+   <td style="text-align:left;"> Lo que Petro opina </td>
+   <td style="text-align:left;"> Mención - Lo que Petro opina </td>
+   <td style="text-align:left;"> @policiacolombia </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 12 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 1.2705882 </td>
+   <td style="text-align:right;"> 0.0926089 </td>
+   <td style="text-align:right;"> 0.9521220 </td>
+   <td style="text-align:right;"> 0.6666667 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Mención </td>
+   <td style="text-align:left;"> presidente </td>
+   <td style="text-align:left;"> Lo que Petro opina </td>
+   <td style="text-align:left;"> Mención - Lo que Petro opina </td>
+   <td style="text-align:left;"> @lykanista </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 0.0292398 </td>
+   <td style="text-align:right;"> 1.1368421 </td>
+   <td style="text-align:right;"> 0.0481521 </td>
+   <td style="text-align:right;"> 0.3754960 </td>
+   <td style="text-align:right;"> 0.3333333 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Mención </td>
+   <td style="text-align:left;"> presidente </td>
+   <td style="text-align:left;"> Lo que Petro opina </td>
+   <td style="text-align:left;"> Mención - Lo que Petro opina </td>
+   <td style="text-align:left;"> @procuraduria </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 0.9000000 </td>
+   <td style="text-align:right;"> 0.0344591 </td>
+   <td style="text-align:right;"> 0.3676576 </td>
+   <td style="text-align:right;"> 1.0000000 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Mención </td>
+   <td style="text-align:left;"> presidente </td>
+   <td style="text-align:left;"> Lo que Petro opina </td>
+   <td style="text-align:left;"> Mención - Lo que Petro opina </td>
+   <td style="text-align:left;"> @caracolradio </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 2.0000000 </td>
+   <td style="text-align:right;"> 0.0500000 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Mención </td>
+   <td style="text-align:left;"> presidente </td>
+   <td style="text-align:left;"> Lo que Petro opina </td>
+   <td style="text-align:left;"> Mención - Lo que Petro opina </td>
+   <td style="text-align:left;"> @cne_colombia </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 2.0000000 </td>
+   <td style="text-align:right;"> 0.0500000 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Mención </td>
+   <td style="text-align:left;"> presidente </td>
+   <td style="text-align:left;"> Lo que Petro opina </td>
+   <td style="text-align:left;"> Mención - Lo que Petro opina </td>
+   <td style="text-align:left;"> @eltiempo </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 2.0000000 </td>
+   <td style="text-align:right;"> 0.0500000 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Mención </td>
+   <td style="text-align:left;"> presidente </td>
+   <td style="text-align:left;"> Lo que Petro opina </td>
+   <td style="text-align:left;"> Mención - Lo que Petro opina </td>
+   <td style="text-align:left;"> @mintransporteco </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 1.0000000 </td>
+   <td style="text-align:right;"> 0.0500000 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 1.0000000 </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Mención </td>
+   <td style="text-align:left;"> presidente </td>
+   <td style="text-align:left;"> Lo que Petro opina </td>
+   <td style="text-align:left;"> Mención - Lo que Petro opina </td>
+   <td style="text-align:left;"> @mindefensa </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 1.0000000 </td>
+   <td style="text-align:right;"> 0.0500000 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 1.0000000 </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Mención </td>
+   <td style="text-align:left;"> presidente </td>
+   <td style="text-align:left;"> Lo que Petro opina </td>
+   <td style="text-align:left;"> Mención - Lo que Petro opina </td>
+   <td style="text-align:left;"> @jsanchezcristo </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 2.0000000 </td>
+   <td style="text-align:right;"> 0.0500000 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Mención </td>
+   <td style="text-align:left;"> presidente </td>
+   <td style="text-align:left;"> Lo que Petro opina </td>
+   <td style="text-align:left;"> Mención - Lo que Petro opina </td>
+   <td style="text-align:left;"> @cne </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 2.0000000 </td>
+   <td style="text-align:right;"> 0.0500000 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Mención </td>
+   <td style="text-align:left;"> presidente </td>
+   <td style="text-align:left;"> Lo que Petro opina </td>
+   <td style="text-align:left;"> Mención - Lo que Petro opina </td>
+   <td style="text-align:left;"> @carcacoltv </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 2.0000000 </td>
+   <td style="text-align:right;"> 0.0500000 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Mención </td>
+   <td style="text-align:left;"> presidente </td>
+   <td style="text-align:left;"> Lo que Petro opina </td>
+   <td style="text-align:left;"> Mención - Lo que Petro opina </td>
+   <td style="text-align:left;"> @ungrd </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 1.0000000 </td>
+   <td style="text-align:right;"> 0.0500000 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 1.0000000 </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Mención </td>
+   <td style="text-align:left;"> presidente </td>
+   <td style="text-align:left;"> Lo que Petro opina </td>
+   <td style="text-align:left;"> Mención - Lo que Petro opina </td>
+   <td style="text-align:left;"> @bluradioco </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 1.0000000 </td>
+   <td style="text-align:right;"> 0.0500000 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 6 </td>
+   <td style="text-align:right;"> 6 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Mención </td>
+   <td style="text-align:left;"> presidente </td>
+   <td style="text-align:left;"> Lo que Petro opina </td>
+   <td style="text-align:left;"> Mención - Lo que Petro opina </td>
+   <td style="text-align:left;"> @mintrabajocol </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 0.6467066 </td>
+   <td style="text-align:right;"> 0.0144198 </td>
+   <td style="text-align:right;"> 0.0941687 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Mención </td>
+   <td style="text-align:left;"> presidente </td>
+   <td style="text-align:left;"> Lo que Petro opina </td>
+   <td style="text-align:left;"> Mención - Lo que Petro opina </td>
+   <td style="text-align:left;"> @flip_org </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 1.0000000 </td>
+   <td style="text-align:right;"> 0.0500000 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 7 </td>
+   <td style="text-align:right;"> 7 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Mención </td>
+   <td style="text-align:left;"> presidente </td>
+   <td style="text-align:left;"> Lo que Petro opina </td>
+   <td style="text-align:left;"> Mención - Lo que Petro opina </td>
+   <td style="text-align:left;"> @elespectador </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 0.5837838 </td>
+   <td style="text-align:right;"> 0.0156859 </td>
+   <td style="text-align:right;"> 0.0353600 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Mención </td>
+   <td style="text-align:left;"> presidente </td>
+   <td style="text-align:left;"> Lo que Petro opina </td>
+   <td style="text-align:left;"> Mención - Lo que Petro opina </td>
+   <td style="text-align:left;"> @lafm </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 1.0000000 </td>
+   <td style="text-align:right;"> 0.0500000 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 6 </td>
+   <td style="text-align:right;"> 6 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Mención </td>
+   <td style="text-align:left;"> presidente </td>
+   <td style="text-align:left;"> Lo que Petro opina </td>
+   <td style="text-align:left;"> Mención - Lo que Petro opina </td>
+   <td style="text-align:left;"> @caracoltv </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 1.0000000 </td>
+   <td style="text-align:right;"> 0.0500000 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 7 </td>
+   <td style="text-align:right;"> 7 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Mención </td>
+   <td style="text-align:left;"> presidente </td>
+   <td style="text-align:left;"> Lo que Petro opina </td>
+   <td style="text-align:left;"> Mención - Lo que Petro opina </td>
+   <td style="text-align:left;"> @audifarma </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 0.6467066 </td>
+   <td style="text-align:right;"> 0.0144198 </td>
+   <td style="text-align:right;"> 0.0941687 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+</tbody>
+</table>
+</body>
+</html>
+

@@ -1,0 +1,2726 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Keyness por tema</title>
+<style>body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;margin:24px;color:#222}table{border-collapse:collapse;width:100%;font-size:13px}th,td{border:1px solid #ddd;padding:6px 8px;text-align:left;vertical-align:top}th{background:#f3f5f2}caption{text-align:left;font-weight:700;font-size:18px;margin-bottom:4px}.subtitle{color:#666;margin:0 0 14px 0}</style>
+</head>
+<body>
+<h1>Keyness por tema</h1><p class="subtitle">Términos característicos frente al resto del corpus</p><table>
+ <thead>
+  <tr>
+   <th style="text-align:left;"> theme </th>
+   <th style="text-align:left;"> feature </th>
+   <th style="text-align:right;"> chi2 </th>
+   <th style="text-align:right;"> p </th>
+   <th style="text-align:right;"> n_target </th>
+   <th style="text-align:right;"> n_reference </th>
+   <th style="text-align:left;"> status </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> salud </td>
+   <td style="text-align:left;"> salud </td>
+   <td style="text-align:right;"> 9773.51880 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 1218 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> salud </td>
+   <td style="text-align:left;"> eps </td>
+   <td style="text-align:right;"> 4258.93394 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 532 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> salud </td>
+   <td style="text-align:left;"> sistema </td>
+   <td style="text-align:right;"> 1386.82848 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 304 </td>
+   <td style="text-align:right;"> 161 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> salud </td>
+   <td style="text-align:left;"> hospital </td>
+   <td style="text-align:right;"> 1071.28896 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 134 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> salud </td>
+   <td style="text-align:left;"> medicamentos </td>
+   <td style="text-align:right;"> 1063.29065 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 133 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> salud </td>
+   <td style="text-align:left;"> hospitales </td>
+   <td style="text-align:right;"> 799.37707 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 100 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> salud </td>
+   <td style="text-align:left;"> educación </td>
+   <td style="text-align:right;"> 660.81858 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 175 </td>
+   <td style="text-align:right;"> 130 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> salud </td>
+   <td style="text-align:left;"> pacientes </td>
+   <td style="text-align:right;"> 559.50695 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 70 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> salud </td>
+   <td style="text-align:left;"> clínicas </td>
+   <td style="text-align:right;"> 551.51212 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 69 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> salud </td>
+   <td style="text-align:left;"> recursos </td>
+   <td style="text-align:right;"> 417.30533 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 129 </td>
+   <td style="text-align:right;"> 120 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> salud </td>
+   <td style="text-align:left;"> mortalidad </td>
+   <td style="text-align:right;"> 413.40790 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 67 </td>
+   <td style="text-align:right;"> 15 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> salud </td>
+   <td style="text-align:left;"> pesos </td>
+   <td style="text-align:right;"> 386.17294 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 150 </td>
+   <td style="text-align:right;"> 184 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> salud </td>
+   <td style="text-align:left;"> billones </td>
+   <td style="text-align:right;"> 382.31404 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 128 </td>
+   <td style="text-align:right;"> 132 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> salud </td>
+   <td style="text-align:left;"> preventiva </td>
+   <td style="text-align:right;"> 330.42910 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 48 </td>
+   <td style="text-align:right;"> 6 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> salud </td>
+   <td style="text-align:left;"> preventivo </td>
+   <td style="text-align:right;"> 325.19922 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 43 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> salud </td>
+   <td style="text-align:left;"> medicina </td>
+   <td style="text-align:right;"> 318.74833 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 41 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> salud </td>
+   <td style="text-align:left;"> coosalud </td>
+   <td style="text-align:right;"> 300.17436 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 41 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> salud </td>
+   <td style="text-align:left;"> médicos </td>
+   <td style="text-align:right;"> 299.70467 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 46 </td>
+   <td style="text-align:right;"> 8 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> salud </td>
+   <td style="text-align:left;"> primaria </td>
+   <td style="text-align:right;"> 298.99458 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 44 </td>
+   <td style="text-align:right;"> 6 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> salud </td>
+   <td style="text-align:left;"> públicos </td>
+   <td style="text-align:right;"> 282.76019 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 108 </td>
+   <td style="text-align:right;"> 130 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> salud </td>
+   <td style="text-align:left;"> deudas </td>
+   <td style="text-align:right;"> 258.75803 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 48 </td>
+   <td style="text-align:right;"> 17 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> salud </td>
+   <td style="text-align:left;"> modelo </td>
+   <td style="text-align:right;"> 256.71711 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 64 </td>
+   <td style="text-align:right;"> 43 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> salud </td>
+   <td style="text-align:left;"> paciente </td>
+   <td style="text-align:right;"> 254.81901 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 33 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> salud </td>
+   <td style="text-align:left;"> infantil </td>
+   <td style="text-align:right;"> 248.30380 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 48 </td>
+   <td style="text-align:right;"> 19 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> salud </td>
+   <td style="text-align:left;"> equipos </td>
+   <td style="text-align:right;"> 233.78230 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 40 </td>
+   <td style="text-align:right;"> 11 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> laboral </td>
+   <td style="text-align:left;"> salario </td>
+   <td style="text-align:right;"> 3200.05151 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 346 </td>
+   <td style="text-align:right;"> 16 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> laboral </td>
+   <td style="text-align:left;"> trabajo </td>
+   <td style="text-align:right;"> 2959.12804 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 348 </td>
+   <td style="text-align:right;"> 42 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> laboral </td>
+   <td style="text-align:left;"> trabajadores </td>
+   <td style="text-align:right;"> 2399.52060 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 266 </td>
+   <td style="text-align:right;"> 18 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> laboral </td>
+   <td style="text-align:left;"> laboral </td>
+   <td style="text-align:right;"> 2019.05137 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 250 </td>
+   <td style="text-align:right;"> 42 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> laboral </td>
+   <td style="text-align:left;"> mínimo </td>
+   <td style="text-align:right;"> 1420.27795 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 166 </td>
+   <td style="text-align:right;"> 19 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> laboral </td>
+   <td style="text-align:left;"> contrato </td>
+   <td style="text-align:right;"> 1132.48100 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 124 </td>
+   <td style="text-align:right;"> 7 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> laboral </td>
+   <td style="text-align:left;"> trabajador </td>
+   <td style="text-align:right;"> 1060.31389 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 111 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> laboral </td>
+   <td style="text-align:left;"> empleo </td>
+   <td style="text-align:right;"> 928.77150 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 112 </td>
+   <td style="text-align:right;"> 16 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> laboral </td>
+   <td style="text-align:left;"> vital </td>
+   <td style="text-align:right;"> 724.68620 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 99 </td>
+   <td style="text-align:right;"> 26 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> laboral </td>
+   <td style="text-align:left;"> trabajadora </td>
+   <td style="text-align:right;"> 582.27359 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 62 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> laboral </td>
+   <td style="text-align:left;"> jornada </td>
+   <td style="text-align:right;"> 434.62857 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 51 </td>
+   <td style="text-align:right;"> 6 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> laboral </td>
+   <td style="text-align:left;"> trabajadoras </td>
+   <td style="text-align:right;"> 348.09979 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 39 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> laboral </td>
+   <td style="text-align:left;"> productividad </td>
+   <td style="text-align:right;"> 309.56720 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 43 </td>
+   <td style="text-align:right;"> 12 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> laboral </td>
+   <td style="text-align:left;"> laborales </td>
+   <td style="text-align:right;"> 242.91387 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 31 </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> laboral </td>
+   <td style="text-align:left;"> desempleo </td>
+   <td style="text-align:right;"> 239.57583 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 51 </td>
+   <td style="text-align:right;"> 39 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> laboral </td>
+   <td style="text-align:left;"> clase </td>
+   <td style="text-align:right;"> 236.83242 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 58 </td>
+   <td style="text-align:right;"> 55 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> laboral </td>
+   <td style="text-align:left;"> desocupación </td>
+   <td style="text-align:right;"> 222.93449 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 28 </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> laboral </td>
+   <td style="text-align:left;"> horas </td>
+   <td style="text-align:right;"> 215.62569 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 59 </td>
+   <td style="text-align:right;"> 65 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> laboral </td>
+   <td style="text-align:left;"> trabajar </td>
+   <td style="text-align:right;"> 209.85877 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 47 </td>
+   <td style="text-align:right;"> 39 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> laboral </td>
+   <td style="text-align:left;"> aumento </td>
+   <td style="text-align:right;"> 173.64473 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 57 </td>
+   <td style="text-align:right;"> 78 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> laboral </td>
+   <td style="text-align:left;"> riqueza </td>
+   <td style="text-align:right;"> 165.94161 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 45 </td>
+   <td style="text-align:right;"> 49 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> laboral </td>
+   <td style="text-align:left;"> gente </td>
+   <td style="text-align:right;"> 165.07438 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 122 </td>
+   <td style="text-align:right;"> 334 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> laboral </td>
+   <td style="text-align:left;"> sindicatos </td>
+   <td style="text-align:right;"> 164.93160 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 21 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> laboral </td>
+   <td style="text-align:left;"> ahorro </td>
+   <td style="text-align:right;"> 143.78704 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 40 </td>
+   <td style="text-align:right;"> 45 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> laboral </td>
+   <td style="text-align:left;"> ahorros </td>
+   <td style="text-align:right;"> 127.75397 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 29 </td>
+   <td style="text-align:right;"> 23 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> pensional </td>
+   <td style="text-align:left;"> pensional </td>
+   <td style="text-align:right;"> 9352.19941 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 196 </td>
+   <td style="text-align:right;"> 62 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> pensional </td>
+   <td style="text-align:left;"> pensiones </td>
+   <td style="text-align:right;"> 3191.97476 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 80 </td>
+   <td style="text-align:right;"> 44 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> pensional </td>
+   <td style="text-align:left;"> bono </td>
+   <td style="text-align:right;"> 2816.93369 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 53 </td>
+   <td style="text-align:right;"> 9 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> pensional </td>
+   <td style="text-align:left;"> fondos </td>
+   <td style="text-align:right;"> 1935.70441 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 58 </td>
+   <td style="text-align:right;"> 48 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> pensional </td>
+   <td style="text-align:left;"> pensión </td>
+   <td style="text-align:right;"> 1546.26010 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 55 </td>
+   <td style="text-align:right;"> 63 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> pensional </td>
+   <td style="text-align:left;"> pensionados </td>
+   <td style="text-align:right;"> 1063.74009 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 21 </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> pensional </td>
+   <td style="text-align:left;"> cotizantes </td>
+   <td style="text-align:right;"> 981.92669 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 21 </td>
+   <td style="text-align:right;"> 6 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> pensional </td>
+   <td style="text-align:left;"> reforma </td>
+   <td style="text-align:right;"> 931.11819 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 119 </td>
+   <td style="text-align:right;"> 685 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> pensional </td>
+   <td style="text-align:left;"> viejas </td>
+   <td style="text-align:right;"> 770.08606 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 18 </td>
+   <td style="text-align:right;"> 7 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> pensional </td>
+   <td style="text-align:left;"> colpensiones </td>
+   <td style="text-align:right;"> 728.91685 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 23 </td>
+   <td style="text-align:right;"> 20 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> pensional </td>
+   <td style="text-align:left;"> mensuales </td>
+   <td style="text-align:right;"> 716.62854 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 22 </td>
+   <td style="text-align:right;"> 18 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> pensional </td>
+   <td style="text-align:left;"> privados </td>
+   <td style="text-align:right;"> 679.52192 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 41 </td>
+   <td style="text-align:right;"> 101 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> pensional </td>
+   <td style="text-align:left;"> viejos </td>
+   <td style="text-align:right;"> 632.30871 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 22 </td>
+   <td style="text-align:right;"> 23 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> pensional </td>
+   <td style="text-align:left;"> edad </td>
+   <td style="text-align:right;"> 604.28621 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 31 </td>
+   <td style="text-align:right;"> 61 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> pensional </td>
+   <td style="text-align:left;"> ahorro </td>
+   <td style="text-align:right;"> 571.70101 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 29 </td>
+   <td style="text-align:right;"> 56 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> pensional </td>
+   <td style="text-align:left;"> ancianas </td>
+   <td style="text-align:right;"> 457.79617 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 9 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> pensional </td>
+   <td style="text-align:left;"> pensionales </td>
+   <td style="text-align:right;"> 414.63994 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 9 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> pensional </td>
+   <td style="text-align:left;"> tercera </td>
+   <td style="text-align:right;"> 404.93940 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 21 </td>
+   <td style="text-align:right;"> 41 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> pensional </td>
+   <td style="text-align:left;"> adultos </td>
+   <td style="text-align:right;"> 404.65670 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 10 </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> pensional </td>
+   <td style="text-align:left;"> asofondos </td>
+   <td style="text-align:right;"> 354.65800 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 8 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> pensional </td>
+   <td style="text-align:left;"> abuelos </td>
+   <td style="text-align:right;"> 348.25297 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 9 </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> pensional </td>
+   <td style="text-align:left;"> ancianos </td>
+   <td style="text-align:right;"> 324.09924 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 11 </td>
+   <td style="text-align:right;"> 10 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> pensional </td>
+   <td style="text-align:left;"> reformapensionalya </td>
+   <td style="text-align:right;"> 320.31069 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 6 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> pensional </td>
+   <td style="text-align:left;"> ahorros </td>
+   <td style="text-align:right;"> 311.48132 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 17 </td>
+   <td style="text-align:right;"> 35 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> pensional </td>
+   <td style="text-align:left;"> pensionarse </td>
+   <td style="text-align:right;"> 293.23066 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 10 </td>
+   <td style="text-align:right;"> 9 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> tributaria </td>
+   <td style="text-align:left;"> impuestos </td>
+   <td style="text-align:right;"> 5729.93975 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 187 </td>
+   <td style="text-align:right;"> 35 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> tributaria </td>
+   <td style="text-align:left;"> tributaria </td>
+   <td style="text-align:right;"> 3257.17691 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 111 </td>
+   <td style="text-align:right;"> 25 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> tributaria </td>
+   <td style="text-align:left;"> impuesto </td>
+   <td style="text-align:right;"> 3173.56137 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 96 </td>
+   <td style="text-align:right;"> 9 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> tributaria </td>
+   <td style="text-align:left;"> renta </td>
+   <td style="text-align:right;"> 2647.87943 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 78 </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> tributaria </td>
+   <td style="text-align:left;"> patrimonio </td>
+   <td style="text-align:right;"> 1189.53846 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 41 </td>
+   <td style="text-align:right;"> 9 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> tributaria </td>
+   <td style="text-align:left;"> iva </td>
+   <td style="text-align:right;"> 1107.63953 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 34 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> tributaria </td>
+   <td style="text-align:left;"> dian </td>
+   <td style="text-align:right;"> 889.74290 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 28 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> tributaria </td>
+   <td style="text-align:left;"> ricos </td>
+   <td style="text-align:right;"> 443.38102 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 40 </td>
+   <td style="text-align:right;"> 76 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> tributaria </td>
+   <td style="text-align:left;"> financiamiento </td>
+   <td style="text-align:right;"> 416.38266 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 30 </td>
+   <td style="text-align:right;"> 41 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> tributaria </td>
+   <td style="text-align:left;"> empresas </td>
+   <td style="text-align:right;"> 398.11761 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 52 </td>
+   <td style="text-align:right;"> 158 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> tributaria </td>
+   <td style="text-align:left;"> predial </td>
+   <td style="text-align:right;"> 367.11810 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 11 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> tributaria </td>
+   <td style="text-align:left;"> reforma </td>
+   <td style="text-align:right;"> 346.59748 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 106 </td>
+   <td style="text-align:right;"> 698 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> tributaria </td>
+   <td style="text-align:left;"> recaudo </td>
+   <td style="text-align:right;"> 263.65962 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 11 </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> tributaria </td>
+   <td style="text-align:left;"> ponerle </td>
+   <td style="text-align:right;"> 217.20345 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 13 </td>
+   <td style="text-align:right;"> 12 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> tributaria </td>
+   <td style="text-align:left;"> ciudadana </td>
+   <td style="text-align:right;"> 203.19095 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 20 </td>
+   <td style="text-align:right;"> 41 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> tributaria </td>
+   <td style="text-align:left;"> tributarias </td>
+   <td style="text-align:right;"> 191.51539 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 7 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> tributaria </td>
+   <td style="text-align:left;"> paguen </td>
+   <td style="text-align:right;"> 180.92077 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 14 </td>
+   <td style="text-align:right;"> 20 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> tributaria </td>
+   <td style="text-align:left;"> megarricos </td>
+   <td style="text-align:right;"> 157.10048 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 11 </td>
+   <td style="text-align:right;"> 13 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> tributaria </td>
+   <td style="text-align:left;"> progresiva </td>
+   <td style="text-align:right;"> 156.34843 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 6 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> tributaria </td>
+   <td style="text-align:left;"> recaudación </td>
+   <td style="text-align:right;"> 147.82948 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> tributaria </td>
+   <td style="text-align:left;"> aduanas </td>
+   <td style="text-align:right;"> 140.66982 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 8 </td>
+   <td style="text-align:right;"> 6 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> tributaria </td>
+   <td style="text-align:left;"> naturales </td>
+   <td style="text-align:right;"> 113.27660 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 8 </td>
+   <td style="text-align:right;"> 9 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> tributaria </td>
+   <td style="text-align:left;"> pagar </td>
+   <td style="text-align:right;"> 104.29937 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 29 </td>
+   <td style="text-align:right;"> 177 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> tributaria </td>
+   <td style="text-align:left;"> tributarios </td>
+   <td style="text-align:right;"> 103.04505 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> tributaria </td>
+   <td style="text-align:left;"> oponen </td>
+   <td style="text-align:right;"> 89.40972 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 7 </td>
+   <td style="text-align:right;"> 9 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> paz_total </td>
+   <td style="text-align:left;"> eln </td>
+   <td style="text-align:right;"> 6832.76668 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 294 </td>
+   <td style="text-align:right;"> 11 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> paz_total </td>
+   <td style="text-align:left;"> paz </td>
+   <td style="text-align:right;"> 2950.17723 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 390 </td>
+   <td style="text-align:right;"> 685 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> paz_total </td>
+   <td style="text-align:left;"> total </td>
+   <td style="text-align:right;"> 1878.95123 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 151 </td>
+   <td style="text-align:right;"> 123 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> paz_total </td>
+   <td style="text-align:left;"> farc </td>
+   <td style="text-align:right;"> 1643.60839 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 94 </td>
+   <td style="text-align:right;"> 31 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> paz_total </td>
+   <td style="text-align:left;"> guerrilla </td>
+   <td style="text-align:right;"> 1282.14610 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 59 </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> paz_total </td>
+   <td style="text-align:left;"> disidencias </td>
+   <td style="text-align:right;"> 1085.60786 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 47 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> paz_total </td>
+   <td style="text-align:left;"> cese </td>
+   <td style="text-align:right;"> 839.09085 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 51 </td>
+   <td style="text-align:right;"> 20 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> paz_total </td>
+   <td style="text-align:left;"> jep </td>
+   <td style="text-align:right;"> 723.66938 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 32 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> paz_total </td>
+   <td style="text-align:left;"> fuego </td>
+   <td style="text-align:right;"> 645.16094 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 49 </td>
+   <td style="text-align:right;"> 34 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> paz_total </td>
+   <td style="text-align:left;"> terroristas </td>
+   <td style="text-align:right;"> 345.46044 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 41 </td>
+   <td style="text-align:right;"> 60 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> paz_total </td>
+   <td style="text-align:left;"> marquetalia </td>
+   <td style="text-align:right;"> 343.68849 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 20 </td>
+   <td style="text-align:right;"> 6 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> paz_total </td>
+   <td style="text-align:left;"> acuerdo </td>
+   <td style="text-align:right;"> 319.20340 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 84 </td>
+   <td style="text-align:right;"> 303 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> paz_total </td>
+   <td style="text-align:left;"> diálogos </td>
+   <td style="text-align:right;"> 294.74078 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 19 </td>
+   <td style="text-align:right;"> 8 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> paz_total </td>
+   <td style="text-align:left;"> negociaciones </td>
+   <td style="text-align:right;"> 200.98753 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 18 </td>
+   <td style="text-align:right;"> 16 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> paz_total </td>
+   <td style="text-align:left;"> frentes </td>
+   <td style="text-align:right;"> 174.96493 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 15 </td>
+   <td style="text-align:right;"> 12 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> paz_total </td>
+   <td style="text-align:left;"> duerman </td>
+   <td style="text-align:right;"> 168.94381 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 8 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> paz_total </td>
+   <td style="text-align:left;"> masacres </td>
+   <td style="text-align:right;"> 150.10787 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 22 </td>
+   <td style="text-align:right;"> 41 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> paz_total </td>
+   <td style="text-align:left;"> proceso </td>
+   <td style="text-align:right;"> 146.81105 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 43 </td>
+   <td style="text-align:right;"> 170 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> paz_total </td>
+   <td style="text-align:left;"> fracaso </td>
+   <td style="text-align:right;"> 146.14954 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 20 </td>
+   <td style="text-align:right;"> 34 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> paz_total </td>
+   <td style="text-align:left;"> reclutamiento </td>
+   <td style="text-align:right;"> 140.55335 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 9 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> paz_total </td>
+   <td style="text-align:left;"> clan </td>
+   <td style="text-align:right;"> 136.09378 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 34 </td>
+   <td style="text-align:right;"> 117 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> paz_total </td>
+   <td style="text-align:left;"> negociación </td>
+   <td style="text-align:right;"> 134.96238 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 16 </td>
+   <td style="text-align:right;"> 22 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> paz_total </td>
+   <td style="text-align:left;"> arauca </td>
+   <td style="text-align:right;"> 122.96514 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 16 </td>
+   <td style="text-align:right;"> 25 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> paz_total </td>
+   <td style="text-align:left;"> jurisdicción </td>
+   <td style="text-align:right;"> 120.02303 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 10 </td>
+   <td style="text-align:right;"> 7 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> paz_total </td>
+   <td style="text-align:left;"> mordisco </td>
+   <td style="text-align:right;"> 117.75971 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 22 </td>
+   <td style="text-align:right;"> 54 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> constituyente </td>
+   <td style="text-align:left;"> constituyente </td>
+   <td style="text-align:right;"> 15952.33537 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 225 </td>
+   <td style="text-align:right;"> 31 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> constituyente </td>
+   <td style="text-align:left;"> asamblea </td>
+   <td style="text-align:right;"> 2521.78571 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 59 </td>
+   <td style="text-align:right;"> 49 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> constituyente </td>
+   <td style="text-align:left;"> firmas </td>
+   <td style="text-align:right;"> 1796.64050 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 28 </td>
+   <td style="text-align:right;"> 6 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> constituyente </td>
+   <td style="text-align:left;"> poder </td>
+   <td style="text-align:right;"> 673.48745 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 80 </td>
+   <td style="text-align:right;"> 565 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> constituyente </td>
+   <td style="text-align:left;"> constitución </td>
+   <td style="text-align:right;"> 544.04785 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 56 </td>
+   <td style="text-align:right;"> 338 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> constituyente </td>
+   <td style="text-align:left;"> convocatoria </td>
+   <td style="text-align:right;"> 496.25420 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 14 </td>
+   <td style="text-align:right;"> 15 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> constituyente </td>
+   <td style="text-align:left;"> recoger </td>
+   <td style="text-align:right;"> 332.10121 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 11 </td>
+   <td style="text-align:right;"> 15 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> constituyente </td>
+   <td style="text-align:left;"> primario </td>
+   <td style="text-align:right;"> 285.08213 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 11 </td>
+   <td style="text-align:right;"> 19 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> constituyente </td>
+   <td style="text-align:left;"> renglón </td>
+   <td style="text-align:right;"> 240.82593 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 6 </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> constituyente </td>
+   <td style="text-align:left;"> convocar </td>
+   <td style="text-align:right;"> 234.16518 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 11 </td>
+   <td style="text-align:right;"> 25 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> constituyente </td>
+   <td style="text-align:left;"> gaona </td>
+   <td style="text-align:right;"> 201.71874 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> constituyente </td>
+   <td style="text-align:left;"> comité </td>
+   <td style="text-align:right;"> 197.95506 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 8 </td>
+   <td style="text-align:right;"> 14 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> constituyente </td>
+   <td style="text-align:left;"> proclamar </td>
+   <td style="text-align:right;"> 196.94026 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> constituyente </td>
+   <td style="text-align:left;"> válidas </td>
+   <td style="text-align:right;"> 196.94026 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> constituyente </td>
+   <td style="text-align:left;"> pueblo </td>
+   <td style="text-align:right;"> 181.69627 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 74 </td>
+   <td style="text-align:right;"> 1384 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> constituyente </td>
+   <td style="text-align:left;"> capítulos </td>
+   <td style="text-align:right;"> 162.95896 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> constituyente </td>
+   <td style="text-align:left;"> solicitar </td>
+   <td style="text-align:right;"> 156.94394 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 6 </td>
+   <td style="text-align:right;"> 9 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> constituyente </td>
+   <td style="text-align:left;"> nacional </td>
+   <td style="text-align:right;"> 154.12007 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 54 </td>
+   <td style="text-align:right;"> 913 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> constituyente </td>
+   <td style="text-align:left;"> modo </td>
+   <td style="text-align:right;"> 146.66230 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 8 </td>
+   <td style="text-align:right;"> 21 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> constituyente </td>
+   <td style="text-align:left;"> capítulo </td>
+   <td style="text-align:right;"> 144.28497 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 6 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> constituyente </td>
+   <td style="text-align:left;"> agregarle </td>
+   <td style="text-align:right;"> 138.69011 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> constituyente </td>
+   <td style="text-align:left;"> exprese </td>
+   <td style="text-align:right;"> 131.52600 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 7 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> constituyente </td>
+   <td style="text-align:left;"> dejé </td>
+   <td style="text-align:right;"> 120.49154 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> constituyente </td>
+   <td style="text-align:left;"> fundamentales </td>
+   <td style="text-align:right;"> 113.30157 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 10 </td>
+   <td style="text-align:right;"> 47 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> constituyente </td>
+   <td style="text-align:left;"> convoque </td>
+   <td style="text-align:right;"> 106.33983 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> seguridad </td>
+   <td style="text-align:left;"> cocaína </td>
+   <td style="text-align:right;"> 1915.22675 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 446 </td>
+   <td style="text-align:right;"> 27 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> seguridad </td>
+   <td style="text-align:left;"> violencia </td>
+   <td style="text-align:right;"> 1359.38259 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 343 </td>
+   <td style="text-align:right;"> 41 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> seguridad </td>
+   <td style="text-align:left;"> policía </td>
+   <td style="text-align:right;"> 1324.86951 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 319 </td>
+   <td style="text-align:right;"> 27 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> seguridad </td>
+   <td style="text-align:left;"> narcotráfico </td>
+   <td style="text-align:right;"> 1209.08075 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 294 </td>
+   <td style="text-align:right;"> 27 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> seguridad </td>
+   <td style="text-align:left;"> seguridad </td>
+   <td style="text-align:right;"> 1199.57779 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 339 </td>
+   <td style="text-align:right;"> 70 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> seguridad </td>
+   <td style="text-align:left;"> toneladas </td>
+   <td style="text-align:right;"> 943.68552 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 233 </td>
+   <td style="text-align:right;"> 24 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> seguridad </td>
+   <td style="text-align:left;"> ejército </td>
+   <td style="text-align:right;"> 808.70329 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 217 </td>
+   <td style="text-align:right;"> 36 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> seguridad </td>
+   <td style="text-align:left;"> fuerza </td>
+   <td style="text-align:right;"> 549.61393 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 248 </td>
+   <td style="text-align:right;"> 149 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> seguridad </td>
+   <td style="text-align:left;"> crimen </td>
+   <td style="text-align:right;"> 498.01679 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 128 </td>
+   <td style="text-align:right;"> 17 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> seguridad </td>
+   <td style="text-align:left;"> cauca </td>
+   <td style="text-align:right;"> 362.64374 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 172 </td>
+   <td style="text-align:right;"> 111 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> seguridad </td>
+   <td style="text-align:left;"> nacional </td>
+   <td style="text-align:right;"> 250.65267 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 358 </td>
+   <td style="text-align:right;"> 609 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> seguridad </td>
+   <td style="text-align:left;"> bandas </td>
+   <td style="text-align:right;"> 236.48315 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 71 </td>
+   <td style="text-align:right;"> 18 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> seguridad </td>
+   <td style="text-align:left;"> campesinos </td>
+   <td style="text-align:right;"> 236.00658 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 115 </td>
+   <td style="text-align:right;"> 77 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> seguridad </td>
+   <td style="text-align:left;"> armada </td>
+   <td style="text-align:right;"> 227.04366 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 76 </td>
+   <td style="text-align:right;"> 26 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> seguridad </td>
+   <td style="text-align:left;"> tonelada </td>
+   <td style="text-align:right;"> 218.03189 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 52 </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> seguridad </td>
+   <td style="text-align:left;"> incautado </td>
+   <td style="text-align:right;"> 212.41642 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 52 </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> seguridad </td>
+   <td style="text-align:left;"> alias </td>
+   <td style="text-align:right;"> 212.00432 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 100 </td>
+   <td style="text-align:right;"> 64 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> seguridad </td>
+   <td style="text-align:left;"> pública </td>
+   <td style="text-align:right;"> 209.57964 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 224 </td>
+   <td style="text-align:right;"> 318 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> seguridad </td>
+   <td style="text-align:left;"> antioquia </td>
+   <td style="text-align:right;"> 204.10269 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 134 </td>
+   <td style="text-align:right;"> 127 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> seguridad </td>
+   <td style="text-align:left;"> narcotrafico </td>
+   <td style="text-align:right;"> 203.53700 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 45 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> seguridad </td>
+   <td style="text-align:left;"> militares </td>
+   <td style="text-align:right;"> 203.07044 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 105 </td>
+   <td style="text-align:right;"> 76 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> seguridad </td>
+   <td style="text-align:left;"> homicidios </td>
+   <td style="text-align:right;"> 200.54868 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 59 </td>
+   <td style="text-align:right;"> 14 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> seguridad </td>
+   <td style="text-align:left;"> incautadas </td>
+   <td style="text-align:right;"> 194.20668 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 43 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> seguridad </td>
+   <td style="text-align:left;"> fuerzas </td>
+   <td style="text-align:right;"> 184.77653 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 102 </td>
+   <td style="text-align:right;"> 80 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> seguridad </td>
+   <td style="text-align:left;"> golfo </td>
+   <td style="text-align:right;"> 183.68191 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 87 </td>
+   <td style="text-align:right;"> 56 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> economia </td>
+   <td style="text-align:left;"> economía </td>
+   <td style="text-align:right;"> 3457.39818 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 403 </td>
+   <td style="text-align:right;"> 130 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> economia </td>
+   <td style="text-align:left;"> deuda </td>
+   <td style="text-align:right;"> 2233.94255 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 254 </td>
+   <td style="text-align:right;"> 75 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> economia </td>
+   <td style="text-align:left;"> interés </td>
+   <td style="text-align:right;"> 1360.77871 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 191 </td>
+   <td style="text-align:right;"> 102 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> economia </td>
+   <td style="text-align:left;"> inflación </td>
+   <td style="text-align:right;"> 1140.94857 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 154 </td>
+   <td style="text-align:right;"> 75 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> economia </td>
+   <td style="text-align:left;"> tasa </td>
+   <td style="text-align:right;"> 1098.17608 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 221 </td>
+   <td style="text-align:right;"> 225 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> economia </td>
+   <td style="text-align:left;"> banco </td>
+   <td style="text-align:right;"> 1025.79416 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 137 </td>
+   <td style="text-align:right;"> 65 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> economia </td>
+   <td style="text-align:left;"> dólar </td>
+   <td style="text-align:right;"> 882.16158 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 86 </td>
+   <td style="text-align:right;"> 12 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> economia </td>
+   <td style="text-align:left;"> mercado </td>
+   <td style="text-align:right;"> 785.62272 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 92 </td>
+   <td style="text-align:right;"> 30 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> economia </td>
+   <td style="text-align:left;"> crecimiento </td>
+   <td style="text-align:right;"> 751.17181 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 107 </td>
+   <td style="text-align:right;"> 59 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> economia </td>
+   <td style="text-align:left;"> déficit </td>
+   <td style="text-align:right;"> 618.57941 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 72 </td>
+   <td style="text-align:right;"> 23 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> economia </td>
+   <td style="text-align:left;"> alimentos </td>
+   <td style="text-align:right;"> 457.59162 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 78 </td>
+   <td style="text-align:right;"> 61 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> economia </td>
+   <td style="text-align:left;"> crédito </td>
+   <td style="text-align:right;"> 403.00772 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 51 </td>
+   <td style="text-align:right;"> 21 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> economia </td>
+   <td style="text-align:left;"> tasas </td>
+   <td style="text-align:right;"> 385.10359 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 44 </td>
+   <td style="text-align:right;"> 12 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> economia </td>
+   <td style="text-align:left;"> fmi </td>
+   <td style="text-align:right;"> 334.30563 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 38 </td>
+   <td style="text-align:right;"> 10 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> economia </td>
+   <td style="text-align:left;"> precios </td>
+   <td style="text-align:right;"> 324.71641 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 75 </td>
+   <td style="text-align:right;"> 92 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> economia </td>
+   <td style="text-align:left;"> vivienda </td>
+   <td style="text-align:right;"> 322.15994 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 54 </td>
+   <td style="text-align:right;"> 41 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> economia </td>
+   <td style="text-align:left;"> externa </td>
+   <td style="text-align:right;"> 315.34088 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 34 </td>
+   <td style="text-align:right;"> 7 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> economia </td>
+   <td style="text-align:left;"> gasolina </td>
+   <td style="text-align:right;"> 259.93329 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 65 </td>
+   <td style="text-align:right;"> 88 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> economia </td>
+   <td style="text-align:left;"> precio </td>
+   <td style="text-align:right;"> 259.11056 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 75 </td>
+   <td style="text-align:right;"> 120 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> economia </td>
+   <td style="text-align:left;"> alza </td>
+   <td style="text-align:right;"> 243.19222 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 44 </td>
+   <td style="text-align:right;"> 38 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> economia </td>
+   <td style="text-align:left;"> bajar </td>
+   <td style="text-align:right;"> 241.57896 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 56 </td>
+   <td style="text-align:right;"> 69 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> economia </td>
+   <td style="text-align:left;"> climática </td>
+   <td style="text-align:right;"> 239.56162 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 66 </td>
+   <td style="text-align:right;"> 100 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> economia </td>
+   <td style="text-align:left;"> económico </td>
+   <td style="text-align:right;"> 206.92241 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 55 </td>
+   <td style="text-align:right;"> 80 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> economia </td>
+   <td style="text-align:left;"> turismo </td>
+   <td style="text-align:right;"> 206.85488 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 45 </td>
+   <td style="text-align:right;"> 51 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> economia </td>
+   <td style="text-align:left;"> real </td>
+   <td style="text-align:right;"> 205.63911 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 71 </td>
+   <td style="text-align:right;"> 136 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> energia_tarifas </td>
+   <td style="text-align:left;"> tarifas </td>
+   <td style="text-align:right;"> 5620.27308 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 85 </td>
+   <td style="text-align:right;"> 12 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> energia_tarifas </td>
+   <td style="text-align:left;"> eléctrica </td>
+   <td style="text-align:right;"> 5014.27589 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 95 </td>
+   <td style="text-align:right;"> 40 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> energia_tarifas </td>
+   <td style="text-align:left;"> energía </td>
+   <td style="text-align:right;"> 3601.57615 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 147 </td>
+   <td style="text-align:right;"> 290 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> energia_tarifas </td>
+   <td style="text-align:left;"> aire </td>
+   <td style="text-align:right;"> 1669.19192 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 29 </td>
+   <td style="text-align:right;"> 8 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> energia_tarifas </td>
+   <td style="text-align:left;"> tarifa </td>
+   <td style="text-align:right;"> 1524.69449 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 27 </td>
+   <td style="text-align:right;"> 8 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> energia_tarifas </td>
+   <td style="text-align:left;"> creg </td>
+   <td style="text-align:right;"> 1133.02366 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 19 </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> energia_tarifas </td>
+   <td style="text-align:left;"> fórmula </td>
+   <td style="text-align:right;"> 840.46790 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 20 </td>
+   <td style="text-align:right;"> 14 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> energia_tarifas </td>
+   <td style="text-align:left;"> tarifaria </td>
+   <td style="text-align:right;"> 790.34759 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 16 </td>
+   <td style="text-align:right;"> 7 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> energia_tarifas </td>
+   <td style="text-align:left;"> servicios </td>
+   <td style="text-align:right;"> 634.53469 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 32 </td>
+   <td style="text-align:right;"> 80 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> energia_tarifas </td>
+   <td style="text-align:left;"> gas </td>
+   <td style="text-align:right;"> 493.24174 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 42 </td>
+   <td style="text-align:right;"> 194 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> energia_tarifas </td>
+   <td style="text-align:left;"> solar </td>
+   <td style="text-align:right;"> 459.47577 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 23 </td>
+   <td style="text-align:right;"> 56 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> energia_tarifas </td>
+   <td style="text-align:left;"> generadoras </td>
+   <td style="text-align:right;"> 430.12721 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 13 </td>
+   <td style="text-align:right;"> 14 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> energia_tarifas </td>
+   <td style="text-align:left;"> techos </td>
+   <td style="text-align:right;"> 338.08994 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 9 </td>
+   <td style="text-align:right;"> 7 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> energia_tarifas </td>
+   <td style="text-align:left;"> generación </td>
+   <td style="text-align:right;"> 308.71925 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 15 </td>
+   <td style="text-align:right;"> 34 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> energia_tarifas </td>
+   <td style="text-align:left;"> sol </td>
+   <td style="text-align:right;"> 301.98407 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 15 </td>
+   <td style="text-align:right;"> 35 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> energia_tarifas </td>
+   <td style="text-align:left;"> solares </td>
+   <td style="text-align:right;"> 243.89325 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 12 </td>
+   <td style="text-align:right;"> 27 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> energia_tarifas </td>
+   <td style="text-align:left;"> usuarios </td>
+   <td style="text-align:right;"> 233.92134 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 15 </td>
+   <td style="text-align:right;"> 48 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> energia_tarifas </td>
+   <td style="text-align:left;"> motos </td>
+   <td style="text-align:right;"> 230.11167 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 9 </td>
+   <td style="text-align:right;"> 14 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> energia_tarifas </td>
+   <td style="text-align:left;"> buses </td>
+   <td style="text-align:right;"> 210.37643 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 9 </td>
+   <td style="text-align:right;"> 16 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> energia_tarifas </td>
+   <td style="text-align:left;"> energia </td>
+   <td style="text-align:right;"> 206.23924 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 8 </td>
+   <td style="text-align:right;"> 12 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> energia_tarifas </td>
+   <td style="text-align:left;"> electricidad </td>
+   <td style="text-align:right;"> 205.25298 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 6 </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> energia_tarifas </td>
+   <td style="text-align:left;"> públicos </td>
+   <td style="text-align:right;"> 197.41114 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 28 </td>
+   <td style="text-align:right;"> 210 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> energia_tarifas </td>
+   <td style="text-align:left;"> empresas </td>
+   <td style="text-align:right;"> 194.70054 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 26 </td>
+   <td style="text-align:right;"> 184 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> energia_tarifas </td>
+   <td style="text-align:left;"> enel </td>
+   <td style="text-align:right;"> 187.24555 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 6 </td>
+   <td style="text-align:right;"> 6 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> energia_tarifas </td>
+   <td style="text-align:left;"> empresa </td>
+   <td style="text-align:right;"> 180.48979 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 23 </td>
+   <td style="text-align:right;"> 155 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> energia_ambiente </td>
+   <td style="text-align:left;"> ecopetrol </td>
+   <td style="text-align:right;"> 2038.01620 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 135 </td>
+   <td style="text-align:right;"> 42 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> energia_ambiente </td>
+   <td style="text-align:left;"> energía </td>
+   <td style="text-align:right;"> 1907.87089 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 213 </td>
+   <td style="text-align:right;"> 224 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> energia_ambiente </td>
+   <td style="text-align:left;"> gas </td>
+   <td style="text-align:right;"> 1708.56313 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 145 </td>
+   <td style="text-align:right;"> 91 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> energia_ambiente </td>
+   <td style="text-align:left;"> agua </td>
+   <td style="text-align:right;"> 1412.04240 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 161 </td>
+   <td style="text-align:right;"> 175 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> energia_ambiente </td>
+   <td style="text-align:left;"> carbón </td>
+   <td style="text-align:right;"> 1012.79181 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 86 </td>
+   <td style="text-align:right;"> 54 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> energia_ambiente </td>
+   <td style="text-align:left;"> energética </td>
+   <td style="text-align:right;"> 853.79135 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 59 </td>
+   <td style="text-align:right;"> 20 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> energia_ambiente </td>
+   <td style="text-align:left;"> petroleo </td>
+   <td style="text-align:right;"> 793.97772 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 66 </td>
+   <td style="text-align:right;"> 38 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> energia_ambiente </td>
+   <td style="text-align:left;"> climático </td>
+   <td style="text-align:right;"> 748.30032 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 54 </td>
+   <td style="text-align:right;"> 21 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> energia_ambiente </td>
+   <td style="text-align:left;"> energías </td>
+   <td style="text-align:right;"> 737.53284 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 69 </td>
+   <td style="text-align:right;"> 53 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> energia_ambiente </td>
+   <td style="text-align:left;"> petróleo </td>
+   <td style="text-align:right;"> 700.56315 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 62 </td>
+   <td style="text-align:right;"> 41 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> energia_ambiente </td>
+   <td style="text-align:left;"> limpias </td>
+   <td style="text-align:right;"> 692.42285 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 64 </td>
+   <td style="text-align:right;"> 48 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> energia_ambiente </td>
+   <td style="text-align:left;"> limpia </td>
+   <td style="text-align:right;"> 643.21227 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 50 </td>
+   <td style="text-align:right;"> 24 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> energia_ambiente </td>
+   <td style="text-align:left;"> transición </td>
+   <td style="text-align:right;"> 622.20318 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 52 </td>
+   <td style="text-align:right;"> 30 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> energia_ambiente </td>
+   <td style="text-align:left;"> ambiente </td>
+   <td style="text-align:right;"> 556.47034 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 36 </td>
+   <td style="text-align:right;"> 9 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> energia_ambiente </td>
+   <td style="text-align:left;"> solar </td>
+   <td style="text-align:right;"> 450.40752 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 44 </td>
+   <td style="text-align:right;"> 35 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> energia_ambiente </td>
+   <td style="text-align:left;"> ambiental </td>
+   <td style="text-align:right;"> 440.97790 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 30 </td>
+   <td style="text-align:right;"> 9 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> energia_ambiente </td>
+   <td style="text-align:left;"> minas </td>
+   <td style="text-align:right;"> 335.33134 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 25 </td>
+   <td style="text-align:right;"> 10 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> energia_ambiente </td>
+   <td style="text-align:left;"> potable </td>
+   <td style="text-align:right;"> 320.54062 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 34 </td>
+   <td style="text-align:right;"> 31 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> energia_ambiente </td>
+   <td style="text-align:left;"> exploración </td>
+   <td style="text-align:right;"> 302.27492 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 22 </td>
+   <td style="text-align:right;"> 8 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> energia_ambiente </td>
+   <td style="text-align:left;"> climática </td>
+   <td style="text-align:right;"> 301.97720 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 55 </td>
+   <td style="text-align:right;"> 111 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> energia_ambiente </td>
+   <td style="text-align:left;"> artificial </td>
+   <td style="text-align:right;"> 296.04280 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 30 </td>
+   <td style="text-align:right;"> 25 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> energia_ambiente </td>
+   <td style="text-align:left;"> sabana </td>
+   <td style="text-align:right;"> 296.04188 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 25 </td>
+   <td style="text-align:right;"> 14 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> energia_ambiente </td>
+   <td style="text-align:left;"> hidrógeno </td>
+   <td style="text-align:right;"> 285.56878 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 16 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> energia_ambiente </td>
+   <td style="text-align:left;"> reserva </td>
+   <td style="text-align:right;"> 246.12668 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 23 </td>
+   <td style="text-align:right;"> 16 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> energia_ambiente </td>
+   <td style="text-align:left;"> óptica </td>
+   <td style="text-align:right;"> 228.16632 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 14 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> institucionalidad </td>
+   <td style="text-align:left;"> justicia </td>
+   <td style="text-align:right;"> 853.05799 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 508 </td>
+   <td style="text-align:right;"> 174 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> institucionalidad </td>
+   <td style="text-align:left;"> democracia </td>
+   <td style="text-align:right;"> 836.91926 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 389 </td>
+   <td style="text-align:right;"> 71 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> institucionalidad </td>
+   <td style="text-align:left;"> elecciones </td>
+   <td style="text-align:right;"> 777.10178 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 332 </td>
+   <td style="text-align:right;"> 43 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> institucionalidad </td>
+   <td style="text-align:left;"> corrupción </td>
+   <td style="text-align:right;"> 409.34410 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 295 </td>
+   <td style="text-align:right;"> 138 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> institucionalidad </td>
+   <td style="text-align:left;"> congreso </td>
+   <td style="text-align:right;"> 401.80103 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 342 </td>
+   <td style="text-align:right;"> 198 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> institucionalidad </td>
+   <td style="text-align:left;"> constitución </td>
+   <td style="text-align:right;"> 264.01532 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 242 </td>
+   <td style="text-align:right;"> 152 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> institucionalidad </td>
+   <td style="text-align:left;"> corte </td>
+   <td style="text-align:right;"> 254.95447 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 206 </td>
+   <td style="text-align:right;"> 112 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> institucionalidad </td>
+   <td style="text-align:left;"> fraude </td>
+   <td style="text-align:right;"> 236.66376 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 116 </td>
+   <td style="text-align:right;"> 25 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> institucionalidad </td>
+   <td style="text-align:left;"> presidente </td>
+   <td style="text-align:right;"> 230.11741 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 1143 </td>
+   <td style="text-align:right;"> 1893 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> institucionalidad </td>
+   <td style="text-align:left;"> consulta </td>
+   <td style="text-align:right;"> 219.18914 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 159 </td>
+   <td style="text-align:right;"> 75 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> institucionalidad </td>
+   <td style="text-align:left;"> electoral </td>
+   <td style="text-align:right;"> 210.80126 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 142 </td>
+   <td style="text-align:right;"> 60 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> institucionalidad </td>
+   <td style="text-align:left;"> votos </td>
+   <td style="text-align:right;"> 201.55156 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 125 </td>
+   <td style="text-align:right;"> 46 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> institucionalidad </td>
+   <td style="text-align:left;"> petro </td>
+   <td style="text-align:right;"> 197.27397 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 932 </td>
+   <td style="text-align:right;"> 1519 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> institucionalidad </td>
+   <td style="text-align:left;"> fiscal </td>
+   <td style="text-align:right;"> 192.06388 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 181 </td>
+   <td style="text-align:right;"> 117 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> institucionalidad </td>
+   <td style="text-align:left;"> partido </td>
+   <td style="text-align:right;"> 191.94360 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 149 </td>
+   <td style="text-align:right;"> 77 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> institucionalidad </td>
+   <td style="text-align:left;"> golpe </td>
+   <td style="text-align:right;"> 183.33630 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 151 </td>
+   <td style="text-align:right;"> 84 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> institucionalidad </td>
+   <td style="text-align:left;"> voto </td>
+   <td style="text-align:right;"> 174.15567 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 114 </td>
+   <td style="text-align:right;"> 46 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> institucionalidad </td>
+   <td style="text-align:left;"> fiscalía </td>
+   <td style="text-align:right;"> 166.77023 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 159 </td>
+   <td style="text-align:right;"> 104 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> institucionalidad </td>
+   <td style="text-align:left;"> izquierda </td>
+   <td style="text-align:right;"> 163.68013 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 156 </td>
+   <td style="text-align:right;"> 102 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> institucionalidad </td>
+   <td style="text-align:left;"> pacto </td>
+   <td style="text-align:right;"> 158.00719 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 151 </td>
+   <td style="text-align:right;"> 99 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> institucionalidad </td>
+   <td style="text-align:left;"> consejo </td>
+   <td style="text-align:right;"> 153.63406 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 179 </td>
+   <td style="text-align:right;"> 141 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> institucionalidad </td>
+   <td style="text-align:left;"> popular </td>
+   <td style="text-align:right;"> 152.32199 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 205 </td>
+   <td style="text-align:right;"> 181 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> institucionalidad </td>
+   <td style="text-align:left;"> vuelta </td>
+   <td style="text-align:right;"> 149.65101 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 70 </td>
+   <td style="text-align:right;"> 13 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> institucionalidad </td>
+   <td style="text-align:left;"> pueblo </td>
+   <td style="text-align:right;"> 145.24788 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 575 </td>
+   <td style="text-align:right;"> 883 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> institucionalidad </td>
+   <td style="text-align:left;"> gustavo </td>
+   <td style="text-align:right;"> 141.34117 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 707 </td>
+   <td style="text-align:right;"> 1172 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> internacional </td>
+   <td style="text-align:left;"> venezuela </td>
+   <td style="text-align:right;"> 1431.14010 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 335 </td>
+   <td style="text-align:right;"> 168 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> internacional </td>
+   <td style="text-align:left;"> eeuu </td>
+   <td style="text-align:right;"> 1201.75032 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 338 </td>
+   <td style="text-align:right;"> 237 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> internacional </td>
+   <td style="text-align:left;"> trump </td>
+   <td style="text-align:right;"> 1114.71465 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 225 </td>
+   <td style="text-align:right;"> 79 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> internacional </td>
+   <td style="text-align:left;"> maduro </td>
+   <td style="text-align:right;"> 942.09786 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 197 </td>
+   <td style="text-align:right;"> 76 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> internacional </td>
+   <td style="text-align:left;"> palestina </td>
+   <td style="text-align:right;"> 779.34205 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 147 </td>
+   <td style="text-align:right;"> 42 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> internacional </td>
+   <td style="text-align:left;"> israel </td>
+   <td style="text-align:right;"> 756.60254 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 150 </td>
+   <td style="text-align:right;"> 50 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> internacional </td>
+   <td style="text-align:left;"> unidos </td>
+   <td style="text-align:right;"> 591.56586 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 121 </td>
+   <td style="text-align:right;"> 44 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> internacional </td>
+   <td style="text-align:left;"> américa </td>
+   <td style="text-align:right;"> 565.25226 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 161 </td>
+   <td style="text-align:right;"> 115 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> internacional </td>
+   <td style="text-align:left;"> gaza </td>
+   <td style="text-align:right;"> 500.98276 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 125 </td>
+   <td style="text-align:right;"> 71 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> internacional </td>
+   <td style="text-align:left;"> internacional </td>
+   <td style="text-align:right;"> 422.17754 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 149 </td>
+   <td style="text-align:right;"> 144 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> internacional </td>
+   <td style="text-align:left;"> genocidio </td>
+   <td style="text-align:right;"> 415.54143 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 126 </td>
+   <td style="text-align:right;"> 99 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> internacional </td>
+   <td style="text-align:left;"> latina </td>
+   <td style="text-align:right;"> 365.03976 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 106 </td>
+   <td style="text-align:right;"> 78 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> internacional </td>
+   <td style="text-align:left;"> mundo </td>
+   <td style="text-align:right;"> 308.40620 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 254 </td>
+   <td style="text-align:right;"> 535 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> internacional </td>
+   <td style="text-align:left;"> latinoamérica </td>
+   <td style="text-align:right;"> 243.60454 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 49 </td>
+   <td style="text-align:right;"> 17 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> internacional </td>
+   <td style="text-align:left;"> ucrania </td>
+   <td style="text-align:right;"> 239.74724 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 41 </td>
+   <td style="text-align:right;"> 8 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> internacional </td>
+   <td style="text-align:left;"> migrantes </td>
+   <td style="text-align:right;"> 235.26448 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 43 </td>
+   <td style="text-align:right;"> 11 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> internacional </td>
+   <td style="text-align:left;"> visa </td>
+   <td style="text-align:right;"> 224.93149 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 38 </td>
+   <td style="text-align:right;"> 7 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> internacional </td>
+   <td style="text-align:left;"> lula </td>
+   <td style="text-align:right;"> 221.33507 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 41 </td>
+   <td style="text-align:right;"> 11 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> internacional </td>
+   <td style="text-align:left;"> celac </td>
+   <td style="text-align:right;"> 217.21686 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 36 </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> internacional </td>
+   <td style="text-align:left;"> relaciones </td>
+   <td style="text-align:right;"> 211.80471 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 64 </td>
+   <td style="text-align:right;"> 50 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> internacional </td>
+   <td style="text-align:left;"> china </td>
+   <td style="text-align:right;"> 209.45227 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 56 </td>
+   <td style="text-align:right;"> 36 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> internacional </td>
+   <td style="text-align:left;"> pueblos </td>
+   <td style="text-align:right;"> 207.50530 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 80 </td>
+   <td style="text-align:right;"> 86 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> internacional </td>
+   <td style="text-align:left;"> donald </td>
+   <td style="text-align:right;"> 204.93892 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 46 </td>
+   <td style="text-align:right;"> 21 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> internacional </td>
+   <td style="text-align:left;"> países </td>
+   <td style="text-align:right;"> 202.87012 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 101 </td>
+   <td style="text-align:right;"> 142 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> internacional </td>
+   <td style="text-align:left;"> palestino </td>
+   <td style="text-align:right;"> 199.92191 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 41 </td>
+   <td style="text-align:right;"> 15 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+</tbody>
+</table>
+</body>
+</html>
+

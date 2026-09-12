@@ -1,0 +1,16 @@
+bloque,estado,lectura
+tweets,ejecutado,datos preparados 2022-2026
+EDA,contexto protegido,secciones anteriores sin editar
+hashtags/menciones,ejecutado,entidades explícitas del discurso
+corpus,ejecutado,matriz documento-término
+Wordfish,ejecutado,posición discursiva por tema
+STM,ejecutado,tópicos con prevalencia constante
+NRC,ejecutado,conteos NRC del subconjunto temático
+IPI,ejecutado,IPI temático de opinión; panel heredado preservado
+sentometrics,ejecutado,agregación diaria y promedio móvil por serie
+spacyr,ejecutado,entidades y lemas de la muestra original
+Event Study,ejecutado,diez extremos por criterio; ventanas descriptivas
+Granger,ejecutado,contrastes nominales dentro de muestra
+VAR,estimado; inferencia pendiente,VAR(2) original en niveles; supuestos pendientes
+IRF,no implementada,sin identificación de shocks
+Markov Switching,extensión futura,no estimado

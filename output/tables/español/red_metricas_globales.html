@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Métricas globales de redes</title>
+<style>body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;margin:24px;color:#222}table{border-collapse:collapse;width:100%;font-size:13px}th,td{border:1px solid #ddd;padding:6px 8px;text-align:left;vertical-align:top}th{background:#f3f5f2}caption{text-align:left;font-weight:700;font-size:18px;margin-bottom:4px}.subtitle{color:#666;margin:0 0 14px 0}</style>
+</head>
+<body>
+<h1>Métricas globales de redes</h1><p class="subtitle">Diagnóstico de tamaño, densidad, componentes y comunidades</p><table>
+ <thead>
+  <tr>
+   <th style="text-align:left;"> red </th>
+   <th style="text-align:left;"> status </th>
+   <th style="text-align:right;"> nodos </th>
+   <th style="text-align:right;"> aristas </th>
+   <th style="text-align:right;"> peso_total </th>
+   <th style="text-align:right;"> densidad </th>
+   <th style="text-align:right;"> componentes </th>
+   <th style="text-align:right;"> componente_principal_pct </th>
+   <th style="text-align:right;"> grado_medio </th>
+   <th style="text-align:right;"> transitividad </th>
+   <th style="text-align:right;"> comunidades_louvain </th>
+   <th style="text-align:right;"> modularidad_louvain </th>
+   <th style="text-align:right;"> diametro_componente_principal </th>
+   <th style="text-align:left;"> corpus </th>
+   <th style="text-align:left;"> corpus_label </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> Menciones globales </td>
+   <td style="text-align:left;"> ok </td>
+   <td style="text-align:right;"> 69 </td>
+   <td style="text-align:right;"> 120 </td>
+   <td style="text-align:right;"> 2253 </td>
+   <td style="text-align:right;"> 0.0511509 </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 0.5362319 </td>
+   <td style="text-align:right;"> 3.478261 </td>
+   <td style="text-align:right;"> 0.4626623 </td>
+   <td style="text-align:right;"> 8 </td>
+   <td style="text-align:right;"> 0.6586427 </td>
+   <td style="text-align:right;"> 9 </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> NA </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Co-ocurrencias globales </td>
+   <td style="text-align:left;"> ok </td>
+   <td style="text-align:right;"> 42 </td>
+   <td style="text-align:right;"> 120 </td>
+   <td style="text-align:right;"> 5090 </td>
+   <td style="text-align:right;"> 0.1393728 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 1.0000000 </td>
+   <td style="text-align:right;"> 5.714286 </td>
+   <td style="text-align:right;"> 0.3503861 </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 0.4106004 </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> NA </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Menciones - Lo que opinan de Petro </td>
+   <td style="text-align:left;"> ok </td>
+   <td style="text-align:right;"> 62 </td>
+   <td style="text-align:right;"> 100 </td>
+   <td style="text-align:right;"> 1999 </td>
+   <td style="text-align:right;"> 0.0528821 </td>
+   <td style="text-align:right;"> 6 </td>
+   <td style="text-align:right;"> 0.3387097 </td>
+   <td style="text-align:right;"> 3.225807 </td>
+   <td style="text-align:right;"> 0.4693069 </td>
+   <td style="text-align:right;"> 8 </td>
+   <td style="text-align:right;"> 0.6427746 </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:left;"> opinion </td>
+   <td style="text-align:left;"> Lo que opinan de Petro </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Menciones - Lo que Petro opina </td>
+   <td style="text-align:left;"> ok </td>
+   <td style="text-align:right;"> 10 </td>
+   <td style="text-align:right;"> 7 </td>
+   <td style="text-align:right;"> 22 </td>
+   <td style="text-align:right;"> 0.1555556 </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:right;"> 0.4000000 </td>
+   <td style="text-align:right;"> 1.400000 </td>
+   <td style="text-align:right;"> 0.6000000 </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:right;"> 0.4462810 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:left;"> presidente </td>
+   <td style="text-align:left;"> Lo que Petro opina </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Temas - Lo que opinan de Petro </td>
+   <td style="text-align:left;"> ok </td>
+   <td style="text-align:right;"> 13 </td>
+   <td style="text-align:right;"> 78 </td>
+   <td style="text-align:right;"> 19068 </td>
+   <td style="text-align:right;"> 1.0000000 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 1.0000000 </td>
+   <td style="text-align:right;"> 12.000000 </td>
+   <td style="text-align:right;"> 1.0000000 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 0.0315914 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> opinion </td>
+   <td style="text-align:left;"> Lo que opinan de Petro </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Temas - Lo que Petro opina </td>
+   <td style="text-align:left;"> ok </td>
+   <td style="text-align:right;"> 13 </td>
+   <td style="text-align:right;"> 78 </td>
+   <td style="text-align:right;"> 28295 </td>
+   <td style="text-align:right;"> 1.0000000 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 1.0000000 </td>
+   <td style="text-align:right;"> 12.000000 </td>
+   <td style="text-align:right;"> 1.0000000 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 0.0342611 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> presidente </td>
+   <td style="text-align:left;"> Lo que Petro opina </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Tema-entidad/hashtag </td>
+   <td style="text-align:left;"> ok </td>
+   <td style="text-align:right;"> 74 </td>
+   <td style="text-align:right;"> 100 </td>
+   <td style="text-align:right;"> 1678 </td>
+   <td style="text-align:right;"> 0.0370233 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 1.0000000 </td>
+   <td style="text-align:right;"> 2.702703 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 8 </td>
+   <td style="text-align:right;"> 0.5515480 </td>
+   <td style="text-align:right;"> 8 </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> NA </td>
+  </tr>
+</tbody>
+</table>
+</body>
+</html>
+

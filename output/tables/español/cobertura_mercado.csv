@@ -1,0 +1,8 @@
+column,non_missing_days,expected_days,coverage_ratio,first_date,last_date,status,series,rows,interpretacion
+trm,1400,1400,1,2022-08-01,2026-05-31,complete,TRM,1400,suficiente para modelos principales
+colcap,1335,1400,0.9535714285714286,2022-08-01,2026-05-31,complete,COLCAP,1335,suficiente para modelos principales
+tes_1y,1335,1400,0.9535714285714286,2022-08-01,2026-05-31,complete,TES 1Y,1335,suficiente para modelos principales
+tes_5y,1335,1400,0.9535714285714286,2022-08-01,2026-05-31,complete,TES 5Y,1335,suficiente para modelos principales
+tes_10y,1335,1400,0.9535714285714286,2022-08-01,2026-05-31,complete,TES 10Y,1335,suficiente para modelos principales
+tes_slope_10y_1y,1335,1400,0.9535714285714286,2022-08-01,2026-05-31,complete,TES slope 10Y-1Y,1335,suficiente para modelos principales
+energy_spot_price,1400,1400,1,2022-08-01,2026-05-31,complete,XM energy spot price,1400,suficiente para modelos principales

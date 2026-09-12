@@ -1,0 +1,822 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Aristas de menciones con Quanteda</title>
+<style>body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;margin:24px;color:#222}table{border-collapse:collapse;width:100%;font-size:13px}th,td{border:1px solid #ddd;padding:6px 8px;text-align:left;vertical-align:top}th{background:#f3f5f2}caption{text-align:left;font-weight:700;font-size:18px;margin-bottom:4px}.subtitle{color:#666;margin:0 0 14px 0}</style>
+</head>
+<body>
+<h1>Aristas de menciones con Quanteda</h1><p class="subtitle">Co-ocurrencia documental entre cuentas mencionadas</p><table>
+ <thead>
+  <tr>
+   <th style="text-align:left;"> from </th>
+   <th style="text-align:left;"> to </th>
+   <th style="text-align:right;"> weight </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> @kremlinrussia_e </td>
+   <td style="text-align:left;"> @cnn </td>
+   <td style="text-align:right;"> 60 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> @kremlinrussia_e </td>
+   <td style="text-align:left;"> @mmflint </td>
+   <td style="text-align:right;"> 45 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> @mmflint </td>
+   <td style="text-align:left;"> @cnn </td>
+   <td style="text-align:right;"> 45 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> @fiscaliacol </td>
+   <td style="text-align:left;"> @pgn_col </td>
+   <td style="text-align:right;"> 38 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> @policiacolombia </td>
+   <td style="text-align:left;"> @fiscaliacol </td>
+   <td style="text-align:right;"> 35 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> @gustavobolivar </td>
+   <td style="text-align:left;"> @pizarromariajo </td>
+   <td style="text-align:right;"> 35 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> @ivancepedacast </td>
+   <td style="text-align:left;"> @pizarromariajo </td>
+   <td style="text-align:right;"> 35 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> @gustavobolivar </td>
+   <td style="text-align:left;"> @ivancepedacast </td>
+   <td style="text-align:right;"> 34 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> @kremlinrussia_e </td>
+   <td style="text-align:left;"> @bbc </td>
+   <td style="text-align:right;"> 34 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> @cnn </td>
+   <td style="text-align:left;"> @bbc </td>
+   <td style="text-align:right;"> 34 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> @minsaludcol </td>
+   <td style="text-align:left;"> @ga_jaramillo </td>
+   <td style="text-align:right;"> 33 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> @kremlinrussia_e </td>
+   <td style="text-align:left;"> @xijinping </td>
+   <td style="text-align:right;"> 33 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> @cnn </td>
+   <td style="text-align:left;"> @xijinping </td>
+   <td style="text-align:right;"> 33 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> @minsaludcol </td>
+   <td style="text-align:left;"> @supersalud </td>
+   <td style="text-align:right;"> 31 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> @fiscaliacol </td>
+   <td style="text-align:left;"> @cortesupremaj </td>
+   <td style="text-align:right;"> 30 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> @ivanduque </td>
+   <td style="text-align:left;"> @alvarouribevel </td>
+   <td style="text-align:right;"> 28 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> @carolinacorcho </td>
+   <td style="text-align:left;"> @ivancepedacast </td>
+   <td style="text-align:right;"> 28 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> @noticiasrcn </td>
+   <td style="text-align:left;"> @noticiascaracol </td>
+   <td style="text-align:right;"> 27 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> @col_ejercito </td>
+   <td style="text-align:left;"> @policiacolombia </td>
+   <td style="text-align:right;"> 25 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> @mmflint </td>
+   <td style="text-align:left;"> @xijinping </td>
+   <td style="text-align:right;"> 25 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> @mmflint </td>
+   <td style="text-align:left;"> @bbc </td>
+   <td style="text-align:right;"> 24 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> @gustavobolivar </td>
+   <td style="text-align:left;"> @roybarreras </td>
+   <td style="text-align:right;"> 23 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> @senadogovco </td>
+   <td style="text-align:left;"> @camaracolombia </td>
+   <td style="text-align:right;"> 23 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> @supersalud </td>
+   <td style="text-align:left;"> @ga_jaramillo </td>
+   <td style="text-align:right;"> 23 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> @franciamarquezm </td>
+   <td style="text-align:left;"> @gustavobolivar </td>
+   <td style="text-align:right;"> 20 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> @policiacolombia </td>
+   <td style="text-align:left;"> @kremlinrussia_e </td>
+   <td style="text-align:right;"> 20 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> @policiacolombia </td>
+   <td style="text-align:left;"> @cnn </td>
+   <td style="text-align:right;"> 20 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> @policiacolombia </td>
+   <td style="text-align:left;"> @xijinping </td>
+   <td style="text-align:right;"> 20 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> @vickydavilah </td>
+   <td style="text-align:left;"> @alvarouribevel </td>
+   <td style="text-align:right;"> 19 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> @wradiocolombia </td>
+   <td style="text-align:left;"> @bluradioco </td>
+   <td style="text-align:right;"> 19 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> @lopezobrador_ </td>
+   <td style="text-align:left;"> @lulaoficial </td>
+   <td style="text-align:right;"> 19 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> @cconstitucional </td>
+   <td style="text-align:left;"> @cortesupremaj </td>
+   <td style="text-align:right;"> 19 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> @alvarouribevel </td>
+   <td style="text-align:left;"> @abdelaespriella </td>
+   <td style="text-align:right;"> 19 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> @fiscaliacol </td>
+   <td style="text-align:left;"> @kremlinrussia_e </td>
+   <td style="text-align:right;"> 19 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> @fiscaliacol </td>
+   <td style="text-align:left;"> @mmflint </td>
+   <td style="text-align:right;"> 19 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> @fiscaliacol </td>
+   <td style="text-align:left;"> @cnn </td>
+   <td style="text-align:right;"> 19 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> @fiscaliacol </td>
+   <td style="text-align:left;"> @xijinping </td>
+   <td style="text-align:right;"> 19 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> @alvarouribevel </td>
+   <td style="text-align:left;"> @juanmansantos </td>
+   <td style="text-align:right;"> 18 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> @roybarreras </td>
+   <td style="text-align:left;"> @aabenedetti </td>
+   <td style="text-align:right;"> 18 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> @carolinacorcho </td>
+   <td style="text-align:left;"> @pizarromariajo </td>
+   <td style="text-align:right;"> 18 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> @revistasemana </td>
+   <td style="text-align:left;"> @eltiempo </td>
+   <td style="text-align:right;"> 18 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> @cgr_colombia </td>
+   <td style="text-align:left;"> @pgn_col </td>
+   <td style="text-align:right;"> 18 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> @nicolasmaduro </td>
+   <td style="text-align:left;"> @lulaoficial </td>
+   <td style="text-align:right;"> 18 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> @gabrielboric </td>
+   <td style="text-align:left;"> @lulaoficial </td>
+   <td style="text-align:right;"> 18 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> @noticiascaracol </td>
+   <td style="text-align:left;"> @wradiocolombia </td>
+   <td style="text-align:right;"> 17 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> @alvarouribevel </td>
+   <td style="text-align:left;"> @ivancepedacast </td>
+   <td style="text-align:right;"> 17 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> @mariafdacabal </td>
+   <td style="text-align:left;"> @palomavalencial </td>
+   <td style="text-align:right;"> 17 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> @alvarouribevel </td>
+   <td style="text-align:left;"> @palomavalencial </td>
+   <td style="text-align:right;"> 17 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> @gustavobolivar </td>
+   <td style="text-align:left;"> @davidracero </td>
+   <td style="text-align:right;"> 16 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> @mariafdacabal </td>
+   <td style="text-align:left;"> @alvarouribevel </td>
+   <td style="text-align:right;"> 16 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> @alvarouribevel </td>
+   <td style="text-align:left;"> @cedemocratico </td>
+   <td style="text-align:right;"> 16 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> @noticiascaracol </td>
+   <td style="text-align:left;"> @cnnee </td>
+   <td style="text-align:right;"> 16 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> @noticiascaracol </td>
+   <td style="text-align:left;"> @elespectador </td>
+   <td style="text-align:right;"> 16 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> @cortesupremaj </td>
+   <td style="text-align:left;"> @consejodeestado </td>
+   <td style="text-align:right;"> 16 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> @vickydavilah </td>
+   <td style="text-align:left;"> @mariafdacabal </td>
+   <td style="text-align:right;"> 15 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> @gustavobolivar </td>
+   <td style="text-align:left;"> @aabenedetti </td>
+   <td style="text-align:right;"> 15 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> @bluradioco </td>
+   <td style="text-align:left;"> @lafm </td>
+   <td style="text-align:right;"> 15 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> @ivancepedacast </td>
+   <td style="text-align:left;"> @palomavalencial </td>
+   <td style="text-align:right;"> 15 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> @gustavobolivar </td>
+   <td style="text-align:left;"> @wilsonariasc </td>
+   <td style="text-align:right;"> 15 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> @pgn_col </td>
+   <td style="text-align:left;"> @cortesupremaj </td>
+   <td style="text-align:right;"> 15 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> @aabenedetti </td>
+   <td style="text-align:left;"> @laurisarabia </td>
+   <td style="text-align:right;"> 15 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> @policiacolombia </td>
+   <td style="text-align:left;"> @mmflint </td>
+   <td style="text-align:right;"> 15 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> @policiacolombia </td>
+   <td style="text-align:left;"> @fuerzasmilcol </td>
+   <td style="text-align:right;"> 14 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> @noticiascaracol </td>
+   <td style="text-align:left;"> @eltiempo </td>
+   <td style="text-align:right;"> 14 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> @eltiempo </td>
+   <td style="text-align:left;"> @elespectador </td>
+   <td style="text-align:right;"> 14 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> @cconstitucional </td>
+   <td style="text-align:left;"> @consejodeestado </td>
+   <td style="text-align:right;"> 14 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> @revistasemana </td>
+   <td style="text-align:left;"> @vickydavilah </td>
+   <td style="text-align:right;"> 13 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> @infopresidencia </td>
+   <td style="text-align:left;"> @minsaludcol </td>
+   <td style="text-align:right;"> 13 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> @ivanduque </td>
+   <td style="text-align:left;"> @juanmansantos </td>
+   <td style="text-align:right;"> 13 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> @cgr_colombia </td>
+   <td style="text-align:left;"> @fiscaliacol </td>
+   <td style="text-align:right;"> 13 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> @danielrmed </td>
+   <td style="text-align:left;"> @mineducacion </td>
+   <td style="text-align:right;"> 13 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> @noticiascaracol </td>
+   <td style="text-align:left;"> @ga_jaramillo </td>
+   <td style="text-align:right;"> 13 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> @lulaoficial </td>
+   <td style="text-align:left;"> @jmilei </td>
+   <td style="text-align:right;"> 13 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> @franciamarquezm </td>
+   <td style="text-align:left;"> @infopresidencia </td>
+   <td style="text-align:right;"> 12 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> @gustavobolivar </td>
+   <td style="text-align:left;"> @carolinacorcho </td>
+   <td style="text-align:right;"> 12 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> @minsaludcol </td>
+   <td style="text-align:left;"> @carolinacorcho </td>
+   <td style="text-align:right;"> 12 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> @minsaludcol </td>
+   <td style="text-align:left;"> @noticiascaracol </td>
+   <td style="text-align:right;"> 12 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> @ivancepedacast </td>
+   <td style="text-align:left;"> @aabenedetti </td>
+   <td style="text-align:right;"> 12 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> @policiacolombia </td>
+   <td style="text-align:left;"> @mindefensa </td>
+   <td style="text-align:right;"> 12 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> @gustavobolivar </td>
+   <td style="text-align:left;"> @hollmanmorris </td>
+   <td style="text-align:right;"> 12 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> @minsaludcol </td>
+   <td style="text-align:left;"> @elespectador </td>
+   <td style="text-align:right;"> 12 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> @elespectador </td>
+   <td style="text-align:left;"> @ga_jaramillo </td>
+   <td style="text-align:right;"> 12 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> @palomavalencial </td>
+   <td style="text-align:left;"> @abdelaespriella </td>
+   <td style="text-align:right;"> 12 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> @revistasemana </td>
+   <td style="text-align:left;"> @noticiascaracol </td>
+   <td style="text-align:right;"> 11 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> @roybarreras </td>
+   <td style="text-align:left;"> @ivancepedacast </td>
+   <td style="text-align:right;"> 11 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> @minenergiaco </td>
+   <td style="text-align:left;"> @superservicios </td>
+   <td style="text-align:right;"> 11 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> @gustavobolivar </td>
+   <td style="text-align:left;"> @pactocol </td>
+   <td style="text-align:right;"> 11 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> @wradiocolombia </td>
+   <td style="text-align:left;"> @eltiempo </td>
+   <td style="text-align:right;"> 11 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> @elcolombiano </td>
+   <td style="text-align:left;"> @eltiempo </td>
+   <td style="text-align:right;"> 11 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> @cnnee </td>
+   <td style="text-align:left;"> @elespectador </td>
+   <td style="text-align:right;"> 11 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> @infopresidencia </td>
+   <td style="text-align:left;"> @supersalud </td>
+   <td style="text-align:right;"> 11 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> @minsaludcol </td>
+   <td style="text-align:left;"> @minhacienda </td>
+   <td style="text-align:right;"> 10 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> @franciamarquezm </td>
+   <td style="text-align:left;"> @ivancepedacast </td>
+   <td style="text-align:right;"> 10 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> @noticiasrcn </td>
+   <td style="text-align:left;"> @bluradioco </td>
+   <td style="text-align:right;"> 10 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> @noticiascaracol </td>
+   <td style="text-align:left;"> @bluradioco </td>
+   <td style="text-align:right;"> 10 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> @wradiocolombia </td>
+   <td style="text-align:left;"> @lafm </td>
+   <td style="text-align:right;"> 10 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> @palomavalencial </td>
+   <td style="text-align:left;"> @cedemocratico </td>
+   <td style="text-align:right;"> 10 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> @wilsonariasc </td>
+   <td style="text-align:left;"> @pizarromariajo </td>
+   <td style="text-align:right;"> 10 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> @bluradioco </td>
+   <td style="text-align:left;"> @eltiempo </td>
+   <td style="text-align:right;"> 10 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> @potus </td>
+   <td style="text-align:left;"> @jmilei </td>
+   <td style="text-align:right;"> 10 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> @ivancepedacast </td>
+   <td style="text-align:left;"> @abdelaespriella </td>
+   <td style="text-align:right;"> 10 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> @revistasemana </td>
+   <td style="text-align:left;"> @noticiasrcn </td>
+   <td style="text-align:right;"> 9 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> @noticiasrcn </td>
+   <td style="text-align:left;"> @wradiocolombia </td>
+   <td style="text-align:right;"> 9 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> @pactohistorico </td>
+   <td style="text-align:left;"> @ivancepedacast </td>
+   <td style="text-align:right;"> 9 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> @col_ejercito </td>
+   <td style="text-align:left;"> @mindefensa </td>
+   <td style="text-align:right;"> 9 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> @revistasemana </td>
+   <td style="text-align:left;"> @bluradioco </td>
+   <td style="text-align:right;"> 9 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> @noticiascaracol </td>
+   <td style="text-align:left;"> @lafm </td>
+   <td style="text-align:right;"> 9 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> @bluradioco </td>
+   <td style="text-align:left;"> @caracolradio </td>
+   <td style="text-align:right;"> 9 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> @ivancepedacast </td>
+   <td style="text-align:left;"> @pactocol </td>
+   <td style="text-align:right;"> 9 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> @gustavobolivar </td>
+   <td style="text-align:left;"> @quinterocalle </td>
+   <td style="text-align:right;"> 9 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> @ivancepedacast </td>
+   <td style="text-align:left;"> @quinterocalle </td>
+   <td style="text-align:right;"> 9 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> @noticiasrcn </td>
+   <td style="text-align:left;"> @eltiempo </td>
+   <td style="text-align:right;"> 9 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> @minsaludcol </td>
+   <td style="text-align:left;"> @cnnee </td>
+   <td style="text-align:right;"> 9 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> @cnnee </td>
+   <td style="text-align:left;"> @ga_jaramillo </td>
+   <td style="text-align:right;"> 9 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> @vickydavilah </td>
+   <td style="text-align:left;"> @abdelaespriella </td>
+   <td style="text-align:right;"> 9 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> @gustavobolivar </td>
+   <td style="text-align:left;"> @infopresidencia </td>
+   <td style="text-align:right;"> 8 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> @franciamarquezm </td>
+   <td style="text-align:left;"> @roybarreras </td>
+   <td style="text-align:right;"> 8 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> @revistasemana </td>
+   <td style="text-align:left;"> @alvarouribevel </td>
+   <td style="text-align:right;"> 8 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> @alvarouribevel </td>
+   <td style="text-align:left;"> @cathyjuvinao </td>
+   <td style="text-align:right;"> 8 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> @davidracero </td>
+   <td style="text-align:left;"> @ivancepedacast </td>
+   <td style="text-align:right;"> 8 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> @wradiocolombia </td>
+   <td style="text-align:left;"> @caracolradio </td>
+   <td style="text-align:right;"> 8 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> @vickydavilah </td>
+   <td style="text-align:left;"> @palomavalencial </td>
+   <td style="text-align:right;"> 8 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> @minenergiaco </td>
+   <td style="text-align:left;"> @irenevelezt </td>
+   <td style="text-align:right;"> 8 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> @nicolasmaduro </td>
+   <td style="text-align:left;"> @gabrielboric </td>
+   <td style="text-align:right;"> 8 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> @vickydavilah </td>
+   <td style="text-align:left;"> @fiscaliacol </td>
+   <td style="text-align:right;"> 8 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> @franciamarquezm </td>
+   <td style="text-align:left;"> @pizarromariajo </td>
+   <td style="text-align:right;"> 8 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> @roybarreras </td>
+   <td style="text-align:left;"> @pizarromariajo </td>
+   <td style="text-align:right;"> 8 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> @davidracero </td>
+   <td style="text-align:left;"> @pizarromariajo </td>
+   <td style="text-align:right;"> 8 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> @revistasemana </td>
+   <td style="text-align:left;"> @elespectador </td>
+   <td style="text-align:right;"> 8 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> @cgr_colombia </td>
+   <td style="text-align:left;"> @cortesupremaj </td>
+   <td style="text-align:right;"> 8 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> @carolinacorcho </td>
+   <td style="text-align:left;"> @supersalud </td>
+   <td style="text-align:right;"> 8 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> @quinterocalle </td>
+   <td style="text-align:left;"> @supersalud </td>
+   <td style="text-align:right;"> 8 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> @carolinacorcho </td>
+   <td style="text-align:left;"> @ga_jaramillo </td>
+   <td style="text-align:right;"> 8 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> @gustavobolivar </td>
+   <td style="text-align:left;"> @laurisarabia </td>
+   <td style="text-align:right;"> 8 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> @gabrielboric </td>
+   <td style="text-align:left;"> @jmilei </td>
+   <td style="text-align:right;"> 8 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> @nayibbukele </td>
+   <td style="text-align:left;"> @jmilei </td>
+   <td style="text-align:right;"> 8 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> @mariafdacabal </td>
+   <td style="text-align:left;"> @abdelaespriella </td>
+   <td style="text-align:right;"> 8 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> @franciamarquezm </td>
+   <td style="text-align:left;"> @carolinacorcho </td>
+   <td style="text-align:right;"> 7 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> @franciamarquezm </td>
+   <td style="text-align:left;"> @veronicalcocerg </td>
+   <td style="text-align:right;"> 7 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> @ivan_velasquez_ </td>
+   <td style="text-align:left;"> @mindefensa </td>
+   <td style="text-align:right;"> 7 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> @noticiasrcn </td>
+   <td style="text-align:left;"> @lafm </td>
+   <td style="text-align:right;"> 7 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> @noticiascaracol </td>
+   <td style="text-align:left;"> @caracolradio </td>
+   <td style="text-align:right;"> 7 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> @ivancepedacast </td>
+   <td style="text-align:left;"> @wilsonariasc </td>
+   <td style="text-align:right;"> 7 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> @franciamarquezm </td>
+   <td style="text-align:left;"> @pactocol </td>
+   <td style="text-align:right;"> 7 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> @ivanduque </td>
+   <td style="text-align:left;"> @fiscaliacol </td>
+   <td style="text-align:right;"> 7 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> @fiscaliacol </td>
+   <td style="text-align:left;"> @onu_es </td>
+   <td style="text-align:right;"> 7 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> @mariafdacabal </td>
+   <td style="text-align:left;"> @cedemocratico </td>
+   <td style="text-align:right;"> 7 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> @ivancepedacast </td>
+   <td style="text-align:left;"> @cedemocratico </td>
+   <td style="text-align:right;"> 7 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> @pactocol </td>
+   <td style="text-align:left;"> @pizarromariajo </td>
+   <td style="text-align:right;"> 7 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> @fecode </td>
+   <td style="text-align:left;"> @mineducacion </td>
+   <td style="text-align:right;"> 7 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> @cedemocratico </td>
+   <td style="text-align:left;"> @senadogovco </td>
+   <td style="text-align:right;"> 7 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> @lulaoficial </td>
+   <td style="text-align:left;"> @potus </td>
+   <td style="text-align:right;"> 7 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> @cne_colombia </td>
+   <td style="text-align:left;"> @cortesupremaj </td>
+   <td style="text-align:right;"> 7 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> @cne_colombia </td>
+   <td style="text-align:left;"> @consejodeestado </td>
+   <td style="text-align:right;"> 7 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> @pizarromariajo </td>
+   <td style="text-align:left;"> @abdelaespriella </td>
+   <td style="text-align:right;"> 7 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> @palomavalencial </td>
+   <td style="text-align:left;"> @kremlinrussia_e </td>
+   <td style="text-align:right;"> 7 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> @onu_es </td>
+   <td style="text-align:left;"> @kremlinrussia_e </td>
+   <td style="text-align:right;"> 7 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> @eltiempo </td>
+   <td style="text-align:left;"> @kremlinrussia_e </td>
+   <td style="text-align:right;"> 7 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> @palomavalencial </td>
+   <td style="text-align:left;"> @cnn </td>
+   <td style="text-align:right;"> 7 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> @eltiempo </td>
+   <td style="text-align:left;"> @cnn </td>
+   <td style="text-align:right;"> 7 </td>
+  </tr>
+</tbody>
+</table>
+</body>
+</html>
+

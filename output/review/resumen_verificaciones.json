@@ -1,0 +1,38 @@
+{
+  "notebook_sha256": "ab5cf4e104b608ad44533801874c8d8e377289c58f8f340b1d4d62ba6e5d12a8",
+  "protected_prefix_sha256": "ea91b1061c28979b146401f20b619aae2837e7e328663482418860c592761888",
+  "protected_lines": 3124,
+  "protected_existing_files_unchanged": 334,
+  "eligible_post4_products": 274,
+  "incorporated_products": 215,
+  "incorporated_actions": {
+    "updated": 203,
+    "created": 12
+  },
+  "numerical_checks": 49,
+  "numerical_checks_passed": 49,
+  "chunks_executed_conditionally": 385,
+  "condition_counts": {
+    "start": 385,
+    "message": 18,
+    "warning": 6
+  },
+  "unassisted_clean_run_completed": false,
+  "blocking_chunk": "wordcloud-corpus-temporal-02-paso-03",
+  "block_reason": "rescale() conflict between scales and syuzhet before section 4",
+  "conditional_full_render_completed": true,
+  "conditional_workaround": "review_env$rescale <- scales::rescale in temporary evaluation environment only",
+  "validation_copy": "/private/tmp/petro-notebook-review/delivery_run",
+  "html_validation_path": "/private/tmp/petro-notebook-review/delivery_run/notebooks/español/Cuaderno_Paper_Español.nb.html",
+  "visual_qa": {
+    "mathjax_renderings": 57,
+    "broken_images": 0,
+    "overflowing_tables": 0,
+    "inspected": [
+      "equations Granger and VAR",
+      "spaCy interactive network",
+      "recovered collocation figure",
+      "method status table"
+    ]
+  }
+}

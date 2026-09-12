@@ -1,0 +1,13 @@
+componente,estado,razon
+Tweets 2022-2026,viable,snapshots mensuales existentes
+Sentimiento diario,viable,NRC y sentometrics disponibles
+Volumen de conversación,viable,conteo diario de tweets disponible
+Índice de Presión Informacional,viable,se construye con sentimiento y volumen
+TRM,viable,serie oficial BanRep procesada
+COLCAP,viable,serie diaria oficial disponible vía BanRep/BVC
+TES,viable,"tasas cero cupón oficiales BanRep a 1, 5 y 10 años"
+Volatilidad,futuro,no hay serie procesada en el repo
+Granger,diagnóstico,interpretable sólo como precedencia predictiva
+VAR/IRF,condicionado,requiere cobertura financiera suficiente
+Markov Switching,futuro,requiere series largas y completas por régimen
+Event Study,diagnóstico,permite describir ventanas alrededor de eventos extremos

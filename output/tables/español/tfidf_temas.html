@@ -1,0 +1,802 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>TF-IDF por tema</title>
+<style>body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;margin:24px;color:#222}table{border-collapse:collapse;width:100%;font-size:13px}th,td{border:1px solid #ddd;padding:6px 8px;text-align:left;vertical-align:top}th{background:#f3f5f2}caption{text-align:left;font-weight:700;font-size:18px;margin-bottom:4px}.subtitle{color:#666;margin:0 0 14px 0}</style>
+</head>
+<body>
+<h1>TF-IDF por tema</h1><p class="subtitle">Términos distintivos en agendas clasificadas</p><table>
+ <thead>
+  <tr>
+   <th style="text-align:left;"> reform_theme </th>
+   <th style="text-align:left;"> feature </th>
+   <th style="text-align:right;"> tfidf </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> constituyente </td>
+   <td style="text-align:left;"> constituyente </td>
+   <td style="text-align:right;"> 75.553223 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> constituyente </td>
+   <td style="text-align:left;"> firmas </td>
+   <td style="text-align:right;"> 11.619254 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> constituyente </td>
+   <td style="text-align:left;"> convocatoria </td>
+   <td style="text-align:right;"> 7.166367 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> constituyente </td>
+   <td style="text-align:left;"> asamblea </td>
+   <td style="text-align:right;"> 4.280489 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> constituyente </td>
+   <td style="text-align:left;"> constitución </td>
+   <td style="text-align:right;"> 4.062837 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> constituyente </td>
+   <td style="text-align:left;"> primario </td>
+   <td style="text-align:right;"> 3.693713 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> constituyente </td>
+   <td style="text-align:left;"> proclamar </td>
+   <td style="text-align:right;"> 3.251653 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> constituyente </td>
+   <td style="text-align:left;"> válidas </td>
+   <td style="text-align:right;"> 3.251653 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> constituyente </td>
+   <td style="text-align:left;"> capítulos </td>
+   <td style="text-align:right;"> 3.251653 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> constituyente </td>
+   <td style="text-align:left;"> convocar </td>
+   <td style="text-align:right;"> 2.957298 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> constituyente </td>
+   <td style="text-align:left;"> recoger </td>
+   <td style="text-align:right;"> 2.957298 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> constituyente </td>
+   <td style="text-align:left;"> reformar </td>
+   <td style="text-align:right;"> 2.559417 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> economia </td>
+   <td style="text-align:left;"> economía </td>
+   <td style="text-align:right;"> 108.344661 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> economia </td>
+   <td style="text-align:left;"> deuda </td>
+   <td style="text-align:right;"> 105.403230 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> economia </td>
+   <td style="text-align:left;"> inflación </td>
+   <td style="text-align:right;"> 63.905896 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> economia </td>
+   <td style="text-align:left;"> déficit </td>
+   <td style="text-align:right;"> 36.855602 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> economia </td>
+   <td style="text-align:left;"> mercado </td>
+   <td style="text-align:right;"> 30.892873 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> economia </td>
+   <td style="text-align:left;"> dólar </td>
+   <td style="text-align:right;"> 28.878121 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> economia </td>
+   <td style="text-align:left;"> precios </td>
+   <td style="text-align:right;"> 25.184408 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> economia </td>
+   <td style="text-align:left;"> tasa </td>
+   <td style="text-align:right;"> 25.181481 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> economia </td>
+   <td style="text-align:left;"> crecimiento </td>
+   <td style="text-align:right;"> 22.561310 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> economia </td>
+   <td style="text-align:left;"> fmi </td>
+   <td style="text-align:right;"> 19.451568 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> economia </td>
+   <td style="text-align:left;"> tasas </td>
+   <td style="text-align:right;"> 18.258827 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> economia </td>
+   <td style="text-align:left;"> externa </td>
+   <td style="text-align:right;"> 17.404034 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> energia_ambiente </td>
+   <td style="text-align:left;"> energía </td>
+   <td style="text-align:right;"> 34.016280 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> energia_ambiente </td>
+   <td style="text-align:left;"> ecopetrol </td>
+   <td style="text-align:right;"> 28.465204 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> energia_ambiente </td>
+   <td style="text-align:left;"> gas </td>
+   <td style="text-align:right;"> 23.156622 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> energia_ambiente </td>
+   <td style="text-align:left;"> petroleo </td>
+   <td style="text-align:right;"> 22.162279 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> energia_ambiente </td>
+   <td style="text-align:left;"> energética </td>
+   <td style="text-align:right;"> 19.811734 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> energia_ambiente </td>
+   <td style="text-align:left;"> carbón </td>
+   <td style="text-align:right;"> 18.133389 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> energia_ambiente </td>
+   <td style="text-align:left;"> limpia </td>
+   <td style="text-align:right;"> 16.789605 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> energia_ambiente </td>
+   <td style="text-align:left;"> solar </td>
+   <td style="text-align:right;"> 14.774852 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> energia_ambiente </td>
+   <td style="text-align:left;"> climático </td>
+   <td style="text-align:right;"> 14.517647 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> energia_ambiente </td>
+   <td style="text-align:left;"> solares </td>
+   <td style="text-align:right;"> 14.010086 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> energia_ambiente </td>
+   <td style="text-align:left;"> transición </td>
+   <td style="text-align:right;"> 13.979956 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> energia_ambiente </td>
+   <td style="text-align:left;"> hidrógeno </td>
+   <td style="text-align:right;"> 13.006614 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> energia_tarifas </td>
+   <td style="text-align:left;"> tarifas </td>
+   <td style="text-align:right;"> 28.542329 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> energia_tarifas </td>
+   <td style="text-align:left;"> energía </td>
+   <td style="text-align:right;"> 23.476024 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> energia_tarifas </td>
+   <td style="text-align:left;"> eléctrica </td>
+   <td style="text-align:right;"> 15.171580 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> energia_tarifas </td>
+   <td style="text-align:left;"> tarifaria </td>
+   <td style="text-align:right;"> 13.006614 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> energia_tarifas </td>
+   <td style="text-align:left;"> tarifa </td>
+   <td style="text-align:right;"> 11.204280 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> energia_tarifas </td>
+   <td style="text-align:left;"> aire </td>
+   <td style="text-align:right;"> 9.737971 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> energia_tarifas </td>
+   <td style="text-align:left;"> creg </td>
+   <td style="text-align:right;"> 9.725784 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> energia_tarifas </td>
+   <td style="text-align:left;"> solar </td>
+   <td style="text-align:right;"> 7.723218 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> energia_tarifas </td>
+   <td style="text-align:left;"> solares </td>
+   <td style="text-align:right;"> 7.641865 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> energia_tarifas </td>
+   <td style="text-align:left;"> fórmula </td>
+   <td style="text-align:right;"> 6.715842 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> energia_tarifas </td>
+   <td style="text-align:left;"> gas </td>
+   <td style="text-align:right;"> 6.707435 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> energia_tarifas </td>
+   <td style="text-align:left;"> techos </td>
+   <td style="text-align:right;"> 5.731399 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> institucionalidad </td>
+   <td style="text-align:left;"> elecciones </td>
+   <td style="text-align:right;"> 53.020680 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> institucionalidad </td>
+   <td style="text-align:left;"> democracia </td>
+   <td style="text-align:right;"> 44.323964 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> institucionalidad </td>
+   <td style="text-align:left;"> justicia </td>
+   <td style="text-align:right;"> 36.855739 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> institucionalidad </td>
+   <td style="text-align:left;"> corrupción </td>
+   <td style="text-align:right;"> 33.613289 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> institucionalidad </td>
+   <td style="text-align:left;"> fiscalía </td>
+   <td style="text-align:right;"> 33.525685 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> institucionalidad </td>
+   <td style="text-align:left;"> twitts </td>
+   <td style="text-align:right;"> 29.264881 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> institucionalidad </td>
+   <td style="text-align:left;"> copiar </td>
+   <td style="text-align:right;"> 26.826141 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> institucionalidad </td>
+   <td style="text-align:left;"> terna </td>
+   <td style="text-align:right;"> 26.106051 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> institucionalidad </td>
+   <td style="text-align:left;"> congreso </td>
+   <td style="text-align:right;"> 24.812328 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> institucionalidad </td>
+   <td style="text-align:left;"> fraude </td>
+   <td style="text-align:right;"> 24.458990 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> institucionalidad </td>
+   <td style="text-align:left;"> pegar </td>
+   <td style="text-align:right;"> 22.925596 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> institucionalidad </td>
+   <td style="text-align:left;"> americana </td>
+   <td style="text-align:right;"> 22.288773 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> internacional </td>
+   <td style="text-align:left;"> palestina </td>
+   <td style="text-align:right;"> 39.520261 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> internacional </td>
+   <td style="text-align:left;"> eeuu </td>
+   <td style="text-align:right;"> 38.512853 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> internacional </td>
+   <td style="text-align:left;"> venezuela </td>
+   <td style="text-align:right;"> 38.171023 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> internacional </td>
+   <td style="text-align:left;"> trump </td>
+   <td style="text-align:right;"> 35.932690 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> internacional </td>
+   <td style="text-align:left;"> unidos </td>
+   <td style="text-align:right;"> 25.513257 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> internacional </td>
+   <td style="text-align:left;"> israel </td>
+   <td style="text-align:right;"> 23.955126 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> internacional </td>
+   <td style="text-align:left;"> internacional </td>
+   <td style="text-align:right;"> 23.795426 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> internacional </td>
+   <td style="text-align:left;"> maduro </td>
+   <td style="text-align:right;"> 22.446840 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> internacional </td>
+   <td style="text-align:left;"> migrantes </td>
+   <td style="text-align:right;"> 22.010984 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> internacional </td>
+   <td style="text-align:left;"> gaza </td>
+   <td style="text-align:right;"> 19.962605 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> internacional </td>
+   <td style="text-align:left;"> nicolás </td>
+   <td style="text-align:right;"> 18.468566 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> internacional </td>
+   <td style="text-align:left;"> celac </td>
+   <td style="text-align:right;"> 18.427801 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> laboral </td>
+   <td style="text-align:left;"> trabajo </td>
+   <td style="text-align:right;"> 282.893848 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> laboral </td>
+   <td style="text-align:left;"> salario </td>
+   <td style="text-align:right;"> 281.268021 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> laboral </td>
+   <td style="text-align:left;"> trabajadores </td>
+   <td style="text-align:right;"> 216.234953 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> laboral </td>
+   <td style="text-align:left;"> laboral </td>
+   <td style="text-align:right;"> 203.228339 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> laboral </td>
+   <td style="text-align:left;"> contrato </td>
+   <td style="text-align:right;"> 100.801256 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> laboral </td>
+   <td style="text-align:left;"> empleo </td>
+   <td style="text-align:right;"> 91.046296 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> laboral </td>
+   <td style="text-align:left;"> trabajador </td>
+   <td style="text-align:right;"> 90.233383 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> laboral </td>
+   <td style="text-align:left;"> trabajadora </td>
+   <td style="text-align:right;"> 50.400628 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> laboral </td>
+   <td style="text-align:left;"> mínimo </td>
+   <td style="text-align:right;"> 35.001659 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> laboral </td>
+   <td style="text-align:left;"> trabajadoras </td>
+   <td style="text-align:right;"> 31.703621 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> laboral </td>
+   <td style="text-align:left;"> pensional </td>
+   <td style="text-align:right;"> 27.383350 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> laboral </td>
+   <td style="text-align:left;"> jornada </td>
+   <td style="text-align:right;"> 26.106051 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> paz_total </td>
+   <td style="text-align:left;"> eln </td>
+   <td style="text-align:right;"> 150.493708 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> paz_total </td>
+   <td style="text-align:left;"> disidencias </td>
+   <td style="text-align:right;"> 38.206928 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> paz_total </td>
+   <td style="text-align:left;"> guerrilla </td>
+   <td style="text-align:right;"> 37.572504 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> paz_total </td>
+   <td style="text-align:left;"> jep </td>
+   <td style="text-align:right;"> 26.013227 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> paz_total </td>
+   <td style="text-align:left;"> farc </td>
+   <td style="text-align:right;"> 25.271459 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> paz_total </td>
+   <td style="text-align:left;"> cese </td>
+   <td style="text-align:right;"> 21.163641 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> paz_total </td>
+   <td style="text-align:left;"> fuego </td>
+   <td style="text-align:right;"> 13.173420 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> paz_total </td>
+   <td style="text-align:left;"> clan </td>
+   <td style="text-align:right;"> 11.416932 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> paz_total </td>
+   <td style="text-align:left;"> ejército </td>
+   <td style="text-align:right;"> 11.204280 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> paz_total </td>
+   <td style="text-align:left;"> mordisco </td>
+   <td style="text-align:right;"> 9.129414 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> paz_total </td>
+   <td style="text-align:left;"> duerman </td>
+   <td style="text-align:right;"> 8.911547 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> paz_total </td>
+   <td style="text-align:left;"> marquetalia </td>
+   <td style="text-align:right;"> 8.299467 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> pensional </td>
+   <td style="text-align:left;"> pensional </td>
+   <td style="text-align:right;"> 124.817131 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> pensional </td>
+   <td style="text-align:left;"> pensiones </td>
+   <td style="text-align:right;"> 50.945768 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> pensional </td>
+   <td style="text-align:left;"> bono </td>
+   <td style="text-align:right;"> 27.129818 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> pensional </td>
+   <td style="text-align:left;"> colpensiones </td>
+   <td style="text-align:right;"> 18.697007 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> pensional </td>
+   <td style="text-align:left;"> pensión </td>
+   <td style="text-align:right;"> 18.468566 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> pensional </td>
+   <td style="text-align:left;"> pensionados </td>
+   <td style="text-align:right;"> 13.373264 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> pensional </td>
+   <td style="text-align:left;"> cotizantes </td>
+   <td style="text-align:right;"> 13.373264 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> pensional </td>
+   <td style="text-align:left;"> fondos </td>
+   <td style="text-align:right;"> 9.262649 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> pensional </td>
+   <td style="text-align:left;"> ahorro </td>
+   <td style="text-align:right;"> 7.796514 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> pensional </td>
+   <td style="text-align:left;"> viejas </td>
+   <td style="text-align:right;"> 7.469520 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> pensional </td>
+   <td style="text-align:left;"> ancianas </td>
+   <td style="text-align:right;"> 7.316220 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> pensional </td>
+   <td style="text-align:left;"> reformapensionalya </td>
+   <td style="text-align:right;"> 6.683660 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> reforma_general </td>
+   <td style="text-align:left;"> hectáreas </td>
+   <td style="text-align:right;"> 3.513419 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> reforma_general </td>
+   <td style="text-align:left;"> agraria </td>
+   <td style="text-align:right;"> 3.198114 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> reforma_general </td>
+   <td style="text-align:left;"> campesino </td>
+   <td style="text-align:right;"> 2.951947 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> reforma_general </td>
+   <td style="text-align:left;"> chicoral </td>
+   <td style="text-align:right;"> 2.547288 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> reforma_general </td>
+   <td style="text-align:left;"> catastral </td>
+   <td style="text-align:right;"> 2.438740 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> reforma_general </td>
+   <td style="text-align:left;"> vendría </td>
+   <td style="text-align:right;"> 2.438740 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> reforma_general </td>
+   <td style="text-align:left;"> cuestionando </td>
+   <td style="text-align:right;"> 2.438740 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> reforma_general </td>
+   <td style="text-align:left;"> liberal </td>
+   <td style="text-align:right;"> 2.150762 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> reforma_general </td>
+   <td style="text-align:left;"> estructurales </td>
+   <td style="text-align:right;"> 1.910466 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> reforma_general </td>
+   <td style="text-align:left;"> cerradas </td>
+   <td style="text-align:right;"> 1.910466 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> reforma_general </td>
+   <td style="text-align:left;"> arroz </td>
+   <td style="text-align:right;"> 1.881917 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> reforma_general </td>
+   <td style="text-align:left;"> aprueban </td>
+   <td style="text-align:right;"> 1.678961 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> salud </td>
+   <td style="text-align:left;"> salud </td>
+   <td style="text-align:right;"> 1356.783003 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> salud </td>
+   <td style="text-align:left;"> eps </td>
+   <td style="text-align:right;"> 592.617863 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> salud </td>
+   <td style="text-align:left;"> hospital </td>
+   <td style="text-align:right;"> 149.268409 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> salud </td>
+   <td style="text-align:left;"> medicamentos </td>
+   <td style="text-align:right;"> 148.154466 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> salud </td>
+   <td style="text-align:left;"> hospitales </td>
+   <td style="text-align:right;"> 111.394335 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> salud </td>
+   <td style="text-align:left;"> pacientes </td>
+   <td style="text-align:right;"> 77.976035 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> salud </td>
+   <td style="text-align:left;"> clínicas </td>
+   <td style="text-align:right;"> 76.862091 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> salud </td>
+   <td style="text-align:left;"> medicina </td>
+   <td style="text-align:right;"> 45.671677 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> salud </td>
+   <td style="text-align:left;"> paciente </td>
+   <td style="text-align:right;"> 36.760131 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> salud </td>
+   <td style="text-align:left;"> preventivo </td>
+   <td style="text-align:right;"> 34.955274 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> salud </td>
+   <td style="text-align:left;"> trabajo </td>
+   <td style="text-align:right;"> 34.142361 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> salud </td>
+   <td style="text-align:left;"> laboral </td>
+   <td style="text-align:right;"> 34.142361 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> seguridad </td>
+   <td style="text-align:left;"> cocaína </td>
+   <td style="text-align:right;"> 185.078113 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> seguridad </td>
+   <td style="text-align:left;"> policía </td>
+   <td style="text-align:right;"> 132.376498 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> seguridad </td>
+   <td style="text-align:left;"> violencia </td>
+   <td style="text-align:right;"> 115.176691 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> seguridad </td>
+   <td style="text-align:left;"> narcotráfico </td>
+   <td style="text-align:right;"> 98.722878 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> seguridad </td>
+   <td style="text-align:left;"> seguridad </td>
+   <td style="text-align:right;"> 91.138561 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> seguridad </td>
+   <td style="text-align:left;"> ejército </td>
+   <td style="text-align:right;"> 90.049216 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> seguridad </td>
+   <td style="text-align:left;"> crimen </td>
+   <td style="text-align:right;"> 65.521070 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> seguridad </td>
+   <td style="text-align:left;"> toneladas </td>
+   <td style="text-align:right;"> 49.128834 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> seguridad </td>
+   <td style="text-align:left;"> narcotrafico </td>
+   <td style="text-align:right;"> 36.581101 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> seguridad </td>
+   <td style="text-align:left;"> incautadas </td>
+   <td style="text-align:right;"> 34.955274 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> seguridad </td>
+   <td style="text-align:left;"> tonelada </td>
+   <td style="text-align:right;"> 33.114749 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> seguridad </td>
+   <td style="text-align:left;"> incautada </td>
+   <td style="text-align:right;"> 32.304357 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> tributaria </td>
+   <td style="text-align:left;"> impuestos </td>
+   <td style="text-align:right;"> 95.722189 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> tributaria </td>
+   <td style="text-align:left;"> tributaria </td>
+   <td style="text-align:right;"> 56.819053 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> tributaria </td>
+   <td style="text-align:left;"> renta </td>
+   <td style="text-align:right;"> 49.672124 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> tributaria </td>
+   <td style="text-align:left;"> impuesto </td>
+   <td style="text-align:right;"> 49.140803 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> tributaria </td>
+   <td style="text-align:left;"> iva </td>
+   <td style="text-align:right;"> 27.639054 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> tributaria </td>
+   <td style="text-align:left;"> patrimonio </td>
+   <td style="text-align:right;"> 26.109706 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> tributaria </td>
+   <td style="text-align:left;"> dian </td>
+   <td style="text-align:right;"> 17.831019 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> tributaria </td>
+   <td style="text-align:left;"> predial </td>
+   <td style="text-align:right;"> 12.253377 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> tributaria </td>
+   <td style="text-align:left;"> deuda </td>
+   <td style="text-align:right;"> 10.789307 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> tributaria </td>
+   <td style="text-align:left;"> déficit </td>
+   <td style="text-align:right;"> 8.702017 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> tributaria </td>
+   <td style="text-align:left;"> recaudo </td>
+   <td style="text-align:right;"> 7.005043 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> tributaria </td>
+   <td style="text-align:left;"> ricos </td>
+   <td style="text-align:right;"> 6.388034 </td>
+  </tr>
+</tbody>
+</table>
+</body>
+</html>
+

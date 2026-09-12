@@ -1,0 +1,2271 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Calendario efectivo de Granger</title>
+<style>body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;margin:24px;color:#222}table{border-collapse:collapse;width:100%;font-size:13px}th,td{border:1px solid #ddd;padding:6px 8px;text-align:left;vertical-align:top}th{background:#f3f5f2}caption{text-align:left;font-weight:700;font-size:18px;margin-bottom:4px}.subtitle{color:#666;margin:0 0 14px 0}</style>
+</head>
+<body>
+<h1>Calendario efectivo de Granger</h1><p class="subtitle">Las muestras originales se conservan; las discontinuidades limitan la lectura diaria</p><table>
+ <thead>
+  <tr>
+   <th style="text-align:left;"> dataset </th>
+   <th style="text-align:left;"> corpus </th>
+   <th style="text-align:left;"> response </th>
+   <th style="text-align:left;"> predictor </th>
+   <th style="text-align:right;"> lag </th>
+   <th style="text-align:right;"> filas_completas </th>
+   <th style="text-align:right;"> observaciones_tras_rezagos </th>
+   <th style="text-align:right;"> fechas_duplicadas </th>
+   <th style="text-align:right;"> saltos_mayores_un_dia </th>
+   <th style="text-align:right;"> salto_maximo_dias </th>
+   <th style="text-align:left;"> inicio </th>
+   <th style="text-align:left;"> fin </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> opinión temática </td>
+   <td style="text-align:left;"> opinion </td>
+   <td style="text-align:left;"> colcap </td>
+   <td style="text-align:left;"> ipi </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 1285 </td>
+   <td style="text-align:right;"> 1284 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 63 </td>
+   <td style="text-align:right;"> 18 </td>
+   <td style="text-align:left;"> 2022-08-01 </td>
+   <td style="text-align:left;"> 2026-05-31 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> opinión temática </td>
+   <td style="text-align:left;"> opinion </td>
+   <td style="text-align:left;"> colcap </td>
+   <td style="text-align:left;"> ipi </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 1285 </td>
+   <td style="text-align:right;"> 1283 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 63 </td>
+   <td style="text-align:right;"> 18 </td>
+   <td style="text-align:left;"> 2022-08-01 </td>
+   <td style="text-align:left;"> 2026-05-31 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> opinión temática </td>
+   <td style="text-align:left;"> opinion </td>
+   <td style="text-align:left;"> colcap </td>
+   <td style="text-align:left;"> ipi </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 1285 </td>
+   <td style="text-align:right;"> 1282 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 63 </td>
+   <td style="text-align:right;"> 18 </td>
+   <td style="text-align:left;"> 2022-08-01 </td>
+   <td style="text-align:left;"> 2026-05-31 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> opinión temática </td>
+   <td style="text-align:left;"> opinion </td>
+   <td style="text-align:left;"> colcap </td>
+   <td style="text-align:left;"> ipi </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:right;"> 1285 </td>
+   <td style="text-align:right;"> 1281 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 63 </td>
+   <td style="text-align:right;"> 18 </td>
+   <td style="text-align:left;"> 2022-08-01 </td>
+   <td style="text-align:left;"> 2026-05-31 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> opinión temática </td>
+   <td style="text-align:left;"> opinion </td>
+   <td style="text-align:left;"> colcap </td>
+   <td style="text-align:left;"> polaridad </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 1335 </td>
+   <td style="text-align:right;"> 1334 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 59 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:left;"> 2022-08-01 </td>
+   <td style="text-align:left;"> 2026-05-31 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> opinión temática </td>
+   <td style="text-align:left;"> opinion </td>
+   <td style="text-align:left;"> colcap </td>
+   <td style="text-align:left;"> polaridad </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 1335 </td>
+   <td style="text-align:right;"> 1333 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 59 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:left;"> 2022-08-01 </td>
+   <td style="text-align:left;"> 2026-05-31 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> opinión temática </td>
+   <td style="text-align:left;"> opinion </td>
+   <td style="text-align:left;"> colcap </td>
+   <td style="text-align:left;"> polaridad </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 1335 </td>
+   <td style="text-align:right;"> 1332 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 59 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:left;"> 2022-08-01 </td>
+   <td style="text-align:left;"> 2026-05-31 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> opinión temática </td>
+   <td style="text-align:left;"> opinion </td>
+   <td style="text-align:left;"> colcap </td>
+   <td style="text-align:left;"> polaridad </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:right;"> 1335 </td>
+   <td style="text-align:right;"> 1331 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 59 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:left;"> 2022-08-01 </td>
+   <td style="text-align:left;"> 2026-05-31 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> opinión temática </td>
+   <td style="text-align:left;"> opinion </td>
+   <td style="text-align:left;"> energy_spot_price </td>
+   <td style="text-align:left;"> ipi </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 1348 </td>
+   <td style="text-align:right;"> 1347 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 6 </td>
+   <td style="text-align:right;"> 18 </td>
+   <td style="text-align:left;"> 2022-08-01 </td>
+   <td style="text-align:left;"> 2026-05-31 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> opinión temática </td>
+   <td style="text-align:left;"> opinion </td>
+   <td style="text-align:left;"> energy_spot_price </td>
+   <td style="text-align:left;"> ipi </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 1348 </td>
+   <td style="text-align:right;"> 1346 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 6 </td>
+   <td style="text-align:right;"> 18 </td>
+   <td style="text-align:left;"> 2022-08-01 </td>
+   <td style="text-align:left;"> 2026-05-31 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> opinión temática </td>
+   <td style="text-align:left;"> opinion </td>
+   <td style="text-align:left;"> energy_spot_price </td>
+   <td style="text-align:left;"> ipi </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 1348 </td>
+   <td style="text-align:right;"> 1345 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 6 </td>
+   <td style="text-align:right;"> 18 </td>
+   <td style="text-align:left;"> 2022-08-01 </td>
+   <td style="text-align:left;"> 2026-05-31 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> opinión temática </td>
+   <td style="text-align:left;"> opinion </td>
+   <td style="text-align:left;"> energy_spot_price </td>
+   <td style="text-align:left;"> ipi </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:right;"> 1348 </td>
+   <td style="text-align:right;"> 1344 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 6 </td>
+   <td style="text-align:right;"> 18 </td>
+   <td style="text-align:left;"> 2022-08-01 </td>
+   <td style="text-align:left;"> 2026-05-31 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> opinión temática </td>
+   <td style="text-align:left;"> opinion </td>
+   <td style="text-align:left;"> energy_spot_price </td>
+   <td style="text-align:left;"> polaridad </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 1400 </td>
+   <td style="text-align:right;"> 1399 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> 2022-08-01 </td>
+   <td style="text-align:left;"> 2026-05-31 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> opinión temática </td>
+   <td style="text-align:left;"> opinion </td>
+   <td style="text-align:left;"> energy_spot_price </td>
+   <td style="text-align:left;"> polaridad </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 1400 </td>
+   <td style="text-align:right;"> 1398 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> 2022-08-01 </td>
+   <td style="text-align:left;"> 2026-05-31 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> opinión temática </td>
+   <td style="text-align:left;"> opinion </td>
+   <td style="text-align:left;"> energy_spot_price </td>
+   <td style="text-align:left;"> polaridad </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 1400 </td>
+   <td style="text-align:right;"> 1397 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> 2022-08-01 </td>
+   <td style="text-align:left;"> 2026-05-31 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> opinión temática </td>
+   <td style="text-align:left;"> opinion </td>
+   <td style="text-align:left;"> energy_spot_price </td>
+   <td style="text-align:left;"> polaridad </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:right;"> 1400 </td>
+   <td style="text-align:right;"> 1396 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> 2022-08-01 </td>
+   <td style="text-align:left;"> 2026-05-31 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> opinión temática </td>
+   <td style="text-align:left;"> opinion </td>
+   <td style="text-align:left;"> tes_10y </td>
+   <td style="text-align:left;"> ipi </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 1285 </td>
+   <td style="text-align:right;"> 1284 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 63 </td>
+   <td style="text-align:right;"> 18 </td>
+   <td style="text-align:left;"> 2022-08-01 </td>
+   <td style="text-align:left;"> 2026-05-31 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> opinión temática </td>
+   <td style="text-align:left;"> opinion </td>
+   <td style="text-align:left;"> tes_10y </td>
+   <td style="text-align:left;"> ipi </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 1285 </td>
+   <td style="text-align:right;"> 1283 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 63 </td>
+   <td style="text-align:right;"> 18 </td>
+   <td style="text-align:left;"> 2022-08-01 </td>
+   <td style="text-align:left;"> 2026-05-31 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> opinión temática </td>
+   <td style="text-align:left;"> opinion </td>
+   <td style="text-align:left;"> tes_10y </td>
+   <td style="text-align:left;"> ipi </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 1285 </td>
+   <td style="text-align:right;"> 1282 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 63 </td>
+   <td style="text-align:right;"> 18 </td>
+   <td style="text-align:left;"> 2022-08-01 </td>
+   <td style="text-align:left;"> 2026-05-31 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> opinión temática </td>
+   <td style="text-align:left;"> opinion </td>
+   <td style="text-align:left;"> tes_10y </td>
+   <td style="text-align:left;"> ipi </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:right;"> 1285 </td>
+   <td style="text-align:right;"> 1281 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 63 </td>
+   <td style="text-align:right;"> 18 </td>
+   <td style="text-align:left;"> 2022-08-01 </td>
+   <td style="text-align:left;"> 2026-05-31 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> opinión temática </td>
+   <td style="text-align:left;"> opinion </td>
+   <td style="text-align:left;"> tes_10y </td>
+   <td style="text-align:left;"> polaridad </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 1335 </td>
+   <td style="text-align:right;"> 1334 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 59 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:left;"> 2022-08-01 </td>
+   <td style="text-align:left;"> 2026-05-31 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> opinión temática </td>
+   <td style="text-align:left;"> opinion </td>
+   <td style="text-align:left;"> tes_10y </td>
+   <td style="text-align:left;"> polaridad </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 1335 </td>
+   <td style="text-align:right;"> 1333 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 59 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:left;"> 2022-08-01 </td>
+   <td style="text-align:left;"> 2026-05-31 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> opinión temática </td>
+   <td style="text-align:left;"> opinion </td>
+   <td style="text-align:left;"> tes_10y </td>
+   <td style="text-align:left;"> polaridad </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 1335 </td>
+   <td style="text-align:right;"> 1332 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 59 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:left;"> 2022-08-01 </td>
+   <td style="text-align:left;"> 2026-05-31 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> opinión temática </td>
+   <td style="text-align:left;"> opinion </td>
+   <td style="text-align:left;"> tes_10y </td>
+   <td style="text-align:left;"> polaridad </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:right;"> 1335 </td>
+   <td style="text-align:right;"> 1331 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 59 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:left;"> 2022-08-01 </td>
+   <td style="text-align:left;"> 2026-05-31 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> opinión temática </td>
+   <td style="text-align:left;"> opinion </td>
+   <td style="text-align:left;"> tes_slope_10y_1y </td>
+   <td style="text-align:left;"> ipi </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 1285 </td>
+   <td style="text-align:right;"> 1284 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 63 </td>
+   <td style="text-align:right;"> 18 </td>
+   <td style="text-align:left;"> 2022-08-01 </td>
+   <td style="text-align:left;"> 2026-05-31 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> opinión temática </td>
+   <td style="text-align:left;"> opinion </td>
+   <td style="text-align:left;"> tes_slope_10y_1y </td>
+   <td style="text-align:left;"> ipi </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 1285 </td>
+   <td style="text-align:right;"> 1283 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 63 </td>
+   <td style="text-align:right;"> 18 </td>
+   <td style="text-align:left;"> 2022-08-01 </td>
+   <td style="text-align:left;"> 2026-05-31 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> opinión temática </td>
+   <td style="text-align:left;"> opinion </td>
+   <td style="text-align:left;"> tes_slope_10y_1y </td>
+   <td style="text-align:left;"> ipi </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 1285 </td>
+   <td style="text-align:right;"> 1282 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 63 </td>
+   <td style="text-align:right;"> 18 </td>
+   <td style="text-align:left;"> 2022-08-01 </td>
+   <td style="text-align:left;"> 2026-05-31 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> opinión temática </td>
+   <td style="text-align:left;"> opinion </td>
+   <td style="text-align:left;"> tes_slope_10y_1y </td>
+   <td style="text-align:left;"> ipi </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:right;"> 1285 </td>
+   <td style="text-align:right;"> 1281 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 63 </td>
+   <td style="text-align:right;"> 18 </td>
+   <td style="text-align:left;"> 2022-08-01 </td>
+   <td style="text-align:left;"> 2026-05-31 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> opinión temática </td>
+   <td style="text-align:left;"> opinion </td>
+   <td style="text-align:left;"> tes_slope_10y_1y </td>
+   <td style="text-align:left;"> polaridad </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 1335 </td>
+   <td style="text-align:right;"> 1334 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 59 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:left;"> 2022-08-01 </td>
+   <td style="text-align:left;"> 2026-05-31 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> opinión temática </td>
+   <td style="text-align:left;"> opinion </td>
+   <td style="text-align:left;"> tes_slope_10y_1y </td>
+   <td style="text-align:left;"> polaridad </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 1335 </td>
+   <td style="text-align:right;"> 1333 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 59 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:left;"> 2022-08-01 </td>
+   <td style="text-align:left;"> 2026-05-31 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> opinión temática </td>
+   <td style="text-align:left;"> opinion </td>
+   <td style="text-align:left;"> tes_slope_10y_1y </td>
+   <td style="text-align:left;"> polaridad </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 1335 </td>
+   <td style="text-align:right;"> 1332 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 59 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:left;"> 2022-08-01 </td>
+   <td style="text-align:left;"> 2026-05-31 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> opinión temática </td>
+   <td style="text-align:left;"> opinion </td>
+   <td style="text-align:left;"> tes_slope_10y_1y </td>
+   <td style="text-align:left;"> polaridad </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:right;"> 1335 </td>
+   <td style="text-align:right;"> 1331 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 59 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:left;"> 2022-08-01 </td>
+   <td style="text-align:left;"> 2026-05-31 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> opinión temática </td>
+   <td style="text-align:left;"> opinion </td>
+   <td style="text-align:left;"> trm </td>
+   <td style="text-align:left;"> ipi </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 1348 </td>
+   <td style="text-align:right;"> 1347 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 6 </td>
+   <td style="text-align:right;"> 18 </td>
+   <td style="text-align:left;"> 2022-08-01 </td>
+   <td style="text-align:left;"> 2026-05-31 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> opinión temática </td>
+   <td style="text-align:left;"> opinion </td>
+   <td style="text-align:left;"> trm </td>
+   <td style="text-align:left;"> ipi </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 1348 </td>
+   <td style="text-align:right;"> 1346 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 6 </td>
+   <td style="text-align:right;"> 18 </td>
+   <td style="text-align:left;"> 2022-08-01 </td>
+   <td style="text-align:left;"> 2026-05-31 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> opinión temática </td>
+   <td style="text-align:left;"> opinion </td>
+   <td style="text-align:left;"> trm </td>
+   <td style="text-align:left;"> ipi </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 1348 </td>
+   <td style="text-align:right;"> 1345 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 6 </td>
+   <td style="text-align:right;"> 18 </td>
+   <td style="text-align:left;"> 2022-08-01 </td>
+   <td style="text-align:left;"> 2026-05-31 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> opinión temática </td>
+   <td style="text-align:left;"> opinion </td>
+   <td style="text-align:left;"> trm </td>
+   <td style="text-align:left;"> ipi </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:right;"> 1348 </td>
+   <td style="text-align:right;"> 1344 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 6 </td>
+   <td style="text-align:right;"> 18 </td>
+   <td style="text-align:left;"> 2022-08-01 </td>
+   <td style="text-align:left;"> 2026-05-31 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> opinión temática </td>
+   <td style="text-align:left;"> opinion </td>
+   <td style="text-align:left;"> trm </td>
+   <td style="text-align:left;"> polaridad </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 1400 </td>
+   <td style="text-align:right;"> 1399 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> 2022-08-01 </td>
+   <td style="text-align:left;"> 2026-05-31 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> opinión temática </td>
+   <td style="text-align:left;"> opinion </td>
+   <td style="text-align:left;"> trm </td>
+   <td style="text-align:left;"> polaridad </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 1400 </td>
+   <td style="text-align:right;"> 1398 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> 2022-08-01 </td>
+   <td style="text-align:left;"> 2026-05-31 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> opinión temática </td>
+   <td style="text-align:left;"> opinion </td>
+   <td style="text-align:left;"> trm </td>
+   <td style="text-align:left;"> polaridad </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 1400 </td>
+   <td style="text-align:right;"> 1397 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> 2022-08-01 </td>
+   <td style="text-align:left;"> 2026-05-31 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> opinión temática </td>
+   <td style="text-align:left;"> opinion </td>
+   <td style="text-align:left;"> trm </td>
+   <td style="text-align:left;"> polaridad </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:right;"> 1400 </td>
+   <td style="text-align:right;"> 1396 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> 2022-08-01 </td>
+   <td style="text-align:left;"> 2026-05-31 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> panel por corpus </td>
+   <td style="text-align:left;"> opinion </td>
+   <td style="text-align:left;"> colcap </td>
+   <td style="text-align:left;"> ipi </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 1286 </td>
+   <td style="text-align:right;"> 1285 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 62 </td>
+   <td style="text-align:right;"> 18 </td>
+   <td style="text-align:left;"> 2022-08-01 </td>
+   <td style="text-align:left;"> 2026-05-31 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> panel por corpus </td>
+   <td style="text-align:left;"> opinion </td>
+   <td style="text-align:left;"> colcap </td>
+   <td style="text-align:left;"> ipi </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 1286 </td>
+   <td style="text-align:right;"> 1284 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 62 </td>
+   <td style="text-align:right;"> 18 </td>
+   <td style="text-align:left;"> 2022-08-01 </td>
+   <td style="text-align:left;"> 2026-05-31 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> panel por corpus </td>
+   <td style="text-align:left;"> opinion </td>
+   <td style="text-align:left;"> colcap </td>
+   <td style="text-align:left;"> ipi </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 1286 </td>
+   <td style="text-align:right;"> 1283 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 62 </td>
+   <td style="text-align:right;"> 18 </td>
+   <td style="text-align:left;"> 2022-08-01 </td>
+   <td style="text-align:left;"> 2026-05-31 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> panel por corpus </td>
+   <td style="text-align:left;"> opinion </td>
+   <td style="text-align:left;"> colcap </td>
+   <td style="text-align:left;"> ipi </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:right;"> 1286 </td>
+   <td style="text-align:right;"> 1282 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 62 </td>
+   <td style="text-align:right;"> 18 </td>
+   <td style="text-align:left;"> 2022-08-01 </td>
+   <td style="text-align:left;"> 2026-05-31 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> panel por corpus </td>
+   <td style="text-align:left;"> opinion </td>
+   <td style="text-align:left;"> colcap </td>
+   <td style="text-align:left;"> log_tweets_n </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 1335 </td>
+   <td style="text-align:right;"> 1334 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 59 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:left;"> 2022-08-01 </td>
+   <td style="text-align:left;"> 2026-05-31 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> panel por corpus </td>
+   <td style="text-align:left;"> opinion </td>
+   <td style="text-align:left;"> colcap </td>
+   <td style="text-align:left;"> log_tweets_n </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 1335 </td>
+   <td style="text-align:right;"> 1333 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 59 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:left;"> 2022-08-01 </td>
+   <td style="text-align:left;"> 2026-05-31 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> panel por corpus </td>
+   <td style="text-align:left;"> opinion </td>
+   <td style="text-align:left;"> colcap </td>
+   <td style="text-align:left;"> log_tweets_n </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 1335 </td>
+   <td style="text-align:right;"> 1332 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 59 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:left;"> 2022-08-01 </td>
+   <td style="text-align:left;"> 2026-05-31 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> panel por corpus </td>
+   <td style="text-align:left;"> opinion </td>
+   <td style="text-align:left;"> colcap </td>
+   <td style="text-align:left;"> log_tweets_n </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:right;"> 1335 </td>
+   <td style="text-align:right;"> 1331 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 59 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:left;"> 2022-08-01 </td>
+   <td style="text-align:left;"> 2026-05-31 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> panel por corpus </td>
+   <td style="text-align:left;"> opinion </td>
+   <td style="text-align:left;"> colcap </td>
+   <td style="text-align:left;"> polaridad </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 1335 </td>
+   <td style="text-align:right;"> 1334 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 59 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:left;"> 2022-08-01 </td>
+   <td style="text-align:left;"> 2026-05-31 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> panel por corpus </td>
+   <td style="text-align:left;"> opinion </td>
+   <td style="text-align:left;"> colcap </td>
+   <td style="text-align:left;"> polaridad </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 1335 </td>
+   <td style="text-align:right;"> 1333 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 59 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:left;"> 2022-08-01 </td>
+   <td style="text-align:left;"> 2026-05-31 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> panel por corpus </td>
+   <td style="text-align:left;"> opinion </td>
+   <td style="text-align:left;"> colcap </td>
+   <td style="text-align:left;"> polaridad </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 1335 </td>
+   <td style="text-align:right;"> 1332 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 59 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:left;"> 2022-08-01 </td>
+   <td style="text-align:left;"> 2026-05-31 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> panel por corpus </td>
+   <td style="text-align:left;"> opinion </td>
+   <td style="text-align:left;"> colcap </td>
+   <td style="text-align:left;"> polaridad </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:right;"> 1335 </td>
+   <td style="text-align:right;"> 1331 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 59 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:left;"> 2022-08-01 </td>
+   <td style="text-align:left;"> 2026-05-31 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> panel por corpus </td>
+   <td style="text-align:left;"> opinion </td>
+   <td style="text-align:left;"> energy_spot_price </td>
+   <td style="text-align:left;"> ipi </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 1349 </td>
+   <td style="text-align:right;"> 1348 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 18 </td>
+   <td style="text-align:left;"> 2022-08-01 </td>
+   <td style="text-align:left;"> 2026-05-31 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> panel por corpus </td>
+   <td style="text-align:left;"> opinion </td>
+   <td style="text-align:left;"> energy_spot_price </td>
+   <td style="text-align:left;"> ipi </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 1349 </td>
+   <td style="text-align:right;"> 1347 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 18 </td>
+   <td style="text-align:left;"> 2022-08-01 </td>
+   <td style="text-align:left;"> 2026-05-31 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> panel por corpus </td>
+   <td style="text-align:left;"> opinion </td>
+   <td style="text-align:left;"> energy_spot_price </td>
+   <td style="text-align:left;"> ipi </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 1349 </td>
+   <td style="text-align:right;"> 1346 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 18 </td>
+   <td style="text-align:left;"> 2022-08-01 </td>
+   <td style="text-align:left;"> 2026-05-31 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> panel por corpus </td>
+   <td style="text-align:left;"> opinion </td>
+   <td style="text-align:left;"> energy_spot_price </td>
+   <td style="text-align:left;"> ipi </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:right;"> 1349 </td>
+   <td style="text-align:right;"> 1345 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 18 </td>
+   <td style="text-align:left;"> 2022-08-01 </td>
+   <td style="text-align:left;"> 2026-05-31 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> panel por corpus </td>
+   <td style="text-align:left;"> opinion </td>
+   <td style="text-align:left;"> energy_spot_price </td>
+   <td style="text-align:left;"> log_tweets_n </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 1400 </td>
+   <td style="text-align:right;"> 1399 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> 2022-08-01 </td>
+   <td style="text-align:left;"> 2026-05-31 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> panel por corpus </td>
+   <td style="text-align:left;"> opinion </td>
+   <td style="text-align:left;"> energy_spot_price </td>
+   <td style="text-align:left;"> log_tweets_n </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 1400 </td>
+   <td style="text-align:right;"> 1398 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> 2022-08-01 </td>
+   <td style="text-align:left;"> 2026-05-31 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> panel por corpus </td>
+   <td style="text-align:left;"> opinion </td>
+   <td style="text-align:left;"> energy_spot_price </td>
+   <td style="text-align:left;"> log_tweets_n </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 1400 </td>
+   <td style="text-align:right;"> 1397 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> 2022-08-01 </td>
+   <td style="text-align:left;"> 2026-05-31 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> panel por corpus </td>
+   <td style="text-align:left;"> opinion </td>
+   <td style="text-align:left;"> energy_spot_price </td>
+   <td style="text-align:left;"> log_tweets_n </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:right;"> 1400 </td>
+   <td style="text-align:right;"> 1396 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> 2022-08-01 </td>
+   <td style="text-align:left;"> 2026-05-31 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> panel por corpus </td>
+   <td style="text-align:left;"> opinion </td>
+   <td style="text-align:left;"> energy_spot_price </td>
+   <td style="text-align:left;"> polaridad </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 1400 </td>
+   <td style="text-align:right;"> 1399 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> 2022-08-01 </td>
+   <td style="text-align:left;"> 2026-05-31 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> panel por corpus </td>
+   <td style="text-align:left;"> opinion </td>
+   <td style="text-align:left;"> energy_spot_price </td>
+   <td style="text-align:left;"> polaridad </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 1400 </td>
+   <td style="text-align:right;"> 1398 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> 2022-08-01 </td>
+   <td style="text-align:left;"> 2026-05-31 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> panel por corpus </td>
+   <td style="text-align:left;"> opinion </td>
+   <td style="text-align:left;"> energy_spot_price </td>
+   <td style="text-align:left;"> polaridad </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 1400 </td>
+   <td style="text-align:right;"> 1397 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> 2022-08-01 </td>
+   <td style="text-align:left;"> 2026-05-31 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> panel por corpus </td>
+   <td style="text-align:left;"> opinion </td>
+   <td style="text-align:left;"> energy_spot_price </td>
+   <td style="text-align:left;"> polaridad </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:right;"> 1400 </td>
+   <td style="text-align:right;"> 1396 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> 2022-08-01 </td>
+   <td style="text-align:left;"> 2026-05-31 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> panel por corpus </td>
+   <td style="text-align:left;"> opinion </td>
+   <td style="text-align:left;"> tes_10y </td>
+   <td style="text-align:left;"> ipi </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 1286 </td>
+   <td style="text-align:right;"> 1285 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 62 </td>
+   <td style="text-align:right;"> 18 </td>
+   <td style="text-align:left;"> 2022-08-01 </td>
+   <td style="text-align:left;"> 2026-05-31 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> panel por corpus </td>
+   <td style="text-align:left;"> opinion </td>
+   <td style="text-align:left;"> tes_10y </td>
+   <td style="text-align:left;"> ipi </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 1286 </td>
+   <td style="text-align:right;"> 1284 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 62 </td>
+   <td style="text-align:right;"> 18 </td>
+   <td style="text-align:left;"> 2022-08-01 </td>
+   <td style="text-align:left;"> 2026-05-31 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> panel por corpus </td>
+   <td style="text-align:left;"> opinion </td>
+   <td style="text-align:left;"> tes_10y </td>
+   <td style="text-align:left;"> ipi </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 1286 </td>
+   <td style="text-align:right;"> 1283 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 62 </td>
+   <td style="text-align:right;"> 18 </td>
+   <td style="text-align:left;"> 2022-08-01 </td>
+   <td style="text-align:left;"> 2026-05-31 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> panel por corpus </td>
+   <td style="text-align:left;"> opinion </td>
+   <td style="text-align:left;"> tes_10y </td>
+   <td style="text-align:left;"> ipi </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:right;"> 1286 </td>
+   <td style="text-align:right;"> 1282 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 62 </td>
+   <td style="text-align:right;"> 18 </td>
+   <td style="text-align:left;"> 2022-08-01 </td>
+   <td style="text-align:left;"> 2026-05-31 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> panel por corpus </td>
+   <td style="text-align:left;"> opinion </td>
+   <td style="text-align:left;"> tes_10y </td>
+   <td style="text-align:left;"> log_tweets_n </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 1335 </td>
+   <td style="text-align:right;"> 1334 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 59 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:left;"> 2022-08-01 </td>
+   <td style="text-align:left;"> 2026-05-31 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> panel por corpus </td>
+   <td style="text-align:left;"> opinion </td>
+   <td style="text-align:left;"> tes_10y </td>
+   <td style="text-align:left;"> log_tweets_n </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 1335 </td>
+   <td style="text-align:right;"> 1333 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 59 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:left;"> 2022-08-01 </td>
+   <td style="text-align:left;"> 2026-05-31 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> panel por corpus </td>
+   <td style="text-align:left;"> opinion </td>
+   <td style="text-align:left;"> tes_10y </td>
+   <td style="text-align:left;"> log_tweets_n </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 1335 </td>
+   <td style="text-align:right;"> 1332 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 59 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:left;"> 2022-08-01 </td>
+   <td style="text-align:left;"> 2026-05-31 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> panel por corpus </td>
+   <td style="text-align:left;"> opinion </td>
+   <td style="text-align:left;"> tes_10y </td>
+   <td style="text-align:left;"> log_tweets_n </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:right;"> 1335 </td>
+   <td style="text-align:right;"> 1331 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 59 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:left;"> 2022-08-01 </td>
+   <td style="text-align:left;"> 2026-05-31 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> panel por corpus </td>
+   <td style="text-align:left;"> opinion </td>
+   <td style="text-align:left;"> tes_10y </td>
+   <td style="text-align:left;"> polaridad </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 1335 </td>
+   <td style="text-align:right;"> 1334 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 59 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:left;"> 2022-08-01 </td>
+   <td style="text-align:left;"> 2026-05-31 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> panel por corpus </td>
+   <td style="text-align:left;"> opinion </td>
+   <td style="text-align:left;"> tes_10y </td>
+   <td style="text-align:left;"> polaridad </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 1335 </td>
+   <td style="text-align:right;"> 1333 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 59 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:left;"> 2022-08-01 </td>
+   <td style="text-align:left;"> 2026-05-31 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> panel por corpus </td>
+   <td style="text-align:left;"> opinion </td>
+   <td style="text-align:left;"> tes_10y </td>
+   <td style="text-align:left;"> polaridad </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 1335 </td>
+   <td style="text-align:right;"> 1332 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 59 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:left;"> 2022-08-01 </td>
+   <td style="text-align:left;"> 2026-05-31 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> panel por corpus </td>
+   <td style="text-align:left;"> opinion </td>
+   <td style="text-align:left;"> tes_10y </td>
+   <td style="text-align:left;"> polaridad </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:right;"> 1335 </td>
+   <td style="text-align:right;"> 1331 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 59 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:left;"> 2022-08-01 </td>
+   <td style="text-align:left;"> 2026-05-31 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> panel por corpus </td>
+   <td style="text-align:left;"> opinion </td>
+   <td style="text-align:left;"> tes_slope_10y_1y </td>
+   <td style="text-align:left;"> ipi </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 1286 </td>
+   <td style="text-align:right;"> 1285 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 62 </td>
+   <td style="text-align:right;"> 18 </td>
+   <td style="text-align:left;"> 2022-08-01 </td>
+   <td style="text-align:left;"> 2026-05-31 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> panel por corpus </td>
+   <td style="text-align:left;"> opinion </td>
+   <td style="text-align:left;"> tes_slope_10y_1y </td>
+   <td style="text-align:left;"> ipi </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 1286 </td>
+   <td style="text-align:right;"> 1284 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 62 </td>
+   <td style="text-align:right;"> 18 </td>
+   <td style="text-align:left;"> 2022-08-01 </td>
+   <td style="text-align:left;"> 2026-05-31 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> panel por corpus </td>
+   <td style="text-align:left;"> opinion </td>
+   <td style="text-align:left;"> tes_slope_10y_1y </td>
+   <td style="text-align:left;"> ipi </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 1286 </td>
+   <td style="text-align:right;"> 1283 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 62 </td>
+   <td style="text-align:right;"> 18 </td>
+   <td style="text-align:left;"> 2022-08-01 </td>
+   <td style="text-align:left;"> 2026-05-31 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> panel por corpus </td>
+   <td style="text-align:left;"> opinion </td>
+   <td style="text-align:left;"> tes_slope_10y_1y </td>
+   <td style="text-align:left;"> ipi </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:right;"> 1286 </td>
+   <td style="text-align:right;"> 1282 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 62 </td>
+   <td style="text-align:right;"> 18 </td>
+   <td style="text-align:left;"> 2022-08-01 </td>
+   <td style="text-align:left;"> 2026-05-31 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> panel por corpus </td>
+   <td style="text-align:left;"> opinion </td>
+   <td style="text-align:left;"> tes_slope_10y_1y </td>
+   <td style="text-align:left;"> log_tweets_n </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 1335 </td>
+   <td style="text-align:right;"> 1334 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 59 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:left;"> 2022-08-01 </td>
+   <td style="text-align:left;"> 2026-05-31 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> panel por corpus </td>
+   <td style="text-align:left;"> opinion </td>
+   <td style="text-align:left;"> tes_slope_10y_1y </td>
+   <td style="text-align:left;"> log_tweets_n </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 1335 </td>
+   <td style="text-align:right;"> 1333 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 59 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:left;"> 2022-08-01 </td>
+   <td style="text-align:left;"> 2026-05-31 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> panel por corpus </td>
+   <td style="text-align:left;"> opinion </td>
+   <td style="text-align:left;"> tes_slope_10y_1y </td>
+   <td style="text-align:left;"> log_tweets_n </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 1335 </td>
+   <td style="text-align:right;"> 1332 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 59 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:left;"> 2022-08-01 </td>
+   <td style="text-align:left;"> 2026-05-31 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> panel por corpus </td>
+   <td style="text-align:left;"> opinion </td>
+   <td style="text-align:left;"> tes_slope_10y_1y </td>
+   <td style="text-align:left;"> log_tweets_n </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:right;"> 1335 </td>
+   <td style="text-align:right;"> 1331 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 59 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:left;"> 2022-08-01 </td>
+   <td style="text-align:left;"> 2026-05-31 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> panel por corpus </td>
+   <td style="text-align:left;"> opinion </td>
+   <td style="text-align:left;"> tes_slope_10y_1y </td>
+   <td style="text-align:left;"> polaridad </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 1335 </td>
+   <td style="text-align:right;"> 1334 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 59 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:left;"> 2022-08-01 </td>
+   <td style="text-align:left;"> 2026-05-31 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> panel por corpus </td>
+   <td style="text-align:left;"> opinion </td>
+   <td style="text-align:left;"> tes_slope_10y_1y </td>
+   <td style="text-align:left;"> polaridad </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 1335 </td>
+   <td style="text-align:right;"> 1333 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 59 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:left;"> 2022-08-01 </td>
+   <td style="text-align:left;"> 2026-05-31 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> panel por corpus </td>
+   <td style="text-align:left;"> opinion </td>
+   <td style="text-align:left;"> tes_slope_10y_1y </td>
+   <td style="text-align:left;"> polaridad </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 1335 </td>
+   <td style="text-align:right;"> 1332 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 59 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:left;"> 2022-08-01 </td>
+   <td style="text-align:left;"> 2026-05-31 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> panel por corpus </td>
+   <td style="text-align:left;"> opinion </td>
+   <td style="text-align:left;"> tes_slope_10y_1y </td>
+   <td style="text-align:left;"> polaridad </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:right;"> 1335 </td>
+   <td style="text-align:right;"> 1331 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 59 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:left;"> 2022-08-01 </td>
+   <td style="text-align:left;"> 2026-05-31 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> panel por corpus </td>
+   <td style="text-align:left;"> opinion </td>
+   <td style="text-align:left;"> trm </td>
+   <td style="text-align:left;"> ipi </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 1349 </td>
+   <td style="text-align:right;"> 1348 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 18 </td>
+   <td style="text-align:left;"> 2022-08-01 </td>
+   <td style="text-align:left;"> 2026-05-31 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> panel por corpus </td>
+   <td style="text-align:left;"> opinion </td>
+   <td style="text-align:left;"> trm </td>
+   <td style="text-align:left;"> ipi </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 1349 </td>
+   <td style="text-align:right;"> 1347 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 18 </td>
+   <td style="text-align:left;"> 2022-08-01 </td>
+   <td style="text-align:left;"> 2026-05-31 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> panel por corpus </td>
+   <td style="text-align:left;"> opinion </td>
+   <td style="text-align:left;"> trm </td>
+   <td style="text-align:left;"> ipi </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 1349 </td>
+   <td style="text-align:right;"> 1346 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 18 </td>
+   <td style="text-align:left;"> 2022-08-01 </td>
+   <td style="text-align:left;"> 2026-05-31 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> panel por corpus </td>
+   <td style="text-align:left;"> opinion </td>
+   <td style="text-align:left;"> trm </td>
+   <td style="text-align:left;"> ipi </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:right;"> 1349 </td>
+   <td style="text-align:right;"> 1345 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 18 </td>
+   <td style="text-align:left;"> 2022-08-01 </td>
+   <td style="text-align:left;"> 2026-05-31 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> panel por corpus </td>
+   <td style="text-align:left;"> opinion </td>
+   <td style="text-align:left;"> trm </td>
+   <td style="text-align:left;"> log_tweets_n </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 1400 </td>
+   <td style="text-align:right;"> 1399 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> 2022-08-01 </td>
+   <td style="text-align:left;"> 2026-05-31 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> panel por corpus </td>
+   <td style="text-align:left;"> opinion </td>
+   <td style="text-align:left;"> trm </td>
+   <td style="text-align:left;"> log_tweets_n </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 1400 </td>
+   <td style="text-align:right;"> 1398 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> 2022-08-01 </td>
+   <td style="text-align:left;"> 2026-05-31 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> panel por corpus </td>
+   <td style="text-align:left;"> opinion </td>
+   <td style="text-align:left;"> trm </td>
+   <td style="text-align:left;"> log_tweets_n </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 1400 </td>
+   <td style="text-align:right;"> 1397 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> 2022-08-01 </td>
+   <td style="text-align:left;"> 2026-05-31 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> panel por corpus </td>
+   <td style="text-align:left;"> opinion </td>
+   <td style="text-align:left;"> trm </td>
+   <td style="text-align:left;"> log_tweets_n </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:right;"> 1400 </td>
+   <td style="text-align:right;"> 1396 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> 2022-08-01 </td>
+   <td style="text-align:left;"> 2026-05-31 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> panel por corpus </td>
+   <td style="text-align:left;"> opinion </td>
+   <td style="text-align:left;"> trm </td>
+   <td style="text-align:left;"> polaridad </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 1400 </td>
+   <td style="text-align:right;"> 1399 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> 2022-08-01 </td>
+   <td style="text-align:left;"> 2026-05-31 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> panel por corpus </td>
+   <td style="text-align:left;"> opinion </td>
+   <td style="text-align:left;"> trm </td>
+   <td style="text-align:left;"> polaridad </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 1400 </td>
+   <td style="text-align:right;"> 1398 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> 2022-08-01 </td>
+   <td style="text-align:left;"> 2026-05-31 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> panel por corpus </td>
+   <td style="text-align:left;"> opinion </td>
+   <td style="text-align:left;"> trm </td>
+   <td style="text-align:left;"> polaridad </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 1400 </td>
+   <td style="text-align:right;"> 1397 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> 2022-08-01 </td>
+   <td style="text-align:left;"> 2026-05-31 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> panel por corpus </td>
+   <td style="text-align:left;"> opinion </td>
+   <td style="text-align:left;"> trm </td>
+   <td style="text-align:left;"> polaridad </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:right;"> 1400 </td>
+   <td style="text-align:right;"> 1396 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> 2022-08-01 </td>
+   <td style="text-align:left;"> 2026-05-31 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> panel por corpus </td>
+   <td style="text-align:left;"> presidente </td>
+   <td style="text-align:left;"> colcap </td>
+   <td style="text-align:left;"> ipi </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 1264 </td>
+   <td style="text-align:right;"> 1263 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 107 </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:left;"> 2022-08-07 </td>
+   <td style="text-align:left;"> 2026-05-31 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> panel por corpus </td>
+   <td style="text-align:left;"> presidente </td>
+   <td style="text-align:left;"> colcap </td>
+   <td style="text-align:left;"> ipi </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 1264 </td>
+   <td style="text-align:right;"> 1262 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 107 </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:left;"> 2022-08-07 </td>
+   <td style="text-align:left;"> 2026-05-31 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> panel por corpus </td>
+   <td style="text-align:left;"> presidente </td>
+   <td style="text-align:left;"> colcap </td>
+   <td style="text-align:left;"> ipi </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 1264 </td>
+   <td style="text-align:right;"> 1261 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 107 </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:left;"> 2022-08-07 </td>
+   <td style="text-align:left;"> 2026-05-31 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> panel por corpus </td>
+   <td style="text-align:left;"> presidente </td>
+   <td style="text-align:left;"> colcap </td>
+   <td style="text-align:left;"> ipi </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:right;"> 1264 </td>
+   <td style="text-align:right;"> 1260 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 107 </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:left;"> 2022-08-07 </td>
+   <td style="text-align:left;"> 2026-05-31 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> panel por corpus </td>
+   <td style="text-align:left;"> presidente </td>
+   <td style="text-align:left;"> colcap </td>
+   <td style="text-align:left;"> log_tweets_n </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 1335 </td>
+   <td style="text-align:right;"> 1334 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 59 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:left;"> 2022-08-01 </td>
+   <td style="text-align:left;"> 2026-05-31 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> panel por corpus </td>
+   <td style="text-align:left;"> presidente </td>
+   <td style="text-align:left;"> colcap </td>
+   <td style="text-align:left;"> log_tweets_n </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 1335 </td>
+   <td style="text-align:right;"> 1333 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 59 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:left;"> 2022-08-01 </td>
+   <td style="text-align:left;"> 2026-05-31 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> panel por corpus </td>
+   <td style="text-align:left;"> presidente </td>
+   <td style="text-align:left;"> colcap </td>
+   <td style="text-align:left;"> log_tweets_n </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 1335 </td>
+   <td style="text-align:right;"> 1332 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 59 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:left;"> 2022-08-01 </td>
+   <td style="text-align:left;"> 2026-05-31 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> panel por corpus </td>
+   <td style="text-align:left;"> presidente </td>
+   <td style="text-align:left;"> colcap </td>
+   <td style="text-align:left;"> log_tweets_n </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:right;"> 1335 </td>
+   <td style="text-align:right;"> 1331 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 59 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:left;"> 2022-08-01 </td>
+   <td style="text-align:left;"> 2026-05-31 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> panel por corpus </td>
+   <td style="text-align:left;"> presidente </td>
+   <td style="text-align:left;"> colcap </td>
+   <td style="text-align:left;"> polaridad </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 1335 </td>
+   <td style="text-align:right;"> 1334 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 59 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:left;"> 2022-08-01 </td>
+   <td style="text-align:left;"> 2026-05-31 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> panel por corpus </td>
+   <td style="text-align:left;"> presidente </td>
+   <td style="text-align:left;"> colcap </td>
+   <td style="text-align:left;"> polaridad </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 1335 </td>
+   <td style="text-align:right;"> 1333 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 59 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:left;"> 2022-08-01 </td>
+   <td style="text-align:left;"> 2026-05-31 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> panel por corpus </td>
+   <td style="text-align:left;"> presidente </td>
+   <td style="text-align:left;"> colcap </td>
+   <td style="text-align:left;"> polaridad </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 1335 </td>
+   <td style="text-align:right;"> 1332 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 59 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:left;"> 2022-08-01 </td>
+   <td style="text-align:left;"> 2026-05-31 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> panel por corpus </td>
+   <td style="text-align:left;"> presidente </td>
+   <td style="text-align:left;"> colcap </td>
+   <td style="text-align:left;"> polaridad </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:right;"> 1335 </td>
+   <td style="text-align:right;"> 1331 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 59 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:left;"> 2022-08-01 </td>
+   <td style="text-align:left;"> 2026-05-31 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> panel por corpus </td>
+   <td style="text-align:left;"> presidente </td>
+   <td style="text-align:left;"> energy_spot_price </td>
+   <td style="text-align:left;"> ipi </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 1326 </td>
+   <td style="text-align:right;"> 1325 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 56 </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:left;"> 2022-08-07 </td>
+   <td style="text-align:left;"> 2026-05-31 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> panel por corpus </td>
+   <td style="text-align:left;"> presidente </td>
+   <td style="text-align:left;"> energy_spot_price </td>
+   <td style="text-align:left;"> ipi </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 1326 </td>
+   <td style="text-align:right;"> 1324 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 56 </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:left;"> 2022-08-07 </td>
+   <td style="text-align:left;"> 2026-05-31 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> panel por corpus </td>
+   <td style="text-align:left;"> presidente </td>
+   <td style="text-align:left;"> energy_spot_price </td>
+   <td style="text-align:left;"> ipi </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 1326 </td>
+   <td style="text-align:right;"> 1323 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 56 </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:left;"> 2022-08-07 </td>
+   <td style="text-align:left;"> 2026-05-31 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> panel por corpus </td>
+   <td style="text-align:left;"> presidente </td>
+   <td style="text-align:left;"> energy_spot_price </td>
+   <td style="text-align:left;"> ipi </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:right;"> 1326 </td>
+   <td style="text-align:right;"> 1322 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 56 </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:left;"> 2022-08-07 </td>
+   <td style="text-align:left;"> 2026-05-31 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> panel por corpus </td>
+   <td style="text-align:left;"> presidente </td>
+   <td style="text-align:left;"> energy_spot_price </td>
+   <td style="text-align:left;"> log_tweets_n </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 1400 </td>
+   <td style="text-align:right;"> 1399 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> 2022-08-01 </td>
+   <td style="text-align:left;"> 2026-05-31 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> panel por corpus </td>
+   <td style="text-align:left;"> presidente </td>
+   <td style="text-align:left;"> energy_spot_price </td>
+   <td style="text-align:left;"> log_tweets_n </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 1400 </td>
+   <td style="text-align:right;"> 1398 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> 2022-08-01 </td>
+   <td style="text-align:left;"> 2026-05-31 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> panel por corpus </td>
+   <td style="text-align:left;"> presidente </td>
+   <td style="text-align:left;"> energy_spot_price </td>
+   <td style="text-align:left;"> log_tweets_n </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 1400 </td>
+   <td style="text-align:right;"> 1397 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> 2022-08-01 </td>
+   <td style="text-align:left;"> 2026-05-31 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> panel por corpus </td>
+   <td style="text-align:left;"> presidente </td>
+   <td style="text-align:left;"> energy_spot_price </td>
+   <td style="text-align:left;"> log_tweets_n </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:right;"> 1400 </td>
+   <td style="text-align:right;"> 1396 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> 2022-08-01 </td>
+   <td style="text-align:left;"> 2026-05-31 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> panel por corpus </td>
+   <td style="text-align:left;"> presidente </td>
+   <td style="text-align:left;"> energy_spot_price </td>
+   <td style="text-align:left;"> polaridad </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 1400 </td>
+   <td style="text-align:right;"> 1399 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> 2022-08-01 </td>
+   <td style="text-align:left;"> 2026-05-31 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> panel por corpus </td>
+   <td style="text-align:left;"> presidente </td>
+   <td style="text-align:left;"> energy_spot_price </td>
+   <td style="text-align:left;"> polaridad </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 1400 </td>
+   <td style="text-align:right;"> 1398 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> 2022-08-01 </td>
+   <td style="text-align:left;"> 2026-05-31 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> panel por corpus </td>
+   <td style="text-align:left;"> presidente </td>
+   <td style="text-align:left;"> energy_spot_price </td>
+   <td style="text-align:left;"> polaridad </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 1400 </td>
+   <td style="text-align:right;"> 1397 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> 2022-08-01 </td>
+   <td style="text-align:left;"> 2026-05-31 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> panel por corpus </td>
+   <td style="text-align:left;"> presidente </td>
+   <td style="text-align:left;"> energy_spot_price </td>
+   <td style="text-align:left;"> polaridad </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:right;"> 1400 </td>
+   <td style="text-align:right;"> 1396 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> 2022-08-01 </td>
+   <td style="text-align:left;"> 2026-05-31 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> panel por corpus </td>
+   <td style="text-align:left;"> presidente </td>
+   <td style="text-align:left;"> tes_10y </td>
+   <td style="text-align:left;"> ipi </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 1264 </td>
+   <td style="text-align:right;"> 1263 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 107 </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:left;"> 2022-08-07 </td>
+   <td style="text-align:left;"> 2026-05-31 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> panel por corpus </td>
+   <td style="text-align:left;"> presidente </td>
+   <td style="text-align:left;"> tes_10y </td>
+   <td style="text-align:left;"> ipi </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 1264 </td>
+   <td style="text-align:right;"> 1262 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 107 </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:left;"> 2022-08-07 </td>
+   <td style="text-align:left;"> 2026-05-31 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> panel por corpus </td>
+   <td style="text-align:left;"> presidente </td>
+   <td style="text-align:left;"> tes_10y </td>
+   <td style="text-align:left;"> ipi </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 1264 </td>
+   <td style="text-align:right;"> 1261 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 107 </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:left;"> 2022-08-07 </td>
+   <td style="text-align:left;"> 2026-05-31 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> panel por corpus </td>
+   <td style="text-align:left;"> presidente </td>
+   <td style="text-align:left;"> tes_10y </td>
+   <td style="text-align:left;"> ipi </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:right;"> 1264 </td>
+   <td style="text-align:right;"> 1260 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 107 </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:left;"> 2022-08-07 </td>
+   <td style="text-align:left;"> 2026-05-31 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> panel por corpus </td>
+   <td style="text-align:left;"> presidente </td>
+   <td style="text-align:left;"> tes_10y </td>
+   <td style="text-align:left;"> log_tweets_n </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 1335 </td>
+   <td style="text-align:right;"> 1334 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 59 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:left;"> 2022-08-01 </td>
+   <td style="text-align:left;"> 2026-05-31 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> panel por corpus </td>
+   <td style="text-align:left;"> presidente </td>
+   <td style="text-align:left;"> tes_10y </td>
+   <td style="text-align:left;"> log_tweets_n </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 1335 </td>
+   <td style="text-align:right;"> 1333 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 59 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:left;"> 2022-08-01 </td>
+   <td style="text-align:left;"> 2026-05-31 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> panel por corpus </td>
+   <td style="text-align:left;"> presidente </td>
+   <td style="text-align:left;"> tes_10y </td>
+   <td style="text-align:left;"> log_tweets_n </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 1335 </td>
+   <td style="text-align:right;"> 1332 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 59 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:left;"> 2022-08-01 </td>
+   <td style="text-align:left;"> 2026-05-31 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> panel por corpus </td>
+   <td style="text-align:left;"> presidente </td>
+   <td style="text-align:left;"> tes_10y </td>
+   <td style="text-align:left;"> log_tweets_n </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:right;"> 1335 </td>
+   <td style="text-align:right;"> 1331 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 59 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:left;"> 2022-08-01 </td>
+   <td style="text-align:left;"> 2026-05-31 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> panel por corpus </td>
+   <td style="text-align:left;"> presidente </td>
+   <td style="text-align:left;"> tes_10y </td>
+   <td style="text-align:left;"> polaridad </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 1335 </td>
+   <td style="text-align:right;"> 1334 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 59 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:left;"> 2022-08-01 </td>
+   <td style="text-align:left;"> 2026-05-31 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> panel por corpus </td>
+   <td style="text-align:left;"> presidente </td>
+   <td style="text-align:left;"> tes_10y </td>
+   <td style="text-align:left;"> polaridad </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 1335 </td>
+   <td style="text-align:right;"> 1333 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 59 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:left;"> 2022-08-01 </td>
+   <td style="text-align:left;"> 2026-05-31 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> panel por corpus </td>
+   <td style="text-align:left;"> presidente </td>
+   <td style="text-align:left;"> tes_10y </td>
+   <td style="text-align:left;"> polaridad </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 1335 </td>
+   <td style="text-align:right;"> 1332 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 59 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:left;"> 2022-08-01 </td>
+   <td style="text-align:left;"> 2026-05-31 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> panel por corpus </td>
+   <td style="text-align:left;"> presidente </td>
+   <td style="text-align:left;"> tes_10y </td>
+   <td style="text-align:left;"> polaridad </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:right;"> 1335 </td>
+   <td style="text-align:right;"> 1331 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 59 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:left;"> 2022-08-01 </td>
+   <td style="text-align:left;"> 2026-05-31 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> panel por corpus </td>
+   <td style="text-align:left;"> presidente </td>
+   <td style="text-align:left;"> tes_slope_10y_1y </td>
+   <td style="text-align:left;"> ipi </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 1264 </td>
+   <td style="text-align:right;"> 1263 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 107 </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:left;"> 2022-08-07 </td>
+   <td style="text-align:left;"> 2026-05-31 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> panel por corpus </td>
+   <td style="text-align:left;"> presidente </td>
+   <td style="text-align:left;"> tes_slope_10y_1y </td>
+   <td style="text-align:left;"> ipi </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 1264 </td>
+   <td style="text-align:right;"> 1262 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 107 </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:left;"> 2022-08-07 </td>
+   <td style="text-align:left;"> 2026-05-31 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> panel por corpus </td>
+   <td style="text-align:left;"> presidente </td>
+   <td style="text-align:left;"> tes_slope_10y_1y </td>
+   <td style="text-align:left;"> ipi </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 1264 </td>
+   <td style="text-align:right;"> 1261 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 107 </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:left;"> 2022-08-07 </td>
+   <td style="text-align:left;"> 2026-05-31 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> panel por corpus </td>
+   <td style="text-align:left;"> presidente </td>
+   <td style="text-align:left;"> tes_slope_10y_1y </td>
+   <td style="text-align:left;"> ipi </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:right;"> 1264 </td>
+   <td style="text-align:right;"> 1260 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 107 </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:left;"> 2022-08-07 </td>
+   <td style="text-align:left;"> 2026-05-31 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> panel por corpus </td>
+   <td style="text-align:left;"> presidente </td>
+   <td style="text-align:left;"> tes_slope_10y_1y </td>
+   <td style="text-align:left;"> log_tweets_n </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 1335 </td>
+   <td style="text-align:right;"> 1334 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 59 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:left;"> 2022-08-01 </td>
+   <td style="text-align:left;"> 2026-05-31 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> panel por corpus </td>
+   <td style="text-align:left;"> presidente </td>
+   <td style="text-align:left;"> tes_slope_10y_1y </td>
+   <td style="text-align:left;"> log_tweets_n </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 1335 </td>
+   <td style="text-align:right;"> 1333 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 59 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:left;"> 2022-08-01 </td>
+   <td style="text-align:left;"> 2026-05-31 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> panel por corpus </td>
+   <td style="text-align:left;"> presidente </td>
+   <td style="text-align:left;"> tes_slope_10y_1y </td>
+   <td style="text-align:left;"> log_tweets_n </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 1335 </td>
+   <td style="text-align:right;"> 1332 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 59 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:left;"> 2022-08-01 </td>
+   <td style="text-align:left;"> 2026-05-31 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> panel por corpus </td>
+   <td style="text-align:left;"> presidente </td>
+   <td style="text-align:left;"> tes_slope_10y_1y </td>
+   <td style="text-align:left;"> log_tweets_n </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:right;"> 1335 </td>
+   <td style="text-align:right;"> 1331 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 59 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:left;"> 2022-08-01 </td>
+   <td style="text-align:left;"> 2026-05-31 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> panel por corpus </td>
+   <td style="text-align:left;"> presidente </td>
+   <td style="text-align:left;"> tes_slope_10y_1y </td>
+   <td style="text-align:left;"> polaridad </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 1335 </td>
+   <td style="text-align:right;"> 1334 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 59 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:left;"> 2022-08-01 </td>
+   <td style="text-align:left;"> 2026-05-31 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> panel por corpus </td>
+   <td style="text-align:left;"> presidente </td>
+   <td style="text-align:left;"> tes_slope_10y_1y </td>
+   <td style="text-align:left;"> polaridad </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 1335 </td>
+   <td style="text-align:right;"> 1333 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 59 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:left;"> 2022-08-01 </td>
+   <td style="text-align:left;"> 2026-05-31 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> panel por corpus </td>
+   <td style="text-align:left;"> presidente </td>
+   <td style="text-align:left;"> tes_slope_10y_1y </td>
+   <td style="text-align:left;"> polaridad </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 1335 </td>
+   <td style="text-align:right;"> 1332 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 59 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:left;"> 2022-08-01 </td>
+   <td style="text-align:left;"> 2026-05-31 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> panel por corpus </td>
+   <td style="text-align:left;"> presidente </td>
+   <td style="text-align:left;"> tes_slope_10y_1y </td>
+   <td style="text-align:left;"> polaridad </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:right;"> 1335 </td>
+   <td style="text-align:right;"> 1331 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 59 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:left;"> 2022-08-01 </td>
+   <td style="text-align:left;"> 2026-05-31 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> panel por corpus </td>
+   <td style="text-align:left;"> presidente </td>
+   <td style="text-align:left;"> trm </td>
+   <td style="text-align:left;"> ipi </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 1326 </td>
+   <td style="text-align:right;"> 1325 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 56 </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:left;"> 2022-08-07 </td>
+   <td style="text-align:left;"> 2026-05-31 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> panel por corpus </td>
+   <td style="text-align:left;"> presidente </td>
+   <td style="text-align:left;"> trm </td>
+   <td style="text-align:left;"> ipi </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 1326 </td>
+   <td style="text-align:right;"> 1324 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 56 </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:left;"> 2022-08-07 </td>
+   <td style="text-align:left;"> 2026-05-31 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> panel por corpus </td>
+   <td style="text-align:left;"> presidente </td>
+   <td style="text-align:left;"> trm </td>
+   <td style="text-align:left;"> ipi </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 1326 </td>
+   <td style="text-align:right;"> 1323 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 56 </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:left;"> 2022-08-07 </td>
+   <td style="text-align:left;"> 2026-05-31 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> panel por corpus </td>
+   <td style="text-align:left;"> presidente </td>
+   <td style="text-align:left;"> trm </td>
+   <td style="text-align:left;"> ipi </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:right;"> 1326 </td>
+   <td style="text-align:right;"> 1322 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 56 </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:left;"> 2022-08-07 </td>
+   <td style="text-align:left;"> 2026-05-31 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> panel por corpus </td>
+   <td style="text-align:left;"> presidente </td>
+   <td style="text-align:left;"> trm </td>
+   <td style="text-align:left;"> log_tweets_n </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 1400 </td>
+   <td style="text-align:right;"> 1399 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> 2022-08-01 </td>
+   <td style="text-align:left;"> 2026-05-31 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> panel por corpus </td>
+   <td style="text-align:left;"> presidente </td>
+   <td style="text-align:left;"> trm </td>
+   <td style="text-align:left;"> log_tweets_n </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 1400 </td>
+   <td style="text-align:right;"> 1398 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> 2022-08-01 </td>
+   <td style="text-align:left;"> 2026-05-31 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> panel por corpus </td>
+   <td style="text-align:left;"> presidente </td>
+   <td style="text-align:left;"> trm </td>
+   <td style="text-align:left;"> log_tweets_n </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 1400 </td>
+   <td style="text-align:right;"> 1397 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> 2022-08-01 </td>
+   <td style="text-align:left;"> 2026-05-31 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> panel por corpus </td>
+   <td style="text-align:left;"> presidente </td>
+   <td style="text-align:left;"> trm </td>
+   <td style="text-align:left;"> log_tweets_n </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:right;"> 1400 </td>
+   <td style="text-align:right;"> 1396 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> 2022-08-01 </td>
+   <td style="text-align:left;"> 2026-05-31 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> panel por corpus </td>
+   <td style="text-align:left;"> presidente </td>
+   <td style="text-align:left;"> trm </td>
+   <td style="text-align:left;"> polaridad </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 1400 </td>
+   <td style="text-align:right;"> 1399 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> 2022-08-01 </td>
+   <td style="text-align:left;"> 2026-05-31 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> panel por corpus </td>
+   <td style="text-align:left;"> presidente </td>
+   <td style="text-align:left;"> trm </td>
+   <td style="text-align:left;"> polaridad </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 1400 </td>
+   <td style="text-align:right;"> 1398 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> 2022-08-01 </td>
+   <td style="text-align:left;"> 2026-05-31 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> panel por corpus </td>
+   <td style="text-align:left;"> presidente </td>
+   <td style="text-align:left;"> trm </td>
+   <td style="text-align:left;"> polaridad </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 1400 </td>
+   <td style="text-align:right;"> 1397 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> 2022-08-01 </td>
+   <td style="text-align:left;"> 2026-05-31 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> panel por corpus </td>
+   <td style="text-align:left;"> presidente </td>
+   <td style="text-align:left;"> trm </td>
+   <td style="text-align:left;"> polaridad </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:right;"> 1400 </td>
+   <td style="text-align:right;"> 1396 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> 2022-08-01 </td>
+   <td style="text-align:left;"> 2026-05-31 </td>
+  </tr>
+</tbody>
+</table>
+</body>
+</html>
+

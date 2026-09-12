@@ -1,0 +1,278 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Evaluación de clasificación temática débil</title>
+<style>body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;margin:24px;color:#222}table{border-collapse:collapse;width:100%;font-size:13px}th,td{border:1px solid #ddd;padding:6px 8px;text-align:left;vertical-align:top}th{background:#f3f5f2}caption{text-align:left;font-weight:700;font-size:18px;margin-bottom:4px}.subtitle{color:#666;margin:0 0 14px 0}</style>
+</head>
+<body>
+<h1>Evaluación de clasificación temática débil</h1><p class="subtitle">Holdout estratificado sobre etiquetas de reglas no residuales</p><table>
+ <thead>
+  <tr>
+   <th style="text-align:left;"> modelo </th>
+   <th style="text-align:left;"> clase </th>
+   <th style="text-align:right;"> precision </th>
+   <th style="text-align:right;"> recall </th>
+   <th style="text-align:right;"> f1 </th>
+   <th style="text-align:right;"> soporte </th>
+   <th style="text-align:right;"> accuracy </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> Baseline clase mayoritaria </td>
+   <td style="text-align:left;"> constituyente </td>
+   <td style="text-align:right;"> NA </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> NA </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> NA </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Baseline clase mayoritaria </td>
+   <td style="text-align:left;"> economia </td>
+   <td style="text-align:right;"> NA </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> NA </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> NA </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Baseline clase mayoritaria </td>
+   <td style="text-align:left;"> energia_ambiente </td>
+   <td style="text-align:right;"> NA </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> NA </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> NA </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Baseline clase mayoritaria </td>
+   <td style="text-align:left;"> energia_tarifas </td>
+   <td style="text-align:right;"> NA </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> NA </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> NA </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Baseline clase mayoritaria </td>
+   <td style="text-align:left;"> institucionalidad </td>
+   <td style="text-align:right;"> 0.0769231 </td>
+   <td style="text-align:right;"> 1.0000000 </td>
+   <td style="text-align:right;"> 0.1428571 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> NA </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Baseline clase mayoritaria </td>
+   <td style="text-align:left;"> internacional </td>
+   <td style="text-align:right;"> NA </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> NA </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> NA </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Baseline clase mayoritaria </td>
+   <td style="text-align:left;"> laboral </td>
+   <td style="text-align:right;"> NA </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> NA </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> NA </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Baseline clase mayoritaria </td>
+   <td style="text-align:left;"> paz_total </td>
+   <td style="text-align:right;"> NA </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> NA </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> NA </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Baseline clase mayoritaria </td>
+   <td style="text-align:left;"> pensional </td>
+   <td style="text-align:right;"> NA </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> NA </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> NA </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Baseline clase mayoritaria </td>
+   <td style="text-align:left;"> reforma_general </td>
+   <td style="text-align:right;"> NA </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> NA </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> NA </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Baseline clase mayoritaria </td>
+   <td style="text-align:left;"> salud </td>
+   <td style="text-align:right;"> NA </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> NA </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> NA </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Baseline clase mayoritaria </td>
+   <td style="text-align:left;"> seguridad </td>
+   <td style="text-align:right;"> NA </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> NA </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> NA </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Baseline clase mayoritaria </td>
+   <td style="text-align:left;"> tributaria </td>
+   <td style="text-align:right;"> NA </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> NA </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> NA </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Naive Bayes TF-IDF debil </td>
+   <td style="text-align:left;"> constituyente </td>
+   <td style="text-align:right;"> 0.2500000 </td>
+   <td style="text-align:right;"> 0.3333333 </td>
+   <td style="text-align:right;"> 0.2857143 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> NA </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Naive Bayes TF-IDF debil </td>
+   <td style="text-align:left;"> economia </td>
+   <td style="text-align:right;"> 0.0909091 </td>
+   <td style="text-align:right;"> 0.2000000 </td>
+   <td style="text-align:right;"> 0.1250000 </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> NA </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Naive Bayes TF-IDF debil </td>
+   <td style="text-align:left;"> energia_ambiente </td>
+   <td style="text-align:right;"> 0.1111111 </td>
+   <td style="text-align:right;"> 0.1250000 </td>
+   <td style="text-align:right;"> 0.1176471 </td>
+   <td style="text-align:right;"> 8 </td>
+   <td style="text-align:right;"> NA </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Naive Bayes TF-IDF debil </td>
+   <td style="text-align:left;"> energia_tarifas </td>
+   <td style="text-align:right;"> 0.3333333 </td>
+   <td style="text-align:right;"> 0.1666667 </td>
+   <td style="text-align:right;"> 0.2222222 </td>
+   <td style="text-align:right;"> 6 </td>
+   <td style="text-align:right;"> NA </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Naive Bayes TF-IDF debil </td>
+   <td style="text-align:left;"> institucionalidad </td>
+   <td style="text-align:right;"> 0.0833333 </td>
+   <td style="text-align:right;"> 0.1000000 </td>
+   <td style="text-align:right;"> 0.0909091 </td>
+   <td style="text-align:right;"> 10 </td>
+   <td style="text-align:right;"> NA </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Naive Bayes TF-IDF debil </td>
+   <td style="text-align:left;"> internacional </td>
+   <td style="text-align:right;"> 0.1428571 </td>
+   <td style="text-align:right;"> 0.1666667 </td>
+   <td style="text-align:right;"> 0.1538462 </td>
+   <td style="text-align:right;"> 6 </td>
+   <td style="text-align:right;"> NA </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Naive Bayes TF-IDF debil </td>
+   <td style="text-align:left;"> laboral </td>
+   <td style="text-align:right;"> 0.1000000 </td>
+   <td style="text-align:right;"> 0.1111111 </td>
+   <td style="text-align:right;"> 0.1052632 </td>
+   <td style="text-align:right;"> 9 </td>
+   <td style="text-align:right;"> NA </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Naive Bayes TF-IDF debil </td>
+   <td style="text-align:left;"> paz_total </td>
+   <td style="text-align:right;"> 0.3333333 </td>
+   <td style="text-align:right;"> 0.2000000 </td>
+   <td style="text-align:right;"> 0.2500000 </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> NA </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Naive Bayes TF-IDF debil </td>
+   <td style="text-align:left;"> pensional </td>
+   <td style="text-align:right;"> 0.5000000 </td>
+   <td style="text-align:right;"> 0.1666667 </td>
+   <td style="text-align:right;"> 0.2500000 </td>
+   <td style="text-align:right;"> 6 </td>
+   <td style="text-align:right;"> NA </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Naive Bayes TF-IDF debil </td>
+   <td style="text-align:left;"> reforma_general </td>
+   <td style="text-align:right;"> 0.5000000 </td>
+   <td style="text-align:right;"> 0.1428571 </td>
+   <td style="text-align:right;"> 0.2222222 </td>
+   <td style="text-align:right;"> 7 </td>
+   <td style="text-align:right;"> NA </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Naive Bayes TF-IDF debil </td>
+   <td style="text-align:left;"> salud </td>
+   <td style="text-align:right;"> 0.1111111 </td>
+   <td style="text-align:right;"> 0.1111111 </td>
+   <td style="text-align:right;"> 0.1111111 </td>
+   <td style="text-align:right;"> 9 </td>
+   <td style="text-align:right;"> NA </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Naive Bayes TF-IDF debil </td>
+   <td style="text-align:left;"> seguridad </td>
+   <td style="text-align:right;"> 0.0909091 </td>
+   <td style="text-align:right;"> 0.1111111 </td>
+   <td style="text-align:right;"> 0.1000000 </td>
+   <td style="text-align:right;"> 9 </td>
+   <td style="text-align:right;"> NA </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Naive Bayes TF-IDF debil </td>
+   <td style="text-align:left;"> tributaria </td>
+   <td style="text-align:right;"> 0.1428571 </td>
+   <td style="text-align:right;"> 0.1428571 </td>
+   <td style="text-align:right;"> 0.1428571 </td>
+   <td style="text-align:right;"> 7 </td>
+   <td style="text-align:right;"> NA </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Baseline clase mayoritaria </td>
+   <td style="text-align:left;"> macro_promedio </td>
+   <td style="text-align:right;"> 0.0769231 </td>
+   <td style="text-align:right;"> 0.0769231 </td>
+   <td style="text-align:right;"> 0.1428571 </td>
+   <td style="text-align:right;"> 2361 </td>
+   <td style="text-align:right;"> 0.1808556 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Naive Bayes TF-IDF debil </td>
+   <td style="text-align:left;"> macro_promedio </td>
+   <td style="text-align:right;"> 0.2145965 </td>
+   <td style="text-align:right;"> 0.1597985 </td>
+   <td style="text-align:right;"> 0.1674456 </td>
+   <td style="text-align:right;"> 2361 </td>
+   <td style="text-align:right;"> 0.7632359 </td>
+  </tr>
+</tbody>
+</table>
+</body>
+</html>
+

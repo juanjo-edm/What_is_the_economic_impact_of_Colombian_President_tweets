@@ -1,0 +1,683 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Nube de palabras por corpus</title>
+<style>body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;margin:24px;color:#222}table{border-collapse:collapse;width:100%;font-size:13px}th,td{border:1px solid #ddd;padding:6px 8px;text-align:left;vertical-align:top}th{background:#f3f5f2}caption{text-align:left;font-weight:700;font-size:18px;margin-bottom:4px}.subtitle{color:#666;margin:0 0 14px 0}</style>
+</head>
+<body>
+<h1>Nube de palabras por corpus</h1><p class="subtitle">Términos principales ponderados por TF-IDF</p><table>
+ <thead>
+  <tr>
+   <th style="text-align:left;"> corpus_label </th>
+   <th style="text-align:left;"> termino </th>
+   <th style="text-align:right;"> frecuencia </th>
+   <th style="text-align:right;"> tfidf </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> Conversación pública sobre Gustavo Petro </td>
+   <td style="text-align:left;"> guerrillero </td>
+   <td style="text-align:right;"> 208 </td>
+   <td style="text-align:right;"> 131.03340 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Conversación pública sobre Gustavo Petro </td>
+   <td style="text-align:left;"> maduro </td>
+   <td style="text-align:right;"> 236 </td>
+   <td style="text-align:right;"> 130.15321 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Conversación pública sobre Gustavo Petro </td>
+   <td style="text-align:left;"> trump </td>
+   <td style="text-align:right;"> 153 </td>
+   <td style="text-align:right;"> 109.41429 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Conversación pública sobre Gustavo Petro </td>
+   <td style="text-align:left;"> pdte </td>
+   <td style="text-align:right;"> 114 </td>
+   <td style="text-align:right;"> 103.83926 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Conversación pública sobre Gustavo Petro </td>
+   <td style="text-align:left;"> consulta </td>
+   <td style="text-align:right;"> 108 </td>
+   <td style="text-align:right;"> 95.49386 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Conversación pública sobre Gustavo Petro </td>
+   <td style="text-align:left;"> fuerapetro </td>
+   <td style="text-align:right;"> 53 </td>
+   <td style="text-align:right;"> 92.70759 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Conversación pública sobre Gustavo Petro </td>
+   <td style="text-align:left;"> dólar </td>
+   <td style="text-align:right;"> 79 </td>
+   <td style="text-align:right;"> 85.93631 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Conversación pública sobre Gustavo Petro </td>
+   <td style="text-align:left;"> dictador </td>
+   <td style="text-align:right;"> 86 </td>
+   <td style="text-align:right;"> 85.60681 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Conversación pública sobre Gustavo Petro </td>
+   <td style="text-align:left;"> vergüenza </td>
+   <td style="text-align:right;"> 75 </td>
+   <td style="text-align:right;"> 79.20395 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Conversación pública sobre Gustavo Petro </td>
+   <td style="text-align:left;"> cepeda </td>
+   <td style="text-align:right;"> 92 </td>
+   <td style="text-align:right;"> 78.95688 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Conversación pública sobre Gustavo Petro </td>
+   <td style="text-align:left;"> mierda </td>
+   <td style="text-align:right;"> 97 </td>
+   <td style="text-align:right;"> 78.39700 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Conversación pública sobre Gustavo Petro </td>
+   <td style="text-align:left;"> terrorista </td>
+   <td style="text-align:right;"> 95 </td>
+   <td style="text-align:right;"> 76.78057 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Conversación pública sobre Gustavo Petro </td>
+   <td style="text-align:left;"> culpa </td>
+   <td style="text-align:right;"> 100 </td>
+   <td style="text-align:right;"> 76.05885 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Conversación pública sobre Gustavo Petro </td>
+   <td style="text-align:left;"> tan </td>
+   <td style="text-align:right;"> 250 </td>
+   <td style="text-align:right;"> 75.57022 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Conversación pública sobre Gustavo Petro </td>
+   <td style="text-align:left;"> gobernar </td>
+   <td style="text-align:right;"> 84 </td>
+   <td style="text-align:right;"> 74.27300 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Conversación pública sobre Gustavo Petro </td>
+   <td style="text-align:left;"> iván </td>
+   <td style="text-align:right;"> 106 </td>
+   <td style="text-align:right;"> 71.19394 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Conversación pública sobre Gustavo Petro </td>
+   <td style="text-align:left;"> pegasus </td>
+   <td style="text-align:right;"> 36 </td>
+   <td style="text-align:right;"> 70.44621 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Conversación pública sobre Gustavo Petro </td>
+   <td style="text-align:left;"> nicolás </td>
+   <td style="text-align:right;"> 87 </td>
+   <td style="text-align:right;"> 70.31484 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Conversación pública sobre Gustavo Petro </td>
+   <td style="text-align:left;"> petristas </td>
+   <td style="text-align:right;"> 75 </td>
+   <td style="text-align:right;"> 68.31530 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Conversación pública sobre Gustavo Petro </td>
+   <td style="text-align:left;"> twitts </td>
+   <td style="text-align:right;"> 37 </td>
+   <td style="text-align:right;"> 67.10832 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Conversación pública sobre Gustavo Petro </td>
+   <td style="text-align:left;"> constituyente </td>
+   <td style="text-align:right;"> 96 </td>
+   <td style="text-align:right;"> 66.54213 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Conversación pública sobre Gustavo Petro </td>
+   <td style="text-align:left;"> corrupto </td>
+   <td style="text-align:right;"> 109 </td>
+   <td style="text-align:right;"> 66.46445 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Conversación pública sobre Gustavo Petro </td>
+   <td style="text-align:left;"> izquierda </td>
+   <td style="text-align:right;"> 208 </td>
+   <td style="text-align:right;"> 65.95596 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Conversación pública sobre Gustavo Petro </td>
+   <td style="text-align:left;"> delincuentes </td>
+   <td style="text-align:right;"> 89 </td>
+   <td style="text-align:right;"> 63.64622 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Conversación pública sobre Gustavo Petro </td>
+   <td style="text-align:left;"> benedetti </td>
+   <td style="text-align:right;"> 43 </td>
+   <td style="text-align:right;"> 63.52244 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Conversación pública sobre Gustavo Petro </td>
+   <td style="text-align:left;"> terroristas </td>
+   <td style="text-align:right;"> 88 </td>
+   <td style="text-align:right;"> 62.93110 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Conversación pública sobre Gustavo Petro </td>
+   <td style="text-align:left;"> israel </td>
+   <td style="text-align:right;"> 103 </td>
+   <td style="text-align:right;"> 62.80585 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Conversación pública sobre Gustavo Petro </td>
+   <td style="text-align:left;"> escándalo </td>
+   <td style="text-align:right;"> 55 </td>
+   <td style="text-align:right;"> 61.63252 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Conversación pública sobre Gustavo Petro </td>
+   <td style="text-align:left;"> copiar </td>
+   <td style="text-align:right;"> 35 </td>
+   <td style="text-align:right;"> 61.22199 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Conversación pública sobre Gustavo Petro </td>
+   <td style="text-align:left;"> pegar </td>
+   <td style="text-align:right;"> 37 </td>
+   <td style="text-align:right;"> 60.36242 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Conversación pública sobre Gustavo Petro </td>
+   <td style="text-align:left;"> corruptos </td>
+   <td style="text-align:right;"> 109 </td>
+   <td style="text-align:right;"> 60.11314 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Conversación pública sobre Gustavo Petro </td>
+   <td style="text-align:left;"> álvaro </td>
+   <td style="text-align:right;"> 49 </td>
+   <td style="text-align:right;"> 60.07163 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Conversación pública sobre Gustavo Petro </td>
+   <td style="text-align:left;"> farc </td>
+   <td style="text-align:right;"> 101 </td>
+   <td style="text-align:right;"> 59.58626 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Conversación pública sobre Gustavo Petro </td>
+   <td style="text-align:left;"> pte </td>
+   <td style="text-align:right;"> 56 </td>
+   <td style="text-align:right;"> 59.13895 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Conversación pública sobre Gustavo Petro </td>
+   <td style="text-align:left;"> donald </td>
+   <td style="text-align:right;"> 42 </td>
+   <td style="text-align:right;"> 58.22436 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Conversación pública sobre Gustavo Petro </td>
+   <td style="text-align:left;"> gob </td>
+   <td style="text-align:right;"> 46 </td>
+   <td style="text-align:right;"> 58.12983 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Conversación pública sobre Gustavo Petro </td>
+   <td style="text-align:left;"> mandatario </td>
+   <td style="text-align:right;"> 50 </td>
+   <td style="text-align:right;"> 57.72464 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Conversación pública sobre Gustavo Petro </td>
+   <td style="text-align:left;"> visa </td>
+   <td style="text-align:right;"> 33 </td>
+   <td style="text-align:right;"> 57.72360 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Conversación pública sobre Gustavo Petro </td>
+   <td style="text-align:left;"> hijueputa </td>
+   <td style="text-align:right;"> 47 </td>
+   <td style="text-align:right;"> 57.61973 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Conversación pública sobre Gustavo Petro </td>
+   <td style="text-align:left;"> fraude </td>
+   <td style="text-align:right;"> 51 </td>
+   <td style="text-align:right;"> 57.15015 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Conversación pública sobre Gustavo Petro </td>
+   <td style="text-align:left;"> mancuso </td>
+   <td style="text-align:right;"> 30 </td>
+   <td style="text-align:right;"> 56.48194 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Conversación pública sobre Gustavo Petro </td>
+   <td style="text-align:left;"> unidos </td>
+   <td style="text-align:right;"> 127 </td>
+   <td style="text-align:right;"> 56.41989 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Conversación pública sobre Gustavo Petro </td>
+   <td style="text-align:left;"> miguel </td>
+   <td style="text-align:right;"> 50 </td>
+   <td style="text-align:right;"> 56.02956 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Conversación pública sobre Gustavo Petro </td>
+   <td style="text-align:left;"> criminal </td>
+   <td style="text-align:right;"> 117 </td>
+   <td style="text-align:right;"> 56.01227 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Conversación pública sobre Gustavo Petro </td>
+   <td style="text-align:left;"> ojo </td>
+   <td style="text-align:right;"> 97 </td>
+   <td style="text-align:right;"> 55.34285 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Conversación pública sobre Gustavo Petro </td>
+   <td style="text-align:left;"> abelardo </td>
+   <td style="text-align:right;"> 28 </td>
+   <td style="text-align:right;"> 54.79150 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Conversación pública sobre Gustavo Petro </td>
+   <td style="text-align:left;"> rodríguez </td>
+   <td style="text-align:right;"> 37 </td>
+   <td style="text-align:right;"> 54.65885 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Conversación pública sobre Gustavo Petro </td>
+   <td style="text-align:left;"> uribistas </td>
+   <td style="text-align:right;"> 69 </td>
+   <td style="text-align:right;"> 54.10421 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Conversación pública sobre Gustavo Petro </td>
+   <td style="text-align:left;"> sarabia </td>
+   <td style="text-align:right;"> 32 </td>
+   <td style="text-align:right;"> 54.03441 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Conversación pública sobre Gustavo Petro </td>
+   <td style="text-align:left;"> tributaria </td>
+   <td style="text-align:right;"> 71 </td>
+   <td style="text-align:right;"> 54.00178 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Conversación pública sobre Gustavo Petro </td>
+   <td style="text-align:left;"> urrego </td>
+   <td style="text-align:right;"> 44 </td>
+   <td style="text-align:right;"> 53.94188 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Conversación pública sobre Gustavo Petro </td>
+   <td style="text-align:left;"> cuento </td>
+   <td style="text-align:right;"> 48 </td>
+   <td style="text-align:right;"> 53.78838 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Conversación pública sobre Gustavo Petro </td>
+   <td style="text-align:left;"> etc </td>
+   <td style="text-align:right;"> 52 </td>
+   <td style="text-align:right;"> 53.31461 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Conversación pública sobre Gustavo Petro </td>
+   <td style="text-align:left;"> guerrilla </td>
+   <td style="text-align:right;"> 58 </td>
+   <td style="text-align:right;"> 52.83050 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Conversación pública sobre Gustavo Petro </td>
+   <td style="text-align:left;"> urgente </td>
+   <td style="text-align:right;"> 65 </td>
+   <td style="text-align:right;"> 52.53407 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Tweets escritos por @petrogustavo </td>
+   <td style="text-align:left;"> tasa </td>
+   <td style="text-align:right;"> 418 </td>
+   <td style="text-align:right;"> 185.69697 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Tweets escritos por @petrogustavo </td>
+   <td style="text-align:left;"> vital </td>
+   <td style="text-align:right;"> 105 </td>
+   <td style="text-align:right;"> 145.56091 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Tweets escritos por @petrogustavo </td>
+   <td style="text-align:left;"> deuda </td>
+   <td style="text-align:right;"> 289 </td>
+   <td style="text-align:right;"> 138.35508 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Tweets escritos por @petrogustavo </td>
+   <td style="text-align:left;"> toneladas </td>
+   <td style="text-align:right;"> 238 </td>
+   <td style="text-align:right;"> 122.44038 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Tweets escritos por @petrogustavo </td>
+   <td style="text-align:left;"> caribe </td>
+   <td style="text-align:right;"> 245 </td>
+   <td style="text-align:right;"> 121.62704 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Tweets escritos por @petrogustavo </td>
+   <td style="text-align:left;"> eléctrica </td>
+   <td style="text-align:right;"> 132 </td>
+   <td style="text-align:right;"> 113.28595 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Tweets escritos por @petrogustavo </td>
+   <td style="text-align:left;"> campesinado </td>
+   <td style="text-align:right;"> 136 </td>
+   <td style="text-align:right;"> 113.27564 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Tweets escritos por @petrogustavo </td>
+   <td style="text-align:left;"> consulta </td>
+   <td style="text-align:right;"> 126 </td>
+   <td style="text-align:right;"> 111.40950 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Tweets escritos por @petrogustavo </td>
+   <td style="text-align:left;"> constituyente </td>
+   <td style="text-align:right;"> 160 </td>
+   <td style="text-align:right;"> 110.90355 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Tweets escritos por @petrogustavo </td>
+   <td style="text-align:left;"> trump </td>
+   <td style="text-align:right;"> 151 </td>
+   <td style="text-align:right;"> 107.98404 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Tweets escritos por @petrogustavo </td>
+   <td style="text-align:left;"> gaza </td>
+   <td style="text-align:right;"> 144 </td>
+   <td style="text-align:right;"> 106.21425 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Tweets escritos por @petrogustavo </td>
+   <td style="text-align:left;"> software </td>
+   <td style="text-align:right;"> 89 </td>
+   <td style="text-align:right;"> 105.87298 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Tweets escritos por @petrogustavo </td>
+   <td style="text-align:left;"> dueños </td>
+   <td style="text-align:right;"> 142 </td>
+   <td style="text-align:right;"> 104.73905 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Tweets escritos por @petrogustavo </td>
+   <td style="text-align:left;"> mortalidad </td>
+   <td style="text-align:right;"> 80 </td>
+   <td style="text-align:right;"> 104.23302 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Tweets escritos por @petrogustavo </td>
+   <td style="text-align:left;"> banco </td>
+   <td style="text-align:right;"> 176 </td>
+   <td style="text-align:right;"> 103.83348 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Tweets escritos por @petrogustavo </td>
+   <td style="text-align:left;"> hoja </td>
+   <td style="text-align:right;"> 109 </td>
+   <td style="text-align:right;"> 102.27139 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Tweets escritos por @petrogustavo </td>
+   <td style="text-align:left;"> fraude </td>
+   <td style="text-align:right;"> 90 </td>
+   <td style="text-align:right;"> 100.85321 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Tweets escritos por @petrogustavo </td>
+   <td style="text-align:left;"> solar </td>
+   <td style="text-align:right;"> 75 </td>
+   <td style="text-align:right;"> 100.78011 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Tweets escritos por @petrogustavo </td>
+   <td style="text-align:left;"> junta </td>
+   <td style="text-align:right;"> 150 </td>
+   <td style="text-align:right;"> 100.74615 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Tweets escritos por @petrogustavo </td>
+   <td style="text-align:left;"> solicito </td>
+   <td style="text-align:right;"> 154 </td>
+   <td style="text-align:right;"> 100.19049 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Tweets escritos por @petrogustavo </td>
+   <td style="text-align:left;"> interés </td>
+   <td style="text-align:right;"> 260 </td>
+   <td style="text-align:right;"> 98.45000 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Tweets escritos por @petrogustavo </td>
+   <td style="text-align:left;"> ahorro </td>
+   <td style="text-align:right;"> 77 </td>
+   <td style="text-align:right;"> 97.30429 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Tweets escritos por @petrogustavo </td>
+   <td style="text-align:left;"> salario </td>
+   <td style="text-align:right;"> 244 </td>
+   <td style="text-align:right;"> 92.39154 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Tweets escritos por @petrogustavo </td>
+   <td style="text-align:left;"> energías </td>
+   <td style="text-align:right;"> 114 </td>
+   <td style="text-align:right;"> 92.13668 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Tweets escritos por @petrogustavo </td>
+   <td style="text-align:left;"> cultivos </td>
+   <td style="text-align:right;"> 120 </td>
+   <td style="text-align:right;"> 91.27062 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Tweets escritos por @petrogustavo </td>
+   <td style="text-align:left;"> eeuu </td>
+   <td style="text-align:right;"> 474 </td>
+   <td style="text-align:right;"> 90.56018 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Tweets escritos por @petrogustavo </td>
+   <td style="text-align:left;"> genocidio </td>
+   <td style="text-align:right;"> 189 </td>
+   <td style="text-align:right;"> 90.48135 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Tweets escritos por @petrogustavo </td>
+   <td style="text-align:left;"> climática </td>
+   <td style="text-align:right;"> 157 </td>
+   <td style="text-align:right;"> 89.57554 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Tweets escritos por @petrogustavo </td>
+   <td style="text-align:left;"> unidas </td>
+   <td style="text-align:right;"> 77 </td>
+   <td style="text-align:right;"> 88.89594 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Tweets escritos por @petrogustavo </td>
+   <td style="text-align:left;"> financiamiento </td>
+   <td style="text-align:right;"> 62 </td>
+   <td style="text-align:right;"> 88.70626 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Tweets escritos por @petrogustavo </td>
+   <td style="text-align:left;"> antioquia </td>
+   <td style="text-align:right;"> 215 </td>
+   <td style="text-align:right;"> 88.34666 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Tweets escritos por @petrogustavo </td>
+   <td style="text-align:left;"> pacífico </td>
+   <td style="text-align:right;"> 112 </td>
+   <td style="text-align:right;"> 87.82132 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Tweets escritos por @petrogustavo </td>
+   <td style="text-align:left;"> hectáreas </td>
+   <td style="text-align:right;"> 88 </td>
+   <td style="text-align:right;"> 87.59767 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Tweets escritos por @petrogustavo </td>
+   <td style="text-align:left;"> marta </td>
+   <td style="text-align:right;"> 90 </td>
+   <td style="text-align:right;"> 86.97965 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Tweets escritos por @petrogustavo </td>
+   <td style="text-align:left;"> cocaína </td>
+   <td style="text-align:right;"> 423 </td>
+   <td style="text-align:right;"> 86.41910 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Tweets escritos por @petrogustavo </td>
+   <td style="text-align:left;"> palestina </td>
+   <td style="text-align:right;"> 124 </td>
+   <td style="text-align:right;"> 85.95025 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Tweets escritos por @petrogustavo </td>
+   <td style="text-align:left;"> limpias </td>
+   <td style="text-align:right;"> 105 </td>
+   <td style="text-align:right;"> 84.86273 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Tweets escritos por @petrogustavo </td>
+   <td style="text-align:left;"> catatumbo </td>
+   <td style="text-align:right;"> 80 </td>
+   <td style="text-align:right;"> 84.48421 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Tweets escritos por @petrogustavo </td>
+   <td style="text-align:left;"> dije </td>
+   <td style="text-align:right;"> 82 </td>
+   <td style="text-align:right;"> 84.07304 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Tweets escritos por @petrogustavo </td>
+   <td style="text-align:left;"> energía </td>
+   <td style="text-align:right;"> 361 </td>
+   <td style="text-align:right;"> 83.50982 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Tweets escritos por @petrogustavo </td>
+   <td style="text-align:left;"> misiles </td>
+   <td style="text-align:right;"> 46 </td>
+   <td style="text-align:right;"> 83.43197 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Tweets escritos por @petrogustavo </td>
+   <td style="text-align:left;"> latina </td>
+   <td style="text-align:right;"> 156 </td>
+   <td style="text-align:right;"> 83.11751 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Tweets escritos por @petrogustavo </td>
+   <td style="text-align:left;"> ecuador </td>
+   <td style="text-align:right;"> 94 </td>
+   <td style="text-align:right;"> 83.11503 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Tweets escritos por @petrogustavo </td>
+   <td style="text-align:left;"> buque </td>
+   <td style="text-align:right;"> 42 </td>
+   <td style="text-align:right;"> 82.18725 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Tweets escritos por @petrogustavo </td>
+   <td style="text-align:left;"> crecimiento </td>
+   <td style="text-align:right;"> 149 </td>
+   <td style="text-align:right;"> 82.17300 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Tweets escritos por @petrogustavo </td>
+   <td style="text-align:left;"> oro </td>
+   <td style="text-align:right;"> 65 </td>
+   <td style="text-align:right;"> 82.13998 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Tweets escritos por @petrogustavo </td>
+   <td style="text-align:left;"> emc </td>
+   <td style="text-align:right;"> 67 </td>
+   <td style="text-align:right;"> 82.13876 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Tweets escritos por @petrogustavo </td>
+   <td style="text-align:left;"> bono </td>
+   <td style="text-align:right;"> 61 </td>
+   <td style="text-align:right;"> 81.96782 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Tweets escritos por @petrogustavo </td>
+   <td style="text-align:left;"> mar </td>
+   <td style="text-align:right;"> 87 </td>
+   <td style="text-align:right;"> 81.62946 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Tweets escritos por @petrogustavo </td>
+   <td style="text-align:left;"> selva </td>
+   <td style="text-align:right;"> 87 </td>
+   <td style="text-align:right;"> 81.62946 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Tweets escritos por @petrogustavo </td>
+   <td style="text-align:left;"> universidad </td>
+   <td style="text-align:right;"> 183 </td>
+   <td style="text-align:right;"> 81.29796 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Tweets escritos por @petrogustavo </td>
+   <td style="text-align:left;"> homicidios </td>
+   <td style="text-align:right;"> 66 </td>
+   <td style="text-align:right;"> 80.91281 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Tweets escritos por @petrogustavo </td>
+   <td style="text-align:left;"> petroleo </td>
+   <td style="text-align:right;"> 97 </td>
+   <td style="text-align:right;"> 80.79218 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Tweets escritos por @petrogustavo </td>
+   <td style="text-align:left;"> coosalud </td>
+   <td style="text-align:right;"> 38 </td>
+   <td style="text-align:right;"> 80.70795 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Tweets escritos por @petrogustavo </td>
+   <td style="text-align:left;"> limpia </td>
+   <td style="text-align:right;"> 72 </td>
+   <td style="text-align:right;"> 80.68257 </td>
+  </tr>
+</tbody>
+</table>
+</body>
+</html>
+

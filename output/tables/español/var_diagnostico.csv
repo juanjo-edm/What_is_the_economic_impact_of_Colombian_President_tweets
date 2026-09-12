@@ -1,0 +1,2 @@
+modelo,status,observaciones,variables
+VAR(2); IRF no implementada,ok,1285,"polaridad, ipi, trm, colcap, tes_10y, tes_slope_10y_1y"

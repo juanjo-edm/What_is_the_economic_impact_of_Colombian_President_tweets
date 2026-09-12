@@ -1,0 +1,1394 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Bigramas robustos</title>
+<style>body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;margin:24px;color:#222}table{border-collapse:collapse;width:100%;font-size:13px}th,td{border:1px solid #ddd;padding:6px 8px;text-align:left;vertical-align:top}th{background:#f3f5f2}caption{text-align:left;font-weight:700;font-size:18px;margin-bottom:4px}.subtitle{color:#666;margin:0 0 14px 0}</style>
+</head>
+<body>
+<h1>Bigramas robustos</h1><p class="subtitle">Intersección entre lambda, PMI y t-score</p><table>
+ <thead>
+  <tr>
+   <th style="text-align:left;"> bigram </th>
+   <th style="text-align:left;"> w1 </th>
+   <th style="text-align:left;"> w2 </th>
+   <th style="text-align:right;"> f12 </th>
+   <th style="text-align:right;"> f1 </th>
+   <th style="text-align:right;"> f2 </th>
+   <th style="text-align:right;"> p12 </th>
+   <th style="text-align:right;"> p1 </th>
+   <th style="text-align:right;"> p2 </th>
+   <th style="text-align:right;"> PMI </th>
+   <th style="text-align:right;"> E12 </th>
+   <th style="text-align:right;"> t_score </th>
+   <th style="text-align:right;"> count </th>
+   <th style="text-align:right;"> lambda </th>
+   <th style="text-align:right;"> z </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> vergc_enza </td>
+   <td style="text-align:left;"> vergc </td>
+   <td style="text-align:left;"> enza </td>
+   <td style="text-align:right;"> 8 </td>
+   <td style="text-align:right;"> 8 </td>
+   <td style="text-align:right;"> 8 </td>
+   <td style="text-align:right;"> 0.0000252 </td>
+   <td style="text-align:right;"> 0.0000238 </td>
+   <td style="text-align:right;"> 0.0000238 </td>
+   <td style="text-align:right;"> 15.44074 </td>
+   <td style="text-align:right;"> 0.0001904 </td>
+   <td style="text-align:right;"> 2.828360 </td>
+   <td style="text-align:right;"> 8 </td>
+   <td style="text-align:right;"> 16.19307 </td>
+   <td style="text-align:right;"> 7.980030 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> vigencias_futuras </td>
+   <td style="text-align:left;"> vigencias </td>
+   <td style="text-align:left;"> futuras </td>
+   <td style="text-align:right;"> 18 </td>
+   <td style="text-align:right;"> 18 </td>
+   <td style="text-align:right;"> 19 </td>
+   <td style="text-align:right;"> 0.0000568 </td>
+   <td style="text-align:right;"> 0.0000535 </td>
+   <td style="text-align:right;"> 0.0000565 </td>
+   <td style="text-align:right;"> 14.19488 </td>
+   <td style="text-align:right;"> 0.0010174 </td>
+   <td style="text-align:right;"> 4.242401 </td>
+   <td style="text-align:right;"> 18 </td>
+   <td style="text-align:right;"> 15.87213 </td>
+   <td style="text-align:right;"> 9.622612 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> benkos_biohó </td>
+   <td style="text-align:left;"> benkos </td>
+   <td style="text-align:left;"> biohó </td>
+   <td style="text-align:right;"> 17 </td>
+   <td style="text-align:right;"> 18 </td>
+   <td style="text-align:right;"> 17 </td>
+   <td style="text-align:right;"> 0.0000536 </td>
+   <td style="text-align:right;"> 0.0000535 </td>
+   <td style="text-align:right;"> 0.0000506 </td>
+   <td style="text-align:right;"> 14.27283 </td>
+   <td style="text-align:right;"> 0.0009103 </td>
+   <td style="text-align:right;"> 4.122885 </td>
+   <td style="text-align:right;"> 17 </td>
+   <td style="text-align:right;"> 15.81656 </td>
+   <td style="text-align:right;"> 9.583486 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> escogerá_fgn </td>
+   <td style="text-align:left;"> escogerá </td>
+   <td style="text-align:left;"> fgn </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 0.0000158 </td>
+   <td style="text-align:right;"> 0.0000149 </td>
+   <td style="text-align:right;"> 0.0000149 </td>
+   <td style="text-align:right;"> 16.11485 </td>
+   <td style="text-align:right;"> 0.0000744 </td>
+   <td style="text-align:right;"> 2.236035 </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 15.75776 </td>
+   <td style="text-align:right;"> 7.705696 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> fibra_óptica </td>
+   <td style="text-align:left;"> fibra </td>
+   <td style="text-align:left;"> óptica </td>
+   <td style="text-align:right;"> 16 </td>
+   <td style="text-align:right;"> 17 </td>
+   <td style="text-align:right;"> 16 </td>
+   <td style="text-align:right;"> 0.0000505 </td>
+   <td style="text-align:right;"> 0.0000506 </td>
+   <td style="text-align:right;"> 0.0000476 </td>
+   <td style="text-align:right;"> 14.35523 </td>
+   <td style="text-align:right;"> 0.0008092 </td>
+   <td style="text-align:right;"> 3.999798 </td>
+   <td style="text-align:right;"> 16 </td>
+   <td style="text-align:right;"> 15.75773 </td>
+   <td style="text-align:right;"> 9.541772 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> msci_colcap </td>
+   <td style="text-align:left;"> msci </td>
+   <td style="text-align:left;"> colcap </td>
+   <td style="text-align:right;"> 7 </td>
+   <td style="text-align:right;"> 8 </td>
+   <td style="text-align:right;"> 7 </td>
+   <td style="text-align:right;"> 0.0000221 </td>
+   <td style="text-align:right;"> 0.0000238 </td>
+   <td style="text-align:right;"> 0.0000208 </td>
+   <td style="text-align:right;"> 15.44038 </td>
+   <td style="text-align:right;"> 0.0001666 </td>
+   <td style="text-align:right;"> 2.645688 </td>
+   <td style="text-align:right;"> 7 </td>
+   <td style="text-align:right;"> 14.96930 </td>
+   <td style="text-align:right;"> 8.945861 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> resuelvan_jueguen </td>
+   <td style="text-align:left;"> resuelvan </td>
+   <td style="text-align:left;"> jueguen </td>
+   <td style="text-align:right;"> 12 </td>
+   <td style="text-align:right;"> 14 </td>
+   <td style="text-align:right;"> 12 </td>
+   <td style="text-align:right;"> 0.0000379 </td>
+   <td style="text-align:right;"> 0.0000416 </td>
+   <td style="text-align:right;"> 0.0000357 </td>
+   <td style="text-align:right;"> 14.63496 </td>
+   <td style="text-align:right;"> 0.0004998 </td>
+   <td style="text-align:right;"> 3.463957 </td>
+   <td style="text-align:right;"> 12 </td>
+   <td style="text-align:right;"> 14.96928 </td>
+   <td style="text-align:right;"> 9.505495 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> der_hammen </td>
+   <td style="text-align:left;"> der </td>
+   <td style="text-align:left;"> hammen </td>
+   <td style="text-align:right;"> 11 </td>
+   <td style="text-align:right;"> 13 </td>
+   <td style="text-align:right;"> 11 </td>
+   <td style="text-align:right;"> 0.0000347 </td>
+   <td style="text-align:right;"> 0.0000387 </td>
+   <td style="text-align:right;"> 0.0000327 </td>
+   <td style="text-align:right;"> 14.74171 </td>
+   <td style="text-align:right;"> 0.0004254 </td>
+   <td style="text-align:right;"> 3.316496 </td>
+   <td style="text-align:right;"> 11 </td>
+   <td style="text-align:right;"> 14.88590 </td>
+   <td style="text-align:right;"> 9.439320 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> hamad_thani </td>
+   <td style="text-align:left;"> hamad </td>
+   <td style="text-align:left;"> thani </td>
+   <td style="text-align:right;"> 6 </td>
+   <td style="text-align:right;"> 7 </td>
+   <td style="text-align:right;"> 6 </td>
+   <td style="text-align:right;"> 0.0000189 </td>
+   <td style="text-align:right;"> 0.0000208 </td>
+   <td style="text-align:right;"> 0.0000178 </td>
+   <td style="text-align:right;"> 15.63206 </td>
+   <td style="text-align:right;"> 0.0001249 </td>
+   <td style="text-align:right;"> 2.449439 </td>
+   <td style="text-align:right;"> 6 </td>
+   <td style="text-align:right;"> 14.82620 </td>
+   <td style="text-align:right;"> 8.828066 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> cilia_flores </td>
+   <td style="text-align:left;"> cilia </td>
+   <td style="text-align:left;"> flores </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 6 </td>
+   <td style="text-align:right;"> 0.0000158 </td>
+   <td style="text-align:right;"> 0.0000149 </td>
+   <td style="text-align:right;"> 0.0000178 </td>
+   <td style="text-align:right;"> 15.85290 </td>
+   <td style="text-align:right;"> 0.0000892 </td>
+   <td style="text-align:right;"> 2.236028 </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 14.65915 </td>
+   <td style="text-align:right;"> 8.685635 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> reformapensionalya_reformapensionalya </td>
+   <td style="text-align:left;"> reformapensionalya </td>
+   <td style="text-align:left;"> reformapensionalya </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 6 </td>
+   <td style="text-align:right;"> 6 </td>
+   <td style="text-align:right;"> 0.0000158 </td>
+   <td style="text-align:right;"> 0.0000178 </td>
+   <td style="text-align:right;"> 0.0000178 </td>
+   <td style="text-align:right;"> 15.59077 </td>
+   <td style="text-align:right;"> 0.0001071 </td>
+   <td style="text-align:right;"> 2.236020 </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 14.65915 </td>
+   <td style="text-align:right;"> 8.685635 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> asd_filial </td>
+   <td style="text-align:left;"> asd </td>
+   <td style="text-align:left;"> filial </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 7 </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 0.0000158 </td>
+   <td style="text-align:right;"> 0.0000208 </td>
+   <td style="text-align:right;"> 0.0000149 </td>
+   <td style="text-align:right;"> 15.63128 </td>
+   <td style="text-align:right;"> 0.0001041 </td>
+   <td style="text-align:right;"> 2.236021 </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 14.14832 </td>
+   <td style="text-align:right;"> 8.805252 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> copiar_pegar </td>
+   <td style="text-align:left;"> copiar </td>
+   <td style="text-align:left;"> pegar </td>
+   <td style="text-align:right;"> 33 </td>
+   <td style="text-align:right;"> 35 </td>
+   <td style="text-align:right;"> 38 </td>
+   <td style="text-align:right;"> 0.0001041 </td>
+   <td style="text-align:right;"> 0.0001041 </td>
+   <td style="text-align:right;"> 0.0001130 </td>
+   <td style="text-align:right;"> 13.11035 </td>
+   <td style="text-align:right;"> 0.0039565 </td>
+   <td style="text-align:right;"> 5.743874 </td>
+   <td style="text-align:right;"> 33 </td>
+   <td style="text-align:right;"> 14.06795 </td>
+   <td style="text-align:right;"> 15.010657 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> arabia_saudita </td>
+   <td style="text-align:left;"> arabia </td>
+   <td style="text-align:left;"> saudita </td>
+   <td style="text-align:right;"> 8 </td>
+   <td style="text-align:right;"> 12 </td>
+   <td style="text-align:right;"> 8 </td>
+   <td style="text-align:right;"> 0.0000252 </td>
+   <td style="text-align:right;"> 0.0000357 </td>
+   <td style="text-align:right;"> 0.0000238 </td>
+   <td style="text-align:right;"> 14.85663 </td>
+   <td style="text-align:right;"> 0.0002856 </td>
+   <td style="text-align:right;"> 2.828326 </td>
+   <td style="text-align:right;"> 8 </td>
+   <td style="text-align:right;"> 13.99584 </td>
+   <td style="text-align:right;"> 9.149613 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> cecilia_orozco </td>
+   <td style="text-align:left;"> cecilia </td>
+   <td style="text-align:left;"> orozco </td>
+   <td style="text-align:right;"> 6 </td>
+   <td style="text-align:right;"> 9 </td>
+   <td style="text-align:right;"> 6 </td>
+   <td style="text-align:right;"> 0.0000189 </td>
+   <td style="text-align:right;"> 0.0000268 </td>
+   <td style="text-align:right;"> 0.0000178 </td>
+   <td style="text-align:right;"> 15.27035 </td>
+   <td style="text-align:right;"> 0.0001606 </td>
+   <td style="text-align:right;"> 2.449424 </td>
+   <td style="text-align:right;"> 6 </td>
+   <td style="text-align:right;"> 13.97890 </td>
+   <td style="text-align:right;"> 8.949871 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> basilio_palenque </td>
+   <td style="text-align:left;"> basilio </td>
+   <td style="text-align:left;"> palenque </td>
+   <td style="text-align:right;"> 6 </td>
+   <td style="text-align:right;"> 6 </td>
+   <td style="text-align:right;"> 9 </td>
+   <td style="text-align:right;"> 0.0000189 </td>
+   <td style="text-align:right;"> 0.0000178 </td>
+   <td style="text-align:right;"> 0.0000268 </td>
+   <td style="text-align:right;"> 15.27035 </td>
+   <td style="text-align:right;"> 0.0001606 </td>
+   <td style="text-align:right;"> 2.449424 </td>
+   <td style="text-align:right;"> 6 </td>
+   <td style="text-align:right;"> 13.97890 </td>
+   <td style="text-align:right;"> 8.949871 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> bin_hamad </td>
+   <td style="text-align:left;"> bin </td>
+   <td style="text-align:left;"> hamad </td>
+   <td style="text-align:right;"> 7 </td>
+   <td style="text-align:right;"> 11 </td>
+   <td style="text-align:right;"> 7 </td>
+   <td style="text-align:right;"> 0.0000221 </td>
+   <td style="text-align:right;"> 0.0000327 </td>
+   <td style="text-align:right;"> 0.0000208 </td>
+   <td style="text-align:right;"> 14.98174 </td>
+   <td style="text-align:right;"> 0.0002291 </td>
+   <td style="text-align:right;"> 2.645665 </td>
+   <td style="text-align:right;"> 7 </td>
+   <td style="text-align:right;"> 13.87068 </td>
+   <td style="text-align:right;"> 9.037549 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> chiquita_brands </td>
+   <td style="text-align:left;"> chiquita </td>
+   <td style="text-align:left;"> brands </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 8 </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 0.0000158 </td>
+   <td style="text-align:right;"> 0.0000238 </td>
+   <td style="text-align:right;"> 0.0000149 </td>
+   <td style="text-align:right;"> 15.43922 </td>
+   <td style="text-align:right;"> 0.0001190 </td>
+   <td style="text-align:right;"> 2.236015 </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 13.81184 </td>
+   <td style="text-align:right;"> 8.792654 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> fake_news </td>
+   <td style="text-align:left;"> fake </td>
+   <td style="text-align:left;"> news </td>
+   <td style="text-align:right;"> 16 </td>
+   <td style="text-align:right;"> 21 </td>
+   <td style="text-align:right;"> 17 </td>
+   <td style="text-align:right;"> 0.0000505 </td>
+   <td style="text-align:right;"> 0.0000625 </td>
+   <td style="text-align:right;"> 0.0000506 </td>
+   <td style="text-align:right;"> 13.96305 </td>
+   <td style="text-align:right;"> 0.0010620 </td>
+   <td style="text-align:right;"> 3.999735 </td>
+   <td style="text-align:right;"> 16 </td>
+   <td style="text-align:right;"> 13.81181 </td>
+   <td style="text-align:right;"> 13.722962 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> dagoberto_ramos </td>
+   <td style="text-align:left;"> dagoberto </td>
+   <td style="text-align:left;"> ramos </td>
+   <td style="text-align:right;"> 6 </td>
+   <td style="text-align:right;"> 7 </td>
+   <td style="text-align:right;"> 7 </td>
+   <td style="text-align:right;"> 0.0000189 </td>
+   <td style="text-align:right;"> 0.0000208 </td>
+   <td style="text-align:right;"> 0.0000208 </td>
+   <td style="text-align:right;"> 15.41022 </td>
+   <td style="text-align:right;"> 0.0001458 </td>
+   <td style="text-align:right;"> 2.449430 </td>
+   <td style="text-align:right;"> 6 </td>
+   <td style="text-align:right;"> 13.72758 </td>
+   <td style="text-align:right;"> 11.256723 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> cerros_orientales </td>
+   <td style="text-align:left;"> cerros </td>
+   <td style="text-align:left;"> orientales </td>
+   <td style="text-align:right;"> 6 </td>
+   <td style="text-align:right;"> 11 </td>
+   <td style="text-align:right;"> 6 </td>
+   <td style="text-align:right;"> 0.0000189 </td>
+   <td style="text-align:right;"> 0.0000327 </td>
+   <td style="text-align:right;"> 0.0000178 </td>
+   <td style="text-align:right;"> 14.98139 </td>
+   <td style="text-align:right;"> 0.0001963 </td>
+   <td style="text-align:right;"> 2.449410 </td>
+   <td style="text-align:right;"> 6 </td>
+   <td style="text-align:right;"> 13.72758 </td>
+   <td style="text-align:right;"> 8.905620 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> fiebre_amarilla </td>
+   <td style="text-align:left;"> fiebre </td>
+   <td style="text-align:left;"> amarilla </td>
+   <td style="text-align:right;"> 10 </td>
+   <td style="text-align:right;"> 12 </td>
+   <td style="text-align:right;"> 11 </td>
+   <td style="text-align:right;"> 0.0000315 </td>
+   <td style="text-align:right;"> 0.0000357 </td>
+   <td style="text-align:right;"> 0.0000327 </td>
+   <td style="text-align:right;"> 14.71959 </td>
+   <td style="text-align:right;"> 0.0003927 </td>
+   <td style="text-align:right;"> 3.162154 </td>
+   <td style="text-align:right;"> 10 </td>
+   <td style="text-align:right;"> 13.69632 </td>
+   <td style="text-align:right;"> 12.706265 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> comuna_xiii </td>
+   <td style="text-align:left;"> comuna </td>
+   <td style="text-align:left;"> xiii </td>
+   <td style="text-align:right;"> 17 </td>
+   <td style="text-align:right;"> 29 </td>
+   <td style="text-align:right;"> 17 </td>
+   <td style="text-align:right;"> 0.0000536 </td>
+   <td style="text-align:right;"> 0.0000863 </td>
+   <td style="text-align:right;"> 0.0000506 </td>
+   <td style="text-align:right;"> 13.58498 </td>
+   <td style="text-align:right;"> 0.0014666 </td>
+   <td style="text-align:right;"> 4.122750 </td>
+   <td style="text-align:right;"> 17 </td>
+   <td style="text-align:right;"> 13.69627 </td>
+   <td style="text-align:right;"> 9.368824 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> materias_primas </td>
+   <td style="text-align:left;"> materias </td>
+   <td style="text-align:left;"> primas </td>
+   <td style="text-align:right;"> 7 </td>
+   <td style="text-align:right;"> 13 </td>
+   <td style="text-align:right;"> 7 </td>
+   <td style="text-align:right;"> 0.0000221 </td>
+   <td style="text-align:right;"> 0.0000387 </td>
+   <td style="text-align:right;"> 0.0000208 </td>
+   <td style="text-align:right;"> 14.74106 </td>
+   <td style="text-align:right;"> 0.0002707 </td>
+   <td style="text-align:right;"> 2.645649 </td>
+   <td style="text-align:right;"> 7 </td>
+   <td style="text-align:right;"> 13.67000 </td>
+   <td style="text-align:right;"> 8.984182 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> elkana_bohbot </td>
+   <td style="text-align:left;"> elkana </td>
+   <td style="text-align:left;"> bohbot </td>
+   <td style="text-align:right;"> 9 </td>
+   <td style="text-align:right;"> 11 </td>
+   <td style="text-align:right;"> 10 </td>
+   <td style="text-align:right;"> 0.0000284 </td>
+   <td style="text-align:right;"> 0.0000327 </td>
+   <td style="text-align:right;"> 0.0000297 </td>
+   <td style="text-align:right;"> 14.83037 </td>
+   <td style="text-align:right;"> 0.0003272 </td>
+   <td style="text-align:right;"> 2.999891 </td>
+   <td style="text-align:right;"> 9 </td>
+   <td style="text-align:right;"> 13.59624 </td>
+   <td style="text-align:right;"> 12.559354 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> susana_muhamad </td>
+   <td style="text-align:left;"> susana </td>
+   <td style="text-align:left;"> muhamad </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 9 </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 0.0000158 </td>
+   <td style="text-align:right;"> 0.0000268 </td>
+   <td style="text-align:right;"> 0.0000149 </td>
+   <td style="text-align:right;"> 15.26975 </td>
+   <td style="text-align:right;"> 0.0001339 </td>
+   <td style="text-align:right;"> 2.236008 </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 13.56053 </td>
+   <td style="text-align:right;"> 8.745918 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> tamim_bin </td>
+   <td style="text-align:left;"> tamim </td>
+   <td style="text-align:left;"> bin </td>
+   <td style="text-align:right;"> 6 </td>
+   <td style="text-align:right;"> 6 </td>
+   <td style="text-align:right;"> 11 </td>
+   <td style="text-align:right;"> 0.0000189 </td>
+   <td style="text-align:right;"> 0.0000178 </td>
+   <td style="text-align:right;"> 0.0000327 </td>
+   <td style="text-align:right;"> 14.98139 </td>
+   <td style="text-align:right;"> 0.0001963 </td>
+   <td style="text-align:right;"> 2.449410 </td>
+   <td style="text-align:right;"> 6 </td>
+   <td style="text-align:right;"> 13.52690 </td>
+   <td style="text-align:right;"> 8.851011 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> paneles_solares </td>
+   <td style="text-align:left;"> paneles </td>
+   <td style="text-align:left;"> solares </td>
+   <td style="text-align:right;"> 21 </td>
+   <td style="text-align:right;"> 21 </td>
+   <td style="text-align:right;"> 39 </td>
+   <td style="text-align:right;"> 0.0000662 </td>
+   <td style="text-align:right;"> 0.0000625 </td>
+   <td style="text-align:right;"> 0.0001160 </td>
+   <td style="text-align:right;"> 13.15769 </td>
+   <td style="text-align:right;"> 0.0024364 </td>
+   <td style="text-align:right;"> 4.582044 </td>
+   <td style="text-align:right;"> 21 </td>
+   <td style="text-align:right;"> 13.51004 </td>
+   <td style="text-align:right;"> 9.321554 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> luiz_inácio </td>
+   <td style="text-align:left;"> luiz </td>
+   <td style="text-align:left;"> inácio </td>
+   <td style="text-align:right;"> 7 </td>
+   <td style="text-align:right;"> 8 </td>
+   <td style="text-align:right;"> 9 </td>
+   <td style="text-align:right;"> 0.0000221 </td>
+   <td style="text-align:right;"> 0.0000238 </td>
+   <td style="text-align:right;"> 0.0000268 </td>
+   <td style="text-align:right;"> 15.07846 </td>
+   <td style="text-align:right;"> 0.0002142 </td>
+   <td style="text-align:right;"> 2.645670 </td>
+   <td style="text-align:right;"> 7 </td>
+   <td style="text-align:right;"> 13.35985 </td>
+   <td style="text-align:right;"> 12.195806 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> cuidados_intensivos </td>
+   <td style="text-align:left;"> cuidados </td>
+   <td style="text-align:left;"> intensivos </td>
+   <td style="text-align:right;"> 7 </td>
+   <td style="text-align:right;"> 15 </td>
+   <td style="text-align:right;"> 7 </td>
+   <td style="text-align:right;"> 0.0000221 </td>
+   <td style="text-align:right;"> 0.0000446 </td>
+   <td style="text-align:right;"> 0.0000208 </td>
+   <td style="text-align:right;"> 14.53485 </td>
+   <td style="text-align:right;"> 0.0003124 </td>
+   <td style="text-align:right;"> 2.645633 </td>
+   <td style="text-align:right;"> 7 </td>
+   <td style="text-align:right;"> 13.23467 </td>
+   <td style="text-align:right;"> 8.821188 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> justificante_exterminio </td>
+   <td style="text-align:left;"> justificante </td>
+   <td style="text-align:left;"> exterminio </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 11 </td>
+   <td style="text-align:right;"> 0.0000158 </td>
+   <td style="text-align:right;"> 0.0000149 </td>
+   <td style="text-align:right;"> 0.0000327 </td>
+   <td style="text-align:right;"> 14.98090 </td>
+   <td style="text-align:right;"> 0.0001636 </td>
+   <td style="text-align:right;"> 2.235995 </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 13.19280 </td>
+   <td style="text-align:right;"> 8.632396 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> sopa_seco </td>
+   <td style="text-align:left;"> sopa </td>
+   <td style="text-align:left;"> seco </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 13 </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 0.0000158 </td>
+   <td style="text-align:right;"> 0.0000387 </td>
+   <td style="text-align:right;"> 0.0000149 </td>
+   <td style="text-align:right;"> 14.74034 </td>
+   <td style="text-align:right;"> 0.0001934 </td>
+   <td style="text-align:right;"> 2.235981 </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 12.92453 </td>
+   <td style="text-align:right;"> 8.523165 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> chu_chu </td>
+   <td style="text-align:left;"> chu </td>
+   <td style="text-align:left;"> chu </td>
+   <td style="text-align:right;"> 6 </td>
+   <td style="text-align:right;"> 9 </td>
+   <td style="text-align:right;"> 9 </td>
+   <td style="text-align:right;"> 0.0000189 </td>
+   <td style="text-align:right;"> 0.0000268 </td>
+   <td style="text-align:right;"> 0.0000268 </td>
+   <td style="text-align:right;"> 14.68639 </td>
+   <td style="text-align:right;"> 0.0002410 </td>
+   <td style="text-align:right;"> 2.449391 </td>
+   <td style="text-align:right;"> 6 </td>
+   <td style="text-align:right;"> 12.70593 </td>
+   <td style="text-align:right;"> 13.009675 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> tren_aragua </td>
+   <td style="text-align:left;"> tren </td>
+   <td style="text-align:left;"> aragua </td>
+   <td style="text-align:right;"> 25 </td>
+   <td style="text-align:right;"> 77 </td>
+   <td style="text-align:right;"> 25 </td>
+   <td style="text-align:right;"> 0.0000789 </td>
+   <td style="text-align:right;"> 0.0002291 </td>
+   <td style="text-align:right;"> 0.0000744 </td>
+   <td style="text-align:right;"> 12.17642 </td>
+   <td style="text-align:right;"> 0.0057265 </td>
+   <td style="text-align:right;"> 4.998855 </td>
+   <td style="text-align:right;"> 25 </td>
+   <td style="text-align:right;"> 12.69636 </td>
+   <td style="text-align:right;"> 8.847215 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> gregorio_eljach </td>
+   <td style="text-align:left;"> gregorio </td>
+   <td style="text-align:left;"> eljach </td>
+   <td style="text-align:right;"> 15 </td>
+   <td style="text-align:right;"> 19 </td>
+   <td style="text-align:right;"> 18 </td>
+   <td style="text-align:right;"> 0.0000473 </td>
+   <td style="text-align:right;"> 0.0000565 </td>
+   <td style="text-align:right;"> 0.0000535 </td>
+   <td style="text-align:right;"> 13.93185 </td>
+   <td style="text-align:right;"> 0.0010174 </td>
+   <td style="text-align:right;"> 3.872721 </td>
+   <td style="text-align:right;"> 15 </td>
+   <td style="text-align:right;"> 12.65067 </td>
+   <td style="text-align:right;"> 16.720239 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> emiratos_arabes </td>
+   <td style="text-align:left;"> emiratos </td>
+   <td style="text-align:left;"> arabes </td>
+   <td style="text-align:right;"> 6 </td>
+   <td style="text-align:right;"> 10 </td>
+   <td style="text-align:right;"> 7 </td>
+   <td style="text-align:right;"> 0.0000189 </td>
+   <td style="text-align:right;"> 0.0000297 </td>
+   <td style="text-align:right;"> 0.0000208 </td>
+   <td style="text-align:right;"> 14.89664 </td>
+   <td style="text-align:right;"> 0.0002082 </td>
+   <td style="text-align:right;"> 2.449405 </td>
+   <td style="text-align:right;"> 6 </td>
+   <td style="text-align:right;"> 12.62896 </td>
+   <td style="text-align:right;"> 12.367446 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> cielo_rusinque </td>
+   <td style="text-align:left;"> cielo </td>
+   <td style="text-align:left;"> rusinque </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 16 </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 0.0000158 </td>
+   <td style="text-align:right;"> 0.0000476 </td>
+   <td style="text-align:right;"> 0.0000149 </td>
+   <td style="text-align:right;"> 14.44125 </td>
+   <td style="text-align:right;"> 0.0002380 </td>
+   <td style="text-align:right;"> 2.235962 </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 12.62224 </td>
+   <td style="text-align:right;"> 8.379928 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> elon_musk </td>
+   <td style="text-align:left;"> elon </td>
+   <td style="text-align:left;"> musk </td>
+   <td style="text-align:right;"> 11 </td>
+   <td style="text-align:right;"> 14 </td>
+   <td style="text-align:right;"> 14 </td>
+   <td style="text-align:right;"> 0.0000347 </td>
+   <td style="text-align:right;"> 0.0000416 </td>
+   <td style="text-align:right;"> 0.0000416 </td>
+   <td style="text-align:right;"> 14.28718 </td>
+   <td style="text-align:right;"> 0.0005831 </td>
+   <td style="text-align:right;"> 3.316449 </td>
+   <td style="text-align:right;"> 11 </td>
+   <td style="text-align:right;"> 12.60351 </td>
+   <td style="text-align:right;"> 15.532820 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> carmen_atrato </td>
+   <td style="text-align:left;"> carmen </td>
+   <td style="text-align:left;"> atrato </td>
+   <td style="text-align:right;"> 10 </td>
+   <td style="text-align:right;"> 18 </td>
+   <td style="text-align:right;"> 11 </td>
+   <td style="text-align:right;"> 0.0000315 </td>
+   <td style="text-align:right;"> 0.0000535 </td>
+   <td style="text-align:right;"> 0.0000327 </td>
+   <td style="text-align:right;"> 14.13504 </td>
+   <td style="text-align:right;"> 0.0005890 </td>
+   <td style="text-align:right;"> 3.162091 </td>
+   <td style="text-align:right;"> 10 </td>
+   <td style="text-align:right;"> 12.59769 </td>
+   <td style="text-align:right;"> 13.314376 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> sierra_nevada </td>
+   <td style="text-align:left;"> sierra </td>
+   <td style="text-align:left;"> nevada </td>
+   <td style="text-align:right;"> 25 </td>
+   <td style="text-align:right;"> 43 </td>
+   <td style="text-align:right;"> 26 </td>
+   <td style="text-align:right;"> 0.0000789 </td>
+   <td style="text-align:right;"> 0.0001279 </td>
+   <td style="text-align:right;"> 0.0000773 </td>
+   <td style="text-align:right;"> 12.96029 </td>
+   <td style="text-align:right;"> 0.0033259 </td>
+   <td style="text-align:right;"> 4.999335 </td>
+   <td style="text-align:right;"> 25 </td>
+   <td style="text-align:right;"> 12.58204 </td>
+   <td style="text-align:right;"> 14.433165 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> naciones_unidas </td>
+   <td style="text-align:left;"> naciones </td>
+   <td style="text-align:left;"> unidas </td>
+   <td style="text-align:right;"> 82 </td>
+   <td style="text-align:right;"> 125 </td>
+   <td style="text-align:right;"> 84 </td>
+   <td style="text-align:right;"> 0.0002587 </td>
+   <td style="text-align:right;"> 0.0003719 </td>
+   <td style="text-align:right;"> 0.0002499 </td>
+   <td style="text-align:right;"> 11.44272 </td>
+   <td style="text-align:right;"> 0.0312357 </td>
+   <td style="text-align:right;"> 9.051936 </td>
+   <td style="text-align:right;"> 82 </td>
+   <td style="text-align:right;"> 12.56555 </td>
+   <td style="text-align:right;"> 18.953592 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> jesse_jackson </td>
+   <td style="text-align:left;"> jesse </td>
+   <td style="text-align:left;"> jackson </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 7 </td>
+   <td style="text-align:right;"> 7 </td>
+   <td style="text-align:right;"> 0.0000158 </td>
+   <td style="text-align:right;"> 0.0000208 </td>
+   <td style="text-align:right;"> 0.0000208 </td>
+   <td style="text-align:right;"> 15.14718 </td>
+   <td style="text-align:right;"> 0.0001458 </td>
+   <td style="text-align:right;"> 2.236003 </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 12.53888 </td>
+   <td style="text-align:right;"> 12.654424 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> sedes_universitarias </td>
+   <td style="text-align:left;"> sedes </td>
+   <td style="text-align:left;"> universitarias </td>
+   <td style="text-align:right;"> 9 </td>
+   <td style="text-align:right;"> 13 </td>
+   <td style="text-align:right;"> 11 </td>
+   <td style="text-align:right;"> 0.0000284 </td>
+   <td style="text-align:right;"> 0.0000387 </td>
+   <td style="text-align:right;"> 0.0000327 </td>
+   <td style="text-align:right;"> 14.45220 </td>
+   <td style="text-align:right;"> 0.0004254 </td>
+   <td style="text-align:right;"> 2.999858 </td>
+   <td style="text-align:right;"> 9 </td>
+   <td style="text-align:right;"> 12.49761 </td>
+   <td style="text-align:right;"> 14.652577 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> incendios_forestales </td>
+   <td style="text-align:left;"> incendios </td>
+   <td style="text-align:left;"> forestales </td>
+   <td style="text-align:right;"> 6 </td>
+   <td style="text-align:right;"> 12 </td>
+   <td style="text-align:right;"> 7 </td>
+   <td style="text-align:right;"> 0.0000189 </td>
+   <td style="text-align:right;"> 0.0000357 </td>
+   <td style="text-align:right;"> 0.0000208 </td>
+   <td style="text-align:right;"> 14.63399 </td>
+   <td style="text-align:right;"> 0.0002499 </td>
+   <td style="text-align:right;"> 2.449388 </td>
+   <td style="text-align:right;"> 6 </td>
+   <td style="text-align:right;"> 12.42829 </td>
+   <td style="text-align:right;"> 12.413809 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> santa_marta </td>
+   <td style="text-align:left;"> santa </td>
+   <td style="text-align:left;"> marta </td>
+   <td style="text-align:right;"> 104 </td>
+   <td style="text-align:right;"> 136 </td>
+   <td style="text-align:right;"> 108 </td>
+   <td style="text-align:right;"> 0.0003280 </td>
+   <td style="text-align:right;"> 0.0004046 </td>
+   <td style="text-align:right;"> 0.0003213 </td>
+   <td style="text-align:right;"> 11.30137 </td>
+   <td style="text-align:right;"> 0.0436943 </td>
+   <td style="text-align:right;"> 10.193755 </td>
+   <td style="text-align:right;"> 104 </td>
+   <td style="text-align:right;"> 12.36142 </td>
+   <td style="text-align:right;"> 24.079335 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> vargas_lleras </td>
+   <td style="text-align:left;"> vargas </td>
+   <td style="text-align:left;"> lleras </td>
+   <td style="text-align:right;"> 50 </td>
+   <td style="text-align:right;"> 62 </td>
+   <td style="text-align:right;"> 55 </td>
+   <td style="text-align:right;"> 0.0001577 </td>
+   <td style="text-align:right;"> 0.0001844 </td>
+   <td style="text-align:right;"> 0.0001636 </td>
+   <td style="text-align:right;"> 12.35154 </td>
+   <td style="text-align:right;"> 0.0101442 </td>
+   <td style="text-align:right;"> 7.069633 </td>
+   <td style="text-align:right;"> 50 </td>
+   <td style="text-align:right;"> 12.35802 </td>
+   <td style="text-align:right;"> 23.287061 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> muertes_evitables </td>
+   <td style="text-align:left;"> muertes </td>
+   <td style="text-align:left;"> evitables </td>
+   <td style="text-align:right;"> 9 </td>
+   <td style="text-align:right;"> 37 </td>
+   <td style="text-align:right;"> 9 </td>
+   <td style="text-align:right;"> 0.0000284 </td>
+   <td style="text-align:right;"> 0.0001101 </td>
+   <td style="text-align:right;"> 0.0000268 </td>
+   <td style="text-align:right;"> 13.23335 </td>
+   <td style="text-align:right;"> 0.0009906 </td>
+   <td style="text-align:right;"> 2.999670 </td>
+   <td style="text-align:right;"> 9 </td>
+   <td style="text-align:right;"> 12.33392 </td>
+   <td style="text-align:right;"> 8.425387 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> reino_unido </td>
+   <td style="text-align:left;"> reino </td>
+   <td style="text-align:left;"> unido </td>
+   <td style="text-align:right;"> 20 </td>
+   <td style="text-align:right;"> 26 </td>
+   <td style="text-align:right;"> 24 </td>
+   <td style="text-align:right;"> 0.0000631 </td>
+   <td style="text-align:right;"> 0.0000773 </td>
+   <td style="text-align:right;"> 0.0000714 </td>
+   <td style="text-align:right;"> 13.47955 </td>
+   <td style="text-align:right;"> 0.0018563 </td>
+   <td style="text-align:right;"> 4.471721 </td>
+   <td style="text-align:right;"> 20 </td>
+   <td style="text-align:right;"> 12.31119 </td>
+   <td style="text-align:right;"> 18.887789 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> villa_rosario </td>
+   <td style="text-align:left;"> villa </td>
+   <td style="text-align:left;"> rosario </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 10 </td>
+   <td style="text-align:right;"> 6 </td>
+   <td style="text-align:right;"> 0.0000158 </td>
+   <td style="text-align:right;"> 0.0000297 </td>
+   <td style="text-align:right;"> 0.0000178 </td>
+   <td style="text-align:right;"> 14.85561 </td>
+   <td style="text-align:right;"> 0.0001785 </td>
+   <td style="text-align:right;"> 2.235988 </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 12.26124 </td>
+   <td style="text-align:right;"> 12.079561 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> tortura_sicológica </td>
+   <td style="text-align:left;"> tortura </td>
+   <td style="text-align:left;"> sicológica </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 21 </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 0.0000158 </td>
+   <td style="text-align:right;"> 0.0000625 </td>
+   <td style="text-align:right;"> 0.0000149 </td>
+   <td style="text-align:right;"> 14.04942 </td>
+   <td style="text-align:right;"> 0.0003124 </td>
+   <td style="text-align:right;"> 2.235928 </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 12.26121 </td>
+   <td style="text-align:right;"> 8.187928 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> copia_pega </td>
+   <td style="text-align:left;"> copia </td>
+   <td style="text-align:left;"> pega </td>
+   <td style="text-align:right;"> 13 </td>
+   <td style="text-align:right;"> 18 </td>
+   <td style="text-align:right;"> 17 </td>
+   <td style="text-align:right;"> 0.0000410 </td>
+   <td style="text-align:right;"> 0.0000535 </td>
+   <td style="text-align:right;"> 0.0000506 </td>
+   <td style="text-align:right;"> 13.88581 </td>
+   <td style="text-align:right;"> 0.0009103 </td>
+   <td style="text-align:right;"> 3.605299 </td>
+   <td style="text-align:right;"> 13 </td>
+   <td style="text-align:right;"> 12.26121 </td>
+   <td style="text-align:right;"> 17.027455 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> sarmiento_angulo </td>
+   <td style="text-align:left;"> sarmiento </td>
+   <td style="text-align:left;"> angulo </td>
+   <td style="text-align:right;"> 11 </td>
+   <td style="text-align:right;"> 22 </td>
+   <td style="text-align:right;"> 12 </td>
+   <td style="text-align:right;"> 0.0000347 </td>
+   <td style="text-align:right;"> 0.0000654 </td>
+   <td style="text-align:right;"> 0.0000357 </td>
+   <td style="text-align:right;"> 13.85771 </td>
+   <td style="text-align:right;"> 0.0007854 </td>
+   <td style="text-align:right;"> 3.316388 </td>
+   <td style="text-align:right;"> 11 </td>
+   <td style="text-align:right;"> 12.26120 </td>
+   <td style="text-align:right;"> 13.373427 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> atrocidades_sometiendo </td>
+   <td style="text-align:left;"> atrocidades </td>
+   <td style="text-align:left;"> sometiendo </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 8 </td>
+   <td style="text-align:right;"> 7 </td>
+   <td style="text-align:right;"> 0.0000158 </td>
+   <td style="text-align:right;"> 0.0000238 </td>
+   <td style="text-align:right;"> 0.0000208 </td>
+   <td style="text-align:right;"> 14.95495 </td>
+   <td style="text-align:right;"> 0.0001666 </td>
+   <td style="text-align:right;"> 2.235994 </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 12.20240 </td>
+   <td style="text-align:right;"> 13.100915 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> suspensión_provisional </td>
+   <td style="text-align:left;"> suspensión </td>
+   <td style="text-align:left;"> provisional </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 22 </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 0.0000158 </td>
+   <td style="text-align:right;"> 0.0000654 </td>
+   <td style="text-align:right;"> 0.0000149 </td>
+   <td style="text-align:right;"> 13.98238 </td>
+   <td style="text-align:right;"> 0.0003272 </td>
+   <td style="text-align:right;"> 2.235922 </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 12.20236 </td>
+   <td style="text-align:right;"> 8.154932 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> sentido_pésame </td>
+   <td style="text-align:left;"> sentido </td>
+   <td style="text-align:left;"> pésame </td>
+   <td style="text-align:right;"> 14 </td>
+   <td style="text-align:right;"> 71 </td>
+   <td style="text-align:right;"> 14 </td>
+   <td style="text-align:right;"> 0.0000442 </td>
+   <td style="text-align:right;"> 0.0002112 </td>
+   <td style="text-align:right;"> 0.0000416 </td>
+   <td style="text-align:right;"> 12.29338 </td>
+   <td style="text-align:right;"> 0.0029570 </td>
+   <td style="text-align:right;"> 3.740867 </td>
+   <td style="text-align:right;"> 14 </td>
+   <td style="text-align:right;"> 12.13186 </td>
+   <td style="text-align:right;"> 8.393450 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> the_economist </td>
+   <td style="text-align:left;"> the </td>
+   <td style="text-align:left;"> economist </td>
+   <td style="text-align:right;"> 8 </td>
+   <td style="text-align:right;"> 38 </td>
+   <td style="text-align:right;"> 8 </td>
+   <td style="text-align:right;"> 0.0000252 </td>
+   <td style="text-align:right;"> 0.0001130 </td>
+   <td style="text-align:right;"> 0.0000238 </td>
+   <td style="text-align:right;"> 13.19482 </td>
+   <td style="text-align:right;"> 0.0009043 </td>
+   <td style="text-align:right;"> 2.828107 </td>
+   <td style="text-align:right;"> 8 </td>
+   <td style="text-align:right;"> 12.11544 </td>
+   <td style="text-align:right;"> 8.259690 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> iglesia_católica </td>
+   <td style="text-align:left;"> iglesia </td>
+   <td style="text-align:left;"> católica </td>
+   <td style="text-align:right;"> 12 </td>
+   <td style="text-align:right;"> 21 </td>
+   <td style="text-align:right;"> 14 </td>
+   <td style="text-align:right;"> 0.0000379 </td>
+   <td style="text-align:right;"> 0.0000625 </td>
+   <td style="text-align:right;"> 0.0000416 </td>
+   <td style="text-align:right;"> 13.82802 </td>
+   <td style="text-align:right;"> 0.0008746 </td>
+   <td style="text-align:right;"> 3.463849 </td>
+   <td style="text-align:right;"> 12 </td>
+   <td style="text-align:right;"> 12.02481 </td>
+   <td style="text-align:right;"> 15.718153 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> clan_golfo </td>
+   <td style="text-align:left;"> clan </td>
+   <td style="text-align:left;"> golfo </td>
+   <td style="text-align:right;"> 130 </td>
+   <td style="text-align:right;"> 151 </td>
+   <td style="text-align:right;"> 143 </td>
+   <td style="text-align:right;"> 0.0004101 </td>
+   <td style="text-align:right;"> 0.0004492 </td>
+   <td style="text-align:right;"> 0.0004254 </td>
+   <td style="text-align:right;"> 11.06737 </td>
+   <td style="text-align:right;"> 0.0642354 </td>
+   <td style="text-align:right;"> 11.396120 </td>
+   <td style="text-align:right;"> 130 </td>
+   <td style="text-align:right;"> 12.01714 </td>
+   <td style="text-align:right;"> 32.610745 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> paraísos_fiscales </td>
+   <td style="text-align:left;"> paraísos </td>
+   <td style="text-align:left;"> fiscales </td>
+   <td style="text-align:right;"> 6 </td>
+   <td style="text-align:right;"> 6 </td>
+   <td style="text-align:right;"> 31 </td>
+   <td style="text-align:right;"> 0.0000189 </td>
+   <td style="text-align:right;"> 0.0000178 </td>
+   <td style="text-align:right;"> 0.0000922 </td>
+   <td style="text-align:right;"> 13.48822 </td>
+   <td style="text-align:right;"> 0.0005533 </td>
+   <td style="text-align:right;"> 2.449264 </td>
+   <td style="text-align:right;"> 6 </td>
+   <td style="text-align:right;"> 11.99291 </td>
+   <td style="text-align:right;"> 8.098393 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> aburrá_santanderes </td>
+   <td style="text-align:left;"> aburrá </td>
+   <td style="text-align:left;"> santanderes </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 15 </td>
+   <td style="text-align:right;"> 6 </td>
+   <td style="text-align:right;"> 0.0000158 </td>
+   <td style="text-align:right;"> 0.0000446 </td>
+   <td style="text-align:right;"> 0.0000178 </td>
+   <td style="text-align:right;"> 14.27155 </td>
+   <td style="text-align:right;"> 0.0002677 </td>
+   <td style="text-align:right;"> 2.235948 </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 11.95108 </td>
+   <td style="text-align:right;"> 12.061208 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> bellas_artes </td>
+   <td style="text-align:left;"> bellas </td>
+   <td style="text-align:left;"> artes </td>
+   <td style="text-align:right;"> 11 </td>
+   <td style="text-align:right;"> 13 </td>
+   <td style="text-align:right;"> 20 </td>
+   <td style="text-align:right;"> 0.0000347 </td>
+   <td style="text-align:right;"> 0.0000387 </td>
+   <td style="text-align:right;"> 0.0000595 </td>
+   <td style="text-align:right;"> 13.87973 </td>
+   <td style="text-align:right;"> 0.0007735 </td>
+   <td style="text-align:right;"> 3.316392 </td>
+   <td style="text-align:right;"> 11 </td>
+   <td style="text-align:right;"> 11.94143 </td>
+   <td style="text-align:right;"> 15.517218 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> silla_vacía </td>
+   <td style="text-align:left;"> silla </td>
+   <td style="text-align:left;"> vacía </td>
+   <td style="text-align:right;"> 20 </td>
+   <td style="text-align:right;"> 29 </td>
+   <td style="text-align:right;"> 24 </td>
+   <td style="text-align:right;"> 0.0000631 </td>
+   <td style="text-align:right;"> 0.0000863 </td>
+   <td style="text-align:right;"> 0.0000714 </td>
+   <td style="text-align:right;"> 13.32204 </td>
+   <td style="text-align:right;"> 0.0020705 </td>
+   <td style="text-align:right;"> 4.471673 </td>
+   <td style="text-align:right;"> 20 </td>
+   <td style="text-align:right;"> 11.93169 </td>
+   <td style="text-align:right;"> 19.451482 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> doble_calzada </td>
+   <td style="text-align:left;"> doble </td>
+   <td style="text-align:left;"> calzada </td>
+   <td style="text-align:right;"> 8 </td>
+   <td style="text-align:right;"> 43 </td>
+   <td style="text-align:right;"> 8 </td>
+   <td style="text-align:right;"> 0.0000252 </td>
+   <td style="text-align:right;"> 0.0001279 </td>
+   <td style="text-align:right;"> 0.0000238 </td>
+   <td style="text-align:right;"> 13.01655 </td>
+   <td style="text-align:right;"> 0.0010233 </td>
+   <td style="text-align:right;"> 2.828065 </td>
+   <td style="text-align:right;"> 8 </td>
+   <td style="text-align:right;"> 11.93028 </td>
+   <td style="text-align:right;"> 8.144308 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> joe_biden </td>
+   <td style="text-align:left;"> joe </td>
+   <td style="text-align:left;"> biden </td>
+   <td style="text-align:right;"> 7 </td>
+   <td style="text-align:right;"> 7 </td>
+   <td style="text-align:right;"> 38 </td>
+   <td style="text-align:right;"> 0.0000221 </td>
+   <td style="text-align:right;"> 0.0000208 </td>
+   <td style="text-align:right;"> 0.0001130 </td>
+   <td style="text-align:right;"> 13.19475 </td>
+   <td style="text-align:right;"> 0.0007913 </td>
+   <td style="text-align:right;"> 2.645452 </td>
+   <td style="text-align:right;"> 7 </td>
+   <td style="text-align:right;"> 11.92468 </td>
+   <td style="text-align:right;"> 8.104188 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> suerte_azar </td>
+   <td style="text-align:left;"> suerte </td>
+   <td style="text-align:left;"> azar </td>
+   <td style="text-align:right;"> 14 </td>
+   <td style="text-align:right;"> 27 </td>
+   <td style="text-align:right;"> 16 </td>
+   <td style="text-align:right;"> 0.0000442 </td>
+   <td style="text-align:right;"> 0.0000803 </td>
+   <td style="text-align:right;"> 0.0000476 </td>
+   <td style="text-align:right;"> 13.49538 </td>
+   <td style="text-align:right;"> 0.0012851 </td>
+   <td style="text-align:right;"> 3.741314 </td>
+   <td style="text-align:right;"> 14 </td>
+   <td style="text-align:right;"> 11.89878 </td>
+   <td style="text-align:right;"> 16.059373 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> reserva_forestal </td>
+   <td style="text-align:left;"> reserva </td>
+   <td style="text-align:left;"> forestal </td>
+   <td style="text-align:right;"> 7 </td>
+   <td style="text-align:right;"> 39 </td>
+   <td style="text-align:right;"> 7 </td>
+   <td style="text-align:right;"> 0.0000221 </td>
+   <td style="text-align:right;"> 0.0001160 </td>
+   <td style="text-align:right;"> 0.0000208 </td>
+   <td style="text-align:right;"> 13.15729 </td>
+   <td style="text-align:right;"> 0.0008121 </td>
+   <td style="text-align:right;"> 2.645444 </td>
+   <td style="text-align:right;"> 7 </td>
+   <td style="text-align:right;"> 11.89342 </td>
+   <td style="text-align:right;"> 8.084770 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> díaz_canel </td>
+   <td style="text-align:left;"> díaz </td>
+   <td style="text-align:left;"> canel </td>
+   <td style="text-align:right;"> 8 </td>
+   <td style="text-align:right;"> 16 </td>
+   <td style="text-align:right;"> 10 </td>
+   <td style="text-align:right;"> 0.0000252 </td>
+   <td style="text-align:right;"> 0.0000476 </td>
+   <td style="text-align:right;"> 0.0000297 </td>
+   <td style="text-align:right;"> 14.12034 </td>
+   <td style="text-align:right;"> 0.0004760 </td>
+   <td style="text-align:right;"> 2.828259 </td>
+   <td style="text-align:right;"> 8 </td>
+   <td style="text-align:right;"> 11.87556 </td>
+   <td style="text-align:right;"> 14.718683 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> enfermedad_holandesa </td>
+   <td style="text-align:left;"> enfermedad </td>
+   <td style="text-align:left;"> holandesa </td>
+   <td style="text-align:right;"> 8 </td>
+   <td style="text-align:right;"> 50 </td>
+   <td style="text-align:right;"> 8 </td>
+   <td style="text-align:right;"> 0.0000252 </td>
+   <td style="text-align:right;"> 0.0001487 </td>
+   <td style="text-align:right;"> 0.0000238 </td>
+   <td style="text-align:right;"> 12.79902 </td>
+   <td style="text-align:right;"> 0.0011899 </td>
+   <td style="text-align:right;"> 2.828006 </td>
+   <td style="text-align:right;"> 8 </td>
+   <td style="text-align:right;"> 11.87547 </td>
+   <td style="text-align:right;"> 8.109727 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> santanderes_seguimos </td>
+   <td style="text-align:left;"> santanderes </td>
+   <td style="text-align:left;"> seguimos </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 6 </td>
+   <td style="text-align:right;"> 40 </td>
+   <td style="text-align:right;"> 0.0000158 </td>
+   <td style="text-align:right;"> 0.0000178 </td>
+   <td style="text-align:right;"> 0.0001190 </td>
+   <td style="text-align:right;"> 12.85765 </td>
+   <td style="text-align:right;"> 0.0007140 </td>
+   <td style="text-align:right;"> 2.235749 </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 11.86587 </td>
+   <td style="text-align:right;"> 7.959122 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> energías_limpias </td>
+   <td style="text-align:left;"> energías </td>
+   <td style="text-align:left;"> limpias </td>
+   <td style="text-align:right;"> 101 </td>
+   <td style="text-align:right;"> 122 </td>
+   <td style="text-align:right;"> 112 </td>
+   <td style="text-align:right;"> 0.0003186 </td>
+   <td style="text-align:right;"> 0.0003629 </td>
+   <td style="text-align:right;"> 0.0003332 </td>
+   <td style="text-align:right;"> 11.36340 </td>
+   <td style="text-align:right;"> 0.0406480 </td>
+   <td style="text-align:right;"> 10.045831 </td>
+   <td style="text-align:right;"> 101 </td>
+   <td style="text-align:right;"> 11.82361 </td>
+   <td style="text-align:right;"> 30.987083 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> siglo_xxi </td>
+   <td style="text-align:left;"> siglo </td>
+   <td style="text-align:left;"> xxi </td>
+   <td style="text-align:right;"> 20 </td>
+   <td style="text-align:right;"> 129 </td>
+   <td style="text-align:right;"> 20 </td>
+   <td style="text-align:right;"> 0.0000631 </td>
+   <td style="text-align:right;"> 0.0003838 </td>
+   <td style="text-align:right;"> 0.0000595 </td>
+   <td style="text-align:right;"> 11.43200 </td>
+   <td style="text-align:right;"> 0.0076751 </td>
+   <td style="text-align:right;"> 4.470420 </td>
+   <td style="text-align:right;"> 20 </td>
+   <td style="text-align:right;"> 11.81040 </td>
+   <td style="text-align:right;"> 8.230401 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> gonzalo_guillén </td>
+   <td style="text-align:left;"> gonzalo </td>
+   <td style="text-align:left;"> guillén </td>
+   <td style="text-align:right;"> 6 </td>
+   <td style="text-align:right;"> 10 </td>
+   <td style="text-align:right;"> 9 </td>
+   <td style="text-align:right;"> 0.0000189 </td>
+   <td style="text-align:right;"> 0.0000297 </td>
+   <td style="text-align:right;"> 0.0000268 </td>
+   <td style="text-align:right;"> 14.53459 </td>
+   <td style="text-align:right;"> 0.0002677 </td>
+   <td style="text-align:right;"> 2.449380 </td>
+   <td style="text-align:right;"> 6 </td>
+   <td style="text-align:right;"> 11.78166 </td>
+   <td style="text-align:right;"> 14.482639 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> juliana_guerrero </td>
+   <td style="text-align:left;"> juliana </td>
+   <td style="text-align:left;"> guerrero </td>
+   <td style="text-align:right;"> 6 </td>
+   <td style="text-align:right;"> 7 </td>
+   <td style="text-align:right;"> 16 </td>
+   <td style="text-align:right;"> 0.0000189 </td>
+   <td style="text-align:right;"> 0.0000208 </td>
+   <td style="text-align:right;"> 0.0000476 </td>
+   <td style="text-align:right;"> 14.21944 </td>
+   <td style="text-align:right;"> 0.0003332 </td>
+   <td style="text-align:right;"> 2.449354 </td>
+   <td style="text-align:right;"> 6 </td>
+   <td style="text-align:right;"> 11.78165 </td>
+   <td style="text-align:right;"> 12.311658 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> cortina_humo </td>
+   <td style="text-align:left;"> cortina </td>
+   <td style="text-align:left;"> humo </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 7 </td>
+   <td style="text-align:right;"> 10 </td>
+   <td style="text-align:right;"> 0.0000158 </td>
+   <td style="text-align:right;"> 0.0000208 </td>
+   <td style="text-align:right;"> 0.0000297 </td>
+   <td style="text-align:right;"> 14.63361 </td>
+   <td style="text-align:right;"> 0.0002082 </td>
+   <td style="text-align:right;"> 2.235975 </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 11.75041 </td>
+   <td style="text-align:right;"> 13.446485 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> relaciones_exteriores </td>
+   <td style="text-align:left;"> relaciones </td>
+   <td style="text-align:left;"> exteriores </td>
+   <td style="text-align:right;"> 18 </td>
+   <td style="text-align:right;"> 114 </td>
+   <td style="text-align:right;"> 18 </td>
+   <td style="text-align:right;"> 0.0000568 </td>
+   <td style="text-align:right;"> 0.0003391 </td>
+   <td style="text-align:right;"> 0.0000535 </td>
+   <td style="text-align:right;"> 11.61032 </td>
+   <td style="text-align:right;"> 0.0061043 </td>
+   <td style="text-align:right;"> 4.241202 </td>
+   <td style="text-align:right;"> 18 </td>
+   <td style="text-align:right;"> 11.72870 </td>
+   <td style="text-align:right;"> 8.162588 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> interferir_comunicaciones </td>
+   <td style="text-align:left;"> interferir </td>
+   <td style="text-align:left;"> comunicaciones </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 35 </td>
+   <td style="text-align:right;"> 0.0000158 </td>
+   <td style="text-align:right;"> 0.0000149 </td>
+   <td style="text-align:right;"> 0.0001041 </td>
+   <td style="text-align:right;"> 13.31307 </td>
+   <td style="text-align:right;"> 0.0005206 </td>
+   <td style="text-align:right;"> 2.235835 </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 11.68014 </td>
+   <td style="text-align:right;"> 7.846762 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> roy_barreras </td>
+   <td style="text-align:left;"> roy </td>
+   <td style="text-align:left;"> barreras </td>
+   <td style="text-align:right;"> 14 </td>
+   <td style="text-align:right;"> 19 </td>
+   <td style="text-align:right;"> 21 </td>
+   <td style="text-align:right;"> 0.0000442 </td>
+   <td style="text-align:right;"> 0.0000565 </td>
+   <td style="text-align:right;"> 0.0000625 </td>
+   <td style="text-align:right;"> 13.60999 </td>
+   <td style="text-align:right;"> 0.0011870 </td>
+   <td style="text-align:right;"> 3.741340 </td>
+   <td style="text-align:right;"> 14 </td>
+   <td style="text-align:right;"> 11.62115 </td>
+   <td style="text-align:right;"> 18.750621 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> fortalecida_estúpida </td>
+   <td style="text-align:left;"> fortalecida </td>
+   <td style="text-align:left;"> estúpida </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 7 </td>
+   <td style="text-align:right;"> 11 </td>
+   <td style="text-align:right;"> 0.0000158 </td>
+   <td style="text-align:right;"> 0.0000208 </td>
+   <td style="text-align:right;"> 0.0000327 </td>
+   <td style="text-align:right;"> 14.49631 </td>
+   <td style="text-align:right;"> 0.0002291 </td>
+   <td style="text-align:right;"> 2.235965 </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 11.58335 </td>
+   <td style="text-align:right;"> 13.504965 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> twitts_cidhconpetro </td>
+   <td style="text-align:left;"> twitts </td>
+   <td style="text-align:left;"> cidhconpetro </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 37 </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 0.0000158 </td>
+   <td style="text-align:right;"> 0.0001101 </td>
+   <td style="text-align:right;"> 0.0000149 </td>
+   <td style="text-align:right;"> 13.23295 </td>
+   <td style="text-align:right;"> 0.0005503 </td>
+   <td style="text-align:right;"> 2.235822 </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 11.58328 </td>
+   <td style="text-align:right;"> 7.787192 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> salvatore_mancuso </td>
+   <td style="text-align:left;"> salvatore </td>
+   <td style="text-align:left;"> mancuso </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 39 </td>
+   <td style="text-align:right;"> 0.0000158 </td>
+   <td style="text-align:right;"> 0.0000149 </td>
+   <td style="text-align:right;"> 0.0001160 </td>
+   <td style="text-align:right;"> 13.15705 </td>
+   <td style="text-align:right;"> 0.0005801 </td>
+   <td style="text-align:right;"> 2.235809 </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 11.58328 </td>
+   <td style="text-align:right;"> 7.787192 </td>
+  </tr>
+</tbody>
+</table>
+</body>
+</html>
+

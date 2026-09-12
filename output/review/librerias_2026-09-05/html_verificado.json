@@ -1,0 +1,27 @@
+{
+  "notebook_html_sha256": "0397b0804ef5103dfb6d15fe0d2c345169c90d310732342a8a4f1f35bfec2e9e",
+  "browser_url": "http://127.0.0.1:8765/librerias_final.nb.html",
+  "library_blocks": 4,
+  "libraries_per_block": [
+    9,
+    11,
+    10,
+    9
+  ],
+  "preferences_per_block": [
+    5,
+    3,
+    4,
+    2
+  ],
+  "all_library_blocks_expanded": true,
+  "rendered_math_elements": 57,
+  "images": 92,
+  "broken_images": 0,
+  "tables": 7,
+  "overflowing_tables": 0,
+  "visual_inspection": [
+    "Inicio: dependencias desplegadas y comentarios legibles",
+    "Sección 10.2: ecuaciones de Granger y VAR renderizadas"
+  ]
+}

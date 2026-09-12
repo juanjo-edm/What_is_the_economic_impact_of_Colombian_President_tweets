@@ -1,0 +1,542 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Eventos extremos de sentimiento e IPI</title>
+<style>body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;margin:24px;color:#222}table{border-collapse:collapse;width:100%;font-size:13px}th,td{border:1px solid #ddd;padding:6px 8px;text-align:left;vertical-align:top}th{background:#f3f5f2}caption{text-align:left;font-weight:700;font-size:18px;margin-bottom:4px}.subtitle{color:#666;margin:0 0 14px 0}</style>
+</head>
+<body>
+<h1>Eventos extremos de sentimiento e IPI</h1><p class="subtitle">Retornos y cambios posteriores de mercado cuando hay datos</p><table>
+ <thead>
+  <tr>
+   <th style="text-align:left;"> evento </th>
+   <th style="text-align:left;"> date </th>
+   <th style="text-align:right;"> valor_evento </th>
+   <th style="text-align:right;"> trm_h1 </th>
+   <th style="text-align:right;"> trm_h3 </th>
+   <th style="text-align:right;"> trm_h5 </th>
+   <th style="text-align:right;"> trm_h7 </th>
+   <th style="text-align:right;"> colcap_h1 </th>
+   <th style="text-align:right;"> colcap_h3 </th>
+   <th style="text-align:right;"> colcap_h5 </th>
+   <th style="text-align:right;"> colcap_h7 </th>
+   <th style="text-align:right;"> tes_10y_h1 </th>
+   <th style="text-align:right;"> tes_10y_h3 </th>
+   <th style="text-align:right;"> tes_10y_h5 </th>
+   <th style="text-align:right;"> tes_10y_h7 </th>
+   <th style="text-align:right;"> tes_slope_h1 </th>
+   <th style="text-align:right;"> tes_slope_h3 </th>
+   <th style="text-align:right;"> tes_slope_h5 </th>
+   <th style="text-align:right;"> tes_slope_h7 </th>
+   <th style="text-align:right;"> energy_spot_price_h1 </th>
+   <th style="text-align:right;"> energy_spot_price_h3 </th>
+   <th style="text-align:right;"> energy_spot_price_h5 </th>
+   <th style="text-align:right;"> energy_spot_price_h7 </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> IPI extremo </td>
+   <td style="text-align:left;"> 2022-08-07 </td>
+   <td style="text-align:right;"> -5.867673 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> -0.0063611 </td>
+   <td style="text-align:right;"> -0.0244001 </td>
+   <td style="text-align:right;"> -0.0349966 </td>
+   <td style="text-align:right;"> 0.0253675 </td>
+   <td style="text-align:right;"> 0.0107608 </td>
+   <td style="text-align:right;"> 0.0236368 </td>
+   <td style="text-align:right;"> 0.0236368 </td>
+   <td style="text-align:right;"> 0.14 </td>
+   <td style="text-align:right;"> -0.25 </td>
+   <td style="text-align:right;"> -0.25 </td>
+   <td style="text-align:right;"> -0.25 </td>
+   <td style="text-align:right;"> -0.20 </td>
+   <td style="text-align:right;"> -0.35 </td>
+   <td style="text-align:right;"> -0.21 </td>
+   <td style="text-align:right;"> -0.21 </td>
+   <td style="text-align:right;"> 0.0068940 </td>
+   <td style="text-align:right;"> 0.0162872 </td>
+   <td style="text-align:right;"> 0.0346444 </td>
+   <td style="text-align:right;"> 0.0345931 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> IPI extremo </td>
+   <td style="text-align:left;"> 2023-01-20 </td>
+   <td style="text-align:right;"> 11.118153 </td>
+   <td style="text-align:right;"> -0.0111468 </td>
+   <td style="text-align:right;"> -0.0111468 </td>
+   <td style="text-align:right;"> -0.0294437 </td>
+   <td style="text-align:right;"> -0.0324733 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> -0.0042097 </td>
+   <td style="text-align:right;"> -0.0270076 </td>
+   <td style="text-align:right;"> -0.0385150 </td>
+   <td style="text-align:right;"> 0.00 </td>
+   <td style="text-align:right;"> 0.13 </td>
+   <td style="text-align:right;"> -0.41 </td>
+   <td style="text-align:right;"> -0.18 </td>
+   <td style="text-align:right;"> 0.00 </td>
+   <td style="text-align:right;"> 0.07 </td>
+   <td style="text-align:right;"> -0.48 </td>
+   <td style="text-align:right;"> -0.27 </td>
+   <td style="text-align:right;"> -0.1556979 </td>
+   <td style="text-align:right;"> 0.0090323 </td>
+   <td style="text-align:right;"> 0.1429977 </td>
+   <td style="text-align:right;"> 0.5432014 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> IPI extremo </td>
+   <td style="text-align:left;"> 2024-01-17 </td>
+   <td style="text-align:right;"> 6.121191 </td>
+   <td style="text-align:right;"> 0.0072700 </td>
+   <td style="text-align:right;"> -0.0062068 </td>
+   <td style="text-align:right;"> -0.0062068 </td>
+   <td style="text-align:right;"> -0.0015809 </td>
+   <td style="text-align:right;"> -0.0060054 </td>
+   <td style="text-align:right;"> -0.0072750 </td>
+   <td style="text-align:right;"> -0.0099234 </td>
+   <td style="text-align:right;"> -0.0177047 </td>
+   <td style="text-align:right;"> -0.02 </td>
+   <td style="text-align:right;"> 0.09 </td>
+   <td style="text-align:right;"> -0.01 </td>
+   <td style="text-align:right;"> -0.02 </td>
+   <td style="text-align:right;"> 0.00 </td>
+   <td style="text-align:right;"> 0.06 </td>
+   <td style="text-align:right;"> 0.03 </td>
+   <td style="text-align:right;"> 0.07 </td>
+   <td style="text-align:right;"> -0.0640189 </td>
+   <td style="text-align:right;"> -0.1093325 </td>
+   <td style="text-align:right;"> -0.1493800 </td>
+   <td style="text-align:right;"> -0.1682667 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> IPI extremo </td>
+   <td style="text-align:left;"> 2024-05-13 </td>
+   <td style="text-align:right;"> 6.929376 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> -0.0161488 </td>
+   <td style="text-align:right;"> -0.0143897 </td>
+   <td style="text-align:right;"> -0.0143897 </td>
+   <td style="text-align:right;"> NA </td>
+   <td style="text-align:right;"> NA </td>
+   <td style="text-align:right;"> NA </td>
+   <td style="text-align:right;"> NA </td>
+   <td style="text-align:right;"> NA </td>
+   <td style="text-align:right;"> NA </td>
+   <td style="text-align:right;"> NA </td>
+   <td style="text-align:right;"> NA </td>
+   <td style="text-align:right;"> NA </td>
+   <td style="text-align:right;"> NA </td>
+   <td style="text-align:right;"> NA </td>
+   <td style="text-align:right;"> NA </td>
+   <td style="text-align:right;"> 0.1569060 </td>
+   <td style="text-align:right;"> 0.1301949 </td>
+   <td style="text-align:right;"> 0.3543153 </td>
+   <td style="text-align:right;"> 0.5110123 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> IPI extremo </td>
+   <td style="text-align:left;"> 2024-05-26 </td>
+   <td style="text-align:right;"> 6.929376 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> -0.0064413 </td>
+   <td style="text-align:right;"> -0.0009670 </td>
+   <td style="text-align:right;"> -0.0044223 </td>
+   <td style="text-align:right;"> 0.0042195 </td>
+   <td style="text-align:right;"> -0.0094974 </td>
+   <td style="text-align:right;"> -0.0047451 </td>
+   <td style="text-align:right;"> -0.0047451 </td>
+   <td style="text-align:right;"> 0.08 </td>
+   <td style="text-align:right;"> 0.12 </td>
+   <td style="text-align:right;"> 0.02 </td>
+   <td style="text-align:right;"> 0.02 </td>
+   <td style="text-align:right;"> 0.16 </td>
+   <td style="text-align:right;"> 0.18 </td>
+   <td style="text-align:right;"> 0.13 </td>
+   <td style="text-align:right;"> 0.13 </td>
+   <td style="text-align:right;"> 0.2233977 </td>
+   <td style="text-align:right;"> 0.2675338 </td>
+   <td style="text-align:right;"> -0.3960122 </td>
+   <td style="text-align:right;"> -0.3447836 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> IPI extremo </td>
+   <td style="text-align:left;"> 2025-02-27 </td>
+   <td style="text-align:right;"> -5.636956 </td>
+   <td style="text-align:right;"> -0.0007252 </td>
+   <td style="text-align:right;"> 0.0026533 </td>
+   <td style="text-align:right;"> -0.0015741 </td>
+   <td style="text-align:right;"> 0.0006136 </td>
+   <td style="text-align:right;"> -0.0125249 </td>
+   <td style="text-align:right;"> -0.0125249 </td>
+   <td style="text-align:right;"> -0.0389690 </td>
+   <td style="text-align:right;"> -0.0153259 </td>
+   <td style="text-align:right;"> -0.10 </td>
+   <td style="text-align:right;"> -0.10 </td>
+   <td style="text-align:right;"> -0.07 </td>
+   <td style="text-align:right;"> -0.03 </td>
+   <td style="text-align:right;"> -0.13 </td>
+   <td style="text-align:right;"> -0.13 </td>
+   <td style="text-align:right;"> -0.05 </td>
+   <td style="text-align:right;"> 0.01 </td>
+   <td style="text-align:right;"> -0.0082591 </td>
+   <td style="text-align:right;"> -0.3760756 </td>
+   <td style="text-align:right;"> 0.0945305 </td>
+   <td style="text-align:right;"> -0.0437776 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> IPI extremo </td>
+   <td style="text-align:left;"> 2025-03-01 </td>
+   <td style="text-align:right;"> 5.799173 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> -0.0042162 </td>
+   <td style="text-align:right;"> -0.0020343 </td>
+   <td style="text-align:right;"> -0.0041703 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> -0.0267795 </td>
+   <td style="text-align:right;"> -0.0028366 </td>
+   <td style="text-align:right;"> 0.0018226 </td>
+   <td style="text-align:right;"> 0.00 </td>
+   <td style="text-align:right;"> 0.03 </td>
+   <td style="text-align:right;"> 0.07 </td>
+   <td style="text-align:right;"> 0.04 </td>
+   <td style="text-align:right;"> 0.00 </td>
+   <td style="text-align:right;"> 0.08 </td>
+   <td style="text-align:right;"> 0.14 </td>
+   <td style="text-align:right;"> 0.05 </td>
+   <td style="text-align:right;"> -0.0996718 </td>
+   <td style="text-align:right;"> 0.5794167 </td>
+   <td style="text-align:right;"> 0.3798369 </td>
+   <td style="text-align:right;"> 0.1175996 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> IPI extremo </td>
+   <td style="text-align:left;"> 2025-06-07 </td>
+   <td style="text-align:right;"> 5.799173 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> -0.0000459 </td>
+   <td style="text-align:right;"> 0.0125377 </td>
+   <td style="text-align:right;"> 0.0020828 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> -0.0010174 </td>
+   <td style="text-align:right;"> -0.0014111 </td>
+   <td style="text-align:right;"> -0.0013869 </td>
+   <td style="text-align:right;"> 0.00 </td>
+   <td style="text-align:right;"> 0.02 </td>
+   <td style="text-align:right;"> 0.18 </td>
+   <td style="text-align:right;"> 0.10 </td>
+   <td style="text-align:right;"> 0.00 </td>
+   <td style="text-align:right;"> -0.11 </td>
+   <td style="text-align:right;"> 0.10 </td>
+   <td style="text-align:right;"> 0.01 </td>
+   <td style="text-align:right;"> 0.0314196 </td>
+   <td style="text-align:right;"> 0.0292407 </td>
+   <td style="text-align:right;"> 0.0537874 </td>
+   <td style="text-align:right;"> 0.0642054 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> IPI extremo </td>
+   <td style="text-align:left;"> 2025-11-17 </td>
+   <td style="text-align:right;"> -5.867673 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> -0.0127604 </td>
+   <td style="text-align:right;"> 0.0116873 </td>
+   <td style="text-align:right;"> 0.0116873 </td>
+   <td style="text-align:right;"> NA </td>
+   <td style="text-align:right;"> NA </td>
+   <td style="text-align:right;"> NA </td>
+   <td style="text-align:right;"> NA </td>
+   <td style="text-align:right;"> NA </td>
+   <td style="text-align:right;"> NA </td>
+   <td style="text-align:right;"> NA </td>
+   <td style="text-align:right;"> NA </td>
+   <td style="text-align:right;"> NA </td>
+   <td style="text-align:right;"> NA </td>
+   <td style="text-align:right;"> NA </td>
+   <td style="text-align:right;"> NA </td>
+   <td style="text-align:right;"> 0.2677807 </td>
+   <td style="text-align:right;"> 0.2039782 </td>
+   <td style="text-align:right;"> 0.0426742 </td>
+   <td style="text-align:right;"> 0.2452034 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> IPI extremo </td>
+   <td style="text-align:left;"> 2026-03-10 </td>
+   <td style="text-align:right;"> -10.406849 </td>
+   <td style="text-align:right;"> -0.0091700 </td>
+   <td style="text-align:right;"> -0.0118510 </td>
+   <td style="text-align:right;"> -0.0158378 </td>
+   <td style="text-align:right;"> -0.0141368 </td>
+   <td style="text-align:right;"> 0.0011968 </td>
+   <td style="text-align:right;"> -0.0404374 </td>
+   <td style="text-align:right;"> -0.0404374 </td>
+   <td style="text-align:right;"> -0.0387917 </td>
+   <td style="text-align:right;"> 0.03 </td>
+   <td style="text-align:right;"> 0.22 </td>
+   <td style="text-align:right;"> 0.22 </td>
+   <td style="text-align:right;"> 0.11 </td>
+   <td style="text-align:right;"> -0.10 </td>
+   <td style="text-align:right;"> 0.14 </td>
+   <td style="text-align:right;"> 0.14 </td>
+   <td style="text-align:right;"> 0.00 </td>
+   <td style="text-align:right;"> 0.2483910 </td>
+   <td style="text-align:right;"> 0.0392415 </td>
+   <td style="text-align:right;"> 0.1839093 </td>
+   <td style="text-align:right;"> 0.7748698 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> negatividad extrema </td>
+   <td style="text-align:left;"> 2023-01-20 </td>
+   <td style="text-align:right;"> -3.500000 </td>
+   <td style="text-align:right;"> -0.0111468 </td>
+   <td style="text-align:right;"> -0.0111468 </td>
+   <td style="text-align:right;"> -0.0294437 </td>
+   <td style="text-align:right;"> -0.0324733 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> -0.0042097 </td>
+   <td style="text-align:right;"> -0.0270076 </td>
+   <td style="text-align:right;"> -0.0385150 </td>
+   <td style="text-align:right;"> 0.00 </td>
+   <td style="text-align:right;"> 0.13 </td>
+   <td style="text-align:right;"> -0.41 </td>
+   <td style="text-align:right;"> -0.18 </td>
+   <td style="text-align:right;"> 0.00 </td>
+   <td style="text-align:right;"> 0.07 </td>
+   <td style="text-align:right;"> -0.48 </td>
+   <td style="text-align:right;"> -0.27 </td>
+   <td style="text-align:right;"> -0.1556979 </td>
+   <td style="text-align:right;"> 0.0090323 </td>
+   <td style="text-align:right;"> 0.1429977 </td>
+   <td style="text-align:right;"> 0.5432014 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> negatividad extrema </td>
+   <td style="text-align:left;"> 2023-03-14 </td>
+   <td style="text-align:right;"> -3.600000 </td>
+   <td style="text-align:right;"> -0.0070716 </td>
+   <td style="text-align:right;"> 0.0202819 </td>
+   <td style="text-align:right;"> 0.0114241 </td>
+   <td style="text-align:right;"> 0.0114241 </td>
+   <td style="text-align:right;"> -0.0384200 </td>
+   <td style="text-align:right;"> -0.0395963 </td>
+   <td style="text-align:right;"> -0.0395963 </td>
+   <td style="text-align:right;"> -0.0229551 </td>
+   <td style="text-align:right;"> 0.01 </td>
+   <td style="text-align:right;"> -0.17 </td>
+   <td style="text-align:right;"> -0.17 </td>
+   <td style="text-align:right;"> -0.25 </td>
+   <td style="text-align:right;"> 0.08 </td>
+   <td style="text-align:right;"> 0.14 </td>
+   <td style="text-align:right;"> 0.14 </td>
+   <td style="text-align:right;"> 0.08 </td>
+   <td style="text-align:right;"> -0.1411735 </td>
+   <td style="text-align:right;"> 0.1557207 </td>
+   <td style="text-align:right;"> -0.1563822 </td>
+   <td style="text-align:right;"> 0.5326253 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> negatividad extrema </td>
+   <td style="text-align:left;"> 2023-04-04 </td>
+   <td style="text-align:right;"> -4.000000 </td>
+   <td style="text-align:right;"> -0.0034086 </td>
+   <td style="text-align:right;"> -0.0069715 </td>
+   <td style="text-align:right;"> -0.0069715 </td>
+   <td style="text-align:right;"> -0.0084206 </td>
+   <td style="text-align:right;"> 0.0127788 </td>
+   <td style="text-align:right;"> NA </td>
+   <td style="text-align:right;"> 0.0127788 </td>
+   <td style="text-align:right;"> 0.0364104 </td>
+   <td style="text-align:right;"> 0.00 </td>
+   <td style="text-align:right;"> NA </td>
+   <td style="text-align:right;"> 0.00 </td>
+   <td style="text-align:right;"> 0.35 </td>
+   <td style="text-align:right;"> -0.02 </td>
+   <td style="text-align:right;"> NA </td>
+   <td style="text-align:right;"> -0.02 </td>
+   <td style="text-align:right;"> 0.13 </td>
+   <td style="text-align:right;"> -0.0440876 </td>
+   <td style="text-align:right;"> -0.1162767 </td>
+   <td style="text-align:right;"> -0.1173874 </td>
+   <td style="text-align:right;"> -0.0348949 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> negatividad extrema </td>
+   <td style="text-align:left;"> 2024-03-27 </td>
+   <td style="text-align:right;"> -3.125000 </td>
+   <td style="text-align:right;"> -0.0061227 </td>
+   <td style="text-align:right;"> -0.0061227 </td>
+   <td style="text-align:right;"> -0.0061227 </td>
+   <td style="text-align:right;"> -0.0053673 </td>
+   <td style="text-align:right;"> NA </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 0.0166244 </td>
+   <td style="text-align:right;"> 0.0382076 </td>
+   <td style="text-align:right;"> NA </td>
+   <td style="text-align:right;"> 0.00 </td>
+   <td style="text-align:right;"> 0.17 </td>
+   <td style="text-align:right;"> 0.30 </td>
+   <td style="text-align:right;"> NA </td>
+   <td style="text-align:right;"> 0.00 </td>
+   <td style="text-align:right;"> 0.13 </td>
+   <td style="text-align:right;"> 0.06 </td>
+   <td style="text-align:right;"> -0.0755096 </td>
+   <td style="text-align:right;"> -0.1788529 </td>
+   <td style="text-align:right;"> -0.0684551 </td>
+   <td style="text-align:right;"> 0.3394923 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> negatividad extrema </td>
+   <td style="text-align:left;"> 2024-07-10 </td>
+   <td style="text-align:right;"> -3.250000 </td>
+   <td style="text-align:right;"> -0.0104772 </td>
+   <td style="text-align:right;"> -0.0191644 </td>
+   <td style="text-align:right;"> -0.0191644 </td>
+   <td style="text-align:right;"> -0.0110441 </td>
+   <td style="text-align:right;"> 0.0076286 </td>
+   <td style="text-align:right;"> 0.0059594 </td>
+   <td style="text-align:right;"> 0.0064791 </td>
+   <td style="text-align:right;"> 0.0002343 </td>
+   <td style="text-align:right;"> -0.03 </td>
+   <td style="text-align:right;"> -0.09 </td>
+   <td style="text-align:right;"> -0.15 </td>
+   <td style="text-align:right;"> -0.21 </td>
+   <td style="text-align:right;"> 0.00 </td>
+   <td style="text-align:right;"> 0.00 </td>
+   <td style="text-align:right;"> -0.31 </td>
+   <td style="text-align:right;"> -0.10 </td>
+   <td style="text-align:right;"> 0.5504479 </td>
+   <td style="text-align:right;"> 0.2367277 </td>
+   <td style="text-align:right;"> 0.3272699 </td>
+   <td style="text-align:right;"> 0.4014387 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> negatividad extrema </td>
+   <td style="text-align:left;"> 2024-11-18 </td>
+   <td style="text-align:right;"> -3.400000 </td>
+   <td style="text-align:right;"> -0.0121198 </td>
+   <td style="text-align:right;"> -0.0091185 </td>
+   <td style="text-align:right;"> -0.0081038 </td>
+   <td style="text-align:right;"> -0.0081038 </td>
+   <td style="text-align:right;"> 0.0056226 </td>
+   <td style="text-align:right;"> 0.0189743 </td>
+   <td style="text-align:right;"> 0.0217122 </td>
+   <td style="text-align:right;"> 0.0265420 </td>
+   <td style="text-align:right;"> -0.11 </td>
+   <td style="text-align:right;"> -0.32 </td>
+   <td style="text-align:right;"> -0.26 </td>
+   <td style="text-align:right;"> -0.06 </td>
+   <td style="text-align:right;"> -0.38 </td>
+   <td style="text-align:right;"> -0.49 </td>
+   <td style="text-align:right;"> -0.50 </td>
+   <td style="text-align:right;"> 0.26 </td>
+   <td style="text-align:right;"> -0.0266305 </td>
+   <td style="text-align:right;"> -0.1956484 </td>
+   <td style="text-align:right;"> -0.2158003 </td>
+   <td style="text-align:right;"> -0.3728468 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> negatividad extrema </td>
+   <td style="text-align:left;"> 2024-11-29 </td>
+   <td style="text-align:right;"> -3.000000 </td>
+   <td style="text-align:right;"> 0.0030480 </td>
+   <td style="text-align:right;"> 0.0030480 </td>
+   <td style="text-align:right;"> 0.0084813 </td>
+   <td style="text-align:right;"> 0.0002201 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 0.0046619 </td>
+   <td style="text-align:right;"> -0.0060196 </td>
+   <td style="text-align:right;"> -0.0108395 </td>
+   <td style="text-align:right;"> 0.00 </td>
+   <td style="text-align:right;"> -0.10 </td>
+   <td style="text-align:right;"> -0.15 </td>
+   <td style="text-align:right;"> -0.22 </td>
+   <td style="text-align:right;"> 0.00 </td>
+   <td style="text-align:right;"> -0.28 </td>
+   <td style="text-align:right;"> -0.46 </td>
+   <td style="text-align:right;"> -0.57 </td>
+   <td style="text-align:right;"> -0.2588253 </td>
+   <td style="text-align:right;"> 0.0775939 </td>
+   <td style="text-align:right;"> 0.2691615 </td>
+   <td style="text-align:right;"> 0.2737514 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> negatividad extrema </td>
+   <td style="text-align:left;"> 2025-02-21 </td>
+   <td style="text-align:right;"> -3.000000 </td>
+   <td style="text-align:right;"> -0.0009810 </td>
+   <td style="text-align:right;"> -0.0009810 </td>
+   <td style="text-align:right;"> 0.0120121 </td>
+   <td style="text-align:right;"> 0.0104352 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 0.0127375 </td>
+   <td style="text-align:right;"> 0.0095117 </td>
+   <td style="text-align:right;"> -0.0141357 </td>
+   <td style="text-align:right;"> 0.00 </td>
+   <td style="text-align:right;"> -0.10 </td>
+   <td style="text-align:right;"> -0.10 </td>
+   <td style="text-align:right;"> -0.18 </td>
+   <td style="text-align:right;"> 0.00 </td>
+   <td style="text-align:right;"> -0.13 </td>
+   <td style="text-align:right;"> -0.06 </td>
+   <td style="text-align:right;"> -0.08 </td>
+   <td style="text-align:right;"> -0.0680742 </td>
+   <td style="text-align:right;"> 0.2829639 </td>
+   <td style="text-align:right;"> 0.2782390 </td>
+   <td style="text-align:right;"> 0.1384517 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> negatividad extrema </td>
+   <td style="text-align:left;"> 2025-07-28 </td>
+   <td style="text-align:right;"> -3.000000 </td>
+   <td style="text-align:right;"> 0.0146236 </td>
+   <td style="text-align:right;"> 0.0168374 </td>
+   <td style="text-align:right;"> 0.0046077 </td>
+   <td style="text-align:right;"> 0.0046077 </td>
+   <td style="text-align:right;"> -0.0026043 </td>
+   <td style="text-align:right;"> 0.0059122 </td>
+   <td style="text-align:right;"> -0.0061845 </td>
+   <td style="text-align:right;"> -0.0061902 </td>
+   <td style="text-align:right;"> -0.10 </td>
+   <td style="text-align:right;"> -0.01 </td>
+   <td style="text-align:right;"> 0.05 </td>
+   <td style="text-align:right;"> 0.10 </td>
+   <td style="text-align:right;"> -0.28 </td>
+   <td style="text-align:right;"> -0.17 </td>
+   <td style="text-align:right;"> 0.01 </td>
+   <td style="text-align:right;"> -0.11 </td>
+   <td style="text-align:right;"> -0.1277311 </td>
+   <td style="text-align:right;"> 0.2266149 </td>
+   <td style="text-align:right;"> -0.1474718 </td>
+   <td style="text-align:right;"> 0.0774252 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> negatividad extrema </td>
+   <td style="text-align:left;"> 2025-08-11 </td>
+   <td style="text-align:right;"> -3.400000 </td>
+   <td style="text-align:right;"> 0.0027585 </td>
+   <td style="text-align:right;"> -0.0034946 </td>
+   <td style="text-align:right;"> -0.0038416 </td>
+   <td style="text-align:right;"> -0.0038416 </td>
+   <td style="text-align:right;"> -0.0003420 </td>
+   <td style="text-align:right;"> 0.0181100 </td>
+   <td style="text-align:right;"> 0.0242827 </td>
+   <td style="text-align:right;"> NA </td>
+   <td style="text-align:right;"> -0.11 </td>
+   <td style="text-align:right;"> -0.01 </td>
+   <td style="text-align:right;"> -0.04 </td>
+   <td style="text-align:right;"> NA </td>
+   <td style="text-align:right;"> -0.13 </td>
+   <td style="text-align:right;"> 0.12 </td>
+   <td style="text-align:right;"> 0.20 </td>
+   <td style="text-align:right;"> NA </td>
+   <td style="text-align:right;"> 0.1472950 </td>
+   <td style="text-align:right;"> 0.8645660 </td>
+   <td style="text-align:right;"> 0.1724404 </td>
+   <td style="text-align:right;"> 0.4407765 </td>
+  </tr>
+</tbody>
+</table>
+</body>
+</html>
+

@@ -1,0 +1,297 @@
+
+CHUNK ```{r setup-opciones, include=FALSE} 2026-09-04 22:57:02 
+
+CHUNK ```{r setup-librerias, include=FALSE} 2026-09-04 22:57:02 
+Package version: 4.3.1
+Unicode version: 14.0
+ICU version: 71.1
+Parallel computing: disabled
+See https://quanteda.io for tutorials and examples.
+[conflicted] Will prefer dplyr::filter over any other package.
+[conflicted] Will prefer dplyr::lag over any other package.
+[conflicted] Will prefer dplyr::select over any other package.
+[conflicted] Will prefer dplyr::summarise over any other package.
+[conflicted] Will prefer ggplot2::margin over any other package.
+
+CHUNK ```{r detectar-raiz-proyecto, include=FALSE} 2026-09-04 22:57:04 
+
+CHUNK ```{r parametros-rutas-analisis} 2026-09-04 22:57:04 
+
+CHUNK ```{r crear-carpetas-salida} 2026-09-04 22:57:04 
+
+CHUNK ```{r validaciones-iniciales} 2026-09-04 22:57:04 
+
+CHUNK ```{r setup-tema-stopwords, include=FALSE} 2026-09-04 22:57:04 
+
+CHUNK ```{r flow-plot} 2026-09-04 22:57:04 
+
+CHUNK ```{r cargar-tweets} 2026-09-04 22:57:05 
+
+CHUNK ```{r construir-sentimiento-diario} 2026-09-04 22:57:05 
+
+CHUNK ```{r contar-tweets-por-dia} 2026-09-04 22:57:06 
+
+CHUNK ```{r calcular-nrc-documentos} 2026-09-04 22:57:06 
+
+CHUNK ```{r agregar-nrc-diario} 2026-09-04 22:58:47 
+WARNING: There was 1 warning in `summarise()`.
+ℹ In argument: `across(all_of(sentiment_cols), sum, na.rm = TRUE)`.
+ℹ In group 1: `corpus = "opinion"`, `corpus_label = "Conversación pública sobre
+  Gustavo Petro"`, `date = 2022-08-01`.
+Caused by warning:
+! The `...` argument of `across()` is deprecated as of dplyr 1.1.0.
+Supply arguments directly to `.fns` through an anonymous function instead.
+
+  # Previously
+  across(a:b, mean, na.rm = TRUE)
+
+  # Now
+  across(a:b, \(x) mean(x, na.rm = TRUE)) 
+
+CHUNK ```{r unir-sentimiento-volumen} 2026-09-04 22:58:48 
+
+CHUNK ```{r derivar-metricas-sentimiento} 2026-09-04 22:58:48 
+
+CHUNK ```{r construir-sentimiento-diario-paso-04} 2026-09-04 22:58:48 
+
+CHUNK ```{r cargar-mercado} 2026-09-04 22:58:48 
+
+CHUNK ```{r cargar-mercado-paso-02} 2026-09-04 22:58:48 
+
+CHUNK ```{r auditoria-tweets-dias-esperados} 2026-09-04 22:58:48 
+
+CHUNK ```{r auditoria-tweets-observados} 2026-09-04 22:58:48 
+
+CHUNK ```{r construir-dataset-modelado} 2026-09-04 22:58:48 
+
+CHUNK ```{r construir-dataset-modelado-paso-02} 2026-09-04 22:58:48 
+
+CHUNK ```{r completar-mercado-modelo-opinion-final} 2026-09-04 22:58:48 
+
+CHUNK ```{r preparar-continuidad-mercado-corpus} 2026-09-04 22:58:48 
+
+CHUNK ```{r completar-mercado-modelo-corpus-final} 2026-09-04 22:58:48 
+
+CHUNK ```{r asegurar-polaridad-modelo-opinion} 2026-09-04 22:58:48 
+
+CHUNK ```{r construir-dataset-modelado-paso-05} 2026-09-04 22:58:48 
+
+CHUNK ```{r cargar-inventario-fuentes} 2026-09-04 22:58:48 
+
+CHUNK ```{r exportar-inventario-fuentes} 2026-09-04 22:58:48 
+
+CHUNK ```{r inventory-plot} 2026-09-04 22:58:48 
+
+CHUNK ```{r corpus-comparison-design} 2026-09-04 22:58:48 
+
+CHUNK ```{r exportar-corpus-comparison-design} 2026-09-04 22:58:48 
+
+CHUNK ```{r corpus-comparison-volume} 2026-09-04 22:58:48 
+
+CHUNK ```{r preparar-eje-volumen-corpus} 2026-09-04 22:58:48 
+
+CHUNK ```{r corpus-comparison-volume-paso-02} 2026-09-04 22:58:48 
+
+CHUNK ```{r corpus-comparison-volume-paso-03} 2026-09-04 22:58:48 
+
+CHUNK ```{r corpus-comparison-sentiment-data} 2026-09-04 22:58:49 
+
+CHUNK ```{r corpus-comparison-sentiment} 2026-09-04 22:58:49 
+
+CHUNK ```{r exportar-corpus-comparison-sentiment} 2026-09-04 22:58:49 
+
+CHUNK ```{r tweet-coverage} 2026-09-04 22:58:49 
+
+CHUNK ```{r exportar-tweet-coverage} 2026-09-04 22:58:49 
+
+CHUNK ```{r tweet-coverage-by-corpus} 2026-09-04 22:58:49 
+
+CHUNK ```{r exportar-tweet-coverage-by-corpus} 2026-09-04 22:58:49 
+
+CHUNK ```{r tweet-coverage-plot} 2026-09-04 22:58:49 
+
+CHUNK ```{r tweet-coverage-plot-by-corpus} 2026-09-04 22:58:49 
+
+CHUNK ```{r market-coverage} 2026-09-04 22:58:50 
+
+CHUNK ```{r exportar-market-coverage} 2026-09-04 22:58:50 
+
+CHUNK ```{r preparar-fuentes-mercado} 2026-09-04 22:58:50 
+
+CHUNK ```{r exportar-fuentes-mercado} 2026-09-04 22:58:50 
+
+CHUNK ```{r market-coverage-plot} 2026-09-04 22:58:50 
+
+CHUNK ```{r proposal-viability} 2026-09-04 22:58:50 
+
+CHUNK ```{r exportar-proposal-viability} 2026-09-04 22:58:50 
+
+CHUNK ```{r proposal-viability-plot} 2026-09-04 22:58:50 
+
+CHUNK ```{r cargar-twitter-process-raw-data} 2026-09-04 22:58:50 
+
+CHUNK ```{r constituyente-audit-monthly} 2026-09-04 22:58:50 
+
+CHUNK ```{r constituyente-audit-examples} 2026-09-04 22:58:50 
+
+CHUNK ```{r constituyente-audit-terms} 2026-09-04 22:58:50 
+
+CHUNK ```{r cargar-twitter-process-raw-data-paso-03} 2026-09-04 22:58:50 
+
+CHUNK ```{r weak-supervision-topic-model-01-preparacion-01} 2026-09-04 22:58:50 
+
+CHUNK ```{r weak-supervision-topic-model-01-condicion} 2026-09-04 22:58:50 
+
+CHUNK ```{r weak-topic-corpus-dfm} 2026-09-04 22:58:50 
+
+CHUNK ```{r weak-topic-train-test} 2026-09-04 22:58:52 
+
+CHUNK ```{r weak-topic-naive-bayes-counts} 2026-09-04 22:58:52 
+
+CHUNK ```{r weak-topic-naive-bayes-probs} 2026-09-04 22:58:52 
+
+CHUNK ```{r weak-topic-test-predictions} 2026-09-04 22:58:52 
+
+CHUNK ```{r weak-topic-metrics-by-class} 2026-09-04 22:58:52 
+
+CHUNK ```{r weak-topic-metrics-overall} 2026-09-04 22:58:52 
+
+CHUNK ```{r weak-topic-predict-all} 2026-09-04 22:58:52 
+
+CHUNK ```{r weak-topic-apply-reassignment} 2026-09-04 22:58:52 
+
+CHUNK ```{r weak-topic-fallback-labels} 2026-09-04 22:58:52 
+
+CHUNK ```{r weak-supervision-topic-model-01-fallback-01} 2026-09-04 22:58:52 
+
+CHUNK ```{r weak-supervision-topic-model-02} 2026-09-04 22:58:52 
+
+CHUNK ```{r exportar-weak-supervision-metrics} 2026-09-04 22:58:52 
+
+CHUNK ```{r weak-supervision-topic-model-02-paso-02} 2026-09-04 22:58:52 
+
+CHUNK ```{r weak-supervision-topic-model-02-paso-03} 2026-09-04 22:58:52 
+
+CHUNK ```{r weak-supervision-topic-model-03} 2026-09-04 22:58:52 
+
+CHUNK ```{r exportar-weak-supervision-confidence} 2026-09-04 22:58:52 
+
+CHUNK ```{r weak-supervision-topic-plots} 2026-09-04 22:58:52 
+
+CHUNK ```{r weak-supervision-topic-plots-paso-02} 2026-09-04 22:58:52 
+
+CHUNK ```{r weak-supervision-topic-plots-paso-03} 2026-09-04 22:58:52 
+
+CHUNK ```{r weak-supervision-topic-plots-paso-04} 2026-09-04 22:58:52 
+WARNING: Removed 4 rows containing missing values or values outside the scale range
+(`geom_bar()`). 
+
+CHUNK ```{r weak-supervision-topic-plots-paso-05} 2026-09-04 22:58:53 
+
+CHUNK ```{r cleaning-retention-data} 2026-09-04 22:58:53 
+
+CHUNK ```{r exportar-cleaning-retention} 2026-09-04 22:58:53 
+
+CHUNK ```{r cleaning-retention-plot-paso-02} 2026-09-04 22:58:53 
+
+CHUNK ```{r cleaning-retention-plot-paso-03} 2026-09-04 22:58:53 
+
+CHUNK ```{r metadata-plot} 2026-09-04 22:58:53 
+
+CHUNK ```{r eda-summary-market} 2026-09-04 22:58:53 
+
+CHUNK ```{r eda-summary} 2026-09-04 22:58:53 
+
+CHUNK ```{r exportar-eda-summary} 2026-09-04 22:58:53 
+
+CHUNK ```{r eda-daily-volume} 2026-09-04 22:58:53 
+`geom_smooth()` using formula = 'y ~ x'
+
+CHUNK ```{r eda-petro-frequency-data} 2026-09-04 22:58:54 
+
+CHUNK ```{r eda-petro-frequency-table} 2026-09-04 22:58:54 
+
+CHUNK ```{r exportar-eda-petro-frequency} 2026-09-04 22:58:54 
+
+CHUNK ```{r eda-petro-frequency-plots} 2026-09-04 22:58:54 
+
+CHUNK ```{r eda-petro-frequency-plots-paso-02} 2026-09-04 22:58:54 
+
+CHUNK ```{r eda-petro-frequency-plots-paso-03} 2026-09-04 22:58:54 
+
+CHUNK ```{r eda-monthly-coverage} 2026-09-04 22:58:55 
+
+CHUNK ```{r eda-heatmap} 2026-09-04 22:58:55 
+
+CHUNK ```{r eda-text-length} 2026-09-04 22:58:55 
+
+CHUNK ```{r eda-theme-volume} 2026-09-04 22:58:55 
+
+CHUNK ```{r eda-initial-sentiment} 2026-09-04 22:58:56 
+
+CHUNK ```{r eda-initial-sentiment-paso-02} 2026-09-04 22:58:56 
+`geom_smooth()` using formula = 'y ~ x'
+
+CHUNK ```{r eda-market-availability} 2026-09-04 22:58:56 
+
+CHUNK ```{r eda-market-availability-paso-02} 2026-09-04 22:58:56 
+
+CHUNK ```{r eda-volume-market-data} 2026-09-04 22:58:56 
+
+CHUNK ```{r eda-volume-market} 2026-09-04 22:58:56 
+
+CHUNK ```{r eda-volume-market-paso-02} 2026-09-04 22:58:56 
+
+CHUNK ```{r temporal-wordstream-source} 2026-09-04 22:58:56 
+
+CHUNK ```{r temporal-wordstream-dfm} 2026-09-04 22:58:56 
+
+CHUNK ```{r temporal-wordstream-table} 2026-09-04 22:58:58 
+
+CHUNK ```{r temporal-wordstream-tfidf} 2026-09-04 22:58:59 
+
+CHUNK ```{r temporal-wordstream-fallback} 2026-09-04 22:59:00 
+
+CHUNK ```{r exportar-temporal-wordstream-data} 2026-09-04 22:59:00 
+
+CHUNK ```{r wordcloud-corpus-data} 2026-09-04 22:59:00 
+
+CHUNK ```{r wordcloud-temporal-data} 2026-09-04 22:59:00 
+
+CHUNK ```{r wordcloud-corpus-temporal-01-paso-02} 2026-09-04 22:59:00 
+
+CHUNK ```{r wordcloud-corpus-temporal-01-paso-03} 2026-09-04 22:59:00 
+
+CHUNK ```{r wordcloud-corpus-temporal-02} 2026-09-04 22:59:00 
+
+CHUNK ```{r wordcloud-corpus-temporal-02-paso-02} 2026-09-04 22:59:00 
+
+CHUNK ```{r wordcloud-corpus-temporal-02-paso-03} 2026-09-04 22:59:00 
+Error in `mutate()`:
+ℹ In argument: `peso_visual = if (...) NULL`.
+ℹ In group 1: `panel = "Opinión — 2022 S2"`.
+Caused by error:
+! [conflicted] rescale found in 2 packages.
+Either pick the one you want with `::`:
+• scales::rescale
+• syuzhet::rescale
+Or declare a preference with `conflicts_prefer()`:
+• `conflicts_prefer(scales::rescale)`
+• `conflicts_prefer(syuzhet::rescale)`
+Backtrace:
+     ▆
+  1. ├─base::withCallingHandlers(...)
+  2. ├─base::eval(parse(text = s[(start + 1):(end - 1)]), envir = .GlobalEnv)
+  3. │ └─base::eval(parse(text = s[(start + 1):(end - 1)]), envir = .GlobalEnv)
+  4. ├─dplyr::ungroup(...)
+  5. ├─dplyr::mutate(...)
+  6. ├─dplyr:::mutate.data.frame(...)
+  7. │ └─dplyr:::mutate_cols(.data, dplyr_quosures(...), by)
+  8. │   ├─base::withCallingHandlers(...)
+  9. │   └─dplyr:::mutate_col(dots[[i]], data, mask, new_columns)
+ 10. │     └─mask$eval_all_mutate(quo)
+ 11. │       └─dplyr (local) eval()
+ 12. └─conflicted (local) `<fn>`()
+ 13.   └─cli::cli_abort(...)
+ 14.     └─rlang::abort(...)
+Execution halted

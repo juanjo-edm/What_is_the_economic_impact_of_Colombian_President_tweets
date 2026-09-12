@@ -1,0 +1,4 @@
+response,predictor,lag,p_value,significant_05,n_obs,status
+energy_spot_price,polaridad,1,0.005266478479132699,TRUE,1400,ok
+energy_spot_price,polaridad,2,0.022008433842300664,TRUE,1400,ok
+energy_spot_price,polaridad,3,0.039744077578029925,TRUE,1400,ok

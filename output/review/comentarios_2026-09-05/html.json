@@ -1,0 +1,27 @@
+{
+  "inspection": "Estructura HTML y contenido; no medición visual del navegador",
+  "library_blocks_unfolded": 4,
+  "library_calls": 39,
+  "conflict_preferences": 14,
+  "images": 92,
+  "images_identical": true,
+  "equations": 57,
+  "equations_identical": true,
+  "tables": 7,
+  "tables_identical": true,
+  "headings_identical": true,
+  "paragraphs_identical": false,
+  "output_blocks_identical": true,
+  "comment_spans": 2976,
+  "paragraph_differences": [
+    {
+      "before": [
+        "Antes de extraer menciones se recupera la regla ya establecida de\nexclusión de Petro. Estas dos funciones normalizan la cuenta y comparan\ncon petro_entities_clean; permiten aplicar el mismo filtro\nen los conteos y en las redes posteriores."
+      ],
+      "after": [
+        "Antes de extraer menciones sutilizamos funciones establecidas. Estas\ndos funciones normalizan la cuenta y comparan con\npetro_entities_clean; permiten aplicar el mismo filtro en\nlos conteos y en las redes posteriores."
+      ]
+    }
+  ],
+  "paragraph_difference_preexisting": true
+}

@@ -1,0 +1,622 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Aristas de red de co-ocurrencias</title>
+<style>body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;margin:24px;color:#222}table{border-collapse:collapse;width:100%;font-size:13px}th,td{border:1px solid #ddd;padding:6px 8px;text-align:left;vertical-align:top}th{background:#f3f5f2}caption{text-align:left;font-weight:700;font-size:18px;margin-bottom:4px}.subtitle{color:#666;margin:0 0 14px 0}</style>
+</head>
+<body>
+<h1>Aristas de red de co-ocurrencias</h1><p class="subtitle">Ventana textual de palabras</p><table>
+ <thead>
+  <tr>
+   <th style="text-align:left;"> from </th>
+   <th style="text-align:left;"> to </th>
+   <th style="text-align:right;"> weight </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> debe </td>
+   <td style="text-align:left;"> ser </td>
+   <td style="text-align:right;"> 320 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> sistema </td>
+   <td style="text-align:left;"> salud </td>
+   <td style="text-align:right;"> 235 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> reforma </td>
+   <td style="text-align:left;"> salud </td>
+   <td style="text-align:right;"> 203 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> hace </td>
+   <td style="text-align:left;"> años </td>
+   <td style="text-align:right;"> 152 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> salud </td>
+   <td style="text-align:left;"> eps </td>
+   <td style="text-align:right;"> 109 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> social </td>
+   <td style="text-align:left;"> justicia </td>
+   <td style="text-align:right;"> 105 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> pueblo </td>
+   <td style="text-align:left;"> poder </td>
+   <td style="text-align:right;"> 96 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> pueblo </td>
+   <td style="text-align:left;"> debe </td>
+   <td style="text-align:right;"> 88 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> dos </td>
+   <td style="text-align:left;"> años </td>
+   <td style="text-align:right;"> 72 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> república </td>
+   <td style="text-align:left;"> tasa </td>
+   <td style="text-align:right;"> 63 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> pueblo </td>
+   <td style="text-align:left;"> democracia </td>
+   <td style="text-align:right;"> 62 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> personas </td>
+   <td style="text-align:left;"> millones </td>
+   <td style="text-align:right;"> 62 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> social </td>
+   <td style="text-align:left;"> derecho </td>
+   <td style="text-align:right;"> 60 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> reforma </td>
+   <td style="text-align:left;"> congreso </td>
+   <td style="text-align:right;"> 59 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> paz </td>
+   <td style="text-align:left;"> justicia </td>
+   <td style="text-align:right;"> 58 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> reforma </td>
+   <td style="text-align:left;"> ley </td>
+   <td style="text-align:right;"> 53 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> debe </td>
+   <td style="text-align:left;"> toda </td>
+   <td style="text-align:right;"> 53 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> congreso </td>
+   <td style="text-align:left;"> república </td>
+   <td style="text-align:right;"> 49 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> pueblo </td>
+   <td style="text-align:left;"> salud </td>
+   <td style="text-align:right;"> 47 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> congreso </td>
+   <td style="text-align:left;"> ley </td>
+   <td style="text-align:right;"> 47 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> paz </td>
+   <td style="text-align:left;"> mundo </td>
+   <td style="text-align:right;"> 47 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> nacional </td>
+   <td style="text-align:left;"> cocaína </td>
+   <td style="text-align:right;"> 47 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> pueblo </td>
+   <td style="text-align:left;"> ser </td>
+   <td style="text-align:right;"> 46 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> debe </td>
+   <td style="text-align:left;"> justicia </td>
+   <td style="text-align:right;"> 46 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ser </td>
+   <td style="text-align:left;"> salud </td>
+   <td style="text-align:right;"> 45 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> paz </td>
+   <td style="text-align:left;"> vida </td>
+   <td style="text-align:right;"> 45 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> debe </td>
+   <td style="text-align:left;"> mundo </td>
+   <td style="text-align:right;"> 45 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> paz </td>
+   <td style="text-align:left;"> debe </td>
+   <td style="text-align:right;"> 44 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> pueblo </td>
+   <td style="text-align:left;"> justicia </td>
+   <td style="text-align:right;"> 44 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> pública </td>
+   <td style="text-align:left;"> salud </td>
+   <td style="text-align:right;"> 44 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> debe </td>
+   <td style="text-align:left;"> nacional </td>
+   <td style="text-align:right;"> 42 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> nacional </td>
+   <td style="text-align:left;"> salud </td>
+   <td style="text-align:right;"> 42 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> año </td>
+   <td style="text-align:left;"> tasa </td>
+   <td style="text-align:right;"> 39 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> pueblo </td>
+   <td style="text-align:left;"> cambio </td>
+   <td style="text-align:right;"> 38 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> debe </td>
+   <td style="text-align:left;"> política </td>
+   <td style="text-align:right;"> 38 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> debe </td>
+   <td style="text-align:left;"> salud </td>
+   <td style="text-align:right;"> 38 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ser </td>
+   <td style="text-align:left;"> mundo </td>
+   <td style="text-align:right;"> 38 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> vida </td>
+   <td style="text-align:left;"> toda </td>
+   <td style="text-align:right;"> 38 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> sistema </td>
+   <td style="text-align:left;"> eps </td>
+   <td style="text-align:right;"> 38 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> paz </td>
+   <td style="text-align:left;"> social </td>
+   <td style="text-align:right;"> 37 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> pueblo </td>
+   <td style="text-align:left;"> congreso </td>
+   <td style="text-align:right;"> 37 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> paz </td>
+   <td style="text-align:left;"> política </td>
+   <td style="text-align:right;"> 37 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> pueblo </td>
+   <td style="text-align:left;"> ahora </td>
+   <td style="text-align:right;"> 35 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> democracia </td>
+   <td style="text-align:left;"> poder </td>
+   <td style="text-align:right;"> 35 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> hace </td>
+   <td style="text-align:left;"> año </td>
+   <td style="text-align:right;"> 34 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> debe </td>
+   <td style="text-align:left;"> pública </td>
+   <td style="text-align:right;"> 34 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> pueblo </td>
+   <td style="text-align:left;"> vida </td>
+   <td style="text-align:right;"> 34 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> salud </td>
+   <td style="text-align:left;"> vida </td>
+   <td style="text-align:right;"> 34 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> paz </td>
+   <td style="text-align:left;"> ser </td>
+   <td style="text-align:right;"> 33 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> hace </td>
+   <td style="text-align:left;"> paz </td>
+   <td style="text-align:right;"> 32 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> pueblo </td>
+   <td style="text-align:left;"> nacional </td>
+   <td style="text-align:right;"> 32 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> paz </td>
+   <td style="text-align:left;"> democracia </td>
+   <td style="text-align:right;"> 32 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ser </td>
+   <td style="text-align:left;"> política </td>
+   <td style="text-align:right;"> 32 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> hace </td>
+   <td style="text-align:left;"> salud </td>
+   <td style="text-align:right;"> 32 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> salud </td>
+   <td style="text-align:left;"> ley </td>
+   <td style="text-align:right;"> 32 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> pueblo </td>
+   <td style="text-align:left;"> derecho </td>
+   <td style="text-align:right;"> 32 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> economía </td>
+   <td style="text-align:left;"> tasa </td>
+   <td style="text-align:right;"> 32 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> pueblo </td>
+   <td style="text-align:left;"> paz </td>
+   <td style="text-align:right;"> 31 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> hace </td>
+   <td style="text-align:left;"> dos </td>
+   <td style="text-align:right;"> 31 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> reforma </td>
+   <td style="text-align:left;"> sistema </td>
+   <td style="text-align:right;"> 31 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> debe </td>
+   <td style="text-align:left;"> democracia </td>
+   <td style="text-align:right;"> 31 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> nacional </td>
+   <td style="text-align:left;"> ser </td>
+   <td style="text-align:right;"> 31 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> congreso </td>
+   <td style="text-align:left;"> salud </td>
+   <td style="text-align:right;"> 31 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> dos </td>
+   <td style="text-align:left;"> millones </td>
+   <td style="text-align:right;"> 31 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> mundo </td>
+   <td style="text-align:left;"> eeuu </td>
+   <td style="text-align:right;"> 31 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> cambio </td>
+   <td style="text-align:left;"> debe </td>
+   <td style="text-align:right;"> 30 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> mismo </td>
+   <td style="text-align:left;"> año </td>
+   <td style="text-align:right;"> 30 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ahora </td>
+   <td style="text-align:left;"> ser </td>
+   <td style="text-align:right;"> 30 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> paz </td>
+   <td style="text-align:left;"> nacional </td>
+   <td style="text-align:right;"> 29 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> gran </td>
+   <td style="text-align:left;"> nacional </td>
+   <td style="text-align:right;"> 29 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> hace </td>
+   <td style="text-align:left;"> ahora </td>
+   <td style="text-align:right;"> 29 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> cambio </td>
+   <td style="text-align:left;"> ser </td>
+   <td style="text-align:right;"> 29 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> nacional </td>
+   <td style="text-align:left;"> política </td>
+   <td style="text-align:right;"> 29 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ahora </td>
+   <td style="text-align:left;"> salud </td>
+   <td style="text-align:right;"> 29 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> años </td>
+   <td style="text-align:left;"> salud </td>
+   <td style="text-align:right;"> 29 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> salud </td>
+   <td style="text-align:left;"> millones </td>
+   <td style="text-align:right;"> 29 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ser </td>
+   <td style="text-align:left;"> derecho </td>
+   <td style="text-align:right;"> 29 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> salud </td>
+   <td style="text-align:left;"> derecho </td>
+   <td style="text-align:right;"> 29 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> dos </td>
+   <td style="text-align:left;"> personas </td>
+   <td style="text-align:right;"> 28 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> economía </td>
+   <td style="text-align:left;"> mundo </td>
+   <td style="text-align:right;"> 28 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> pueblo </td>
+   <td style="text-align:left;"> gran </td>
+   <td style="text-align:right;"> 27 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ahora </td>
+   <td style="text-align:left;"> años </td>
+   <td style="text-align:right;"> 27 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> pueblo </td>
+   <td style="text-align:left;"> gente </td>
+   <td style="text-align:right;"> 27 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ser </td>
+   <td style="text-align:left;"> poder </td>
+   <td style="text-align:right;"> 27 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ser </td>
+   <td style="text-align:left;"> vida </td>
+   <td style="text-align:right;"> 27 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> nacional </td>
+   <td style="text-align:left;"> seguridad </td>
+   <td style="text-align:right;"> 27 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> pueblo </td>
+   <td style="text-align:left;"> toda </td>
+   <td style="text-align:right;"> 27 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> debe </td>
+   <td style="text-align:left;"> eps </td>
+   <td style="text-align:right;"> 27 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> hace </td>
+   <td style="text-align:left;"> pueblo </td>
+   <td style="text-align:right;"> 26 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> reforma </td>
+   <td style="text-align:left;"> pueblo </td>
+   <td style="text-align:right;"> 26 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> reforma </td>
+   <td style="text-align:left;"> ahora </td>
+   <td style="text-align:right;"> 26 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> pública </td>
+   <td style="text-align:left;"> política </td>
+   <td style="text-align:right;"> 26 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> sistema </td>
+   <td style="text-align:left;"> ley </td>
+   <td style="text-align:right;"> 26 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> año </td>
+   <td style="text-align:left;"> millones </td>
+   <td style="text-align:right;"> 26 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> debe </td>
+   <td style="text-align:left;"> vida </td>
+   <td style="text-align:right;"> 26 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ser </td>
+   <td style="text-align:left;"> toda </td>
+   <td style="text-align:right;"> 26 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> mundo </td>
+   <td style="text-align:left;"> cocaína </td>
+   <td style="text-align:right;"> 26 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> venezuela </td>
+   <td style="text-align:left;"> debe </td>
+   <td style="text-align:right;"> 25 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> debe </td>
+   <td style="text-align:left;"> ahora </td>
+   <td style="text-align:right;"> 25 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ser </td>
+   <td style="text-align:left;"> justicia </td>
+   <td style="text-align:right;"> 25 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ser </td>
+   <td style="text-align:left;"> república </td>
+   <td style="text-align:right;"> 25 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> pública </td>
+   <td style="text-align:left;"> toda </td>
+   <td style="text-align:right;"> 25 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> año </td>
+   <td style="text-align:left;"> eps </td>
+   <td style="text-align:right;"> 25 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> hace </td>
+   <td style="text-align:left;"> parte </td>
+   <td style="text-align:right;"> 24 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> pueblo </td>
+   <td style="text-align:left;"> mismo </td>
+   <td style="text-align:right;"> 24 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> pueblo </td>
+   <td style="text-align:left;"> social </td>
+   <td style="text-align:right;"> 24 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> reforma </td>
+   <td style="text-align:left;"> política </td>
+   <td style="text-align:right;"> 24 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> nacional </td>
+   <td style="text-align:left;"> bogotá </td>
+   <td style="text-align:right;"> 24 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> debe </td>
+   <td style="text-align:left;"> poder </td>
+   <td style="text-align:right;"> 24 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ahora </td>
+   <td style="text-align:left;"> poder </td>
+   <td style="text-align:right;"> 24 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> gente </td>
+   <td style="text-align:left;"> vida </td>
+   <td style="text-align:right;"> 24 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> personas </td>
+   <td style="text-align:left;"> vida </td>
+   <td style="text-align:right;"> 24 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> pueblo </td>
+   <td style="text-align:left;"> mundo </td>
+   <td style="text-align:right;"> 24 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> vida </td>
+   <td style="text-align:left;"> mundo </td>
+   <td style="text-align:right;"> 24 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> venezuela </td>
+   <td style="text-align:left;"> eeuu </td>
+   <td style="text-align:right;"> 24 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> paz </td>
+   <td style="text-align:left;"> cambio </td>
+   <td style="text-align:right;"> 23 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> pueblo </td>
+   <td style="text-align:left;"> pública </td>
+   <td style="text-align:right;"> 23 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> nacional </td>
+   <td style="text-align:left;"> pública </td>
+   <td style="text-align:right;"> 23 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> democracia </td>
+   <td style="text-align:left;"> justicia </td>
+   <td style="text-align:right;"> 23 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> debe </td>
+   <td style="text-align:left;"> sino </td>
+   <td style="text-align:right;"> 23 </td>
+  </tr>
+</tbody>
+</table>
+</body>
+</html>
+

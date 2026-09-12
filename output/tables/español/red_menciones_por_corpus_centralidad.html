@@ -1,0 +1,1185 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Centralidad de menciones por corpus</title>
+<style>body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;margin:24px;color:#222}table{border-collapse:collapse;width:100%;font-size:13px}th,td{border:1px solid #ddd;padding:6px 8px;text-align:left;vertical-align:top}th{background:#f3f5f2}caption{text-align:left;font-weight:700;font-size:18px;margin-bottom:4px}.subtitle{color:#666;margin:0 0 14px 0}</style>
+</head>
+<body>
+<h1>Centralidad de menciones por corpus</h1><p class="subtitle">Métricas de nodos calculadas por red separada</p><table>
+ <thead>
+  <tr>
+   <th style="text-align:left;"> corpus </th>
+   <th style="text-align:left;"> corpus_label </th>
+   <th style="text-align:left;"> red </th>
+   <th style="text-align:left;"> nodo </th>
+   <th style="text-align:right;"> grado </th>
+   <th style="text-align:right;"> grado_ponderado </th>
+   <th style="text-align:right;"> intermediacion </th>
+   <th style="text-align:right;"> cercania </th>
+   <th style="text-align:right;"> pagerank </th>
+   <th style="text-align:right;"> eigenvector </th>
+   <th style="text-align:right;"> clustering_local </th>
+   <th style="text-align:right;"> comunidad </th>
+   <th style="text-align:right;"> componente </th>
+   <th style="text-align:left;"> status </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> opinion </td>
+   <td style="text-align:left;"> Lo que opinan de Petro </td>
+   <td style="text-align:left;"> Menciones - Lo que opinan de Petro </td>
+   <td style="text-align:left;"> @cnn </td>
+   <td style="text-align:right;"> 13 </td>
+   <td style="text-align:right;"> 319 </td>
+   <td style="text-align:right;"> 0.0187614 </td>
+   <td style="text-align:right;"> 13.732758 </td>
+   <td style="text-align:right;"> 0.0399352 </td>
+   <td style="text-align:right;"> 1.0000000 </td>
+   <td style="text-align:right;"> 0.4230769 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> opinion </td>
+   <td style="text-align:left;"> Lo que opinan de Petro </td>
+   <td style="text-align:left;"> Menciones - Lo que opinan de Petro </td>
+   <td style="text-align:left;"> @kremlinrussia_e </td>
+   <td style="text-align:right;"> 13 </td>
+   <td style="text-align:right;"> 319 </td>
+   <td style="text-align:right;"> 0.0187614 </td>
+   <td style="text-align:right;"> 13.732758 </td>
+   <td style="text-align:right;"> 0.0399352 </td>
+   <td style="text-align:right;"> 1.0000000 </td>
+   <td style="text-align:right;"> 0.4230769 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> opinion </td>
+   <td style="text-align:left;"> Lo que opinan de Petro </td>
+   <td style="text-align:left;"> Menciones - Lo que opinan de Petro </td>
+   <td style="text-align:left;"> @mmflint </td>
+   <td style="text-align:right;"> 11 </td>
+   <td style="text-align:right;"> 252 </td>
+   <td style="text-align:right;"> 0.0055100 </td>
+   <td style="text-align:right;"> 12.671673 </td>
+   <td style="text-align:right;"> 0.0317323 </td>
+   <td style="text-align:right;"> 0.8526671 </td>
+   <td style="text-align:right;"> 0.5090909 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> opinion </td>
+   <td style="text-align:left;"> Lo que opinan de Petro </td>
+   <td style="text-align:left;"> Menciones - Lo que opinan de Petro </td>
+   <td style="text-align:left;"> @fiscaliacol </td>
+   <td style="text-align:right;"> 9 </td>
+   <td style="text-align:right;"> 198 </td>
+   <td style="text-align:right;"> 0.0442623 </td>
+   <td style="text-align:right;"> 12.487885 </td>
+   <td style="text-align:right;"> 0.0299615 </td>
+   <td style="text-align:right;"> 0.4909115 </td>
+   <td style="text-align:right;"> 0.4722222 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> opinion </td>
+   <td style="text-align:left;"> Lo que opinan de Petro </td>
+   <td style="text-align:left;"> Menciones - Lo que opinan de Petro </td>
+   <td style="text-align:left;"> @xijinping </td>
+   <td style="text-align:right;"> 9 </td>
+   <td style="text-align:right;"> 187 </td>
+   <td style="text-align:right;"> 0.0036430 </td>
+   <td style="text-align:right;"> 12.430097 </td>
+   <td style="text-align:right;"> 0.0244462 </td>
+   <td style="text-align:right;"> 0.6537935 </td>
+   <td style="text-align:right;"> 0.6666667 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> opinion </td>
+   <td style="text-align:left;"> Lo que opinan de Petro </td>
+   <td style="text-align:left;"> Menciones - Lo que opinan de Petro </td>
+   <td style="text-align:left;"> @policiacolombia </td>
+   <td style="text-align:right;"> 9 </td>
+   <td style="text-align:right;"> 168 </td>
+   <td style="text-align:right;"> 0.0236339 </td>
+   <td style="text-align:right;"> 11.984472 </td>
+   <td style="text-align:right;"> 0.0258828 </td>
+   <td style="text-align:right;"> 0.4752747 </td>
+   <td style="text-align:right;"> 0.5000000 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> opinion </td>
+   <td style="text-align:left;"> Lo que opinan de Petro </td>
+   <td style="text-align:left;"> Menciones - Lo que opinan de Petro </td>
+   <td style="text-align:left;"> @gustavobolivar </td>
+   <td style="text-align:right;"> 7 </td>
+   <td style="text-align:right;"> 158 </td>
+   <td style="text-align:right;"> 0.0426230 </td>
+   <td style="text-align:right;"> 10.732753 </td>
+   <td style="text-align:right;"> 0.0451606 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 0.0952381 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> opinion </td>
+   <td style="text-align:left;"> Lo que opinan de Petro </td>
+   <td style="text-align:left;"> Menciones - Lo que opinan de Petro </td>
+   <td style="text-align:left;"> @alvarouribevel </td>
+   <td style="text-align:right;"> 8 </td>
+   <td style="text-align:right;"> 149 </td>
+   <td style="text-align:right;"> 0.0431694 </td>
+   <td style="text-align:right;"> 10.214328 </td>
+   <td style="text-align:right;"> 0.0467824 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 0.1071429 </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> opinion </td>
+   <td style="text-align:left;"> Lo que opinan de Petro </td>
+   <td style="text-align:left;"> Menciones - Lo que opinan de Petro </td>
+   <td style="text-align:left;"> @noticiascaracol </td>
+   <td style="text-align:right;"> 8 </td>
+   <td style="text-align:right;"> 132 </td>
+   <td style="text-align:right;"> 0.0377049 </td>
+   <td style="text-align:right;"> 11.243167 </td>
+   <td style="text-align:right;"> 0.0522368 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 0.0357143 </td>
+   <td style="text-align:right;"> 6 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> opinion </td>
+   <td style="text-align:left;"> Lo que opinan de Petro </td>
+   <td style="text-align:left;"> Menciones - Lo que opinan de Petro </td>
+   <td style="text-align:left;"> @ivancepedacast </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 129 </td>
+   <td style="text-align:right;"> 0.0431694 </td>
+   <td style="text-align:right;"> 11.365905 </td>
+   <td style="text-align:right;"> 0.0332554 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 0.3000000 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> opinion </td>
+   <td style="text-align:left;"> Lo que opinan de Petro </td>
+   <td style="text-align:left;"> Menciones - Lo que opinan de Petro </td>
+   <td style="text-align:left;"> @bbc </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 128 </td>
+   <td style="text-align:right;"> 0.0001821 </td>
+   <td style="text-align:right;"> 10.364103 </td>
+   <td style="text-align:right;"> 0.0167233 </td>
+   <td style="text-align:right;"> 0.5299927 </td>
+   <td style="text-align:right;"> 0.8000000 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> opinion </td>
+   <td style="text-align:left;"> Lo que opinan de Petro </td>
+   <td style="text-align:left;"> Menciones - Lo que opinan de Petro </td>
+   <td style="text-align:left;"> @bbcnews </td>
+   <td style="text-align:right;"> 6 </td>
+   <td style="text-align:right;"> 90 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 9.140530 </td>
+   <td style="text-align:right;"> 0.0127776 </td>
+   <td style="text-align:right;"> 0.3585904 </td>
+   <td style="text-align:right;"> 1.0000000 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> opinion </td>
+   <td style="text-align:left;"> Lo que opinan de Petro </td>
+   <td style="text-align:left;"> Menciones - Lo que opinan de Petro </td>
+   <td style="text-align:left;"> @pizarromariajo </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 88 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 9.780054 </td>
+   <td style="text-align:right;"> 0.0227533 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 0.6666667 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> opinion </td>
+   <td style="text-align:left;"> Lo que opinan de Petro </td>
+   <td style="text-align:left;"> Menciones - Lo que opinan de Petro </td>
+   <td style="text-align:left;"> @cortesupremaj </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:right;"> 80 </td>
+   <td style="text-align:right;"> 0.0196721 </td>
+   <td style="text-align:right;"> 9.516775 </td>
+   <td style="text-align:right;"> 0.0172417 </td>
+   <td style="text-align:right;"> 0.0893308 </td>
+   <td style="text-align:right;"> 0.3333333 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> opinion </td>
+   <td style="text-align:left;"> Lo que opinan de Petro </td>
+   <td style="text-align:left;"> Menciones - Lo que opinan de Petro </td>
+   <td style="text-align:left;"> @xijingping </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:right;"> 80 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 8.554060 </td>
+   <td style="text-align:right;"> 0.0110375 </td>
+   <td style="text-align:right;"> 0.3616022 </td>
+   <td style="text-align:right;"> 1.0000000 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> opinion </td>
+   <td style="text-align:left;"> Lo que opinan de Petro </td>
+   <td style="text-align:left;"> Menciones - Lo que opinan de Petro </td>
+   <td style="text-align:left;"> @pgn_col </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 71 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 9.737720 </td>
+   <td style="text-align:right;"> 0.0135112 </td>
+   <td style="text-align:right;"> 0.1111808 </td>
+   <td style="text-align:right;"> 0.6666667 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> opinion </td>
+   <td style="text-align:left;"> Lo que opinan de Petro </td>
+   <td style="text-align:left;"> Menciones - Lo que opinan de Petro </td>
+   <td style="text-align:left;"> @ga_jaramillo </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 69 </td>
+   <td style="text-align:right;"> 0.0120219 </td>
+   <td style="text-align:right;"> 7.337824 </td>
+   <td style="text-align:right;"> 0.0207522 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 0.3333333 </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> opinion </td>
+   <td style="text-align:left;"> Lo que opinan de Petro </td>
+   <td style="text-align:left;"> Menciones - Lo que opinan de Petro </td>
+   <td style="text-align:left;"> @lulaoficial </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:right;"> 68 </td>
+   <td style="text-align:right;"> 0.0032787 </td>
+   <td style="text-align:right;"> 16.620561 </td>
+   <td style="text-align:right;"> 0.0383609 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 8 </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> opinion </td>
+   <td style="text-align:left;"> Lo que opinan de Petro </td>
+   <td style="text-align:left;"> Menciones - Lo que opinan de Petro </td>
+   <td style="text-align:left;"> @minsaludcol </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 64 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 6.208939 </td>
+   <td style="text-align:right;"> 0.0186527 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 1.0000000 </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> opinion </td>
+   <td style="text-align:left;"> Lo que opinan de Petro </td>
+   <td style="text-align:left;"> Menciones - Lo que opinan de Petro </td>
+   <td style="text-align:left;"> @actualidadrt </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:right;"> 64 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 7.767956 </td>
+   <td style="text-align:right;"> 0.0093149 </td>
+   <td style="text-align:right;"> 0.2998691 </td>
+   <td style="text-align:right;"> 1.0000000 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> opinion </td>
+   <td style="text-align:left;"> Lo que opinan de Petro </td>
+   <td style="text-align:left;"> Menciones - Lo que opinan de Petro </td>
+   <td style="text-align:left;"> @supersalud </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 54 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 5.773010 </td>
+   <td style="text-align:right;"> 0.0159788 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 1.0000000 </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> opinion </td>
+   <td style="text-align:left;"> Lo que opinan de Petro </td>
+   <td style="text-align:left;"> Menciones - Lo que opinan de Petro </td>
+   <td style="text-align:left;"> @chinanewsweek </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:right;"> 52 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 7.587483 </td>
+   <td style="text-align:right;"> 0.0083330 </td>
+   <td style="text-align:right;"> 0.2174208 </td>
+   <td style="text-align:right;"> 1.0000000 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> opinion </td>
+   <td style="text-align:left;"> Lo que opinan de Petro </td>
+   <td style="text-align:left;"> Menciones - Lo que opinan de Petro </td>
+   <td style="text-align:left;"> @interpol_hq </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:right;"> 52 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 7.020701 </td>
+   <td style="text-align:right;"> 0.0080220 </td>
+   <td style="text-align:right;"> 0.2436436 </td>
+   <td style="text-align:right;"> 1.0000000 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> opinion </td>
+   <td style="text-align:left;"> Lo que opinan de Petro </td>
+   <td style="text-align:left;"> Menciones - Lo que opinan de Petro </td>
+   <td style="text-align:left;"> @palomavalencial </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 49 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 8.361199 </td>
+   <td style="text-align:right;"> 0.0148867 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 0.6666667 </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> opinion </td>
+   <td style="text-align:left;"> Lo que opinan de Petro </td>
+   <td style="text-align:left;"> Menciones - Lo que opinan de Petro </td>
+   <td style="text-align:left;"> @aabenedetti </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 48 </td>
+   <td style="text-align:right;"> 0.0087432 </td>
+   <td style="text-align:right;"> 6.903047 </td>
+   <td style="text-align:right;"> 0.0169520 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 0.3333333 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> opinion </td>
+   <td style="text-align:left;"> Lo que opinan de Petro </td>
+   <td style="text-align:left;"> Menciones - Lo que opinan de Petro </td>
+   <td style="text-align:left;"> @mariafdacabal </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 48 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 6.657884 </td>
+   <td style="text-align:right;"> 0.0154247 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 0.6666667 </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> opinion </td>
+   <td style="text-align:left;"> Lo que opinan de Petro </td>
+   <td style="text-align:left;"> Menciones - Lo que opinan de Petro </td>
+   <td style="text-align:left;"> @gretathunberg </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 48 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 7.698842 </td>
+   <td style="text-align:right;"> 0.0076013 </td>
+   <td style="text-align:right;"> 0.2163625 </td>
+   <td style="text-align:right;"> 1.0000000 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> opinion </td>
+   <td style="text-align:left;"> Lo que opinan de Petro </td>
+   <td style="text-align:left;"> Menciones - Lo que opinan de Petro </td>
+   <td style="text-align:left;"> @carolinacorcho </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 46 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 8.258843 </td>
+   <td style="text-align:right;"> 0.0125108 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 1.0000000 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> opinion </td>
+   <td style="text-align:left;"> Lo que opinan de Petro </td>
+   <td style="text-align:left;"> Menciones - Lo que opinan de Petro </td>
+   <td style="text-align:left;"> @eltiempo </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 46 </td>
+   <td style="text-align:right;"> 0.0065574 </td>
+   <td style="text-align:right;"> 7.190092 </td>
+   <td style="text-align:right;"> 0.0199776 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 0.3333333 </td>
+   <td style="text-align:right;"> 6 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> opinion </td>
+   <td style="text-align:left;"> Lo que opinan de Petro </td>
+   <td style="text-align:left;"> Menciones - Lo que opinan de Petro </td>
+   <td style="text-align:left;"> @fbi </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 45 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 7.451150 </td>
+   <td style="text-align:right;"> 0.0072172 </td>
+   <td style="text-align:right;"> 0.2287100 </td>
+   <td style="text-align:right;"> 1.0000000 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> opinion </td>
+   <td style="text-align:left;"> Lo que opinan de Petro </td>
+   <td style="text-align:left;"> Menciones - Lo que opinan de Petro </td>
+   <td style="text-align:left;"> @roybarreras </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 41 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 7.832621 </td>
+   <td style="text-align:right;"> 0.0134107 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 1.0000000 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> opinion </td>
+   <td style="text-align:left;"> Lo que opinan de Petro </td>
+   <td style="text-align:left;"> Menciones - Lo que opinan de Petro </td>
+   <td style="text-align:left;"> @wradiocolombia </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 36 </td>
+   <td style="text-align:right;"> 0.0120219 </td>
+   <td style="text-align:right;"> 7.990922 </td>
+   <td style="text-align:right;"> 0.0165292 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 6 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> opinion </td>
+   <td style="text-align:left;"> Lo que opinan de Petro </td>
+   <td style="text-align:left;"> Menciones - Lo que opinan de Petro </td>
+   <td style="text-align:left;"> @vickydavilah </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 34 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 6.916279 </td>
+   <td style="text-align:right;"> 0.0115872 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 1.0000000 </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> opinion </td>
+   <td style="text-align:left;"> Lo que opinan de Petro </td>
+   <td style="text-align:left;"> Menciones - Lo que opinan de Petro </td>
+   <td style="text-align:left;"> @bluradioco </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 33 </td>
+   <td style="text-align:right;"> 0.0065574 </td>
+   <td style="text-align:right;"> 6.037633 </td>
+   <td style="text-align:right;"> 0.0171467 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 6 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> opinion </td>
+   <td style="text-align:left;"> Lo que opinan de Petro </td>
+   <td style="text-align:left;"> Menciones - Lo que opinan de Petro </td>
+   <td style="text-align:left;"> @cconstitucional </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 33 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 6.540545 </td>
+   <td style="text-align:right;"> 0.0093614 </td>
+   <td style="text-align:right;"> 0.0096978 </td>
+   <td style="text-align:right;"> 1.0000000 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> opinion </td>
+   <td style="text-align:left;"> Lo que opinan de Petro </td>
+   <td style="text-align:left;"> Menciones - Lo que opinan de Petro </td>
+   <td style="text-align:left;"> @cgr_colombia </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 31 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 6.632603 </td>
+   <td style="text-align:right;"> 0.0070030 </td>
+   <td style="text-align:right;"> 0.0448072 </td>
+   <td style="text-align:right;"> 1.0000000 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> opinion </td>
+   <td style="text-align:left;"> Lo que opinan de Petro </td>
+   <td style="text-align:left;"> Menciones - Lo que opinan de Petro </td>
+   <td style="text-align:left;"> @consejodeestado </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 30 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 6.162665 </td>
+   <td style="text-align:right;"> 0.0087262 </td>
+   <td style="text-align:right;"> 0.0083652 </td>
+   <td style="text-align:right;"> 1.0000000 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> opinion </td>
+   <td style="text-align:left;"> Lo que opinan de Petro </td>
+   <td style="text-align:left;"> Menciones - Lo que opinan de Petro </td>
+   <td style="text-align:left;"> @elespectador </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 30 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 7.298214 </td>
+   <td style="text-align:right;"> 0.0129694 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 1.0000000 </td>
+   <td style="text-align:right;"> 6 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> opinion </td>
+   <td style="text-align:left;"> Lo que opinan de Petro </td>
+   <td style="text-align:left;"> Menciones - Lo que opinan de Petro </td>
+   <td style="text-align:left;"> @ivanduque </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 28 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 7.603687 </td>
+   <td style="text-align:right;"> 0.0098920 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> opinion </td>
+   <td style="text-align:left;"> Lo que opinan de Petro </td>
+   <td style="text-align:left;"> Menciones - Lo que opinan de Petro </td>
+   <td style="text-align:left;"> @noticiasrcn </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 27 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 8.121435 </td>
+   <td style="text-align:right;"> 0.0115014 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 6 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> opinion </td>
+   <td style="text-align:left;"> Lo que opinan de Petro </td>
+   <td style="text-align:left;"> Menciones - Lo que opinan de Petro </td>
+   <td style="text-align:left;"> @col_ejercito </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 25 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 8.234430 </td>
+   <td style="text-align:right;"> 0.0056932 </td>
+   <td style="text-align:right;"> 0.0635079 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> opinion </td>
+   <td style="text-align:left;"> Lo que opinan de Petro </td>
+   <td style="text-align:left;"> Menciones - Lo que opinan de Petro </td>
+   <td style="text-align:left;"> @camaracolombia </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 23 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 23.000000 </td>
+   <td style="text-align:right;"> 0.0161290 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 7 </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> opinion </td>
+   <td style="text-align:left;"> Lo que opinan de Petro </td>
+   <td style="text-align:left;"> Menciones - Lo que opinan de Petro </td>
+   <td style="text-align:left;"> @senadogovco </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 23 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 23.000000 </td>
+   <td style="text-align:right;"> 0.0161290 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 7 </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> opinion </td>
+   <td style="text-align:left;"> Lo que opinan de Petro </td>
+   <td style="text-align:left;"> Menciones - Lo que opinan de Petro </td>
+   <td style="text-align:left;"> @franciamarquezm </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 20 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 7.131062 </td>
+   <td style="text-align:right;"> 0.0072784 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> opinion </td>
+   <td style="text-align:left;"> Lo que opinan de Petro </td>
+   <td style="text-align:left;"> Menciones - Lo que opinan de Petro </td>
+   <td style="text-align:left;"> @lopezobrador_ </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 19 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 10.036117 </td>
+   <td style="text-align:right;"> 0.0115301 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 8 </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> opinion </td>
+   <td style="text-align:left;"> Lo que opinan de Petro </td>
+   <td style="text-align:left;"> Menciones - Lo que opinan de Petro </td>
+   <td style="text-align:left;"> @abdelaespriella </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 18 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 6.658265 </td>
+   <td style="text-align:right;"> 0.0072232 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> opinion </td>
+   <td style="text-align:left;"> Lo que opinan de Petro </td>
+   <td style="text-align:left;"> Menciones - Lo que opinan de Petro </td>
+   <td style="text-align:left;"> @gabrielboric </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 18 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 9.819989 </td>
+   <td style="text-align:right;"> 0.0110506 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 8 </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> opinion </td>
+   <td style="text-align:left;"> Lo que opinan de Petro </td>
+   <td style="text-align:left;"> Menciones - Lo que opinan de Petro </td>
+   <td style="text-align:left;"> @juanmansantos </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 18 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 6.658265 </td>
+   <td style="text-align:right;"> 0.0072232 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> opinion </td>
+   <td style="text-align:left;"> Lo que opinan de Petro </td>
+   <td style="text-align:left;"> Menciones - Lo que opinan de Petro </td>
+   <td style="text-align:left;"> @revistasemana </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 18 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 5.253140 </td>
+   <td style="text-align:right;"> 0.0090641 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 6 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> opinion </td>
+   <td style="text-align:left;"> Lo que opinan de Petro </td>
+   <td style="text-align:left;"> Menciones - Lo que opinan de Petro </td>
+   <td style="text-align:left;"> @nicolasmaduro </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 18 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 9.819989 </td>
+   <td style="text-align:right;"> 0.0110506 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 8 </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> opinion </td>
+   <td style="text-align:left;"> Lo que opinan de Petro </td>
+   <td style="text-align:left;"> Menciones - Lo que opinan de Petro </td>
+   <td style="text-align:left;"> @cnnee </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 16 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 6.819644 </td>
+   <td style="text-align:right;"> 0.0078013 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 6 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> opinion </td>
+   <td style="text-align:left;"> Lo que opinan de Petro </td>
+   <td style="text-align:left;"> Menciones - Lo que opinan de Petro </td>
+   <td style="text-align:left;"> @davidracero </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 16 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 6.579109 </td>
+   <td style="text-align:right;"> 0.0063066 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> opinion </td>
+   <td style="text-align:left;"> Lo que opinan de Petro </td>
+   <td style="text-align:left;"> Menciones - Lo que opinan de Petro </td>
+   <td style="text-align:left;"> @cedemocratico </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 16 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 6.380594 </td>
+   <td style="text-align:right;"> 0.0066894 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> opinion </td>
+   <td style="text-align:left;"> Lo que opinan de Petro </td>
+   <td style="text-align:left;"> Menciones - Lo que opinan de Petro </td>
+   <td style="text-align:left;"> @laurisarabia </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 15 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 4.816755 </td>
+   <td style="text-align:right;"> 0.0069222 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> opinion </td>
+   <td style="text-align:left;"> Lo que opinan de Petro </td>
+   <td style="text-align:left;"> Menciones - Lo que opinan de Petro </td>
+   <td style="text-align:left;"> @wilsonariasc </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 15 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 6.413634 </td>
+   <td style="text-align:right;"> 0.0060636 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> opinion </td>
+   <td style="text-align:left;"> Lo que opinan de Petro </td>
+   <td style="text-align:left;"> Menciones - Lo que opinan de Petro </td>
+   <td style="text-align:left;"> @ntn24 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 15 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 6.645341 </td>
+   <td style="text-align:right;"> 0.0074650 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 6 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> opinion </td>
+   <td style="text-align:left;"> Lo que opinan de Petro </td>
+   <td style="text-align:left;"> Menciones - Lo que opinan de Petro </td>
+   <td style="text-align:left;"> @fuerzasmilcol </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 14 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 6.609453 </td>
+   <td style="text-align:right;"> 0.0042527 </td>
+   <td style="text-align:right;"> 0.0355644 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> opinion </td>
+   <td style="text-align:left;"> Lo que opinan de Petro </td>
+   <td style="text-align:left;"> Menciones - Lo que opinan de Petro </td>
+   <td style="text-align:left;"> @lafm </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 14 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 4.318500 </td>
+   <td style="text-align:right;"> 0.0086026 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 6 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> opinion </td>
+   <td style="text-align:left;"> Lo que opinan de Petro </td>
+   <td style="text-align:left;"> Menciones - Lo que opinan de Petro </td>
+   <td style="text-align:left;"> @rcnradio </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 14 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 6.456738 </td>
+   <td style="text-align:right;"> 0.0071286 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 6 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> opinion </td>
+   <td style="text-align:left;"> Lo que opinan de Petro </td>
+   <td style="text-align:left;"> Menciones - Lo que opinan de Petro </td>
+   <td style="text-align:left;"> @claudiashein </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 13 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 8.484733 </td>
+   <td style="text-align:right;"> 0.0086530 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 8 </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> opinion </td>
+   <td style="text-align:left;"> Lo que opinan de Petro </td>
+   <td style="text-align:left;"> Menciones - Lo que opinan de Petro </td>
+   <td style="text-align:left;"> @danielrmed </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 13 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 13.000000 </td>
+   <td style="text-align:right;"> 0.0161290 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 9 </td>
+   <td style="text-align:right;"> 6 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> opinion </td>
+   <td style="text-align:left;"> Lo que opinan de Petro </td>
+   <td style="text-align:left;"> Menciones - Lo que opinan de Petro </td>
+   <td style="text-align:left;"> @mineducacion </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 13 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 13.000000 </td>
+   <td style="text-align:right;"> 0.0161290 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 9 </td>
+   <td style="text-align:right;"> 6 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> presidente </td>
+   <td style="text-align:left;"> Lo que Petro opina </td>
+   <td style="text-align:left;"> Menciones - Lo que Petro opina </td>
+   <td style="text-align:left;"> @fiscaliacol </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 14 </td>
+   <td style="text-align:right;"> 0.0555556 </td>
+   <td style="text-align:right;"> 3.176471 </td>
+   <td style="text-align:right;"> 0.1682130 </td>
+   <td style="text-align:right;"> 1.0000000 </td>
+   <td style="text-align:right;"> 0.3333333 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> presidente </td>
+   <td style="text-align:left;"> Lo que Petro opina </td>
+   <td style="text-align:left;"> Menciones - Lo que Petro opina </td>
+   <td style="text-align:left;"> @policiacolombia </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 11 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 2.842105 </td>
+   <td style="text-align:right;"> 0.1305469 </td>
+   <td style="text-align:right;"> 0.9542638 </td>
+   <td style="text-align:right;"> 1.0000000 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> presidente </td>
+   <td style="text-align:left;"> Lo que Petro opina </td>
+   <td style="text-align:left;"> Menciones - Lo que Petro opina </td>
+   <td style="text-align:left;"> @procuraduria </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 1.636364 </td>
+   <td style="text-align:right;"> 0.0556013 </td>
+   <td style="text-align:right;"> 0.3819922 </td>
+   <td style="text-align:right;"> 1.0000000 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> presidente </td>
+   <td style="text-align:left;"> Lo que Petro opina </td>
+   <td style="text-align:left;"> Menciones - Lo que Petro opina </td>
+   <td style="text-align:left;"> @lykanista </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 1.862069 </td>
+   <td style="text-align:right;"> 0.0456388 </td>
+   <td style="text-align:right;"> 0.2931991 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> presidente </td>
+   <td style="text-align:left;"> Lo que Petro opina </td>
+   <td style="text-align:left;"> Menciones - Lo que Petro opina </td>
+   <td style="text-align:left;"> @caracolradio </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 2.000000 </td>
+   <td style="text-align:right;"> 0.1000000 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> presidente </td>
+   <td style="text-align:left;"> Lo que Petro opina </td>
+   <td style="text-align:left;"> Menciones - Lo que Petro opina </td>
+   <td style="text-align:left;"> @carcacoltv </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 2.000000 </td>
+   <td style="text-align:right;"> 0.1000000 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> presidente </td>
+   <td style="text-align:left;"> Lo que Petro opina </td>
+   <td style="text-align:left;"> Menciones - Lo que Petro opina </td>
+   <td style="text-align:left;"> @cne </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 2.000000 </td>
+   <td style="text-align:right;"> 0.1000000 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> presidente </td>
+   <td style="text-align:left;"> Lo que Petro opina </td>
+   <td style="text-align:left;"> Menciones - Lo que Petro opina </td>
+   <td style="text-align:left;"> @jsanchezcristo </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 2.000000 </td>
+   <td style="text-align:right;"> 0.1000000 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> presidente </td>
+   <td style="text-align:left;"> Lo que Petro opina </td>
+   <td style="text-align:left;"> Menciones - Lo que Petro opina </td>
+   <td style="text-align:left;"> @eltiempo </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 2.000000 </td>
+   <td style="text-align:right;"> 0.1000000 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> presidente </td>
+   <td style="text-align:left;"> Lo que Petro opina </td>
+   <td style="text-align:left;"> Menciones - Lo que Petro opina </td>
+   <td style="text-align:left;"> @cne_colombia </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 2.000000 </td>
+   <td style="text-align:right;"> 0.1000000 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+</tbody>
+</table>
+</body>
+</html>
+

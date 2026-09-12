@@ -1,0 +1,8 @@
+componente,validacion,riesgo_controlado
+Clasificación temática de reglas,Reglas transparentes y auditables; la categoría residual se excluye del análisis central.,Sesgo de diccionario y categorías amplias.
+Naive Bayes débil,Holdout estratificado contra etiquetas débiles; se compara con baseline de clase mayoritaria y sólo reasigna otros con confianza alta.,Sobreconfianza de pseudo-etiquetas y propagación de errores de reglas.
+TF-IDF por tema,Términos distintivos por tema; no usa variable financiera ni información futura.,Palabras frecuentes poco informativas.
+Wordfish,"Exploratorio por tema agregado; útil para contraste discursivo, no para predicción causal.",Sobreinterpretación de escala latente.
+STM,Exploratorio y condicionado por tamaño/calidad del corpus; se reporta coherencia y exclusividad.,Complejidad sin estabilidad semántica.
+Sentimiento/IPI,NRC y sentometrics se conectan con IPI y series financieras sin mezclar unidades visuales.,Exagerar señales descriptivas como causalidad.
+Modelos supervisados complejos,No se estima SVM/doc2vec porque no hay etiquetas humanas independientes ni ganancia clara de interpretación.,Fuga de información y métricas no validables.

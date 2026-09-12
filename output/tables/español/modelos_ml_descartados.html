@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Modelos ML descartados</title>
+<style>body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;margin:24px;color:#222}table{border-collapse:collapse;width:100%;font-size:13px}th,td{border:1px solid #ddd;padding:6px 8px;text-align:left;vertical-align:top}th{background:#f3f5f2}caption{text-align:left;font-weight:700;font-size:18px;margin-bottom:4px}.subtitle{color:#666;margin:0 0 14px 0}</style>
+</head>
+<body>
+<h1>Modelos ML descartados</h1><p class="subtitle">Técnicas no incorporadas y motivo metodológico</p><table>
+ <thead>
+  <tr>
+   <th style="text-align:left;"> modelo </th>
+   <th style="text-align:left;"> decision </th>
+   <th style="text-align:left;"> razon </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> SVM lineal </td>
+   <td style="text-align:left;"> descartado </td>
+   <td style="text-align:left;"> requiere etiquetas humanas o una variable objetivo confiable para evaluar generalización </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> doc2vec/embeddings </td>
+   <td style="text-align:left;"> descartado </td>
+   <td style="text-align:left;"> agrega dependencia y opacidad sin mejorar la trazabilidad del paper </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Random forest sobre bolsa de palabras </td>
+   <td style="text-align:left;"> descartado </td>
+   <td style="text-align:left;"> tiende a ser menos interpretable y pesado para un cuaderno autocontenido </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> LDA adicional con topicmodels </td>
+   <td style="text-align:left;"> descartado </td>
+   <td style="text-align:left;"> duplicaría el rol exploratorio de STM sin aportar una pregunta adicional clara </td>
+  </tr>
+</tbody>
+</table>
+</body>
+</html>
+

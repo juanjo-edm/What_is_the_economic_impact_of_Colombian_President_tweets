@@ -1,0 +1,7 @@
+corpus,corpus_label,response,predictor,lag,p_value,significant_05,n_obs,status
+opinion,Conversación pública sobre Gustavo Petro,energy_spot_price,ipi,1,0.010024947816426877,TRUE,1349,ok
+opinion,Conversación pública sobre Gustavo Petro,energy_spot_price,ipi,2,0.04014996567974408,TRUE,1349,ok
+opinion,Conversación pública sobre Gustavo Petro,energy_spot_price,polaridad,1,0.005266478479132699,TRUE,1400,ok
+opinion,Conversación pública sobre Gustavo Petro,energy_spot_price,polaridad,2,0.022008433842300664,TRUE,1400,ok
+opinion,Conversación pública sobre Gustavo Petro,energy_spot_price,polaridad,3,0.039744077578029925,TRUE,1400,ok
+presidente,Tweets escritos por @petrogustavo,trm,ipi,4,0.026056560204861495,TRUE,1326,ok

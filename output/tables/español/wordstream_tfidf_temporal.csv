@@ -1,0 +1,1074 @@
+corpus_label,month,termino,tfidf,frecuencia,tfidf_total
+Conversación pública sobre Gustavo Petro,2022-08-01,catatumbo,1.0560526742493137,1,118.27789951592315
+Conversación pública sobre Gustavo Petro,2022-08-01,guerrillero,1.8899048368152414,3,133.5532751349438
+Conversación pública sobre Gustavo Petro,2022-08-01,hoja,0.9382696385929302,1,116.34543518552334
+Conversación pública sobre Gustavo Petro,2022-08-01,iván,1.3432819506779634,2,118.88045263499976
+Conversación pública sobre Gustavo Petro,2022-08-01,maduro,1.102993326993837,2,150.5585891346588
+Conversación pública sobre Gustavo Petro,2022-08-01,vital,1.3862943611198906,1,173.28679513998634
+Conversación pública sobre Gustavo Petro,2022-09-01,catatumbo,1.0560526742493137,1,118.27789951592315
+Conversación pública sobre Gustavo Petro,2022-09-01,constituyente,1.3862943611198906,2,177.44567822334602
+Conversación pública sobre Gustavo Petro,2022-09-01,guerrillero,1.2599365578768276,2,133.5532751349438
+Conversación pública sobre Gustavo Petro,2022-09-01,iván,0.6716409753389817,1,118.88045263499976
+Conversación pública sobre Gustavo Petro,2022-09-01,maduro,1.102993326993837,2,150.5585891346588
+Conversación pública sobre Gustavo Petro,2022-09-01,salario,0.7573077013150151,2,137.07269393801775
+Conversación pública sobre Gustavo Petro,2022-09-01,trump,0.7151260872787205,1,217.39833053273102
+Conversación pública sobre Gustavo Petro,2022-10-01,cepeda,0.858226930919394,1,120.15177032871519
+Conversación pública sobre Gustavo Petro,2022-10-01,consulta,0.8842024173226545,1,206.9033656535012
+Conversación pública sobre Gustavo Petro,2022-10-01,guerrillero,1.2599365578768276,2,133.5532751349438
+Conversación pública sobre Gustavo Petro,2022-10-01,hoja,0.9382696385929302,1,116.34543518552334
+Conversación pública sobre Gustavo Petro,2022-10-01,iván,0.6716409753389817,1,118.88045263499976
+Conversación pública sobre Gustavo Petro,2022-10-01,junta,1.3432819506779634,2,116.8655297089828
+Conversación pública sobre Gustavo Petro,2022-10-01,maduro,2.7574833174845925,5,150.5585891346588
+Conversación pública sobre Gustavo Petro,2022-10-01,salario,0.7573077013150151,2,137.07269393801775
+Conversación pública sobre Gustavo Petro,2022-10-01,vital,1.3862943611198906,1,173.28679513998634
+Conversación pública sobre Gustavo Petro,2022-11-01,constituyente,0.6931471805599453,1,177.44567822334602
+Conversación pública sobre Gustavo Petro,2022-11-01,deuda,0.4787373092144901,1,157.50457473156723
+Conversación pública sobre Gustavo Petro,2022-11-01,fraude,2.24118239077377,2,158.0033585495508
+Conversación pública sobre Gustavo Petro,2022-11-01,guerrillero,1.2599365578768276,2,133.5532751349438
+Conversación pública sobre Gustavo Petro,2022-11-01,iván,1.3432819506779634,2,118.88045263499976
+Conversación pública sobre Gustavo Petro,2022-11-01,maduro,4.411973307975348,8,150.5585891346588
+Conversación pública sobre Gustavo Petro,2022-11-01,salario,0.37865385065750756,1,137.07269393801775
+Conversación pública sobre Gustavo Petro,2022-12-01,consulta,0.8842024173226545,1,206.9033656535012
+Conversación pública sobre Gustavo Petro,2022-12-01,guerrillero,1.8899048368152414,3,133.5532751349438
+Conversación pública sobre Gustavo Petro,2022-12-01,junta,0.6716409753389817,1,116.8655297089828
+Conversación pública sobre Gustavo Petro,2022-12-01,maduro,1.6544899904907555,3,150.5585891346588
+Conversación pública sobre Gustavo Petro,2022-12-01,salario,2.2719231039450456,6,137.07269393801775
+Conversación pública sobre Gustavo Petro,2023-01-01,caribe,0.49643688631389105,1,133.5415224184367
+Conversación pública sobre Gustavo Petro,2023-01-01,deuda,0.4787373092144901,1,157.50457473156723
+Conversación pública sobre Gustavo Petro,2023-01-01,guerrillero,2.519873115753655,4,133.5532751349438
+Conversación pública sobre Gustavo Petro,2023-01-01,hoja,0.9382696385929302,1,116.34543518552334
+Conversación pública sobre Gustavo Petro,2023-01-01,iván,2.0149229260169452,3,118.88045263499976
+Conversación pública sobre Gustavo Petro,2023-01-01,maduro,0.5514966634969185,1,150.5585891346588
+Conversación pública sobre Gustavo Petro,2023-01-01,salario,0.37865385065750756,1,137.07269393801775
+Conversación pública sobre Gustavo Petro,2023-01-01,toneladas,0.5144553918165693,1,132.2150356968583
+Conversación pública sobre Gustavo Petro,2023-02-01,fraude,1.120591195386885,1,158.0033585495508
+Conversación pública sobre Gustavo Petro,2023-02-01,guerrillero,5.03974623150731,8,133.5532751349438
+Conversación pública sobre Gustavo Petro,2023-02-01,maduro,0.5514966634969185,1,150.5585891346588
+Conversación pública sobre Gustavo Petro,2023-02-01,salario,0.7573077013150151,2,137.07269393801775
+Conversación pública sobre Gustavo Petro,2023-03-01,catatumbo,1.0560526742493137,1,118.27789951592315
+Conversación pública sobre Gustavo Petro,2023-03-01,cepeda,0.858226930919394,1,120.15177032871519
+Conversación pública sobre Gustavo Petro,2023-03-01,constituyente,1.3862943611198906,2,177.44567822334602
+Conversación pública sobre Gustavo Petro,2023-03-01,consulta,0.8842024173226545,1,206.9033656535012
+Conversación pública sobre Gustavo Petro,2023-03-01,guerrillero,5.669714510445724,9,133.5532751349438
+Conversación pública sobre Gustavo Petro,2023-03-01,hoja,0.9382696385929302,1,116.34543518552334
+Conversación pública sobre Gustavo Petro,2023-03-01,maduro,1.102993326993837,2,150.5585891346588
+Conversación pública sobre Gustavo Petro,2023-03-01,tasa,0.4442511331433209,1,198.13600538192108
+Conversación pública sobre Gustavo Petro,2023-03-01,vital,1.3862943611198906,1,173.28679513998634
+Conversación pública sobre Gustavo Petro,2023-04-01,banco,2.359851777298858,4,119.17251475359234
+Conversación pública sobre Gustavo Petro,2023-04-01,campesinado,0.8329091229351039,1,116.60727721091456
+Conversación pública sobre Gustavo Petro,2023-04-01,constituyente,0.6931471805599453,1,177.44567822334602
+Conversación pública sobre Gustavo Petro,2023-04-01,deuda,0.9574746184289802,2,157.50457473156723
+Conversación pública sobre Gustavo Petro,2023-04-01,guerrillero,3.1498413946920687,5,133.5532751349438
+Conversación pública sobre Gustavo Petro,2023-04-01,hoja,0.9382696385929302,1,116.34543518552334
+Conversación pública sobre Gustavo Petro,2023-04-01,junta,0.6716409753389817,1,116.8655297089828
+Conversación pública sobre Gustavo Petro,2023-04-01,maduro,3.8604766444784295,7,150.5585891346588
+Conversación pública sobre Gustavo Petro,2023-04-01,software,1.1895840668738364,1,132.04383142299585
+Conversación pública sobre Gustavo Petro,2023-04-01,tasa,1.3327533994299627,3,198.13600538192108
+Conversación pública sobre Gustavo Petro,2023-05-01,cepeda,0.858226930919394,1,120.15177032871519
+Conversación pública sobre Gustavo Petro,2023-05-01,deuda,1.4362119276434702,3,157.50457473156723
+Conversación pública sobre Gustavo Petro,2023-05-01,guerrillero,2.519873115753655,4,133.5532751349438
+Conversación pública sobre Gustavo Petro,2023-05-01,maduro,0.5514966634969185,1,150.5585891346588
+Conversación pública sobre Gustavo Petro,2023-05-01,salario,0.37865385065750756,1,137.07269393801775
+Conversación pública sobre Gustavo Petro,2023-05-01,toneladas,0.5144553918165693,1,132.2150356968583
+Conversación pública sobre Gustavo Petro,2023-06-01,guerrillero,3.7798096736304827,6,133.5532751349438
+Conversación pública sobre Gustavo Petro,2023-06-01,salario,0.37865385065750756,1,137.07269393801775
+Conversación pública sobre Gustavo Petro,2023-07-01,banco,0.5899629443247145,1,119.17251475359234
+Conversación pública sobre Gustavo Petro,2023-07-01,caribe,0.9928737726277821,2,133.5415224184367
+Conversación pública sobre Gustavo Petro,2023-07-01,guerrillero,6.929651068322552,11,133.5532751349438
+Conversación pública sobre Gustavo Petro,2023-07-01,hoja,1.8765392771858604,2,116.34543518552334
+Conversación pública sobre Gustavo Petro,2023-07-01,iván,2.0149229260169452,3,118.88045263499976
+Conversación pública sobre Gustavo Petro,2023-07-01,maduro,0.5514966634969185,1,150.5585891346588
+Conversación pública sobre Gustavo Petro,2023-07-01,salario,0.37865385065750756,1,137.07269393801775
+Conversación pública sobre Gustavo Petro,2023-07-01,toneladas,0.5144553918165693,1,132.2150356968583
+Conversación pública sobre Gustavo Petro,2023-07-01,trump,0.7151260872787205,1,217.39833053273102
+Conversación pública sobre Gustavo Petro,2023-08-01,catatumbo,1.0560526742493137,1,118.27789951592315
+Conversación pública sobre Gustavo Petro,2023-08-01,fraude,1.120591195386885,1,158.0033585495508
+Conversación pública sobre Gustavo Petro,2023-08-01,guerrillero,1.8899048368152414,3,133.5532751349438
+Conversación pública sobre Gustavo Petro,2023-09-01,banco,0.5899629443247145,1,119.17251475359234
+Conversación pública sobre Gustavo Petro,2023-09-01,consulta,1.768404834645309,2,206.9033656535012
+Conversación pública sobre Gustavo Petro,2023-09-01,deuda,0.4787373092144901,1,157.50457473156723
+Conversación pública sobre Gustavo Petro,2023-09-01,fraude,1.120591195386885,1,158.0033585495508
+Conversación pública sobre Gustavo Petro,2023-09-01,guerrillero,3.1498413946920687,5,133.5532751349438
+Conversación pública sobre Gustavo Petro,2023-09-01,iván,3.3582048766949084,5,118.88045263499976
+Conversación pública sobre Gustavo Petro,2023-09-01,palestina,0.6931471805599453,1,131.00481712582967
+Conversación pública sobre Gustavo Petro,2023-09-01,tasa,0.8885022662866418,2,198.13600538192108
+Conversación pública sobre Gustavo Petro,2023-09-01,toneladas,0.5144553918165693,1,132.2150356968583
+Conversación pública sobre Gustavo Petro,2023-10-01,cepeda,0.858226930919394,1,120.15177032871519
+Conversación pública sobre Gustavo Petro,2023-10-01,eléctrica,0.858226930919394,1,115.86063567411821
+Conversación pública sobre Gustavo Petro,2023-10-01,fraude,1.120591195386885,1,158.0033585495508
+Conversación pública sobre Gustavo Petro,2023-10-01,gaza,5.163192601915454,7,144.5693928536327
+Conversación pública sobre Gustavo Petro,2023-10-01,guerrillero,5.03974623150731,8,133.5532751349438
+Conversación pública sobre Gustavo Petro,2023-10-01,israel,18.902732720247723,31,121.95311432417894
+Conversación pública sobre Gustavo Petro,2023-10-01,iván,2.0149229260169452,3,118.88045263499976
+Conversación pública sobre Gustavo Petro,2023-10-01,maduro,0.5514966634969185,1,150.5585891346588
+Conversación pública sobre Gustavo Petro,2023-10-01,palestina,9.010913347279288,13,131.00481712582967
+Conversación pública sobre Gustavo Petro,2023-11-01,consulta,0.8842024173226545,1,206.9033656535012
+Conversación pública sobre Gustavo Petro,2023-11-01,fraude,2.24118239077377,2,158.0033585495508
+Conversación pública sobre Gustavo Petro,2023-11-01,guerrillero,2.519873115753655,4,133.5532751349438
+Conversación pública sobre Gustavo Petro,2023-11-01,israel,3.6585934297253657,6,121.95311432417894
+Conversación pública sobre Gustavo Petro,2023-11-01,iván,2.0149229260169452,3,118.88045263499976
+Conversación pública sobre Gustavo Petro,2023-11-01,junta,0.6716409753389817,1,116.8655297089828
+Conversación pública sobre Gustavo Petro,2023-11-01,maduro,1.102993326993837,2,150.5585891346588
+Conversación pública sobre Gustavo Petro,2023-11-01,palestina,2.772588722239781,4,131.00481712582967
+Conversación pública sobre Gustavo Petro,2023-11-01,salario,0.37865385065750756,1,137.07269393801775
+Conversación pública sobre Gustavo Petro,2023-11-01,software,1.1895840668738364,1,132.04383142299585
+Conversación pública sobre Gustavo Petro,2023-12-01,banco,0.5899629443247145,1,119.17251475359234
+Conversación pública sobre Gustavo Petro,2023-12-01,cepeda,0.858226930919394,1,120.15177032871519
+Conversación pública sobre Gustavo Petro,2023-12-01,constituyente,0.6931471805599453,1,177.44567822334602
+Conversación pública sobre Gustavo Petro,2023-12-01,gaza,0.7375989431307791,1,144.5693928536327
+Conversación pública sobre Gustavo Petro,2023-12-01,guerrillero,4.409777952568897,7,133.5532751349438
+Conversación pública sobre Gustavo Petro,2023-12-01,hoja,0.9382696385929302,1,116.34543518552334
+Conversación pública sobre Gustavo Petro,2023-12-01,iván,2.0149229260169452,3,118.88045263499976
+Conversación pública sobre Gustavo Petro,2023-12-01,junta,1.3432819506779634,2,116.8655297089828
+Conversación pública sobre Gustavo Petro,2023-12-01,maduro,1.6544899904907555,3,150.5585891346588
+Conversación pública sobre Gustavo Petro,2023-12-01,palestina,2.0794415416798357,3,131.00481712582967
+Conversación pública sobre Gustavo Petro,2023-12-01,salario,1.5146154026300302,4,137.07269393801775
+Conversación pública sobre Gustavo Petro,2023-12-01,software,1.1895840668738364,1,132.04383142299585
+Conversación pública sobre Gustavo Petro,2023-12-01,tasa,1.7770045325732835,4,198.13600538192108
+Conversación pública sobre Gustavo Petro,2024-01-01,constituyente,0.6931471805599453,1,177.44567822334602
+Conversación pública sobre Gustavo Petro,2024-01-01,fraude,3.361773586160655,3,158.0033585495508
+Conversación pública sobre Gustavo Petro,2024-01-01,gaza,0.7375989431307791,1,144.5693928536327
+Conversación pública sobre Gustavo Petro,2024-01-01,guerrillero,2.519873115753655,4,133.5532751349438
+Conversación pública sobre Gustavo Petro,2024-01-01,israel,1.8292967148626829,3,121.95311432417894
+Conversación pública sobre Gustavo Petro,2024-01-01,iván,0.6716409753389817,1,118.88045263499976
+Conversación pública sobre Gustavo Petro,2024-01-01,maduro,4.963469971472266,9,150.5585891346588
+Conversación pública sobre Gustavo Petro,2024-01-01,palestina,2.772588722239781,4,131.00481712582967
+Conversación pública sobre Gustavo Petro,2024-01-01,tasa,0.4442511331433209,1,198.13600538192108
+Conversación pública sobre Gustavo Petro,2024-01-01,toneladas,0.5144553918165693,1,132.2150356968583
+Conversación pública sobre Gustavo Petro,2024-02-01,catatumbo,2.1121053484986274,2,118.27789951592315
+Conversación pública sobre Gustavo Petro,2024-02-01,cepeda,0.858226930919394,1,120.15177032871519
+Conversación pública sobre Gustavo Petro,2024-02-01,constituyente,1.3862943611198906,2,177.44567822334602
+Conversación pública sobre Gustavo Petro,2024-02-01,deuda,0.4787373092144901,1,157.50457473156723
+Conversación pública sobre Gustavo Petro,2024-02-01,gaza,1.4751978862615582,2,144.5693928536327
+Conversación pública sobre Gustavo Petro,2024-02-01,guerrillero,2.519873115753655,4,133.5532751349438
+Conversación pública sobre Gustavo Petro,2024-02-01,israel,1.8292967148626829,3,121.95311432417894
+Conversación pública sobre Gustavo Petro,2024-02-01,iván,1.3432819506779634,2,118.88045263499976
+Conversación pública sobre Gustavo Petro,2024-02-01,salario,0.7573077013150151,2,137.07269393801775
+Conversación pública sobre Gustavo Petro,2024-03-01,campesinado,0.8329091229351039,1,116.60727721091456
+Conversación pública sobre Gustavo Petro,2024-03-01,constituyente,7.6246189861593985,11,177.44567822334602
+Conversación pública sobre Gustavo Petro,2024-03-01,consulta,0.8842024173226545,1,206.9033656535012
+Conversación pública sobre Gustavo Petro,2024-03-01,gaza,1.4751978862615582,2,144.5693928536327
+Conversación pública sobre Gustavo Petro,2024-03-01,guerrillero,1.2599365578768276,2,133.5532751349438
+Conversación pública sobre Gustavo Petro,2024-03-01,israel,4.878124572967154,8,121.95311432417894
+Conversación pública sobre Gustavo Petro,2024-03-01,iván,2.686563901355927,4,118.88045263499976
+Conversación pública sobre Gustavo Petro,2024-03-01,maduro,3.8604766444784295,7,150.5585891346588
+Conversación pública sobre Gustavo Petro,2024-03-01,palestina,2.0794415416798357,3,131.00481712582967
+Conversación pública sobre Gustavo Petro,2024-03-01,trump,0.7151260872787205,1,217.39833053273102
+Conversación pública sobre Gustavo Petro,2024-04-01,caribe,0.49643688631389105,1,133.5415224184367
+Conversación pública sobre Gustavo Petro,2024-04-01,constituyente,2.772588722239781,4,177.44567822334602
+Conversación pública sobre Gustavo Petro,2024-04-01,consulta,0.8842024173226545,1,206.9033656535012
+Conversación pública sobre Gustavo Petro,2024-04-01,gaza,0.7375989431307791,1,144.5693928536327
+Conversación pública sobre Gustavo Petro,2024-04-01,guerrillero,5.669714510445724,9,133.5532751349438
+Conversación pública sobre Gustavo Petro,2024-04-01,israel,3.048827858104471,5,121.95311432417894
+Conversación pública sobre Gustavo Petro,2024-04-01,iván,1.3432819506779634,2,118.88045263499976
+Conversación pública sobre Gustavo Petro,2024-04-01,maduro,3.308979980981511,6,150.5585891346588
+Conversación pública sobre Gustavo Petro,2024-04-01,salario,1.1359615519725228,3,137.07269393801775
+Conversación pública sobre Gustavo Petro,2024-05-01,constituyente,4.1588830833596715,6,177.44567822334602
+Conversación pública sobre Gustavo Petro,2024-05-01,deuda,0.4787373092144901,1,157.50457473156723
+Conversación pública sobre Gustavo Petro,2024-05-01,gaza,1.4751978862615582,2,144.5693928536327
+Conversación pública sobre Gustavo Petro,2024-05-01,guerrillero,3.1498413946920687,5,133.5532751349438
+Conversación pública sobre Gustavo Petro,2024-05-01,israel,1.2195311432417886,2,121.95311432417894
+Conversación pública sobre Gustavo Petro,2024-05-01,iván,2.686563901355927,4,118.88045263499976
+Conversación pública sobre Gustavo Petro,2024-05-01,maduro,0.5514966634969185,1,150.5585891346588
+Conversación pública sobre Gustavo Petro,2024-05-01,palestina,2.0794415416798357,3,131.00481712582967
+Conversación pública sobre Gustavo Petro,2024-05-01,salario,0.7573077013150151,2,137.07269393801775
+Conversación pública sobre Gustavo Petro,2024-05-01,tasa,1.3327533994299627,3,198.13600538192108
+Conversación pública sobre Gustavo Petro,2024-06-01,caribe,0.49643688631389105,1,133.5415224184367
+Conversación pública sobre Gustavo Petro,2024-06-01,constituyente,2.772588722239781,4,177.44567822334602
+Conversación pública sobre Gustavo Petro,2024-06-01,consulta,0.8842024173226545,1,206.9033656535012
+Conversación pública sobre Gustavo Petro,2024-06-01,guerrillero,1.8899048368152414,3,133.5532751349438
+Conversación pública sobre Gustavo Petro,2024-06-01,israel,0.6097655716208943,1,121.95311432417894
+Conversación pública sobre Gustavo Petro,2024-06-01,iván,0.6716409753389817,1,118.88045263499976
+Conversación pública sobre Gustavo Petro,2024-06-01,maduro,0.5514966634969185,1,150.5585891346588
+Conversación pública sobre Gustavo Petro,2024-06-01,palestina,2.0794415416798357,3,131.00481712582967
+Conversación pública sobre Gustavo Petro,2024-06-01,salario,0.37865385065750756,1,137.07269393801775
+Conversación pública sobre Gustavo Petro,2024-06-01,tasa,0.4442511331433209,1,198.13600538192108
+Conversación pública sobre Gustavo Petro,2024-06-01,vital,1.3862943611198906,1,173.28679513998634
+Conversación pública sobre Gustavo Petro,2024-07-01,caribe,0.9928737726277821,2,133.5415224184367
+Conversación pública sobre Gustavo Petro,2024-07-01,constituyente,6.931471805599453,10,177.44567822334602
+Conversación pública sobre Gustavo Petro,2024-07-01,fraude,4.48236478154754,4,158.0033585495508
+Conversación pública sobre Gustavo Petro,2024-07-01,gaza,2.9503957725231165,4,144.5693928536327
+Conversación pública sobre Gustavo Petro,2024-07-01,guerrillero,3.7798096736304827,6,133.5532751349438
+Conversación pública sobre Gustavo Petro,2024-07-01,israel,1.2195311432417886,2,121.95311432417894
+Conversación pública sobre Gustavo Petro,2024-07-01,iván,1.3432819506779634,2,118.88045263499976
+Conversación pública sobre Gustavo Petro,2024-07-01,maduro,12.132926596932208,22,150.5585891346588
+Conversación pública sobre Gustavo Petro,2024-07-01,palestina,3.4657359027997265,5,131.00481712582967
+Conversación pública sobre Gustavo Petro,2024-07-01,salario,0.37865385065750756,1,137.07269393801775
+Conversación pública sobre Gustavo Petro,2024-07-01,trump,2.860504349114882,4,217.39833053273102
+Conversación pública sobre Gustavo Petro,2024-08-01,banco,0.5899629443247145,1,119.17251475359234
+Conversación pública sobre Gustavo Petro,2024-08-01,constituyente,1.3862943611198906,2,177.44567822334602
+Conversación pública sobre Gustavo Petro,2024-08-01,deuda,0.4787373092144901,1,157.50457473156723
+Conversación pública sobre Gustavo Petro,2024-08-01,fraude,2.24118239077377,2,158.0033585495508
+Conversación pública sobre Gustavo Petro,2024-08-01,guerrillero,5.03974623150731,8,133.5532751349438
+Conversación pública sobre Gustavo Petro,2024-08-01,israel,1.2195311432417886,2,121.95311432417894
+Conversación pública sobre Gustavo Petro,2024-08-01,junta,0.6716409753389817,1,116.8655297089828
+Conversación pública sobre Gustavo Petro,2024-08-01,maduro,14.33891325091988,26,150.5585891346588
+Conversación pública sobre Gustavo Petro,2024-08-01,palestina,2.0794415416798357,3,131.00481712582967
+Conversación pública sobre Gustavo Petro,2024-09-01,caribe,0.9928737726277821,2,133.5415224184367
+Conversación pública sobre Gustavo Petro,2024-09-01,cepeda,2.5746807927581816,3,120.15177032871519
+Conversación pública sobre Gustavo Petro,2024-09-01,constituyente,0.6931471805599453,1,177.44567822334602
+Conversación pública sobre Gustavo Petro,2024-09-01,deuda,0.4787373092144901,1,157.50457473156723
+Conversación pública sobre Gustavo Petro,2024-09-01,fraude,1.120591195386885,1,158.0033585495508
+Conversación pública sobre Gustavo Petro,2024-09-01,gaza,0.7375989431307791,1,144.5693928536327
+Conversación pública sobre Gustavo Petro,2024-09-01,guerrillero,1.8899048368152414,3,133.5532751349438
+Conversación pública sobre Gustavo Petro,2024-09-01,israel,0.6097655716208943,1,121.95311432417894
+Conversación pública sobre Gustavo Petro,2024-09-01,maduro,4.411973307975348,8,150.5585891346588
+Conversación pública sobre Gustavo Petro,2024-09-01,software,3.5687522006215096,3,132.04383142299585
+Conversación pública sobre Gustavo Petro,2024-10-01,cepeda,0.858226930919394,1,120.15177032871519
+Conversación pública sobre Gustavo Petro,2024-10-01,deuda,0.4787373092144901,1,157.50457473156723
+Conversación pública sobre Gustavo Petro,2024-10-01,gaza,0.7375989431307791,1,144.5693928536327
+Conversación pública sobre Gustavo Petro,2024-10-01,guerrillero,3.7798096736304827,6,133.5532751349438
+Conversación pública sobre Gustavo Petro,2024-10-01,israel,3.048827858104471,5,121.95311432417894
+Conversación pública sobre Gustavo Petro,2024-10-01,iván,2.0149229260169452,3,118.88045263499976
+Conversación pública sobre Gustavo Petro,2024-10-01,maduro,2.7574833174845925,5,150.5585891346588
+Conversación pública sobre Gustavo Petro,2024-10-01,salario,0.37865385065750756,1,137.07269393801775
+Conversación pública sobre Gustavo Petro,2024-10-01,software,2.379168133747673,2,132.04383142299585
+Conversación pública sobre Gustavo Petro,2024-10-01,toneladas,0.5144553918165693,1,132.2150356968583
+Conversación pública sobre Gustavo Petro,2024-10-01,trump,2.1453782618361616,3,217.39833053273102
+Conversación pública sobre Gustavo Petro,2024-11-01,banco,1.179925888649429,2,119.17251475359234
+Conversación pública sobre Gustavo Petro,2024-11-01,guerrillero,2.519873115753655,4,133.5532751349438
+Conversación pública sobre Gustavo Petro,2024-11-01,maduro,1.6544899904907555,3,150.5585891346588
+Conversación pública sobre Gustavo Petro,2024-11-01,salario,1.1359615519725228,3,137.07269393801775
+Conversación pública sobre Gustavo Petro,2024-11-01,software,1.1895840668738364,1,132.04383142299585
+Conversación pública sobre Gustavo Petro,2024-11-01,trump,2.860504349114882,4,217.39833053273102
+Conversación pública sobre Gustavo Petro,2024-11-01,vital,1.3862943611198906,1,173.28679513998634
+Conversación pública sobre Gustavo Petro,2024-12-01,banco,0.5899629443247145,1,119.17251475359234
+Conversación pública sobre Gustavo Petro,2024-12-01,deuda,0.9574746184289802,2,157.50457473156723
+Conversación pública sobre Gustavo Petro,2024-12-01,fraude,1.120591195386885,1,158.0033585495508
+Conversación pública sobre Gustavo Petro,2024-12-01,guerrillero,3.1498413946920687,5,133.5532751349438
+Conversación pública sobre Gustavo Petro,2024-12-01,hoja,0.9382696385929302,1,116.34543518552334
+Conversación pública sobre Gustavo Petro,2024-12-01,junta,2.0149229260169452,3,116.8655297089828
+Conversación pública sobre Gustavo Petro,2024-12-01,maduro,2.205986653987674,4,150.5585891346588
+Conversación pública sobre Gustavo Petro,2024-12-01,palestina,1.3862943611198906,2,131.00481712582967
+Conversación pública sobre Gustavo Petro,2024-12-01,salario,4.922500058547598,13,137.07269393801775
+Conversación pública sobre Gustavo Petro,2024-12-01,software,1.1895840668738364,1,132.04383142299585
+Conversación pública sobre Gustavo Petro,2024-12-01,tasa,0.4442511331433209,1,198.13600538192108
+Conversación pública sobre Gustavo Petro,2024-12-01,trump,2.860504349114882,4,217.39833053273102
+Conversación pública sobre Gustavo Petro,2025-01-01,banco,0.5899629443247145,1,119.17251475359234
+Conversación pública sobre Gustavo Petro,2025-01-01,campesinado,0.8329091229351039,1,116.60727721091456
+Conversación pública sobre Gustavo Petro,2025-01-01,caribe,0.9928737726277821,2,133.5415224184367
+Conversación pública sobre Gustavo Petro,2025-01-01,catatumbo,12.672632090991765,12,118.27789951592315
+Conversación pública sobre Gustavo Petro,2025-01-01,constituyente,0.6931471805599453,1,177.44567822334602
+Conversación pública sobre Gustavo Petro,2025-01-01,fraude,3.361773586160655,3,158.0033585495508
+Conversación pública sobre Gustavo Petro,2025-01-01,gaza,2.2127968293923375,3,144.5693928536327
+Conversación pública sobre Gustavo Petro,2025-01-01,guerrillero,1.8899048368152414,3,133.5532751349438
+Conversación pública sobre Gustavo Petro,2025-01-01,hoja,2.8148089157787908,3,116.34543518552334
+Conversación pública sobre Gustavo Petro,2025-01-01,israel,1.2195311432417886,2,121.95311432417894
+Conversación pública sobre Gustavo Petro,2025-01-01,iván,1.3432819506779634,2,118.88045263499976
+Conversación pública sobre Gustavo Petro,2025-01-01,maduro,13.787416587422962,25,150.5585891346588
+Conversación pública sobre Gustavo Petro,2025-01-01,palestina,0.6931471805599453,1,131.00481712582967
+Conversación pública sobre Gustavo Petro,2025-01-01,salario,0.7573077013150151,2,137.07269393801775
+Conversación pública sobre Gustavo Petro,2025-01-01,software,1.1895840668738364,1,132.04383142299585
+Conversación pública sobre Gustavo Petro,2025-01-01,toneladas,0.5144553918165693,1,132.2150356968583
+Conversación pública sobre Gustavo Petro,2025-01-01,trump,6.436134785508485,9,217.39833053273102
+Conversación pública sobre Gustavo Petro,2025-02-01,catatumbo,6.336316045495883,6,118.27789951592315
+Conversación pública sobre Gustavo Petro,2025-02-01,cepeda,0.858226930919394,1,120.15177032871519
+Conversación pública sobre Gustavo Petro,2025-02-01,constituyente,1.3862943611198906,2,177.44567822334602
+Conversación pública sobre Gustavo Petro,2025-02-01,consulta,0.8842024173226545,1,206.9033656535012
+Conversación pública sobre Gustavo Petro,2025-02-01,gaza,1.4751978862615582,2,144.5693928536327
+Conversación pública sobre Gustavo Petro,2025-02-01,guerrillero,1.2599365578768276,2,133.5532751349438
+Conversación pública sobre Gustavo Petro,2025-02-01,iván,0.6716409753389817,1,118.88045263499976
+Conversación pública sobre Gustavo Petro,2025-02-01,maduro,1.6544899904907555,3,150.5585891346588
+Conversación pública sobre Gustavo Petro,2025-02-01,software,1.1895840668738364,1,132.04383142299585
+Conversación pública sobre Gustavo Petro,2025-02-01,tasa,0.4442511331433209,1,198.13600538192108
+Conversación pública sobre Gustavo Petro,2025-02-01,trump,5.005882610951043,7,217.39833053273102
+Conversación pública sobre Gustavo Petro,2025-03-01,catatumbo,3.1681580227479413,3,118.27789951592315
+Conversación pública sobre Gustavo Petro,2025-03-01,constituyente,1.3862943611198906,2,177.44567822334602
+Conversación pública sobre Gustavo Petro,2025-03-01,consulta,17.68404834645309,20,206.9033656535012
+Conversación pública sobre Gustavo Petro,2025-03-01,deuda,0.4787373092144901,1,157.50457473156723
+Conversación pública sobre Gustavo Petro,2025-03-01,guerrillero,1.2599365578768276,2,133.5532751349438
+Conversación pública sobre Gustavo Petro,2025-03-01,israel,0.6097655716208943,1,121.95311432417894
+Conversación pública sobre Gustavo Petro,2025-03-01,junta,0.6716409753389817,1,116.8655297089828
+Conversación pública sobre Gustavo Petro,2025-03-01,maduro,0.5514966634969185,1,150.5585891346588
+Conversación pública sobre Gustavo Petro,2025-03-01,toneladas,0.5144553918165693,1,132.2150356968583
+Conversación pública sobre Gustavo Petro,2025-03-01,trump,2.1453782618361616,3,217.39833053273102
+Conversación pública sobre Gustavo Petro,2025-04-01,banco,0.5899629443247145,1,119.17251475359234
+Conversación pública sobre Gustavo Petro,2025-04-01,cepeda,2.5746807927581816,3,120.15177032871519
+Conversación pública sobre Gustavo Petro,2025-04-01,consulta,7.073619338581236,8,206.9033656535012
+Conversación pública sobre Gustavo Petro,2025-04-01,deuda,0.4787373092144901,1,157.50457473156723
+Conversación pública sobre Gustavo Petro,2025-04-01,guerrillero,1.8899048368152414,3,133.5532751349438
+Conversación pública sobre Gustavo Petro,2025-04-01,hoja,0.9382696385929302,1,116.34543518552334
+Conversación pública sobre Gustavo Petro,2025-04-01,iván,1.3432819506779634,2,118.88045263499976
+Conversación pública sobre Gustavo Petro,2025-04-01,junta,0.6716409753389817,1,116.8655297089828
+Conversación pública sobre Gustavo Petro,2025-04-01,maduro,0.5514966634969185,1,150.5585891346588
+Conversación pública sobre Gustavo Petro,2025-04-01,palestina,0.6931471805599453,1,131.00481712582967
+Conversación pública sobre Gustavo Petro,2025-04-01,salario,0.37865385065750756,1,137.07269393801775
+Conversación pública sobre Gustavo Petro,2025-04-01,tasa,1.7770045325732835,4,198.13600538192108
+Conversación pública sobre Gustavo Petro,2025-04-01,toneladas,0.5144553918165693,1,132.2150356968583
+Conversación pública sobre Gustavo Petro,2025-04-01,trump,4.290756523672323,6,217.39833053273102
+Conversación pública sobre Gustavo Petro,2025-05-01,cepeda,1.716453861838788,2,120.15177032871519
+Conversación pública sobre Gustavo Petro,2025-05-01,constituyente,2.772588722239781,4,177.44567822334602
+Conversación pública sobre Gustavo Petro,2025-05-01,consulta,21.22085801574371,24,206.9033656535012
+Conversación pública sobre Gustavo Petro,2025-05-01,deuda,0.4787373092144901,1,157.50457473156723
+Conversación pública sobre Gustavo Petro,2025-05-01,fraude,3.361773586160655,3,158.0033585495508
+Conversación pública sobre Gustavo Petro,2025-05-01,gaza,2.2127968293923375,3,144.5693928536327
+Conversación pública sobre Gustavo Petro,2025-05-01,guerrillero,3.1498413946920687,5,133.5532751349438
+Conversación pública sobre Gustavo Petro,2025-05-01,israel,1.2195311432417886,2,121.95311432417894
+Conversación pública sobre Gustavo Petro,2025-05-01,iván,1.3432819506779634,2,118.88045263499976
+Conversación pública sobre Gustavo Petro,2025-05-01,maduro,1.102993326993837,2,150.5585891346588
+Conversación pública sobre Gustavo Petro,2025-05-01,palestina,1.3862943611198906,2,131.00481712582967
+Conversación pública sobre Gustavo Petro,2025-05-01,trump,2.1453782618361616,3,217.39833053273102
+Conversación pública sobre Gustavo Petro,2025-06-01,caribe,0.49643688631389105,1,133.5415224184367
+Conversación pública sobre Gustavo Petro,2025-06-01,catatumbo,1.0560526742493137,1,118.27789951592315
+Conversación pública sobre Gustavo Petro,2025-06-01,cepeda,1.716453861838788,2,120.15177032871519
+Conversación pública sobre Gustavo Petro,2025-06-01,constituyente,2.772588722239781,4,177.44567822334602
+Conversación pública sobre Gustavo Petro,2025-06-01,consulta,15.915643511807781,18,206.9033656535012
+Conversación pública sobre Gustavo Petro,2025-06-01,deuda,1.9149492368579604,4,157.50457473156723
+Conversación pública sobre Gustavo Petro,2025-06-01,fraude,1.120591195386885,1,158.0033585495508
+Conversación pública sobre Gustavo Petro,2025-06-01,gaza,1.4751978862615582,2,144.5693928536327
+Conversación pública sobre Gustavo Petro,2025-06-01,guerrillero,2.519873115753655,4,133.5532751349438
+Conversación pública sobre Gustavo Petro,2025-06-01,israel,2.439062286483577,4,121.95311432417894
+Conversación pública sobre Gustavo Petro,2025-06-01,iván,0.6716409753389817,1,118.88045263499976
+Conversación pública sobre Gustavo Petro,2025-06-01,maduro,2.205986653987674,4,150.5585891346588
+Conversación pública sobre Gustavo Petro,2025-06-01,palestina,0.6931471805599453,1,131.00481712582967
+Conversación pública sobre Gustavo Petro,2025-06-01,salario,1.1359615519725228,3,137.07269393801775
+Conversación pública sobre Gustavo Petro,2025-06-01,software,1.1895840668738364,1,132.04383142299585
+Conversación pública sobre Gustavo Petro,2025-06-01,tasa,0.4442511331433209,1,198.13600538192108
+Conversación pública sobre Gustavo Petro,2025-06-01,trump,1.430252174557441,2,217.39833053273102
+Conversación pública sobre Gustavo Petro,2025-07-01,cepeda,2.5746807927581816,3,120.15177032871519
+Conversación pública sobre Gustavo Petro,2025-07-01,constituyente,0.6931471805599453,1,177.44567822334602
+Conversación pública sobre Gustavo Petro,2025-07-01,consulta,2.6526072519679635,3,206.9033656535012
+Conversación pública sobre Gustavo Petro,2025-07-01,eléctrica,0.858226930919394,1,115.86063567411821
+Conversación pública sobre Gustavo Petro,2025-07-01,fraude,1.120591195386885,1,158.0033585495508
+Conversación pública sobre Gustavo Petro,2025-07-01,guerrillero,3.7798096736304827,6,133.5532751349438
+Conversación pública sobre Gustavo Petro,2025-07-01,israel,2.439062286483577,4,121.95311432417894
+Conversación pública sobre Gustavo Petro,2025-07-01,iván,1.3432819506779634,2,118.88045263499976
+Conversación pública sobre Gustavo Petro,2025-07-01,maduro,3.8604766444784295,7,150.5585891346588
+Conversación pública sobre Gustavo Petro,2025-07-01,salario,0.37865385065750756,1,137.07269393801775
+Conversación pública sobre Gustavo Petro,2025-07-01,software,4.758336267495346,4,132.04383142299585
+Conversación pública sobre Gustavo Petro,2025-07-01,tasa,0.4442511331433209,1,198.13600538192108
+Conversación pública sobre Gustavo Petro,2025-07-01,toneladas,0.5144553918165693,1,132.2150356968583
+Conversación pública sobre Gustavo Petro,2025-07-01,trump,4.290756523672323,6,217.39833053273102
+Conversación pública sobre Gustavo Petro,2025-08-01,banco,1.179925888649429,2,119.17251475359234
+Conversación pública sobre Gustavo Petro,2025-08-01,caribe,0.9928737726277821,2,133.5415224184367
+Conversación pública sobre Gustavo Petro,2025-08-01,consulta,0.8842024173226545,1,206.9033656535012
+Conversación pública sobre Gustavo Petro,2025-08-01,guerrillero,2.519873115753655,4,133.5532751349438
+Conversación pública sobre Gustavo Petro,2025-08-01,hoja,0.9382696385929302,1,116.34543518552334
+Conversación pública sobre Gustavo Petro,2025-08-01,israel,0.6097655716208943,1,121.95311432417894
+Conversación pública sobre Gustavo Petro,2025-08-01,iván,2.0149229260169452,3,118.88045263499976
+Conversación pública sobre Gustavo Petro,2025-08-01,junta,1.3432819506779634,2,116.8655297089828
+Conversación pública sobre Gustavo Petro,2025-08-01,maduro,7.16945662545994,13,150.5585891346588
+Conversación pública sobre Gustavo Petro,2025-08-01,palestina,1.3862943611198906,2,131.00481712582967
+Conversación pública sobre Gustavo Petro,2025-08-01,salario,0.37865385065750756,1,137.07269393801775
+Conversación pública sobre Gustavo Petro,2025-08-01,tasa,0.4442511331433209,1,198.13600538192108
+Conversación pública sobre Gustavo Petro,2025-08-01,toneladas,1.0289107836331386,2,132.2150356968583
+Conversación pública sobre Gustavo Petro,2025-08-01,trump,5.005882610951043,7,217.39833053273102
+Conversación pública sobre Gustavo Petro,2025-09-01,cepeda,0.858226930919394,1,120.15177032871519
+Conversación pública sobre Gustavo Petro,2025-09-01,constituyente,4.852030263919617,7,177.44567822334602
+Conversación pública sobre Gustavo Petro,2025-09-01,consulta,3.536809669290618,4,206.9033656535012
+Conversación pública sobre Gustavo Petro,2025-09-01,gaza,4.425593658784675,6,144.5693928536327
+Conversación pública sobre Gustavo Petro,2025-09-01,guerrillero,1.8899048368152414,3,133.5532751349438
+Conversación pública sobre Gustavo Petro,2025-09-01,israel,1.8292967148626829,3,121.95311432417894
+Conversación pública sobre Gustavo Petro,2025-09-01,maduro,2.7574833174845925,5,150.5585891346588
+Conversación pública sobre Gustavo Petro,2025-09-01,palestina,5.545177444479562,8,131.00481712582967
+Conversación pública sobre Gustavo Petro,2025-09-01,toneladas,2.057821567266277,4,132.2150356968583
+Conversación pública sobre Gustavo Petro,2025-09-01,trump,3.5756304363936025,5,217.39833053273102
+Conversación pública sobre Gustavo Petro,2025-10-01,banco,0.5899629443247145,1,119.17251475359234
+Conversación pública sobre Gustavo Petro,2025-10-01,caribe,1.9857475452555642,4,133.5415224184367
+Conversación pública sobre Gustavo Petro,2025-10-01,catatumbo,2.1121053484986274,2,118.27789951592315
+Conversación pública sobre Gustavo Petro,2025-10-01,cepeda,2.5746807927581816,3,120.15177032871519
+Conversación pública sobre Gustavo Petro,2025-10-01,constituyente,2.772588722239781,4,177.44567822334602
+Conversación pública sobre Gustavo Petro,2025-10-01,consulta,7.957821755903891,9,206.9033656535012
+Conversación pública sobre Gustavo Petro,2025-10-01,deuda,0.4787373092144901,1,157.50457473156723
+Conversación pública sobre Gustavo Petro,2025-10-01,gaza,7.375989431307791,10,144.5693928536327
+Conversación pública sobre Gustavo Petro,2025-10-01,guerrillero,3.1498413946920687,5,133.5532751349438
+Conversación pública sobre Gustavo Petro,2025-10-01,israel,6.707421287829837,11,121.95311432417894
+Conversación pública sobre Gustavo Petro,2025-10-01,iván,3.3582048766949084,5,118.88045263499976
+Conversación pública sobre Gustavo Petro,2025-10-01,maduro,3.8604766444784295,7,150.5585891346588
+Conversación pública sobre Gustavo Petro,2025-10-01,palestina,3.4657359027997265,5,131.00481712582967
+Conversación pública sobre Gustavo Petro,2025-10-01,salario,1.8932692532875377,5,137.07269393801775
+Conversación pública sobre Gustavo Petro,2025-10-01,toneladas,1.0289107836331386,2,132.2150356968583
+Conversación pública sobre Gustavo Petro,2025-10-01,trump,15.732773920131851,22,217.39833053273102
+Conversación pública sobre Gustavo Petro,2025-11-01,caribe,1.4893106589416731,3,133.5415224184367
+Conversación pública sobre Gustavo Petro,2025-11-01,cepeda,1.716453861838788,2,120.15177032871519
+Conversación pública sobre Gustavo Petro,2025-11-01,constituyente,0.6931471805599453,1,177.44567822334602
+Conversación pública sobre Gustavo Petro,2025-11-01,gaza,1.4751978862615582,2,144.5693928536327
+Conversación pública sobre Gustavo Petro,2025-11-01,guerrillero,1.8899048368152414,3,133.5532751349438
+Conversación pública sobre Gustavo Petro,2025-11-01,hoja,0.9382696385929302,1,116.34543518552334
+Conversación pública sobre Gustavo Petro,2025-11-01,iván,2.0149229260169452,3,118.88045263499976
+Conversación pública sobre Gustavo Petro,2025-11-01,junta,0.6716409753389817,1,116.8655297089828
+Conversación pública sobre Gustavo Petro,2025-11-01,maduro,3.308979980981511,6,150.5585891346588
+Conversación pública sobre Gustavo Petro,2025-11-01,salario,1.5146154026300302,4,137.07269393801775
+Conversación pública sobre Gustavo Petro,2025-11-01,software,1.1895840668738364,1,132.04383142299585
+Conversación pública sobre Gustavo Petro,2025-11-01,trump,7.151260872787205,10,217.39833053273102
+Conversación pública sobre Gustavo Petro,2025-11-01,vital,1.3862943611198906,1,173.28679513998634
+Conversación pública sobre Gustavo Petro,2025-12-01,caribe,0.49643688631389105,1,133.5415224184367
+Conversación pública sobre Gustavo Petro,2025-12-01,catatumbo,1.0560526742493137,1,118.27789951592315
+Conversación pública sobre Gustavo Petro,2025-12-01,cepeda,6.007588516435757,7,120.15177032871519
+Conversación pública sobre Gustavo Petro,2025-12-01,constituyente,7.6246189861593985,11,177.44567822334602
+Conversación pública sobre Gustavo Petro,2025-12-01,consulta,1.768404834645309,2,206.9033656535012
+Conversación pública sobre Gustavo Petro,2025-12-01,deuda,0.9574746184289802,2,157.50457473156723
+Conversación pública sobre Gustavo Petro,2025-12-01,fraude,1.120591195386885,1,158.0033585495508
+Conversación pública sobre Gustavo Petro,2025-12-01,gaza,0.7375989431307791,1,144.5693928536327
+Conversación pública sobre Gustavo Petro,2025-12-01,guerrillero,0.6299682789384138,1,133.5532751349438
+Conversación pública sobre Gustavo Petro,2025-12-01,iván,4.0298458520338905,6,118.88045263499976
+Conversación pública sobre Gustavo Petro,2025-12-01,junta,0.6716409753389817,1,116.8655297089828
+Conversación pública sobre Gustavo Petro,2025-12-01,maduro,4.963469971472266,9,150.5585891346588
+Conversación pública sobre Gustavo Petro,2025-12-01,salario,6.815769311835136,18,137.07269393801775
+Conversación pública sobre Gustavo Petro,2025-12-01,trump,8.581513047344647,12,217.39833053273102
+Conversación pública sobre Gustavo Petro,2025-12-01,vital,2.772588722239781,2,173.28679513998634
+Conversación pública sobre Gustavo Petro,2026-01-01,banco,0.5899629443247145,1,119.17251475359234
+Conversación pública sobre Gustavo Petro,2026-01-01,cepeda,5.149361585516363,6,120.15177032871519
+Conversación pública sobre Gustavo Petro,2026-01-01,constituyente,1.3862943611198906,2,177.44567822334602
+Conversación pública sobre Gustavo Petro,2026-01-01,consulta,1.768404834645309,2,206.9033656535012
+Conversación pública sobre Gustavo Petro,2026-01-01,deuda,2.3936865460724506,5,157.50457473156723
+Conversación pública sobre Gustavo Petro,2026-01-01,guerrillero,1.8899048368152414,3,133.5532751349438
+Conversación pública sobre Gustavo Petro,2026-01-01,israel,1.2195311432417886,2,121.95311432417894
+Conversación pública sobre Gustavo Petro,2026-01-01,iván,3.3582048766949084,5,118.88045263499976
+Conversación pública sobre Gustavo Petro,2026-01-01,maduro,8.272449952453778,15,150.5585891346588
+Conversación pública sobre Gustavo Petro,2026-01-01,palestina,0.6931471805599453,1,131.00481712582967
+Conversación pública sobre Gustavo Petro,2026-01-01,salario,5.679807759862613,15,137.07269393801775
+Conversación pública sobre Gustavo Petro,2026-01-01,trump,15.732773920131851,22,217.39833053273102
+Conversación pública sobre Gustavo Petro,2026-01-01,vital,2.772588722239781,2,173.28679513998634
+Conversación pública sobre Gustavo Petro,2026-02-01,banco,0.5899629443247145,1,119.17251475359234
+Conversación pública sobre Gustavo Petro,2026-02-01,caribe,0.9928737726277821,2,133.5415224184367
+Conversación pública sobre Gustavo Petro,2026-02-01,cepeda,6.865815447355152,8,120.15177032871519
+Conversación pública sobre Gustavo Petro,2026-02-01,constituyente,1.3862943611198906,2,177.44567822334602
+Conversación pública sobre Gustavo Petro,2026-02-01,consulta,3.536809669290618,4,206.9033656535012
+Conversación pública sobre Gustavo Petro,2026-02-01,fraude,7.8441383677081955,7,158.0033585495508
+Conversación pública sobre Gustavo Petro,2026-02-01,gaza,0.7375989431307791,1,144.5693928536327
+Conversación pública sobre Gustavo Petro,2026-02-01,guerrillero,1.2599365578768276,2,133.5532751349438
+Conversación pública sobre Gustavo Petro,2026-02-01,iván,2.686563901355927,4,118.88045263499976
+Conversación pública sobre Gustavo Petro,2026-02-01,salario,3.7865385065750754,10,137.07269393801775
+Conversación pública sobre Gustavo Petro,2026-02-01,software,1.1895840668738364,1,132.04383142299585
+Conversación pública sobre Gustavo Petro,2026-02-01,trump,2.860504349114882,4,217.39833053273102
+Conversación pública sobre Gustavo Petro,2026-02-01,vital,8.317766166719343,6,173.28679513998634
+Conversación pública sobre Gustavo Petro,2026-03-01,banco,1.179925888649429,2,119.17251475359234
+Conversación pública sobre Gustavo Petro,2026-03-01,cepeda,13.731630894710303,16,120.15177032871519
+Conversación pública sobre Gustavo Petro,2026-03-01,constituyente,0.6931471805599453,1,177.44567822334602
+Conversación pública sobre Gustavo Petro,2026-03-01,consulta,2.6526072519679635,3,206.9033656535012
+Conversación pública sobre Gustavo Petro,2026-03-01,deuda,0.4787373092144901,1,157.50457473156723
+Conversación pública sobre Gustavo Petro,2026-03-01,fraude,11.20591195386885,10,158.0033585495508
+Conversación pública sobre Gustavo Petro,2026-03-01,guerrillero,3.1498413946920687,5,133.5532751349438
+Conversación pública sobre Gustavo Petro,2026-03-01,israel,2.439062286483577,4,121.95311432417894
+Conversación pública sobre Gustavo Petro,2026-03-01,iván,4.701486827372872,7,118.88045263499976
+Conversación pública sobre Gustavo Petro,2026-03-01,junta,2.686563901355927,4,116.8655297089828
+Conversación pública sobre Gustavo Petro,2026-03-01,maduro,1.102993326993837,2,150.5585891346588
+Conversación pública sobre Gustavo Petro,2026-03-01,salario,1.5146154026300302,4,137.07269393801775
+Conversación pública sobre Gustavo Petro,2026-03-01,software,3.5687522006215096,3,132.04383142299585
+Conversación pública sobre Gustavo Petro,2026-03-01,tasa,0.8885022662866418,2,198.13600538192108
+Conversación pública sobre Gustavo Petro,2026-03-01,trump,7.151260872787205,10,217.39833053273102
+Conversación pública sobre Gustavo Petro,2026-03-01,vital,1.3862943611198906,1,173.28679513998634
+Conversación pública sobre Gustavo Petro,2026-04-01,banco,2.9498147216235724,5,119.17251475359234
+Conversación pública sobre Gustavo Petro,2026-04-01,campesinado,0.8329091229351039,1,116.60727721091456
+Conversación pública sobre Gustavo Petro,2026-04-01,catatumbo,1.0560526742493137,1,118.27789951592315
+Conversación pública sobre Gustavo Petro,2026-04-01,cepeda,9.440496240113333,11,120.15177032871519
+Conversación pública sobre Gustavo Petro,2026-04-01,deuda,3.8298984737159207,8,157.50457473156723
+Conversación pública sobre Gustavo Petro,2026-04-01,fraude,4.48236478154754,4,158.0033585495508
+Conversación pública sobre Gustavo Petro,2026-04-01,guerrillero,2.519873115753655,4,133.5532751349438
+Conversación pública sobre Gustavo Petro,2026-04-01,iván,6.044768778050836,9,118.88045263499976
+Conversación pública sobre Gustavo Petro,2026-04-01,junta,1.3432819506779634,2,116.8655297089828
+Conversación pública sobre Gustavo Petro,2026-04-01,maduro,1.6544899904907555,3,150.5585891346588
+Conversación pública sobre Gustavo Petro,2026-04-01,salario,1.1359615519725228,3,137.07269393801775
+Conversación pública sobre Gustavo Petro,2026-04-01,tasa,0.8885022662866418,2,198.13600538192108
+Conversación pública sobre Gustavo Petro,2026-04-01,toneladas,0.5144553918165693,1,132.2150356968583
+Conversación pública sobre Gustavo Petro,2026-04-01,trump,3.5756304363936025,5,217.39833053273102
+Conversación pública sobre Gustavo Petro,2026-04-01,vital,1.3862943611198906,1,173.28679513998634
+Conversación pública sobre Gustavo Petro,2026-05-01,banco,0.5899629443247145,1,119.17251475359234
+Conversación pública sobre Gustavo Petro,2026-05-01,cepeda,14.589857825629696,17,120.15177032871519
+Conversación pública sobre Gustavo Petro,2026-05-01,constituyente,4.1588830833596715,6,177.44567822334602
+Conversación pública sobre Gustavo Petro,2026-05-01,deuda,0.4787373092144901,1,157.50457473156723
+Conversación pública sobre Gustavo Petro,2026-05-01,eléctrica,0.858226930919394,1,115.86063567411821
+Conversación pública sobre Gustavo Petro,2026-05-01,fraude,2.24118239077377,2,158.0033585495508
+Conversación pública sobre Gustavo Petro,2026-05-01,guerrillero,5.03974623150731,8,133.5532751349438
+Conversación pública sobre Gustavo Petro,2026-05-01,iván,6.044768778050836,9,118.88045263499976
+Conversación pública sobre Gustavo Petro,2026-05-01,junta,0.6716409753389817,1,116.8655297089828
+Conversación pública sobre Gustavo Petro,2026-05-01,maduro,1.102993326993837,2,150.5585891346588
+Conversación pública sobre Gustavo Petro,2026-05-01,salario,1.1359615519725228,3,137.07269393801775
+Conversación pública sobre Gustavo Petro,2026-05-01,trump,1.430252174557441,2,217.39833053273102
+Conversación pública sobre Gustavo Petro,2026-05-01,vital,2.772588722239781,2,173.28679513998634
+Tweets escritos por @petrogustavo,2022-08-01,campesinado,2.4987273688053118,3,116.60727721091456
+Tweets escritos por @petrogustavo,2022-08-01,catatumbo,2.1121053484986274,2,118.27789951592315
+Tweets escritos por @petrogustavo,2022-08-01,deuda,0.4787373092144901,1,157.50457473156723
+Tweets escritos por @petrogustavo,2022-08-01,hoja,0.9382696385929302,1,116.34543518552334
+Tweets escritos por @petrogustavo,2022-09-01,campesinado,0.8329091229351039,1,116.60727721091456
+Tweets escritos por @petrogustavo,2022-09-01,cepeda,0.858226930919394,1,120.15177032871519
+Tweets escritos por @petrogustavo,2022-09-01,tasa,1.7770045325732835,4,198.13600538192108
+Tweets escritos por @petrogustavo,2022-10-01,banco,0.5899629443247145,1,119.17251475359234
+Tweets escritos por @petrogustavo,2022-10-01,caribe,0.49643688631389105,1,133.5415224184367
+Tweets escritos por @petrogustavo,2022-10-01,deuda,0.9574746184289802,2,157.50457473156723
+Tweets escritos por @petrogustavo,2022-10-01,eléctrica,2.5746807927581816,3,115.86063567411821
+Tweets escritos por @petrogustavo,2022-10-01,junta,2.0149229260169452,3,116.8655297089828
+Tweets escritos por @petrogustavo,2022-10-01,tasa,1.3327533994299627,3,198.13600538192108
+Tweets escritos por @petrogustavo,2022-10-01,toneladas,0.5144553918165693,1,132.2150356968583
+Tweets escritos por @petrogustavo,2022-11-01,caribe,0.49643688631389105,1,133.5415224184367
+Tweets escritos por @petrogustavo,2022-11-01,deuda,1.9149492368579604,4,157.50457473156723
+Tweets escritos por @petrogustavo,2022-11-01,eléctrica,0.858226930919394,1,115.86063567411821
+Tweets escritos por @petrogustavo,2022-11-01,maduro,0.5514966634969185,1,150.5585891346588
+Tweets escritos por @petrogustavo,2022-11-01,salario,0.37865385065750756,1,137.07269393801775
+Tweets escritos por @petrogustavo,2022-11-01,tasa,0.8885022662866418,2,198.13600538192108
+Tweets escritos por @petrogustavo,2022-12-01,banco,0.5899629443247145,1,119.17251475359234
+Tweets escritos por @petrogustavo,2022-12-01,campesinado,1.6658182458702078,2,116.60727721091456
+Tweets escritos por @petrogustavo,2022-12-01,catatumbo,2.1121053484986274,2,118.27789951592315
+Tweets escritos por @petrogustavo,2022-12-01,eléctrica,0.858226930919394,1,115.86063567411821
+Tweets escritos por @petrogustavo,2022-12-01,junta,0.6716409753389817,1,116.8655297089828
+Tweets escritos por @petrogustavo,2022-12-01,salario,1.1359615519725228,3,137.07269393801775
+Tweets escritos por @petrogustavo,2022-12-01,tasa,1.3327533994299627,3,198.13600538192108
+Tweets escritos por @petrogustavo,2022-12-01,toneladas,1.0289107836331386,2,132.2150356968583
+Tweets escritos por @petrogustavo,2023-01-01,banco,1.179925888649429,2,119.17251475359234
+Tweets escritos por @petrogustavo,2023-01-01,campesinado,1.6658182458702078,2,116.60727721091456
+Tweets escritos por @petrogustavo,2023-01-01,caribe,0.9928737726277821,2,133.5415224184367
+Tweets escritos por @petrogustavo,2023-01-01,consulta,0.8842024173226545,1,206.9033656535012
+Tweets escritos por @petrogustavo,2023-01-01,deuda,0.4787373092144901,1,157.50457473156723
+Tweets escritos por @petrogustavo,2023-01-01,eléctrica,2.5746807927581816,3,115.86063567411821
+Tweets escritos por @petrogustavo,2023-01-01,tasa,1.7770045325732835,4,198.13600538192108
+Tweets escritos por @petrogustavo,2023-01-01,toneladas,1.0289107836331386,2,132.2150356968583
+Tweets escritos por @petrogustavo,2023-02-01,campesinado,2.4987273688053118,3,116.60727721091456
+Tweets escritos por @petrogustavo,2023-02-01,caribe,0.49643688631389105,1,133.5415224184367
+Tweets escritos por @petrogustavo,2023-02-01,salario,0.7573077013150151,2,137.07269393801775
+Tweets escritos por @petrogustavo,2023-02-01,tasa,0.4442511331433209,1,198.13600538192108
+Tweets escritos por @petrogustavo,2023-03-01,banco,1.7698888329741436,3,119.17251475359234
+Tweets escritos por @petrogustavo,2023-03-01,campesinado,2.4987273688053118,3,116.60727721091456
+Tweets escritos por @petrogustavo,2023-03-01,caribe,0.9928737726277821,2,133.5415224184367
+Tweets escritos por @petrogustavo,2023-03-01,catatumbo,1.0560526742493137,1,118.27789951592315
+Tweets escritos por @petrogustavo,2023-03-01,consulta,0.8842024173226545,1,206.9033656535012
+Tweets escritos por @petrogustavo,2023-03-01,hoja,1.8765392771858604,2,116.34543518552334
+Tweets escritos por @petrogustavo,2023-03-01,salario,1.5146154026300302,4,137.07269393801775
+Tweets escritos por @petrogustavo,2023-03-01,tasa,3.554009065146567,8,198.13600538192108
+Tweets escritos por @petrogustavo,2023-03-01,toneladas,2.5722769590828465,5,132.2150356968583
+Tweets escritos por @petrogustavo,2023-04-01,banco,2.359851777298858,4,119.17251475359234
+Tweets escritos por @petrogustavo,2023-04-01,caribe,0.9928737726277821,2,133.5415224184367
+Tweets escritos por @petrogustavo,2023-04-01,deuda,1.9149492368579604,4,157.50457473156723
+Tweets escritos por @petrogustavo,2023-04-01,eléctrica,0.858226930919394,1,115.86063567411821
+Tweets escritos por @petrogustavo,2023-04-01,israel,0.6097655716208943,1,121.95311432417894
+Tweets escritos por @petrogustavo,2023-04-01,junta,0.6716409753389817,1,116.8655297089828
+Tweets escritos por @petrogustavo,2023-04-01,palestina,0.6931471805599453,1,131.00481712582967
+Tweets escritos por @petrogustavo,2023-04-01,salario,0.7573077013150151,2,137.07269393801775
+Tweets escritos por @petrogustavo,2023-04-01,tasa,2.2212556657166043,5,198.13600538192108
+Tweets escritos por @petrogustavo,2023-04-01,toneladas,4.115643134532554,8,132.2150356968583
+Tweets escritos por @petrogustavo,2023-05-01,banco,1.179925888649429,2,119.17251475359234
+Tweets escritos por @petrogustavo,2023-05-01,caribe,0.9928737726277821,2,133.5415224184367
+Tweets escritos por @petrogustavo,2023-05-01,deuda,0.4787373092144901,1,157.50457473156723
+Tweets escritos por @petrogustavo,2023-05-01,eléctrica,0.858226930919394,1,115.86063567411821
+Tweets escritos por @petrogustavo,2023-05-01,hoja,1.8765392771858604,2,116.34543518552334
+Tweets escritos por @petrogustavo,2023-05-01,israel,0.6097655716208943,1,121.95311432417894
+Tweets escritos por @petrogustavo,2023-05-01,junta,0.6716409753389817,1,116.8655297089828
+Tweets escritos por @petrogustavo,2023-05-01,palestina,2.0794415416798357,3,131.00481712582967
+Tweets escritos por @petrogustavo,2023-05-01,salario,0.7573077013150151,2,137.07269393801775
+Tweets escritos por @petrogustavo,2023-05-01,tasa,1.3327533994299627,3,198.13600538192108
+Tweets escritos por @petrogustavo,2023-05-01,toneladas,1.0289107836331386,2,132.2150356968583
+Tweets escritos por @petrogustavo,2023-06-01,banco,0.5899629443247145,1,119.17251475359234
+Tweets escritos por @petrogustavo,2023-06-01,campesinado,0.8329091229351039,1,116.60727721091456
+Tweets escritos por @petrogustavo,2023-06-01,caribe,0.49643688631389105,1,133.5415224184367
+Tweets escritos por @petrogustavo,2023-06-01,deuda,0.9574746184289802,2,157.50457473156723
+Tweets escritos por @petrogustavo,2023-06-01,hoja,0.9382696385929302,1,116.34543518552334
+Tweets escritos por @petrogustavo,2023-06-01,junta,0.6716409753389817,1,116.8655297089828
+Tweets escritos por @petrogustavo,2023-06-01,salario,0.7573077013150151,2,137.07269393801775
+Tweets escritos por @petrogustavo,2023-06-01,software,2.379168133747673,2,132.04383142299585
+Tweets escritos por @petrogustavo,2023-06-01,tasa,1.3327533994299627,3,198.13600538192108
+Tweets escritos por @petrogustavo,2023-06-01,toneladas,0.5144553918165693,1,132.2150356968583
+Tweets escritos por @petrogustavo,2023-07-01,banco,0.5899629443247145,1,119.17251475359234
+Tweets escritos por @petrogustavo,2023-07-01,caribe,1.9857475452555642,4,133.5415224184367
+Tweets escritos por @petrogustavo,2023-07-01,deuda,0.4787373092144901,1,157.50457473156723
+Tweets escritos por @petrogustavo,2023-07-01,eléctrica,2.5746807927581816,3,115.86063567411821
+Tweets escritos por @petrogustavo,2023-07-01,hoja,0.9382696385929302,1,116.34543518552334
+Tweets escritos por @petrogustavo,2023-07-01,tasa,1.3327533994299627,3,198.13600538192108
+Tweets escritos por @petrogustavo,2023-07-01,toneladas,3.0867323508994158,6,132.2150356968583
+Tweets escritos por @petrogustavo,2023-08-01,campesinado,3.3316364917404155,4,116.60727721091456
+Tweets escritos por @petrogustavo,2023-08-01,caribe,2.482184431569455,5,133.5415224184367
+Tweets escritos por @petrogustavo,2023-08-01,deuda,0.9574746184289802,2,157.50457473156723
+Tweets escritos por @petrogustavo,2023-08-01,junta,0.6716409753389817,1,116.8655297089828
+Tweets escritos por @petrogustavo,2023-08-01,salario,0.37865385065750756,1,137.07269393801775
+Tweets escritos por @petrogustavo,2023-08-01,tasa,2.2212556657166043,5,198.13600538192108
+Tweets escritos por @petrogustavo,2023-08-01,toneladas,2.5722769590828465,5,132.2150356968583
+Tweets escritos por @petrogustavo,2023-09-01,campesinado,4.9974547376106235,6,116.60727721091456
+Tweets escritos por @petrogustavo,2023-09-01,caribe,0.9928737726277821,2,133.5415224184367
+Tweets escritos por @petrogustavo,2023-09-01,deuda,3.3511611645014305,7,157.50457473156723
+Tweets escritos por @petrogustavo,2023-09-01,eléctrica,0.858226930919394,1,115.86063567411821
+Tweets escritos por @petrogustavo,2023-09-01,hoja,1.8765392771858604,2,116.34543518552334
+Tweets escritos por @petrogustavo,2023-09-01,tasa,2.6655067988599255,6,198.13600538192108
+Tweets escritos por @petrogustavo,2023-09-01,toneladas,1.5433661754497079,3,132.2150356968583
+Tweets escritos por @petrogustavo,2023-10-01,caribe,1.9857475452555642,4,133.5415224184367
+Tweets escritos por @petrogustavo,2023-10-01,deuda,1.4362119276434702,3,157.50457473156723
+Tweets escritos por @petrogustavo,2023-10-01,eléctrica,0.858226930919394,1,115.86063567411821
+Tweets escritos por @petrogustavo,2023-10-01,gaza,10.326385203830908,14,144.5693928536327
+Tweets escritos por @petrogustavo,2023-10-01,israel,9.756249145934309,16,121.95311432417894
+Tweets escritos por @petrogustavo,2023-10-01,palestina,15.249237972318797,22,131.00481712582967
+Tweets escritos por @petrogustavo,2023-10-01,tasa,0.4442511331433209,1,198.13600538192108
+Tweets escritos por @petrogustavo,2023-10-01,toneladas,2.057821567266277,4,132.2150356968583
+Tweets escritos por @petrogustavo,2023-11-01,banco,3.539777665948287,6,119.17251475359234
+Tweets escritos por @petrogustavo,2023-11-01,campesinado,0.8329091229351039,1,116.60727721091456
+Tweets escritos por @petrogustavo,2023-11-01,caribe,0.9928737726277821,2,133.5415224184367
+Tweets escritos por @petrogustavo,2023-11-01,catatumbo,1.0560526742493137,1,118.27789951592315
+Tweets escritos por @petrogustavo,2023-11-01,consulta,0.8842024173226545,1,206.9033656535012
+Tweets escritos por @petrogustavo,2023-11-01,deuda,0.4787373092144901,1,157.50457473156723
+Tweets escritos por @petrogustavo,2023-11-01,eléctrica,1.716453861838788,2,115.86063567411821
+Tweets escritos por @petrogustavo,2023-11-01,gaza,3.6879947156538955,5,144.5693928536327
+Tweets escritos por @petrogustavo,2023-11-01,israel,3.6585934297253657,6,121.95311432417894
+Tweets escritos por @petrogustavo,2023-11-01,palestina,4.852030263919617,7,131.00481712582967
+Tweets escritos por @petrogustavo,2023-11-01,salario,0.37865385065750756,1,137.07269393801775
+Tweets escritos por @petrogustavo,2023-11-01,software,1.1895840668738364,1,132.04383142299585
+Tweets escritos por @petrogustavo,2023-11-01,tasa,1.3327533994299627,3,198.13600538192108
+Tweets escritos por @petrogustavo,2023-11-01,toneladas,1.0289107836331386,2,132.2150356968583
+Tweets escritos por @petrogustavo,2023-11-01,vital,1.3862943611198906,1,173.28679513998634
+Tweets escritos por @petrogustavo,2023-12-01,banco,1.7698888329741436,3,119.17251475359234
+Tweets escritos por @petrogustavo,2023-12-01,campesinado,2.4987273688053118,3,116.60727721091456
+Tweets escritos por @petrogustavo,2023-12-01,caribe,0.49643688631389105,1,133.5415224184367
+Tweets escritos por @petrogustavo,2023-12-01,constituyente,0.6931471805599453,1,177.44567822334602
+Tweets escritos por @petrogustavo,2023-12-01,gaza,0.7375989431307791,1,144.5693928536327
+Tweets escritos por @petrogustavo,2023-12-01,hoja,0.9382696385929302,1,116.34543518552334
+Tweets escritos por @petrogustavo,2023-12-01,iván,0.6716409753389817,1,118.88045263499976
+Tweets escritos por @petrogustavo,2023-12-01,salario,4.543846207890091,12,137.07269393801775
+Tweets escritos por @petrogustavo,2023-12-01,tasa,6.2195158640064925,14,198.13600538192108
+Tweets escritos por @petrogustavo,2023-12-01,toneladas,4.115643134532554,8,132.2150356968583
+Tweets escritos por @petrogustavo,2023-12-01,trump,0.7151260872787205,1,217.39833053273102
+Tweets escritos por @petrogustavo,2024-01-01,banco,0.5899629443247145,1,119.17251475359234
+Tweets escritos por @petrogustavo,2024-01-01,campesinado,0.8329091229351039,1,116.60727721091456
+Tweets escritos por @petrogustavo,2024-01-01,caribe,1.9857475452555642,4,133.5415224184367
+Tweets escritos por @petrogustavo,2024-01-01,constituyente,0.6931471805599453,1,177.44567822334602
+Tweets escritos por @petrogustavo,2024-01-01,eléctrica,0.858226930919394,1,115.86063567411821
+Tweets escritos por @petrogustavo,2024-01-01,gaza,1.4751978862615582,2,144.5693928536327
+Tweets escritos por @petrogustavo,2024-01-01,israel,0.6097655716208943,1,121.95311432417894
+Tweets escritos por @petrogustavo,2024-01-01,junta,1.3432819506779634,2,116.8655297089828
+Tweets escritos por @petrogustavo,2024-01-01,palestina,0.6931471805599453,1,131.00481712582967
+Tweets escritos por @petrogustavo,2024-01-01,software,1.1895840668738364,1,132.04383142299585
+Tweets escritos por @petrogustavo,2024-01-01,tasa,2.2212556657166043,5,198.13600538192108
+Tweets escritos por @petrogustavo,2024-01-01,toneladas,1.0289107836331386,2,132.2150356968583
+Tweets escritos por @petrogustavo,2024-02-01,caribe,2.9786213178833463,6,133.5415224184367
+Tweets escritos por @petrogustavo,2024-02-01,gaza,2.9503957725231165,4,144.5693928536327
+Tweets escritos por @petrogustavo,2024-02-01,israel,1.2195311432417886,2,121.95311432417894
+Tweets escritos por @petrogustavo,2024-02-01,salario,0.37865385065750756,1,137.07269393801775
+Tweets escritos por @petrogustavo,2024-02-01,tasa,1.7770045325732835,4,198.13600538192108
+Tweets escritos por @petrogustavo,2024-02-01,toneladas,2.057821567266277,4,132.2150356968583
+Tweets escritos por @petrogustavo,2024-03-01,campesinado,3.3316364917404155,4,116.60727721091456
+Tweets escritos por @petrogustavo,2024-03-01,caribe,3.4750582041972375,7,133.5415224184367
+Tweets escritos por @petrogustavo,2024-03-01,constituyente,13.16979643063896,19,177.44567822334602
+Tweets escritos por @petrogustavo,2024-03-01,eléctrica,1.716453861838788,2,115.86063567411821
+Tweets escritos por @petrogustavo,2024-03-01,gaza,2.9503957725231165,4,144.5693928536327
+Tweets escritos por @petrogustavo,2024-03-01,israel,1.8292967148626829,3,121.95311432417894
+Tweets escritos por @petrogustavo,2024-03-01,junta,1.3432819506779634,2,116.8655297089828
+Tweets escritos por @petrogustavo,2024-03-01,palestina,1.3862943611198906,2,131.00481712582967
+Tweets escritos por @petrogustavo,2024-03-01,salario,1.1359615519725228,3,137.07269393801775
+Tweets escritos por @petrogustavo,2024-03-01,tasa,2.6655067988599255,6,198.13600538192108
+Tweets escritos por @petrogustavo,2024-03-01,toneladas,1.5433661754497079,3,132.2150356968583
+Tweets escritos por @petrogustavo,2024-04-01,banco,0.5899629443247145,1,119.17251475359234
+Tweets escritos por @petrogustavo,2024-04-01,campesinado,2.4987273688053118,3,116.60727721091456
+Tweets escritos por @petrogustavo,2024-04-01,caribe,1.4893106589416731,3,133.5415224184367
+Tweets escritos por @petrogustavo,2024-04-01,constituyente,3.4657359027997265,5,177.44567822334602
+Tweets escritos por @petrogustavo,2024-04-01,deuda,0.4787373092144901,1,157.50457473156723
+Tweets escritos por @petrogustavo,2024-04-01,eléctrica,5.149361585516363,6,115.86063567411821
+Tweets escritos por @petrogustavo,2024-04-01,gaza,0.7375989431307791,1,144.5693928536327
+Tweets escritos por @petrogustavo,2024-04-01,israel,3.048827858104471,5,121.95311432417894
+Tweets escritos por @petrogustavo,2024-04-01,junta,0.6716409753389817,1,116.8655297089828
+Tweets escritos por @petrogustavo,2024-04-01,maduro,0.5514966634969185,1,150.5585891346588
+Tweets escritos por @petrogustavo,2024-04-01,palestina,1.3862943611198906,2,131.00481712582967
+Tweets escritos por @petrogustavo,2024-04-01,salario,1.1359615519725228,3,137.07269393801775
+Tweets escritos por @petrogustavo,2024-04-01,tasa,1.3327533994299627,3,198.13600538192108
+Tweets escritos por @petrogustavo,2024-04-01,toneladas,2.5722769590828465,5,132.2150356968583
+Tweets escritos por @petrogustavo,2024-05-01,banco,0.5899629443247145,1,119.17251475359234
+Tweets escritos por @petrogustavo,2024-05-01,campesinado,3.3316364917404155,4,116.60727721091456
+Tweets escritos por @petrogustavo,2024-05-01,caribe,0.9928737726277821,2,133.5415224184367
+Tweets escritos por @petrogustavo,2024-05-01,constituyente,8.317766166719343,12,177.44567822334602
+Tweets escritos por @petrogustavo,2024-05-01,deuda,3.8298984737159207,8,157.50457473156723
+Tweets escritos por @petrogustavo,2024-05-01,eléctrica,0.858226930919394,1,115.86063567411821
+Tweets escritos por @petrogustavo,2024-05-01,gaza,3.6879947156538955,5,144.5693928536327
+Tweets escritos por @petrogustavo,2024-05-01,hoja,1.8765392771858604,2,116.34543518552334
+Tweets escritos por @petrogustavo,2024-05-01,israel,0.6097655716208943,1,121.95311432417894
+Tweets escritos por @petrogustavo,2024-05-01,junta,0.6716409753389817,1,116.8655297089828
+Tweets escritos por @petrogustavo,2024-05-01,palestina,3.4657359027997265,5,131.00481712582967
+Tweets escritos por @petrogustavo,2024-05-01,salario,0.7573077013150151,2,137.07269393801775
+Tweets escritos por @petrogustavo,2024-05-01,tasa,3.9982601982898878,9,198.13600538192108
+Tweets escritos por @petrogustavo,2024-05-01,toneladas,1.5433661754497079,3,132.2150356968583
+Tweets escritos por @petrogustavo,2024-06-01,banco,1.7698888329741436,3,119.17251475359234
+Tweets escritos por @petrogustavo,2024-06-01,campesinado,4.16454561467552,5,116.60727721091456
+Tweets escritos por @petrogustavo,2024-06-01,caribe,0.9928737726277821,2,133.5415224184367
+Tweets escritos por @petrogustavo,2024-06-01,catatumbo,1.0560526742493137,1,118.27789951592315
+Tweets escritos por @petrogustavo,2024-06-01,cepeda,0.858226930919394,1,120.15177032871519
+Tweets escritos por @petrogustavo,2024-06-01,constituyente,6.238324625039508,9,177.44567822334602
+Tweets escritos por @petrogustavo,2024-06-01,consulta,1.768404834645309,2,206.9033656535012
+Tweets escritos por @petrogustavo,2024-06-01,deuda,0.9574746184289802,2,157.50457473156723
+Tweets escritos por @petrogustavo,2024-06-01,gaza,1.4751978862615582,2,144.5693928536327
+Tweets escritos por @petrogustavo,2024-06-01,israel,3.048827858104471,5,121.95311432417894
+Tweets escritos por @petrogustavo,2024-06-01,palestina,2.0794415416798357,3,131.00481712582967
+Tweets escritos por @petrogustavo,2024-06-01,salario,0.7573077013150151,2,137.07269393801775
+Tweets escritos por @petrogustavo,2024-06-01,software,1.1895840668738364,1,132.04383142299585
+Tweets escritos por @petrogustavo,2024-06-01,tasa,3.554009065146567,8,198.13600538192108
+Tweets escritos por @petrogustavo,2024-06-01,toneladas,3.0867323508994158,6,132.2150356968583
+Tweets escritos por @petrogustavo,2024-07-01,campesinado,4.16454561467552,5,116.60727721091456
+Tweets escritos por @petrogustavo,2024-07-01,caribe,0.49643688631389105,1,133.5415224184367
+Tweets escritos por @petrogustavo,2024-07-01,cepeda,1.716453861838788,2,120.15177032871519
+Tweets escritos por @petrogustavo,2024-07-01,constituyente,6.238324625039508,9,177.44567822334602
+Tweets escritos por @petrogustavo,2024-07-01,deuda,1.9149492368579604,4,157.50457473156723
+Tweets escritos por @petrogustavo,2024-07-01,eléctrica,1.716453861838788,2,115.86063567411821
+Tweets escritos por @petrogustavo,2024-07-01,gaza,1.4751978862615582,2,144.5693928536327
+Tweets escritos por @petrogustavo,2024-07-01,junta,0.6716409753389817,1,116.8655297089828
+Tweets escritos por @petrogustavo,2024-07-01,palestina,2.772588722239781,4,131.00481712582967
+Tweets escritos por @petrogustavo,2024-07-01,salario,0.7573077013150151,2,137.07269393801775
+Tweets escritos por @petrogustavo,2024-08-01,banco,2.9498147216235724,5,119.17251475359234
+Tweets escritos por @petrogustavo,2024-08-01,campesinado,2.4987273688053118,3,116.60727721091456
+Tweets escritos por @petrogustavo,2024-08-01,caribe,0.49643688631389105,1,133.5415224184367
+Tweets escritos por @petrogustavo,2024-08-01,deuda,1.4362119276434702,3,157.50457473156723
+Tweets escritos por @petrogustavo,2024-08-01,eléctrica,6.007588516435757,7,115.86063567411821
+Tweets escritos por @petrogustavo,2024-08-01,israel,1.2195311432417886,2,121.95311432417894
+Tweets escritos por @petrogustavo,2024-08-01,junta,2.686563901355927,4,116.8655297089828
+Tweets escritos por @petrogustavo,2024-08-01,maduro,1.6544899904907555,3,150.5585891346588
+Tweets escritos por @petrogustavo,2024-08-01,palestina,1.3862943611198906,2,131.00481712582967
+Tweets escritos por @petrogustavo,2024-08-01,tasa,2.6655067988599255,6,198.13600538192108
+Tweets escritos por @petrogustavo,2024-08-01,toneladas,3.0867323508994158,6,132.2150356968583
+Tweets escritos por @petrogustavo,2024-09-01,banco,1.7698888329741436,3,119.17251475359234
+Tweets escritos por @petrogustavo,2024-09-01,campesinado,3.3316364917404155,4,116.60727721091456
+Tweets escritos por @petrogustavo,2024-09-01,caribe,0.9928737726277821,2,133.5415224184367
+Tweets escritos por @petrogustavo,2024-09-01,cepeda,0.858226930919394,1,120.15177032871519
+Tweets escritos por @petrogustavo,2024-09-01,consulta,1.768404834645309,2,206.9033656535012
+Tweets escritos por @petrogustavo,2024-09-01,deuda,5.744847710573881,12,157.50457473156723
+Tweets escritos por @petrogustavo,2024-09-01,eléctrica,6.007588516435757,7,115.86063567411821
+Tweets escritos por @petrogustavo,2024-09-01,gaza,2.9503957725231165,4,144.5693928536327
+Tweets escritos por @petrogustavo,2024-09-01,israel,0.6097655716208943,1,121.95311432417894
+Tweets escritos por @petrogustavo,2024-09-01,junta,1.3432819506779634,2,116.8655297089828
+Tweets escritos por @petrogustavo,2024-09-01,palestina,5.545177444479562,8,131.00481712582967
+Tweets escritos por @petrogustavo,2024-09-01,software,7.137504401243019,6,132.04383142299585
+Tweets escritos por @petrogustavo,2024-09-01,tasa,2.6655067988599255,6,198.13600538192108
+Tweets escritos por @petrogustavo,2024-09-01,toneladas,2.5722769590828465,5,132.2150356968583
+Tweets escritos por @petrogustavo,2024-10-01,banco,0.5899629443247145,1,119.17251475359234
+Tweets escritos por @petrogustavo,2024-10-01,campesinado,1.6658182458702078,2,116.60727721091456
+Tweets escritos por @petrogustavo,2024-10-01,caribe,1.4893106589416731,3,133.5415224184367
+Tweets escritos por @petrogustavo,2024-10-01,consulta,0.8842024173226545,1,206.9033656535012
+Tweets escritos por @petrogustavo,2024-10-01,deuda,2.3936865460724506,5,157.50457473156723
+Tweets escritos por @petrogustavo,2024-10-01,eléctrica,4.29113465459697,5,115.86063567411821
+Tweets escritos por @petrogustavo,2024-10-01,gaza,2.9503957725231165,4,144.5693928536327
+Tweets escritos por @petrogustavo,2024-10-01,hoja,1.8765392771858604,2,116.34543518552334
+Tweets escritos por @petrogustavo,2024-10-01,israel,3.6585934297253657,6,121.95311432417894
+Tweets escritos por @petrogustavo,2024-10-01,iván,0.6716409753389817,1,118.88045263499976
+Tweets escritos por @petrogustavo,2024-10-01,palestina,0.6931471805599453,1,131.00481712582967
+Tweets escritos por @petrogustavo,2024-10-01,salario,2.650576954602553,7,137.07269393801775
+Tweets escritos por @petrogustavo,2024-10-01,software,2.379168133747673,2,132.04383142299585
+Tweets escritos por @petrogustavo,2024-10-01,tasa,0.8885022662866418,2,198.13600538192108
+Tweets escritos por @petrogustavo,2024-10-01,toneladas,4.630098526349124,9,132.2150356968583
+Tweets escritos por @petrogustavo,2024-10-01,trump,0.7151260872787205,1,217.39833053273102
+Tweets escritos por @petrogustavo,2024-11-01,banco,3.539777665948287,6,119.17251475359234
+Tweets escritos por @petrogustavo,2024-11-01,campesinado,3.3316364917404155,4,116.60727721091456
+Tweets escritos por @petrogustavo,2024-11-01,caribe,0.9928737726277821,2,133.5415224184367
+Tweets escritos por @petrogustavo,2024-11-01,cepeda,0.858226930919394,1,120.15177032871519
+Tweets escritos por @petrogustavo,2024-11-01,constituyente,1.3862943611198906,2,177.44567822334602
+Tweets escritos por @petrogustavo,2024-11-01,deuda,0.9574746184289802,2,157.50457473156723
+Tweets escritos por @petrogustavo,2024-11-01,eléctrica,8.58226930919394,10,115.86063567411821
+Tweets escritos por @petrogustavo,2024-11-01,gaza,1.4751978862615582,2,144.5693928536327
+Tweets escritos por @petrogustavo,2024-11-01,junta,2.0149229260169452,3,116.8655297089828
+Tweets escritos por @petrogustavo,2024-11-01,palestina,2.0794415416798357,3,131.00481712582967
+Tweets escritos por @petrogustavo,2024-11-01,software,1.1895840668738364,1,132.04383142299585
+Tweets escritos por @petrogustavo,2024-11-01,tasa,0.8885022662866418,2,198.13600538192108
+Tweets escritos por @petrogustavo,2024-11-01,toneladas,2.057821567266277,4,132.2150356968583
+Tweets escritos por @petrogustavo,2024-11-01,trump,1.430252174557441,2,217.39833053273102
+Tweets escritos por @petrogustavo,2024-12-01,banco,3.539777665948287,6,119.17251475359234
+Tweets escritos por @petrogustavo,2024-12-01,caribe,2.9786213178833463,6,133.5415224184367
+Tweets escritos por @petrogustavo,2024-12-01,catatumbo,1.0560526742493137,1,118.27789951592315
+Tweets escritos por @petrogustavo,2024-12-01,cepeda,2.5746807927581816,3,120.15177032871519
+Tweets escritos por @petrogustavo,2024-12-01,deuda,0.9574746184289802,2,157.50457473156723
+Tweets escritos por @petrogustavo,2024-12-01,eléctrica,2.5746807927581816,3,115.86063567411821
+Tweets escritos por @petrogustavo,2024-12-01,gaza,1.4751978862615582,2,144.5693928536327
+Tweets escritos por @petrogustavo,2024-12-01,israel,0.6097655716208943,1,121.95311432417894
+Tweets escritos por @petrogustavo,2024-12-01,junta,8.059691704067781,12,116.8655297089828
+Tweets escritos por @petrogustavo,2024-12-01,palestina,5.545177444479562,8,131.00481712582967
+Tweets escritos por @petrogustavo,2024-12-01,salario,9.845000117095196,26,137.07269393801775
+Tweets escritos por @petrogustavo,2024-12-01,tasa,4.4425113314332085,10,198.13600538192108
+Tweets escritos por @petrogustavo,2024-12-01,toneladas,3.0867323508994158,6,132.2150356968583
+Tweets escritos por @petrogustavo,2024-12-01,trump,1.430252174557441,2,217.39833053273102
+Tweets escritos por @petrogustavo,2025-01-01,banco,1.179925888649429,2,119.17251475359234
+Tweets escritos por @petrogustavo,2025-01-01,campesinado,0.8329091229351039,1,116.60727721091456
+Tweets escritos por @petrogustavo,2025-01-01,caribe,0.9928737726277821,2,133.5415224184367
+Tweets escritos por @petrogustavo,2025-01-01,catatumbo,26.401316856232842,25,118.27789951592315
+Tweets escritos por @petrogustavo,2025-01-01,cepeda,1.716453861838788,2,120.15177032871519
+Tweets escritos por @petrogustavo,2025-01-01,deuda,2.8724238552869403,6,157.50457473156723
+Tweets escritos por @petrogustavo,2025-01-01,eléctrica,6.007588516435757,7,115.86063567411821
+Tweets escritos por @petrogustavo,2025-01-01,gaza,7.375989431307791,10,144.5693928536327
+Tweets escritos por @petrogustavo,2025-01-01,hoja,0.9382696385929302,1,116.34543518552334
+Tweets escritos por @petrogustavo,2025-01-01,israel,0.6097655716208943,1,121.95311432417894
+Tweets escritos por @petrogustavo,2025-01-01,junta,2.0149229260169452,3,116.8655297089828
+Tweets escritos por @petrogustavo,2025-01-01,maduro,1.102993326993837,2,150.5585891346588
+Tweets escritos por @petrogustavo,2025-01-01,palestina,0.6931471805599453,1,131.00481712582967
+Tweets escritos por @petrogustavo,2025-01-01,salario,1.8932692532875377,5,137.07269393801775
+Tweets escritos por @petrogustavo,2025-01-01,tasa,5.775264730863172,13,198.13600538192108
+Tweets escritos por @petrogustavo,2025-01-01,toneladas,5.144553918165693,10,132.2150356968583
+Tweets escritos por @petrogustavo,2025-01-01,trump,5.005882610951043,7,217.39833053273102
+Tweets escritos por @petrogustavo,2025-02-01,campesinado,3.3316364917404155,4,116.60727721091456
+Tweets escritos por @petrogustavo,2025-02-01,caribe,1.4893106589416731,3,133.5415224184367
+Tweets escritos por @petrogustavo,2025-02-01,catatumbo,2.1121053484986274,2,118.27789951592315
+Tweets escritos por @petrogustavo,2025-02-01,fraude,1.120591195386885,1,158.0033585495508
+Tweets escritos por @petrogustavo,2025-02-01,gaza,3.6879947156538955,5,144.5693928536327
+Tweets escritos por @petrogustavo,2025-02-01,israel,1.2195311432417886,2,121.95311432417894
+Tweets escritos por @petrogustavo,2025-02-01,junta,0.6716409753389817,1,116.8655297089828
+Tweets escritos por @petrogustavo,2025-02-01,tasa,3.1097579320032462,7,198.13600538192108
+Tweets escritos por @petrogustavo,2025-02-01,toneladas,1.5433661754497079,3,132.2150356968583
+Tweets escritos por @petrogustavo,2025-02-01,trump,1.430252174557441,2,217.39833053273102
+Tweets escritos por @petrogustavo,2025-03-01,banco,1.179925888649429,2,119.17251475359234
+Tweets escritos por @petrogustavo,2025-03-01,campesinado,4.9974547376106235,6,116.60727721091456
+Tweets escritos por @petrogustavo,2025-03-01,caribe,2.482184431569455,5,133.5415224184367
+Tweets escritos por @petrogustavo,2025-03-01,catatumbo,14.784737439490392,14,118.27789951592315
+Tweets escritos por @petrogustavo,2025-03-01,cepeda,0.858226930919394,1,120.15177032871519
+Tweets escritos por @petrogustavo,2025-03-01,consulta,10.610429007871854,12,206.9033656535012
+Tweets escritos por @petrogustavo,2025-03-01,deuda,1.9149492368579604,4,157.50457473156723
+Tweets escritos por @petrogustavo,2025-03-01,eléctrica,0.858226930919394,1,115.86063567411821
+Tweets escritos por @petrogustavo,2025-03-01,hoja,3.753078554371721,4,116.34543518552334
+Tweets escritos por @petrogustavo,2025-03-01,israel,1.2195311432417886,2,121.95311432417894
+Tweets escritos por @petrogustavo,2025-03-01,junta,4.701486827372872,7,116.8655297089828
+Tweets escritos por @petrogustavo,2025-03-01,salario,2.650576954602553,7,137.07269393801775
+Tweets escritos por @petrogustavo,2025-03-01,tasa,2.6655067988599255,6,198.13600538192108
+Tweets escritos por @petrogustavo,2025-03-01,toneladas,1.5433661754497079,3,132.2150356968583
+Tweets escritos por @petrogustavo,2025-03-01,trump,1.430252174557441,2,217.39833053273102
+Tweets escritos por @petrogustavo,2025-04-01,banco,7.079555331896574,12,119.17251475359234
+Tweets escritos por @petrogustavo,2025-04-01,campesinado,0.8329091229351039,1,116.60727721091456
+Tweets escritos por @petrogustavo,2025-04-01,caribe,4.96436886313891,10,133.5415224184367
+Tweets escritos por @petrogustavo,2025-04-01,catatumbo,7.392368719745196,7,118.27789951592315
+Tweets escritos por @petrogustavo,2025-04-01,cepeda,4.29113465459697,5,120.15177032871519
+Tweets escritos por @petrogustavo,2025-04-01,constituyente,1.3862943611198906,2,177.44567822334602
+Tweets escritos por @petrogustavo,2025-04-01,consulta,11.494631425194509,13,206.9033656535012
+Tweets escritos por @petrogustavo,2025-04-01,deuda,2.3936865460724506,5,157.50457473156723
+Tweets escritos por @petrogustavo,2025-04-01,eléctrica,8.58226930919394,10,115.86063567411821
+Tweets escritos por @petrogustavo,2025-04-01,gaza,2.2127968293923375,3,144.5693928536327
+Tweets escritos por @petrogustavo,2025-04-01,hoja,5.6296178315575816,6,116.34543518552334
+Tweets escritos por @petrogustavo,2025-04-01,iván,5.373127802711854,8,118.88045263499976
+Tweets escritos por @petrogustavo,2025-04-01,junta,4.0298458520338905,6,116.8655297089828
+Tweets escritos por @petrogustavo,2025-04-01,palestina,2.772588722239781,4,131.00481712582967
+Tweets escritos por @petrogustavo,2025-04-01,tasa,7.9965203965797755,18,198.13600538192108
+Tweets escritos por @petrogustavo,2025-04-01,toneladas,1.5433661754497079,3,132.2150356968583
+Tweets escritos por @petrogustavo,2025-04-01,trump,1.430252174557441,2,217.39833053273102
+Tweets escritos por @petrogustavo,2025-05-01,banco,0.5899629443247145,1,119.17251475359234
+Tweets escritos por @petrogustavo,2025-05-01,campesinado,4.9974547376106235,6,116.60727721091456
+Tweets escritos por @petrogustavo,2025-05-01,caribe,0.9928737726277821,2,133.5415224184367
+Tweets escritos por @petrogustavo,2025-05-01,catatumbo,5.280263371246568,5,118.27789951592315
+Tweets escritos por @petrogustavo,2025-05-01,cepeda,6.865815447355152,8,120.15177032871519
+Tweets escritos por @petrogustavo,2025-05-01,consulta,30.947084606292908,35,206.9033656535012
+Tweets escritos por @petrogustavo,2025-05-01,deuda,0.9574746184289802,2,157.50457473156723
+Tweets escritos por @petrogustavo,2025-05-01,eléctrica,0.858226930919394,1,115.86063567411821
+Tweets escritos por @petrogustavo,2025-05-01,fraude,19.050050321577046,17,158.0033585495508
+Tweets escritos por @petrogustavo,2025-05-01,gaza,5.900791545046233,8,144.5693928536327
+Tweets escritos por @petrogustavo,2025-05-01,hoja,3.753078554371721,4,116.34543518552334
+Tweets escritos por @petrogustavo,2025-05-01,israel,1.8292967148626829,3,121.95311432417894
+Tweets escritos por @petrogustavo,2025-05-01,iván,1.3432819506779634,2,118.88045263499976
+Tweets escritos por @petrogustavo,2025-05-01,junta,2.0149229260169452,3,116.8655297089828
+Tweets escritos por @petrogustavo,2025-05-01,palestina,0.6931471805599453,1,131.00481712582967
+Tweets escritos por @petrogustavo,2025-05-01,salario,2.2719231039450456,6,137.07269393801775
+Tweets escritos por @petrogustavo,2025-05-01,tasa,1.3327533994299627,3,198.13600538192108
+Tweets escritos por @petrogustavo,2025-05-01,toneladas,1.5433661754497079,3,132.2150356968583
+Tweets escritos por @petrogustavo,2025-05-01,trump,0.7151260872787205,1,217.39833053273102
+Tweets escritos por @petrogustavo,2025-05-01,vital,1.3862943611198906,1,173.28679513998634
+Tweets escritos por @petrogustavo,2025-06-01,banco,0.5899629443247145,1,119.17251475359234
+Tweets escritos por @petrogustavo,2025-06-01,campesinado,6.663272983480831,8,116.60727721091456
+Tweets escritos por @petrogustavo,2025-06-01,caribe,0.49643688631389105,1,133.5415224184367
+Tweets escritos por @petrogustavo,2025-06-01,catatumbo,1.0560526742493137,1,118.27789951592315
+Tweets escritos por @petrogustavo,2025-06-01,cepeda,4.29113465459697,5,120.15177032871519
+Tweets escritos por @petrogustavo,2025-06-01,constituyente,12.476649250079015,18,177.44567822334602
+Tweets escritos por @petrogustavo,2025-06-01,consulta,23.87346526771167,27,206.9033656535012
+Tweets escritos por @petrogustavo,2025-06-01,eléctrica,1.716453861838788,2,115.86063567411821
+Tweets escritos por @petrogustavo,2025-06-01,fraude,6.72354717232131,6,158.0033585495508
+Tweets escritos por @petrogustavo,2025-06-01,gaza,2.9503957725231165,4,144.5693928536327
+Tweets escritos por @petrogustavo,2025-06-01,israel,1.8292967148626829,3,121.95311432417894
+Tweets escritos por @petrogustavo,2025-06-01,iván,1.3432819506779634,2,118.88045263499976
+Tweets escritos por @petrogustavo,2025-06-01,junta,5.373127802711854,8,116.8655297089828
+Tweets escritos por @petrogustavo,2025-06-01,palestina,2.772588722239781,4,131.00481712582967
+Tweets escritos por @petrogustavo,2025-06-01,salario,1.1359615519725228,3,137.07269393801775
+Tweets escritos por @petrogustavo,2025-06-01,tasa,3.9982601982898878,9,198.13600538192108
+Tweets escritos por @petrogustavo,2025-06-01,toneladas,2.5722769590828465,5,132.2150356968583
+Tweets escritos por @petrogustavo,2025-06-01,trump,2.860504349114882,4,217.39833053273102
+Tweets escritos por @petrogustavo,2025-07-01,banco,4.129740610273002,7,119.17251475359234
+Tweets escritos por @petrogustavo,2025-07-01,caribe,1.9857475452555642,4,133.5415224184367
+Tweets escritos por @petrogustavo,2025-07-01,catatumbo,1.0560526742493137,1,118.27789951592315
+Tweets escritos por @petrogustavo,2025-07-01,cepeda,1.716453861838788,2,120.15177032871519
+Tweets escritos por @petrogustavo,2025-07-01,constituyente,0.6931471805599453,1,177.44567822334602
+Tweets escritos por @petrogustavo,2025-07-01,deuda,10.532220802718783,22,157.50457473156723
+Tweets escritos por @petrogustavo,2025-07-01,eléctrica,0.858226930919394,1,115.86063567411821
+Tweets escritos por @petrogustavo,2025-07-01,fraude,4.48236478154754,4,158.0033585495508
+Tweets escritos por @petrogustavo,2025-07-01,gaza,2.2127968293923375,3,144.5693928536327
+Tweets escritos por @petrogustavo,2025-07-01,hoja,0.9382696385929302,1,116.34543518552334
+Tweets escritos por @petrogustavo,2025-07-01,israel,3.048827858104471,5,121.95311432417894
+Tweets escritos por @petrogustavo,2025-07-01,iván,2.0149229260169452,3,118.88045263499976
+Tweets escritos por @petrogustavo,2025-07-01,junta,3.3582048766949084,5,116.8655297089828
+Tweets escritos por @petrogustavo,2025-07-01,palestina,1.3862943611198906,2,131.00481712582967
+Tweets escritos por @petrogustavo,2025-07-01,salario,0.7573077013150151,2,137.07269393801775
+Tweets escritos por @petrogustavo,2025-07-01,software,7.137504401243019,6,132.04383142299585
+Tweets escritos por @petrogustavo,2025-07-01,tasa,3.1097579320032462,7,198.13600538192108
+Tweets escritos por @petrogustavo,2025-07-01,toneladas,2.5722769590828465,5,132.2150356968583
+Tweets escritos por @petrogustavo,2025-07-01,trump,1.430252174557441,2,217.39833053273102
+Tweets escritos por @petrogustavo,2025-07-01,vital,4.1588830833596715,3,173.28679513998634
+Tweets escritos por @petrogustavo,2025-08-01,banco,2.359851777298858,4,119.17251475359234
+Tweets escritos por @petrogustavo,2025-08-01,campesinado,3.3316364917404155,4,116.60727721091456
+Tweets escritos por @petrogustavo,2025-08-01,caribe,0.49643688631389105,1,133.5415224184367
+Tweets escritos por @petrogustavo,2025-08-01,catatumbo,5.280263371246568,5,118.27789951592315
+Tweets escritos por @petrogustavo,2025-08-01,cepeda,2.5746807927581816,3,120.15177032871519
+Tweets escritos por @petrogustavo,2025-08-01,consulta,0.8842024173226545,1,206.9033656535012
+Tweets escritos por @petrogustavo,2025-08-01,deuda,0.4787373092144901,1,157.50457473156723
+Tweets escritos por @petrogustavo,2025-08-01,eléctrica,0.858226930919394,1,115.86063567411821
+Tweets escritos por @petrogustavo,2025-08-01,gaza,4.425593658784675,6,144.5693928536327
+Tweets escritos por @petrogustavo,2025-08-01,guerrillero,0.6299682789384138,1,133.5532751349438
+Tweets escritos por @petrogustavo,2025-08-01,hoja,2.8148089157787908,3,116.34543518552334
+Tweets escritos por @petrogustavo,2025-08-01,israel,0.6097655716208943,1,121.95311432417894
+Tweets escritos por @petrogustavo,2025-08-01,iván,6.716409753389817,10,118.88045263499976
+Tweets escritos por @petrogustavo,2025-08-01,junta,3.3582048766949084,5,116.8655297089828
+Tweets escritos por @petrogustavo,2025-08-01,maduro,1.6544899904907555,3,150.5585891346588
+Tweets escritos por @petrogustavo,2025-08-01,palestina,1.3862943611198906,2,131.00481712582967
+Tweets escritos por @petrogustavo,2025-08-01,salario,1.5146154026300302,4,137.07269393801775
+Tweets escritos por @petrogustavo,2025-08-01,tasa,3.9982601982898878,9,198.13600538192108
+Tweets escritos por @petrogustavo,2025-08-01,toneladas,4.115643134532554,8,132.2150356968583
+Tweets escritos por @petrogustavo,2025-08-01,trump,1.430252174557441,2,217.39833053273102
+Tweets escritos por @petrogustavo,2025-09-01,banco,0.5899629443247145,1,119.17251475359234
+Tweets escritos por @petrogustavo,2025-09-01,campesinado,3.3316364917404155,4,116.60727721091456
+Tweets escritos por @petrogustavo,2025-09-01,caribe,2.9786213178833463,6,133.5415224184367
+Tweets escritos por @petrogustavo,2025-09-01,cepeda,0.858226930919394,1,120.15177032871519
+Tweets escritos por @petrogustavo,2025-09-01,constituyente,2.0794415416798357,3,177.44567822334602
+Tweets escritos por @petrogustavo,2025-09-01,consulta,0.8842024173226545,1,206.9033656535012
+Tweets escritos por @petrogustavo,2025-09-01,deuda,4.787373092144901,10,157.50457473156723
+Tweets escritos por @petrogustavo,2025-09-01,eléctrica,1.716453861838788,2,115.86063567411821
+Tweets escritos por @petrogustavo,2025-09-01,fraude,2.24118239077377,2,158.0033585495508
+Tweets escritos por @petrogustavo,2025-09-01,gaza,11.063984146961687,15,144.5693928536327
+Tweets escritos por @petrogustavo,2025-09-01,guerrillero,0.6299682789384138,1,133.5532751349438
+Tweets escritos por @petrogustavo,2025-09-01,hoja,11.259235663115163,12,116.34543518552334
+Tweets escritos por @petrogustavo,2025-09-01,israel,1.8292967148626829,3,121.95311432417894
+Tweets escritos por @petrogustavo,2025-09-01,junta,2.0149229260169452,3,116.8655297089828
+Tweets escritos por @petrogustavo,2025-09-01,maduro,0.5514966634969185,1,150.5585891346588
+Tweets escritos por @petrogustavo,2025-09-01,palestina,5.545177444479562,8,131.00481712582967
+Tweets escritos por @petrogustavo,2025-09-01,tasa,1.3327533994299627,3,198.13600538192108
+Tweets escritos por @petrogustavo,2025-09-01,toneladas,3.0867323508994158,6,132.2150356968583
+Tweets escritos por @petrogustavo,2025-09-01,trump,6.436134785508485,9,217.39833053273102
+Tweets escritos por @petrogustavo,2025-10-01,banco,4.719703554597716,8,119.17251475359234
+Tweets escritos por @petrogustavo,2025-10-01,campesinado,1.6658182458702078,2,116.60727721091456
+Tweets escritos por @petrogustavo,2025-10-01,caribe,21.843222997811207,44,133.5415224184367
+Tweets escritos por @petrogustavo,2025-10-01,cepeda,3.432907723677576,4,120.15177032871519
+Tweets escritos por @petrogustavo,2025-10-01,constituyente,14.556090791758852,21,177.44567822334602
+Tweets escritos por @petrogustavo,2025-10-01,consulta,7.957821755903891,9,206.9033656535012
+Tweets escritos por @petrogustavo,2025-10-01,deuda,8.13853425664633,17,157.50457473156723
+Tweets escritos por @petrogustavo,2025-10-01,eléctrica,3.432907723677576,4,115.86063567411821
+Tweets escritos por @petrogustavo,2025-10-01,gaza,17.7023746351387,24,144.5693928536327
+Tweets escritos por @petrogustavo,2025-10-01,hoja,12.197505301708093,13,116.34543518552334
+Tweets escritos por @petrogustavo,2025-10-01,israel,8.53671800269252,14,121.95311432417894
+Tweets escritos por @petrogustavo,2025-10-01,iván,1.3432819506779634,2,118.88045263499976
+Tweets escritos por @petrogustavo,2025-10-01,junta,8.731332679406762,13,116.8655297089828
+Tweets escritos por @petrogustavo,2025-10-01,maduro,1.6544899904907555,3,150.5585891346588
+Tweets escritos por @petrogustavo,2025-10-01,palestina,11.78350206951907,17,131.00481712582967
+Tweets escritos por @petrogustavo,2025-10-01,software,2.379168133747673,2,132.04383142299585
+Tweets escritos por @petrogustavo,2025-10-01,tasa,5.331013597719851,12,198.13600538192108
+Tweets escritos por @petrogustavo,2025-10-01,toneladas,12.861384795414232,25,132.2150356968583
+Tweets escritos por @petrogustavo,2025-10-01,trump,25.029413054755217,35,217.39833053273102
+Tweets escritos por @petrogustavo,2025-10-01,vital,2.772588722239781,2,173.28679513998634
+Tweets escritos por @petrogustavo,2025-11-01,banco,5.3096664989224305,9,119.17251475359234
+Tweets escritos por @petrogustavo,2025-11-01,campesinado,4.16454561467552,5,116.60727721091456
+Tweets escritos por @petrogustavo,2025-11-01,caribe,12.410922157847276,25,133.5415224184367
+Tweets escritos por @petrogustavo,2025-11-01,catatumbo,2.1121053484986274,2,118.27789951592315
+Tweets escritos por @petrogustavo,2025-11-01,constituyente,1.3862943611198906,2,177.44567822334602
+Tweets escritos por @petrogustavo,2025-11-01,consulta,1.768404834645309,2,206.9033656535012
+Tweets escritos por @petrogustavo,2025-11-01,deuda,3.3511611645014305,7,157.50457473156723
+Tweets escritos por @petrogustavo,2025-11-01,eléctrica,2.5746807927581816,3,115.86063567411821
+Tweets escritos por @petrogustavo,2025-11-01,fraude,2.24118239077377,2,158.0033585495508
+Tweets escritos por @petrogustavo,2025-11-01,gaza,8.85118731756935,12,144.5693928536327
+Tweets escritos por @petrogustavo,2025-11-01,hoja,6.567887470150511,7,116.34543518552334
+Tweets escritos por @petrogustavo,2025-11-01,israel,1.8292967148626829,3,121.95311432417894
+Tweets escritos por @petrogustavo,2025-11-01,iván,7.388050728728799,11,118.88045263499976
+Tweets escritos por @petrogustavo,2025-11-01,junta,5.373127802711854,8,116.8655297089828
+Tweets escritos por @petrogustavo,2025-11-01,maduro,1.6544899904907555,3,150.5585891346588
+Tweets escritos por @petrogustavo,2025-11-01,palestina,5.545177444479562,8,131.00481712582967
+Tweets escritos por @petrogustavo,2025-11-01,salario,1.1359615519725228,3,137.07269393801775
+Tweets escritos por @petrogustavo,2025-11-01,tasa,4.4425113314332085,10,198.13600538192108
+Tweets escritos por @petrogustavo,2025-11-01,toneladas,11.318018619964525,22,132.2150356968583
+Tweets escritos por @petrogustavo,2025-11-01,trump,12.157143483738249,17,217.39833053273102
+Tweets escritos por @petrogustavo,2025-11-01,vital,2.772588722239781,2,173.28679513998634
+Tweets escritos por @petrogustavo,2025-12-01,banco,8.259481220546004,14,119.17251475359234
+Tweets escritos por @petrogustavo,2025-12-01,caribe,6.950116408394475,14,133.5415224184367
+Tweets escritos por @petrogustavo,2025-12-01,catatumbo,3.1681580227479413,3,118.27789951592315
+Tweets escritos por @petrogustavo,2025-12-01,constituyente,4.852030263919617,7,177.44567822334602
+Tweets escritos por @petrogustavo,2025-12-01,deuda,20.106966987008583,42,157.50457473156723
+Tweets escritos por @petrogustavo,2025-12-01,eléctrica,1.716453861838788,2,115.86063567411821
+Tweets escritos por @petrogustavo,2025-12-01,hoja,6.567887470150511,7,116.34543518552334
+Tweets escritos por @petrogustavo,2025-12-01,israel,0.6097655716208943,1,121.95311432417894
+Tweets escritos por @petrogustavo,2025-12-01,iván,5.373127802711854,8,118.88045263499976
+Tweets escritos por @petrogustavo,2025-12-01,junta,2.686563901355927,4,116.8655297089828
+Tweets escritos por @petrogustavo,2025-12-01,maduro,1.6544899904907555,3,150.5585891346588
+Tweets escritos por @petrogustavo,2025-12-01,salario,6.058461610520121,16,137.07269393801775
+Tweets escritos por @petrogustavo,2025-12-01,software,4.758336267495346,4,132.04383142299585
+Tweets escritos por @petrogustavo,2025-12-01,tasa,15.10453852687291,34,198.13600538192108
+Tweets escritos por @petrogustavo,2025-12-01,toneladas,5.659009309982262,11,132.2150356968583
+Tweets escritos por @petrogustavo,2025-12-01,trump,10.011765221902087,14,217.39833053273102
+Tweets escritos por @petrogustavo,2025-12-01,vital,4.1588830833596715,3,173.28679513998634
+Tweets escritos por @petrogustavo,2026-01-01,banco,5.3096664989224305,9,119.17251475359234
+Tweets escritos por @petrogustavo,2026-01-01,campesinado,0.8329091229351039,1,116.60727721091456
+Tweets escritos por @petrogustavo,2026-01-01,caribe,5.460805749452802,11,133.5415224184367
+Tweets escritos por @petrogustavo,2026-01-01,catatumbo,4.224210696997255,4,118.27789951592315
+Tweets escritos por @petrogustavo,2026-01-01,constituyente,1.3862943611198906,2,177.44567822334602
+Tweets escritos por @petrogustavo,2026-01-01,deuda,11.489695421147761,24,157.50457473156723
+Tweets escritos por @petrogustavo,2026-01-01,eléctrica,6.007588516435757,7,115.86063567411821
+Tweets escritos por @petrogustavo,2026-01-01,hoja,7.506157108743442,8,116.34543518552334
+Tweets escritos por @petrogustavo,2026-01-01,iván,3.3582048766949084,5,118.88045263499976
+Tweets escritos por @petrogustavo,2026-01-01,junta,0.6716409753389817,1,116.8655297089828
+Tweets escritos por @petrogustavo,2026-01-01,maduro,8.272449952453778,15,150.5585891346588
+Tweets escritos por @petrogustavo,2026-01-01,salario,8.709038565122674,23,137.07269393801775
+Tweets escritos por @petrogustavo,2026-01-01,tasa,16.437291926302873,37,198.13600538192108
+Tweets escritos por @petrogustavo,2026-01-01,toneladas,5.144553918165693,10,132.2150356968583
+Tweets escritos por @petrogustavo,2026-01-01,trump,10.011765221902087,14,217.39833053273102
+Tweets escritos por @petrogustavo,2026-01-01,vital,24.95329850015803,18,173.28679513998634
+Tweets escritos por @petrogustavo,2026-02-01,banco,7.079555331896574,12,119.17251475359234
+Tweets escritos por @petrogustavo,2026-02-01,campesinado,4.9974547376106235,6,116.60727721091456
+Tweets escritos por @petrogustavo,2026-02-01,caribe,3.4750582041972375,7,133.5415224184367
+Tweets escritos por @petrogustavo,2026-02-01,catatumbo,1.0560526742493137,1,118.27789951592315
+Tweets escritos por @petrogustavo,2026-02-01,consulta,8.842024173226545,10,206.9033656535012
+Tweets escritos por @petrogustavo,2026-02-01,deuda,4.308635782930411,9,157.50457473156723
+Tweets escritos por @petrogustavo,2026-02-01,eléctrica,3.432907723677576,4,115.86063567411821
+Tweets escritos por @petrogustavo,2026-02-01,fraude,23.532415103124585,21,158.0033585495508
+Tweets escritos por @petrogustavo,2026-02-01,hoja,10.320966024522232,11,116.34543518552334
+Tweets escritos por @petrogustavo,2026-02-01,junta,1.3432819506779634,2,116.8655297089828
+Tweets escritos por @petrogustavo,2026-02-01,maduro,0.5514966634969185,1,150.5585891346588
+Tweets escritos por @petrogustavo,2026-02-01,salario,12.495577071697749,33,137.07269393801775
+Tweets escritos por @petrogustavo,2026-02-01,software,24.981265404350566,21,132.04383142299585
+Tweets escritos por @petrogustavo,2026-02-01,tasa,7.552269263436455,17,198.13600538192108
+Tweets escritos por @petrogustavo,2026-02-01,toneladas,3.601187742715985,7,132.2150356968583
+Tweets escritos por @petrogustavo,2026-02-01,trump,8.581513047344647,12,217.39833053273102
+Tweets escritos por @petrogustavo,2026-02-01,vital,40.20253647247683,29,173.28679513998634
+Tweets escritos por @petrogustavo,2026-03-01,banco,4.129740610273002,7,119.17251475359234
+Tweets escritos por @petrogustavo,2026-03-01,campesinado,1.6658182458702078,2,116.60727721091456
+Tweets escritos por @petrogustavo,2026-03-01,caribe,1.9857475452555642,4,133.5415224184367
+Tweets escritos por @petrogustavo,2026-03-01,catatumbo,1.0560526742493137,1,118.27789951592315
+Tweets escritos por @petrogustavo,2026-03-01,consulta,5.305214503935927,6,206.9033656535012
+Tweets escritos por @petrogustavo,2026-03-01,deuda,11.489695421147761,24,157.50457473156723
+Tweets escritos por @petrogustavo,2026-03-01,eléctrica,6.007588516435757,7,115.86063567411821
+Tweets escritos por @petrogustavo,2026-03-01,fraude,29.13537108005901,26,158.0033585495508
+Tweets escritos por @petrogustavo,2026-03-01,hoja,4.691348192964651,5,116.34543518552334
+Tweets escritos por @petrogustavo,2026-03-01,israel,1.2195311432417886,2,121.95311432417894
+Tweets escritos por @petrogustavo,2026-03-01,iván,3.3582048766949084,5,118.88045263499976
+Tweets escritos por @petrogustavo,2026-03-01,junta,7.388050728728799,11,116.8655297089828
+Tweets escritos por @petrogustavo,2026-03-01,maduro,0.5514966634969185,1,150.5585891346588
+Tweets escritos por @petrogustavo,2026-03-01,palestina,0.6931471805599453,1,131.00481712582967
+Tweets escritos por @petrogustavo,2026-03-01,salario,6.815769311835136,18,137.07269393801775
+Tweets escritos por @petrogustavo,2026-03-01,software,14.275008802486038,12,132.04383142299585
+Tweets escritos por @petrogustavo,2026-03-01,tasa,12.883282861156305,29,198.13600538192108
+Tweets escritos por @petrogustavo,2026-03-01,toneladas,2.057821567266277,4,132.2150356968583
+Tweets escritos por @petrogustavo,2026-03-01,trump,2.860504349114882,4,217.39833053273102
+Tweets escritos por @petrogustavo,2026-03-01,vital,19.408121055678468,14,173.28679513998634
+Tweets escritos por @petrogustavo,2026-04-01,banco,12.97918477514372,22,119.17251475359234
+Tweets escritos por @petrogustavo,2026-04-01,campesinado,4.9974547376106235,6,116.60727721091456
+Tweets escritos por @petrogustavo,2026-04-01,caribe,6.453679522080583,13,133.5415224184367
+Tweets escritos por @petrogustavo,2026-04-01,catatumbo,1.0560526742493137,1,118.27789951592315
+Tweets escritos por @petrogustavo,2026-04-01,cepeda,3.432907723677576,4,120.15177032871519
+Tweets escritos por @petrogustavo,2026-04-01,constituyente,9.704060527839234,14,177.44567822334602
+Tweets escritos por @petrogustavo,2026-04-01,consulta,1.768404834645309,2,206.9033656535012
+Tweets escritos por @petrogustavo,2026-04-01,deuda,15.319593894863683,32,157.50457473156723
+Tweets escritos por @petrogustavo,2026-04-01,eléctrica,7.724042378274546,9,115.86063567411821
+Tweets escritos por @petrogustavo,2026-04-01,fraude,3.361773586160655,3,158.0033585495508
+Tweets escritos por @petrogustavo,2026-04-01,hoja,4.691348192964651,5,116.34543518552334
+Tweets escritos por @petrogustavo,2026-04-01,israel,2.439062286483577,4,121.95311432417894
+Tweets escritos por @petrogustavo,2026-04-01,iván,6.044768778050836,9,118.88045263499976
+Tweets escritos por @petrogustavo,2026-04-01,junta,17.462665358813524,26,116.8655297089828
+Tweets escritos por @petrogustavo,2026-04-01,palestina,1.3862943611198906,2,131.00481712582967
+Tweets escritos por @petrogustavo,2026-04-01,salario,9.845000117095196,26,137.07269393801775
+Tweets escritos por @petrogustavo,2026-04-01,software,16.65417693623371,14,132.04383142299585
+Tweets escritos por @petrogustavo,2026-04-01,tasa,19.547049858306117,44,198.13600538192108
+Tweets escritos por @petrogustavo,2026-04-01,toneladas,2.5722769590828465,5,132.2150356968583
+Tweets escritos por @petrogustavo,2026-04-01,trump,8.581513047344647,12,217.39833053273102
+Tweets escritos por @petrogustavo,2026-04-01,vital,30.498475944637594,22,173.28679513998634
+Tweets escritos por @petrogustavo,2026-05-01,banco,8.259481220546004,14,119.17251475359234
+Tweets escritos por @petrogustavo,2026-05-01,campesinado,13.326545966961662,16,116.60727721091456
+Tweets escritos por @petrogustavo,2026-05-01,caribe,11.914485271533385,24,133.5415224184367
+Tweets escritos por @petrogustavo,2026-05-01,cepeda,3.432907723677576,4,120.15177032871519
+Tweets escritos por @petrogustavo,2026-05-01,constituyente,22.18070977791825,32,177.44567822334602
+Tweets escritos por @petrogustavo,2026-05-01,deuda,7.6597969474318415,16,157.50457473156723
+Tweets escritos por @petrogustavo,2026-05-01,eléctrica,8.58226930919394,10,115.86063567411821
+Tweets escritos por @petrogustavo,2026-05-01,fraude,8.96472956309508,8,158.0033585495508
+Tweets escritos por @petrogustavo,2026-05-01,gaza,1.4751978862615582,2,144.5693928536327
+Tweets escritos por @petrogustavo,2026-05-01,guerrillero,1.2599365578768276,2,133.5532751349438
+Tweets escritos por @petrogustavo,2026-05-01,hoja,7.506157108743442,8,116.34543518552334
+Tweets escritos por @petrogustavo,2026-05-01,israel,1.2195311432417886,2,121.95311432417894
+Tweets escritos por @petrogustavo,2026-05-01,iván,2.686563901355927,4,118.88045263499976
+Tweets escritos por @petrogustavo,2026-05-01,junta,5.373127802711854,8,116.8655297089828
+Tweets escritos por @petrogustavo,2026-05-01,palestina,1.3862943611198906,2,131.00481712582967
+Tweets escritos por @petrogustavo,2026-05-01,salario,8.330384714465167,22,137.07269393801775
+Tweets escritos por @petrogustavo,2026-05-01,software,19.033345069981383,16,132.04383142299585
+Tweets escritos por @petrogustavo,2026-05-01,tasa,13.771785127442946,31,198.13600538192108
+Tweets escritos por @petrogustavo,2026-05-01,toneladas,3.0867323508994158,6,132.2150356968583
+Tweets escritos por @petrogustavo,2026-05-01,trump,4.290756523672323,6,217.39833053273102
+Tweets escritos por @petrogustavo,2026-05-01,vital,13.862943611198906,10,173.28679513998634

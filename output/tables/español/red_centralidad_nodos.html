@@ -1,0 +1,1585 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Centralidad en redes discursivas</title>
+<style>body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;margin:24px;color:#222}table{border-collapse:collapse;width:100%;font-size:13px}th,td{border:1px solid #ddd;padding:6px 8px;text-align:left;vertical-align:top}th{background:#f3f5f2}caption{text-align:left;font-weight:700;font-size:18px;margin-bottom:4px}.subtitle{color:#666;margin:0 0 14px 0}</style>
+</head>
+<body>
+<h1>Centralidad en redes discursivas</h1><p class="subtitle">Grado, grado ponderado e intermediación de nodos principales</p><table>
+ <thead>
+  <tr>
+   <th style="text-align:left;"> red </th>
+   <th style="text-align:left;"> nodo </th>
+   <th style="text-align:right;"> grado </th>
+   <th style="text-align:right;"> grado_ponderado </th>
+   <th style="text-align:right;"> intermediacion </th>
+   <th style="text-align:right;"> cercania </th>
+   <th style="text-align:right;"> pagerank </th>
+   <th style="text-align:right;"> eigenvector </th>
+   <th style="text-align:right;"> clustering_local </th>
+   <th style="text-align:right;"> comunidad </th>
+   <th style="text-align:right;"> componente </th>
+   <th style="text-align:left;"> status </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> Menciones </td>
+   <td style="text-align:left;"> @cnn </td>
+   <td style="text-align:right;"> 14 </td>
+   <td style="text-align:right;"> 331 </td>
+   <td style="text-align:right;"> 0.0227539 </td>
+   <td style="text-align:right;"> 13.638976 </td>
+   <td style="text-align:right;"> 0.0392331 </td>
+   <td style="text-align:right;"> 1.0000000 </td>
+   <td style="text-align:right;"> 0.3736264 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Menciones </td>
+   <td style="text-align:left;"> @kremlinrussia_e </td>
+   <td style="text-align:right;"> 13 </td>
+   <td style="text-align:right;"> 319 </td>
+   <td style="text-align:right;"> 0.0139742 </td>
+   <td style="text-align:right;"> 13.492921 </td>
+   <td style="text-align:right;"> 0.0365579 </td>
+   <td style="text-align:right;"> 0.9969435 </td>
+   <td style="text-align:right;"> 0.4358974 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Menciones </td>
+   <td style="text-align:left;"> @mmflint </td>
+   <td style="text-align:right;"> 11 </td>
+   <td style="text-align:right;"> 252 </td>
+   <td style="text-align:right;"> 0.0037679 </td>
+   <td style="text-align:right;"> 12.471204 </td>
+   <td style="text-align:right;"> 0.0290148 </td>
+   <td style="text-align:right;"> 0.8507835 </td>
+   <td style="text-align:right;"> 0.5272727 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Menciones </td>
+   <td style="text-align:left;"> @fiscaliacol </td>
+   <td style="text-align:right;"> 10 </td>
+   <td style="text-align:right;"> 219 </td>
+   <td style="text-align:right;"> 0.0390694 </td>
+   <td style="text-align:right;"> 12.603843 </td>
+   <td style="text-align:right;"> 0.0294444 </td>
+   <td style="text-align:right;"> 0.5373770 </td>
+   <td style="text-align:right;"> 0.4666667 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Menciones </td>
+   <td style="text-align:left;"> @xijinping </td>
+   <td style="text-align:right;"> 9 </td>
+   <td style="text-align:right;"> 187 </td>
+   <td style="text-align:right;"> 0.0018291 </td>
+   <td style="text-align:right;"> 12.190632 </td>
+   <td style="text-align:right;"> 0.0222725 </td>
+   <td style="text-align:right;"> 0.6560663 </td>
+   <td style="text-align:right;"> 0.6944444 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Menciones </td>
+   <td style="text-align:left;"> @gustavobolivar </td>
+   <td style="text-align:right;"> 9 </td>
+   <td style="text-align:right;"> 182 </td>
+   <td style="text-align:right;"> 0.0851624 </td>
+   <td style="text-align:right;"> 5.690302 </td>
+   <td style="text-align:right;"> 0.0462830 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 0.1388889 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Menciones </td>
+   <td style="text-align:left;"> @policiacolombia </td>
+   <td style="text-align:right;"> 9 </td>
+   <td style="text-align:right;"> 177 </td>
+   <td style="text-align:right;"> 0.0198639 </td>
+   <td style="text-align:right;"> 12.053562 </td>
+   <td style="text-align:right;"> 0.0244814 </td>
+   <td style="text-align:right;"> 0.5025268 </td>
+   <td style="text-align:right;"> 0.5000000 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Menciones </td>
+   <td style="text-align:left;"> @alvarouribevel </td>
+   <td style="text-align:right;"> 8 </td>
+   <td style="text-align:right;"> 149 </td>
+   <td style="text-align:right;"> 0.1022827 </td>
+   <td style="text-align:right;"> 5.640191 </td>
+   <td style="text-align:right;"> 0.0393135 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 0.1785714 </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Menciones </td>
+   <td style="text-align:left;"> @ivancepedacast </td>
+   <td style="text-align:right;"> 6 </td>
+   <td style="text-align:right;"> 141 </td>
+   <td style="text-align:right;"> 0.1356453 </td>
+   <td style="text-align:right;"> 6.237383 </td>
+   <td style="text-align:right;"> 0.0317003 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 0.3333333 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Menciones </td>
+   <td style="text-align:left;"> @noticiascaracol </td>
+   <td style="text-align:right;"> 8 </td>
+   <td style="text-align:right;"> 132 </td>
+   <td style="text-align:right;"> 0.0869183 </td>
+   <td style="text-align:right;"> 4.565875 </td>
+   <td style="text-align:right;"> 0.0365044 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 0.1785714 </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Menciones </td>
+   <td style="text-align:left;"> @bbc </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 128 </td>
+   <td style="text-align:right;"> 0.0001463 </td>
+   <td style="text-align:right;"> 10.281605 </td>
+   <td style="text-align:right;"> 0.0153923 </td>
+   <td style="text-align:right;"> 0.5227099 </td>
+   <td style="text-align:right;"> 0.8000000 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Menciones </td>
+   <td style="text-align:left;"> @ga_jaramillo </td>
+   <td style="text-align:right;"> 6 </td>
+   <td style="text-align:right;"> 105 </td>
+   <td style="text-align:right;"> 0.0647498 </td>
+   <td style="text-align:right;"> 5.078987 </td>
+   <td style="text-align:right;"> 0.0245652 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 0.4000000 </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Menciones </td>
+   <td style="text-align:left;"> @bbcnews </td>
+   <td style="text-align:right;"> 6 </td>
+   <td style="text-align:right;"> 90 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 8.981817 </td>
+   <td style="text-align:right;"> 0.0116106 </td>
+   <td style="text-align:right;"> 0.3603842 </td>
+   <td style="text-align:right;"> 1.0000000 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Menciones </td>
+   <td style="text-align:left;"> @minsaludcol </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:right;"> 88 </td>
+   <td style="text-align:right;"> 0.0834065 </td>
+   <td style="text-align:right;"> 5.376594 </td>
+   <td style="text-align:right;"> 0.0198431 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 0.3333333 </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Menciones </td>
+   <td style="text-align:left;"> @pizarromariajo </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 88 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 5.616037 </td>
+   <td style="text-align:right;"> 0.0198985 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 1.0000000 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Menciones </td>
+   <td style="text-align:left;"> @lulaoficial </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 81 </td>
+   <td style="text-align:right;"> 0.0043898 </td>
+   <td style="text-align:right;"> 15.743626 </td>
+   <td style="text-align:right;"> 0.0411281 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 7 </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Menciones </td>
+   <td style="text-align:left;"> @cortesupremaj </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:right;"> 80 </td>
+   <td style="text-align:right;"> 0.0166813 </td>
+   <td style="text-align:right;"> 9.547660 </td>
+   <td style="text-align:right;"> 0.0154192 </td>
+   <td style="text-align:right;"> 0.0965787 </td>
+   <td style="text-align:right;"> 0.3333333 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Menciones </td>
+   <td style="text-align:left;"> @xijingping </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:right;"> 80 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 8.497193 </td>
+   <td style="text-align:right;"> 0.0101388 </td>
+   <td style="text-align:right;"> 0.3564358 </td>
+   <td style="text-align:right;"> 1.0000000 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Menciones </td>
+   <td style="text-align:left;"> @elespectador </td>
+   <td style="text-align:right;"> 6 </td>
+   <td style="text-align:right;"> 78 </td>
+   <td style="text-align:right;"> 0.0076822 </td>
+   <td style="text-align:right;"> 4.568037 </td>
+   <td style="text-align:right;"> 0.0198907 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 0.4000000 </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Menciones </td>
+   <td style="text-align:left;"> @actualidadrt </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 76 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 8.307166 </td>
+   <td style="text-align:right;"> 0.0099016 </td>
+   <td style="text-align:right;"> 0.3305287 </td>
+   <td style="text-align:right;"> 1.0000000 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Menciones </td>
+   <td style="text-align:left;"> @pgn_col </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 71 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 9.791164 </td>
+   <td style="text-align:right;"> 0.0120632 </td>
+   <td style="text-align:right;"> 0.1202413 </td>
+   <td style="text-align:right;"> 0.6666667 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Menciones </td>
+   <td style="text-align:left;"> @carolinacorcho </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:right;"> 70 </td>
+   <td style="text-align:right;"> 0.0856014 </td>
+   <td style="text-align:right;"> 5.957506 </td>
+   <td style="text-align:right;"> 0.0158782 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 0.5000000 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Menciones </td>
+   <td style="text-align:left;"> @mariafdacabal </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:right;"> 61 </td>
+   <td style="text-align:right;"> 0.0153644 </td>
+   <td style="text-align:right;"> 4.596068 </td>
+   <td style="text-align:right;"> 0.0178951 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 0.3333333 </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Menciones </td>
+   <td style="text-align:left;"> @palomavalencial </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:right;"> 61 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 4.989186 </td>
+   <td style="text-align:right;"> 0.0161203 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 0.5000000 </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Menciones </td>
+   <td style="text-align:left;"> @aabenedetti </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:right;"> 60 </td>
+   <td style="text-align:right;"> 0.0153644 </td>
+   <td style="text-align:right;"> 4.429217 </td>
+   <td style="text-align:right;"> 0.0168787 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 0.3333333 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Menciones </td>
+   <td style="text-align:left;"> @supersalud </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 54 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 4.715812 </td>
+   <td style="text-align:right;"> 0.0126894 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 1.0000000 </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Menciones </td>
+   <td style="text-align:left;"> @chinanewsweek </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:right;"> 52 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 7.673094 </td>
+   <td style="text-align:right;"> 0.0075945 </td>
+   <td style="text-align:right;"> 0.2169110 </td>
+   <td style="text-align:right;"> 1.0000000 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Menciones </td>
+   <td style="text-align:left;"> @interpol_hq </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:right;"> 52 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 6.979122 </td>
+   <td style="text-align:right;"> 0.0073384 </td>
+   <td style="text-align:right;"> 0.2408502 </td>
+   <td style="text-align:right;"> 1.0000000 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Menciones </td>
+   <td style="text-align:left;"> @ntn24 </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:right;"> 51 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 4.033107 </td>
+   <td style="text-align:right;"> 0.0138591 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 0.6666667 </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Menciones </td>
+   <td style="text-align:left;"> @gretathunberg </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 48 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 7.654103 </td>
+   <td style="text-align:right;"> 0.0069799 </td>
+   <td style="text-align:right;"> 0.2131699 </td>
+   <td style="text-align:right;"> 1.0000000 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Menciones </td>
+   <td style="text-align:left;"> @vickydavilah </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 47 </td>
+   <td style="text-align:right;"> 0.0478490 </td>
+   <td style="text-align:right;"> 5.183702 </td>
+   <td style="text-align:right;"> 0.0136797 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 0.3333333 </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Menciones </td>
+   <td style="text-align:left;"> @eltiempo </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 46 </td>
+   <td style="text-align:right;"> 0.0399473 </td>
+   <td style="text-align:right;"> 4.458065 </td>
+   <td style="text-align:right;"> 0.0133515 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 0.3333333 </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Menciones </td>
+   <td style="text-align:left;"> @fbi </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 45 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 7.409630 </td>
+   <td style="text-align:right;"> 0.0066143 </td>
+   <td style="text-align:right;"> 0.2258680 </td>
+   <td style="text-align:right;"> 1.0000000 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Menciones </td>
+   <td style="text-align:left;"> @ivanduque </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 41 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 4.725392 </td>
+   <td style="text-align:right;"> 0.0118011 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 1.0000000 </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Menciones </td>
+   <td style="text-align:left;"> @roybarreras </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 41 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 4.651695 </td>
+   <td style="text-align:right;"> 0.0114496 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 1.0000000 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Menciones </td>
+   <td style="text-align:left;"> @wradiocolombia </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 36 </td>
+   <td style="text-align:right;"> 0.0298507 </td>
+   <td style="text-align:right;"> 3.708241 </td>
+   <td style="text-align:right;"> 0.0130589 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Menciones </td>
+   <td style="text-align:left;"> @bluradioco </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 34 </td>
+   <td style="text-align:right;"> 0.0153644 </td>
+   <td style="text-align:right;"> 3.145492 </td>
+   <td style="text-align:right;"> 0.0145029 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Menciones </td>
+   <td style="text-align:left;"> @cconstitucional </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 33 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 6.545277 </td>
+   <td style="text-align:right;"> 0.0083887 </td>
+   <td style="text-align:right;"> 0.0103645 </td>
+   <td style="text-align:right;"> 1.0000000 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Menciones </td>
+   <td style="text-align:left;"> @franciamarquezm </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 32 </td>
+   <td style="text-align:right;"> 0.0153644 </td>
+   <td style="text-align:right;"> 4.513227 </td>
+   <td style="text-align:right;"> 0.0114460 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Menciones </td>
+   <td style="text-align:left;"> @cgr_colombia </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 31 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 6.652018 </td>
+   <td style="text-align:right;"> 0.0062591 </td>
+   <td style="text-align:right;"> 0.0483836 </td>
+   <td style="text-align:right;"> 1.0000000 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Menciones </td>
+   <td style="text-align:left;"> @revistasemana </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 31 </td>
+   <td style="text-align:right;"> 0.0434592 </td>
+   <td style="text-align:right;"> 4.726391 </td>
+   <td style="text-align:right;"> 0.0098309 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Menciones </td>
+   <td style="text-align:left;"> @juanmansantos </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 31 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 4.330639 </td>
+   <td style="text-align:right;"> 0.0093913 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 1.0000000 </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Menciones </td>
+   <td style="text-align:left;"> @abdelaespriella </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 30 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 4.339356 </td>
+   <td style="text-align:right;"> 0.0089063 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 1.0000000 </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Menciones </td>
+   <td style="text-align:left;"> @consejodeestado </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 30 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 6.165972 </td>
+   <td style="text-align:right;"> 0.0078202 </td>
+   <td style="text-align:right;"> 0.0089381 </td>
+   <td style="text-align:right;"> 1.0000000 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Menciones </td>
+   <td style="text-align:left;"> @cnnee </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 28 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 3.590577 </td>
+   <td style="text-align:right;"> 0.0087068 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 1.0000000 </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Menciones </td>
+   <td style="text-align:left;"> @cedemocratico </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 28 </td>
+   <td style="text-align:right;"> 0.0153644 </td>
+   <td style="text-align:right;"> 4.262745 </td>
+   <td style="text-align:right;"> 0.0110234 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Menciones </td>
+   <td style="text-align:left;"> @noticiasrcn </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 27 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 3.921195 </td>
+   <td style="text-align:right;"> 0.0085207 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Menciones </td>
+   <td style="text-align:left;"> @col_ejercito </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 25 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 8.260485 </td>
+   <td style="text-align:right;"> 0.0051131 </td>
+   <td style="text-align:right;"> 0.0664300 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Menciones </td>
+   <td style="text-align:left;"> @nubiacarolinacc </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 24 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 3.746310 </td>
+   <td style="text-align:right;"> 0.0071613 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 1.0000000 </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Menciones </td>
+   <td style="text-align:left;"> @camaracolombia </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 23 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 23.000000 </td>
+   <td style="text-align:right;"> 0.0144928 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 6 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Menciones </td>
+   <td style="text-align:left;"> @senadogovco </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 23 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 23.000000 </td>
+   <td style="text-align:right;"> 0.0144928 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 6 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Menciones </td>
+   <td style="text-align:left;"> @lopezobrador_ </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 19 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 9.467632 </td>
+   <td style="text-align:right;"> 0.0103741 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 7 </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Menciones </td>
+   <td style="text-align:left;"> @gabrielboric </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 18 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 9.262500 </td>
+   <td style="text-align:right;"> 0.0099426 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 7 </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Menciones </td>
+   <td style="text-align:left;"> @nicolasmaduro </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 18 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 9.262500 </td>
+   <td style="text-align:right;"> 0.0099426 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 7 </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Menciones </td>
+   <td style="text-align:left;"> @davidracero </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 16 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 4.228303 </td>
+   <td style="text-align:right;"> 0.0056324 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Menciones </td>
+   <td style="text-align:left;"> @laurisarabia </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 15 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 3.441294 </td>
+   <td style="text-align:right;"> 0.0057606 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Menciones </td>
+   <td style="text-align:left;"> @lafm </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 15 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 2.612807 </td>
+   <td style="text-align:right;"> 0.0076125 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Menciones </td>
+   <td style="text-align:left;"> @wilsonariasc </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 15 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 4.157098 </td>
+   <td style="text-align:right;"> 0.0054163 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Menciones </td>
+   <td style="text-align:left;"> @fuerzasmilcol </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 14 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 6.622945 </td>
+   <td style="text-align:right;"> 0.0038198 </td>
+   <td style="text-align:right;"> 0.0372008 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Menciones </td>
+   <td style="text-align:left;"> @rcnradio </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 14 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 3.466679 </td>
+   <td style="text-align:right;"> 0.0054648 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Menciones </td>
+   <td style="text-align:left;"> @claudiashein </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 13 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 7.996403 </td>
+   <td style="text-align:right;"> 0.0077846 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 7 </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Menciones </td>
+   <td style="text-align:left;"> @danielrmed </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 13 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 13.000000 </td>
+   <td style="text-align:right;"> 0.0144928 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 8 </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Menciones </td>
+   <td style="text-align:left;"> @jmilei </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 13 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 7.996403 </td>
+   <td style="text-align:right;"> 0.0077846 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 7 </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Menciones </td>
+   <td style="text-align:left;"> @mineducacion </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 13 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 13.000000 </td>
+   <td style="text-align:right;"> 0.0144928 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 8 </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Menciones </td>
+   <td style="text-align:left;"> @miguelpolop </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 13 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 3.420399 </td>
+   <td style="text-align:right;"> 0.0054156 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Menciones </td>
+   <td style="text-align:left;"> @alexlopezmaya </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 12 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 3.894747 </td>
+   <td style="text-align:right;"> 0.0047678 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Menciones </td>
+   <td style="text-align:left;"> @pcambioradical </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 12 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 3.168476 </td>
+   <td style="text-align:right;"> 0.0061896 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Menciones </td>
+   <td style="text-align:left;"> @guardian </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 12 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 6.549459 </td>
+   <td style="text-align:right;"> 0.0033829 </td>
+   <td style="text-align:right;"> 0.0634521 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Menciones </td>
+   <td style="text-align:left;"> @infopresidencia </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 12 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 3.304808 </td>
+   <td style="text-align:right;"> 0.0058223 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Co-ocurrencias </td>
+   <td style="text-align:left;"> salud </td>
+   <td style="text-align:right;"> 16 </td>
+   <td style="text-align:right;"> 1008 </td>
+   <td style="text-align:right;"> 0.3109756 </td>
+   <td style="text-align:right;"> 23.481527 </td>
+   <td style="text-align:right;"> 0.0807349 </td>
+   <td style="text-align:right;"> 0.7666559 </td>
+   <td style="text-align:right;"> 0.2583333 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Co-ocurrencias </td>
+   <td style="text-align:left;"> debe </td>
+   <td style="text-align:right;"> 18 </td>
+   <td style="text-align:right;"> 959 </td>
+   <td style="text-align:right;"> 0.2865854 </td>
+   <td style="text-align:right;"> 23.964851 </td>
+   <td style="text-align:right;"> 0.0826796 </td>
+   <td style="text-align:right;"> 1.0000000 </td>
+   <td style="text-align:right;"> 0.2941176 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Co-ocurrencias </td>
+   <td style="text-align:left;"> pueblo </td>
+   <td style="text-align:right;"> 22 </td>
+   <td style="text-align:right;"> 850 </td>
+   <td style="text-align:right;"> 0.2719512 </td>
+   <td style="text-align:right;"> 24.359810 </td>
+   <td style="text-align:right;"> 0.0750069 </td>
+   <td style="text-align:right;"> 0.6166470 </td>
+   <td style="text-align:right;"> 0.2337662 </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Co-ocurrencias </td>
+   <td style="text-align:left;"> ser </td>
+   <td style="text-align:right;"> 15 </td>
+   <td style="text-align:right;"> 763 </td>
+   <td style="text-align:right;"> 0.1097561 </td>
+   <td style="text-align:right;"> 23.446450 </td>
+   <td style="text-align:right;"> 0.0636295 </td>
+   <td style="text-align:right;"> 0.9316750 </td>
+   <td style="text-align:right;"> 0.3523810 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Co-ocurrencias </td>
+   <td style="text-align:left;"> paz </td>
+   <td style="text-align:right;"> 12 </td>
+   <td style="text-align:right;"> 448 </td>
+   <td style="text-align:right;"> 0.0560976 </td>
+   <td style="text-align:right;"> 19.702630 </td>
+   <td style="text-align:right;"> 0.0401590 </td>
+   <td style="text-align:right;"> 0.3391939 </td>
+   <td style="text-align:right;"> 0.4242424 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Co-ocurrencias </td>
+   <td style="text-align:left;"> reforma </td>
+   <td style="text-align:right;"> 7 </td>
+   <td style="text-align:right;"> 422 </td>
+   <td style="text-align:right;"> 0.0963415 </td>
+   <td style="text-align:right;"> 21.702770 </td>
+   <td style="text-align:right;"> 0.0346578 </td>
+   <td style="text-align:right;"> 0.4270677 </td>
+   <td style="text-align:right;"> 0.4285714 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Co-ocurrencias </td>
+   <td style="text-align:left;"> hace </td>
+   <td style="text-align:right;"> 8 </td>
+   <td style="text-align:right;"> 360 </td>
+   <td style="text-align:right;"> 0.1158537 </td>
+   <td style="text-align:right;"> 17.771113 </td>
+   <td style="text-align:right;"> 0.0369587 </td>
+   <td style="text-align:right;"> 0.1552055 </td>
+   <td style="text-align:right;"> 0.2500000 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Co-ocurrencias </td>
+   <td style="text-align:left;"> nacional </td>
+   <td style="text-align:right;"> 11 </td>
+   <td style="text-align:right;"> 355 </td>
+   <td style="text-align:right;"> 0.1487805 </td>
+   <td style="text-align:right;"> 19.436252 </td>
+   <td style="text-align:right;"> 0.0403787 </td>
+   <td style="text-align:right;"> 0.2964177 </td>
+   <td style="text-align:right;"> 0.3090909 </td>
+   <td style="text-align:right;"> 6 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Co-ocurrencias </td>
+   <td style="text-align:left;"> sistema </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:right;"> 330 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 21.395775 </td>
+   <td style="text-align:right;"> 0.0268289 </td>
+   <td style="text-align:right;"> 0.4150667 </td>
+   <td style="text-align:right;"> 0.6666667 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Co-ocurrencias </td>
+   <td style="text-align:left;"> justicia </td>
+   <td style="text-align:right;"> 6 </td>
+   <td style="text-align:right;"> 301 </td>
+   <td style="text-align:right;"> 0.0414634 </td>
+   <td style="text-align:right;"> 18.598979 </td>
+   <td style="text-align:right;"> 0.0266314 </td>
+   <td style="text-align:right;"> 0.2696553 </td>
+   <td style="text-align:right;"> 0.7333333 </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Co-ocurrencias </td>
+   <td style="text-align:left;"> años </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:right;"> 280 </td>
+   <td style="text-align:right;"> 0.0512195 </td>
+   <td style="text-align:right;"> 16.511902 </td>
+   <td style="text-align:right;"> 0.0280049 </td>
+   <td style="text-align:right;"> 0.1096207 </td>
+   <td style="text-align:right;"> 0.6666667 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Co-ocurrencias </td>
+   <td style="text-align:left;"> vida </td>
+   <td style="text-align:right;"> 9 </td>
+   <td style="text-align:right;"> 276 </td>
+   <td style="text-align:right;"> 0.0182927 </td>
+   <td style="text-align:right;"> 17.757587 </td>
+   <td style="text-align:right;"> 0.0267881 </td>
+   <td style="text-align:right;"> 0.2594636 </td>
+   <td style="text-align:right;"> 0.4722222 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Co-ocurrencias </td>
+   <td style="text-align:left;"> mundo </td>
+   <td style="text-align:right;"> 8 </td>
+   <td style="text-align:right;"> 263 </td>
+   <td style="text-align:right;"> 0.0792683 </td>
+   <td style="text-align:right;"> 17.778251 </td>
+   <td style="text-align:right;"> 0.0290673 </td>
+   <td style="text-align:right;"> 0.2398821 </td>
+   <td style="text-align:right;"> 0.3571429 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Co-ocurrencias </td>
+   <td style="text-align:left;"> social </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:right;"> 226 </td>
+   <td style="text-align:right;"> 0.0024390 </td>
+   <td style="text-align:right;"> 16.065469 </td>
+   <td style="text-align:right;"> 0.0211073 </td>
+   <td style="text-align:right;"> 0.1304787 </td>
+   <td style="text-align:right;"> 0.6666667 </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Co-ocurrencias </td>
+   <td style="text-align:left;"> ahora </td>
+   <td style="text-align:right;"> 8 </td>
+   <td style="text-align:right;"> 225 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 16.508672 </td>
+   <td style="text-align:right;"> 0.0206672 </td>
+   <td style="text-align:right;"> 0.2434908 </td>
+   <td style="text-align:right;"> 0.5357143 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Co-ocurrencias </td>
+   <td style="text-align:left;"> congreso </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 223 </td>
+   <td style="text-align:right;"> 0.0475610 </td>
+   <td style="text-align:right;"> 18.362579 </td>
+   <td style="text-align:right;"> 0.0215674 </td>
+   <td style="text-align:right;"> 0.1630403 </td>
+   <td style="text-align:right;"> 0.5000000 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Co-ocurrencias </td>
+   <td style="text-align:left;"> poder </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 206 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 19.525978 </td>
+   <td style="text-align:right;"> 0.0191517 </td>
+   <td style="text-align:right;"> 0.2428971 </td>
+   <td style="text-align:right;"> 0.8000000 </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Co-ocurrencias </td>
+   <td style="text-align:left;"> eps </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:right;"> 199 </td>
+   <td style="text-align:right;"> 0.0195122 </td>
+   <td style="text-align:right;"> 19.589223 </td>
+   <td style="text-align:right;"> 0.0183663 </td>
+   <td style="text-align:right;"> 0.2553472 </td>
+   <td style="text-align:right;"> 0.3333333 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Co-ocurrencias </td>
+   <td style="text-align:left;"> política </td>
+   <td style="text-align:right;"> 6 </td>
+   <td style="text-align:right;"> 186 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 16.533035 </td>
+   <td style="text-align:right;"> 0.0180999 </td>
+   <td style="text-align:right;"> 0.2098421 </td>
+   <td style="text-align:right;"> 0.5333333 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Co-ocurrencias </td>
+   <td style="text-align:left;"> democracia </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 183 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 17.740283 </td>
+   <td style="text-align:right;"> 0.0174274 </td>
+   <td style="text-align:right;"> 0.1904957 </td>
+   <td style="text-align:right;"> 0.8000000 </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Co-ocurrencias </td>
+   <td style="text-align:left;"> pública </td>
+   <td style="text-align:right;"> 6 </td>
+   <td style="text-align:right;"> 175 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 17.181043 </td>
+   <td style="text-align:right;"> 0.0172392 </td>
+   <td style="text-align:right;"> 0.2002681 </td>
+   <td style="text-align:right;"> 0.6666667 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Co-ocurrencias </td>
+   <td style="text-align:left;"> toda </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 169 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 17.087476 </td>
+   <td style="text-align:right;"> 0.0165519 </td>
+   <td style="text-align:right;"> 0.2185296 </td>
+   <td style="text-align:right;"> 0.8000000 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Co-ocurrencias </td>
+   <td style="text-align:left;"> dos </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:right;"> 162 </td>
+   <td style="text-align:right;"> 0.0073171 </td>
+   <td style="text-align:right;"> 13.744288 </td>
+   <td style="text-align:right;"> 0.0187597 </td>
+   <td style="text-align:right;"> 0.0298368 </td>
+   <td style="text-align:right;"> 0.3333333 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Co-ocurrencias </td>
+   <td style="text-align:left;"> ley </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:right;"> 158 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 15.856350 </td>
+   <td style="text-align:right;"> 0.0151103 </td>
+   <td style="text-align:right;"> 0.1318786 </td>
+   <td style="text-align:right;"> 0.8333333 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Co-ocurrencias </td>
+   <td style="text-align:left;"> año </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 154 </td>
+   <td style="text-align:right;"> 0.0292683 </td>
+   <td style="text-align:right;"> 13.785398 </td>
+   <td style="text-align:right;"> 0.0200713 </td>
+   <td style="text-align:right;"> 0.0288632 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Co-ocurrencias </td>
+   <td style="text-align:left;"> derecho </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:right;"> 150 </td>
+   <td style="text-align:right;"> 0.0073171 </td>
+   <td style="text-align:right;"> 15.881876 </td>
+   <td style="text-align:right;"> 0.0147648 </td>
+   <td style="text-align:right;"> 0.1543684 </td>
+   <td style="text-align:right;"> 0.6666667 </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Co-ocurrencias </td>
+   <td style="text-align:left;"> millones </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:right;"> 148 </td>
+   <td style="text-align:right;"> 0.0268293 </td>
+   <td style="text-align:right;"> 14.505294 </td>
+   <td style="text-align:right;"> 0.0183362 </td>
+   <td style="text-align:right;"> 0.0506020 </td>
+   <td style="text-align:right;"> 0.1666667 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Co-ocurrencias </td>
+   <td style="text-align:left;"> república </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 137 </td>
+   <td style="text-align:right;"> 0.0390244 </td>
+   <td style="text-align:right;"> 14.895803 </td>
+   <td style="text-align:right;"> 0.0170087 </td>
+   <td style="text-align:right;"> 0.0642969 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Co-ocurrencias </td>
+   <td style="text-align:left;"> tasa </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 134 </td>
+   <td style="text-align:right;"> 0.0207317 </td>
+   <td style="text-align:right;"> 13.314482 </td>
+   <td style="text-align:right;"> 0.0191103 </td>
+   <td style="text-align:right;"> 0.0113176 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Co-ocurrencias </td>
+   <td style="text-align:left;"> cambio </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:right;"> 120 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 15.335657 </td>
+   <td style="text-align:right;"> 0.0124283 </td>
+   <td style="text-align:right;"> 0.1773582 </td>
+   <td style="text-align:right;"> 1.0000000 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Co-ocurrencias </td>
+   <td style="text-align:left;"> personas </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 114 </td>
+   <td style="text-align:right;"> 0.0024390 </td>
+   <td style="text-align:right;"> 12.656406 </td>
+   <td style="text-align:right;"> 0.0148366 </td>
+   <td style="text-align:right;"> 0.0204983 </td>
+   <td style="text-align:right;"> 0.3333333 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Co-ocurrencias </td>
+   <td style="text-align:left;"> cocaína </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 73 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 14.265913 </td>
+   <td style="text-align:right;"> 0.0105580 </td>
+   <td style="text-align:right;"> 0.0405321 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 6 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Co-ocurrencias </td>
+   <td style="text-align:left;"> economía </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 60 </td>
+   <td style="text-align:right;"> 0.0024390 </td>
+   <td style="text-align:right;"> 11.920819 </td>
+   <td style="text-align:right;"> 0.0100810 </td>
+   <td style="text-align:right;"> 0.0142261 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Co-ocurrencias </td>
+   <td style="text-align:left;"> gran </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 56 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 13.561987 </td>
+   <td style="text-align:right;"> 0.0084004 </td>
+   <td style="text-align:right;"> 0.0507352 </td>
+   <td style="text-align:right;"> 1.0000000 </td>
+   <td style="text-align:right;"> 6 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Co-ocurrencias </td>
+   <td style="text-align:left;"> eeuu </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 55 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 11.569836 </td>
+   <td style="text-align:right;"> 0.0103282 </td>
+   <td style="text-align:right;"> 0.0174083 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Co-ocurrencias </td>
+   <td style="text-align:left;"> mismo </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 54 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 13.343844 </td>
+   <td style="text-align:right;"> 0.0086951 </td>
+   <td style="text-align:right;"> 0.0314822 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Co-ocurrencias </td>
+   <td style="text-align:left;"> gente </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 51 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 13.184928 </td>
+   <td style="text-align:right;"> 0.0075766 </td>
+   <td style="text-align:right;"> 0.0459743 </td>
+   <td style="text-align:right;"> 1.0000000 </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Co-ocurrencias </td>
+   <td style="text-align:left;"> venezuela </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 49 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 12.584310 </td>
+   <td style="text-align:right;"> 0.0092343 </td>
+   <td style="text-align:right;"> 0.0510813 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Co-ocurrencias </td>
+   <td style="text-align:left;"> seguridad </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 27 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 11.417618 </td>
+   <td style="text-align:right;"> 0.0061818 </td>
+   <td style="text-align:right;"> 0.0160839 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 6 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Co-ocurrencias </td>
+   <td style="text-align:left;"> parte </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 24 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 10.317628 </td>
+   <td style="text-align:right;"> 0.0056658 </td>
+   <td style="text-align:right;"> 0.0074859 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Co-ocurrencias </td>
+   <td style="text-align:left;"> bogotá </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 24 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 10.857686 </td>
+   <td style="text-align:right;"> 0.0058918 </td>
+   <td style="text-align:right;"> 0.0142968 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 6 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Co-ocurrencias </td>
+   <td style="text-align:left;"> sino </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 23 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 11.884163 </td>
+   <td style="text-align:right;"> 0.0052569 </td>
+   <td style="text-align:right;"> 0.0462223 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> ok </td>
+  </tr>
+</tbody>
+</table>
+</body>
+</html>
+

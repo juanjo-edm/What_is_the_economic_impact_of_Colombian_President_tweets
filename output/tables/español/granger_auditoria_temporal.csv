@@ -1,0 +1,161 @@
+dataset,corpus,response,predictor,lag,filas_completas,observaciones_tras_rezagos,fechas_duplicadas,saltos_mayores_un_dia,salto_maximo_dias,inicio,fin
+opinión temática,opinion,colcap,ipi,1,1285,1284,0,63,18,2022-08-01,2026-05-31
+opinión temática,opinion,colcap,ipi,2,1285,1283,0,63,18,2022-08-01,2026-05-31
+opinión temática,opinion,colcap,ipi,3,1285,1282,0,63,18,2022-08-01,2026-05-31
+opinión temática,opinion,colcap,ipi,4,1285,1281,0,63,18,2022-08-01,2026-05-31
+opinión temática,opinion,colcap,polaridad,1,1335,1334,0,59,3,2022-08-01,2026-05-31
+opinión temática,opinion,colcap,polaridad,2,1335,1333,0,59,3,2022-08-01,2026-05-31
+opinión temática,opinion,colcap,polaridad,3,1335,1332,0,59,3,2022-08-01,2026-05-31
+opinión temática,opinion,colcap,polaridad,4,1335,1331,0,59,3,2022-08-01,2026-05-31
+opinión temática,opinion,energy_spot_price,ipi,1,1348,1347,0,6,18,2022-08-01,2026-05-31
+opinión temática,opinion,energy_spot_price,ipi,2,1348,1346,0,6,18,2022-08-01,2026-05-31
+opinión temática,opinion,energy_spot_price,ipi,3,1348,1345,0,6,18,2022-08-01,2026-05-31
+opinión temática,opinion,energy_spot_price,ipi,4,1348,1344,0,6,18,2022-08-01,2026-05-31
+opinión temática,opinion,energy_spot_price,polaridad,1,1400,1399,0,0,1,2022-08-01,2026-05-31
+opinión temática,opinion,energy_spot_price,polaridad,2,1400,1398,0,0,1,2022-08-01,2026-05-31
+opinión temática,opinion,energy_spot_price,polaridad,3,1400,1397,0,0,1,2022-08-01,2026-05-31
+opinión temática,opinion,energy_spot_price,polaridad,4,1400,1396,0,0,1,2022-08-01,2026-05-31
+opinión temática,opinion,tes_10y,ipi,1,1285,1284,0,63,18,2022-08-01,2026-05-31
+opinión temática,opinion,tes_10y,ipi,2,1285,1283,0,63,18,2022-08-01,2026-05-31
+opinión temática,opinion,tes_10y,ipi,3,1285,1282,0,63,18,2022-08-01,2026-05-31
+opinión temática,opinion,tes_10y,ipi,4,1285,1281,0,63,18,2022-08-01,2026-05-31
+opinión temática,opinion,tes_10y,polaridad,1,1335,1334,0,59,3,2022-08-01,2026-05-31
+opinión temática,opinion,tes_10y,polaridad,2,1335,1333,0,59,3,2022-08-01,2026-05-31
+opinión temática,opinion,tes_10y,polaridad,3,1335,1332,0,59,3,2022-08-01,2026-05-31
+opinión temática,opinion,tes_10y,polaridad,4,1335,1331,0,59,3,2022-08-01,2026-05-31
+opinión temática,opinion,tes_slope_10y_1y,ipi,1,1285,1284,0,63,18,2022-08-01,2026-05-31
+opinión temática,opinion,tes_slope_10y_1y,ipi,2,1285,1283,0,63,18,2022-08-01,2026-05-31
+opinión temática,opinion,tes_slope_10y_1y,ipi,3,1285,1282,0,63,18,2022-08-01,2026-05-31
+opinión temática,opinion,tes_slope_10y_1y,ipi,4,1285,1281,0,63,18,2022-08-01,2026-05-31
+opinión temática,opinion,tes_slope_10y_1y,polaridad,1,1335,1334,0,59,3,2022-08-01,2026-05-31
+opinión temática,opinion,tes_slope_10y_1y,polaridad,2,1335,1333,0,59,3,2022-08-01,2026-05-31
+opinión temática,opinion,tes_slope_10y_1y,polaridad,3,1335,1332,0,59,3,2022-08-01,2026-05-31
+opinión temática,opinion,tes_slope_10y_1y,polaridad,4,1335,1331,0,59,3,2022-08-01,2026-05-31
+opinión temática,opinion,trm,ipi,1,1348,1347,0,6,18,2022-08-01,2026-05-31
+opinión temática,opinion,trm,ipi,2,1348,1346,0,6,18,2022-08-01,2026-05-31
+opinión temática,opinion,trm,ipi,3,1348,1345,0,6,18,2022-08-01,2026-05-31
+opinión temática,opinion,trm,ipi,4,1348,1344,0,6,18,2022-08-01,2026-05-31
+opinión temática,opinion,trm,polaridad,1,1400,1399,0,0,1,2022-08-01,2026-05-31
+opinión temática,opinion,trm,polaridad,2,1400,1398,0,0,1,2022-08-01,2026-05-31
+opinión temática,opinion,trm,polaridad,3,1400,1397,0,0,1,2022-08-01,2026-05-31
+opinión temática,opinion,trm,polaridad,4,1400,1396,0,0,1,2022-08-01,2026-05-31
+panel por corpus,opinion,colcap,ipi,1,1286,1285,0,62,18,2022-08-01,2026-05-31
+panel por corpus,opinion,colcap,ipi,2,1286,1284,0,62,18,2022-08-01,2026-05-31
+panel por corpus,opinion,colcap,ipi,3,1286,1283,0,62,18,2022-08-01,2026-05-31
+panel por corpus,opinion,colcap,ipi,4,1286,1282,0,62,18,2022-08-01,2026-05-31
+panel por corpus,opinion,colcap,log_tweets_n,1,1335,1334,0,59,3,2022-08-01,2026-05-31
+panel por corpus,opinion,colcap,log_tweets_n,2,1335,1333,0,59,3,2022-08-01,2026-05-31
+panel por corpus,opinion,colcap,log_tweets_n,3,1335,1332,0,59,3,2022-08-01,2026-05-31
+panel por corpus,opinion,colcap,log_tweets_n,4,1335,1331,0,59,3,2022-08-01,2026-05-31
+panel por corpus,opinion,colcap,polaridad,1,1335,1334,0,59,3,2022-08-01,2026-05-31
+panel por corpus,opinion,colcap,polaridad,2,1335,1333,0,59,3,2022-08-01,2026-05-31
+panel por corpus,opinion,colcap,polaridad,3,1335,1332,0,59,3,2022-08-01,2026-05-31
+panel por corpus,opinion,colcap,polaridad,4,1335,1331,0,59,3,2022-08-01,2026-05-31
+panel por corpus,opinion,energy_spot_price,ipi,1,1349,1348,0,5,18,2022-08-01,2026-05-31
+panel por corpus,opinion,energy_spot_price,ipi,2,1349,1347,0,5,18,2022-08-01,2026-05-31
+panel por corpus,opinion,energy_spot_price,ipi,3,1349,1346,0,5,18,2022-08-01,2026-05-31
+panel por corpus,opinion,energy_spot_price,ipi,4,1349,1345,0,5,18,2022-08-01,2026-05-31
+panel por corpus,opinion,energy_spot_price,log_tweets_n,1,1400,1399,0,0,1,2022-08-01,2026-05-31
+panel por corpus,opinion,energy_spot_price,log_tweets_n,2,1400,1398,0,0,1,2022-08-01,2026-05-31
+panel por corpus,opinion,energy_spot_price,log_tweets_n,3,1400,1397,0,0,1,2022-08-01,2026-05-31
+panel por corpus,opinion,energy_spot_price,log_tweets_n,4,1400,1396,0,0,1,2022-08-01,2026-05-31
+panel por corpus,opinion,energy_spot_price,polaridad,1,1400,1399,0,0,1,2022-08-01,2026-05-31
+panel por corpus,opinion,energy_spot_price,polaridad,2,1400,1398,0,0,1,2022-08-01,2026-05-31
+panel por corpus,opinion,energy_spot_price,polaridad,3,1400,1397,0,0,1,2022-08-01,2026-05-31
+panel por corpus,opinion,energy_spot_price,polaridad,4,1400,1396,0,0,1,2022-08-01,2026-05-31
+panel por corpus,opinion,tes_10y,ipi,1,1286,1285,0,62,18,2022-08-01,2026-05-31
+panel por corpus,opinion,tes_10y,ipi,2,1286,1284,0,62,18,2022-08-01,2026-05-31
+panel por corpus,opinion,tes_10y,ipi,3,1286,1283,0,62,18,2022-08-01,2026-05-31
+panel por corpus,opinion,tes_10y,ipi,4,1286,1282,0,62,18,2022-08-01,2026-05-31
+panel por corpus,opinion,tes_10y,log_tweets_n,1,1335,1334,0,59,3,2022-08-01,2026-05-31
+panel por corpus,opinion,tes_10y,log_tweets_n,2,1335,1333,0,59,3,2022-08-01,2026-05-31
+panel por corpus,opinion,tes_10y,log_tweets_n,3,1335,1332,0,59,3,2022-08-01,2026-05-31
+panel por corpus,opinion,tes_10y,log_tweets_n,4,1335,1331,0,59,3,2022-08-01,2026-05-31
+panel por corpus,opinion,tes_10y,polaridad,1,1335,1334,0,59,3,2022-08-01,2026-05-31
+panel por corpus,opinion,tes_10y,polaridad,2,1335,1333,0,59,3,2022-08-01,2026-05-31
+panel por corpus,opinion,tes_10y,polaridad,3,1335,1332,0,59,3,2022-08-01,2026-05-31
+panel por corpus,opinion,tes_10y,polaridad,4,1335,1331,0,59,3,2022-08-01,2026-05-31
+panel por corpus,opinion,tes_slope_10y_1y,ipi,1,1286,1285,0,62,18,2022-08-01,2026-05-31
+panel por corpus,opinion,tes_slope_10y_1y,ipi,2,1286,1284,0,62,18,2022-08-01,2026-05-31
+panel por corpus,opinion,tes_slope_10y_1y,ipi,3,1286,1283,0,62,18,2022-08-01,2026-05-31
+panel por corpus,opinion,tes_slope_10y_1y,ipi,4,1286,1282,0,62,18,2022-08-01,2026-05-31
+panel por corpus,opinion,tes_slope_10y_1y,log_tweets_n,1,1335,1334,0,59,3,2022-08-01,2026-05-31
+panel por corpus,opinion,tes_slope_10y_1y,log_tweets_n,2,1335,1333,0,59,3,2022-08-01,2026-05-31
+panel por corpus,opinion,tes_slope_10y_1y,log_tweets_n,3,1335,1332,0,59,3,2022-08-01,2026-05-31
+panel por corpus,opinion,tes_slope_10y_1y,log_tweets_n,4,1335,1331,0,59,3,2022-08-01,2026-05-31
+panel por corpus,opinion,tes_slope_10y_1y,polaridad,1,1335,1334,0,59,3,2022-08-01,2026-05-31
+panel por corpus,opinion,tes_slope_10y_1y,polaridad,2,1335,1333,0,59,3,2022-08-01,2026-05-31
+panel por corpus,opinion,tes_slope_10y_1y,polaridad,3,1335,1332,0,59,3,2022-08-01,2026-05-31
+panel por corpus,opinion,tes_slope_10y_1y,polaridad,4,1335,1331,0,59,3,2022-08-01,2026-05-31
+panel por corpus,opinion,trm,ipi,1,1349,1348,0,5,18,2022-08-01,2026-05-31
+panel por corpus,opinion,trm,ipi,2,1349,1347,0,5,18,2022-08-01,2026-05-31
+panel por corpus,opinion,trm,ipi,3,1349,1346,0,5,18,2022-08-01,2026-05-31
+panel por corpus,opinion,trm,ipi,4,1349,1345,0,5,18,2022-08-01,2026-05-31
+panel por corpus,opinion,trm,log_tweets_n,1,1400,1399,0,0,1,2022-08-01,2026-05-31
+panel por corpus,opinion,trm,log_tweets_n,2,1400,1398,0,0,1,2022-08-01,2026-05-31
+panel por corpus,opinion,trm,log_tweets_n,3,1400,1397,0,0,1,2022-08-01,2026-05-31
+panel por corpus,opinion,trm,log_tweets_n,4,1400,1396,0,0,1,2022-08-01,2026-05-31
+panel por corpus,opinion,trm,polaridad,1,1400,1399,0,0,1,2022-08-01,2026-05-31
+panel por corpus,opinion,trm,polaridad,2,1400,1398,0,0,1,2022-08-01,2026-05-31
+panel por corpus,opinion,trm,polaridad,3,1400,1397,0,0,1,2022-08-01,2026-05-31
+panel por corpus,opinion,trm,polaridad,4,1400,1396,0,0,1,2022-08-01,2026-05-31
+panel por corpus,presidente,colcap,ipi,1,1264,1263,0,107,4,2022-08-07,2026-05-31
+panel por corpus,presidente,colcap,ipi,2,1264,1262,0,107,4,2022-08-07,2026-05-31
+panel por corpus,presidente,colcap,ipi,3,1264,1261,0,107,4,2022-08-07,2026-05-31
+panel por corpus,presidente,colcap,ipi,4,1264,1260,0,107,4,2022-08-07,2026-05-31
+panel por corpus,presidente,colcap,log_tweets_n,1,1335,1334,0,59,3,2022-08-01,2026-05-31
+panel por corpus,presidente,colcap,log_tweets_n,2,1335,1333,0,59,3,2022-08-01,2026-05-31
+panel por corpus,presidente,colcap,log_tweets_n,3,1335,1332,0,59,3,2022-08-01,2026-05-31
+panel por corpus,presidente,colcap,log_tweets_n,4,1335,1331,0,59,3,2022-08-01,2026-05-31
+panel por corpus,presidente,colcap,polaridad,1,1335,1334,0,59,3,2022-08-01,2026-05-31
+panel por corpus,presidente,colcap,polaridad,2,1335,1333,0,59,3,2022-08-01,2026-05-31
+panel por corpus,presidente,colcap,polaridad,3,1335,1332,0,59,3,2022-08-01,2026-05-31
+panel por corpus,presidente,colcap,polaridad,4,1335,1331,0,59,3,2022-08-01,2026-05-31
+panel por corpus,presidente,energy_spot_price,ipi,1,1326,1325,0,56,4,2022-08-07,2026-05-31
+panel por corpus,presidente,energy_spot_price,ipi,2,1326,1324,0,56,4,2022-08-07,2026-05-31
+panel por corpus,presidente,energy_spot_price,ipi,3,1326,1323,0,56,4,2022-08-07,2026-05-31
+panel por corpus,presidente,energy_spot_price,ipi,4,1326,1322,0,56,4,2022-08-07,2026-05-31
+panel por corpus,presidente,energy_spot_price,log_tweets_n,1,1400,1399,0,0,1,2022-08-01,2026-05-31
+panel por corpus,presidente,energy_spot_price,log_tweets_n,2,1400,1398,0,0,1,2022-08-01,2026-05-31
+panel por corpus,presidente,energy_spot_price,log_tweets_n,3,1400,1397,0,0,1,2022-08-01,2026-05-31
+panel por corpus,presidente,energy_spot_price,log_tweets_n,4,1400,1396,0,0,1,2022-08-01,2026-05-31
+panel por corpus,presidente,energy_spot_price,polaridad,1,1400,1399,0,0,1,2022-08-01,2026-05-31
+panel por corpus,presidente,energy_spot_price,polaridad,2,1400,1398,0,0,1,2022-08-01,2026-05-31
+panel por corpus,presidente,energy_spot_price,polaridad,3,1400,1397,0,0,1,2022-08-01,2026-05-31
+panel por corpus,presidente,energy_spot_price,polaridad,4,1400,1396,0,0,1,2022-08-01,2026-05-31
+panel por corpus,presidente,tes_10y,ipi,1,1264,1263,0,107,4,2022-08-07,2026-05-31
+panel por corpus,presidente,tes_10y,ipi,2,1264,1262,0,107,4,2022-08-07,2026-05-31
+panel por corpus,presidente,tes_10y,ipi,3,1264,1261,0,107,4,2022-08-07,2026-05-31
+panel por corpus,presidente,tes_10y,ipi,4,1264,1260,0,107,4,2022-08-07,2026-05-31
+panel por corpus,presidente,tes_10y,log_tweets_n,1,1335,1334,0,59,3,2022-08-01,2026-05-31
+panel por corpus,presidente,tes_10y,log_tweets_n,2,1335,1333,0,59,3,2022-08-01,2026-05-31
+panel por corpus,presidente,tes_10y,log_tweets_n,3,1335,1332,0,59,3,2022-08-01,2026-05-31
+panel por corpus,presidente,tes_10y,log_tweets_n,4,1335,1331,0,59,3,2022-08-01,2026-05-31
+panel por corpus,presidente,tes_10y,polaridad,1,1335,1334,0,59,3,2022-08-01,2026-05-31
+panel por corpus,presidente,tes_10y,polaridad,2,1335,1333,0,59,3,2022-08-01,2026-05-31
+panel por corpus,presidente,tes_10y,polaridad,3,1335,1332,0,59,3,2022-08-01,2026-05-31
+panel por corpus,presidente,tes_10y,polaridad,4,1335,1331,0,59,3,2022-08-01,2026-05-31
+panel por corpus,presidente,tes_slope_10y_1y,ipi,1,1264,1263,0,107,4,2022-08-07,2026-05-31
+panel por corpus,presidente,tes_slope_10y_1y,ipi,2,1264,1262,0,107,4,2022-08-07,2026-05-31
+panel por corpus,presidente,tes_slope_10y_1y,ipi,3,1264,1261,0,107,4,2022-08-07,2026-05-31
+panel por corpus,presidente,tes_slope_10y_1y,ipi,4,1264,1260,0,107,4,2022-08-07,2026-05-31
+panel por corpus,presidente,tes_slope_10y_1y,log_tweets_n,1,1335,1334,0,59,3,2022-08-01,2026-05-31
+panel por corpus,presidente,tes_slope_10y_1y,log_tweets_n,2,1335,1333,0,59,3,2022-08-01,2026-05-31
+panel por corpus,presidente,tes_slope_10y_1y,log_tweets_n,3,1335,1332,0,59,3,2022-08-01,2026-05-31
+panel por corpus,presidente,tes_slope_10y_1y,log_tweets_n,4,1335,1331,0,59,3,2022-08-01,2026-05-31
+panel por corpus,presidente,tes_slope_10y_1y,polaridad,1,1335,1334,0,59,3,2022-08-01,2026-05-31
+panel por corpus,presidente,tes_slope_10y_1y,polaridad,2,1335,1333,0,59,3,2022-08-01,2026-05-31
+panel por corpus,presidente,tes_slope_10y_1y,polaridad,3,1335,1332,0,59,3,2022-08-01,2026-05-31
+panel por corpus,presidente,tes_slope_10y_1y,polaridad,4,1335,1331,0,59,3,2022-08-01,2026-05-31
+panel por corpus,presidente,trm,ipi,1,1326,1325,0,56,4,2022-08-07,2026-05-31
+panel por corpus,presidente,trm,ipi,2,1326,1324,0,56,4,2022-08-07,2026-05-31
+panel por corpus,presidente,trm,ipi,3,1326,1323,0,56,4,2022-08-07,2026-05-31
+panel por corpus,presidente,trm,ipi,4,1326,1322,0,56,4,2022-08-07,2026-05-31
+panel por corpus,presidente,trm,log_tweets_n,1,1400,1399,0,0,1,2022-08-01,2026-05-31
+panel por corpus,presidente,trm,log_tweets_n,2,1400,1398,0,0,1,2022-08-01,2026-05-31
+panel por corpus,presidente,trm,log_tweets_n,3,1400,1397,0,0,1,2022-08-01,2026-05-31
+panel por corpus,presidente,trm,log_tweets_n,4,1400,1396,0,0,1,2022-08-01,2026-05-31
+panel por corpus,presidente,trm,polaridad,1,1400,1399,0,0,1,2022-08-01,2026-05-31
+panel por corpus,presidente,trm,polaridad,2,1400,1398,0,0,1,2022-08-01,2026-05-31
+panel por corpus,presidente,trm,polaridad,3,1400,1397,0,0,1,2022-08-01,2026-05-31
+panel por corpus,presidente,trm,polaridad,4,1400,1396,0,0,1,2022-08-01,2026-05-31

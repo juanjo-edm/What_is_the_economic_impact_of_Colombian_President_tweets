@@ -1,0 +1,10 @@
+modelo,estado,razon
+Granger TRM,diagnóstico estimable,TRM oficial disponible; interpretar como precedencia predictiva
+Granger COLCAP,diagnóstico estimable,COLCAP oficial disponible; interpretar como precedencia predictiva
+Granger TES 10Y,diagnóstico estimable,TES 10Y oficial disponible; mide renta fija soberana de largo plazo
+Granger pendiente TES,diagnóstico estimable,pendiente derivada como TES 10Y menos TES 1Y
+Granger precio energía XM,diagnóstico estimable,Precio Bolsa Nacional Ponderado XM disponible; interpretar como precedencia predictiva
+VAR,estimable,requiere observaciones completas para todas las series
+IRF,estimable,depende del VAR estimable
+Markov Switching,extensión futura,requiere series financieras largas y completas
+Event Study,descriptivo,puede describir ventanas aunque haya datos de mercado parciales

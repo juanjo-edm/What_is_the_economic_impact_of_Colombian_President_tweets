@@ -1,0 +1,101 @@
+from,to,weight,reform_theme,tipo_entidad,entity
+Tema: institucionalidad,Cuenta: @fiscaliacol,88,institucionalidad,Cuenta,@fiscaliacol
+Tema: salud,Cuenta: @supersalud,77,salud,Cuenta,@supersalud
+Tema: salud,Cuenta: @minsaludcol,72,salud,Cuenta,@minsaludcol
+Tema: institucionalidad,Cuenta: @gustavobolivar,70,institucionalidad,Cuenta,@gustavobolivar
+Tema: institucionalidad,Cuenta: @ivancepedacast,68,institucionalidad,Cuenta,@ivancepedacast
+Tema: institucionalidad,Cuenta: @cortesupremaj,53,institucionalidad,Cuenta,@cortesupremaj
+Tema: salud,Cuenta: @ga_jaramillo,53,salud,Cuenta,@ga_jaramillo
+Tema: internacional,Cuenta: @nicolasmaduro,52,internacional,Cuenta,@nicolasmaduro
+Tema: institucionalidad,Cuenta: @alvarouribevel,47,institucionalidad,Cuenta,@alvarouribevel
+Tema: seguridad,Cuenta: @policiacolombia,47,seguridad,Cuenta,@policiacolombia
+Tema: internacional,Cuenta: @lulaoficial,45,internacional,Cuenta,@lulaoficial
+Tema: seguridad,Cuenta: @fiscaliacol,44,seguridad,Cuenta,@fiscaliacol
+Tema: institucionalidad,Cuenta: @franciamarquezm,42,institucionalidad,Cuenta,@franciamarquezm
+Tema: salud,Cuenta: @carolinacorcho,42,salud,Cuenta,@carolinacorcho
+Tema: institucionalidad,Hashtag: #fuerapetro,36,institucionalidad,Hashtag,#fuerapetro
+Tema: seguridad,Cuenta: @mindefensa,27,seguridad,Cuenta,@mindefensa
+Tema: institucionalidad,Hashtag: #colombia,26,institucionalidad,Hashtag,#colombia
+Tema: laboral,Cuenta: @mintrabajocol,24,laboral,Cuenta,@mintrabajocol
+Tema: internacional,Hashtag: #colombia,23,internacional,Hashtag,#colombia
+Tema: seguridad,Cuenta: @gustavobolivar,23,seguridad,Cuenta,@gustavobolivar
+Tema: paz total,Cuenta: @alvarouribevel,20,paz total,Cuenta,@alvarouribevel
+Tema: seguridad,Hashtag: #colombia,20,seguridad,Hashtag,#colombia
+Tema: internacional,Cuenta: @alvarouribevel,19,internacional,Cuenta,@alvarouribevel
+Tema: internacional,Cuenta: @ivancepedacast,19,internacional,Cuenta,@ivancepedacast
+Tema: salud,Cuenta: @fiscaliacol,19,salud,Cuenta,@fiscaliacol
+Tema: salud,Cuenta: @noticiascaracol,19,salud,Cuenta,@noticiascaracol
+Tema: seguridad,Cuenta: @franciamarquezm,19,seguridad,Cuenta,@franciamarquezm
+Tema: internacional,Cuenta: @gabrielboric,18,internacional,Cuenta,@gabrielboric
+Tema: internacional,Cuenta: @gustavobolivar,17,internacional,Cuenta,@gustavobolivar
+Tema: laboral,Cuenta: @gustavobolivar,17,laboral,Cuenta,@gustavobolivar
+Tema: energia ambiente,Cuenta: @superservicios,16,energia ambiente,Cuenta,@superservicios
+Tema: seguridad,Cuenta: @ivan_velasquez_,16,seguridad,Cuenta,@ivan_velasquez_
+Tema: internacional,Hashtag: #venezuela,15,internacional,Hashtag,#venezuela
+Tema: institucionalidad,Hashtag: #atención,14,institucionalidad,Hashtag,#atención
+Tema: paz total,Cuenta: @ivancepedacast,14,paz total,Cuenta,@ivancepedacast
+Tema: energia tarifas,Cuenta: @minenergiaco,13,energia tarifas,Cuenta,@minenergiaco
+Tema: laboral,Cuenta: @ivancepedacast,12,laboral,Cuenta,@ivancepedacast
+Tema: tributaria,Cuenta: @gustavobolivar,12,tributaria,Cuenta,@gustavobolivar
+Tema: laboral,Cuenta: @alvarouribevel,11,laboral,Cuenta,@alvarouribevel
+Tema: paz total,Cuenta: @gustavobolivar,11,paz total,Cuenta,@gustavobolivar
+Tema: paz total,Hashtag: #eln,11,paz total,Hashtag,#eln
+Tema: salud,Hashtag: #colombia,11,salud,Hashtag,#colombia
+Tema: economia,Cuenta: @bancorepublica,10,economia,Cuenta,@bancorepublica
+Tema: laboral,Cuenta: @infopresidencia,10,laboral,Cuenta,@infopresidencia
+Tema: laboral,Cuenta: @pactocol,10,laboral,Cuenta,@pactocol
+Tema: paz total,Cuenta: @col_ejercito,10,paz total,Cuenta,@col_ejercito
+Tema: paz total,Cuenta: @realdonaldtrump,9,paz total,Cuenta,@realdonaldtrump
+Tema: salud,Hashtag: #reformaalasalud,9,salud,Hashtag,#reformaalasalud
+Tema: salud,Hashtag: #salud,9,salud,Hashtag,#salud
+Tema: economia,Cuenta: @gustavobolivar,8,economia,Cuenta,@gustavobolivar
+Tema: energia ambiente,Cuenta: @aire_energia,8,energia ambiente,Cuenta,@aire_energia
+Tema: energia ambiente,Cuenta: @minenergiaco,8,energia ambiente,Cuenta,@minenergiaco
+Tema: energia tarifas,Cuenta: @superservicios,8,energia tarifas,Cuenta,@superservicios
+Tema: institucionalidad,Hashtag: #caracolmiente,8,institucionalidad,Hashtag,#caracolmiente
+Tema: institucionalidad,Hashtag: #consultapopular,8,institucionalidad,Hashtag,#consultapopular
+Tema: institucionalidad,Hashtag: #política,8,institucionalidad,Hashtag,#política
+Tema: laboral,Hashtag: #colombia,8,laboral,Hashtag,#colombia
+Tema: paz total,Cuenta: @franciamarquezm,8,paz total,Cuenta,@franciamarquezm
+Tema: pensional,Cuenta: @colpensiones,8,pensional,Cuenta,@colpensiones
+Tema: salud,Hashtag: #internosconpagoya,8,salud,Hashtag,#internosconpagoya
+Tema: seguridad,Hashtag: #fuerapetro,8,seguridad,Hashtag,#fuerapetro
+Tema: tributaria,Cuenta: @diancolombia,8,tributaria,Cuenta,@diancolombia
+Tema: tributaria,Cuenta: @ivanduque,8,tributaria,Cuenta,@ivanduque
+Tema: energia ambiente,Cuenta: @susanamuhamad,7,energia ambiente,Cuenta,@susanamuhamad
+Tema: energia tarifas,Cuenta: @comisioncreg,7,energia tarifas,Cuenta,@comisioncreg
+Tema: laboral,Hashtag: #gobiernodelcambio,7,laboral,Hashtag,#gobiernodelcambio
+Tema: reforma general,Cuenta: @gustavobolivar,7,reforma general,Cuenta,@gustavobolivar
+Tema: seguridad,Hashtag: #atención,7,seguridad,Hashtag,#atención
+Tema: tributaria,Cuenta: @minhacienda,7,tributaria,Cuenta,@minhacienda
+Tema: constituyente,Cuenta: @ivancepedacast,6,constituyente,Cuenta,@ivancepedacast
+Tema: economia,Cuenta: @ivancepedacast,6,economia,Cuenta,@ivancepedacast
+Tema: economia,Cuenta: @ivanduque,6,economia,Cuenta,@ivanduque
+Tema: energia ambiente,Cuenta: @ecopetrol_sa,6,energia ambiente,Cuenta,@ecopetrol_sa
+Tema: energia ambiente,Cuenta: @irenevelezt,6,energia ambiente,Cuenta,@irenevelezt
+Tema: energia tarifas,Cuenta: @aire_energia,6,energia tarifas,Cuenta,@aire_energia
+Tema: pensional,Cuenta: @cconstitucional,6,pensional,Cuenta,@cconstitucional
+Tema: pensional,Hashtag: #reformapensionalya,6,pensional,Hashtag,#reformapensionalya
+Tema: reforma general,Cuenta: @camaracolombia,6,reforma general,Cuenta,@camaracolombia
+Tema: seguridad,Hashtag: #noticiaw,6,seguridad,Hashtag,#noticiaw
+Tema: economia,Cuenta: @bvccolombia,5,economia,Cuenta,@bvccolombia
+Tema: economia,Cuenta: @irenevelezt,5,economia,Cuenta,@irenevelezt
+Tema: economia,Hashtag: #colombia,5,economia,Hashtag,#colombia
+Tema: economia,Hashtag: #petro,5,economia,Hashtag,#petro
+Tema: internacional,Hashtag: #parenlaguerra,5,internacional,Hashtag,#parenlaguerra
+Tema: internacional,Hashtag: #petro,5,internacional,Hashtag,#petro
+Tema: internacional,Hashtag: #venezuelalibre,5,internacional,Hashtag,#venezuelalibre
+Tema: paz total,Hashtag: #paztotal,5,paz total,Hashtag,#paztotal
+Tema: pensional,Cuenta: @gustavobolivar,5,pensional,Cuenta,@gustavobolivar
+Tema: reforma general,Cuenta: @senadogovco,5,reforma general,Cuenta,@senadogovco
+Tema: tributaria,Cuenta: @cconstitucional,5,tributaria,Cuenta,@cconstitucional
+Tema: energia ambiente,Hashtag: #colombia,4,energia ambiente,Hashtag,#colombia
+Tema: energia tarifas,Cuenta: @noticiascaracol,4,energia tarifas,Cuenta,@noticiascaracol
+Tema: internacional,Hashtag: #cuba,4,internacional,Hashtag,#cuba
+Tema: laboral,Hashtag: #reformalaboral,4,laboral,Hashtag,#reformalaboral
+Tema: paz total,Hashtag: #farc,4,paz total,Hashtag,#farc
+Tema: reforma general,Cuenta: @franciamarquezm,4,reforma general,Cuenta,@franciamarquezm
+Tema: salud,Hashtag: #pasto,4,salud,Hashtag,#pasto
+Tema: salud,Hashtag: #petro,4,salud,Hashtag,#petro
+Tema: seguridad,Hashtag: #comisióndelaverdadya,4,seguridad,Hashtag,#comisióndelaverdadya
+Tema: seguridad,Hashtag: #paztotal,4,seguridad,Hashtag,#paztotal

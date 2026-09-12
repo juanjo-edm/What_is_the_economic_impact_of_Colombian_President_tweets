@@ -1,0 +1,1305 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Frecuencias sociales con Quanteda</title>
+<style>body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;margin:24px;color:#222}table{border-collapse:collapse;width:100%;font-size:13px}th,td{border:1px solid #ddd;padding:6px 8px;text-align:left;vertical-align:top}th{background:#f3f5f2}caption{text-align:left;font-weight:700;font-size:18px;margin-bottom:4px}.subtitle{color:#666;margin:0 0 14px 0}</style>
+</head>
+<body>
+<h1>Frecuencias sociales con Quanteda</h1><p class="subtitle">Hashtags y menciones más frecuentes</p><table>
+ <thead>
+  <tr>
+   <th style="text-align:left;"> feature </th>
+   <th style="text-align:right;"> frequency </th>
+   <th style="text-align:right;"> rank </th>
+   <th style="text-align:right;"> docfreq </th>
+   <th style="text-align:left;"> group </th>
+   <th style="text-align:left;"> tipo </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> #colombia </td>
+   <td style="text-align:right;"> 154 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 153 </td>
+   <td style="text-align:left;"> all </td>
+   <td style="text-align:left;"> Hashtag </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> #fuerapetro </td>
+   <td style="text-align:right;"> 89 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 61 </td>
+   <td style="text-align:left;"> all </td>
+   <td style="text-align:left;"> Hashtag </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> #atención </td>
+   <td style="text-align:right;"> 38 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 38 </td>
+   <td style="text-align:left;"> all </td>
+   <td style="text-align:left;"> Hashtag </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> #petro </td>
+   <td style="text-align:right;"> 29 </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:right;"> 29 </td>
+   <td style="text-align:left;"> all </td>
+   <td style="text-align:left;"> Hashtag </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> #política </td>
+   <td style="text-align:right;"> 25 </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 25 </td>
+   <td style="text-align:left;"> all </td>
+   <td style="text-align:left;"> Hashtag </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> #redprogresista </td>
+   <td style="text-align:right;"> 23 </td>
+   <td style="text-align:right;"> 6 </td>
+   <td style="text-align:right;"> 23 </td>
+   <td style="text-align:left;"> all </td>
+   <td style="text-align:left;"> Hashtag </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> #paztotal </td>
+   <td style="text-align:right;"> 22 </td>
+   <td style="text-align:right;"> 7 </td>
+   <td style="text-align:right;"> 22 </td>
+   <td style="text-align:left;"> all </td>
+   <td style="text-align:left;"> Hashtag </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> #gobiernodelcambio </td>
+   <td style="text-align:right;"> 20 </td>
+   <td style="text-align:right;"> 8 </td>
+   <td style="text-align:right;"> 20 </td>
+   <td style="text-align:left;"> all </td>
+   <td style="text-align:left;"> Hashtag </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> #conpetrohastaelfinal </td>
+   <td style="text-align:right;"> 19 </td>
+   <td style="text-align:right;"> 9 </td>
+   <td style="text-align:right;"> 15 </td>
+   <td style="text-align:left;"> all </td>
+   <td style="text-align:left;"> Hashtag </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> #venezuela </td>
+   <td style="text-align:right;"> 19 </td>
+   <td style="text-align:right;"> 9 </td>
+   <td style="text-align:right;"> 19 </td>
+   <td style="text-align:left;"> all </td>
+   <td style="text-align:left;"> Hashtag </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> #colombiavabien </td>
+   <td style="text-align:right;"> 19 </td>
+   <td style="text-align:right;"> 9 </td>
+   <td style="text-align:right;"> 18 </td>
+   <td style="text-align:left;"> all </td>
+   <td style="text-align:left;"> Hashtag </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> #reformaalasalud </td>
+   <td style="text-align:right;"> 18 </td>
+   <td style="text-align:right;"> 12 </td>
+   <td style="text-align:right;"> 18 </td>
+   <td style="text-align:left;"> all </td>
+   <td style="text-align:left;"> Hashtag </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> #progresistasigueprogresista </td>
+   <td style="text-align:right;"> 17 </td>
+   <td style="text-align:right;"> 13 </td>
+   <td style="text-align:right;"> 17 </td>
+   <td style="text-align:left;"> all </td>
+   <td style="text-align:left;"> Hashtag </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> #nacional </td>
+   <td style="text-align:right;"> 15 </td>
+   <td style="text-align:right;"> 14 </td>
+   <td style="text-align:right;"> 15 </td>
+   <td style="text-align:left;"> all </td>
+   <td style="text-align:left;"> Hashtag </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> #consultapopular </td>
+   <td style="text-align:right;"> 14 </td>
+   <td style="text-align:right;"> 15 </td>
+   <td style="text-align:right;"> 14 </td>
+   <td style="text-align:left;"> all </td>
+   <td style="text-align:left;"> Hashtag </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> #pactohistorico </td>
+   <td style="text-align:right;"> 13 </td>
+   <td style="text-align:right;"> 16 </td>
+   <td style="text-align:right;"> 13 </td>
+   <td style="text-align:left;"> all </td>
+   <td style="text-align:left;"> Hashtag </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> #caracolmiente </td>
+   <td style="text-align:right;"> 13 </td>
+   <td style="text-align:right;"> 16 </td>
+   <td style="text-align:right;"> 12 </td>
+   <td style="text-align:left;"> all </td>
+   <td style="text-align:left;"> Hashtag </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> #urgente </td>
+   <td style="text-align:right;"> 12 </td>
+   <td style="text-align:right;"> 18 </td>
+   <td style="text-align:right;"> 12 </td>
+   <td style="text-align:left;"> all </td>
+   <td style="text-align:left;"> Hashtag </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> #petrolidermundial </td>
+   <td style="text-align:right;"> 12 </td>
+   <td style="text-align:right;"> 18 </td>
+   <td style="text-align:right;"> 12 </td>
+   <td style="text-align:left;"> all </td>
+   <td style="text-align:left;"> Hashtag </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> #noticiaw </td>
+   <td style="text-align:right;"> 12 </td>
+   <td style="text-align:right;"> 18 </td>
+   <td style="text-align:right;"> 12 </td>
+   <td style="text-align:left;"> all </td>
+   <td style="text-align:left;"> Hashtag </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> #gustavopetro </td>
+   <td style="text-align:right;"> 12 </td>
+   <td style="text-align:right;"> 18 </td>
+   <td style="text-align:right;"> 12 </td>
+   <td style="text-align:left;"> all </td>
+   <td style="text-align:left;"> Hashtag </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> #petropresidente </td>
+   <td style="text-align:right;"> 11 </td>
+   <td style="text-align:right;"> 22 </td>
+   <td style="text-align:right;"> 11 </td>
+   <td style="text-align:left;"> all </td>
+   <td style="text-align:left;"> Hashtag </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> #medellin </td>
+   <td style="text-align:right;"> 11 </td>
+   <td style="text-align:right;"> 22 </td>
+   <td style="text-align:right;"> 10 </td>
+   <td style="text-align:left;"> all </td>
+   <td style="text-align:left;"> Hashtag </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> #pasto </td>
+   <td style="text-align:right;"> 11 </td>
+   <td style="text-align:right;"> 22 </td>
+   <td style="text-align:right;"> 11 </td>
+   <td style="text-align:left;"> all </td>
+   <td style="text-align:left;"> Hashtag </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> #eln </td>
+   <td style="text-align:right;"> 11 </td>
+   <td style="text-align:right;"> 22 </td>
+   <td style="text-align:right;"> 10 </td>
+   <td style="text-align:left;"> all </td>
+   <td style="text-align:left;"> Hashtag </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> #ultimahora </td>
+   <td style="text-align:right;"> 11 </td>
+   <td style="text-align:right;"> 22 </td>
+   <td style="text-align:right;"> 11 </td>
+   <td style="text-align:left;"> all </td>
+   <td style="text-align:left;"> Hashtag </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> #bogota </td>
+   <td style="text-align:right;"> 10 </td>
+   <td style="text-align:right;"> 27 </td>
+   <td style="text-align:right;"> 10 </td>
+   <td style="text-align:left;"> all </td>
+   <td style="text-align:left;"> Hashtag </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> #comisióndelaverdadya </td>
+   <td style="text-align:right;"> 10 </td>
+   <td style="text-align:right;"> 27 </td>
+   <td style="text-align:right;"> 10 </td>
+   <td style="text-align:left;"> all </td>
+   <td style="text-align:left;"> Hashtag </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> #reformatributaria </td>
+   <td style="text-align:right;"> 9 </td>
+   <td style="text-align:right;"> 29 </td>
+   <td style="text-align:right;"> 9 </td>
+   <td style="text-align:left;"> all </td>
+   <td style="text-align:left;"> Hashtag </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> #noticia </td>
+   <td style="text-align:right;"> 9 </td>
+   <td style="text-align:right;"> 29 </td>
+   <td style="text-align:right;"> 9 </td>
+   <td style="text-align:left;"> all </td>
+   <td style="text-align:left;"> Hashtag </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> #salud </td>
+   <td style="text-align:right;"> 9 </td>
+   <td style="text-align:right;"> 29 </td>
+   <td style="text-align:right;"> 9 </td>
+   <td style="text-align:left;"> all </td>
+   <td style="text-align:left;"> Hashtag </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> #internosconpagoya </td>
+   <td style="text-align:right;"> 9 </td>
+   <td style="text-align:right;"> 29 </td>
+   <td style="text-align:right;"> 9 </td>
+   <td style="text-align:left;"> all </td>
+   <td style="text-align:left;"> Hashtag </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> #isaenalerta </td>
+   <td style="text-align:right;"> 9 </td>
+   <td style="text-align:right;"> 29 </td>
+   <td style="text-align:right;"> 9 </td>
+   <td style="text-align:left;"> all </td>
+   <td style="text-align:left;"> Hashtag </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> #siguemeytesigo </td>
+   <td style="text-align:right;"> 8 </td>
+   <td style="text-align:right;"> 34 </td>
+   <td style="text-align:right;"> 8 </td>
+   <td style="text-align:left;"> all </td>
+   <td style="text-align:left;"> Hashtag </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> #todossomospetro </td>
+   <td style="text-align:right;"> 8 </td>
+   <td style="text-align:right;"> 34 </td>
+   <td style="text-align:right;"> 8 </td>
+   <td style="text-align:left;"> all </td>
+   <td style="text-align:left;"> Hashtag </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> #cauca </td>
+   <td style="text-align:right;"> 8 </td>
+   <td style="text-align:right;"> 34 </td>
+   <td style="text-align:right;"> 8 </td>
+   <td style="text-align:left;"> all </td>
+   <td style="text-align:left;"> Hashtag </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> #todosconpetro </td>
+   <td style="text-align:right;"> 8 </td>
+   <td style="text-align:right;"> 34 </td>
+   <td style="text-align:right;"> 6 </td>
+   <td style="text-align:left;"> all </td>
+   <td style="text-align:left;"> Hashtag </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> #fuerzapetro </td>
+   <td style="text-align:right;"> 8 </td>
+   <td style="text-align:right;"> 34 </td>
+   <td style="text-align:right;"> 8 </td>
+   <td style="text-align:left;"> all </td>
+   <td style="text-align:left;"> Hashtag </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> #sinanestesia </td>
+   <td style="text-align:right;"> 8 </td>
+   <td style="text-align:right;"> 34 </td>
+   <td style="text-align:right;"> 8 </td>
+   <td style="text-align:left;"> all </td>
+   <td style="text-align:left;"> Hashtag </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> #eldebatedelagente </td>
+   <td style="text-align:right;"> 8 </td>
+   <td style="text-align:right;"> 34 </td>
+   <td style="text-align:right;"> 8 </td>
+   <td style="text-align:left;"> all </td>
+   <td style="text-align:left;"> Hashtag </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> #petrolecumplealanacho </td>
+   <td style="text-align:right;"> 8 </td>
+   <td style="text-align:right;"> 34 </td>
+   <td style="text-align:right;"> 8 </td>
+   <td style="text-align:left;"> all </td>
+   <td style="text-align:left;"> Hashtag </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> #judicial </td>
+   <td style="text-align:right;"> 7 </td>
+   <td style="text-align:right;"> 42 </td>
+   <td style="text-align:right;"> 7 </td>
+   <td style="text-align:left;"> all </td>
+   <td style="text-align:left;"> Hashtag </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> #cuba </td>
+   <td style="text-align:right;"> 7 </td>
+   <td style="text-align:right;"> 42 </td>
+   <td style="text-align:right;"> 7 </td>
+   <td style="text-align:left;"> all </td>
+   <td style="text-align:left;"> Hashtag </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> #firmesconpetro </td>
+   <td style="text-align:right;"> 7 </td>
+   <td style="text-align:right;"> 42 </td>
+   <td style="text-align:right;"> 7 </td>
+   <td style="text-align:left;"> all </td>
+   <td style="text-align:left;"> Hashtag </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> #cali </td>
+   <td style="text-align:right;"> 7 </td>
+   <td style="text-align:right;"> 42 </td>
+   <td style="text-align:right;"> 7 </td>
+   <td style="text-align:left;"> all </td>
+   <td style="text-align:left;"> Hashtag </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> #14fporelcambio </td>
+   <td style="text-align:right;"> 7 </td>
+   <td style="text-align:right;"> 42 </td>
+   <td style="text-align:right;"> 7 </td>
+   <td style="text-align:left;"> all </td>
+   <td style="text-align:left;"> Hashtag </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> #farc </td>
+   <td style="text-align:right;"> 7 </td>
+   <td style="text-align:right;"> 42 </td>
+   <td style="text-align:right;"> 7 </td>
+   <td style="text-align:left;"> all </td>
+   <td style="text-align:left;"> Hashtag </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> #cop16 </td>
+   <td style="text-align:right;"> 7 </td>
+   <td style="text-align:right;"> 42 </td>
+   <td style="text-align:right;"> 7 </td>
+   <td style="text-align:left;"> all </td>
+   <td style="text-align:left;"> Hashtag </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> #yosoydefensadepetro </td>
+   <td style="text-align:right;"> 7 </td>
+   <td style="text-align:right;"> 42 </td>
+   <td style="text-align:right;"> 7 </td>
+   <td style="text-align:left;"> all </td>
+   <td style="text-align:left;"> Hashtag </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> #mundo </td>
+   <td style="text-align:right;"> 7 </td>
+   <td style="text-align:right;"> 42 </td>
+   <td style="text-align:right;"> 7 </td>
+   <td style="text-align:left;"> all </td>
+   <td style="text-align:left;"> Hashtag </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> #uaencrisis </td>
+   <td style="text-align:right;"> 7 </td>
+   <td style="text-align:right;"> 42 </td>
+   <td style="text-align:right;"> 7 </td>
+   <td style="text-align:left;"> all </td>
+   <td style="text-align:left;"> Hashtag </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> #fueraleytondelaua </td>
+   <td style="text-align:right;"> 7 </td>
+   <td style="text-align:right;"> 42 </td>
+   <td style="text-align:right;"> 7 </td>
+   <td style="text-align:left;"> all </td>
+   <td style="text-align:left;"> Hashtag </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> #aestahora </td>
+   <td style="text-align:right;"> 6 </td>
+   <td style="text-align:right;"> 53 </td>
+   <td style="text-align:right;"> 6 </td>
+   <td style="text-align:left;"> all </td>
+   <td style="text-align:left;"> Hashtag </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> #noticias </td>
+   <td style="text-align:right;"> 6 </td>
+   <td style="text-align:right;"> 53 </td>
+   <td style="text-align:right;"> 6 </td>
+   <td style="text-align:left;"> all </td>
+   <td style="text-align:left;"> Hashtag </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> #petroesunpeligro </td>
+   <td style="text-align:right;"> 6 </td>
+   <td style="text-align:right;"> 53 </td>
+   <td style="text-align:right;"> 6 </td>
+   <td style="text-align:left;"> all </td>
+   <td style="text-align:left;"> Hashtag </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> #cartagena </td>
+   <td style="text-align:right;"> 6 </td>
+   <td style="text-align:right;"> 53 </td>
+   <td style="text-align:right;"> 6 </td>
+   <td style="text-align:left;"> all </td>
+   <td style="text-align:left;"> Hashtag </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> #petrodictador </td>
+   <td style="text-align:right;"> 6 </td>
+   <td style="text-align:right;"> 53 </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:left;"> all </td>
+   <td style="text-align:left;"> Hashtag </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> #colombianos </td>
+   <td style="text-align:right;"> 6 </td>
+   <td style="text-align:right;"> 53 </td>
+   <td style="text-align:right;"> 6 </td>
+   <td style="text-align:left;"> all </td>
+   <td style="text-align:left;"> Hashtag </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> #reformalaboral </td>
+   <td style="text-align:right;"> 6 </td>
+   <td style="text-align:right;"> 53 </td>
+   <td style="text-align:right;"> 6 </td>
+   <td style="text-align:left;"> all </td>
+   <td style="text-align:left;"> Hashtag </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> #filosofaty </td>
+   <td style="text-align:right;"> 6 </td>
+   <td style="text-align:right;"> 53 </td>
+   <td style="text-align:right;"> 6 </td>
+   <td style="text-align:left;"> all </td>
+   <td style="text-align:left;"> Hashtag </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> #democraciaenaccion </td>
+   <td style="text-align:right;"> 6 </td>
+   <td style="text-align:right;"> 53 </td>
+   <td style="text-align:right;"> 6 </td>
+   <td style="text-align:left;"> all </td>
+   <td style="text-align:left;"> Hashtag </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> #metro </td>
+   <td style="text-align:right;"> 6 </td>
+   <td style="text-align:right;"> 53 </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:left;"> all </td>
+   <td style="text-align:left;"> Hashtag </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> #reformapensionalya </td>
+   <td style="text-align:right;"> 6 </td>
+   <td style="text-align:right;"> 53 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> all </td>
+   <td style="text-align:left;"> Hashtag </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> #lemarchoalcambio </td>
+   <td style="text-align:right;"> 6 </td>
+   <td style="text-align:right;"> 53 </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:left;"> all </td>
+   <td style="text-align:left;"> Hashtag </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> #rentajovennocumple </td>
+   <td style="text-align:right;"> 6 </td>
+   <td style="text-align:right;"> 53 </td>
+   <td style="text-align:right;"> 6 </td>
+   <td style="text-align:left;"> all </td>
+   <td style="text-align:left;"> Hashtag </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> #venezuelalibre </td>
+   <td style="text-align:right;"> 6 </td>
+   <td style="text-align:right;"> 53 </td>
+   <td style="text-align:right;"> 6 </td>
+   <td style="text-align:left;"> all </td>
+   <td style="text-align:left;"> Hashtag </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> #petrovergüenzamundial </td>
+   <td style="text-align:right;"> 6 </td>
+   <td style="text-align:right;"> 53 </td>
+   <td style="text-align:right;"> 6 </td>
+   <td style="text-align:left;"> all </td>
+   <td style="text-align:left;"> Hashtag </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> #petroasesino </td>
+   <td style="text-align:right;"> 6 </td>
+   <td style="text-align:right;"> 53 </td>
+   <td style="text-align:right;"> 6 </td>
+   <td style="text-align:left;"> all </td>
+   <td style="text-align:left;"> Hashtag </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> #petroeltramposo </td>
+   <td style="text-align:right;"> 6 </td>
+   <td style="text-align:right;"> 53 </td>
+   <td style="text-align:right;"> 6 </td>
+   <td style="text-align:left;"> all </td>
+   <td style="text-align:left;"> Hashtag </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> #presidente </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 70 </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:left;"> all </td>
+   <td style="text-align:left;"> Hashtag </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> #rt </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 70 </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:left;"> all </td>
+   <td style="text-align:left;"> Hashtag </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> #sosbuenaventura </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 70 </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:left;"> all </td>
+   <td style="text-align:left;"> Hashtag </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> #bajocauca </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 70 </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:left;"> all </td>
+   <td style="text-align:left;"> Hashtag </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> #elpeorpresidentedelahistoria </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 70 </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:left;"> all </td>
+   <td style="text-align:left;"> Hashtag </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> #bogotá </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 70 </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:left;"> all </td>
+   <td style="text-align:left;"> Hashtag </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> #pactodecorruptos </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 70 </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:left;"> all </td>
+   <td style="text-align:left;"> Hashtag </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> #quehorror </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 70 </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:left;"> all </td>
+   <td style="text-align:left;"> Hashtag </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> #barranquilla </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 70 </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:left;"> all </td>
+   <td style="text-align:left;"> Hashtag </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> #atencion </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 70 </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:left;"> all </td>
+   <td style="text-align:left;"> Hashtag </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> #noalgolpedeestado </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 70 </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:left;"> all </td>
+   <td style="text-align:left;"> Hashtag </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> @gustavobolivar </td>
+   <td style="text-align:right;"> 314 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 314 </td>
+   <td style="text-align:left;"> all </td>
+   <td style="text-align:left;"> Mención </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> @ivancepedacast </td>
+   <td style="text-align:right;"> 263 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 263 </td>
+   <td style="text-align:left;"> all </td>
+   <td style="text-align:left;"> Mención </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> @alvarouribevel </td>
+   <td style="text-align:right;"> 247 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 245 </td>
+   <td style="text-align:left;"> all </td>
+   <td style="text-align:left;"> Mención </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> @franciamarquezm </td>
+   <td style="text-align:right;"> 233 </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:right;"> 232 </td>
+   <td style="text-align:left;"> all </td>
+   <td style="text-align:left;"> Mención </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> @fiscaliacol </td>
+   <td style="text-align:right;"> 228 </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 227 </td>
+   <td style="text-align:left;"> all </td>
+   <td style="text-align:left;"> Mención </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> @infopresidencia </td>
+   <td style="text-align:right;"> 145 </td>
+   <td style="text-align:right;"> 6 </td>
+   <td style="text-align:right;"> 144 </td>
+   <td style="text-align:left;"> all </td>
+   <td style="text-align:left;"> Mención </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> @ivanduque </td>
+   <td style="text-align:right;"> 140 </td>
+   <td style="text-align:right;"> 7 </td>
+   <td style="text-align:right;"> 139 </td>
+   <td style="text-align:left;"> all </td>
+   <td style="text-align:left;"> Mención </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> @policiacolombia </td>
+   <td style="text-align:right;"> 139 </td>
+   <td style="text-align:right;"> 8 </td>
+   <td style="text-align:right;"> 139 </td>
+   <td style="text-align:left;"> all </td>
+   <td style="text-align:left;"> Mención </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> @vickydavilah </td>
+   <td style="text-align:right;"> 133 </td>
+   <td style="text-align:right;"> 9 </td>
+   <td style="text-align:right;"> 130 </td>
+   <td style="text-align:left;"> all </td>
+   <td style="text-align:left;"> Mención </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> @nicolasmaduro </td>
+   <td style="text-align:right;"> 129 </td>
+   <td style="text-align:right;"> 10 </td>
+   <td style="text-align:right;"> 129 </td>
+   <td style="text-align:left;"> all </td>
+   <td style="text-align:left;"> Mención </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> @aabenedetti </td>
+   <td style="text-align:right;"> 118 </td>
+   <td style="text-align:right;"> 11 </td>
+   <td style="text-align:right;"> 118 </td>
+   <td style="text-align:left;"> all </td>
+   <td style="text-align:left;"> Mención </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> @carolinacorcho </td>
+   <td style="text-align:right;"> 113 </td>
+   <td style="text-align:right;"> 12 </td>
+   <td style="text-align:right;"> 113 </td>
+   <td style="text-align:left;"> all </td>
+   <td style="text-align:left;"> Mención </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> @noticiascaracol </td>
+   <td style="text-align:right;"> 104 </td>
+   <td style="text-align:right;"> 13 </td>
+   <td style="text-align:right;"> 104 </td>
+   <td style="text-align:left;"> all </td>
+   <td style="text-align:left;"> Mención </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> @pactocol </td>
+   <td style="text-align:right;"> 102 </td>
+   <td style="text-align:right;"> 14 </td>
+   <td style="text-align:right;"> 101 </td>
+   <td style="text-align:left;"> all </td>
+   <td style="text-align:left;"> Mención </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> @minsaludcol </td>
+   <td style="text-align:right;"> 96 </td>
+   <td style="text-align:right;"> 15 </td>
+   <td style="text-align:right;"> 96 </td>
+   <td style="text-align:left;"> all </td>
+   <td style="text-align:left;"> Mención </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> @pgn_col </td>
+   <td style="text-align:right;"> 96 </td>
+   <td style="text-align:right;"> 15 </td>
+   <td style="text-align:right;"> 96 </td>
+   <td style="text-align:left;"> all </td>
+   <td style="text-align:left;"> Mención </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> @supersalud </td>
+   <td style="text-align:right;"> 96 </td>
+   <td style="text-align:right;"> 15 </td>
+   <td style="text-align:right;"> 96 </td>
+   <td style="text-align:left;"> all </td>
+   <td style="text-align:left;"> Mención </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> @eltiempo </td>
+   <td style="text-align:right;"> 93 </td>
+   <td style="text-align:right;"> 18 </td>
+   <td style="text-align:right;"> 91 </td>
+   <td style="text-align:left;"> all </td>
+   <td style="text-align:left;"> Mención </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> @cortesupremaj </td>
+   <td style="text-align:right;"> 93 </td>
+   <td style="text-align:right;"> 18 </td>
+   <td style="text-align:right;"> 93 </td>
+   <td style="text-align:left;"> all </td>
+   <td style="text-align:left;"> Mención </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> @pizarromariajo </td>
+   <td style="text-align:right;"> 89 </td>
+   <td style="text-align:right;"> 20 </td>
+   <td style="text-align:right;"> 89 </td>
+   <td style="text-align:left;"> all </td>
+   <td style="text-align:left;"> Mención </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> @lulaoficial </td>
+   <td style="text-align:right;"> 89 </td>
+   <td style="text-align:right;"> 20 </td>
+   <td style="text-align:right;"> 89 </td>
+   <td style="text-align:left;"> all </td>
+   <td style="text-align:left;"> Mención </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> @palomavalencial </td>
+   <td style="text-align:right;"> 87 </td>
+   <td style="text-align:right;"> 22 </td>
+   <td style="text-align:right;"> 87 </td>
+   <td style="text-align:left;"> all </td>
+   <td style="text-align:left;"> Mención </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> @abdelaespriella </td>
+   <td style="text-align:right;"> 86 </td>
+   <td style="text-align:right;"> 23 </td>
+   <td style="text-align:right;"> 85 </td>
+   <td style="text-align:left;"> all </td>
+   <td style="text-align:left;"> Mención </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> @cedemocratico </td>
+   <td style="text-align:right;"> 82 </td>
+   <td style="text-align:right;"> 24 </td>
+   <td style="text-align:right;"> 82 </td>
+   <td style="text-align:left;"> all </td>
+   <td style="text-align:left;"> Mención </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> @bluradioco </td>
+   <td style="text-align:right;"> 80 </td>
+   <td style="text-align:right;"> 25 </td>
+   <td style="text-align:right;"> 80 </td>
+   <td style="text-align:left;"> all </td>
+   <td style="text-align:left;"> Mención </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> @mariafdacabal </td>
+   <td style="text-align:right;"> 77 </td>
+   <td style="text-align:right;"> 26 </td>
+   <td style="text-align:right;"> 76 </td>
+   <td style="text-align:left;"> all </td>
+   <td style="text-align:left;"> Mención </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> @revistasemana </td>
+   <td style="text-align:right;"> 76 </td>
+   <td style="text-align:right;"> 27 </td>
+   <td style="text-align:right;"> 76 </td>
+   <td style="text-align:left;"> all </td>
+   <td style="text-align:left;"> Mención </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> @ga_jaramillo </td>
+   <td style="text-align:right;"> 76 </td>
+   <td style="text-align:right;"> 27 </td>
+   <td style="text-align:right;"> 76 </td>
+   <td style="text-align:left;"> all </td>
+   <td style="text-align:left;"> Mención </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> @claudialopez </td>
+   <td style="text-align:right;"> 75 </td>
+   <td style="text-align:right;"> 29 </td>
+   <td style="text-align:right;"> 75 </td>
+   <td style="text-align:left;"> all </td>
+   <td style="text-align:left;"> Mención </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> @cconstitucional </td>
+   <td style="text-align:right;"> 74 </td>
+   <td style="text-align:right;"> 30 </td>
+   <td style="text-align:right;"> 74 </td>
+   <td style="text-align:left;"> all </td>
+   <td style="text-align:left;"> Mención </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> @roybarreras </td>
+   <td style="text-align:right;"> 72 </td>
+   <td style="text-align:right;"> 31 </td>
+   <td style="text-align:right;"> 72 </td>
+   <td style="text-align:left;"> all </td>
+   <td style="text-align:left;"> Mención </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> @mindefensa </td>
+   <td style="text-align:right;"> 71 </td>
+   <td style="text-align:right;"> 32 </td>
+   <td style="text-align:right;"> 71 </td>
+   <td style="text-align:left;"> all </td>
+   <td style="text-align:left;"> Mención </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> @quinterocalle </td>
+   <td style="text-align:right;"> 65 </td>
+   <td style="text-align:right;"> 33 </td>
+   <td style="text-align:right;"> 65 </td>
+   <td style="text-align:left;"> all </td>
+   <td style="text-align:left;"> Mención </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> @jmilei </td>
+   <td style="text-align:right;"> 65 </td>
+   <td style="text-align:right;"> 33 </td>
+   <td style="text-align:right;"> 65 </td>
+   <td style="text-align:left;"> all </td>
+   <td style="text-align:left;"> Mención </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> @juanmansantos </td>
+   <td style="text-align:right;"> 63 </td>
+   <td style="text-align:right;"> 35 </td>
+   <td style="text-align:right;"> 63 </td>
+   <td style="text-align:left;"> all </td>
+   <td style="text-align:left;"> Mención </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> @elcolombiano </td>
+   <td style="text-align:right;"> 63 </td>
+   <td style="text-align:right;"> 35 </td>
+   <td style="text-align:right;"> 62 </td>
+   <td style="text-align:left;"> all </td>
+   <td style="text-align:left;"> Mención </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> @kremlinrussia_e </td>
+   <td style="text-align:right;"> 61 </td>
+   <td style="text-align:right;"> 37 </td>
+   <td style="text-align:right;"> 61 </td>
+   <td style="text-align:left;"> all </td>
+   <td style="text-align:left;"> Mención </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> @wradiocolombia </td>
+   <td style="text-align:right;"> 60 </td>
+   <td style="text-align:right;"> 38 </td>
+   <td style="text-align:right;"> 59 </td>
+   <td style="text-align:left;"> all </td>
+   <td style="text-align:left;"> Mención </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> @senadogovco </td>
+   <td style="text-align:right;"> 60 </td>
+   <td style="text-align:right;"> 38 </td>
+   <td style="text-align:right;"> 60 </td>
+   <td style="text-align:left;"> all </td>
+   <td style="text-align:left;"> Mención </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> @cnn </td>
+   <td style="text-align:right;"> 60 </td>
+   <td style="text-align:right;"> 38 </td>
+   <td style="text-align:right;"> 60 </td>
+   <td style="text-align:left;"> all </td>
+   <td style="text-align:left;"> Mención </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> @realdonaldtrump </td>
+   <td style="text-align:right;"> 59 </td>
+   <td style="text-align:right;"> 41 </td>
+   <td style="text-align:right;"> 58 </td>
+   <td style="text-align:left;"> all </td>
+   <td style="text-align:left;"> Mención </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> @noticiasrcn </td>
+   <td style="text-align:right;"> 57 </td>
+   <td style="text-align:right;"> 42 </td>
+   <td style="text-align:right;"> 56 </td>
+   <td style="text-align:left;"> all </td>
+   <td style="text-align:left;"> Mención </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> @col_ejercito </td>
+   <td style="text-align:right;"> 56 </td>
+   <td style="text-align:right;"> 43 </td>
+   <td style="text-align:right;"> 56 </td>
+   <td style="text-align:left;"> all </td>
+   <td style="text-align:left;"> Mención </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> @minhacienda </td>
+   <td style="text-align:right;"> 56 </td>
+   <td style="text-align:right;"> 43 </td>
+   <td style="text-align:right;"> 56 </td>
+   <td style="text-align:left;"> all </td>
+   <td style="text-align:left;"> Mención </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> @laurisarabia </td>
+   <td style="text-align:right;"> 55 </td>
+   <td style="text-align:right;"> 45 </td>
+   <td style="text-align:right;"> 55 </td>
+   <td style="text-align:left;"> all </td>
+   <td style="text-align:left;"> Mención </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> @elespectador </td>
+   <td style="text-align:right;"> 52 </td>
+   <td style="text-align:right;"> 46 </td>
+   <td style="text-align:right;"> 50 </td>
+   <td style="text-align:left;"> all </td>
+   <td style="text-align:left;"> Mención </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> @carlosfgalan </td>
+   <td style="text-align:right;"> 52 </td>
+   <td style="text-align:right;"> 46 </td>
+   <td style="text-align:right;"> 52 </td>
+   <td style="text-align:left;"> all </td>
+   <td style="text-align:left;"> Mención </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> @onu_es </td>
+   <td style="text-align:right;"> 50 </td>
+   <td style="text-align:right;"> 48 </td>
+   <td style="text-align:right;"> 50 </td>
+   <td style="text-align:left;"> all </td>
+   <td style="text-align:left;"> Mención </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> @potus </td>
+   <td style="text-align:right;"> 50 </td>
+   <td style="text-align:right;"> 48 </td>
+   <td style="text-align:right;"> 50 </td>
+   <td style="text-align:left;"> all </td>
+   <td style="text-align:left;"> Mención </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> @consejodeestado </td>
+   <td style="text-align:right;"> 50 </td>
+   <td style="text-align:right;"> 48 </td>
+   <td style="text-align:right;"> 50 </td>
+   <td style="text-align:left;"> all </td>
+   <td style="text-align:left;"> Mención </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> @pactohistorico </td>
+   <td style="text-align:right;"> 49 </td>
+   <td style="text-align:right;"> 51 </td>
+   <td style="text-align:right;"> 48 </td>
+   <td style="text-align:left;"> all </td>
+   <td style="text-align:left;"> Mención </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> @veronicalcocerg </td>
+   <td style="text-align:right;"> 49 </td>
+   <td style="text-align:right;"> 51 </td>
+   <td style="text-align:right;"> 49 </td>
+   <td style="text-align:left;"> all </td>
+   <td style="text-align:left;"> Mención </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> @dcoronell </td>
+   <td style="text-align:right;"> 49 </td>
+   <td style="text-align:right;"> 51 </td>
+   <td style="text-align:right;"> 49 </td>
+   <td style="text-align:left;"> all </td>
+   <td style="text-align:left;"> Mención </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> @caracolradio </td>
+   <td style="text-align:right;"> 48 </td>
+   <td style="text-align:right;"> 54 </td>
+   <td style="text-align:right;"> 46 </td>
+   <td style="text-align:left;"> all </td>
+   <td style="text-align:left;"> Mención </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> @mineducacion </td>
+   <td style="text-align:right;"> 46 </td>
+   <td style="text-align:right;"> 55 </td>
+   <td style="text-align:right;"> 46 </td>
+   <td style="text-align:left;"> all </td>
+   <td style="text-align:left;"> Mención </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> @hollmanmorris </td>
+   <td style="text-align:right;"> 45 </td>
+   <td style="text-align:right;"> 56 </td>
+   <td style="text-align:right;"> 45 </td>
+   <td style="text-align:left;"> all </td>
+   <td style="text-align:left;"> Mención </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> @gabrielboric </td>
+   <td style="text-align:right;"> 45 </td>
+   <td style="text-align:right;"> 56 </td>
+   <td style="text-align:right;"> 45 </td>
+   <td style="text-align:left;"> all </td>
+   <td style="text-align:left;"> Mención </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> @mmflint </td>
+   <td style="text-align:right;"> 45 </td>
+   <td style="text-align:right;"> 56 </td>
+   <td style="text-align:right;"> 45 </td>
+   <td style="text-align:left;"> all </td>
+   <td style="text-align:left;"> Mención </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> @ivan_velasquez_ </td>
+   <td style="text-align:right;"> 43 </td>
+   <td style="text-align:right;"> 59 </td>
+   <td style="text-align:right;"> 43 </td>
+   <td style="text-align:left;"> all </td>
+   <td style="text-align:left;"> Mención </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> @lafm </td>
+   <td style="text-align:right;"> 43 </td>
+   <td style="text-align:right;"> 59 </td>
+   <td style="text-align:right;"> 43 </td>
+   <td style="text-align:left;"> all </td>
+   <td style="text-align:left;"> Mención </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> @superservicios </td>
+   <td style="text-align:right;"> 42 </td>
+   <td style="text-align:right;"> 61 </td>
+   <td style="text-align:right;"> 42 </td>
+   <td style="text-align:left;"> all </td>
+   <td style="text-align:left;"> Mención </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> @irenevelezt </td>
+   <td style="text-align:right;"> 42 </td>
+   <td style="text-align:right;"> 61 </td>
+   <td style="text-align:right;"> 42 </td>
+   <td style="text-align:left;"> all </td>
+   <td style="text-align:left;"> Mención </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> @nayibbukele </td>
+   <td style="text-align:right;"> 42 </td>
+   <td style="text-align:right;"> 61 </td>
+   <td style="text-align:right;"> 41 </td>
+   <td style="text-align:left;"> all </td>
+   <td style="text-align:left;"> Mención </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> @minenergiaco </td>
+   <td style="text-align:right;"> 41 </td>
+   <td style="text-align:right;"> 64 </td>
+   <td style="text-align:right;"> 41 </td>
+   <td style="text-align:left;"> all </td>
+   <td style="text-align:left;"> Mención </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> @susanamuhamad </td>
+   <td style="text-align:right;"> 41 </td>
+   <td style="text-align:right;"> 64 </td>
+   <td style="text-align:right;"> 41 </td>
+   <td style="text-align:left;"> all </td>
+   <td style="text-align:left;"> Mención </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> @alvaroleyva </td>
+   <td style="text-align:right;"> 41 </td>
+   <td style="text-align:right;"> 64 </td>
+   <td style="text-align:right;"> 41 </td>
+   <td style="text-align:left;"> all </td>
+   <td style="text-align:left;"> Mención </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> @mininterior </td>
+   <td style="text-align:right;"> 41 </td>
+   <td style="text-align:right;"> 64 </td>
+   <td style="text-align:right;"> 41 </td>
+   <td style="text-align:left;"> all </td>
+   <td style="text-align:left;"> Mención </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> @danielrmed </td>
+   <td style="text-align:right;"> 40 </td>
+   <td style="text-align:right;"> 68 </td>
+   <td style="text-align:right;"> 40 </td>
+   <td style="text-align:left;"> all </td>
+   <td style="text-align:left;"> Mención </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> @mintransporteco </td>
+   <td style="text-align:right;"> 40 </td>
+   <td style="text-align:right;"> 68 </td>
+   <td style="text-align:right;"> 40 </td>
+   <td style="text-align:left;"> all </td>
+   <td style="text-align:left;"> Mención </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> @davidracero </td>
+   <td style="text-align:right;"> 39 </td>
+   <td style="text-align:right;"> 70 </td>
+   <td style="text-align:right;"> 39 </td>
+   <td style="text-align:left;"> all </td>
+   <td style="text-align:left;"> Mención </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> @lopezobrador_ </td>
+   <td style="text-align:right;"> 39 </td>
+   <td style="text-align:right;"> 70 </td>
+   <td style="text-align:right;"> 39 </td>
+   <td style="text-align:left;"> all </td>
+   <td style="text-align:left;"> Mención </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> @camaracolombia </td>
+   <td style="text-align:right;"> 39 </td>
+   <td style="text-align:right;"> 70 </td>
+   <td style="text-align:right;"> 39 </td>
+   <td style="text-align:left;"> all </td>
+   <td style="text-align:left;"> Mención </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> @mintrabajocol </td>
+   <td style="text-align:right;"> 38 </td>
+   <td style="text-align:right;"> 73 </td>
+   <td style="text-align:right;"> 38 </td>
+   <td style="text-align:left;"> all </td>
+   <td style="text-align:left;"> Mención </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> @cancilleriacol </td>
+   <td style="text-align:right;"> 38 </td>
+   <td style="text-align:right;"> 73 </td>
+   <td style="text-align:right;"> 38 </td>
+   <td style="text-align:left;"> all </td>
+   <td style="text-align:left;"> Mención </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> @ficogutierrez </td>
+   <td style="text-align:right;"> 37 </td>
+   <td style="text-align:right;"> 75 </td>
+   <td style="text-align:right;"> 37 </td>
+   <td style="text-align:left;"> all </td>
+   <td style="text-align:left;"> Mención </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> @ungrd </td>
+   <td style="text-align:right;"> 37 </td>
+   <td style="text-align:right;"> 75 </td>
+   <td style="text-align:right;"> 37 </td>
+   <td style="text-align:left;"> all </td>
+   <td style="text-align:left;"> Mención </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> @rtvcnoticias </td>
+   <td style="text-align:right;"> 37 </td>
+   <td style="text-align:right;"> 75 </td>
+   <td style="text-align:right;"> 37 </td>
+   <td style="text-align:left;"> all </td>
+   <td style="text-align:left;"> Mención </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> @cathyjuvinao </td>
+   <td style="text-align:right;"> 35 </td>
+   <td style="text-align:right;"> 78 </td>
+   <td style="text-align:right;"> 35 </td>
+   <td style="text-align:left;"> all </td>
+   <td style="text-align:left;"> Mención </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> @wilsonariasc </td>
+   <td style="text-align:right;"> 35 </td>
+   <td style="text-align:right;"> 78 </td>
+   <td style="text-align:right;"> 35 </td>
+   <td style="text-align:left;"> all </td>
+   <td style="text-align:left;"> Mención </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> @cnnee </td>
+   <td style="text-align:right;"> 35 </td>
+   <td style="text-align:right;"> 78 </td>
+   <td style="text-align:right;"> 35 </td>
+   <td style="text-align:left;"> all </td>
+   <td style="text-align:left;"> Mención </td>
+  </tr>
+</tbody>
+</table>
+</body>
+</html>
+

@@ -1,0 +1,781 @@
+
+
+processing file: Cuaderno_Paper_Español.Rmd
+1/771                                                         
+2/771 [setup-opciones]                                        
+3/771                                                         
+4/771 [setup-librerias]                                       
+5/771                                                         
+6/771 [detectar-raiz-proyecto]                                
+7/771                                                         
+8/771 [parametros-rutas-analisis]                             
+9/771                                                         
+10/771 [crear-carpetas-salida]                                 
+11/771                                                         
+12/771 [validaciones-iniciales]                                
+13/771                                                         
+14/771 [setup-tema-stopwords]                                  
+15/771                                                         
+16/771 [flow-plot]                                             
+17/771                                                         
+18/771 [cargar-tweets]                                         
+19/771                                                         
+20/771 [construir-sentimiento-diario]                          
+21/771                                                         
+22/771 [contar-tweets-por-dia]                                 
+23/771                                                         
+24/771 [calcular-nrc-documentos]                               
+25/771                                                         
+26/771 [agregar-nrc-diario]                                    
+27/771                                                         
+28/771 [unir-sentimiento-volumen]                              
+29/771                                                         
+30/771 [derivar-metricas-sentimiento]                          
+31/771                                                         
+32/771 [construir-sentimiento-diario-paso-04]                  
+33/771                                                         
+34/771 [cargar-mercado]                                        
+35/771                                                         
+36/771 [cargar-mercado-paso-02]                                
+37/771                                                         
+38/771 [auditoria-tweets-dias-esperados]                       
+39/771                                                         
+40/771 [auditoria-tweets-observados]                           
+41/771                                                         
+42/771 [construir-dataset-modelado]                            
+43/771                                                         
+44/771 [construir-dataset-modelado-paso-02]                    
+45/771                                                         
+46/771 [completar-mercado-modelo-opinion-final]                
+47/771                                                         
+48/771 [preparar-continuidad-mercado-corpus]                   
+49/771                                                         
+50/771 [completar-mercado-modelo-corpus-final]                 
+51/771                                                         
+52/771 [asegurar-polaridad-modelo-opinion]                     
+53/771                                                         
+54/771 [construir-dataset-modelado-paso-05]                    
+55/771                                                         
+56/771 [cargar-inventario-fuentes]                             
+57/771                                                         
+58/771 [exportar-inventario-fuentes]                           
+59/771                                                         
+60/771 [inventory-plot]                                        
+61/771                                                         
+62/771 [corpus-comparison-design]                              
+63/771                                                         
+64/771 [exportar-corpus-comparison-design]                     
+65/771                                                         
+66/771 [corpus-comparison-volume]                              
+67/771                                                         
+68/771 [preparar-eje-volumen-corpus]                           
+69/771                                                         
+70/771 [corpus-comparison-volume-paso-02]                      
+71/771                                                         
+72/771 [corpus-comparison-volume-paso-03]                      
+73/771                                                         
+74/771 [corpus-comparison-sentiment-data]                      
+75/771                                                         
+76/771 [corpus-comparison-sentiment]                           
+77/771                                                         
+78/771 [exportar-corpus-comparison-sentiment]                  
+79/771                                                         
+80/771 [tweet-coverage]                                        
+81/771                                                         
+82/771 [exportar-tweet-coverage]                               
+83/771                                                         
+84/771 [tweet-coverage-by-corpus]                              
+85/771                                                         
+86/771 [exportar-tweet-coverage-by-corpus]                     
+87/771                                                         
+88/771 [tweet-coverage-plot]                                   
+89/771                                                         
+90/771 [tweet-coverage-plot-by-corpus]                         
+91/771                                                         
+92/771 [market-coverage]                                       
+93/771                                                         
+94/771 [exportar-market-coverage]                              
+95/771                                                         
+96/771 [preparar-fuentes-mercado]                              
+97/771                                                         
+98/771 [exportar-fuentes-mercado]                              
+99/771                                                         
+100/771 [market-coverage-plot]                                  
+101/771                                                         
+102/771 [proposal-viability]                                    
+103/771                                                         
+104/771 [exportar-proposal-viability]                           
+105/771                                                         
+106/771 [proposal-viability-plot]                               
+107/771                                                         
+108/771 [cargar-twitter-process-raw-data]                       
+109/771                                                         
+110/771 [constituyente-audit-monthly]                           
+111/771                                                         
+112/771 [constituyente-audit-examples]                          
+113/771                                                         
+114/771 [constituyente-audit-terms]                             
+115/771                                                         
+116/771 [cargar-twitter-process-raw-data-paso-03]               
+117/771                                                         
+118/771 [weak-supervision-topic-model-01-preparacion-01]        
+119/771                                                         
+120/771 [weak-supervision-topic-model-01-condicion]             
+121/771                                                         
+122/771 [weak-topic-corpus-dfm]                                 
+123/771                                                         
+124/771 [weak-topic-train-test]                                 
+125/771                                                         
+126/771 [weak-topic-naive-bayes-counts]                         
+127/771                                                         
+128/771 [weak-topic-naive-bayes-probs]                          
+129/771                                                         
+130/771 [weak-topic-test-predictions]                           
+131/771                                                         
+132/771 [weak-topic-metrics-by-class]                           
+133/771                                                         
+134/771 [weak-topic-metrics-overall]                            
+135/771                                                         
+136/771 [weak-topic-predict-all]                                
+137/771                                                         
+138/771 [weak-topic-apply-reassignment]                         
+139/771                                                         
+140/771 [weak-topic-fallback-labels]                            
+141/771                                                         
+142/771 [weak-supervision-topic-model-01-fallback-01]           
+143/771                                                         
+144/771 [weak-supervision-topic-model-02]                       
+145/771                                                         
+146/771 [exportar-weak-supervision-metrics]                     
+147/771                                                         
+148/771 [weak-supervision-topic-model-02-paso-02]               
+149/771                                                         
+150/771 [weak-supervision-topic-model-02-paso-03]               
+151/771                                                         
+152/771 [weak-supervision-topic-model-03]                       
+153/771                                                         
+154/771 [exportar-weak-supervision-confidence]                  
+155/771                                                         
+156/771 [weak-supervision-topic-plots]                          
+157/771                                                         
+158/771 [weak-supervision-topic-plots-paso-02]                  
+159/771                                                         
+160/771 [weak-supervision-topic-plots-paso-03]                  
+161/771                                                         
+162/771 [weak-supervision-topic-plots-paso-04]                  
+163/771                                                         
+164/771 [weak-supervision-topic-plots-paso-05]                  
+165/771                                                         
+166/771 [cleaning-retention-data]                               
+167/771                                                         
+168/771 [exportar-cleaning-retention]                           
+169/771                                                         
+170/771 [cleaning-retention-plot-paso-02]                       
+171/771                                                         
+172/771 [cleaning-retention-plot-paso-03]                       
+173/771                                                         
+174/771 [metadata-plot]                                         
+175/771                                                         
+176/771 [eda-summary-market]                                    
+177/771                                                         
+178/771 [eda-summary]                                           
+179/771                                                         
+180/771 [exportar-eda-summary]                                  
+181/771                                                         
+182/771 [eda-daily-volume]                                      
+183/771                                                         
+184/771 [eda-petro-frequency-data]                              
+185/771                                                         
+186/771 [eda-petro-frequency-table]                             
+187/771                                                         
+188/771 [exportar-eda-petro-frequency]                          
+189/771                                                         
+190/771 [eda-petro-frequency-plots]                             
+191/771                                                         
+192/771 [eda-petro-frequency-plots-paso-02]                     
+193/771                                                         
+194/771 [eda-petro-frequency-plots-paso-03]                     
+195/771                                                         
+196/771 [eda-monthly-coverage]                                  
+197/771                                                         
+198/771 [eda-heatmap]                                           
+199/771                                                         
+200/771 [eda-text-length]                                       
+201/771                                                         
+202/771 [eda-theme-volume]                                      
+203/771                                                         
+204/771 [eda-initial-sentiment]                                 
+205/771                                                         
+206/771 [eda-initial-sentiment-paso-02]                         
+207/771                                                         
+208/771 [eda-market-availability]                               
+209/771                                                         
+210/771 [eda-market-availability-paso-02]                       
+211/771                                                         
+212/771 [eda-volume-market-data]                                
+213/771                                                         
+214/771 [eda-volume-market]                                     
+215/771                                                         
+216/771 [eda-volume-market-paso-02]                             
+217/771                                                         
+218/771 [temporal-wordstream-source]                            
+219/771                                                         
+220/771 [temporal-wordstream-dfm]                               
+221/771                                                         
+222/771 [temporal-wordstream-table]                             
+223/771                                                         
+224/771 [temporal-wordstream-tfidf]                             
+225/771                                                         
+226/771 [temporal-wordstream-fallback]                          
+227/771                                                         
+228/771 [exportar-temporal-wordstream-data]                     
+229/771                                                         
+230/771 [wordcloud-corpus-data]                                 
+231/771                                                         
+232/771 [wordcloud-temporal-data]                               
+233/771                                                         
+234/771 [wordcloud-corpus-temporal-01-paso-02]                  
+235/771                                                         
+236/771 [wordcloud-corpus-temporal-01-paso-03]                  
+237/771                                                         
+238/771 [wordcloud-corpus-temporal-02]                          
+239/771                                                         
+240/771 [wordcloud-corpus-temporal-02-paso-02]                  
+241/771                                                         
+242/771 [wordcloud-corpus-temporal-02-paso-03]                  
+243/771                                                         
+244/771 [wordcloud-corpus-temporal-02-paso-04]                  
+245/771                                                         
+246/771 [wordcloud-corpus-temporal-02-paso-05]                  
+247/771                                                         
+248/771 [wordcloud-corpus-temporal-03]                          
+249/771                                                         
+250/771 [temporal-wordstream-plot]                              
+251/771                                                         
+252/771 [wordstream-continuo-source]                            
+253/771                                                         
+254/771 [wordstream-continuo-normalizar]                        
+255/771                                                         
+256/771 [wordstream-continuo-ranking]                           
+257/771                                                         
+258/771 [wordstream-continuo-posiciones]                        
+259/771                                                         
+260/771 [wordstream-continuo-pesos]                             
+261/771                                                         
+262/771 [wordstream-continuo-fallback]                          
+263/771                                                         
+264/771 [wordstream-continuo-corpus-03]                         
+265/771                                                         
+266/771 [wordstream-continuo-lineas-tiempo]                     
+267/771                                                         
+268/771 [wordstream-continuo-plot-base]                         
+269/771                                                         
+270/771 [wordstream-continuo-plot-estilo]                       
+271/771                                                         
+272/771 [wordstream-continuo-corpus-04]                         
+273/771                                                         
+274/771 [tes-market-plots]                                      
+275/771                                                         
+276/771 [tes-market-plots-paso-02]                              
+277/771                                                         
+278/771 [tes-market-plots-paso-03]                              
+279/771                                                         
+280/771 [theme-summary]                                         
+281/771                                                         
+282/771 [exportar-theme-summary]                                
+283/771                                                         
+284/771 [theme-summary-plot]                                    
+285/771                                                         
+286/771 [theme-monthly-plot]                                    
+287/771                                                         
+288/771 [tributaria-frequency-plot]                             
+289/771                                                         
+290/771 [dependencias-replicacion-desde-cuatro]                 
+291/771                                                         
+292/771 [normalizar-menciones-petro]                            
+293/771                                                         
+294/771 [social-entities]                                       
+295/771                                                         
+296/771 [social-entities-etapa-2]                               
+297/771                                                         
+298/771 [hashtags-mentions-plot]                                
+299/771                                                         
+300/771 [network-audit-helpers-edges]                           
+301/771                                                         
+302/771 [network-audit-helpers-nodes]                           
+303/771                                                         
+304/771 [network-audit-helpers-nodes-etapa-2]                   
+305/771                                                         
+306/771 [network-audit-helpers-global]                          
+307/771                                                         
+308/771 [network-audit-helpers-layout]                          
+309/771                                                         
+310/771 [network-audit-helpers-plot]                            
+311/771                                                         
+312/771 [network-edge-tables-01]                                
+313/771                                                         
+314/771 [network-edge-tables-01-etapa-2]                        
+315/771                                                         
+316/771 [network-edge-tables-01-etapa-3]                        
+317/771                                                         
+318/771 [network-edge-tables-02]                                
+319/771                                                         
+320/771 [network-edge-tables-03]                                
+321/771                                                         
+322/771 [network-edge-tables-04]                                
+323/771                                                         
+324/771 [network-edge-tables-05]                                
+325/771                                                         
+326/771 [atributos-grafico-mention]                             
+327/771                                                         
+328/771 [network-edge-plots-01]                                 
+329/771                                                         
+330/771 [atributos-grafico-cooc]                                
+331/771                                                         
+332/771 [network-edge-plots-01-cooc]                            
+333/771                                                         
+334/771 [network-edge-plots-01-centralidad]                     
+335/771                                                         
+336/771 [network-edge-plots-02]                                 
+337/771                                                         
+338/771 [network-edge-plots-02-etapa-2]                         
+339/771                                                         
+340/771 [network-edge-plots-03]                                 
+341/771                                                         
+342/771 [network-edge-plots-03-export]                          
+343/771                                                         
+344/771 [network-edge-plots-03-display]                         
+345/771                                                         
+346/771 [mostrar-red-lexica]                                    
+347/771                                                         
+348/771 [mostrar-centralidad-menciones]                         
+349/771                                                         
+350/771 [mostrar-pesos-redes]                                   
+351/771                                                         
+352/771 [mostrar-nube-comunidades]                              
+353/771                                                         
+354/771 [network-ladal-mentions-by-corpus-01]                   
+355/771                                                         
+356/771 [network-ladal-mentions-by-corpus-02-condicion]         
+357/771                                                         
+358/771 [network-ladal-mentions-by-corpus-02-calculo-01]        
+359/771                                                         
+360/771 [network-ladal-mentions-by-corpus-02-calculo-02]        
+361/771                                                         
+362/771 [network-ladal-mentions-by-corpus-02-fallback-01]       
+363/771                                                         
+364/771 [network-ladal-mentions-by-corpus-03]                   
+365/771                                                         
+366/771 [network-ladal-mentions-by-corpus-plots-01]             
+367/771                                                         
+368/771 [limpiar-filas-visuales-mention-corpus]                 
+369/771                                                         
+370/771 [network-ladal-mentions-by-corpus-plots-01-figura]      
+371/771                                                         
+372/771 [network-ladal-mentions-by-corpus-plots-02]             
+373/771                                                         
+374/771 [network-ladal-theme-coappearance-01]                   
+375/771                                                         
+376/771 [network-ladal-theme-coappearance-01-etapa-2]           
+377/771                                                         
+378/771 [network-ladal-theme-coappearance-01-export]            
+379/771                                                         
+380/771 [network-ladal-theme-coappearance-02-condicion]         
+381/771                                                         
+382/771 [network-ladal-theme-coappearance-02-calculo-01]        
+383/771                                                         
+384/771 [network-ladal-theme-coappearance-02-calculo-02]        
+385/771                                                         
+386/771 [network-ladal-theme-coappearance-02-fallback-01]       
+387/771                                                         
+388/771 [network-ladal-theme-coappearance-03]                   
+389/771                                                         
+390/771 [network-ladal-theme-coappearance-plot-parte-01]        
+391/771                                                         
+392/771 [limpiar-filas-visuales-theme-coappearance]             
+393/771                                                         
+394/771 [network-ladal-theme-coappearance-plot-parte-01-figura] 
+395/771                                                         
+396/771 [network-ladal-theme-coappearance-plot-parte-02]        
+397/771                                                         
+398/771 [network-ladal-theme-entity-01]                         
+399/771                                                         
+400/771 [network-ladal-theme-entity-01-etapa-2]                 
+401/771                                                         
+402/771 [network-ladal-theme-entity-01-export]                  
+403/771                                                         
+404/771 [network-ladal-theme-entity-01-data]                    
+405/771                                                         
+406/771 [network-ladal-theme-entity-02]                         
+407/771                                                         
+408/771 [network-ladal-theme-entity-03]                         
+409/771                                                         
+410/771 [network-ladal-theme-entity-plot-01]                    
+411/771                                                         
+412/771 [limpiar-filas-visuales-theme-entity]                   
+413/771                                                         
+414/771 [network-ladal-theme-entity-plot-figura]                
+415/771                                                         
+416/771 [network-ladal-theme-entity-plot-02]                    
+417/771                                                         
+418/771 [network-ladal-diagnostics-01]                          
+419/771                                                         
+420/771 [network-ladal-diagnostics-01-centralidad]              
+421/771                                                         
+422/771 [network-ladal-diagnostics-01-export]                   
+423/771                                                         
+424/771 [network-ladal-diagnostics-02]                          
+425/771                                                         
+426/771 [network-ladal-interactive-parte-01]                    
+427/771                                                         
+428/771 [network-ladal-interactive-parte-01-etapa-2]            
+429/771                                                         
+430/771 [network-ladal-interactive-parte-02]                    
+431/771                                                         
+432/771 [network-quanteda-social-data-01-condicion]             
+433/771                                                         
+434/771 [network-quanteda-social-data-01-calculo-01]            
+435/771                                                         
+436/771 [network-quanteda-social-data-01-calculo-01-etapa-2]    
+437/771                                                         
+438/771 [network-quanteda-social-data-01-calculo-02]            
+439/771                                                         
+440/771 [network-quanteda-social-data-01-calculo-02-menciones]  
+441/771                                                         
+442/771 [network-quanteda-social-data-01-calculo-02-fcm]        
+443/771                                                         
+444/771 [seleccionar-entidades-sociales]                        
+445/771                                                         
+446/771 [network-quanteda-social-data-01-calculo-03]            
+447/771                                                         
+448/771 [network-quanteda-social-data-01-calculo-03-etapa-2]    
+449/771                                                         
+450/771 [network-quanteda-social-data-01-calculo-03-fcm]        
+451/771                                                         
+452/771 [network-quanteda-social-data-01-calculo-03-fcm-etapa-2]
+453/771                                                         
+454/771 [network-quanteda-social-data-01-calculo-03-fcm-etapa-3]
+455/771                                                         
+456/771 [network-quanteda-social-data-01-fallback-01]           
+457/771                                                         
+458/771 [network-quanteda-social-data-02]                       
+459/771                                                         
+460/771 [network-quanteda-social-data-03]                       
+461/771                                                         
+462/771 [network-quanteda-social-plots-01]                      
+463/771                                                         
+464/771 [network-quanteda-social-plots-02]                      
+465/771                                                         
+466/771 [network-quanteda-social-plots-02-etapa-2]              
+467/771                                                         
+468/771 [network-quanteda-social-plots-03]                      
+469/771                                                         
+470/771 [network-quanteda-social-plots-04]                      
+471/771                                                         
+472/771 [network-quanteda-social-plots-04-etapa-2]              
+473/771                                                         
+474/771 [network-quanteda-social-corpus-plots-01-parte-01]      
+475/771                                                         
+476/771 [network-quanteda-social-corpus-plots-01-export]        
+477/771                                                         
+478/771 [network-quanteda-social-corpus-plots-01-parte-02]      
+479/771                                                         
+480/771 [network-quanteda-social-corpus-plots-02-parte-01]      
+481/771                                                         
+482/771 [network-quanteda-social-corpus-plots-02-export]        
+483/771                                                         
+484/771 [network-quanteda-social-corpus-plots-02-parte-02]      
+485/771                                                         
+486/771 [network-quanteda-social-interactive]                   
+487/771                                                         
+488/771 [network-quanteda-social-interactive-etapa-2]           
+489/771                                                         
+490/771 [corpus-frequency]                                      
+491/771                                                         
+492/771 [corpus-frequency-plot]                                 
+493/771                                                         
+494/771 [quanteda-similarity-dendrogram-01-preparacion-01]      
+495/771                                                         
+496/771 [quanteda-similarity-dendrogram-01-condicion]           
+497/771                                                         
+498/771 [quanteda-similarity-dendrogram-01-calculo-01]          
+499/771                                                         
+500/771 [quanteda-similarity-dendrogram-01-calculo-01-etapa-2]  
+501/771                                                         
+502/771 [quanteda-similarity-dendrogram-01-calculo-01-etapa-3]  
+503/771                                                         
+504/771 [quanteda-similarity-dendrogram-01-calculo-01-etapa-4]  
+505/771                                                         
+506/771 [quanteda-similarity-dendrogram-01-calculo-01-etapa-5]  
+507/771                                                         
+508/771 [quanteda-similarity-dendrogram-01-calculo-01-etapa-6]  
+509/771                                                         
+510/771 [quanteda-similarity-dendrogram-01-fallback-01]         
+511/771                                                         
+512/771 [quanteda-similarity-dendrogram-02]                     
+513/771                                                         
+514/771 [quanteda-dendrogram-plot]                              
+515/771                                                         
+516/771 [quanteda-dendrogram-plot-etapa-2]                      
+517/771                                                         
+518/771 [quanteda-similarity-ca-plots-01]                       
+519/771                                                         
+520/771 [quanteda-similarity-ca-plots-01-etapa-2]               
+521/771                                                         
+522/771 [quanteda-similarity-ca-plots-02]                       
+523/771                                                         
+524/771 [quanteda-similarity-ca-plots-02-etapa-2]               
+525/771                                                         
+526/771 [tfidf-theme-validation-01]                             
+527/771                                                         
+528/771 [tfidf-theme-validation-01-etapa-2]                     
+529/771                                                         
+530/771 [tfidf-theme-validation-02]                             
+531/771                                                         
+532/771 [tfidf-theme-plot]                                      
+533/771                                                         
+534/771 [wordcloud-theme-tfidf]                                 
+535/771                                                         
+536/771 [wordcloud-theme-tfidf-etapa-2]                         
+537/771                                                         
+538/771 [keyness-collocations-wordfish-01-condicion]            
+539/771                                                         
+540/771 [keyness-collocations-wordfish-01-calculo-01]           
+541/771                                                         
+542/771 [keyness-collocations-wordfish-01-calculo-01-etapa-2]   
+543/771                                                         
+544/771 [keyness-collocations-wordfish-01-calculo-02]           
+545/771                                                         
+546/771 [keyness-collocations-wordfish-01-calculo-02-etapa-2]   
+547/771                                                         
+548/771 [keyness-collocations-wordfish-01-calculo-03]           
+549/771                                                         
+550/771 [keyness-collocations-wordfish-01-calculo-03-etapa-2]   
+551/771                                                         
+552/771 [keyness-collocations-wordfish-01-calculo-03-etapa-3]   
+553/771                                                         
+554/771 [keyness-collocations-wordfish-01-calculo-03-etapa-4]   
+555/771                                                         
+556/771 [keyness-collocations-wordfish-01-calculo-04]           
+557/771                                                         
+558/771 [keyness-collocations-wordfish-01-calculo-04-etapa-2]   
+559/771                                                         
+560/771 [keyness-collocations-wordfish-01-calculo-04-etapa-3]   
+561/771                                                         
+562/771 [keyness-collocations-wordfish-01-calculo-04-etapa-4]   
+563/771                                                         
+564/771 [keyness-collocations-wordfish-01-calculo-04-etapa-5]   
+565/771                                                         
+566/771 [keyness-collocations-wordfish-01-fallback-01]          
+567/771                                                         
+568/771 [keyness-collocations-wordfish-02]                      
+569/771                                                         
+570/771 [keyness-collocations-wordfish-03]                      
+571/771                                                         
+572/771 [keyness-collocations-wordfish-04]                      
+573/771                                                         
+574/771 [keyness-collocations-wordfish-05]                      
+575/771                                                         
+576/771 [keyness-collocations-wordfish-plots-01]                
+577/771                                                         
+578/771 [keyness-collocations-wordfish-plots-01-etapa-2]        
+579/771                                                         
+580/771 [keyness-collocations-wordfish-plots-02]                
+581/771                                                         
+582/771 [keyness-collocations-wordfish-plots-02-etapa-2]        
+583/771                                                         
+584/771 [keyness-collocations-wordfish-plots-02-etapa-3]        
+585/771                                                         
+586/771 [keyness-collocations-wordfish-plots-03]                
+587/771                                                         
+588/771 [keyness-collocations-wordfish-plots-03-etapa-2]        
+589/771                                                         
+590/771 [keyness-collocations-wordfish-plots-04]                
+591/771                                                         
+592/771 [keyness-collocations-wordfish-plots-04-etapa-2]        
+593/771                                                         
+594/771 [keyness-collocations-wordfish-plots-05]                
+595/771                                                         
+596/771 [keyness-collocations-wordfish-plots-05-etapa-2]        
+597/771                                                         
+598/771 [stm-model-01-condicion]                                
+599/771                                                         
+600/771 [stm-model-01-calculo-01]                               
+601/771                                                         
+602/771 [stm-model-01-calculo-01-etapa-2]                       
+603/771                                                         
+604/771 [stm-model-01-calculo-01-etapa-3]                       
+605/771                                                         
+606/771 [stm-model-01-calculo-01-etapa-4]                       
+607/771                                                         
+608/771 [stm-model-01-calculo-01-etapa-5]                       
+609/771                                                         
+610/771 [stm-model-01-fallback-01]                              
+611/771                                                         
+612/771 [stm-model-02]                                          
+613/771                                                         
+614/771 [stm-model-03]                                          
+615/771                                                         
+616/771 [stm-plots]                                             
+617/771                                                         
+618/771 [stm-plots-etapa-2]                                     
+619/771                                                         
+620/771 [wordcloud-stm-topics]                                  
+621/771                                                         
+622/771 [wordcloud-stm-topics-etapa-2]                          
+623/771                                                         
+624/771 [nrc-sentiment]                                         
+625/771                                                         
+626/771 [exportar-resumen-nrc]                                  
+627/771                                                         
+628/771 [wordcloud-nrc-sentiment-01]                            
+629/771                                                         
+630/771 [wordcloud-nrc-sentiment-01-etapa-2]                    
+631/771                                                         
+632/771 [wordcloud-nrc-sentiment-02]                            
+633/771                                                         
+634/771 [ipi-index]                                             
+635/771                                                         
+636/771 [ipi-plots]                                             
+637/771                                                         
+638/771 [ipi-plots-etapa-2]                                     
+639/771                                                         
+640/771 [nrc-sentiment-plots]                                   
+641/771                                                         
+642/771 [sentometrics-section-01]                               
+643/771                                                         
+644/771 [sentometrics-section-01-etapa-2]                       
+645/771                                                         
+646/771 [sentometrics-section-01-etapa-3]                       
+647/771                                                         
+648/771 [sentometrics-section-01-etapa-4]                       
+649/771                                                         
+650/771 [sentometrics-section-02]                               
+651/771                                                         
+652/771 [sentometrics-section-02-etapa-2]                       
+653/771                                                         
+654/771 [sentometrics-section-03]                               
+655/771                                                         
+656/771 [sentometrics-section-04]                               
+657/771                                                         
+658/771 [sentometrics-plots-01]                                 
+659/771                                                         
+660/771 [sentometrics-plots-01-etapa-2]                         
+661/771                                                         
+662/771 [sentometrics-plots-02]                                 
+663/771                                                         
+664/771 [sentometrics-ipi]                                      
+665/771                                                         
+666/771 [sentometrics-ipi-plot]                                 
+667/771                                                         
+668/771 [spacyr-section-01]                                     
+669/771                                                         
+670/771 [spacyr-section-01-etapa-2]                             
+671/771                                                         
+672/771 [spacyr-section-01-etapa-3]                             
+673/771                                                         
+674/771 [spacyr-section-01-etapa-4]                             
+675/771                                                         
+676/771 [spacyr-section-01-etapa-5]                             
+677/771                                                         
+678/771 [spacyr-section-02]                                     
+679/771                                                         
+680/771 [spacyr-section-03]                                     
+681/771                                                         
+682/771 [spacyr-plots-01]                                       
+683/771                                                         
+684/771 [spacyr-plots-02]                                       
+685/771                                                         
+686/771 [spacyr-plots-02-etapa-2]                               
+687/771                                                         
+688/771 [spacyr-plots-02-etapa-3]                               
+689/771                                                         
+690/771 [spacyr-plots-03]                                       
+691/771                                                         
+692/771 [spacyr-plots-03-etapa-2]                               
+693/771                                                         
+694/771 [spacyr-atributos-interactivos]                         
+695/771                                                         
+696/771 [spacyr-plots-04]                                       
+697/771                                                         
+698/771 [spacyr-plots-04-etapa-2]                               
+699/771                                                         
+700/771 [tributaria-lexical-table]                              
+701/771                                                         
+702/771 [tributaria-lexical-plot]                               
+703/771                                                         
+704/771 [finalizar-spacy]                                       
+705/771                                                         
+706/771 [model-dataset]                                         
+707/771                                                         
+708/771 [model-dataset-plot]                                    
+709/771                                                         
+710/771 [econometrics-tables-01-preparacion-01]                 
+711/771                                                         
+712/771 [econometrics-tables-01-condicion]                      
+713/771                                                         
+714/771 [econometrics-tables-01-calculo-01]                     
+715/771                                                         
+716/771 [econometrics-tables-01-calculo-01-etapa-2]             
+717/771                                                         
+718/771 [estimar-var-dos-rezagos]                               
+719/771                                                         
+720/771 [econometrics-tables-01-fallback-01]                    
+721/771                                                         
+722/771 [econometrics-tables-02]                                
+723/771                                                         
+724/771 [econometrics-tables-02-etapa-2]                        
+725/771                                                         
+726/771 [estimar-granger-por-corpus]                            
+727/771                                                         
+728/771 [econometrics-tables-02-etapa-3]                        
+729/771                                                         
+730/771 [econometrics-tables-02-etapa-4]                        
+731/771                                                         
+732/771 [econometrics-tables-03]                                
+733/771                                                         
+734/771 [econometrics-tables-04]                                
+735/771                                                         
+736/771 [econometrics-plots]                                    
+737/771                                                         
+738/771 [econometrics-plots-etapa-2]                            
+739/771                                                         
+740/771 [granger-by-corpus-plot]                                
+741/771                                                         
+742/771 [series-market-plot]                                    
+743/771                                                         
+744/771 [exportar-granger-completo]                             
+745/771                                                         
+746/771 [auditar-calendario-granger]                            
+747/771                                                         
+748/771 [diagnosticar-var-existente]                            
+749/771                                                         
+750/771 [coeficientes-var-existente]                            
+751/771                                                         
+752/771 [exportar-diagnosticos-var]                             
+753/771                                                         
+754/771 [event-study]                                           
+755/771                                                         
+756/771 [event-study-etapa-2]                                   
+757/771                                                         
+758/771 [event-study-plot]                                      
+759/771                                                         
+760/771 [event-study-plot-etapa-2]                              
+761/771                                                         
+762/771 [exportar-resumen-eventos]                              
+763/771                                                         
+764/771 [evaluar-estado-resultados]                             
+765/771                                                         
+766/771 [methodological-status]                                 
+767/771                                                         
+768/771 [exportar-estado-metodologico]                          
+769/771                                                         
+770/771 [methodological-status-plot]                            
+771/771                                                         
+output file: Cuaderno_Paper_Español.knit.md
+
+/Applications/quarto/bin/tools/aarch64/pandoc +RTS -K512m -RTS Cuaderno_Paper_Español.knit.md --to html4 --from markdown+autolink_bare_uris+tex_math_single_backslash --output Cuaderno_Paper_Español.html --lua-filter /Users/juanjoseecheverry/Library/R/arm64/4.4/library/rmarkdown/rmarkdown/lua/pagebreak.lua --lua-filter /Users/juanjoseecheverry/Library/R/arm64/4.4/library/rmarkdown/rmarkdown/lua/latex-div.lua --lua-filter /Users/juanjoseecheverry/Library/R/arm64/4.4/library/rmarkdown/rmarkdown/lua/table-classes.lua --embed-resources --standalone --variable bs3=TRUE --section-divs --table-of-contents --toc-depth 3 --variable toc_float=1 --variable toc_selectors=h1,h2,h3 --variable toc_collapsed=1 --variable toc_smooth_scroll=1 --variable toc_print=1 --template /Users/juanjoseecheverry/Library/R/arm64/4.4/library/rmarkdown/rmd/h/default.html --highlight-style tango --variable theme=readable --css notebook-style.css --mathjax --variable 'mathjax-url=https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML' --include-in-header /var/folders/n5/lh1b6tf559n8btdts71kj16w0000gn/T//RtmpmUzcQ4/rmarkdown-str45fa69272071.html --variable code_folding=hide --variable source_embed=Cuaderno_Paper_Español.Rmd --include-after-body /var/folders/n5/lh1b6tf559n8btdts71kj16w0000gn/T//RtmpmUzcQ4/file45fa7c310a6.html --variable code_menu=1 --variable kable-scroll=1 --citeproc 
+
+Output created: Cuaderno_Paper_Español.nb.html
+
+CONDITIONAL_FULL_RENDER_COMPLETED

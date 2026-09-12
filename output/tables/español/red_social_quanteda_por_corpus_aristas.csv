@@ -1,0 +1,165 @@
+tipo,corpus,corpus_label,from,to,weight
+Hashtag,opinion,Lo que opinan de Petro,#progresistasigueprogresista,#redprogresista,8
+Hashtag,opinion,Lo que opinan de Petro,#redprogresista,#siguemeytesigo,7
+Hashtag,opinion,Lo que opinan de Petro,#colombia,#petro,7
+Hashtag,opinion,Lo que opinan de Petro,#colombia,#venezuela,7
+Hashtag,opinion,Lo que opinan de Petro,#uaencrisis,#fueraleytondelaua,7
+Hashtag,opinion,Lo que opinan de Petro,#progresistasigueprogresista,#siguemeytesigo,5
+Hashtag,opinion,Lo que opinan de Petro,#colombia,#cali,5
+Hashtag,opinion,Lo que opinan de Petro,#colombia,#medellin,4
+Hashtag,opinion,Lo que opinan de Petro,#colombia,#bogota,4
+Hashtag,opinion,Lo que opinan de Petro,#colombia,#política,3
+Hashtag,opinion,Lo que opinan de Petro,#colombia,#paztotal,3
+Hashtag,opinion,Lo que opinan de Petro,#noticia,#ultimahora,3
+Hashtag,opinion,Lo que opinan de Petro,#colombia,#gustavopetro,3
+Hashtag,opinion,Lo que opinan de Petro,#eln,#farc,3
+Hashtag,opinion,Lo que opinan de Petro,#colombia,#atención,2
+Hashtag,opinion,Lo que opinan de Petro,#petro,#salud,2
+Hashtag,opinion,Lo que opinan de Petro,#medellin,#bogota,2
+Hashtag,opinion,Lo que opinan de Petro,#petropresidente,#conpetrohastaelfinal,2
+Hashtag,opinion,Lo que opinan de Petro,#colombia,#pasto,2
+Hashtag,opinion,Lo que opinan de Petro,#colombia,#cartagena,2
+Hashtag,opinion,Lo que opinan de Petro,#bogota,#cartagena,2
+Hashtag,opinion,Lo que opinan de Petro,#medellin,#cali,2
+Hashtag,opinion,Lo que opinan de Petro,#bogota,#cali,2
+Hashtag,opinion,Lo que opinan de Petro,#pasto,#cali,2
+Hashtag,opinion,Lo que opinan de Petro,#atención,#urgente,2
+Hashtag,opinion,Lo que opinan de Petro,#colombia,#fuerapetro,2
+Hashtag,opinion,Lo que opinan de Petro,#colombia,#colombianos,2
+Hashtag,opinion,Lo que opinan de Petro,#reformatributaria,#petroeltramposo,2
+Mención,opinion,Lo que opinan de Petro,@kremlinrussia_e,@cnn,60
+Mención,opinion,Lo que opinan de Petro,@kremlinrussia_e,@mmflint,45
+Mención,opinion,Lo que opinan de Petro,@mmflint,@cnn,45
+Mención,opinion,Lo que opinan de Petro,@fiscaliacol,@pgn_col,38
+Mención,opinion,Lo que opinan de Petro,@gustavobolivar,@pizarromariajo,35
+Mención,opinion,Lo que opinan de Petro,@ivancepedacast,@pizarromariajo,35
+Mención,opinion,Lo que opinan de Petro,@gustavobolivar,@ivancepedacast,34
+Mención,opinion,Lo que opinan de Petro,@minsaludcol,@ga_jaramillo,33
+Mención,opinion,Lo que opinan de Petro,@minsaludcol,@supersalud,31
+Mención,opinion,Lo que opinan de Petro,@fiscaliacol,@cortesupremaj,30
+Mención,opinion,Lo que opinan de Petro,@ivanduque,@alvarouribevel,28
+Mención,opinion,Lo que opinan de Petro,@carolinacorcho,@ivancepedacast,28
+Mención,opinion,Lo que opinan de Petro,@noticiasrcn,@noticiascaracol,27
+Mención,opinion,Lo que opinan de Petro,@policiacolombia,@fiscaliacol,26
+Mención,opinion,Lo que opinan de Petro,@col_ejercito,@policiacolombia,25
+Mención,opinion,Lo que opinan de Petro,@gustavobolivar,@roybarreras,23
+Mención,opinion,Lo que opinan de Petro,@senadogovco,@camaracolombia,23
+Mención,opinion,Lo que opinan de Petro,@supersalud,@ga_jaramillo,23
+Mención,opinion,Lo que opinan de Petro,@franciamarquezm,@gustavobolivar,20
+Mención,opinion,Lo que opinan de Petro,@policiacolombia,@kremlinrussia_e,20
+Mención,opinion,Lo que opinan de Petro,@policiacolombia,@cnn,20
+Mención,opinion,Lo que opinan de Petro,@vickydavilah,@alvarouribevel,19
+Mención,opinion,Lo que opinan de Petro,@wradiocolombia,@bluradioco,19
+Mención,opinion,Lo que opinan de Petro,@cconstitucional,@cortesupremaj,19
+Mención,opinion,Lo que opinan de Petro,@alvarouribevel,@abdelaespriella,19
+Mención,opinion,Lo que opinan de Petro,@fiscaliacol,@kremlinrussia_e,19
+Mención,opinion,Lo que opinan de Petro,@fiscaliacol,@mmflint,19
+Mención,opinion,Lo que opinan de Petro,@fiscaliacol,@cnn,19
+Mención,opinion,Lo que opinan de Petro,@alvarouribevel,@juanmansantos,18
+Mención,opinion,Lo que opinan de Petro,@roybarreras,@aabenedetti,18
+Mención,opinion,Lo que opinan de Petro,@carolinacorcho,@pizarromariajo,18
+Mención,opinion,Lo que opinan de Petro,@revistasemana,@eltiempo,18
+Mención,opinion,Lo que opinan de Petro,@nicolasmaduro,@lulaoficial,18
+Mención,opinion,Lo que opinan de Petro,@gabrielboric,@lulaoficial,18
+Mención,opinion,Lo que opinan de Petro,@noticiascaracol,@wradiocolombia,17
+Mención,opinion,Lo que opinan de Petro,@alvarouribevel,@ivancepedacast,17
+Mención,opinion,Lo que opinan de Petro,@mariafdacabal,@palomavalencial,17
+Mención,opinion,Lo que opinan de Petro,@alvarouribevel,@palomavalencial,17
+Mención,opinion,Lo que opinan de Petro,@gustavobolivar,@davidracero,16
+Mención,opinion,Lo que opinan de Petro,@mariafdacabal,@alvarouribevel,16
+Mención,opinion,Lo que opinan de Petro,@alvarouribevel,@cedemocratico,16
+Mención,opinion,Lo que opinan de Petro,@noticiascaracol,@elespectador,16
+Mención,opinion,Lo que opinan de Petro,@cortesupremaj,@consejodeestado,16
+Mención,opinion,Lo que opinan de Petro,@vickydavilah,@mariafdacabal,15
+Mención,opinion,Lo que opinan de Petro,@gustavobolivar,@aabenedetti,15
+Mención,opinion,Lo que opinan de Petro,@ivancepedacast,@palomavalencial,15
+Mención,opinion,Lo que opinan de Petro,@pgn_col,@cortesupremaj,15
+Mención,opinion,Lo que opinan de Petro,@aabenedetti,@laurisarabia,15
+Mención,opinion,Lo que opinan de Petro,@policiacolombia,@mmflint,15
+Mención,opinion,Lo que opinan de Petro,@bluradioco,@lafm,14
+Mención,opinion,Lo que opinan de Petro,@noticiascaracol,@eltiempo,14
+Mención,opinion,Lo que opinan de Petro,@eltiempo,@elespectador,14
+Mención,opinion,Lo que opinan de Petro,@cconstitucional,@consejodeestado,14
+Mención,opinion,Lo que opinan de Petro,@revistasemana,@vickydavilah,13
+Mención,opinion,Lo que opinan de Petro,@infopresidencia,@minsaludcol,13
+Mención,opinion,Lo que opinan de Petro,@ivanduque,@juanmansantos,13
+Mención,opinion,Lo que opinan de Petro,@danielrmed,@mineducacion,13
+Mención,opinion,Lo que opinan de Petro,@noticiascaracol,@ga_jaramillo,13
+Mención,opinion,Lo que opinan de Petro,@lulaoficial,@jmilei,13
+Mención,opinion,Lo que opinan de Petro,@franciamarquezm,@infopresidencia,12
+Mención,opinion,Lo que opinan de Petro,@gustavobolivar,@carolinacorcho,12
+Mención,opinion,Lo que opinan de Petro,@minsaludcol,@carolinacorcho,12
+Mención,opinion,Lo que opinan de Petro,@minsaludcol,@noticiascaracol,12
+Mención,opinion,Lo que opinan de Petro,@ivancepedacast,@aabenedetti,12
+Mención,opinion,Lo que opinan de Petro,@policiacolombia,@mindefensa,12
+Mención,opinion,Lo que opinan de Petro,@gustavobolivar,@hollmanmorris,12
+Mención,opinion,Lo que opinan de Petro,@minsaludcol,@elespectador,12
+Mención,opinion,Lo que opinan de Petro,@elespectador,@ga_jaramillo,12
+Mención,opinion,Lo que opinan de Petro,@palomavalencial,@abdelaespriella,12
+Mención,opinion,Lo que opinan de Petro,@revistasemana,@noticiascaracol,11
+Mención,opinion,Lo que opinan de Petro,@roybarreras,@ivancepedacast,11
+Mención,opinion,Lo que opinan de Petro,@minenergiaco,@superservicios,11
+Mención,opinion,Lo que opinan de Petro,@gustavobolivar,@pactocol,11
+Mención,opinion,Lo que opinan de Petro,@wradiocolombia,@eltiempo,11
+Mención,opinion,Lo que opinan de Petro,@infopresidencia,@supersalud,11
+Mención,opinion,Lo que opinan de Petro,@minsaludcol,@minhacienda,10
+Mención,opinion,Lo que opinan de Petro,@franciamarquezm,@ivancepedacast,10
+Mención,opinion,Lo que opinan de Petro,@noticiasrcn,@bluradioco,10
+Mención,opinion,Lo que opinan de Petro,@noticiascaracol,@bluradioco,10
+Mención,opinion,Lo que opinan de Petro,@wradiocolombia,@lafm,10
+Mención,opinion,Lo que opinan de Petro,@palomavalencial,@cedemocratico,10
+Mención,opinion,Lo que opinan de Petro,@bluradioco,@eltiempo,10
+Mención,opinion,Lo que opinan de Petro,@potus,@jmilei,10
+Mención,opinion,Lo que opinan de Petro,@ivancepedacast,@abdelaespriella,10
+Mención,opinion,Lo que opinan de Petro,@revistasemana,@noticiasrcn,9
+Mención,opinion,Lo que opinan de Petro,@noticiasrcn,@wradiocolombia,9
+Mención,opinion,Lo que opinan de Petro,@pactohistorico,@ivancepedacast,9
+Mención,opinion,Lo que opinan de Petro,@col_ejercito,@mindefensa,9
+Mención,opinion,Lo que opinan de Petro,@revistasemana,@bluradioco,9
+Mención,opinion,Lo que opinan de Petro,@noticiascaracol,@lafm,9
+Mención,opinion,Lo que opinan de Petro,@ivancepedacast,@pactocol,9
+Mención,opinion,Lo que opinan de Petro,@gustavobolivar,@quinterocalle,9
+Mención,opinion,Lo que opinan de Petro,@ivancepedacast,@quinterocalle,9
+Mención,opinion,Lo que opinan de Petro,@noticiasrcn,@eltiempo,9
+Mención,opinion,Lo que opinan de Petro,@vickydavilah,@abdelaespriella,9
+Mención,opinion,Lo que opinan de Petro,@gustavobolivar,@infopresidencia,8
+Mención,opinion,Lo que opinan de Petro,@franciamarquezm,@roybarreras,8
+Mención,opinion,Lo que opinan de Petro,@revistasemana,@alvarouribevel,8
+Mención,opinion,Lo que opinan de Petro,@davidracero,@ivancepedacast,8
+Mención,opinion,Lo que opinan de Petro,@vickydavilah,@palomavalencial,8
+Mención,opinion,Lo que opinan de Petro,@minenergiaco,@irenevelezt,8
+Mención,opinion,Lo que opinan de Petro,@nicolasmaduro,@gabrielboric,8
+Mención,opinion,Lo que opinan de Petro,@vickydavilah,@fiscaliacol,8
+Mención,opinion,Lo que opinan de Petro,@franciamarquezm,@pizarromariajo,8
+Mención,opinion,Lo que opinan de Petro,@roybarreras,@pizarromariajo,8
+Mención,opinion,Lo que opinan de Petro,@davidracero,@pizarromariajo,8
+Mención,opinion,Lo que opinan de Petro,@revistasemana,@elespectador,8
+Mención,opinion,Lo que opinan de Petro,@carolinacorcho,@supersalud,8
+Mención,opinion,Lo que opinan de Petro,@quinterocalle,@supersalud,8
+Mención,opinion,Lo que opinan de Petro,@carolinacorcho,@ga_jaramillo,8
+Mención,opinion,Lo que opinan de Petro,@gustavobolivar,@laurisarabia,8
+Mención,opinion,Lo que opinan de Petro,@gabrielboric,@jmilei,8
+Mención,opinion,Lo que opinan de Petro,@nayibbukele,@jmilei,8
+Mención,opinion,Lo que opinan de Petro,@mariafdacabal,@abdelaespriella,8
+Mención,opinion,Lo que opinan de Petro,@franciamarquezm,@carolinacorcho,7
+Mención,opinion,Lo que opinan de Petro,@franciamarquezm,@veronicalcocerg,7
+Mención,opinion,Lo que opinan de Petro,@ivan_velasquez_,@mindefensa,7
+Mención,opinion,Lo que opinan de Petro,@noticiasrcn,@lafm,7
+Mención,opinion,Lo que opinan de Petro,@franciamarquezm,@pactocol,7
+Mención,opinion,Lo que opinan de Petro,@ivanduque,@fiscaliacol,7
+Mención,presidente,Lo que Petro opina,@policiacolombia,@fiscaliacol,9
+Mención,presidente,Lo que Petro opina,@fiscaliacol,@lykanista,3
+Mención,presidente,Lo que Petro opina,@caracolradio,@jsanchezcristo,2
+Mención,presidente,Lo que Petro opina,@cne_colombia,@cne,2
+Mención,presidente,Lo que Petro opina,@eltiempo,@carcacoltv,2
+Mención,presidente,Lo que Petro opina,@policiacolombia,@procuraduria,2
+Mención,presidente,Lo que Petro opina,@fiscaliacol,@procuraduria,2
+Mención,presidente,Lo que Petro opina,@mintransporteco,@mindefensa,1
+Mención,presidente,Lo que Petro opina,@bluradioco,@lafm,1
+Mención,presidente,Lo que Petro opina,@mintrabajocol,@fiscaliacol,1
+Mención,presidente,Lo que Petro opina,@mintransporteco,@ungrd,1
+Mención,presidente,Lo que Petro opina,@mindefensa,@ungrd,1
+Mención,presidente,Lo que Petro opina,@flip_org,@caracoltv,1
+Mención,presidente,Lo que Petro opina,@policiacolombia,@lykanista,1
+Mención,presidente,Lo que Petro opina,@elespectador,@lykanista,1
+Mención,presidente,Lo que Petro opina,@fiscaliacol,@audifarma,1

@@ -1,0 +1,5 @@
+modelo,decision,razon
+SVM lineal,descartado,requiere etiquetas humanas o una variable objetivo confiable para evaluar generalización
+doc2vec/embeddings,descartado,agrega dependencia y opacidad sin mejorar la trazabilidad del paper
+Random forest sobre bolsa de palabras,descartado,tiende a ser menos interpretable y pesado para un cuaderno autocontenido
+LDA adicional con topicmodels,descartado,duplicaría el rol exploratorio de STM sin aportar una pregunta adicional clara

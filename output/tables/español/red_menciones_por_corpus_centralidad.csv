@@ -1,0 +1,73 @@
+corpus,corpus_label,red,nodo,grado,grado_ponderado,intermediacion,cercania,pagerank,eigenvector,clustering_local,comunidad,componente,status
+opinion,Lo que opinan de Petro,Menciones - Lo que opinan de Petro,@cnn,13,319,0.018761384335154823,13.7327582843319,0.039935225828696456,1,0.4230769230769231,1,1,ok
+opinion,Lo que opinan de Petro,Menciones - Lo que opinan de Petro,@kremlinrussia_e,13,319,0.018761384335154823,13.7327582843319,0.039935225828696456,0.9999999999999999,0.4230769230769231,1,1,ok
+opinion,Lo que opinan de Petro,Menciones - Lo que opinan de Petro,@mmflint,11,252,0.005510018214936247,12.67167318955994,0.03173230122069211,0.8526670779190763,0.509090909090909,1,1,ok
+opinion,Lo que opinan de Petro,Menciones - Lo que opinan de Petro,@fiscaliacol,9,198,0.04426229508196721,12.487885096983574,0.029961525199894028,0.49091148472709617,0.4722222222222222,2,1,ok
+opinion,Lo que opinan de Petro,Menciones - Lo que opinan de Petro,@xijinping,9,187,0.003642987249544626,12.430096832123342,0.02444623821083556,0.6537934554889445,0.6666666666666666,1,1,ok
+opinion,Lo que opinan de Petro,Menciones - Lo que opinan de Petro,@policiacolombia,9,168,0.023633879781420765,11.984471724105164,0.02588283173318709,0.47527467324269573,0.5,1,1,ok
+opinion,Lo que opinan de Petro,Menciones - Lo que opinan de Petro,@gustavobolivar,7,158,0.04262295081967213,10.732752561380423,0.04516063209700822,0,0.09523809523809523,3,2,ok
+opinion,Lo que opinan de Petro,Menciones - Lo que opinan de Petro,@alvarouribevel,8,149,0.04316939890710383,10.21432787837294,0.046782400933943535,0,0.10714285714285714,5,2,ok
+opinion,Lo que opinan de Petro,Menciones - Lo que opinan de Petro,@noticiascaracol,8,132,0.03770491803278689,11.243167270593432,0.05223682570106887,0,0.03571428571428571,6,3,ok
+opinion,Lo que opinan de Petro,Menciones - Lo que opinan de Petro,@ivancepedacast,5,129,0.04316939890710383,11.365905418616018,0.03325541470788828,0,0.3,3,2,ok
+opinion,Lo que opinan de Petro,Menciones - Lo que opinan de Petro,@bbc,5,128,1.8214936247723133e-4,10.364102988289579,0.0167232535705029,0.5299927224841607,0.8,1,1,ok
+opinion,Lo que opinan de Petro,Menciones - Lo que opinan de Petro,@bbcnews,6,90,0,9.140529973015411,0.012777624122634048,0.35859038095255985,1,1,1,ok
+opinion,Lo que opinan de Petro,Menciones - Lo que opinan de Petro,@pizarromariajo,3,88,0,9.780054127374822,0.022753277285591553,0,0.6666666666666666,3,2,ok
+opinion,Lo que opinan de Petro,Menciones - Lo que opinan de Petro,@cortesupremaj,4,80,0.019672131147540985,9.516775213106259,0.017241655569293194,0.08933081509938544,0.3333333333333333,2,1,ok
+opinion,Lo que opinan de Petro,Menciones - Lo que opinan de Petro,@xijingping,4,80,0,8.554060134224171,0.01103750212147866,0.361602230970716,1,1,1,ok
+opinion,Lo que opinan de Petro,Menciones - Lo que opinan de Petro,@pgn_col,3,71,0,9.737719865630709,0.013511239315686398,0.1111807672118609,0.6666666666666666,2,1,ok
+opinion,Lo que opinan de Petro,Menciones - Lo que opinan de Petro,@ga_jaramillo,3,69,0.012021857923497269,7.337823813307667,0.020752237790079786,0,0.3333333333333333,4,3,ok
+opinion,Lo que opinan de Petro,Menciones - Lo que opinan de Petro,@lulaoficial,4,68,0.003278688524590164,16.620560747663557,0.03836094158674804,0,0,8,5,ok
+opinion,Lo que opinan de Petro,Menciones - Lo que opinan de Petro,@minsaludcol,2,64,0,6.208938719861921,0.018652654826841714,0,1,4,3,ok
+opinion,Lo que opinan de Petro,Menciones - Lo que opinan de Petro,@actualidadrt,4,64,0,7.767956406805478,0.009314935206574242,0.29986910337006606,1,1,1,ok
+opinion,Lo que opinan de Petro,Menciones - Lo que opinan de Petro,@supersalud,2,54,0,5.77300970228055,0.015978803275387688,0,1,4,3,ok
+opinion,Lo que opinan de Petro,Menciones - Lo que opinan de Petro,@chinanewsweek,4,52,0,7.58748315960433,0.008332990107793795,0.21742083269739357,1,1,1,ok
+opinion,Lo que opinan de Petro,Menciones - Lo que opinan de Petro,@interpol_hq,4,52,0,7.020701441355086,0.008022013887599638,0.24364364648817874,1,1,1,ok
+opinion,Lo que opinan de Petro,Menciones - Lo que opinan de Petro,@palomavalencial,3,49,0,8.361198490163538,0.014886651756230093,0,0.6666666666666666,5,2,ok
+opinion,Lo que opinan de Petro,Menciones - Lo que opinan de Petro,@aabenedetti,3,48,0.008743169398907104,6.903047033372273,0.01695204478883229,0,0.3333333333333333,3,2,ok
+opinion,Lo que opinan de Petro,Menciones - Lo que opinan de Petro,@mariafdacabal,3,48,0,6.657883790585444,0.015424687293157489,0,0.6666666666666666,5,2,ok
+opinion,Lo que opinan de Petro,Menciones - Lo que opinan de Petro,@gretathunberg,3,48,0,7.698842143320033,0.007601335773649416,0.21636252340383538,1,1,1,ok
+opinion,Lo que opinan de Petro,Menciones - Lo que opinan de Petro,@carolinacorcho,2,46,0,8.258842798750079,0.012510817483421907,0,1,3,2,ok
+opinion,Lo que opinan de Petro,Menciones - Lo que opinan de Petro,@eltiempo,3,46,0.006557377049180328,7.190092386320767,0.01997759760393036,0,0.3333333333333333,6,3,ok
+opinion,Lo que opinan de Petro,Menciones - Lo que opinan de Petro,@fbi,3,45,0,7.451149964707836,0.0072171724646621005,0.22870998869054587,1,1,1,ok
+opinion,Lo que opinan de Petro,Menciones - Lo que opinan de Petro,@roybarreras,2,41,0,7.832621243915315,0.013410732770191175,0,1,3,2,ok
+opinion,Lo que opinan de Petro,Menciones - Lo que opinan de Petro,@wradiocolombia,2,36,0.012021857923497269,7.990922074813883,0.01652920622712964,0,0,6,3,ok
+opinion,Lo que opinan de Petro,Menciones - Lo que opinan de Petro,@vickydavilah,2,34,0,6.916278845476617,0.011587247300841806,0,1,5,2,ok
+opinion,Lo que opinan de Petro,Menciones - Lo que opinan de Petro,@bluradioco,2,33,0.006557377049180328,6.037632551208076,0.017146722165495194,0,0,6,3,ok
+opinion,Lo que opinan de Petro,Menciones - Lo que opinan de Petro,@cconstitucional,2,33,0,6.5405448937230055,0.009361414261724993,0.00969784631496248,1,2,1,ok
+opinion,Lo que opinan de Petro,Menciones - Lo que opinan de Petro,@cgr_colombia,2,31,0,6.632603026563117,0.007003026981156484,0.04480717787715283,1,2,1,ok
+opinion,Lo que opinan de Petro,Menciones - Lo que opinan de Petro,@consejodeestado,2,30,0,6.162665013835792,0.008726219004111566,0.00836516626008152,1,2,1,ok
+opinion,Lo que opinan de Petro,Menciones - Lo que opinan de Petro,@elespectador,2,30,0,7.298213602091663,0.012969448461048692,0,1,6,3,ok
+opinion,Lo que opinan de Petro,Menciones - Lo que opinan de Petro,@ivanduque,1,28,0,7.60368735103988,0.009891979954332872,0,0,5,2,ok
+opinion,Lo que opinan de Petro,Menciones - Lo que opinan de Petro,@noticiasrcn,1,27,0,8.12143541322048,0.011501439307190966,0,0,6,3,ok
+opinion,Lo que opinan de Petro,Menciones - Lo que opinan de Petro,@col_ejercito,1,25,0,8.234430392424475,0.00569322492400864,0.06350785783569995,0,1,1,ok
+opinion,Lo que opinan de Petro,Menciones - Lo que opinan de Petro,@camaracolombia,1,23,0,23.000000000000014,0.016129032258064516,0,0,7,4,ok
+opinion,Lo que opinan de Petro,Menciones - Lo que opinan de Petro,@senadogovco,1,23,0,23.000000000000014,0.016129032258064516,0,0,7,4,ok
+opinion,Lo que opinan de Petro,Menciones - Lo que opinan de Petro,@franciamarquezm,1,20,0,7.131062015116625,0.0072784101909194225,0,0,3,2,ok
+opinion,Lo que opinan de Petro,Menciones - Lo que opinan de Petro,@lopezobrador_,1,19,0,10.036117381489849,0.011530078465562336,0,0,8,5,ok
+opinion,Lo que opinan de Petro,Menciones - Lo que opinan de Petro,@abdelaespriella,1,18,0,6.658265025146712,0.007223185270181731,0,0,5,2,ok
+opinion,Lo que opinan de Petro,Menciones - Lo que opinan de Petro,@gabrielboric,1,18,0,9.819988956377692,0.011050566695727989,0,0,8,5,ok
+opinion,Lo que opinan de Petro,Menciones - Lo que opinan de Petro,@juanmansantos,1,18,0,6.658265025146712,0.00722318527018173,0,0,5,2,ok
+opinion,Lo que opinan de Petro,Menciones - Lo que opinan de Petro,@revistasemana,1,18,0,5.253140360245209,0.009064077520016948,0,0,6,3,ok
+opinion,Lo que opinan de Petro,Menciones - Lo que opinan de Petro,@nicolasmaduro,1,18,0,9.819988956377692,0.011050566695727989,0,0,8,5,ok
+opinion,Lo que opinan de Petro,Menciones - Lo que opinan de Petro,@cnnee,1,16,0,6.819644179834963,0.007801330820031924,0,0,6,3,ok
+opinion,Lo que opinan de Petro,Menciones - Lo que opinan de Petro,@davidracero,1,16,0,6.579108696103595,0.006306599120477474,0,0,3,2,ok
+opinion,Lo que opinan de Petro,Menciones - Lo que opinan de Petro,@cedemocratico,1,16,0,6.380593880855439,0.0066894263333515044,0,0,5,2,ok
+opinion,Lo que opinan de Petro,Menciones - Lo que opinan de Petro,@laurisarabia,1,15,0,4.816754692154464,0.0069222417357432545,0,0,3,2,ok
+opinion,Lo que opinan de Petro,Menciones - Lo que opinan de Petro,@wilsonariasc,1,15,0,6.413634199876021,0.0060636463528669846,0,0,3,2,ok
+opinion,Lo que opinan de Petro,Menciones - Lo que opinan de Petro,@ntn24,1,15,0,6.645340871386614,0.007464957321199283,0,0,6,3,ok
+opinion,Lo que opinan de Petro,Menciones - Lo que opinan de Petro,@fuerzasmilcol,1,14,0,6.609452987263679,0.004252722086477096,0.035564400387991975,0,1,1,ok
+opinion,Lo que opinan de Petro,Menciones - Lo que opinan de Petro,@lafm,1,14,0,4.318499725885641,0.008602566771115521,0,0,6,3,ok
+opinion,Lo que opinan de Petro,Menciones - Lo que opinan de Petro,@rcnradio,1,14,0,6.456737693836401,0.007128583822366643,0,0,6,3,ok
+opinion,Lo que opinan de Petro,Menciones - Lo que opinan de Petro,@claudiashein,1,13,0,8.484732824427486,0.008653007846556236,0,0,8,5,ok
+opinion,Lo que opinan de Petro,Menciones - Lo que opinan de Petro,@danielrmed,1,13,0,13.000000000000009,0.016129032258064516,0,0,9,6,ok
+opinion,Lo que opinan de Petro,Menciones - Lo que opinan de Petro,@mineducacion,1,13,0,13.000000000000009,0.016129032258064516,0,0,9,6,ok
+presidente,Lo que Petro opina,Menciones - Lo que Petro opina,@fiscaliacol,3,14,0.05555555555555555,3.1764705882352944,0.16821298073590024,0.9999999999999999,0.3333333333333333,1,1,ok
+presidente,Lo que Petro opina,Menciones - Lo que Petro opina,@policiacolombia,2,11,0,2.8421052631578947,0.13054692979340846,0.9542637644932138,1,1,1,ok
+presidente,Lo que Petro opina,Menciones - Lo que Petro opina,@procuraduria,2,4,0,1.6363636363636365,0.055601296550938026,0.38199222960820584,1,1,1,ok
+presidente,Lo que Petro opina,Menciones - Lo que Petro opina,@lykanista,1,3,0,1.8620689655172415,0.045638792919753264,0.29319908336984274,0,1,1,ok
+presidente,Lo que Petro opina,Menciones - Lo que Petro opina,@caracolradio,1,2,0,2,0.1,0,0,2,2,ok
+presidente,Lo que Petro opina,Menciones - Lo que Petro opina,@carcacoltv,1,2,0,2,0.1,0,0,3,3,ok
+presidente,Lo que Petro opina,Menciones - Lo que Petro opina,@cne,1,2,0,2,0.1,0,0,4,4,ok
+presidente,Lo que Petro opina,Menciones - Lo que Petro opina,@jsanchezcristo,1,2,0,2,0.1,0,0,2,2,ok
+presidente,Lo que Petro opina,Menciones - Lo que Petro opina,@eltiempo,1,2,0,2,0.1,0,0,3,3,ok
+presidente,Lo que Petro opina,Menciones - Lo que Petro opina,@cne_colombia,1,2,0,2,0.1,0,0,4,4,ok

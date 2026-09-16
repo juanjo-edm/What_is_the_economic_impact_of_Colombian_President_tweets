@@ -299,7 +299,8 @@ plot_interpretation_registry <- tribble(
   "G89", "wordfish_reformas.png", "wordfish_table", "wordfish reformas", "estimate", "feature", "", "La figura muestra la posición léxica y los términos extremos del escalamiento Wordfish.",
   "G90", "wordfish_terminos_extremos.png", "wordfish_terms_plot_data", "wordfish terminos extremos", "beta", "extremo", "", "La figura muestra la posición léxica y los términos extremos del escalamiento Wordfish.",
   "G91", "wordstream_continuo_corpus.png", "wordstream_continuo_data", "wordstream continuo corpus", "peso_plot", "termino", "", "La figura muestra la continuidad temporal de los términos ponderados.",
-  "G92", "wordstream_tfidf_temporal.png", "word_tfidf_time_plot_data", "wordstream tfidf temporal", "tfidf", "termino", "month", "La figura muestra qué términos concentran el TF-IDF en cada periodo."
+  "G92", "wordstream_tfidf_temporal.png", "word_tfidf_time_plot_data", "wordstream tfidf temporal", "tfidf", "termino", "month", "La figura muestra qué términos concentran el TF-IDF en cada periodo.",
+  "G93", "red_temas_hashtags_por_corpus.png", "theme_hashtag_edges_by_corpus", "red temas hashtags por corpus", "weight", "corpus_label", "", "La figura compara las asociaciones observadas entre temas y hashtags en cada corpus; el peso de cada arista corresponde al número de tweets distintos que respaldan la combinación."
 )
 
 # Especificación explícita del tipo de lectura y de las métricas secundarias.
@@ -336,7 +337,8 @@ plot_metric_specs <- tribble(
   "G82", "categorica", "", "directa", "G83", "terminos", "", "directa", "G84", "terminos", "", "directa",
   "G85", "terminos", "", "directa", "G86", "terminos", "", "directa", "G87", "terminos", "", "directa",
   "G88", "terminos", "", "directa", "G89", "modelo", "", "directa", "G90", "terminos", "", "directa",
-  "G91", "terminos", "", "directa", "G92", "terminos", "", "directa"
+  "G91", "terminos", "", "directa", "G92", "terminos", "", "directa",
+  "G93", "red", "", "tweets_distintos"
 )
 
 plot_interpretation_registry <- plot_interpretation_registry |>
@@ -378,10 +380,10 @@ plot_interpretation_registry <- plot_interpretation_registry |>
       G08 = "corpus_volume", G14 = "hclust_order", G27 = "status_counts", G37 = "ipi_theme_summary", G66 = "peakdates_plot", G82 = "viability_counts",
       .default = transformacion
     ),
-    subconjunto = recode(identificador, G52 = "Hashtag", G58 = "Mención", .default = "")
+    subconjunto = recode(identificador, G52 = "Hashtag", G58 = "Mención", G93 = "Hashtag por tema", .default = "")
   ) |>
-  arrange(match(identificador, sprintf("G%02d", 1:92)))
-stopifnot(nrow(plot_interpretation_registry) == 92L, all(!is.na(plot_interpretation_registry$tipo_metrica)))
+  arrange(match(identificador, sprintf("G%02d", 1:93)))
+stopifnot(nrow(plot_interpretation_registry) == 93L, all(!is.na(plot_interpretation_registry$tipo_metrica)))
 
 fmt_interpretation_value <- function(x, metric = "") {
   x <- suppressWarnings(as.numeric(x)); if (!length(x) || !is.finite(x[1])) return("no disponible")
@@ -569,13 +571,19 @@ interpretaciones_finales <- setNames(lapply(seq_len(nrow(plot_interpretation_reg
   list(registro = registro, texto = function() interpretar_figura_registrada(registro))
 }), plot_interpretation_registry$identificador)
 
+# G93 usa un texto calculado en su propia sección para informar resultados por corpus.
+interpretaciones_finales[["G93"]] <- list(
+  registro = plot_interpretation_registry |> filter(identificador == "G93"),
+  texto = function() get("theme_hashtag_interpretation_text", envir = knitr::knit_global())
+)
+
 # El orden de impresión se declara por archivo final porque un chunk puede
 # mostrar varios gráficos y algunos paneles se componen con grid.
 plot_print_order <- c(
-  "flujo_cuaderno_autocontenido.png", "inventario_fuentes_cuaderno.png", "comparacion_corpus_volumen.png", "comparacion_corpus_sentimiento.png", "cobertura_tweets_mensual.png", "comparacion_corpus_cobertura.png", "cobertura_mercado_series.png", "viabilidad_propuesta.png", "ml_metricas_temas.png", "ml_matriz_confusion_temas.png", "ml_reduccion_otros.png", "ml_confianza_temas.png", "limpieza_retencion_textos.png", "metadata_longitud_tweets.png", "eda_tweets_diarios.png", "eda_petro_tweets_diarios.png", "eda_petro_tweets_mensuales.png", "eda_petro_calendario_actividad.png", "eda_cobertura_mensual.png", "eda_heatmap_intensidad_diaria.png", "eda_longitud_textos.png", "eda_temas_volumen.png", "eda_sentimiento_inicial.png", "eda_disponibilidad_mercado.png", "eda_volumen_mercado.png", "wordcloud_corpus_general.png", "wordcloud_temporal_periodos.png", "wordstream_tfidf_temporal.png", "wordstream_continuo_corpus.png", "tes_curva_cero_cupon.png", "tes_pendiente_10y_1y.png", "temas_reforma_resumen.png", "frecuencia_tweets_mensual.png", "tributaria_frecuencia_mensual.png", "hashtags_principales.png", "menciones_principales.png", "red_menciones.png", "red_coocurrencias_corpus.png", "red_menciones_centralidad.png", "pesos_redes_discursivas.png", "wordcloud_redes_comunidades.png", "red_menciones_por_corpus.png", "red_menciones_centralidad_por_corpus.png", "red_temas_coaparicion.png", "red_temas_entidades.png", "red_centralidad_comparada.png", "red_hashtags_quanteda.png", "red_menciones_quanteda.png", "red_hashtags_quanteda_por_corpus.png", "red_menciones_quanteda_por_corpus.png", "frecuencia_terminos_corpus.png", "dendrograma_temas_quanteda.png", "similitud_temas_heatmap.png", "ca_temas_quanteda.png", "tfidf_temas.png", "wordcloud_temas_tfidf.png", "keyness_reformas.png", "collocations_reformas.png", "collocations_robustas.png", "coocurrencias_ppmi_fuerza.png", "coocurrencias_ppmi_red.png", "coocurrencias_ppmi_dendrograma.png", "coocurrencias_ca_terminos.png", "wordfish_reformas.png", "wordfish_terminos_extremos.png", "stm_topicos_reformas.png", "stm_diagnostico.png", "stm_searchk_diagnostico.png", "wordcloud_topicos_stm.png", "wordcloud_sentimientos_nrc.png", "ipi_serie_diaria.png", "ipi_por_tema.png", "polaridad_diaria.png", "sentimiento_emociones_diarias.png", "sentometrics_componentes_lexicon.png", "sentometrics_paz_total_vs_resto_resumen.png", "sentometrics_corpus_resumen.png", "sentometrics_series_corpus.png", "sentometrics_peak_dates.png", "sentometrics_ipi_temas.png", "spacyr_entidades_tipo.png", "spacyr_lemas_paz_total.png", "spacyr_red_entidades.png", "tributaria_terminos_frecuentes.png", "dataset_modelo_disponibilidad.png", "estacionariedad_series.png", "granger_trm_colcap.png", "granger_por_corpus.png", "serie_sentimientos_trm_colcap.png", "event_study_ipi_trm_colcap.png", "event_study_respuestas_heatmap.png", "estado_metodologico.png"
+  "flujo_cuaderno_autocontenido.png", "inventario_fuentes_cuaderno.png", "comparacion_corpus_volumen.png", "comparacion_corpus_sentimiento.png", "cobertura_tweets_mensual.png", "comparacion_corpus_cobertura.png", "cobertura_mercado_series.png", "viabilidad_propuesta.png", "ml_metricas_temas.png", "ml_matriz_confusion_temas.png", "ml_reduccion_otros.png", "ml_confianza_temas.png", "limpieza_retencion_textos.png", "metadata_longitud_tweets.png", "eda_tweets_diarios.png", "eda_petro_tweets_diarios.png", "eda_petro_tweets_mensuales.png", "eda_petro_calendario_actividad.png", "eda_cobertura_mensual.png", "eda_heatmap_intensidad_diaria.png", "eda_longitud_textos.png", "eda_temas_volumen.png", "eda_sentimiento_inicial.png", "eda_disponibilidad_mercado.png", "eda_volumen_mercado.png", "wordcloud_corpus_general.png", "wordcloud_temporal_periodos.png", "wordstream_tfidf_temporal.png", "wordstream_continuo_corpus.png", "tes_curva_cero_cupon.png", "tes_pendiente_10y_1y.png", "temas_reforma_resumen.png", "frecuencia_tweets_mensual.png", "tributaria_frecuencia_mensual.png", "hashtags_principales.png", "menciones_principales.png", "red_menciones.png", "red_coocurrencias_corpus.png", "red_menciones_centralidad.png", "pesos_redes_discursivas.png", "wordcloud_redes_comunidades.png", "red_menciones_por_corpus.png", "red_menciones_centralidad_por_corpus.png", "red_temas_coaparicion.png", "red_temas_entidades.png", "red_temas_hashtags_por_corpus.png", "red_centralidad_comparada.png", "red_hashtags_quanteda.png", "red_menciones_quanteda.png", "red_hashtags_quanteda_por_corpus.png", "red_menciones_quanteda_por_corpus.png", "frecuencia_terminos_corpus.png", "dendrograma_temas_quanteda.png", "similitud_temas_heatmap.png", "ca_temas_quanteda.png", "tfidf_temas.png", "wordcloud_temas_tfidf.png", "keyness_reformas.png", "collocations_reformas.png", "collocations_robustas.png", "coocurrencias_ppmi_fuerza.png", "coocurrencias_ppmi_red.png", "coocurrencias_ppmi_dendrograma.png", "coocurrencias_ca_terminos.png", "wordfish_reformas.png", "wordfish_terminos_extremos.png", "stm_topicos_reformas.png", "stm_diagnostico.png", "stm_searchk_diagnostico.png", "wordcloud_topicos_stm.png", "wordcloud_sentimientos_nrc.png", "ipi_serie_diaria.png", "ipi_por_tema.png", "polaridad_diaria.png", "sentimiento_emociones_diarias.png", "sentometrics_componentes_lexicon.png", "sentometrics_paz_total_vs_resto_resumen.png", "sentometrics_corpus_resumen.png", "sentometrics_series_corpus.png", "sentometrics_peak_dates.png", "sentometrics_ipi_temas.png", "spacyr_entidades_tipo.png", "spacyr_lemas_paz_total.png", "spacyr_red_entidades.png", "tributaria_terminos_frecuentes.png", "dataset_modelo_disponibilidad.png", "estacionariedad_series.png", "granger_trm_colcap.png", "granger_por_corpus.png", "serie_sentimientos_trm_colcap.png", "event_study_ipi_trm_colcap.png", "event_study_respuestas_heatmap.png", "estado_metodologico.png"
 )
 plot_print_order_ids <- match(plot_print_order, plot_interpretation_registry$archivo)
-stopifnot(length(plot_print_order) == 92L, all(!is.na(plot_print_order_ids)), !anyDuplicated(plot_print_order_ids))
+stopifnot(length(plot_print_order) == 93L, all(!is.na(plot_print_order_ids)), !anyDuplicated(plot_print_order_ids))
 
 # El gancho únicamente busca la interpretación registrada y la imprime.
 interpretacion_final_grafico <- function() {
@@ -5928,6 +5936,245 @@ Se guardan `red_temas_entidades_plot` en `red_temas_entidades.png`. Las figuras 
 red_temas_entidades_plot
 ```
 
+
+#### Red complementaria tema ↔ hashtag por corpus
+
+La red hashtag ↔ hashtag anterior conecta dos etiquetas solamente cuando aparecen conjuntamente dentro del mismo tweet. La nueva red tema ↔ hashtag responde una pregunta diferente: conecta un tema con un hashtag cuando la etiqueta aparece en un tweet clasificado dentro de ese tema. Por ello, una red hashtag ↔ hashtag vacía en el corpus presidencial no invalida asociaciones tema ↔ hashtag respaldadas por tweets individuales.
+
+La unidad de respaldo es el documento. Antes del conteo se conserva una sola observación por `corpus + id + reform_theme + hashtag`; así, repetir una etiqueta dentro de un mismo tweet no incrementa artificialmente el peso. La auditoría siguiente conserva la distribución completa antes de aplicar el mismo filtro visual a ambos corpus.
+
+```{r network-theme-hashtag-by-corpus-data}
+theme_hashtag_documents_by_corpus <- social_entities |>
+  filter(
+    type == "hashtag", !is.na(id), id != "",
+    !is.na(entity), entity != "", !is_petro_entity(entity)
+  ) |>
+  mutate(id = as.character(id)) |>
+  inner_join(theme_lookup_network, by = c("corpus", "id")) |>
+  filter(!is.na(reform_theme), reform_theme != "otros") |>
+  distinct(corpus, id, reform_theme, entity)
+
+theme_hashtag_counts_by_corpus <- theme_hashtag_documents_by_corpus |>
+  count(corpus, reform_theme, entity, name = "weight") |>
+  mutate(corpus_label = if_else(
+    corpus == "presidente", "Lo que Petro opina", "Lo que opinan de Petro"
+  )) |>
+  select(corpus, corpus_label, reform_theme, entity, weight)
+
+theme_hashtag_weight_audit_by_corpus <- theme_hashtag_counts_by_corpus |>
+  group_by(corpus, corpus_label) |>
+  summarise(
+    conexiones_candidatas = n(), conexiones_weight_ge_2 = sum(weight >= 2),
+    peso_minimo = min(weight), mediana = median(weight),
+    percentil_75 = quantile(weight, 0.75), peso_maximo = max(weight),
+    .groups = "drop"
+  )
+```
+
+La regla de presentación es idéntica: `weight >= 2` y hasta 30 conexiones de mayor peso por corpus. Los empates se resuelven de forma determinista por tema y hashtag. `weight` es el número de tweets distintos que respaldan cada combinación, no la frecuencia bruta de aparición de la etiqueta.
+
+```{r network-theme-hashtag-by-corpus-edges}
+theme_hashtag_edges_by_corpus <- theme_hashtag_counts_by_corpus |>
+  filter(weight >= 2) |>
+  group_by(corpus, corpus_label) |>
+  arrange(desc(weight), reform_theme, entity, .by_group = TRUE) |>
+  slice_head(n = 30) |>
+  ungroup() |>
+  mutate(
+    hashtag = entity,
+    from = paste("Tema:", str_replace_all(reform_theme, "_", " ")),
+    to = paste("Hashtag:", entity)
+  ) |>
+  select(corpus, corpus_label, reform_theme, hashtag, entity, weight, from, to)
+
+theme_hashtag_panel_check <- theme_hashtag_edges_by_corpus |>
+  count(corpus, corpus_label, name = "conexiones_mostradas")
+
+if (n_distinct(theme_hashtag_panel_check$corpus) != 2L ||
+    any(theme_hashtag_panel_check$conexiones_mostradas == 0L)) {
+  stop(
+    "weight >= 2 no produce una red tema-hashtag informativa en ambos corpus; revise la auditoría antes de cambiar el criterio.",
+    call. = FALSE
+  )
+}
+```
+
+Las auditorías CSV/HTML registran tanto la distribución previa de pesos como las aristas efectivamente mostradas. No se imprimen como tablas finales del cuaderno y, por tanto, no alteran las siete tablas visibles existentes.
+
+```{r network-theme-hashtag-by-corpus-export-edges}
+save_audit_table(
+  theme_hashtag_weight_audit_by_corpus,
+  file.path(tables_dir, "red_temas_hashtags_por_corpus_distribucion_pesos.csv"),
+  file.path(tables_dir, "red_temas_hashtags_por_corpus_distribucion_pesos.html"),
+  "Distribución de pesos tema-hashtag por corpus",
+  "Auditoría previa al filtro común weight >= 2"
+)
+
+save_audit_table(
+  theme_hashtag_edges_by_corpus,
+  file.path(tables_dir, "red_temas_hashtags_por_corpus_aristas.csv"),
+  file.path(tables_dir, "red_temas_hashtags_por_corpus_aristas.html"),
+  "Aristas de red tema-hashtag por corpus",
+  "Peso: tweets distintos por combinación de corpus, tema y hashtag"
+)
+```
+
+Cada corpus se convierte por separado en un grafo bipartito ponderado. Las funciones comunes del cuaderno calculan centralidades y posiciones con una semilla derivada del panel, manteniendo exactamente la misma metodología en ambas redes.
+
+```{r network-theme-hashtag-by-corpus-graphs}
+theme_hashtag_networks_by_corpus <- theme_hashtag_edges_by_corpus |>
+  group_by(corpus, corpus_label) |>
+  summarise(edge_data = list(pick(from, to, weight)), .groups = "drop") |>
+  mutate(red = paste("Tema-hashtag", corpus_label, sep = " - ")) |>
+  rowwise() |>
+  mutate(
+    graph = list(build_weighted_graph(edge_data)),
+    metadata = list(list(corpus = corpus, corpus_label = corpus_label, red = red))
+  ) |>
+  mutate(
+    nodes = list(network_node_metrics(graph, metadata)),
+    metrics = list(network_global_metrics(graph, metadata)),
+    layout_nodes = list(network_layout_nodes(graph, nodes, metadata, 9326, 0.72)),
+    layout_edges = list(network_layout_edges(graph, metadata, 9326))
+  ) |>
+  ungroup()
+```
+
+Las tablas de nodos distinguen temas y hashtags por sus prefijos. Para la figura se etiquetan todos los temas y, en cada corpus, solamente los ocho hashtags con mayor grado ponderado; los empates se resuelven por nombre del nodo.
+
+```{r network-theme-hashtag-by-corpus-layout}
+theme_hashtag_nodes_by_corpus <- theme_hashtag_networks_by_corpus |>
+  select(nodes) |>
+  unnest(nodes) |>
+  mutate(
+    tipo_nodo = if_else(str_detect(nodo, "^Tema:"), "Tema", "Hashtag"),
+    etiqueta = nodo |>
+      str_replace("^Tema: ", "") |>
+      str_replace("^Hashtag: ", "")
+  )
+
+theme_hashtag_layout_by_corpus <- list(
+  nodes = theme_hashtag_networks_by_corpus |>
+    select(layout_nodes) |>
+    unnest(layout_nodes) |>
+    mutate(tipo_nodo = if_else(str_detect(nodo, "^Tema:"), "Tema", "Hashtag")) |>
+    group_by(corpus, tipo_nodo) |>
+    arrange(desc(grado_ponderado), nodo, .by_group = TRUE) |>
+    mutate(
+      ranking_tipo = row_number(),
+      etiqueta = str_remove(nodo, "^(Tema|Hashtag): "),
+      etiqueta = if_else(tipo_nodo == "Tema", str_to_sentence(etiqueta), etiqueta),
+      label_plot = if_else(tipo_nodo == "Tema" | ranking_tipo <= 8L, etiqueta, "")
+    ) |>
+    ungroup(),
+  edges = theme_hashtag_networks_by_corpus |>
+    select(layout_edges) |>
+    unnest(layout_edges)
+)
+```
+
+La tabla de nodos permite reconstruir la estructura visual y auditar grado, fuerza, comunidad y componente en cada corpus. Se exporta sin convertirse en una tabla visible final.
+
+```{r network-theme-hashtag-by-corpus-export-nodes}
+save_audit_table(
+  theme_hashtag_nodes_by_corpus,
+  file.path(tables_dir, "red_temas_hashtags_por_corpus_nodos.csv"),
+  file.path(tables_dir, "red_temas_hashtags_por_corpus_nodos.html"),
+  "Nodos de red tema-hashtag por corpus",
+  "Centralidades de temas y hashtags en cada panel"
+)
+```
+
+La síntesis siguiente se calcula exclusivamente sobre las aristas mostradas. Además de enumerar conexiones, temas y hashtags, identifica el vínculo de mayor peso y mide la concentración de los tres vínculos principales dentro de cada panel.
+
+```{r network-theme-hashtag-by-corpus-interpretation}
+theme_hashtag_interpretation_summary <- theme_hashtag_edges_by_corpus |>
+  group_by(corpus, corpus_label) |>
+  arrange(desc(weight), reform_theme, hashtag, .by_group = TRUE) |>
+  summarise(
+    conexiones = n(), temas = n_distinct(reform_theme),
+    hashtags = n_distinct(hashtag), tema_principal = first(reform_theme),
+    hashtag_principal = first(hashtag), peso_principal = first(weight),
+    participacion_top3 = sum(head(weight, 3L)) / sum(weight), .groups = "drop"
+  ) |>
+  mutate(
+    concentracion = case_when(
+      participacion_top3 >= 0.50 ~ "concentrada",
+      participacion_top3 <= 0.30 ~ "dispersa", TRUE ~ "intermedia"
+    ),
+    panel_text = sprintf(
+      "%s presenta %d conexiones entre %d temas y %d hashtags; el vínculo principal une %s con #%s (%d tweets distintos) y los tres vínculos mayores reúnen %.1f%% del peso mostrado, una estructura %s.",
+      corpus_label, conexiones, temas, hashtags, str_replace_all(tema_principal, "_", " "),
+      str_remove(hashtag_principal, "^#"), peso_principal, 100 * participacion_top3, concentracion
+    )
+  )
+
+panel_mas_concentrado <- theme_hashtag_interpretation_summary |>
+  arrange(desc(participacion_top3), corpus_label) |>
+  slice_head(n = 1L)
+
+theme_hashtag_interpretation_text <- paste0(
+  paste(theme_hashtag_interpretation_summary$panel_text, collapse = " "),
+  " Comparativamente, ", panel_mas_concentrado$corpus_label,
+  " concentra una proporción mayor del peso en sus tres conexiones dominantes. ",
+  "Estas asociaciones describen coocurrencias observadas dentro de tweets y no identifican efectos causales."
+)
+```
+
+La visualización mantiene la bipartición de forma explícita: círculos para temas y triángulos para hashtags. El grosor y la opacidad de cada arista representan tweets distintos; el tamaño de los nodos resume su grado ponderado.
+
+```{r network-theme-hashtag-by-corpus-plot-data}
+theme_hashtag_nodes_plot <- theme_hashtag_layout_by_corpus$nodes |>
+  mutate(corpus_label = factor(
+    corpus_label,
+    levels = c("Lo que opinan de Petro", "Lo que Petro opina")
+  ))
+
+theme_hashtag_edges_plot <- theme_hashtag_layout_by_corpus$edges |>
+  mutate(corpus_label = factor(
+    corpus_label,
+    levels = c("Lo que opinan de Petro", "Lo que Petro opina")
+  ))
+
+red_temas_hashtags_por_corpus_plot <- ggplot() +
+  geom_segment(
+    data = theme_hashtag_edges_plot,
+    aes(x = x_from, y = y_from, xend = x_to, yend = y_to,
+        linewidth = weight, alpha = weight), color = "#777777", lineend = "round"
+  ) +
+  geom_point(
+    data = theme_hashtag_nodes_plot,
+    aes(x = x, y = y, size = grado_ponderado, color = tipo_nodo, shape = tipo_nodo),
+    alpha = 0.94
+  ) +
+  network_label_layer(theme_hashtag_nodes_plot |> filter(label_plot != ""), seed = 9326, size = 3.0) +
+  facet_wrap(~corpus_label, ncol = 2, scales = "free") +
+  scale_color_manual(values = c(Tema = "#2f6f73", Hashtag = "#c28f2c")) +
+  scale_shape_manual(values = c(Tema = 19, Hashtag = 17)) +
+  scale_linewidth_continuous(range = c(0.2, 2.2), name = "Tweets distintos") +
+  scale_alpha_continuous(range = c(0.10, 0.48), guide = "none") +
+  scale_size_continuous(range = c(3.0, 10.5), name = "Grado ponderado") +
+  labs(
+    title = "Red tema-hashtag por corpus",
+    subtitle = "Mismo filtro en ambos paneles: weight >= 2 y hasta 30 conexiones de mayor peso",
+    color = "Tipo de nodo", shape = "Tipo de nodo"
+  ) +
+  network_void_theme()
+```
+
+```{r network-theme-hashtag-by-corpus-save}
+{
+  plot_path <- file.path(figures_dir, "red_temas_hashtags_por_corpus.png")
+  ggsave(plot_path, red_temas_hashtags_por_corpus_plot, width = 15, height = 8, dpi = 300)
+  invisible(file.copy(
+    plot_path,
+    file.path(paper_figures_dir, "red_temas_hashtags_por_corpus.png"),
+    overwrite = TRUE
+  ))
+}
+
+red_temas_hashtags_por_corpus_plot
+```
 
 #### Diagnóstico global de redes
 
@@ -11650,14 +11897,14 @@ Los libros adjuntos no justifican automáticamente los controles, los rezagos 1�
 
 La validación usa `scales::rescale()` de forma explícita para evitar el conflicto de nombres con `syuzhet`. Los warnings de ADF sobre p-values acotados y el aviso de compatibilidad de lematización de spaCy se conservan como limitaciones de lectura.
 
-La auditoría visual final conserva una fila por producto gráfico. Este bloque no se muestra como salida analítica: verifica que las 92 figuras existan, tengan datos y dimensiones suficientes, y que cada una haya recibido interpretación inmediata.
+La auditoría visual final conserva una fila por producto gráfico. Este bloque no se muestra como salida analítica: verifica que las 93 figuras existan, tengan datos y dimensiones suficientes, y que cada una haya recibido interpretación inmediata. Las siete tablas visibles conservan sus interpretaciones, para un total de 100 interpretaciones inmediatas.
 
 ```{r auditoria-visual-92, include=FALSE}
 figuras_finales <- sort(list.files(figures_dir, pattern = "\\.png$", full.names = TRUE))
-stopifnot(nrow(plot_interpretation_registry) == 92L, n_distinct(plot_interpretation_registry$archivo) == 92L)
+stopifnot(nrow(plot_interpretation_registry) == 93L, n_distinct(plot_interpretation_registry$archivo) == 93L)
 stopifnot(identical(sort(basename(figuras_finales)), sort(plot_interpretation_registry$archivo)))
 stopifnot(exists(".interpretacion_grafico_indice", envir = knitr::knit_global(), inherits = FALSE))
-stopifnot(get(".interpretacion_grafico_indice", envir = knitr::knit_global()) == 92L)
+stopifnot(get(".interpretacion_grafico_indice", envir = knitr::knit_global()) == 93L)
 # Validar el contenido registrado además de contar párrafos: cada identificador
 # debe tener una interpretación no vacía y distinta, calculada desde su fuente.
 interpretaciones_auditadas <- vapply(
@@ -11665,9 +11912,12 @@ interpretaciones_auditadas <- vapply(
   function(registro) as.character(registro$texto()),
   character(1)
 )
-stopifnot(length(interpretaciones_auditadas) == 92L)
+stopifnot(length(interpretaciones_auditadas) == 93L)
 stopifnot(all(nzchar(trimws(interpretaciones_auditadas))))
-stopifnot(n_distinct(interpretaciones_auditadas) == 92L)
+stopifnot(n_distinct(interpretaciones_auditadas) == 93L)
+tablas_visibles_finales <- 7L
+interpretaciones_totales <- length(interpretaciones_auditadas) + tablas_visibles_finales
+stopifnot(tablas_visibles_finales == 7L, interpretaciones_totales == 100L)
 # La especificidad se revisa en el registro: cada fila declara foco, fuente,
 # transformación y métrica; el contenido no se valida por una palabra genérica.
 dimensiones <- lapply(figuras_finales, function(path) {
@@ -11695,8 +11945,10 @@ auditoria_visual_92 <- tibble(
                           "; objeto fuente y métricas declarados explícitamente"),
   estado_final = "OK"
 )
-stopifnot(nrow(auditoria_visual_92) == 92L, all(auditoria_visual_92$estado_final == "OK"))
+stopifnot(nrow(auditoria_visual_92) == 93L, all(auditoria_visual_92$estado_final == "OK"))
+auditoria_visual_93 <- auditoria_visual_92
 write_csv(auditoria_visual_92, file.path(tables_dir, "auditoria_visual_92_graficos.csv"), na = "")
+write_csv(auditoria_visual_93, file.path(tables_dir, "auditoria_visual_93_graficos.csv"), na = "")
 ```
 
 # 11. Conclusiones y limitaciones

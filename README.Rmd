@@ -407,6 +407,10 @@ Every relevant notebook result is persisted. The project does not rely
 on figures or tables that only exist inside an interactive notebook
 session.
 
+The validated notebook surface contains **93 final figures**, **7 visible
+tables**, and **100 immediate interpretations**: one for every figure and
+every visible table.
+
 Selected generated figures:
 
 | Output | Description |
@@ -420,6 +424,7 @@ Selected generated figures:
 | [`output/figures/español/red_hashtags_quanteda.png`](output/figures/español/red_hashtags_quanteda.png) | Global hashtag network in the `quanteda` style. |
 | [`output/figures/español/red_menciones_quanteda.png`](output/figures/español/red_menciones_quanteda.png) | Global mention network in the `quanteda` style. |
 | [`output/figures/español/red_hashtags_quanteda_por_corpus.png`](output/figures/español/red_hashtags_quanteda_por_corpus.png) | Hashtag networks split by corpus. |
+| [`output/figures/español/red_temas_hashtags_por_corpus.png`](output/figures/español/red_temas_hashtags_por_corpus.png) | Bipartite theme-to-hashtag networks by corpus, weighted by distinct tweets. |
 | [`output/figures/español/red_menciones_quanteda_por_corpus.png`](output/figures/español/red_menciones_quanteda_por_corpus.png) | Mention networks split by corpus. |
 | [`output/figures/español/wordcloud_corpus_general.png`](output/figures/español/wordcloud_corpus_general.png) | Corpus-level word clouds weighted by cumulative TF-IDF. |
 | [`output/figures/español/wordcloud_temporal_periodos.png`](output/figures/español/wordcloud_temporal_periodos.png) | Semiannual distinctive-word clouds as the reproducible word-stream view. |

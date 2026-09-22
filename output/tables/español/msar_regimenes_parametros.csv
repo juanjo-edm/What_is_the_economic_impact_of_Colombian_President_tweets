@@ -1,0 +1,3 @@
+regimen,media_estimada,desv_estandar,prob_persistencia,duracion_esperada_dias
+Régimen 1 (Correlación Neutra / Desacople),-0.012114767768371467,0.006754970781456181,0.9846063257563442,64.96174884382339
+Régimen 2 (Co-movimiento Moderado),0.00680751276771727,0.01119161340204853,0.9738051094466571,38.175383781948405

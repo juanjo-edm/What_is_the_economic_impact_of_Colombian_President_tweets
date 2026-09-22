@@ -10,7 +10,7 @@ IPI,ejecutado,IPI temático de opinión; panel heredado preservado
 sentometrics,ejecutado,agregación diaria y promedio móvil por serie
 spacyr,ejecutado,entidades y lemas de la muestra original
 Event Study,ejecutado,diez extremos por criterio; ventanas descriptivas
-Granger,ejecutado,contrastes nominales dentro de muestra
-VAR,estimado; inferencia pendiente,VAR(2) original en niveles; supuestos pendientes
+Granger,ejecutado,contrastes bivariados con control FDR
+VAR,ejecutado,VAR(1) en diferencias estacionarias con diagnósticos de residuos
 IRF,no implementada,sin identificación de shocks
-Markov Switching,extensión futura,no estimado
+Markov Switching,ejecutado,MS-AR de 2 regímenes sobre correlación condicional dinámica

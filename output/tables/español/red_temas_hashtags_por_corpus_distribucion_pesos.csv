@@ -1,0 +1,3 @@
+corpus,corpus_label,conexiones_candidatas,conexiones_weight_ge_2,peso_minimo,mediana,percentil_75,peso_maximo
+opinion,Lo que opinan de Petro,1418,201,1,1,1,26
+presidente,Lo que Petro opina,5,0,1,1,1,1

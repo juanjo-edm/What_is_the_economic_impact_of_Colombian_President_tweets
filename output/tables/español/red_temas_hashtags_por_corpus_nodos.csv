@@ -1,0 +1,40 @@
+corpus,corpus_label,red,nodo,grado,grado_ponderado,intermediacion,cercania,pagerank,eigenvector,clustering_local,comunidad,componente,status,tipo_nodo,etiqueta
+opinion,Lo que opinan de Petro,Tema-hashtag - Lo que opinan de Petro,Tema: institucionalidad,12,108,0.5767195767195767,5.486380788794663,0.18383233190572915,0.8387735175380805,0,1,1,ok,Tema,institucionalidad
+opinion,Lo que opinan de Petro,Tema-hashtag - Lo que opinan de Petro,Hashtag: #colombia,6,92,0.6296296296296297,5.623295919121783,0.13828006720574604,1,0,2,1,ok,Hashtag,#colombia
+opinion,Lo que opinan de Petro,Tema-hashtag - Lo que opinan de Petro,Tema: internacional,5,53,0.24603174603174602,4.848255773038845,0.08577946501776952,0.547975152411978,0,2,1,ok,Tema,internacional
+opinion,Lo que opinan de Petro,Tema-hashtag - Lo que opinan de Petro,Tema: seguridad,4,38,0.06613756613756613,4.471591431677007,0.05887515689075927,0.48403968166896133,0,2,1,ok,Tema,seguridad
+opinion,Lo que opinan de Petro,Tema-hashtag - Lo que opinan de Petro,Tema: salud,4,37,0.19047619047619047,4.093910744165801,0.06584544033730476,0.252237939972787,0,3,1,ok,Tema,salud
+opinion,Lo que opinan de Petro,Tema-hashtag - Lo que opinan de Petro,Hashtag: #atención,2,21,0,4.009009324936691,0.03464662341926637,0.3133402321237321,0,1,1,ok,Hashtag,#atención
+opinion,Lo que opinan de Petro,Tema-hashtag - Lo que opinan de Petro,Hashtag: #fuerapetro,2,20,0,3.9848442033737004,0.03332967912039412,0.30331656987359507,0,1,1,ok,Hashtag,#fuerapetro
+opinion,Lo que opinan de Petro,Tema-hashtag - Lo que opinan de Petro,Tema: laboral,2,15,0.06613756613756613,3.4673032921165743,0.029856172195317866,0.16922265213371612,0,5,1,ok,Tema,laboral
+opinion,Lo que opinan de Petro,Tema-hashtag - Lo que opinan de Petro,Hashtag: #venezuela,1,15,0,3.6987404157536172,0.025808039811529137,0.17021490356863553,0,2,1,ok,Hashtag,#venezuela
+opinion,Lo que opinan de Petro,Tema-hashtag - Lo que opinan de Petro,Tema: paz total,1,10,0,9.999999999999991,0.03448275862068966,6.504504883368849e-17,0,4,2,ok,Tema,paz total
+opinion,Lo que opinan de Petro,Tema-hashtag - Lo que opinan de Petro,Tema: economia,2,10,0,2.7718122581632647,0.020359429925253615,0.11060227835362044,0,2,1,ok,Tema,economia
+opinion,Lo que opinan de Petro,Tema-hashtag - Lo que opinan de Petro,Hashtag: #eln,1,10,0,9.999999999999991,0.03448275862068966,8.231543204455351e-17,0,4,2,ok,Hashtag,#eln
+opinion,Lo que opinan de Petro,Tema-hashtag - Lo que opinan de Petro,Hashtag: #petro,2,10,0,2.569354001340368,0.02070371351747813,0.06819025362544626,0,2,1,ok,Hashtag,#petro
+opinion,Lo que opinan de Petro,Tema-hashtag - Lo que opinan de Petro,Hashtag: #reformaalasalud,1,9,0,2.848168483800049,0.018786403484465104,0.047010879715808807,0,3,1,ok,Hashtag,#reformaalasalud
+opinion,Lo que opinan de Petro,Tema-hashtag - Lo que opinan de Petro,Hashtag: #salud,1,9,0,2.848168483800049,0.01878640348446511,0.04701087971580879,0,3,1,ok,Hashtag,#salud
+opinion,Lo que opinan de Petro,Tema-hashtag - Lo que opinan de Petro,Hashtag: #consultapopular,1,8,0,3.3062023176862327,0.016747042098278986,0.1389569122130132,0,1,1,ok,Hashtag,#consultapopular
+opinion,Lo que opinan de Petro,Tema-hashtag - Lo que opinan de Petro,Hashtag: #política,1,8,0,3.3062023176862327,0.016747042098278993,0.13895691221301312,0,1,1,ok,Hashtag,#política
+opinion,Lo que opinan de Petro,Tema-hashtag - Lo que opinan de Petro,Hashtag: #internosconpagoya,1,8,0,2.7438039545650326,0.017273737963202706,0.04178744863627449,0,3,1,ok,Hashtag,#internosconpagoya
+opinion,Lo que opinan de Petro,Tema-hashtag - Lo que opinan de Petro,Hashtag: #caracolmiente,1,7,0,3.128596334638721,0.015300213560132043,0.12158729818638654,0,1,1,ok,Hashtag,#caracolmiente
+opinion,Lo que opinan de Petro,Tema-hashtag - Lo que opinan de Petro,Hashtag: #gobiernodelcambio,1,7,0,2.3486792249665362,0.017015362097246207,0.024530251175865516,0,5,1,ok,Hashtag,#gobiernodelcambio
+opinion,Lo que opinan de Petro,Tema-hashtag - Lo que opinan de Petro,Hashtag: #petropresidente,1,6,0,2.9194869873910743,0.013853385021985097,0.10421768415975989,0,1,1,ok,Hashtag,#petropresidente
+opinion,Lo que opinan de Petro,Tema-hashtag - Lo que opinan de Petro,Hashtag: #noticiaw,1,6,0,2.6049098970624263,0.013074079586336931,0.06014197350082203,0,2,1,ok,Hashtag,#noticiaw
+opinion,Lo que opinan de Petro,Tema-hashtag - Lo que opinan de Petro,Hashtag: #cidhconpetro,1,5,0,2.6696765411585264,0.012406556483838158,0.08684807013313324,0,1,1,ok,Hashtag,#cidhconpetro
+opinion,Lo que opinan de Petro,Tema-hashtag - Lo que opinan de Petro,Hashtag: #comisióndelaverdadya,1,5,0,2.6696765411585264,0.012406556483838161,0.08684807013313327,0,1,1,ok,Hashtag,#comisióndelaverdadya
+opinion,Lo que opinan de Petro,Tema-hashtag - Lo que opinan de Petro,Hashtag: #pactohistorico,1,5,0,2.6696765411585264,0.012406556483838154,0.08684807013313324,0,1,1,ok,Hashtag,#pactohistorico
+opinion,Lo que opinan de Petro,Tema-hashtag - Lo que opinan de Petro,Hashtag: #progresistasigueprogresista,1,5,0,2.6696765411585264,0.01240655648383816,0.0868480701331332,0,1,1,ok,Hashtag,#progresistasigueprogresista
+opinion,Lo que opinan de Petro,Tema-hashtag - Lo que opinan de Petro,Hashtag: #todosconpetro,1,5,0,2.6696765411585264,0.012406556483838154,0.08684807013313324,0,1,1,ok,Hashtag,#todosconpetro
+opinion,Lo que opinan de Petro,Tema-hashtag - Lo que opinan de Petro,Hashtag: #parenlaguerra,1,5,0,2.5089856975423697,0.012050955799245342,0.05673830118954517,0,2,1,ok,Hashtag,#parenlaguerra
+opinion,Lo que opinan de Petro,Tema-hashtag - Lo que opinan de Petro,Hashtag: #venezuelalibre,1,5,0,2.5089856975423697,0.012050955799245342,0.056738301189545134,0,2,1,ok,Hashtag,#venezuelalibre
+presidente,Lo que Petro opina,Tema-hashtag - Lo que Petro opina,Tema: economia,1,1,0,1,0.1,0.999962739010241,0,1,1,ok,Tema,economia
+presidente,Lo que Petro opina,Tema-hashtag - Lo que Petro opina,Tema: energia ambiente,1,1,0,1,0.1,0.9999739848510549,0,2,2,ok,Tema,energia ambiente
+presidente,Lo que Petro opina,Tema-hashtag - Lo que Petro opina,Tema: institucionalidad,1,1,0,1,0.1,0.9999999999999999,0,3,3,ok,Tema,institucionalidad
+presidente,Lo que Petro opina,Tema-hashtag - Lo que Petro opina,Tema: laboral,1,1,0,1,0.1,0.9999612138170673,0,4,4,ok,Tema,laboral
+presidente,Lo que Petro opina,Tema-hashtag - Lo que Petro opina,Tema: paz total,1,1,0,1,0.1,0.9999618942005947,0,5,5,ok,Tema,paz total
+presidente,Lo que Petro opina,Tema-hashtag - Lo que Petro opina,Hashtag: #comienzatugobierno,1,1,0,1,0.1,0.999962739010241,0,1,1,ok,Hashtag,#comienzatugobierno
+presidente,Lo que Petro opina,Tema-hashtag - Lo que Petro opina,Hashtag: #g20brasil,1,1,0,1,0.1,0.9999739848510549,0,2,2,ok,Hashtag,#g20brasil
+presidente,Lo que Petro opina,Tema-hashtag - Lo que Petro opina,Hashtag: #una,1,1,0,1,0.1,1,0,3,3,ok,Hashtag,#una
+presidente,Lo que Petro opina,Tema-hashtag - Lo que Petro opina,Hashtag: #cop27,1,1,0,1,0.1,0.9999612138170673,0,4,4,ok,Hashtag,#cop27
+presidente,Lo que Petro opina,Tema-hashtag - Lo que Petro opina,Hashtag: #colombiatieneslapalabra,1,1,0,1,0.1,0.9999618942005946,0,5,5,ok,Hashtag,#colombiatieneslapalabra

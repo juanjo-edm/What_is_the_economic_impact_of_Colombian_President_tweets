@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Correlaciones condicionales DCC</title>
+<style>body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;margin:24px;color:#222}table{border-collapse:collapse;width:100%;font-size:13px}th,td{border:1px solid #ddd;padding:6px 8px;text-align:left;vertical-align:top}th{background:#f3f5f2}caption{text-align:left;font-weight:700;font-size:18px;margin-bottom:4px}.subtitle{color:#666;margin:0 0 14px 0}</style>
+</head>
+<body>
+<h1>Correlaciones condicionales DCC</h1><p class="subtitle">Estadísticos descriptivos Sentimiento vs Mercado</p><table>
+ <thead>
+  <tr>
+   <th style="text-align:left;"> par </th>
+   <th style="text-align:left;"> sentimiento </th>
+   <th style="text-align:left;"> mercado </th>
+   <th style="text-align:right;"> media </th>
+   <th style="text-align:right;"> sd </th>
+   <th style="text-align:right;"> min </th>
+   <th style="text-align:right;"> q05 </th>
+   <th style="text-align:right;"> mediana </th>
+   <th style="text-align:right;"> q95 </th>
+   <th style="text-align:right;"> max </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> ipi_ret_trm </td>
+   <td style="text-align:left;"> ipi </td>
+   <td style="text-align:left;"> ret_trm </td>
+   <td style="text-align:right;"> -0.0056282 </td>
+   <td style="text-align:right;"> 0.0124005 </td>
+   <td style="text-align:right;"> -0.0349631 </td>
+   <td style="text-align:right;"> -0.0227256 </td>
+   <td style="text-align:right;"> -0.0069133 </td>
+   <td style="text-align:right;"> 0.0175832 </td>
+   <td style="text-align:right;"> 0.0549807 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ipi_ret_colcap </td>
+   <td style="text-align:left;"> ipi </td>
+   <td style="text-align:left;"> ret_colcap </td>
+   <td style="text-align:right;"> -0.0166743 </td>
+   <td style="text-align:right;"> 0.0088578 </td>
+   <td style="text-align:right;"> -0.0421455 </td>
+   <td style="text-align:right;"> -0.0316729 </td>
+   <td style="text-align:right;"> -0.0163085 </td>
+   <td style="text-align:right;"> -0.0015141 </td>
+   <td style="text-align:right;"> 0.0103902 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ipi_diff_tes_10y </td>
+   <td style="text-align:left;"> ipi </td>
+   <td style="text-align:left;"> diff_tes_10y </td>
+   <td style="text-align:right;"> 0.0516185 </td>
+   <td style="text-align:right;"> 0.0106917 </td>
+   <td style="text-align:right;"> 0.0182374 </td>
+   <td style="text-align:right;"> 0.0324641 </td>
+   <td style="text-align:right;"> 0.0533955 </td>
+   <td style="text-align:right;"> 0.0687473 </td>
+   <td style="text-align:right;"> 0.0859644 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ipi_diff_tes_slope </td>
+   <td style="text-align:left;"> ipi </td>
+   <td style="text-align:left;"> diff_tes_slope </td>
+   <td style="text-align:right;"> 0.0613642 </td>
+   <td style="text-align:right;"> 0.0104909 </td>
+   <td style="text-align:right;"> 0.0242098 </td>
+   <td style="text-align:right;"> 0.0460744 </td>
+   <td style="text-align:right;"> 0.0612323 </td>
+   <td style="text-align:right;"> 0.0784304 </td>
+   <td style="text-align:right;"> 0.1108670 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ipi_ret_energy </td>
+   <td style="text-align:left;"> ipi </td>
+   <td style="text-align:left;"> ret_energy </td>
+   <td style="text-align:right;"> -0.0708147 </td>
+   <td style="text-align:right;"> 0.0175475 </td>
+   <td style="text-align:right;"> -0.2191946 </td>
+   <td style="text-align:right;"> -0.0911139 </td>
+   <td style="text-align:right;"> -0.0687663 </td>
+   <td style="text-align:right;"> -0.0525866 </td>
+   <td style="text-align:right;"> -0.0320824 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> polaridad_ret_trm </td>
+   <td style="text-align:left;"> polaridad </td>
+   <td style="text-align:left;"> ret_trm </td>
+   <td style="text-align:right;"> 0.0174166 </td>
+   <td style="text-align:right;"> 0.0128987 </td>
+   <td style="text-align:right;"> -0.0162513 </td>
+   <td style="text-align:right;"> -0.0004326 </td>
+   <td style="text-align:right;"> 0.0151325 </td>
+   <td style="text-align:right;"> 0.0442777 </td>
+   <td style="text-align:right;"> 0.0659066 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> polaridad_ret_colcap </td>
+   <td style="text-align:left;"> polaridad </td>
+   <td style="text-align:left;"> ret_colcap </td>
+   <td style="text-align:right;"> -0.0264940 </td>
+   <td style="text-align:right;"> 0.0102143 </td>
+   <td style="text-align:right;"> -0.0667802 </td>
+   <td style="text-align:right;"> -0.0433404 </td>
+   <td style="text-align:right;"> -0.0261022 </td>
+   <td style="text-align:right;"> -0.0120370 </td>
+   <td style="text-align:right;"> 0.0058708 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> polaridad_diff_tes_10y </td>
+   <td style="text-align:left;"> polaridad </td>
+   <td style="text-align:left;"> diff_tes_10y </td>
+   <td style="text-align:right;"> 0.0120122 </td>
+   <td style="text-align:right;"> 0.0125372 </td>
+   <td style="text-align:right;"> -0.0270848 </td>
+   <td style="text-align:right;"> -0.0088234 </td>
+   <td style="text-align:right;"> 0.0131152 </td>
+   <td style="text-align:right;"> 0.0321120 </td>
+   <td style="text-align:right;"> 0.0526263 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> polaridad_diff_tes_slope </td>
+   <td style="text-align:left;"> polaridad </td>
+   <td style="text-align:left;"> diff_tes_slope </td>
+   <td style="text-align:right;"> -0.0156671 </td>
+   <td style="text-align:right;"> 0.0086242 </td>
+   <td style="text-align:right;"> -0.0407952 </td>
+   <td style="text-align:right;"> -0.0312342 </td>
+   <td style="text-align:right;"> -0.0156409 </td>
+   <td style="text-align:right;"> -0.0014802 </td>
+   <td style="text-align:right;"> 0.0172088 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> polaridad_ret_energy </td>
+   <td style="text-align:left;"> polaridad </td>
+   <td style="text-align:left;"> ret_energy </td>
+   <td style="text-align:right;"> -0.0213908 </td>
+   <td style="text-align:right;"> 0.0119112 </td>
+   <td style="text-align:right;"> -0.0753242 </td>
+   <td style="text-align:right;"> -0.0396164 </td>
+   <td style="text-align:right;"> -0.0221116 </td>
+   <td style="text-align:right;"> -0.0001390 </td>
+   <td style="text-align:right;"> 0.0263000 </td>
+  </tr>
+</tbody>
+</table>
+</body>
+</html>
+

@@ -1,0 +1,36 @@
+corpus,corpus_label,reform_theme,hashtag,entity,weight,from,to
+opinion,Lo que opinan de Petro,institucionalidad,#colombia,#colombia,26,Tema: institucionalidad,Hashtag: #colombia
+opinion,Lo que opinan de Petro,internacional,#colombia,#colombia,23,Tema: internacional,Hashtag: #colombia
+opinion,Lo que opinan de Petro,seguridad,#colombia,#colombia,19,Tema: seguridad,Hashtag: #colombia
+opinion,Lo que opinan de Petro,internacional,#venezuela,#venezuela,15,Tema: internacional,Hashtag: #venezuela
+opinion,Lo que opinan de Petro,institucionalidad,#atención,#atención,14,Tema: institucionalidad,Hashtag: #atención
+opinion,Lo que opinan de Petro,institucionalidad,#fuerapetro,#fuerapetro,14,Tema: institucionalidad,Hashtag: #fuerapetro
+opinion,Lo que opinan de Petro,salud,#colombia,#colombia,11,Tema: salud,Hashtag: #colombia
+opinion,Lo que opinan de Petro,paz_total,#eln,#eln,10,Tema: paz total,Hashtag: #eln
+opinion,Lo que opinan de Petro,salud,#reformaalasalud,#reformaalasalud,9,Tema: salud,Hashtag: #reformaalasalud
+opinion,Lo que opinan de Petro,salud,#salud,#salud,9,Tema: salud,Hashtag: #salud
+opinion,Lo que opinan de Petro,institucionalidad,#consultapopular,#consultapopular,8,Tema: institucionalidad,Hashtag: #consultapopular
+opinion,Lo que opinan de Petro,institucionalidad,#política,#política,8,Tema: institucionalidad,Hashtag: #política
+opinion,Lo que opinan de Petro,laboral,#colombia,#colombia,8,Tema: laboral,Hashtag: #colombia
+opinion,Lo que opinan de Petro,salud,#internosconpagoya,#internosconpagoya,8,Tema: salud,Hashtag: #internosconpagoya
+opinion,Lo que opinan de Petro,institucionalidad,#caracolmiente,#caracolmiente,7,Tema: institucionalidad,Hashtag: #caracolmiente
+opinion,Lo que opinan de Petro,laboral,#gobiernodelcambio,#gobiernodelcambio,7,Tema: laboral,Hashtag: #gobiernodelcambio
+opinion,Lo que opinan de Petro,seguridad,#atención,#atención,7,Tema: seguridad,Hashtag: #atención
+opinion,Lo que opinan de Petro,institucionalidad,#petropresidente,#petropresidente,6,Tema: institucionalidad,Hashtag: #petropresidente
+opinion,Lo que opinan de Petro,seguridad,#fuerapetro,#fuerapetro,6,Tema: seguridad,Hashtag: #fuerapetro
+opinion,Lo que opinan de Petro,seguridad,#noticiaw,#noticiaw,6,Tema: seguridad,Hashtag: #noticiaw
+opinion,Lo que opinan de Petro,economia,#colombia,#colombia,5,Tema: economia,Hashtag: #colombia
+opinion,Lo que opinan de Petro,economia,#petro,#petro,5,Tema: economia,Hashtag: #petro
+opinion,Lo que opinan de Petro,institucionalidad,#cidhconpetro,#cidhconpetro,5,Tema: institucionalidad,Hashtag: #cidhconpetro
+opinion,Lo que opinan de Petro,institucionalidad,#comisióndelaverdadya,#comisióndelaverdadya,5,Tema: institucionalidad,Hashtag: #comisióndelaverdadya
+opinion,Lo que opinan de Petro,institucionalidad,#pactohistorico,#pactohistorico,5,Tema: institucionalidad,Hashtag: #pactohistorico
+opinion,Lo que opinan de Petro,institucionalidad,#progresistasigueprogresista,#progresistasigueprogresista,5,Tema: institucionalidad,Hashtag: #progresistasigueprogresista
+opinion,Lo que opinan de Petro,institucionalidad,#todosconpetro,#todosconpetro,5,Tema: institucionalidad,Hashtag: #todosconpetro
+opinion,Lo que opinan de Petro,internacional,#parenlaguerra,#parenlaguerra,5,Tema: internacional,Hashtag: #parenlaguerra
+opinion,Lo que opinan de Petro,internacional,#petro,#petro,5,Tema: internacional,Hashtag: #petro
+opinion,Lo que opinan de Petro,internacional,#venezuelalibre,#venezuelalibre,5,Tema: internacional,Hashtag: #venezuelalibre
+presidente,Lo que Petro opina,economia,#comienzatugobierno,#comienzatugobierno,1,Tema: economia,Hashtag: #comienzatugobierno
+presidente,Lo que Petro opina,energia_ambiente,#g20brasil,#g20brasil,1,Tema: energia ambiente,Hashtag: #g20brasil
+presidente,Lo que Petro opina,institucionalidad,#una,#una,1,Tema: institucionalidad,Hashtag: #una
+presidente,Lo que Petro opina,laboral,#cop27,#cop27,1,Tema: laboral,Hashtag: #cop27
+presidente,Lo que Petro opina,paz_total,#colombiatieneslapalabra,#colombiatieneslapalabra,1,Tema: paz total,Hashtag: #colombiatieneslapalabra

@@ -1,4 +1,3 @@
-response,predictor,lag,p_value,significant_05,n_obs,status
-energy_spot_price,polaridad,1,0.005266478479132699,TRUE,1400,ok
-energy_spot_price,polaridad,2,0.022008433842300664,TRUE,1400,ok
-energy_spot_price,polaridad,3,0.039744077578029925,TRUE,1400,ok
+response,predictor,lag,p_value,f_stat,n_obs,status,q_value,significant_05,significant_fdr
+ret_energy,ipi,1,0.010955627433185818,6.497814902852619,962,ok,0.4137349857870296,TRUE,FALSE
+ret_energy,ipi,2,0.02929325449564844,3.543481240574647,962,ok,0.5858650899129688,TRUE,FALSE

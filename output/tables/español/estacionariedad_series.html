@@ -6,49 +6,139 @@
 <style>body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;margin:24px;color:#222}table{border-collapse:collapse;width:100%;font-size:13px}th,td{border:1px solid #ddd;padding:6px 8px;text-align:left;vertical-align:top}th{background:#f3f5f2}caption{text-align:left;font-weight:700;font-size:18px;margin-bottom:4px}.subtitle{color:#666;margin:0 0 14px 0}</style>
 </head>
 <body>
-<h1>Pruebas de estacionariedad</h1><p class="subtitle">ADF por serie disponible</p><table>
+<h1>Pruebas de estacionariedad</h1><p class="subtitle">ADF y KPSS para niveles y transformadas</p><table>
  <thead>
   <tr>
    <th style="text-align:left;"> variable </th>
-   <th style="text-align:right;"> p_value </th>
-   <th style="text-align:left;"> status </th>
+   <th style="text-align:left;"> tipo </th>
+   <th style="text-align:right;"> n_obs </th>
+   <th style="text-align:right;"> adf_stat </th>
+   <th style="text-align:right;"> adf_p_value </th>
+   <th style="text-align:right;"> kpss_stat </th>
+   <th style="text-align:right;"> kpss_p_value </th>
+   <th style="text-align:left;"> conclusion </th>
   </tr>
  </thead>
 <tbody>
   <tr>
-   <td style="text-align:left;"> polaridad </td>
+   <td style="text-align:left;"> TRM (nivel) </td>
+   <td style="text-align:left;"> Nivel </td>
+   <td style="text-align:right;"> 1000 </td>
+   <td style="text-align:right;"> -2.6194602 </td>
+   <td style="text-align:right;"> 0.3160918 </td>
+   <td style="text-align:right;"> 6.3610503 </td>
    <td style="text-align:right;"> 0.0100000 </td>
-   <td style="text-align:left;"> ok </td>
+   <td style="text-align:left;"> No estacionaria I(1) </td>
   </tr>
   <tr>
-   <td style="text-align:left;"> ipi </td>
+   <td style="text-align:left;"> COLCAP (nivel) </td>
+   <td style="text-align:left;"> Nivel </td>
+   <td style="text-align:right;"> 935 </td>
+   <td style="text-align:right;"> -2.3218391 </td>
+   <td style="text-align:right;"> 0.4420760 </td>
+   <td style="text-align:right;"> 10.7470809 </td>
    <td style="text-align:right;"> 0.0100000 </td>
-   <td style="text-align:left;"> ok </td>
+   <td style="text-align:left;"> No estacionaria I(1) </td>
   </tr>
   <tr>
-   <td style="text-align:left;"> trm </td>
-   <td style="text-align:right;"> 0.3933604 </td>
-   <td style="text-align:left;"> ok </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> colcap </td>
-   <td style="text-align:right;"> 0.4368851 </td>
-   <td style="text-align:left;"> ok </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> tes_10y </td>
-   <td style="text-align:right;"> 0.6650791 </td>
-   <td style="text-align:left;"> ok </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> tes_slope_10y_1y </td>
-   <td style="text-align:right;"> 0.9458480 </td>
-   <td style="text-align:left;"> ok </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> energy_spot_price </td>
+   <td style="text-align:left;"> TES 10Y (nivel) </td>
+   <td style="text-align:left;"> Nivel </td>
+   <td style="text-align:right;"> 935 </td>
+   <td style="text-align:right;"> -1.9300269 </td>
+   <td style="text-align:right;"> 0.6079301 </td>
+   <td style="text-align:right;"> 3.1419898 </td>
    <td style="text-align:right;"> 0.0100000 </td>
-   <td style="text-align:left;"> ok </td>
+   <td style="text-align:left;"> No estacionaria I(1) </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Pendiente TES (nivel) </td>
+   <td style="text-align:left;"> Nivel </td>
+   <td style="text-align:right;"> 935 </td>
+   <td style="text-align:right;"> -0.9446645 </td>
+   <td style="text-align:right;"> 0.9476418 </td>
+   <td style="text-align:right;"> 4.6155092 </td>
+   <td style="text-align:right;"> 0.0100000 </td>
+   <td style="text-align:left;"> No estacionaria I(1) </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Precio Energía XM (nivel) </td>
+   <td style="text-align:left;"> Nivel </td>
+   <td style="text-align:right;"> 1400 </td>
+   <td style="text-align:right;"> -4.0462502 </td>
+   <td style="text-align:right;"> 0.0100000 </td>
+   <td style="text-align:right;"> 1.7852360 </td>
+   <td style="text-align:right;"> 0.0100000 </td>
+   <td style="text-align:left;"> Estacionaria con quiebres </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> IPI (nivel) </td>
+   <td style="text-align:left;"> Nivel </td>
+   <td style="text-align:right;"> 963 </td>
+   <td style="text-align:right;"> -10.1185422 </td>
+   <td style="text-align:right;"> 0.0100000 </td>
+   <td style="text-align:right;"> 0.5071352 </td>
+   <td style="text-align:right;"> 0.0400596 </td>
+   <td style="text-align:left;"> Estacionaria con quiebres </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Polaridad (nivel) </td>
+   <td style="text-align:left;"> Nivel </td>
+   <td style="text-align:right;"> 1000 </td>
+   <td style="text-align:right;"> -9.1817330 </td>
+   <td style="text-align:right;"> 0.0100000 </td>
+   <td style="text-align:right;"> 0.6232518 </td>
+   <td style="text-align:right;"> 0.0205226 </td>
+   <td style="text-align:left;"> Estacionaria con quiebres </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Retorno TRM </td>
+   <td style="text-align:left;"> Transformada </td>
+   <td style="text-align:right;"> 999 </td>
+   <td style="text-align:right;"> -9.6695339 </td>
+   <td style="text-align:right;"> 0.0100000 </td>
+   <td style="text-align:right;"> 0.0788776 </td>
+   <td style="text-align:right;"> 0.1000000 </td>
+   <td style="text-align:left;"> Estacionaria I(0) </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Retorno COLCAP </td>
+   <td style="text-align:left;"> Transformada </td>
+   <td style="text-align:right;"> 876 </td>
+   <td style="text-align:right;"> -10.2815663 </td>
+   <td style="text-align:right;"> 0.0100000 </td>
+   <td style="text-align:right;"> 0.1582195 </td>
+   <td style="text-align:right;"> 0.1000000 </td>
+   <td style="text-align:left;"> Estacionaria I(0) </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Diff TES 10Y </td>
+   <td style="text-align:left;"> Transformada </td>
+   <td style="text-align:right;"> 876 </td>
+   <td style="text-align:right;"> -9.4882230 </td>
+   <td style="text-align:right;"> 0.0100000 </td>
+   <td style="text-align:right;"> 0.0818461 </td>
+   <td style="text-align:right;"> 0.1000000 </td>
+   <td style="text-align:left;"> Estacionaria I(0) </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Diff Pendiente TES </td>
+   <td style="text-align:left;"> Transformada </td>
+   <td style="text-align:right;"> 876 </td>
+   <td style="text-align:right;"> -10.6457897 </td>
+   <td style="text-align:right;"> 0.0100000 </td>
+   <td style="text-align:right;"> 0.1347089 </td>
+   <td style="text-align:right;"> 0.1000000 </td>
+   <td style="text-align:left;"> Estacionaria I(0) </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Retorno Energía XM </td>
+   <td style="text-align:left;"> Transformada </td>
+   <td style="text-align:right;"> 1399 </td>
+   <td style="text-align:right;"> -13.9306135 </td>
+   <td style="text-align:right;"> 0.0100000 </td>
+   <td style="text-align:right;"> 0.0302073 </td>
+   <td style="text-align:right;"> 0.1000000 </td>
+   <td style="text-align:left;"> Estacionaria I(0) </td>
   </tr>
 </tbody>
 </table>

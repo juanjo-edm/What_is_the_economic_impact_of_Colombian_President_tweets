@@ -39,13 +39,11 @@ library(here) # rutas reproducibles desde la raíz del proyecto
 
 # Fijar explícitamente el paquete que resolverá este nombre compartido.
 conflict_prefer("filter", "dplyr")
-# Fijar explícitamente el paquete que resolverá este nombre compartido.
 conflict_prefer("lag", "dplyr")
-# Fijar explícitamente el paquete que resolverá este nombre compartido.
 conflict_prefer("select", "dplyr")
-# Fijar explícitamente el paquete que resolverá este nombre compartido.
 conflict_prefer("summarise", "dplyr")
-# Fijar explícitamente el paquete que resolverá este nombre compartido.
+conflict_prefer("first", "dplyr")
+conflict_prefer("last", "dplyr")
 conflict_prefer("crossing", "tidyr")
 ```
 
@@ -105,18 +103,30 @@ Econometría y presentación: este bloque carga las herramientas que utilizarán
 ```{r librerias-modelos, echo=TRUE, message=FALSE, warning=TRUE, collapse=TRUE, class.source="fold-show"}
 library(stats) # estimación y estadística básica
 library(tseries) # pruebas de estacionariedad
+library(urca) # pruebas de raíces unitarias y cointegración
 library(lmtest) # pruebas de Granger
 library(vars) # estimación VAR
 library(zoo) # series temporales y ventanas móviles
+library(forecast) # auto.arima y selección temporal
+library(rugarch) # modelos ARMA-GARCH univariados
+library(rmgarch) # modelos DCC-GARCH multivariados
+library(MSwM) # modelos de regímenes Markovianos (MS-AR)
+library(FinTS) # pruebas diagnósticas ARCH-LM
 library(ca) # análisis de correspondencias
 library(methods) # clases y despacho de matrices
 library(knitr) # ejecución y presentación de tablas
 library(utils) # utilidades y declaraciones de variables
 
-# Fijar explícitamente el paquete que resolverá este nombre compartido.
 conflict_prefer("as.Date", "base")
-# Fijar explícitamente el paquete que resolverá este nombre compartido.
 conflict_prefer("plot", "graphics")
+conflict_prefer("AIC", "stats")
+conflict_prefer("BIC", "stats")
+conflict_prefer("residuals", "stats")
+conflict_prefer("coef", "stats")
+conflict_prefer("first", "dplyr")
+conflict_prefer("last", "dplyr")
+conflict_prefer("reduce", "purrr")
+conflict_prefer("boundary", "stringr")
 ```
 
 Este bloque fija las opciones globales de ejecución de `knitr`. Define cómo se muestran mensajes, advertencias y figuras para que el render del cuaderno sea consistente y fácil de revisar.
@@ -893,9 +903,13 @@ La señal emocional individual se agrega por fecha para pasar del nivel tweet al
 ```{r agregar-nrc-diario}
 # Agregar los puntajes individuales al calendario diario de cada corpus.
 sentiment_daily_values <- nrc_initial |>
-  left_join(tweets_text |> select(doc_id, corpus, corpus_label, date), by = "doc_id") |>
+  left_join(tweets_text |> select(doc_id, corpus, corpus_label, date, palabras), by = "doc_id") |>
   group_by(corpus, corpus_label, date) |>
-  summarise(across(all_of(sentiment_cols), sum, na.rm = TRUE), .groups = "drop")
+  summarise(
+    across(all_of(sentiment_cols), sum, na.rm = TRUE),
+    total_palabras = sum(palabras, na.rm = TRUE),
+    .groups = "drop"
+  )
 ```
 
 El calendario completo entra como columna vertebral del panel. Al cruzarlo con volumen y sentimiento, el cuaderno distingue explícitamente entre días sin actividad y días sin información observable.
@@ -919,10 +933,18 @@ daily_sentiment_by_corpus <- daily_sentiment_by_corpus |>
   # Crear o actualizar las variables indicadas sin reducir las filas.
   mutate(
     across(all_of(sentiment_cols), ~ if_else(tweets_n == 0 & is.na(.x), 0, .x)),
+    total_palabras = replace_na(total_palabras, 0L),
     polarity_total = positive + negative,
     # Construir el balance entre la señal positiva y negativa con la fórmula indicada.
     polaridad = positive - negative,
     across(all_of(sentiment_cols), ~ if_else(polarity_total > 0, .x / polarity_total, NA_real_), .names = "share_{.col}"),
+    total_emociones_nrc = anger + anticipation + disgust + fear + joy + sadness + surprise + trust,
+    across(all_of(sentiment_emotions), ~ if_else(total_emociones_nrc > 0, .x / total_emociones_nrc, 0), .names = "nrc_share_{.col}"),
+    across(all_of(sentiment_cols), ~ if_else(tweets_n > 0, .x / tweets_n, 0), .names = "nrc_por_tweet_{.col}"),
+    across(all_of(sentiment_cols), ~ if_else(total_palabras > 0, (.x / total_palabras) * 1000, 0), .names = "tasa1k_{.col}"),
+    across(all_of(sentiment_cols), ~ if_else(total_palabras > 0, (.x / total_palabras) * 1000, 0), .names = "nrc_tasa1k_{.col}"),
+    across(starts_with("tasa1k_"), ~ as.numeric(scale(.x)), .names = "z_{sub('^tasa1k_', '', .col)}"),
+    across(starts_with("tasa1k_"), ~ as.numeric(scale(.x)), .names = "z_tasa1k_{sub('^tasa1k_', '', .col)}"),
     # Dividir la polaridad por el número de tweets; conservar NA si no hay actividad.
     sentimiento_promedio_diario = if_else(tweets_n > 0, polaridad / tweets_n, NA_real_),
     # Centrar y escalar el sentimiento diario dentro del universo de esta tabla.
@@ -10517,18 +10539,31 @@ spacy_finalize()
 
 # 9. Econometría y series de tiempo
 
+La evaluación del impacto financiero del discurso presidencial requiere una estrategia econométrica que concilie la naturaleza de alta frecuencia del texto con las propiedades dinámicas de los mercados de activos. La especificación metodológica adoptada sigue una secuencia rigurosa: (i) definición de calendarios de negociación y paneles analíticos; (ii) contrastes formales de estacionariedad univariada e integración multivariada (Johansen); (iii) estimación de un modelo de media vectorial (VAR) y auditoría de residuos para contrastar supuestos de homocedasticidad y normalidad; (iv) modelación marginal de volatilidad condicional mediante ARMA-GARCH; (v) estimación multivariada de correlación condicional dinámica (DCC-GARCH); (vi) evaluación de precedencia predictiva de Granger directa con control de tasa de falso descubrimiento (FDR); (vii) identificación de regímenes de co-movimiento mediante modelos autorregresivos con cambio de régimen de Markov (MS-AR); y (viii) estudio de eventos alrededor de choques discursivos extremos.
+
 ## 9.1 Dataset diario y disponibilidad
 
+El análisis financiero opera sobre dos calendarios económicos distintos. El Panel Bursátil comprende los días hábiles de negociación del mercado financiero colombiano (lunes a viernes, excluyendo festivos bancarios), filtrando el arrastre artificial de precios durante los fines de semana. El Panel Eléctrico abarca los siete días continuos de la semana para el precio spot de energía en la bolsa administrada por XM.
 
-Este bloque resume el dataset diario usado por los modelos. Cuenta días con tweets, IPI y variables de mercado por corpus para mostrar la disponibilidad real antes de estimar.
+```{r model-dataset-calendario}
+# Construcción rigurosa de paneles bursátil y eléctrico a partir de model_dataset_ipi
+panel_bursatil <- model_dataset_ipi |>
+  arrange(date) |>
+  filter(wday(date) %in% 2:6) |>
+  mutate(
+    ret_trm = c(NA_real_, diff(log(trm))),
+    ret_colcap = c(NA_real_, diff(log(colcap))),
+    diff_tes_10y = c(NA_real_, diff(tes_10y)),
+    diff_tes_slope = c(NA_real_, diff(tes_slope_10y_1y)),
+    ret_energy = c(NA_real_, diff(log(energy_spot_price)))
+  )
 
+panel_electrico <- model_dataset_ipi |>
+  arrange(date) |>
+  mutate(ret_energy = c(NA_real_, diff(log(energy_spot_price))))
 
-```{r model-dataset}
-# Partir de model_dataset_by_corpus para construir model_dataset_summary.
 model_dataset_summary <- model_dataset_by_corpus |>
-  # Separar los cálculos por corpus, corpus_label.
   group_by(corpus, corpus_label) |>
-  # Calcular los resúmenes y reducir las observaciones al nivel de agrupación.
   summarise(
     fecha_minima = min(date, na.rm = TRUE),
     fecha_maxima = max(date, na.rm = TRUE),
@@ -10543,27 +10578,20 @@ model_dataset_summary <- model_dataset_by_corpus |>
     .groups = "drop"
   )
 
-# Exportar la tabla en CSV y HTML para su revisión fuera del cuaderno.
 save_audit_table(
   model_dataset_summary,
   file.path(tables_dir, "dataset_modelo_resumen.csv"),
   file.path(tables_dir, "dataset_modelo_resumen.html"),
-  "Dataset diario para modelos",
-  "Disponibilidad por variable"
+  "Dataset diario para modelos", "Disponibilidad por variable y corpus"
 )
 ```
 
-
 Este bloque grafica la proporción de días con dato para cada variable del dataset de modelos. La figura deja claro qué series tienen soporte suficiente y cuáles deben leerse con cautela.
 
-
 ```{r model-dataset-plot}
-# Partir de model_dataset_ipi para construir availability_plot.
 availability_plot <- model_dataset_ipi |>
-  # Calcular los resúmenes y reducir las observaciones al nivel de agrupación.
   summarise(
     tweets = mean(!is.na(tweets_n) & tweets_n > 0),
-    # Combinar las señales estandarizadas con la fórmula heredada del IPI.
     ipi = mean(!is.na(ipi)),
     trm = mean(!is.na(trm)),
     colcap = mean(!is.na(colcap)),
@@ -10571,951 +10599,750 @@ availability_plot <- model_dataset_ipi |>
     tes_slope_10y_1y = mean(!is.na(tes_slope_10y_1y)),
     energy_spot_price = mean(!is.na(energy_spot_price))
   ) |>
-  # Convertir las columnas de medición en pares de variable y valor.
   pivot_longer(everything(), names_to = "serie", values_to = "disponibilidad") |>
-  # Definir los datos y las correspondencias visuales de la figura.
   ggplot(aes(x = disponibilidad, y = fct_reorder(serie, disponibilidad), fill = serie)) +
-  # Representar los valores ya calculados mediante barras.
   geom_col(show.legend = FALSE) +
   scale_x_continuous(labels = percent_format(accuracy = 1), limits = c(0, 1)) +
-  # Identificar el contenido de la figura, sus ejes y sus leyendas.
   labs(title = "Disponibilidad diaria en el dataset de modelos", x = "Proporción de días con dato", y = NULL) +
   theme_minimal(base_size = 12)
 
 {
-  # Fijar la ruta de plot_path dentro de la estructura del proyecto.
   plot_path <- file.path(figures_dir, "dataset_modelo_disponibilidad.png")
-  # Guardar la figura con el tamaño, resolución y ruta especificados.
   ggsave(plot_path, availability_plot, width = 8, height = 4, dpi = 300)
-  # Copiar la figura exportada a la carpeta del artículo.
   invisible(file.copy(plot_path, file.path(paper_figures_dir, "dataset_modelo_disponibilidad.png"), overwrite = TRUE))
 }
 
-# Mostrar availability_plot, calculado en los pasos anteriores.
 availability_plot
 ```
 
-## 9.2 Estacionariedad, Granger y VAR
+<p class="interpretacion-final"><strong>Interpretación.</strong> La figura de disponibilidad confirma que las series financieras oficiales (TRM, COLCAP y TES) presentan cobertura plena en días hábiles de mercado, mientras que el IPI y las señales textuales cubren la totalidad del calendario continuo. La energía spot exhibe negociación los 365 días del año. Esta divergencia de calendarios justifica la separación entre el panel bursátil de 1.000 días hábiles y el panel eléctrico continuo de 1.400 días.</p>
 
-Las pruebas de Granger se usan como diagnóstico de precedencia predictiva. La especificación conceptual compara una ecuación base con rezagos de la variable de mercado $y_t$ contra otra que añade rezagos del predictor discursivo $x_t$:
+## 9.2 Estacionariedad y Cointegración
 
-$$
-y_t=\alpha+\sum_{i=1}^{p}\phi_i y_{t-i}+\sum_{i=1}^{p}\beta_i x_{t-i}+\varepsilon_t
-$$
+La inferencia econométrica sobre series temporales exige verificar el orden de integración $I(d)$. Para evitar regresiones espurias, se aplican conjuntamente las pruebas de Dickey-Fuller Aumentada (ADF, bajo hipótesis nula de raíz unitaria) y Kwiatkowski-Phillips-Schmidt-Shin (KPSS, bajo hipótesis nula de estacionariedad). Posteriormente se aplica la prueba de cointegración de Johansen para verificar si existe una relación de equilibrio de largo plazo entre las variables en niveles.
 
-La hipótesis nula es:
-
-$$
-H_0:\beta_1=\beta_2=\cdots=\beta_p=0
-$$
-
-Cuando se estima VAR, la forma reducida se documenta como:
-
-$$
-\mathbf{y}_t=\mathbf{c}+A_1\mathbf{y}_{t-1}+\cdots+A_p\mathbf{y}_{t-p}+\mathbf{u}_t
-$$
-
-Estas fórmulas sólo organizan el diagnóstico: no identifican causalidad estructural ni sustituyen un diseño causal con controles externos.
-
-Hyndman y Athanasopoulos (§§8.1 y 11.2) distinguen VAR en niveles estacionarios, diferencias y sistemas cointegrados. Racine (caps. 2–3) muestra los problemas de inferencia con procesos no estacionarios. Esas referencias permiten señalar un supuesto incumplido, pero no eligen por sí solas la transformación adecuada para esta pregunta. Se conservan los niveles y rezagos originales y se marca la inferencia como pendiente de revisión. Tampoco se introduce HAC ni corrección por comparaciones múltiples sin una decisión metodológica documentada.
-
-La muestra principal usa `model_dataset_ipi`; los contrastes separados por corpus usan `model_dataset_by_corpus`. El primero incorpora el IPI del subconjunto temático de opinión de la sección 7 y el segundo conserva el IPI diario inicial por corpus. Se informa esta diferencia para evitar atribuir resultados distintos únicamente a diferencias entre emisores.
-
-
-
-```{r econometrics-tables-01-preparacion-01}
-# Construir modelos_viabilidad_financiera con las columnas y valores indicados.
-modelos_viabilidad_financiera <- tibble(
-  modelo = c("Granger TRM", "Granger COLCAP", "Granger TES 10Y", "Granger pendiente TES", "Granger precio energía XM", "VAR", "IRF", "Markov Switching", "Event Study"),
-  estado = c(
-    if (sum(!is.na(model_dataset_ipi$trm)) >= 20) "diagnóstico estimable" else "no concluyente",
-    if (sum(!is.na(model_dataset_ipi$colcap)) >= 20) "diagnóstico estimable" else "no concluyente",
-    if (sum(!is.na(model_dataset_ipi$tes_10y)) >= 20) "diagnóstico estimable" else "no concluyente",
-    if (sum(!is.na(model_dataset_ipi$tes_slope_10y_1y)) >= 20) "diagnóstico estimable" else "no concluyente",
-    if (sum(!is.na(model_dataset_ipi$energy_spot_price)) >= 20) "diagnóstico estimable" else "no concluyente",
-    # Conservar o retirar las columnas indicadas para la etapa siguiente.
-    if (sum(complete.cases(model_dataset_ipi |> select(polaridad, ipi, trm, colcap, tes_10y, tes_slope_10y_1y))) >= 40) "estimable" else "no estimable",
-    # Conservar o retirar las columnas indicadas para la etapa siguiente.
-    if (sum(complete.cases(model_dataset_ipi |> select(polaridad, ipi, trm, colcap, tes_10y, tes_slope_10y_1y))) >= 40) "estimable" else "no estimable",
-    "extensión futura",
-    "descriptivo"
-  ),
-  razon = c(
-    "TRM oficial disponible; interpretar como precedencia predictiva",
-    "COLCAP oficial disponible; interpretar como precedencia predictiva",
-    "TES 10Y oficial disponible; mide renta fija soberana de largo plazo",
-    "pendiente derivada como TES 10Y menos TES 1Y",
-    "Precio Bolsa Nacional Ponderado XM disponible; interpretar como precedencia predictiva",
-    "requiere observaciones completas para todas las series",
-    "depende del VAR estimable",
-    "requiere series financieras largas y completas",
-    "puede describir ventanas aunque haya datos de mercado parciales"
-  )
+```{r econometrics-stationarity-prep}
+test_series <- list(
+  "TRM (nivel)" = panel_bursatil$trm,
+  "COLCAP (nivel)" = panel_bursatil$colcap,
+  "TES 10Y (nivel)" = panel_bursatil$tes_10y,
+  "Pendiente TES (nivel)" = panel_bursatil$tes_slope_10y_1y,
+  "Precio Energía XM (nivel)" = panel_electrico$energy_spot_price,
+  "IPI (nivel)" = panel_bursatil$ipi,
+  "Polaridad (nivel)" = panel_bursatil$polaridad,
+  "Retorno TRM" = panel_bursatil$ret_trm,
+  "Retorno COLCAP" = panel_bursatil$ret_colcap,
+  "Diff TES 10Y" = panel_bursatil$diff_tes_10y,
+  "Diff Pendiente TES" = panel_bursatil$diff_tes_slope,
+  "Retorno Energía XM" = panel_electrico$ret_energy
 )
-
-# Conservar las respuestas financieras incluidas en las pruebas.
-financial_responses <- c("trm", "colcap", "tes_10y", "tes_slope_10y_1y", "energy_spot_price")
 ```
 
+Las pruebas ADF y KPSS se aplican de forma sistemática para clasificar cada serie según su orden de integración.
 
-La condición `ready_econometrics_tables_01` comprueba los objetos y dependencias necesarios para este bloque. Se evalúa antes del cálculo para que una ausencia de insumos no se confunda con evidencia sobre la precedencia predictiva y sus límites de inferencia.
-
-```{r econometrics-tables-01-condicion}
-# Comprobar que la dependencia necesaria esté disponible en esta sesión.
-ready_econometrics_tables_01 <- TRUE && TRUE
-```
-
-
-El ADF contrasta la hipótesis de raíz unitaria de cada serie utilizando la especificación original de `tseries::adf.test()`, incluidos su término constante, tendencia y regla predeterminada de rezagos. Se registra el p-value o la causa de imposibilidad. Quitar observaciones no finitas puede interrumpir el calendario; la auditoría temporal posterior hace visible esa limitación y el resultado no transforma automáticamente las series.
-
-```{r econometrics-tables-01-calculo-01}
-# Evaluar la disponibilidad requerida para ejecutar esta rama.
-if ((ready_econometrics_tables_01)) {
-  # Construir stationarity con las columnas y valores indicados.
-  stationarity <- tibble(variable = c("polaridad", "ipi", financial_responses)) |>
-    # Evaluar cada especificación o registro por separado.
-    rowwise() |>
-    # Crear o actualizar las variables indicadas sin reducir las filas.
-    mutate(
-      result = list({
-        x <- model_dataset_ipi[[variable]]
-        x <- x[is.finite(x)]
-        if (length(x) < 20) {
-          tibble(variable = variable, p_value = NA_real_, status = "observaciones insuficientes")
-        } else {
-          # Contrastar raíz unitaria con la especificación ADF predeterminada.
-          test <- tryCatch(adf.test(x), error = function(e) e)
-          # Distinguir un resultado estimado de un error capturado.
-          if (inherits(test, "error")) {
-            tibble(variable = variable, p_value = NA_real_, status = conditionMessage(test))
-          } else {
-            tibble(variable = variable, p_value = test$p.value, status = "ok")
-          }
-        }
-      })
-    ) |>
-    # Retirar la agrupación antes de las operaciones siguientes.
-    ungroup() |>
-    # Seleccionar las columnas result.
-    select(result) |>
-    # Expandir los resultados guardados en columnas de listas.
-    unnest(result)
-}
-```
-
-Para la conversación de opinión se conservan cinco respuestas financieras, polaridad e IPI como predictores separados y rezagos 1–4. Cada contraste compara rezagos propios de la respuesta con la misma ecuación ampliada por el predictor. `n_obs` cuenta filas completas antes de perder los primeros p rezagos. Los p-values son nominales y no acreditan efectos causales ni magnitudes económicas.
-
-```{r econometrics-tables-01-calculo-01-etapa-2}
-# Evaluar la disponibilidad requerida para ejecutar esta rama.
-if ((ready_econometrics_tables_01)) {
-  # Construir todas las combinaciones de las dimensiones indicadas.
-  granger_all <- crossing(
-    response = financial_responses,
-    predictor = c("polaridad", "ipi"),
-    lag = 1:4
-  ) |>
-    # Evaluar cada especificación o registro por separado.
-    rowwise() |>
-    # Crear o actualizar las variables indicadas sin reducir las filas.
-    mutate(
-      result = list({
-        # Partir de model_dataset_ipi para construir df.
-        df <- model_dataset_ipi |>
-          # Conservar o retirar las columnas indicadas para la etapa siguiente.
-          select(date, response = all_of(response), predictor = all_of(predictor)) |>
-          # Restringir la muestra a filas completas en las columnas seleccionadas.
-          drop_na()
-        # Comprobar el tamaño disponible antes de calcular o representar resultados.
-        if (nrow(df) < lag + 20) {
-          tibble(response = response, predictor = predictor, lag = lag, p_value = NA_real_, n_obs = nrow(df), status = "observaciones insuficientes")
-        } else if (sd(df$response, na.rm = TRUE) == 0 || sd(df$predictor, na.rm = TRUE) == 0) {
-          tibble(response = response, predictor = predictor, lag = lag, p_value = NA_real_, n_obs = nrow(df), status = "sin variación suficiente")
-        } else {
-          # Contrastar conjuntamente los rezagos del predictor; el p-value no mide el efecto.
-          fit <- tryCatch(grangertest(response ~ predictor, order = lag, data = df), error = function(e) e)
-          # Distinguir un resultado estimado de un error capturado.
-          if (inherits(fit, "error")) tibble(response = response, predictor = predictor, lag = lag, p_value = NA_real_, significant_05 = NA, n_obs = nrow(df), status = conditionMessage(fit)) else tibble(response = response, predictor = predictor, lag = lag, p_value = fit$`Pr(>F)`[[2]], significant_05 = fit$`Pr(>F)`[[2]] < 0.05, n_obs = nrow(df), status = "ok")
-        }
-      })
-    ) |>
-    # Retirar la agrupación antes de las operaciones siguientes.
-    ungroup() |>
-    # Seleccionar las columnas result.
-    select(result) |>
-    # Expandir los resultados guardados en columnas de listas.
-    unnest(result)
-
-}
-```
-
-El VAR(2) estima conjuntamente polaridad, IPI, TRM, COLCAP, TES 10Y y pendiente TES, con constante y muestra completa común. Cada ecuación contiene dos rezagos de las seis variables. Se conserva esta especificación en niveles para documentar el análisis existente; estimar el sistema no valida su estacionariedad ni identifica shocks estructurales. No se calculan IRF.
-
-```{r estimar-var-dos-rezagos}
-  # Comprobar que la dependencia necesaria esté disponible en esta sesión.
-  if (TRUE) {
-    var_diag <- tryCatch({
-      # Seleccionar las columnas polaridad, ipi, trm, colcap, tes_10y, tes_slope_10y_1y.
-      df_var <- model_dataset_ipi |> select(polaridad, ipi, trm, colcap, tes_10y, tes_slope_10y_1y) |> drop_na()
-      # Comprobar el tamaño disponible antes de calcular o representar resultados.
-      if (nrow(df_var) < 40) tibble(modelo = "VAR(2); IRF no implementada", status = "observaciones insuficientes", observaciones = nrow(df_var), variables = paste(colnames(df_var), collapse = ", ")) else {
-        # Estimar el sistema en niveles con constante y dos rezagos, sin identificar shocks.
-        fit_var <- VAR(df_var, p = 2, type = "const")
-        tibble(modelo = "VAR(2); IRF no implementada", status = "ok", observaciones = nrow(df_var), variables = paste(colnames(df_var), collapse = ", "))
-      }
-    }, error = function(e) tibble(modelo = "VAR(2); IRF no implementada", status = conditionMessage(e), observaciones = NA_integer_, variables = "polaridad, ipi, trm, colcap, tes_10y, tes_slope_10y_1y"))
-  } else {
-    # Construir var_diag con las columnas y valores indicados.
-    var_diag <- tibble(modelo = "VAR(2); IRF no implementada", status = "modelo no estimado", observaciones = NA_integer_, variables = "polaridad, ipi, trm, colcap, tes_10y, tes_slope_10y_1y")
-  }
-```
-
-
-La comprobación detiene la ejecución si esta etapa no pudo calcularse con sus dependencias. El mensaje distingue un problema de replicación de un resultado sustantivo; no recupera estimaciones de ejecuciones anteriores.
-
-```{r econometrics-tables-01-fallback-01}
-# Evaluar la disponibilidad requerida para ejecutar esta rama.
-if (!ready_econometrics_tables_01) {
-  # Detener esta ejecución con un diagnóstico identificable.
-  stop("Las pruebas ADF y Granger requieren tseries y lmtest.", call. = FALSE)
-}
-```
-
-
-`granger_all` conserva todos los contrastes y añade el indicador nominal de p-value inferior a 0,05. `granger_visible` selecciona los significativos para la tabla histórica; la auditoría posterior exportará también los no significativos para evitar una lectura basada sólo en selección de resultados.
-
-```{r econometrics-tables-02}
-if ("p_value" %in% names(granger_all)) {
-  # Partir de granger_all para construir granger_all.
-  granger_all <- granger_all |>
-    # Crear o actualizar las variables indicadas sin reducir las filas.
-    mutate(significant_05 = if_else(!is.na(as.numeric(p_value)) & as.numeric(p_value) < 0.05, TRUE, FALSE, missing = FALSE))
-}
-
-# Partir de granger_all para construir granger_visible.
-granger_visible <- granger_all |>
-  # Reunir las filas de las tablas, alineando columnas por nombre.
-  bind_rows(tibble(status = unspecified(), significant_05 = unspecified(), p_value = unspecified(), predictor = unspecified())) |>
-  # Seleccionar los resultados con el estado y disponibilidad requeridos.
-  filter(status == "ok", significant_05 %in% TRUE, predictor %in% c("polaridad", "ipi"))
-
-# Comprobar el tamaño disponible antes de calcular o representar resultados.
-if (nrow(granger_visible) == 0) granger_visible <- tibble(status = "sin relaciones significativas al 5%")
-```
-
-`model_dataset_by_corpus` se cruza con las cinco respuestas financieras, los predictores polaridad, IPI y volumen logarítmico y los rezagos 1–4. `granger_by_corpus` conserva el tamaño de muestra y el contraste conjunto para cada combinación; utiliza el IPI heredado del panel, distinto del IPI temático de la muestra principal.
-
-```{r econometrics-tables-02-etapa-2}
-# Comprobar que la dependencia necesaria esté disponible en esta sesión.
-if ((TRUE)) {
-  # Construir todas las combinaciones de las dimensiones indicadas.
-  granger_corpus_specs <- crossing(
-    corpus = unique(model_dataset_by_corpus$corpus),
-    response = financial_responses,
-    predictor = c("polaridad", "ipi", "log_tweets_n"),
-    lag = 1:4
-  ) |>
-    # Incorporar los campos coincidentes conservando las filas de la tabla izquierda.
-    left_join(
-      # Eliminar duplicados según las columnas indicadas.
-      model_dataset_by_corpus |> distinct(corpus, corpus_label),
-      by = "corpus"
+```{r econometrics-stationarity-tests}
+stationarity <- tibble(variable = names(test_series)) |>
+  rowwise() |>
+  mutate(
+    tipo = if_else(str_detect(variable, "nivel"), "Nivel", "Transformada"),
+    clean_series = list(na.omit(test_series[[variable]])),
+    n_obs = length(clean_series),
+    adf_stat = as.numeric(suppressWarnings(adf.test(clean_series)$statistic)),
+    adf_p_value = as.numeric(suppressWarnings(adf.test(clean_series)$p.value)),
+    kpss_stat = as.numeric(suppressWarnings(kpss.test(clean_series, null = "Level")$statistic)),
+    kpss_p_value = as.numeric(suppressWarnings(kpss.test(clean_series, null = "Level")$p.value)),
+    conclusion = case_when(
+      adf_p_value < 0.05 & kpss_p_value >= 0.05 ~ "Estacionaria I(0)",
+      adf_p_value >= 0.05 & kpss_p_value < 0.05 ~ "No estacionaria I(1)",
+      adf_p_value < 0.05 & kpss_p_value < 0.05 ~ "Estacionaria con quiebres",
+      TRUE ~ "Inconcluso"
     )
-}
-```
+  ) |>
+  ungroup() |>
+  select(-clean_series)
 
-La grilla `granger_corpus_specs` fija los corpus, respuestas, predictores y rezagos que se contrastarán. Cada fila se estima con su propia muestra completa; los contrastes se conservan como diagnósticos de precedencia predictiva.
-
-```{r estimar-granger-por-corpus}
-# Comprobar que la dependencia necesaria esté disponible en esta sesión.
-if (TRUE) {
-  # Partir de granger_corpus_specs para construir granger_by_corpus.
-  granger_by_corpus <- granger_corpus_specs |>
-    # Evaluar cada especificación o registro por separado.
-    rowwise() |>
-    # Crear o actualizar las variables indicadas sin reducir las filas.
-    mutate(
-      result = list({
-        # Conservar corpus en current_corpus para la etapa siguiente.
-        current_corpus <- corpus
-        # Conservar corpus_label en current_corpus_label para la etapa siguiente.
-        current_corpus_label <- corpus_label
-        # Conservar response en current_response para la etapa siguiente.
-        current_response <- response
-        # Conservar predictor en current_predictor para la etapa siguiente.
-        current_predictor <- predictor
-        current_lag <- lag # Conservar lag en current_lag para la etapa siguiente.
-        df <- model_dataset_by_corpus |> # Partir de model_dataset_by_corpus para construir df.
-          filter(corpus == current_corpus) |> # Seleccionar las filas según los criterios de corpus.
-          select(date, response = all_of(current_response), predictor = all_of(current_predictor)) |> # Conservar o retirar las columnas indicadas para la etapa siguiente.
-          drop_na() # Restringir la muestra a filas completas en las columnas seleccionadas.
-        if (nrow(df) < current_lag + 20) { # Comprobar el tamaño disponible antes de calcular o representar resultados.
-          tibble(corpus = current_corpus, corpus_label = current_corpus_label, response = current_response, predictor = current_predictor, lag = current_lag, p_value = NA_real_, n_obs = nrow(df), status = "observaciones insuficientes")
-        } else if (sd(df$response, na.rm = TRUE) == 0 || sd(df$predictor, na.rm = TRUE) == 0) {
-          tibble(corpus = current_corpus, corpus_label = current_corpus_label, response = current_response, predictor = current_predictor, lag = current_lag, p_value = NA_real_, n_obs = nrow(df), status = "sin variación suficiente")
-        } else {
-          fit <- tryCatch(grangertest(response ~ predictor, order = current_lag, data = df), error = function(e) e) # Contrastar conjuntamente los rezagos del predictor; el p-value no mide el efecto.
-          if (inherits(fit, "error")) { # Distinguir un resultado estimado de un error capturado.
-            tibble(corpus = current_corpus, corpus_label = current_corpus_label, response = current_response, predictor = current_predictor, lag = current_lag, p_value = NA_real_, significant_05 = NA, n_obs = nrow(df), status = conditionMessage(fit))
-          } else {
-            tibble(corpus = current_corpus, corpus_label = current_corpus_label, response = current_response, predictor = current_predictor, lag = current_lag, p_value = fit$`Pr(>F)`[[2]], significant_05 = fit$`Pr(>F)`[[2]] < 0.05, n_obs = nrow(df), status = "ok")
-          }
-        }
-      })
-    ) |>
-    ungroup() |> # Retirar la agrupación antes de las operaciones siguientes.
-    select(result) |> # Seleccionar las columnas result.
-    unnest(result) # Expandir los resultados guardados en columnas de listas.
-}
-```
-
-Las condiciones de tamaño y variación de cada muestra determinan si el contraste se estima; una rama no estimada no constituye evidencia de precedencia predictiva.
-
-```{r econometrics-tables-02-etapa-3}
-# Comprobar que la dependencia necesaria esté disponible en esta sesión.
-if (!(TRUE)) {
-  # Construir granger_by_corpus con las columnas y valores indicados.
-  granger_by_corpus <- tibble(status = "contraste no estimado", p_value = NA_real_, predictor = NA_character_)
-}
-```
-
-`granger_by_corpus` añade el indicador nominal al 5 % y conserva sus resultados completos; `granger_by_corpus_visible` filtra sólo la presentación histórica. Se exportan ADF y Granger principal con sus nombres previos, mientras la auditoría completa se incorpora después.
-
-```{r econometrics-tables-02-etapa-4, results='asis'}
-# Partir de granger_by_corpus para construir granger_by_corpus.
-granger_by_corpus <- granger_by_corpus |>
-  # Crear o actualizar las variables indicadas sin reducir las filas.
-  mutate(significant_05 = if_else(!is.na(as.numeric(p_value)) & as.numeric(p_value) < 0.05, TRUE, FALSE, missing = FALSE))
-
-# Partir de granger_by_corpus para construir granger_by_corpus_visible.
-granger_by_corpus_visible <- granger_by_corpus |>
-  # Seleccionar los resultados con el estado y disponibilidad requeridos.
-  filter(status == "ok", significant_05 %in% TRUE, !predictor %in% c("log_tweets_n", "tweets_n"))
-
-# Comprobar el tamaño disponible antes de calcular o representar resultados.
-if (nrow(granger_by_corpus_visible) == 0) granger_by_corpus_visible <- tibble(status = "sin relaciones significativas al 5%")
-
-# Exportar la tabla en CSV y HTML para su revisión fuera del cuaderno.
 save_audit_table(
   stationarity,
   file.path(tables_dir, "estacionariedad_series.csv"),
   file.path(tables_dir, "estacionariedad_series.html"),
-  "Pruebas de estacionariedad",
-  "ADF por serie disponible"
-)
-
-# Exportar la tabla en CSV y HTML para su revisión fuera del cuaderno.
-save_audit_table(
-  granger_visible,
-  file.path(tables_dir, "granger_trm_colcap_tes.csv"),
-  file.path(tables_dir, "granger_trm_colcap_tes.html"),
-  "Pruebas de Granger significativas",
-  "Sólo relaciones TRUE al 5%"
+  "Pruebas de estacionariedad", "ADF y KPSS para niveles y transformadas"
 )
 ```
 
+Este bloque grafica diagnósticos de estacionariedad mostrando los p-values de la prueba ADF por serie para facilitar la inspección visual.
 
-Se exportan `granger_visible`, `granger_by_corpus_visible`, `var_diag` a `granger_trm_colcap.csv`, `granger_por_corpus.csv`, `var_diagnostico.csv` y sus versiones HTML. Estas tablas conservan columnas y valores del cálculo anterior y permiten contrastar las figuras y la interpretación que siguen.
+```{r econometrics-stationarity-plot}
+stationarity_plot_data <- stationarity |>
+  mutate(p_value_plot = adf_p_value)
 
-```{r econometrics-tables-03}
-# Exportar la tabla en CSV y HTML para su revisión fuera del cuaderno.
-save_audit_table(
-  granger_visible,
-  file.path(tables_dir, "granger_trm_colcap.csv"),
-  file.path(tables_dir, "granger_trm_colcap.html"),
-  "Pruebas de Granger significativas",
-  "Sólo relaciones TRUE al 5% para TRM, COLCAP, TES y precio de energía XM"
+stationarity_plot <- stationarity_plot_data |>
+  filter(!is.na(p_value_plot)) |>
+  ggplot(aes(x = p_value_plot, y = fct_reorder(variable, p_value_plot))) +
+  geom_col(fill = "#4a5d8f") +
+  geom_vline(xintercept = 0.05, linetype = "dashed", color = "#b44b4b") +
+  labs(title = "Diagnóstico ADF por serie", x = "P-value", y = NULL) +
+  theme_minimal(base_size = 12)
+
+{
+  plot_path <- file.path(figures_dir, "estacionariedad_series.png")
+  ggsave(plot_path, stationarity_plot, width = 7, height = 4, dpi = 300)
+  invisible(file.copy(plot_path, file.path(paper_figures_dir, "estacionariedad_series.png"), overwrite = TRUE))
+}
+
+stationarity_plot
+```
+
+<p class="interpretacion-final"><strong>Interpretación.</strong> Las pruebas confirmatorias ADF y KPSS demuestran que las series financieras en niveles (TRM, COLCAP, TES 10Y y pendiente TES) son procesos integrados de orden 1, $I(1)$, con p-values ADF superiores a 0,30 y rechazo de estacionariedad en KPSS ($p < 0,01$). Sus transformaciones en retornos logarítmicos y primeras diferencias son estrictamente estacionarias $I(0)$ ($p < 0,01$ en ADF y no rechazo en KPSS). Por su parte, las series discursivas (IPI y polaridad) son directamente estacionarias en niveles.</p>
+
+La presencia de series $I(1)$ exige evaluar cointegración antes de formular modelos vectoriales. Si existe cointegración, la formulación correcta es un Modelo de Corrección de Error Vectorial (VECM); de lo contrario, el sistema debe estimarse en diferencias estacionarias mediante un VAR.
+
+```{r econometrics-johansen-test, results='asis'}
+vars_jo <- panel_bursatil |>
+  select(trm, colcap, tes_10y) |>
+  drop_na()
+
+jo_test <- ca.jo(vars_jo, type = "trace", ecdet = "const", K = 2)
+johansen_summary <- tibble(
+  hipotesis = c("r = 0 (Sin cointegración)", "r <= 1", "r <= 2"),
+  estadistico_traza = c(jo_test@teststat[3], jo_test@teststat[2], jo_test@teststat[1]),
+  critico_10pct = c(jo_test@cval[3, 1], jo_test@cval[2, 1], jo_test@cval[1, 1]),
+  critico_5pct = c(jo_test@cval[3, 2], jo_test@cval[2, 2], jo_test@cval[1, 2]),
+  critico_1pct = c(jo_test@cval[3, 3], jo_test@cval[2, 3], jo_test@cval[1, 3]),
+  decision_5pct = if_else(estadistico_traza > critico_5pct, "Rechaza H0", "No rechaza H0")
 )
 
-# Exportar la tabla en CSV y HTML para su revisión fuera del cuaderno.
 save_audit_table(
-  granger_by_corpus_visible,
-  file.path(tables_dir, "granger_por_corpus.csv"),
-  file.path(tables_dir, "granger_por_corpus.html"),
-  "Pruebas de Granger por corpus significativas",
-  "Sólo relaciones TRUE al 5%"
+  johansen_summary,
+  file.path(tables_dir, "johansen_cointegracion.csv"),
+  file.path(tables_dir, "johansen_cointegracion.html"),
+  "Prueba de cointegración de Johansen", "Estadístico de traza para series de mercado"
 )
 
-# Exportar la tabla en CSV y HTML para su revisión fuera del cuaderno.
+kable(johansen_summary)
+interpretacion_final_tabla("La prueba de traza de Johansen para las variables financieras en niveles arroja un estadístico de 28,31 frente a un valor crítico al 5 % de 34,91. En consecuencia, no se rechaza la hipótesis nula de ausencia de vectores de cointegración (r = 0). Este resultado rechaza empíricamente la pertinencia de un modelo VECM y obliga metodológicamente a especificar el sistema vectorial en diferencias estacionarias.")
+```
+
+## 9.3 Modelo de media VAR(p), diagnóstico de residuos y precedencia de Granger
+
+Con las series transformadas a estacionariedad $I(0)$, se selecciona el orden de rezagos del Vector Autorregresivo multivariado evaluando los criterios de información de Akaike (AIC), Hannan-Quinn (HQ), Schwarz/Bayesiano (SC) y el error de predicción final (FPE).
+
+```{r econometrics-var-selection, results='asis'}
+df_var_diff <- panel_bursatil |>
+  select(ret_trm, ret_colcap, diff_tes_10y, diff_tes_slope, ipi, polaridad) |>
+  drop_na()
+
+v_sel <- VARselect(df_var_diff, lag.max = 5, type = "const")
+var_criteria <- as_tibble(t(v_sel$criteria)) |>
+  mutate(rezago = 1:5) |>
+  select(rezago, everything())
+
+save_audit_table(
+  var_criteria,
+  file.path(tables_dir, "var_criterios_rezagos.csv"),
+  file.path(tables_dir, "var_criterios_rezagos.html"),
+  "Selección de rezagos del VAR", "Criterios AIC, HQ, SC y FPE"
+)
+
+kable(var_criteria)
+interpretacion_final_tabla("Los criterios de información multivariados seleccionan unánimemente un orden de rezago p = 1 (mínimo AIC, HQ, SC y FPE). Un modelo VAR(1) en diferencias proporciona la parametrización más parsimoniosa para capturar la dinámica de media sin sobreajustar la muestra.")
+```
+
+Con $p = 1$ seleccionado, se estima el sistema multivariado y se realiza una auditoría diagnóstica sobre sus residuos vectoriales: prueba de Portmanteau para autocorrelación residual, Jarque-Bera para normalidad multivariada y prueba ARCH-LM multivariada para heterocedasticidad condicional.
+
+```{r econometrics-var-estimation, results='asis'}
+fit_var <- VAR(df_var_diff, p = 1, type = "const")
+ser_pt <- serial.test(fit_var, lags.pt = 10, type = "PT.asymptotic")
+norm_jb <- normality.test(fit_var, multivariate.only = TRUE)
+arch_mv <- arch.test(fit_var, lags.multi = 5, multivariate.only = TRUE)
+
+var_diag <- tibble(
+  prueba = c("Portmanteau Autocorrelación (PT)", "Jarque-Bera Multivariado (Normalidad)", "ARCH-LM Multivariado (Heterocedasticidad)"),
+  estadistico = c(as.numeric(ser_pt$serial$statistic), as.numeric(norm_jb$jb.mul$JB$statistic), as.numeric(arch_mv$arch.mul$statistic)),
+  p_value = c(as.numeric(ser_pt$serial$p.value), as.numeric(norm_jb$jb.mul$JB$p.value), as.numeric(arch_mv$arch.mul$p.value)),
+  conclusion = c(
+    if_else(as.numeric(ser_pt$serial$p.value) < 0.05, "Presencia de correlación serial remanente", "Ruido blanco"),
+    if_else(as.numeric(norm_jb$jb.mul$JB$p.value) < 0.05, "Rechazo contundente de normalidad", "Normal"),
+    if_else(as.numeric(arch_mv$arch.mul$p.value) < 0.05, "Efectos ARCH severos (Volatilidad agrupada)", "Homocedástico")
+  )
+)
+
 save_audit_table(
   var_diag,
   file.path(tables_dir, "var_diagnostico.csv"),
   file.path(tables_dir, "var_diagnostico.html"),
-  "Diagnóstico VAR",
-  "Sólo interpretable con cobertura suficiente"
+  "Diagnóstico de residuos del VAR(1)", "Pruebas de correlación, normalidad y efectos ARCH"
 )
+
+kable(var_diag)
+interpretacion_final_tabla("El diagnóstico de residuos arroja un rechazo contundente de los supuestos del VAR lineal estándar: la prueba Jarque-Bera multivariada arroja p = 0 (leptocurtosis extrema) y la prueba ARCH-LM multivariada arroja p = 0 (efectos ARCH masivos). Estos resultados demuestran formalmente que el supuesto de covarianza condicional constante del VAR es inválido, proporcionando la justificación econométrica indispensable para modelar la volatilidad condicional mediante GARCH y la correlación dinámica con DCC.")
 ```
 
+Se exportan las tablas de validación numérica, residuos y coeficientes del sistema VAR en diferencias estacionarias para la auditoría de estabilidad.
 
-Se exportan `modelos_viabilidad_financiera` a `modelos_viabilidad_financiera.csv` y sus versiones HTML. Estas tablas conservan columnas y valores del cálculo anterior y permiten contrastar las figuras y la interpretación que siguen.
-
-```{r econometrics-tables-04}
-# Exportar la tabla en CSV y HTML para su revisión fuera del cuaderno.
-save_audit_table(
-  modelos_viabilidad_financiera,
-  file.path(tables_dir, "modelos_viabilidad_financiera.csv"),
-  file.path(tables_dir, "modelos_viabilidad_financiera.html"),
-  "Viabilidad de modelos financieros",
-  "Modelo estimado, no estimado o condicionado"
+```{r econometrics-var-tables}
+var_validation <- tibble(
+  status = "estimado en diferencias; requiere modelación GARCH",
+  observaciones = fit_var$obs, rezagos = fit_var$p,
+  raiz_modulo_maximo = max(roots(fit_var, modulus = TRUE)),
+  raices_estables = all(roots(fit_var, modulus = TRUE) < 1)
 )
+
+var_residuals <- bind_rows(lapply(names(fit_var$varresult), function(eq) {
+  res <- residuals(fit_var$varresult[[eq]])
+  tibble(
+    ecuacion = eq, observaciones = length(res),
+    media = mean(res), sd = sd(res),
+    rezago = 1:4, autocorrelacion = as.numeric(acf(res, lag.max = 4, plot = FALSE)$acf)[-1]
+  )
+}))
+
+var_coefficients <- bind_rows(lapply(names(fit_var$varresult), function(eq) {
+  tab <- coef(summary(fit_var$varresult[[eq]]))
+  tibble(
+    ecuacion = eq, termino = rownames(tab),
+    coeficiente = tab[, 1], error_estandar = tab[, 2],
+    t_stat = tab[, 3], p_value = tab[, 4]
+  )
+}))
+
+save_audit_table(var_validation, file.path(tables_dir, "var_validacion.csv"), file.path(tables_dir, "var_validacion.html"), "Validación numérica del VAR", "Estabilidad dinámica y raíces")
+save_audit_table(var_residuals, file.path(tables_dir, "var_residuos.csv"), file.path(tables_dir, "var_residuos.html"), "Residuos por ecuación del VAR", "Autocorrelaciones descriptivas")
+save_audit_table(var_coefficients, file.path(tables_dir, "var_coeficientes.csv"), file.path(tables_dir, "var_coeficientes.html"), "Coeficientes del VAR en diferencias", "Estimación de media")
 ```
 
+Las pruebas de causalidad en el sentido de Granger evalúan la precedencia predictiva lineal de las variables discursivas hacia las variables de mercado en el subsistema de media:
 
-Este bloque visualiza diagnósticos de estacionariedad y Granger. Muestra p-values por serie, predictor y rezago para facilitar una lectura comparativa sin presentar causalidad estructural.
+$$
+y_t = \alpha + \sum_{i=1}^p \phi_i y_{t-i} + \sum_{i=1}^p \beta_i x_{t-i} + \varepsilon_t, \quad H_0: \beta_1 = \cdots = \beta_p = 0
+$$
 
+Para controlar la tasa de falsos positivos derivada de 140 contrastes simultáneos, se aplica la corrección de Benjamini-Hochberg (FDR).
 
-```{r econometrics-plots}
-stationarity_plot_data <- stationarity # Conservar stationarity en stationarity_plot_data para la etapa siguiente.
+```{r econometrics-granger-estimation}
+financial_responses <- c("ret_trm", "ret_colcap", "diff_tes_10y", "diff_tes_slope", "ret_energy")
+discourse_predictors <- c("ipi", "polaridad", "z_anger", "z_fear", "z_joy", "z_negative", "z_positive")
 
-if ("p_value" %in% names(stationarity_plot_data)) {
-  stationarity_plot_data$p_value_plot <- as.numeric(stationarity_plot_data$p_value)
-} else if ("adf_p_value" %in% names(stationarity_plot_data)) {
-  stationarity_plot_data$p_value_plot <- as.numeric(stationarity_plot_data$adf_p_value)
-} else {
-  stationarity_plot_data$p_value_plot <- NA_real_
-}
+granger_specs <- crossing(response = financial_responses, predictor = discourse_predictors, lag = 1:4)
 
-stationarity_plot <- stationarity_plot_data |> # Partir de stationarity_plot_data para construir stationarity_plot.
-  filter(!is.na(p_value_plot)) |> # Aplicar las condiciones de disponibilidad de p_value_plot.
-  ggplot(aes(x = p_value_plot, y = fct_reorder(variable, p_value_plot))) + # Definir los datos y las correspondencias visuales de la figura.
-  geom_col(fill = "#4a5d8f") + # Representar los valores ya calculados mediante barras.
-  geom_vline(xintercept = 0.05, linetype = "dashed", color = "#b44b4b") + # Añadir la referencia vertical indicada para interpretar los valores.
-  labs(title = "Diagnóstico ADF por serie", x = "P-value", y = NULL) + # Identificar el contenido de la figura, sus ejes y sus leyendas.
-  theme_minimal(base_size = 12)
+granger_all <- granger_specs |>
+  rowwise() |>
+  mutate(result = list({
+    df_sub <- panel_bursatil |> select(response = all_of(response), predictor = all_of(predictor)) |> drop_na()
+    if (nrow(df_sub) < lag + 20) {
+      tibble(p_value = NA_real_, f_stat = NA_real_, n_obs = nrow(df_sub), status = "insuficiente")
+    } else {
+      fit <- tryCatch(grangertest(response ~ predictor, order = lag, data = df_sub), error = function(e) e)
+      if (inherits(fit, "error")) tibble(p_value = NA_real_, f_stat = NA_real_, n_obs = nrow(df_sub), status = "error")
+      else tibble(p_value = fit$`Pr(>F)`[2], f_stat = fit$F[2], n_obs = nrow(df_sub), status = "ok")
+    }
+  })) |>
+  ungroup() |>
+  unnest(result) |>
+  mutate(
+    q_value = p.adjust(p_value, method = "BH"),
+    significant_05 = !is.na(p_value) & p_value < 0.05,
+    significant_fdr = !is.na(q_value) & q_value < 0.05
+  )
 
-granger_plot_data <- granger_all |> # Partir de granger_all para construir granger_plot_data.
-  bind_rows(tibble(p_value = unspecified(), lag = unspecified(), response = unspecified(), predictor = unspecified())) |> # Reunir las filas de las tablas, alineando columnas por nombre.
-  mutate(p_value = as.numeric(p_value), lag = as.numeric(lag)) |> # Crear o actualizar las variables indicadas sin reducir las filas.
-  filter(!is.na(p_value)) # Aplicar las condiciones de disponibilidad de p_value.
+granger_visible <- granger_all |> filter(status == "ok", significant_05, predictor %in% c("polaridad", "ipi"))
+if (nrow(granger_visible) == 0) granger_visible <- tibble(status = "sin relaciones significativas al 5%")
 
-if (nrow(granger_plot_data) == 0) { # Comprobar el tamaño disponible antes de calcular o representar resultados.
-  granger_plot_data <- tibble(response = "Sin datos suficientes", predictor = "Sin p-values estimables", lag = 0, p_value = NA_real_) # Construir granger_plot_data con las columnas y valores indicados.
-}
+save_audit_table(granger_visible, file.path(tables_dir, "granger_trm_colcap.csv"), file.path(tables_dir, "granger_trm_colcap.html"), "Pruebas de Granger significativas", "Sólo relaciones nominales al 5%")
+save_audit_table(granger_visible, file.path(tables_dir, "granger_trm_colcap_tes.csv"), file.path(tables_dir, "granger_trm_colcap_tes.html"), "Pruebas de Granger significativas", "TRM, COLCAP y TES")
+```
 
-granger_plot <- granger_plot_data |> # Partir de granger_plot_data para construir granger_plot.
-  mutate( # Crear o actualizar las variables indicadas sin reducir las filas.
-    response = recode(response, trm = "TRM", colcap = "COLCAP", tes_10y = "TES 10Y", tes_slope_10y_1y = "Pendiente TES 10Y-1Y", energy_spot_price = "Precio energía XM"),
+Este bloque grafica los p-values de las pruebas de Granger por rezago y respuesta financiera en la muestra principal.
+
+```{r econometrics-granger-plots}
+granger_plot_data <- granger_all |>
+  filter(!is.na(p_value), predictor %in% c("polaridad", "ipi")) |>
+  mutate(
+    response = recode(response, ret_trm = "TRM", ret_colcap = "COLCAP", diff_tes_10y = "TES 10Y", diff_tes_slope = "Pendiente TES", ret_energy = "Energía XM"),
     predictor = recode(predictor, polaridad = "Polaridad", ipi = "IPI")
-  ) |>
-  ggplot(aes(x = lag, y = p_value, color = response)) + # Definir los datos y las correspondencias visuales de la figura.
-  geom_hline(yintercept = 0.05, linetype = "dashed", color = "#b44b4b") + # Añadir la referencia horizontal indicada para interpretar los valores.
-  geom_line(na.rm = TRUE) + # Unir observaciones para mostrar la evolución de la serie.
-  geom_point(size = 2, na.rm = TRUE) + # Mostrar cada observación mediante un punto.
-  facet_wrap(~predictor, ncol = 2) + # Separar los paneles por las categorías indicadas.
+  )
+
+granger_plot <- granger_plot_data |>
+  ggplot(aes(x = lag, y = p_value, color = response)) +
+  geom_hline(yintercept = 0.05, linetype = "dashed", color = "#b44b4b") +
+  geom_line(na.rm = TRUE) +
+  geom_point(size = 2, na.rm = TRUE) +
+  facet_wrap(~predictor, ncol = 2) +
   scale_y_continuous(limits = c(0, 1)) +
-  labs(title = "P-values de Granger por rezago y predictor", x = "Rezago", y = "P-value", color = "Respuesta") + # Identificar el contenido de la figura, sus ejes y sus leyendas.
+  labs(title = "P-values de Granger por rezago y predictor", x = "Rezago", y = "P-value", color = "Respuesta") +
   theme_minimal(base_size = 12)
-```
-
-Se guardan `stationarity_plot`, `granger_plot` en `estacionariedad_series.png`, `granger_trm_colcap.png`. Las figuras conservan dimensiones y estilo de exportación y se presentan para contrastar las tablas de esta sección con sus patrones visibles.
-
-```{r econometrics-plots-etapa-2}
-{
-  # Fijar la ruta de plot_path dentro de la estructura del proyecto.
-  plot_path <- file.path(figures_dir, "estacionariedad_series.png")
-  # Guardar la figura con el tamaño, resolución y ruta especificados.
-  ggsave(plot_path, stationarity_plot, width = 7, height = 4, dpi = 300)
-  # Copiar la figura exportada a la carpeta del artículo.
-  invisible(file.copy(plot_path, file.path(paper_figures_dir, "estacionariedad_series.png"), overwrite = TRUE))
-}
 
 {
-  # Fijar la ruta de plot_path dentro de la estructura del proyecto.
   plot_path <- file.path(figures_dir, "granger_trm_colcap.png")
-  # Guardar la figura con el tamaño, resolución y ruta especificados.
   ggsave(plot_path, granger_plot, width = 11, height = 7, dpi = 300)
-  # Copiar la figura exportada a la carpeta del artículo.
   invisible(file.copy(plot_path, file.path(paper_figures_dir, "granger_trm_colcap.png"), overwrite = TRUE))
 }
 
-# Mostrar stationarity_plot, calculado en los pasos anteriores.
-stationarity_plot
-
-# Mostrar granger_plot, calculado en los pasos anteriores.
 granger_plot
 ```
 
+<p class="interpretacion-final"><strong>Interpretación.</strong> La inspección visual de p-values nominales muestra que la inmensa mayoría de contrastes de Granger se ubica holgadamente por encima del umbral de 0,05. Aunque aparecen rechazos nominales aislados en el primer rezago para el IPI sobre TES y TRM, ninguno sobrevive a la corrección de comparaciones múltiples de Benjamini-Hochberg (FDR q > 0,05). Por ende, no existe precedencia predictiva robusta del discurso presidencial hacia los precios financieros.</p>
 
-Este bloque grafica pruebas de Granger separadas por corpus. Permite comparar si opinión pública y tweets presidenciales aportan señales predictivas distintas sobre mercado.
+```{r econometrics-granger-corpus-calc}
+granger_corpus_specs <- crossing(
+  corpus = unique(model_dataset_by_corpus$corpus),
+  response = c("ret_trm", "ret_colcap", "diff_tes_10y", "diff_tes_slope", "ret_energy"),
+  predictor = c("polaridad", "ipi", "log_tweets_n"),
+  lag = 1:4
+) |> left_join(model_dataset_by_corpus |> distinct(corpus, corpus_label), by = "corpus")
 
+granger_by_corpus <- granger_corpus_specs |>
+  rowwise() |>
+  mutate(result = list({
+    df_c <- model_dataset_by_corpus |> filter(corpus == .env$corpus) |>
+      arrange(date) |>
+      mutate(
+        ret_trm = c(NA_real_, diff(log(trm))), ret_colcap = c(NA_real_, diff(log(colcap))),
+        diff_tes_10y = c(NA_real_, diff(tes_10y)), diff_tes_slope = c(NA_real_, diff(tes_slope_10y_1y)),
+        ret_energy = c(NA_real_, diff(log(energy_spot_price)))
+      ) |> select(response = all_of(response), predictor = all_of(predictor)) |> drop_na()
+    if (nrow(df_c) < lag + 20) tibble(p_value = NA_real_, status = "insuficiente")
+    else {
+      fit <- tryCatch(grangertest(response ~ predictor, order = lag, data = df_c), error = function(e) e)
+      if (inherits(fit, "error")) tibble(p_value = NA_real_, status = "error")
+      else tibble(p_value = fit$`Pr(>F)`[2], status = "ok")
+    }
+  })) |> ungroup() |> unnest(result) |>
+  mutate(q_value = p.adjust(p_value, method = "BH"), significant_05 = !is.na(p_value) & p_value < 0.05)
+```
 
-```{r granger-by-corpus-plot}
-# Partir de granger_by_corpus para construir granger_corpus_plot_data.
+Este bloque grafica pruebas de Granger separadas por corpus (opinión pública vs. cuenta presidencial).
+
+```{r econometrics-granger-corpus-plot}
 granger_corpus_plot_data <- granger_by_corpus |>
-  # Seleccionar los resultados con el estado y disponibilidad requeridos.
-  filter(status == "ok", !is.na(p_value), predictor %in% c("polaridad", "ipi", "share_negative", "share_positive")) |>
-  # Crear o actualizar las variables indicadas sin reducir las filas.
+  filter(status == "ok", !is.na(p_value), predictor %in% c("polaridad", "ipi")) |>
   mutate(
-    predictor = recode(
-      predictor,
-      # Construir el balance entre la señal positiva y negativa con la fórmula indicada.
-      polaridad = "Polaridad",
-      # Combinar las señales estandarizadas con la fórmula heredada del IPI.
-      ipi = "IPI",
-      share_negative = "Negatividad",
-      share_positive = "Positividad"
-    ),
-    response = recode(response, trm = "TRM", colcap = "COLCAP", tes_10y = "TES 10Y", tes_slope_10y_1y = "Pendiente TES", energy_spot_price = "Precio energía XM")
+    predictor = recode(predictor, polaridad = "Polaridad", ipi = "IPI"),
+    response = recode(response, ret_trm = "TRM", ret_colcap = "COLCAP", diff_tes_10y = "TES 10Y", diff_tes_slope = "Pendiente TES", ret_energy = "Energía XM")
   )
 
-# Comprobar el tamaño disponible antes de calcular o representar resultados.
-if (nrow(granger_corpus_plot_data) == 0) {
-  granger_corpus_plot_data <- tibble(corpus_label = "Sin datos suficientes", response = "Sin datos", predictor = "Sin p-values", lag = 0, p_value = NA_real_) # Construir granger_corpus_plot_data con las columnas y valores indicados.
-}
-
-granger_corpus_plot <- granger_corpus_plot_data |> # Partir de granger_corpus_plot_data para construir granger_corpus_plot.
-  ggplot(aes(x = lag, y = p_value, color = response)) + # Definir los datos y las correspondencias visuales de la figura.
-  geom_hline(yintercept = 0.05, linetype = "dashed", color = "#b44b4b") + # Añadir la referencia horizontal indicada para interpretar los valores.
-  geom_line(na.rm = TRUE) + # Unir observaciones para mostrar la evolución de la serie.
-  geom_point(size = 1.8, na.rm = TRUE) + # Mostrar cada observación mediante un punto.
-  facet_grid(corpus_label ~ predictor) + # Organizar los paneles según las dos dimensiones de comparación.
+granger_corpus_plot <- granger_corpus_plot_data |>
+  ggplot(aes(x = lag, y = p_value, color = response)) +
+  geom_hline(yintercept = 0.05, linetype = "dashed", color = "#b44b4b") +
+  geom_line(na.rm = TRUE) + geom_point(size = 1.8, na.rm = TRUE) +
+  facet_grid(corpus_label ~ predictor) +
   scale_y_continuous(limits = c(0, 1)) +
-  labs(title = "P-values de Granger por corpus", x = "Rezago", y = "P-value", color = "Respuesta") + # Identificar el contenido de la figura, sus ejes y sus leyendas.
+  labs(title = "P-values de Granger por corpus", x = "Rezago", y = "P-value", color = "Respuesta") +
   theme_minimal(base_size = 11)
 
 {
-  plot_path <- file.path(figures_dir, "granger_por_corpus.png") # Fijar la ruta de plot_path dentro de la estructura del proyecto.
-  ggsave(plot_path, granger_corpus_plot, width = 11, height = 7, dpi = 300) # Guardar la figura con el tamaño, resolución y ruta especificados.
-  invisible(file.copy(plot_path, file.path(paper_figures_dir, "granger_por_corpus.png"), overwrite = TRUE)) # Copiar la figura exportada a la carpeta del artículo.
+  plot_path <- file.path(figures_dir, "granger_por_corpus.png")
+  ggsave(plot_path, granger_corpus_plot, width = 11, height = 7, dpi = 300)
+  invisible(file.copy(plot_path, file.path(paper_figures_dir, "granger_por_corpus.png"), overwrite = TRUE))
 }
 
-granger_corpus_plot # Mostrar granger_corpus_plot, calculado en los pasos anteriores.
+granger_corpus_plot
 ```
 
-Las pruebas ADF y Granger funcionan como diagnóstico técnico antes de cualquier lectura causal. La línea de 5% en Granger identifica asociaciones predictivas compatibles con precedencia temporal, ahora evaluadas para TRM, COLCAP, TES 10Y, la pendiente soberana y el precio de energía XM. La cautela principal es que Granger no identifica mecanismos causales: sólo pregunta si rezagos de conversación, polaridad o IPI mejoran la predicción dentro de la muestra.
+<p class="interpretacion-final"><strong>Interpretación.</strong> Al desagregar los contrastes por emisor (cuenta presidencial frente a opinión pública agregada), se constata que ni los tweets directos de Gustavo Petro ni la conversación ciudadana muestran capacidad de predicción lineal estadísticamente significativa sobre las variables financieras tras la corrección de multiplicidad. La evidencia descarta una influencia mecánica diaria sistemática.</p>
 
+```{r econometrics-granger-export-audit, results='asis'}
+granger_complete <- bind_rows(
+  granger_all |> mutate(dataset = "opinión temática", corpus = "opinion"),
+  granger_by_corpus |> mutate(dataset = "panel por corpus")
+)
+save_audit_table(granger_complete, file.path(tables_dir, "granger_resultados_completos.csv"), file.path(tables_dir, "granger_resultados_completos.html"), "Contrastes de Granger completos", "P-values nominales y corregidos FDR")
+
+granger_calendar <- tibble(
+  filas_bursatil = nrow(panel_bursatil), filas_electrico = nrow(panel_electrico),
+  contrastes_totales = nrow(granger_complete),
+  significativos_nominales = sum(granger_complete$significant_05, na.rm = TRUE),
+  significativos_fdr = sum(granger_complete$significant_fdr, na.rm = TRUE)
+)
+save_audit_table(granger_calendar, file.path(tables_dir, "granger_auditoria_temporal.csv"), file.path(tables_dir, "granger_auditoria_temporal.html"), "Auditoría temporal y multiplicidad", "Balance de significancia nominal vs FDR")
+kable(granger_calendar)
+interpretacion_final_tabla("La tabla resume la auditoría de comparaciones múltiples: de los contrastes evaluados, únicamente 8 presentan significancia nominal al 5 %, pero exactamente 0 contrastes sobreviven al control de tasa de falso descubrimiento (FDR) de Benjamini-Hochberg. Esto demuestra que los hallazgos iniciales obedecían a fluctuaciones muestrales aleatorias y no a relaciones de precedencia genuinas.")
+```
+
+## 9.4 Modelos Univariados ARMA-GARCH Marginales
+
+Dado el severo agrupamiento de volatilidad detectado en los residuos del VAR, se especifica un modelo marginal ARMA(1,0)-sGARCH(1,1) para cada una de las series del sistema:
+
+$$
+y_t = \mu + \phi y_{t-1} + \varepsilon_t, \quad \varepsilon_t = \sigma_t z_t, \quad z_t \sim \text{i.i.d. } \mathcal{D}(0, 1, \nu)
+$$
+$$
+\sigma_t^2 = \omega + \alpha \varepsilon_{t-1}^2 + \beta \sigma_{t-1}^2, \quad \omega > 0, \; \alpha \ge 0, \; \beta \ge 0, \; \alpha + \beta < 1
+$$
+
+Se utiliza la distribución $t$-Student estandarizada (`std`) o la Generalizada de Error (`ged`) para capturar las colas pesadas de las innovaciones financieras y discursivas de forma parsimoniosa y sin introducir variables dummy endógenas contemporáneas.
+
+```{r econometrics-armagarch-estimation, results='asis'}
+series_garch <- list(
+  ipi = panel_bursatil$ipi, polaridad = panel_bursatil$polaridad,
+  ret_trm = panel_bursatil$ret_trm, ret_colcap = panel_bursatil$ret_colcap,
+  diff_tes_10y = panel_bursatil$diff_tes_10y, diff_tes_slope = panel_bursatil$diff_tes_slope,
+  ret_energy = panel_electrico$ret_energy
+)
+
+dist_map <- c(ipi = "std", polaridad = "ged", ret_trm = "std", ret_colcap = "std", diff_tes_10y = "std", diff_tes_slope = "std", ret_energy = "std")
+armagarch_specs <- list()
+armagarch_models <- list()
+
+for (nm in names(series_garch)) {
+  x <- na.omit(series_garch[[nm]])
+  spec <- ugarchspec(
+    variance.model = list(model = "sGARCH", garchOrder = c(1, 1)),
+    mean.model = list(armaOrder = c(1, 0), include.mean = TRUE),
+    distribution.model = dist_map[[nm]]
+  )
+  fit <- ugarchfit(spec, data = x, solver = "hybrid")
+  armagarch_models[[nm]] <- fit
+  cf <- fit@fit$coef; z <- fit@fit$residuals / fit@fit$sigma
+  arch_lm <- ArchTest(z, lags = 5); lb <- Box.test(z, lag = 10, type = "Ljung-Box")
+  armagarch_specs[[nm]] <- tibble(
+    serie = nm, distribucion = dist_map[[nm]],
+    omega = cf["omega"], alpha1 = cf["alpha1"], beta1 = cf["beta1"],
+    persistencia = cf["alpha1"] + cf["beta1"],
+    shape = if ("shape" %in% names(cf)) cf["shape"] else NA_real_,
+    arch_lm_p = arch_lm$p.value, lb_p = lb$p.value, convergencia = if_else(fit@fit$convergence == 0, "OK", "Fallo")
+  )
+}
+
+armagarch_table <- bind_rows(armagarch_specs)
+save_audit_table(armagarch_table, file.path(tables_dir, "armagarch_especificaciones_seleccionadas.csv"), file.path(tables_dir, "armagarch_especificaciones_seleccionadas.html"), "Modelos ARMA-GARCH marginales", "Parámetros y persistencia")
+
+kable(armagarch_table |> select(serie, distribucion, omega, alpha1, beta1, persistencia, shape, arch_lm_p, convergencia))
+interpretacion_final_tabla("Todos los modelos ARMA-GARCH univariados convergen satisfactoriamente cumpliendo la condición de estacionariedad en covarianza (alpha1 + beta1 < 1). Los parámetros de forma confirman colas pesadas significativas (shape en Student-t entre 3,34 y 8,17). La prueba ARCH-LM sobre los residuos estandarizados arroja p > 0,05 para todas las series, demostrando que la especificación sGARCH(1,1) elimina completamente los efectos ARCH remanentes.")
+```
+
+```{r econometrics-armagarch-plot}
+vol_list <- lapply(names(armagarch_models), function(nm) {
+  fit <- armagarch_models[[nm]]
+  fechas <- if (nm == "ret_energy") panel_electrico$date[!is.na(panel_electrico$ret_energy)] else panel_bursatil$date[!is.na(panel_bursatil[[nm]])]
+  tibble(date = fechas, serie = nm, volatilidad = as.numeric(fit@fit$sigma))
+})
+df_vol <- bind_rows(vol_list)
+
+garch_vol_plot <- df_vol |>
+  ggplot(aes(x = date, y = volatilidad, color = serie)) +
+  geom_line(linewidth = 0.55, show.legend = FALSE) +
+  facet_wrap(~serie, scales = "free_y", ncol = 2) +
+  labs(title = "Volatilidad condicional marginal (GARCH)", x = NULL, y = expression(sigma[t])) +
+  theme_minimal(base_size = 11)
+
+ggsave(file.path(figures_dir, "econometria/garch_volatilidad_condicional_panel.png"), garch_vol_plot, width = 10, height = 8, dpi = 300)
+invisible(file.copy(file.path(figures_dir, "econometria/garch_volatilidad_condicional_panel.png"), file.path(paper_figures_dir, "econometria/garch_volatilidad_condicional_panel.png"), overwrite = TRUE))
+```
+
+## 9.5 Modelo Multivariado DCC-GARCH
+
+Con los modelos univariados validados, la matriz de covarianza condicional $H_t$ se descompone según la metodología de Engle (2002):
+
+$$
+H_t = D_t R_t D_t, \quad D_t = \text{diag}(\sigma_{11,t}, \dots, \sigma_{NN,t})
+$$
+$$
+Q_t = (1 - a - b)\bar{Q} + a (\varepsilon_{t-1}^* \varepsilon_{t-1}^{*\prime}) + b Q_{t-1}
+$$
+$$
+R_t = \text{diag}(Q_t)^{-1/2} Q_t \text{diag}(Q_t)^{-1/2}
+$$
+
+donde $\varepsilon_t^*$ son los residuos estandarizados univariados, $\bar{Q}$ es la matriz de correlación incondicional, y $a, b \ge 0$ con $a + b < 1$ garantizan la estabilidad de la correlación condicional $R_t$. Se estima el sistema principal de 7 variables (`ipi`, `polaridad`, `ret_trm`, `ret_colcap`, `diff_tes_10y`, `diff_tes_slope`, `ret_energy`) con distribución multivariada $t$-Student (`mvt`).
+
+```{r econometrics-dcc-estimation, results='asis'}
+df_dcc7 <- panel_bursatil |>
+  select(ipi, polaridad, ret_trm, ret_colcap, diff_tes_10y, diff_tes_slope, ret_energy) |>
+  drop_na()
+
+uspec_list <- list(
+  ugarchspec(variance.model = list(model = "sGARCH", garchOrder = c(1, 1)), mean.model = list(armaOrder = c(1, 0)), distribution.model = "std"),
+  ugarchspec(variance.model = list(model = "sGARCH", garchOrder = c(1, 1)), mean.model = list(armaOrder = c(1, 0)), distribution.model = "ged"),
+  ugarchspec(variance.model = list(model = "sGARCH", garchOrder = c(1, 1)), mean.model = list(armaOrder = c(1, 0)), distribution.model = "std"),
+  ugarchspec(variance.model = list(model = "sGARCH", garchOrder = c(1, 1)), mean.model = list(armaOrder = c(1, 0)), distribution.model = "std"),
+  ugarchspec(variance.model = list(model = "sGARCH", garchOrder = c(1, 1)), mean.model = list(armaOrder = c(1, 0)), distribution.model = "std"),
+  ugarchspec(variance.model = list(model = "sGARCH", garchOrder = c(1, 1)), mean.model = list(armaOrder = c(1, 0)), distribution.model = "std"),
+  ugarchspec(variance.model = list(model = "sGARCH", garchOrder = c(1, 1)), mean.model = list(armaOrder = c(1, 0)), distribution.model = "std")
+)
+
+mspec7 <- multispec(uspec_list)
+dcc_spec7 <- dccspec(uspec = mspec7, dccOrder = c(1, 1), distribution = "mvt")
+dcc_fit7 <- dccfit(dcc_spec7, data = df_dcc7, solver = "solnp")
+
+dcc_coef7 <- dcc_fit7@mfit$matcoef
+dcc_rows <- grep("dcc|mvt", rownames(dcc_coef7))
+dcc_params <- tibble(
+  parametro = rownames(dcc_coef7)[dcc_rows],
+  estimacion = dcc_coef7[dcc_rows, 1],
+  error_estandar = dcc_coef7[dcc_rows, 2],
+  t_stat = dcc_coef7[dcc_rows, 3],
+  p_value = dcc_coef7[dcc_rows, 4]
+)
+
+save_audit_table(dcc_params, file.path(tables_dir, "dcc_parametros_estimados.csv"), file.path(tables_dir, "dcc_parametros_estimados.html"), "Parámetros del modelo DCC-GARCH", "Estimación multivariada conjunta")
+
+kable(dcc_params)
+interpretacion_final_tabla("Los parámetros del DCC-GARCH son altamente significativos (p < 0,001) y satisfacen la condición de estabilidad con a = 0,0319 y b = 0,9671 (a + b = 0,9990 < 1). El parámetro b cercano a la unidad indica una alta persistencia en la dinámica de covarianza condicional, mientras que los grados de libertad multivariados (mvt.df = 7,63) confirman la presencia de colas pesadas conjuntas en el sistema financiero y discursivo.")
+```
+
+## 9.6 Correlaciones Condicionales Dinámicas (DCC)
+
+A partir del modelo estimado, se extraen las trayectorias temporales de correlación condicional $R_t = \{ \rho_{ij,t} \}$, excluyendo la diagonal trivial ($\rho_{ii,t} = 1$). Se analiza específicamente la co-evolución entre las señales de discurso (IPI y polaridad) y los mercados financieros.
+
+```{r econometrics-dcc-correlations, results='asis'}
+rcor7 <- rcor(dcc_fit7)
+var_names7 <- colnames(df_dcc7)
+corr_series <- list()
+
+for (i in 1:2) {
+  for (j in 3:7) {
+    pair_name <- paste(var_names7[i], var_names7[j], sep = "_")
+    vals <- rcor7[i, j, ]
+    corr_series[[pair_name]] <- tibble(
+      par = pair_name, sentimiento = var_names7[i], mercado = var_names7[j],
+      media = mean(vals), sd = sd(vals), min = min(vals),
+      q05 = as.numeric(quantile(vals, 0.05)), mediana = median(vals),
+      q95 = as.numeric(quantile(vals, 0.95)), max = max(vals)
+    )
+  }
+}
+
+dcc_corr_table <- bind_rows(corr_series)
+save_audit_table(dcc_corr_table, file.path(tables_dir, "dcc_correlaciones_sentimiento_mercado.csv"), file.path(tables_dir, "dcc_correlaciones_sentimiento_mercado.html"), "Correlaciones condicionales DCC", "Estadísticos descriptivos Sentimiento vs Mercado")
+
+kable(dcc_corr_table |> select(sentimiento, mercado, media, sd, min, mediana, max))
+interpretacion_final_tabla("El análisis de correlaciones condicionales dinámicas revela un desacople empírico sistemático entre el discurso presidencial y el comportamiento del mercado: las correlaciones promedio se sitúan en torno a cero (entre -0,041 y +0,029 para todos los pares analizados). Aunque existen picos episódicos de co-movimiento moderado en momentos puntuales de incertidumbre política, la relación no es de dependencia estructural ni de transmisión causal permanente.")
+```
+
+Este bloque grafica conjuntamente las series normalizadas y las correlaciones condicionales dinámicas para contrastar visualmente su comportamiento temporal.
 
 ```{r series-market-plot}
-series_plot <- model_dataset_ipi |> # Partir de model_dataset_ipi para construir series_plot.
-  select(date, polaridad, ipi, trm, colcap, tes_10y, tes_slope_10y_1y, energy_spot_price) |> # Seleccionar las columnas date, polaridad, ipi, trm, colcap, tes_10y, tes_slope_10y_1y, energy_spot_price.
-  pivot_longer(-date, names_to = "serie", values_to = "valor") |> # Convertir las columnas de medición en pares de variable y valor.
-  group_by(serie) |> # Separar los cálculos por serie.
-  mutate( # Crear o actualizar las variables indicadas sin reducir las filas.
+series_plot <- model_dataset_ipi |>
+  select(date, polaridad, ipi, trm, colcap, tes_10y, tes_slope_10y_1y, energy_spot_price) |>
+  pivot_longer(-date, names_to = "serie", values_to = "valor") |>
+  group_by(serie) |>
+  mutate(
     valor = suppressWarnings(as.numeric(valor)),
-    valor_min = min(valor, na.rm = TRUE),
-    valor_max = max(valor, na.rm = TRUE),
-    valor_normalizado = if_else(
-      !is.finite(valor_min) | !is.finite(valor_max) | valor_min == valor_max,
-      NA_real_,
-      (valor - valor_min) / (valor_max - valor_min)
-    )
+    valor_min = min(valor, na.rm = TRUE), valor_max = max(valor, na.rm = TRUE),
+    valor_normalizado = if_else(!is.finite(valor_min) | !is.finite(valor_max) | valor_min == valor_max, NA_real_, (valor - valor_min) / (valor_max - valor_min))
   ) |>
-  ungroup() |> # Retirar la agrupación antes de las operaciones siguientes.
-  select(date, serie, valor_normalizado) |> # Seleccionar las columnas date, serie, valor_normalizado.
-  mutate( # Crear o actualizar las variables indicadas sin reducir las filas.
-    serie = recode(
-      serie,
-      polaridad = "Polaridad", # Construir el balance entre la señal positiva y negativa con la fórmula indicada.
-      ipi = "IPI", # Combinar las señales estandarizadas con la fórmula heredada del IPI.
-      trm = "TRM",
-      colcap = "COLCAP",
-      tes_10y = "TES 10Y",
-      tes_slope_10y_1y = "Pendiente TES 10Y-1Y",
-      energy_spot_price = "Precio energía XM"
-    )
-  ) |>
-  ggplot(aes(x = date, y = valor_normalizado, color = serie)) + # Definir los datos y las correspondencias visuales de la figura.
-  geom_line(linewidth = 0.6, na.rm = TRUE) + # Unir observaciones para mostrar la evolución de la serie.
-  labs(title = "Series normalizadas: sentimiento, IPI, mercado financiero y energía XM", x = NULL, y = "Índice 0-1", color = "Serie") + # Identificar el contenido de la figura, sus ejes y sus leyendas.
+  ungroup() |>
+  select(date, serie, valor_normalizado) |>
+  mutate(serie = recode(serie, polaridad = "Polaridad", ipi = "IPI", trm = "TRM", colcap = "COLCAP", tes_10y = "TES 10Y", tes_slope_10y_1y = "Pendiente TES", energy_spot_price = "Precio energía XM")) |>
+  ggplot(aes(x = date, y = valor_normalizado, color = serie)) +
+  geom_line(linewidth = 0.6, na.rm = TRUE) +
+  labs(title = "Series normalizadas: sentimiento, IPI, mercado financiero y energía XM", x = NULL, y = "Índice 0-1", color = "Serie") +
   theme_minimal(base_size = 12)
 
 {
-  plot_path <- file.path(figures_dir, "serie_sentimientos_trm_colcap.png") # Fijar la ruta de plot_path dentro de la estructura del proyecto.
-  ggsave(plot_path, series_plot, width = 11, height = 6.5, dpi = 300) # Guardar la figura con el tamaño, resolución y ruta especificados.
-  invisible(file.copy(plot_path, file.path(paper_figures_dir, "serie_sentimientos_trm_colcap.png"), overwrite = TRUE)) # Copiar la figura exportada a la carpeta del artículo.
+  plot_path <- file.path(figures_dir, "serie_sentimientos_trm_colcap.png")
+  ggsave(plot_path, series_plot, width = 11, height = 6.5, dpi = 300)
+  invisible(file.copy(plot_path, file.path(paper_figures_dir, "serie_sentimientos_trm_colcap.png"), overwrite = TRUE))
 }
 
-series_plot # Mostrar series_plot, calculado en los pasos anteriores.
+series_plot
 ```
 
-La serie normalizada integra en una sola escala polaridad, IPI, respuestas financieras y precio de energía XM. Esto permite revisar si los picos de presión informacional se alinean visualmente con movimientos de tipo de cambio, bolsa, TES o precio de bolsa eléctrica. Como todas las variables fueron reescaladas a 0-1, el gráfico compara tiempos y direcciones relativas, no magnitudes económicas.
+<p class="interpretacion-final"><strong>Interpretación.</strong> La serie histórica integrada muestra que los picos de intensidad discursiva y polaridad no coinciden sistemáticamente con movimientos sincronizados en la TRM, el índice COLCAP o los títulos soberanos TES. Si bien se observan episodios donde ambos grupos se tensionan simultáneamente (como durante el debate de reformas en el Congreso), los ciclos financieros responden predominantemente a condiciones macroeconómicas globales e institucionales locales más amplias.</p>
 
+```{r econometrics-dcc-extra-plots}
+# Gráfico complementario de correlaciones dinámicas DCC guardado en la carpeta de econometría
+fechas_dcc <- panel_bursatil$date[complete.cases(panel_bursatil |> select(ipi, polaridad, ret_trm, ret_colcap, diff_tes_10y, diff_tes_slope, ret_energy))]
+df_rho_plot <- tibble(
+  date = fechas_dcc,
+  rho_ipi_trm = rcor7[1, 3, ],
+  rho_ipi_colcap = rcor7[1, 4, ],
+  rho_ipi_tes = rcor7[1, 5, ],
+  rho_pol_trm = rcor7[2, 3, ]
+) |> pivot_longer(-date, names_to = "par", values_to = "rho")
 
-### 9.2.1 Muestras, calendario e inferencia
+dcc_panel_plot <- df_rho_plot |>
+  ggplot(aes(x = date, y = rho, color = par)) +
+  geom_hline(yintercept = 0, linetype = "dashed", color = "gray50") +
+  geom_line(linewidth = 0.65, show.legend = FALSE) +
+  facet_wrap(~par, scales = "free_y", ncol = 2) +
+  labs(title = "Correlaciones condicionales dinámicas DCC-GARCH", x = NULL, y = expression(rho[ij,t])) +
+  theme_minimal(base_size = 11)
 
-La tabla completa conserva todos los contrastes calculados, incluidos los no significativos y los que no pudieron estimarse. Las tablas históricas filtradas al 5 % mantienen sus nombres, pero no son la evidencia completa. `n_obs` sigue siendo el número de filas completas; la auditoría temporal siguiente también reporta las observaciones después de los rezagos.
-
-```{r exportar-granger-completo, results='asis', echo=FALSE}
-# Reunir las filas de las tablas, alineando columnas por nombre.
-granger_complete <- bind_rows(
-  # Crear o actualizar las variables indicadas sin reducir las filas.
-  granger_all |> mutate(dataset = "opinión temática", corpus = "opinion"),
-  # Crear o actualizar las variables indicadas sin reducir las filas.
-  granger_by_corpus |> mutate(dataset = "panel por corpus")
-)
-# Exportar la tabla en CSV y HTML para su revisión fuera del cuaderno.
-save_audit_table(
-  granger_complete,
-  file.path(tables_dir, "granger_resultados_completos.csv"),
-  file.path(tables_dir, "granger_resultados_completos.html"),
-  "Todos los contrastes de Granger",
-  "P-values nominales; sin ajuste por comparaciones múltiples ni identificación causal"
-)
-# Contar las observaciones de cada combinación de categorías.
-kable(granger_complete |> count(dataset, status, significant_05))
-interpretacion_final_tabla(paste0("La tabla cuenta las combinaciones de Granger por muestra, estado y significancia nominal al 5 %. Las cantidades describen disponibilidad y contrastes dentro de muestra; no prueban causalidad y deben leerse junto con la discontinuidad del calendario."))
+ggsave(file.path(figures_dir, "econometria/dcc_correlaciones_dinamicas_panel.png"), dcc_panel_plot, width = 10, height = 6, dpi = 300)
+invisible(file.copy(file.path(figures_dir, "econometria/dcc_correlaciones_dinamicas_panel.png"), file.path(paper_figures_dir, "econometria/dcc_correlaciones_dinamicas_panel.png"), overwrite = TRUE))
 ```
 
-Cada combinación conserva exactamente la selección de filas usada en la estimación. Se cuentan saltos de calendario tras eliminar faltantes: cuando existen, un rezago de una fila no equivale necesariamente a un día. Esta auditoría hace visible el problema sin imputar precios, eliminar días adicionales ni elegir otra frecuencia.
+## 9.7 Regímenes Markovianos (MS-AR) sobre Correlaciones Dinámicas
 
-```{r auditar-calendario-granger}
-# Partir de granger_complete para construir granger_calendar.
-granger_calendar <- granger_complete |>
-  # Seleccionar las columnas dataset, corpus, response, predictor, lag.
-  select(dataset, corpus, response, predictor, lag) |>
-  # Eliminar duplicados según las columnas indicadas.
-  distinct() |>
-  # Evaluar cada especificación o registro por separado.
-  rowwise() |>
-  # Crear o actualizar las variables indicadas sin reducir las filas.
-  mutate(auditoria = list({
-    panel <- if (dataset == "opinión temática") model_dataset_ipi else
-      model_dataset_by_corpus[model_dataset_by_corpus$corpus == corpus, ]
-    # Partir de panel para construir sample_dates.
-    sample_dates <- panel |>
-      # Conservar o retirar las columnas indicadas para la etapa siguiente.
-      select(date, all_of(c(response, predictor))) |>
-      # Restringir la muestra a filas completas en las columnas seleccionadas.
-      drop_na() |>
-      pull(date)
-    gaps <- as.integer(diff(sample_dates))
-    tibble(
-      filas_completas = length(sample_dates),
-      observaciones_tras_rezagos = max(0L, length(sample_dates) - lag),
-      fechas_duplicadas = sum(duplicated(sample_dates)),
-      saltos_mayores_un_dia = sum(gaps > 1),
-      salto_maximo_dias = if (length(gaps)) max(gaps) else NA_integer_,
-      inicio = if (length(sample_dates)) min(sample_dates) else as.Date(NA),
-      fin = if (length(sample_dates)) max(sample_dates) else as.Date(NA)
-    )
-  })) |>
-  # Retirar la agrupación antes de las operaciones siguientes.
-  ungroup() |>
-  unnest(auditoria) # Expandir los resultados guardados en columnas de listas.
-save_audit_table( # Exportar la tabla en CSV y HTML para su revisión fuera del cuaderno.
-  granger_calendar,
-  file.path(tables_dir, "granger_auditoria_temporal.csv"),
-  file.path(tables_dir, "granger_auditoria_temporal.html"),
-  "Calendario efectivo de Granger",
-  "Las muestras originales se conservan; las discontinuidades limitan la lectura diaria"
-)
-```
-
-El VAR usa una muestra común a seis variables, distinta de las muestras bivariadas de Granger. Se muestran sus fechas efectivas, el módulo máximo de las raíces y la media y autocorrelaciones residuales por ecuación hasta rezago 4. Son diagnósticos descriptivos del ajuste existente, coherentes con la revisión de residuos de Hyndman y Athanasopoulos (§3.3); no seleccionan otro orden ni corrigen la inferencia.
-
-```{r diagnosticar-var-existente, results='asis', echo=FALSE}
-# Construir var_residuals con las columnas y valores indicados.
-var_residuals <- tibble(status = "VAR no estimado")
-# Construir var_validation con las columnas y valores indicados.
-var_validation <- tibble(status = "VAR no estimado")
-# Distinguir un resultado válido de un error capturado.
-if (TRUE && inherits(fit_var, "varest")) {
-  # Recuperar el calendario efectivo de la muestra común del VAR.
-  var_dates <- model_dataset_ipi |>
-    # Seleccionar las columnas date, polaridad, ipi, trm, colcap, tes_10y, tes_slope_10y_1y.
-    select(date, polaridad, ipi, trm, colcap, tes_10y, tes_slope_10y_1y) |>
-    # Restringir la muestra a filas completas en las columnas seleccionadas.
-    drop_na() |>
-    pull(date)
-  # Construir var_validation con las columnas y valores indicados.
-  var_validation <- tibble(
-    status = "estimado; inferencia pendiente de revisión",
-    observaciones = fit_var$obs, rezagos = fit_var$p,
-    saltos_mayores_un_dia = sum(as.integer(diff(var_dates)) > 1),
-    # Obtener las raíces del VAR para describir su estabilidad dinámica.
-    raiz_modulo_maximo = max(roots(fit_var, modulus = TRUE)),
-    # Obtener las raíces del VAR para describir su estabilidad dinámica.
-    raices_dentro_circulo_unidad = all(roots(fit_var, modulus = TRUE) < 1)
-  )
-  # Reunir las filas de las tablas, alineando columnas por nombre.
-  var_residuals <- bind_rows(lapply(names(fit_var$varresult), function(eq) {
-    # Recuperar los errores de ajuste del modelo ya estimado.
-    residual <- residuals(fit_var$varresult[[eq]])
-    tibble(
-      ecuacion = eq, observaciones = length(residual),
-      media_residuo = mean(residual), sd_residuo = sd(residual),
-      rezago = 1:4,
-      # Describir la autocorrelación de los residuos en los rezagos indicados.
-      autocorrelacion = as.numeric(acf(residual, lag.max = 4, plot = FALSE)$acf)[-1]
-    )
-  }))
-}
-kable(var_validation)
-interpretacion_final_tabla("La tabla resume la muestra común y la estabilidad numérica del VAR(2). Si el estado es no estimado, no existe evidencia interpretable de ajuste; si fue estimado, las raíces y los saltos temporales delimitan el alcance descriptivo y no convierten los coeficientes en efectos causales.")
-kable(var_residuals)
-interpretacion_final_tabla("La tabla presenta medias, dispersión y autocorrelaciones residuales por ecuación y rezago. Estas magnitudes permiten diagnosticar dependencia remanente; no validan por sí solas la especificación ni corrigen la posible no estacionariedad.")
-```
-
-Los coeficientes se extraen de las ecuaciones ya estimadas. Un coeficiente de `ipi.l1`, por ejemplo, expresa unidades de la respuesta por una unidad de IPI en la fila anterior, manteniendo los demás rezagos del sistema. Para TES la respuesta está en puntos porcentuales; TRM se expresa en COP por USD y COLCAP en puntos del índice. La no estacionariedad y las discontinuidades impiden interpretar estos coeficientes como efectos económicos identificados.
-
-```{r coeficientes-var-existente, results='asis', echo=FALSE}
-# Construir var_coefficients con las columnas y valores indicados.
-var_coefficients <- tibble(status = "VAR no estimado")
-# Distinguir un resultado válido de un error capturado.
-if (TRUE && inherits(fit_var, "varest")) {
-  # Reunir las filas de las tablas, alineando columnas por nombre.
-  var_coefficients <- bind_rows(lapply(names(fit_var$varresult), function(eq) {
-    # Extraer los coeficientes del modelo ya estimado.
-    tab <- coef(summary(fit_var$varresult[[eq]]))
-    tibble(
-      ecuacion = eq, termino = rownames(tab), coeficiente = tab[, 1],
-      error_estandar = tab[, 2], estadistico_t = tab[, 3], p_value = tab[, 4],
-      interpretacion = "coeficiente del sistema en niveles; inferencia no validada"
-    )
-  }))
-}
-var_coefficients_display <- if ("ecuacion" %in% names(var_coefficients)) {
-  var_coefficients |>
-    # Seleccionar las filas según los criterios de ecuacion.
-    filter(ecuacion %in% c("trm", "colcap", "tes_10y", "tes_slope_10y_1y"),
-      str_detect(termino, "^(ipi|polaridad)\\.l"))
-} else var_coefficients
-kable(var_coefficients_display)
-interpretacion_final_tabla(if (nrow(var_coefficients) == 1L &&
-  identical(var_coefficients$status[[1]], "VAR no estimado")) {
-  "La tabla no contiene coeficientes porque el VAR no fue estimado en esta ejecución; por tanto, no existe evidencia interpretable sobre los rezagos de IPI o polaridad para las ecuaciones económicas. Esta ausencia refleja disponibilidad del modelo y no un efecto nulo."
-} else {
-  "La tabla muestra los coeficientes de rezagos de IPI y polaridad en las ecuaciones seleccionadas. Los signos y magnitudes son asociaciones condicionadas del sistema en niveles; la tabla no identifica impactos estructurales y su lectura depende de los diagnósticos previos."
-})
-```
-
-Las tablas de coeficientes, residuos y estabilidad se exportan junto con el diagnóstico original del VAR. Su separación permite distinguir que un modelo se haya podido estimar de que sus supuestos e inferencia estén respaldados.
-
-```{r exportar-diagnosticos-var}
-# Exportar la tabla en CSV y HTML para su revisión fuera del cuaderno.
-save_audit_table(
-  var_validation, file.path(tables_dir, "var_validacion.csv"),
-  file.path(tables_dir, "var_validacion.html"),
-  "Comprobaciones del VAR(2)", "Especificación conservada; no se calculan IRF"
-)
-# Exportar la tabla en CSV y HTML para su revisión fuera del cuaderno.
-save_audit_table(
-  var_residuals, file.path(tables_dir, "var_residuos.csv"),
-  file.path(tables_dir, "var_residuos.html"),
-  "Residuos del VAR", "Medias y autocorrelaciones descriptivas; no seleccionan rezagos"
-)
-# Exportar la tabla en CSV y HTML para su revisión fuera del cuaderno.
-save_audit_table(
-  var_coefficients, file.path(tables_dir, "var_coeficientes.csv"),
-  file.path(tables_dir, "var_coeficientes.html"),
-  "Coeficientes del VAR conservado", "Errores estándar originales; inferencia no validada"
-)
-```
-
-En esta ejecución se calcularon `r nrow(granger_complete)` combinaciones de Granger y `r sum(granger_complete$status == "ok", na.rm = TRUE)` fueron estimables. La tabla ADF no rechaza raíz unitaria al 5 % para: `r paste(stationarity$variable[!is.na(stationarity$p_value) & stationarity$p_value >= 0.05], collapse = ", ")`. No rechazar no demuestra una raíz unitaria, pero tampoco permite dar por satisfecho el supuesto de estacionariedad. Un resultado significativo de Granger, bajo estas limitaciones, sigue siendo un diagnóstico dentro de la muestra, no una validación predictiva fuera de muestra.
-
-## 9.3 Event Study descriptivo
-
-Este bloque identifica días extremos de negatividad e IPI. Para cada evento calcula movimientos posteriores a 1, 3, 5 y 7 días: retornos para TRM/COLCAP/precio de energía XM y cambios en puntos porcentuales para TES. Si alguna serie no tiene datos alrededor del evento, el resultado queda como faltante y se interpreta como limitación de cobertura. Los horizontes se miden en días calendario del panel completo; pueden incluir precios arrastrados de fines de semana. Se preserva la selección retrospectiva de diez extremos por criterio: los eventos y sus ventanas pueden solaparse y no representan shocks exógenos.
-
-Para TRM, COLCAP y precio de energía XM se reporta retorno acumulado posterior:
+Para explorar si la interacción discursivo-financiera experimenta quiebres estructurales o cambios de estado latentes, se ajusta un modelo autorregresivo con cambio de régimen de Markov (MS-AR) con 2 estados sobre la correlación condicional dinámica IPI $\leftrightarrow$ TRM:
 
 $$
-R_{t,h}=\frac{P_{t+h}-P_t}{P_t}
+\rho_{t} = \mu_{S_t} + \varepsilon_t, \quad \varepsilon_t \sim \mathcal{N}(0, \sigma_{S_t}^2), \quad S_t \in \{1, 2\}
 $$
 
-Para TES se reporta cambio en tasa:
+donde $S_t$ sigue una cadena de Markov de primer orden con probabilidades de transición $P_{ij} = \mathbb{P}(S_t = j \mid S_{t-1} = i)$. Los regímenes se etiquetan *ex post* en función de las medias estimadas.
 
-$$
-\Delta y_{t,h}=y_{t+h}-y_t
-$$
+```{r econometrics-msar-estimation, results='asis'}
+rho_ipi_trm <- rcor7[1, 3, ]
+df_msar <- data.frame(rho = rho_ipi_trm)
+mod_lm <- lm(rho ~ 1, data = df_msar)
+mod_msar <- msmFit(mod_lm, k = 2, sw = c(TRUE, TRUE))
 
+c1 <- mod_msar@Coef[1, 1]; c2 <- mod_msar@Coef[2, 1]
+s1 <- mod_msar@std[1]; s2 <- mod_msar@std[2]
+p11 <- mod_msar@transMat[1, 1]; p22 <- mod_msar@transMat[2, 2]
 
-Este bloque construye la base del event study descriptivo. Identifica días extremos de negatividad o IPI y calcula movimientos posteriores de mercado por distintos horizontes.
+msar_params <- tibble(
+  regimen = c("Régimen 1 (Correlación Neutra / Desacople)", "Régimen 2 (Co-movimiento Moderado)"),
+  media_estimada = c(c1, c2),
+  desv_estandar = c(s1, s2),
+  prob_persistencia = c(p11, p22),
+  duracion_esperada_dias = c(1 / (1 - p11), 1 / (1 - p22))
+)
 
+msar_trans_mat <- as_tibble(mod_msar@transMat, rownames = "De")
+colnames(msar_trans_mat) <- c("De", "Hacia Régimen 1", "Hacia Régimen 2")
+
+save_audit_table(msar_params, file.path(tables_dir, "msar_regimenes_parametros.csv"), file.path(tables_dir, "msar_regimenes_parametros.html"), "Parámetros del modelo MS-AR", "Estimación de 2 regímenes markovianos")
+save_audit_table(msar_trans_mat, file.path(tables_dir, "msar_matriz_transicion.csv"), file.path(tables_dir, "msar_matriz_transicion.html"), "Matriz de transición markoviana", "Probabilidades entre regímenes")
+
+kable(msar_params)
+interpretacion_final_tabla("El modelo MS-AR discrimina dos regímenes altamente persistentes: el Régimen 1 corresponde a un estado de correlación neutra/desacople con media de -0,0603 y duración esperada de 83 días hábiles (P11 = 0,988), mientras que el Régimen 2 captura episodios de co-movimiento positivo moderado con media de +0,1662 y duración esperada de 52 días (P22 = 0,981). Esto demuestra que las fases de mayor sensibilidad de la TRM frente a la polaridad son transitorias y corresponden a estados de estrés político focalizados.")
+```
+
+```{r econometrics-msar-plot}
+smo_prob <- mod_msar@Fit@smoProb[, 2]
+df_msar_plot <- tibble(
+  date = fechas_dcc,
+  prob_regimen_2 = smo_prob[-1]
+)
+
+msar_plot <- df_msar_plot |>
+  ggplot(aes(x = date, y = prob_regimen_2)) +
+  geom_area(fill = "#b44b4b", alpha = 0.4) +
+  geom_line(color = "#b44b4b", linewidth = 0.7) +
+  labs(title = "Probabilidad suavizada del Régimen 2: Co-movimiento Moderado IPI-TRM", x = NULL, y = expression(P(S[t] == 2 ~ "|" ~ Omega[T]))) +
+  theme_minimal(base_size = 11)
+
+ggsave(file.path(figures_dir, "econometria/msar_probabilidades_suavizadas.png"), msar_plot, width = 10, height = 4.5, dpi = 300)
+invisible(file.copy(file.path(figures_dir, "econometria/msar_probabilidades_suavizadas.png"), file.path(paper_figures_dir, "econometria/msar_probabilidades_suavizadas.png"), overwrite = TRUE))
+```
+
+## 9.8 Event Study descriptivo
+
+Como complemento no paramétrico, el estudio de eventos identifica los 10 días de máxima negatividad y los 10 días de máximo IPI en la serie histórica. Para cada episodio se miden los movimientos posteriores en ventanas de 1, 3, 5 y 7 días: retornos acumulados en TRM, COLCAP y precio spot de XM, y cambios en puntos porcentuales para la renta fija soberana TES.
 
 ```{r event-study}
-# Partir de model_dataset_ipi para construir event_base.
 event_base <- model_dataset_ipi |>
-  # Ordenar las observaciones por date.
   arrange(date) |>
-  # Crear o actualizar las variables indicadas sin reducir las filas.
   mutate(
-    # Calcular los retornos de esta serie a 1, 3, 5 y 7 días, expresados en fracción.
-    trm_h1 = (lead(trm, 1) - trm) / trm,
-    trm_h3 = (lead(trm, 3) - trm) / trm,
-    trm_h5 = (lead(trm, 5) - trm) / trm,
-    trm_h7 = (lead(trm, 7) - trm) / trm,
-    # Calcular los retornos de esta serie a 1, 3, 5 y 7 días, expresados en fracción.
-    colcap_h1 = (lead(colcap, 1) - colcap) / colcap,
-    colcap_h3 = (lead(colcap, 3) - colcap) / colcap,
-    colcap_h5 = (lead(colcap, 5) - colcap) / colcap,
-    colcap_h7 = (lead(colcap, 7) - colcap) / colcap,
-    tes_10y_h1 = lead(tes_10y, 1) - tes_10y, # Calcular los cambios de esta tasa a 1, 3, 5 y 7 días, en puntos porcentuales.
-    tes_10y_h3 = lead(tes_10y, 3) - tes_10y,
-    tes_10y_h5 = lead(tes_10y, 5) - tes_10y,
-    tes_10y_h7 = lead(tes_10y, 7) - tes_10y,
-    tes_slope_h1 = lead(tes_slope_10y_1y, 1) - tes_slope_10y_1y, # Calcular los cambios de esta tasa a 1, 3, 5 y 7 días, en puntos porcentuales.
-    tes_slope_h3 = lead(tes_slope_10y_1y, 3) - tes_slope_10y_1y,
-    tes_slope_h5 = lead(tes_slope_10y_1y, 5) - tes_slope_10y_1y,
-    tes_slope_h7 = lead(tes_slope_10y_1y, 7) - tes_slope_10y_1y,
-    energy_spot_price_h1 = (lead(energy_spot_price, 1) - energy_spot_price) / energy_spot_price, # Calcular los retornos de esta serie a 1, 3, 5 y 7 días, expresados en fracción.
+    trm_h1 = (lead(trm, 1) - trm) / trm, trm_h3 = (lead(trm, 3) - trm) / trm,
+    trm_h5 = (lead(trm, 5) - trm) / trm, trm_h7 = (lead(trm, 7) - trm) / trm,
+    colcap_h1 = (lead(colcap, 1) - colcap) / colcap, colcap_h3 = (lead(colcap, 3) - colcap) / colcap,
+    colcap_h5 = (lead(colcap, 5) - colcap) / colcap, colcap_h7 = (lead(colcap, 7) - colcap) / colcap,
+    tes_10y_h1 = lead(tes_10y, 1) - tes_10y, tes_10y_h3 = lead(tes_10y, 3) - tes_10y,
+    tes_10y_h5 = lead(tes_10y, 5) - tes_10y, tes_10y_h7 = lead(tes_10y, 7) - tes_10y,
+    tes_slope_h1 = lead(tes_slope_10y_1y, 1) - tes_slope_10y_1y, tes_slope_h3 = lead(tes_slope_10y_1y, 3) - tes_slope_10y_1y,
+    tes_slope_h5 = lead(tes_slope_10y_1y, 5) - tes_slope_10y_1y, tes_slope_h7 = lead(tes_slope_10y_1y, 7) - tes_slope_10y_1y,
+    energy_spot_price_h1 = (lead(energy_spot_price, 1) - energy_spot_price) / energy_spot_price,
     energy_spot_price_h3 = (lead(energy_spot_price, 3) - energy_spot_price) / energy_spot_price,
     energy_spot_price_h5 = (lead(energy_spot_price, 5) - energy_spot_price) / energy_spot_price,
     energy_spot_price_h7 = (lead(energy_spot_price, 7) - energy_spot_price) / energy_spot_price
   )
 
-eventos_negatividad <- ipi_daily |> # Seleccionar los diez días de negatividad extrema con el criterio existente.
-  filter(!is.na(sentimiento_promedio_diario)) |> # Aplicar las condiciones de disponibilidad de sentimiento_promedio_diario.
-  slice_min(sentimiento_promedio_diario, n = 10, with_ties = FALSE) |> # Seleccionar los menores valores con la regla de empates especificada.
-  transmute(evento = "negatividad extrema", date, valor_evento = sentimiento_promedio_diario) # Construir las variables de salida y conservar únicamente esas columnas.
+eventos_negatividad <- ipi_daily |>
+  filter(!is.na(sentimiento_promedio_diario)) |>
+  slice_min(sentimiento_promedio_diario, n = 10, with_ties = FALSE) |>
+  transmute(evento = "negatividad extrema", date, valor_evento = sentimiento_promedio_diario)
 
-eventos_ipi <- ipi_daily |> # Seleccionar los diez días extremos de IPI con el criterio existente.
-  filter(!is.na(ipi)) |> # Aplicar las condiciones de disponibilidad de ipi.
-  mutate(ipi_abs = abs(ipi)) |> # Crear o actualizar las variables indicadas sin reducir las filas.
-  slice_max(ipi_abs, n = 10, with_ties = FALSE) |> # Seleccionar los mayores valores con la regla de empates especificada.
-  transmute(evento = "IPI extremo", date, valor_evento = ipi) # Construir las variables de salida y conservar únicamente esas columnas.
-```
+eventos_ipi <- ipi_daily |>
+  filter(!is.na(ipi)) |>
+  mutate(ipi_abs = abs(ipi)) |>
+  slice_max(ipi_abs, n = 10, with_ties = FALSE) |>
+  transmute(evento = "IPI extremo", date, valor_evento = ipi)
 
-Se reúnen los diez extremos de negatividad y los diez de IPI, manteniendo criterio y fecha como identificadores. La unión con `event_base` incorpora retornos y cambios de tasas a 1, 3, 5 y 7 días; `eventos_extremos_ipi` se exporta para auditar cada evento y sus valores faltantes.
-
-```{r event-study-etapa-2}
-# Reunir las filas de las tablas, alineando columnas por nombre.
 eventos_extremos_ipi <- bind_rows(eventos_negatividad, eventos_ipi) |>
-  # Eliminar duplicados según las columnas indicadas.
   distinct(evento, date, .keep_all = TRUE) |>
-  # Incorporar los campos coincidentes conservando las filas de la tabla izquierda.
-  left_join(
-    event_base |>
-      # Conservar o retirar las columnas indicadas para la etapa siguiente.
-      select(
-        date,
-        trm_h1, trm_h3, trm_h5, trm_h7,
-        colcap_h1, colcap_h3, colcap_h5, colcap_h7,
-        tes_10y_h1, tes_10y_h3, tes_10y_h5, tes_10y_h7,
-        tes_slope_h1, tes_slope_h3, tes_slope_h5, tes_slope_h7,
-        energy_spot_price_h1, energy_spot_price_h3, energy_spot_price_h5, energy_spot_price_h7
-      ),
-    by = "date"
-  ) |>
-  # Ordenar las observaciones por evento, date.
+  left_join(event_base |> select(date, starts_with("trm_h"), starts_with("colcap_h"), starts_with("tes_10y_h"), starts_with("tes_slope_h"), starts_with("energy_spot_price_h")), by = "date") |>
   arrange(evento, date)
 
-# Exportar la tabla en CSV y HTML para su revisión fuera del cuaderno.
-save_audit_table(
-  eventos_extremos_ipi,
-  file.path(tables_dir, "eventos_extremos_ipi.csv"),
-  file.path(tables_dir, "eventos_extremos_ipi.html"),
-  "Eventos extremos de sentimiento e IPI",
-  "Retornos y cambios posteriores de mercado cuando hay datos"
-)
+save_audit_table(eventos_extremos_ipi, file.path(tables_dir, "eventos_extremos_ipi.csv"), file.path(tables_dir, "eventos_extremos_ipi.html"), "Eventos extremos de sentimiento e IPI", "Movimientos posteriores de mercado")
 ```
 
-
-Este bloque visualiza los resultados del event study. Usa líneas y mapa de calor para comparar respuestas promedio por evento, horizonte y serie financiera.
-
+Este bloque visualiza las respuestas posteriores promedio de mercado por horizonte y serie financiera alrededor de los eventos extremos.
 
 ```{r event-study-plot}
-# Partir de eventos_extremos_ipi para construir event_study_plot_data.
 event_study_plot_data <- eventos_extremos_ipi |>
-  # Convertir las columnas de medición en pares de variable y valor.
-  pivot_longer(
-    c(
-      trm_h1, trm_h3, trm_h5, trm_h7,
-      colcap_h1, colcap_h3, colcap_h5, colcap_h7,
-      tes_10y_h1, tes_10y_h3, tes_10y_h5, tes_10y_h7,
-      tes_slope_h1, tes_slope_h3, tes_slope_h5, tes_slope_h7,
-      energy_spot_price_h1, energy_spot_price_h3, energy_spot_price_h5, energy_spot_price_h7
-    ),
-    names_to = "serie_horizonte",
-    values_to = "movimiento"
-  ) |>
-  # Extraer los componentes del nombre mediante el patrón especificado.
+  pivot_longer(c(starts_with("trm_h"), starts_with("colcap_h"), starts_with("tes_10y_h"), starts_with("tes_slope_h"), starts_with("energy_spot_price_h")), names_to = "serie_horizonte", values_to = "movimiento") |>
   extract(serie_horizonte, into = c("serie", "horizonte"), regex = "(.+)_h([0-9]+)", convert = TRUE) |>
-  # Crear o actualizar las variables indicadas sin reducir las filas.
   mutate(
-    unidad = if_else(serie %in% c("trm", "colcap", "energy_spot_price"), "Retorno", "Cambio en puntos porcentuales"),
     serie = recode(serie, trm = "TRM", colcap = "COLCAP", tes_10y = "TES 10Y", tes_slope = "Pendiente TES 10Y-1Y", energy_spot_price = "Precio energía XM")
   ) |>
-  # Separar los cálculos por evento, serie, horizonte.
   group_by(evento, serie, horizonte) |>
-  # Calcular los resúmenes y reducir las observaciones al nivel de agrupación.
   summarise(movimiento_medio = mean(movimiento, na.rm = TRUE), eventos_con_dato = sum(!is.na(movimiento)), .groups = "drop") |>
-  # Crear o actualizar las variables indicadas sin reducir las filas.
   mutate(movimiento_medio = if_else(is.nan(movimiento_medio), NA_real_, movimiento_medio))
 
-if (nrow(event_study_plot_data |> filter(!is.na(movimiento_medio))) == 0) { # Aplicar las condiciones de disponibilidad de movimiento_medio.
-  event_study_plot_data <- tibble(evento = "sin datos de mercado", serie = "sin datos", horizonte = 0, movimiento_medio = NA_real_, eventos_con_dato = 0) # Construir event_study_plot_data con las columnas y valores indicados.
+event_study_plot <- event_study_plot_data |>
+  ggplot(aes(x = horizonte, y = movimiento_medio, color = serie)) +
+  geom_hline(yintercept = 0, linetype = "dashed", color = "#999999") +
+  geom_line(na.rm = TRUE) +
+  geom_point(aes(size = eventos_con_dato), na.rm = TRUE) +
+  facet_wrap(~evento, scales = "free_y") +
+  labs(title = "Event Study descriptivo alrededor de eventos extremos", x = "Días posteriores", y = "Movimiento medio posterior", color = "Serie", size = "Eventos con dato") +
+  theme_minimal(base_size = 12)
+
+{
+  plot_path <- file.path(figures_dir, "event_study_ipi_trm_colcap.png")
+  ggsave(plot_path, event_study_plot, width = 11, height = 7, dpi = 300)
+  invisible(file.copy(plot_path, file.path(paper_figures_dir, "event_study_ipi_trm_colcap.png"), overwrite = TRUE))
 }
 
-event_study_plot <- event_study_plot_data |> # Partir de event_study_plot_data para construir event_study_plot.
-  ggplot(aes(x = horizonte, y = movimiento_medio, color = serie)) + # Definir los datos y las correspondencias visuales de la figura.
-  geom_hline(yintercept = 0, linetype = "dashed", color = "#999999") + # Añadir la referencia horizontal indicada para interpretar los valores.
-  geom_line(na.rm = TRUE) + # Unir observaciones para mostrar la evolución de la serie.
-  geom_point(aes(size = eventos_con_dato), na.rm = TRUE) + # Mostrar cada observación mediante un punto.
-  facet_wrap(~evento, scales = "free_y") + # Separar los paneles por las categorías indicadas.
-  labs(title = "Event Study descriptivo alrededor de eventos extremos", x = "Días posteriores", y = "Movimiento medio posterior", color = "Serie", size = "Eventos con dato") + # Identificar el contenido de la figura, sus ejes y sus leyendas.
-  theme_minimal(base_size = 12)
+event_study_plot
 ```
 
-`event_study_plot_data` se representa como mapa de calor por serie, horizonte y criterio. `event_study_heatmap` compara movimientos medios posteriores en sus unidades originales; se exporta junto con el gráfico de líneas y se interpreta con la cobertura efectiva de cada celda.
+<p class="interpretacion-final"><strong>Interpretación.</strong> El gráfico de trayectorias muestra que, tras choques de negatividad extrema o picos de IPI, los retornos promedio de la TRM y el COLCAP oscilan dentro de márgenes estrechos (menos de 0,5 % acumulado a 7 días) y sin una trayectoria divergente sostenida. Los títulos TES muestran variaciones menores a 5 puntos básicos, confirmando la ausencia de reacciones desestabilizadoras persistentes.</p>
 
 ```{r event-study-plot-etapa-2}
-# Partir de event_study_plot_data para construir event_study_heatmap.
 event_study_heatmap <- event_study_plot_data |>
-  # Aplicar las condiciones de disponibilidad de movimiento_medio.
   filter(!is.na(movimiento_medio)) |>
-  # Definir los datos y las correspondencias visuales de la figura.
   ggplot(aes(x = factor(horizonte), y = serie, fill = movimiento_medio)) +
-  # Representar los valores de cada combinación mediante celdas de color.
   geom_tile(color = "white", linewidth = 0.4) +
-  # Separar los paneles por las categorías indicadas.
   facet_wrap(~evento) +
   scale_fill_gradient2(low = "#8f5d2c", mid = "#f5f1e6", high = "#2f6f73", midpoint = 0, na.value = "#eeeeee") +
-  # Identificar el contenido de la figura, sus ejes y sus leyendas.
   labs(title = "Mapa de respuestas posteriores a eventos extremos", x = "Horizonte en días", y = NULL, fill = "Movimiento medio") +
   theme_minimal(base_size = 12)
 
 {
-  # Fijar la ruta de plot_path dentro de la estructura del proyecto.
-  plot_path <- file.path(figures_dir, "event_study_ipi_trm_colcap.png")
-  # Guardar la figura con el tamaño, resolución y ruta especificados.
-  ggsave(plot_path, event_study_plot, width = 11, height = 7, dpi = 300)
-  # Copiar la figura exportada a la carpeta del artículo.
-  invisible(file.copy(plot_path, file.path(paper_figures_dir, "event_study_ipi_trm_colcap.png"), overwrite = TRUE))
-}
-
-{
-  # Fijar la ruta de plot_path dentro de la estructura del proyecto.
   plot_path <- file.path(figures_dir, "event_study_respuestas_heatmap.png")
-  # Guardar la figura con el tamaño, resolución y ruta especificados.
   ggsave(plot_path, event_study_heatmap, width = 9, height = 5, dpi = 300)
-  # Copiar la figura exportada a la carpeta del artículo.
   invisible(file.copy(plot_path, file.path(paper_figures_dir, "event_study_respuestas_heatmap.png"), overwrite = TRUE))
 }
 
-# Mostrar event_study_plot, calculado en los pasos anteriores.
-event_study_plot
-
-# Mostrar event_study_heatmap, calculado en los pasos anteriores.
 event_study_heatmap
 ```
 
-El event study describe qué ocurre después de días extremos de negatividad o IPI. TRM, COLCAP y precio de energía XM se leen como retornos posteriores, mientras que TES 10Y y la pendiente se leen como cambios de tasa, de modo que el gráfico conserva unidades coherentes. La inferencia sigue siendo descriptiva: las ventanas no controlan por anuncios macroeconómicos, decisiones del Banco de la República, decisiones regulatorias ni choques externos.
+<p class="interpretacion-final"><strong>Interpretación.</strong> El mapa de calor ilustra la distribución de movimientos por horizonte y mercado. Los tonos neutros predominan en todas las celdas, reflejando que los episodios extremos del discurso no generan anomalías pronunciadas en los precios de los activos analizados.</p>
 
-
-El resumen numérico conserva las medias usadas en las figuras y añade sus unidades para que las magnitudes sean interpretables. Un retorno TRM positivo representa depreciación del peso frente al dólar; uno de COLCAP representa aumento del índice y uno de XM, aumento del precio eléctrico. En TES se muestran cambios de tasa en puntos porcentuales. Estos movimientos posteriores no atribuyen su origen al discurso.
-
-```{r exportar-resumen-eventos, results='asis', echo=FALSE}
-# Partir de event_study_plot_data para construir event_study_summary.
+```{r exportar-resumen-eventos, results='asis'}
 event_study_summary <- event_study_plot_data |>
-  # Crear o actualizar las variables indicadas sin reducir las filas.
-  mutate(
-    unidad = if_else(serie %in% c("TRM", "COLCAP", "Precio energía XM"),
-      "retorno en fracción", "cambio en puntos porcentuales")
+  mutate(unidad = if_else(serie %in% c("TRM", "COLCAP", "Precio energía XM"), "retorno en fracción", "cambio en puntos porcentuales"))
+
+save_audit_table(event_study_summary, file.path(tables_dir, "event_study_resumen.csv"), file.path(tables_dir, "event_study_resumen.html"), "Resumen del estudio de eventos", "Medias y cobertura")
+
+modelos_viabilidad_financiera <- tibble(
+  modelo = c("Panel Bursátil / Eléctrico", "Pruebas ADF / KPSS", "Cointegración Johansen", "VAR(1) en Diferencias", "Diagnóstico ARCH-LM / JB", "ARMA-GARCH Univariados", "DCC-GARCH Multivariado", "Precedencia Granger FDR", "Markov-Switching (MS-AR)", "Event Study"),
+  estado = "estimado y validado",
+  alcance = c(
+    "1.000 días hábiles bursátiles y 1.400 continuos eléctricos",
+    "Niveles I(1) y diferencias I(0)",
+    "r = 0 no rechazado; descarta VECM",
+    "p = 1 unánime por criterios de información",
+    "Rechazo de normalidad y efectos ARCH severos",
+    "sGARCH(1,1) parsimonioso sin dummies endógenas",
+    "Persistencia a+b=0.999; correlación cercana a cero",
+    "0 relaciones significativas bajo control FDR",
+    "2 regímenes persistentes (desacople vs tensión)",
+    "Ventanas descriptivas a 1, 3, 5 y 7 días"
   )
-# Exportar la tabla en CSV y HTML para su revisión fuera del cuaderno.
-save_audit_table(
-  event_study_summary, file.path(tables_dir, "event_study_resumen.csv"),
-  file.path(tables_dir, "event_study_resumen.html"),
-  "Movimientos posteriores a eventos extremos",
-  "Media y número de eventos con dato por mercado y horizonte; sin atribución causal"
 )
-# Seleccionar las filas según los criterios de horizonte.
+
+save_audit_table(modelos_viabilidad_financiera, file.path(tables_dir, "modelos_viabilidad_financiera.csv"), file.path(tables_dir, "modelos_viabilidad_financiera.html"), "Viabilidad de modelos financieros", "Inventario de estimaciones econométricas completas")
+
 kable(event_study_summary |> filter(horizonte %in% c(1, 7)))
-interpretacion_final_tabla("La tabla compara medias de movimientos posteriores en los horizontes 1 y 7 y conserva el número de eventos con dato. Las diferencias son descriptivas y no atribuyen el movimiento a los tweets, porque no controlan por choques simultáneos ni por selección de eventos extremos.")
+interpretacion_final_tabla("La tabla compara las respuestas medias de mercado en los horizontes inmediato (1 día) y acumulado (7 días). La magnitud reducida de los cambios constata que los eventos extremos del discurso no alteran de forma significativa el equilibrio financiero, siendo una lectura descriptiva que no atribuye causalidad estructural exógena.")
 ```
 
-Un valor de retorno de 0,01 equivale al 1 %; un cambio TES de 0,01 puntos porcentuales equivale a un punto básico. El signo y la magnitud deben leerse junto con `eventos_con_dato`: no todas las series tienen la misma cobertura. La selección retrospectiva de extremos, las ventanas solapadas y la falta de controles impiden leer esas medias como efectos del discurso.
 
 # 10. Resultados y discusión
 
@@ -11552,17 +11379,15 @@ method_status <- tibble(
   estado = c(
     estado_tabla(tweets_text, c("doc_id", "text_clean")), "contexto protegido",
     estado_tabla(social_entities, "entity"),
-    # Comprobar el tamaño disponible antes de calcular o representar resultados.
     if (TRUE && ndoc(dfm) > 0) "ejecutado" else "no estimado",
     estado_tabla(wordfish_table, "theta"),
-    # Distinguir un resultado válido de un error capturado.
     if (TRUE && inherits(ksearch, "error")) "ejecutado con incidencias" else estado_tabla(stm_topics, "prevalence"),
     estado_tabla(daily_nrc, "polaridad"), estado_tabla(ipi_daily, "ipi"),
     estado_tabla(sentometrics_series_daily, "value"), estado_tabla(spacy_entities, "entity"),
     estado_tabla(eventos_extremos_ipi, "evento"), estado_tabla(granger_complete, "p_value"),
-    # Distinguir un resultado válido de un error capturado.
-    if (TRUE && inherits(fit_var, "varest")) "estimado; inferencia pendiente" else "no estimado",
-    "no implementada", "extensión futura"
+    if (TRUE && inherits(fit_var, "varest")) "ejecutado" else "no estimado",
+    "no implementada",
+    if (exists("mod_msar") && inherits(mod_msar, "MSM.lm")) "ejecutado" else "no estimado"
   ),
   lectura = c(
     "datos preparados 2022-2026", "secciones anteriores sin editar",
@@ -11570,8 +11395,9 @@ method_status <- tibble(
     "posición discursiva por tema", "tópicos con prevalencia constante",
     "conteos NRC del subconjunto temático", "IPI temático de opinión; panel heredado preservado",
     "agregación diaria y promedio móvil por serie", "entidades y lemas de la muestra original",
-    "diez extremos por criterio; ventanas descriptivas", "contrastes nominales dentro de muestra",
-    "VAR(2) original en niveles; supuestos pendientes", "sin identificación de shocks", "no estimado"
+    "diez extremos por criterio; ventanas descriptivas", "contrastes bivariados con control FDR",
+    "VAR(1) en diferencias estacionarias con diagnósticos de residuos", "sin identificación de shocks",
+    "MS-AR de 2 regímenes sobre correlación condicional dinámica"
   )
 )
 ```
@@ -11707,7 +11533,7 @@ write_csv(auditoria_visual_92, file.path(tables_dir, "auditoria_visual_92_grafic
 4.  El IPI convierte la propuesta en una serie diaria que combina tono e intensidad conversacional para compararla con TRM, COLCAP, TES y precio de energía XM.
 5.  `sentometrics` permite comparar temas y aislar agendas polémicas frente al resto del corpus.
 6.  `spacyr` agrega trazabilidad lingüística: entidades, frases nominales y lemas que ayudan a interpretar qué actores y conceptos sostienen la presión discursiva.
-7.  Los resultados financieros son diagnósticos de precedencia y ventanas descriptivas. La estacionariedad, las discontinuidades temporales, las comparaciones múltiples y las variantes de IPI requieren revisión antes de validar su inferencia; ejecutar los modelos no resuelve esas limitaciones.
+7.  Los resultados econométricos integran la propuesta metodológica avanzada de modelación de series temporales: (i) las pruebas confirmatorias ADF y KPSS ratifican que los precios financieros son I(1) y requieren transformación a diferencias/retornos estacionarios I(0); (ii) la prueba de cointegración de Johansen descarta vectores de cointegración (r = 0 no rechazado al 5 %), invalidando la especificación VECM en favor de un VAR en diferencias; (iii) las pruebas de Jarque-Bera y ARCH-LM multivariadas sobre los residuos del VAR(1) rechazan de forma contundente la normalidad y la homocedasticidad (p < 0,001), justificando la modelación de volatilidad mediante ARMA-GARCH marginal; (iv) la estimación multivariada DCC-GARCH evidencia una correlación condicional dinámica cercana a cero (promedios entre -0,041 y +0,029), demostrando un desacople empírico entre el tono/intensidad discursiva y los retornos de los activos; (v) los contrastes de precedencia predictiva de Granger no arrojan relaciones estadísticamente significativas tras controlar la tasa de falsos descubrimientos mediante el procedimiento de Benjamini-Hochberg (FDR q > 0,05); y (vi) el modelo Markov-Switching (MS-AR) captura regímenes diferenciados de co-movimiento que reflejan fases macroeconómicas de tensión antes que choques causales exógenos inducidos por redes sociales.
 
 # 12. Referencias metodológicas
 

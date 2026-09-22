@@ -1,8 +1,13 @@
-variable,p_value,status
-polaridad,0.01,ok
-ipi,0.01,ok
-trm,0.39336044148341254,ok
-colcap,0.43688513759181713,ok
-tes_10y,0.6650791481999166,ok
-tes_slope_10y_1y,0.9458479585240827,ok
-energy_spot_price,0.01,ok
+variable,tipo,n_obs,adf_stat,adf_p_value,kpss_stat,kpss_p_value,conclusion
+TRM (nivel),Nivel,1000,-2.619460172117385,0.3160917545141911,6.361050286245642,0.01,No estacionaria I(1)
+COLCAP (nivel),Nivel,935,-2.3218390973600234,0.442076015367608,10.74708094214333,0.01,No estacionaria I(1)
+TES 10Y (nivel),Nivel,935,-1.930026921356599,0.6079300943512997,3.141989770403889,0.01,No estacionaria I(1)
+Pendiente TES (nivel),Nivel,935,-0.9446644786777438,0.947641796679469,4.615509174142801,0.01,No estacionaria I(1)
+Precio Energía XM (nivel),Nivel,1400,-4.046250227346528,0.01,1.7852360481301524,0.01,Estacionaria con quiebres
+IPI (nivel),Nivel,963,-10.118542191520055,0.01,0.5071351845555341,0.040059643118122955,Estacionaria con quiebres
+Polaridad (nivel),Nivel,1000,-9.181732998006671,0.01,0.6232518073745212,0.02052256296595261,Estacionaria con quiebres
+Retorno TRM,Transformada,999,-9.669533859371256,0.01,0.07887756600758855,0.1,Estacionaria I(0)
+Retorno COLCAP,Transformada,876,-10.281566300782938,0.01,0.15821951222201577,0.1,Estacionaria I(0)
+Diff TES 10Y,Transformada,876,-9.48822304995725,0.01,0.08184610329681304,0.1,Estacionaria I(0)
+Diff Pendiente TES,Transformada,876,-10.6457896571248,0.01,0.13470886916750832,0.1,Estacionaria I(0)
+Retorno Energía XM,Transformada,1399,-13.930613469067058,0.01,0.03020733127608732,0.1,Estacionaria I(0)

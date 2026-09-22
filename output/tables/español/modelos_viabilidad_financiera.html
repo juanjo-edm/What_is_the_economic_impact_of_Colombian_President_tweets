@@ -6,59 +6,64 @@
 <style>body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;margin:24px;color:#222}table{border-collapse:collapse;width:100%;font-size:13px}th,td{border:1px solid #ddd;padding:6px 8px;text-align:left;vertical-align:top}th{background:#f3f5f2}caption{text-align:left;font-weight:700;font-size:18px;margin-bottom:4px}.subtitle{color:#666;margin:0 0 14px 0}</style>
 </head>
 <body>
-<h1>Viabilidad de modelos financieros</h1><p class="subtitle">Modelo estimado, no estimado o condicionado</p><table>
+<h1>Viabilidad de modelos financieros</h1><p class="subtitle">Inventario de estimaciones econométricas completas</p><table>
  <thead>
   <tr>
    <th style="text-align:left;"> modelo </th>
    <th style="text-align:left;"> estado </th>
-   <th style="text-align:left;"> razon </th>
+   <th style="text-align:left;"> alcance </th>
   </tr>
  </thead>
 <tbody>
   <tr>
-   <td style="text-align:left;"> Granger TRM </td>
-   <td style="text-align:left;"> diagnóstico estimable </td>
-   <td style="text-align:left;"> TRM oficial disponible; interpretar como precedencia predictiva </td>
+   <td style="text-align:left;"> Panel Bursátil / Eléctrico </td>
+   <td style="text-align:left;"> estimado y validado </td>
+   <td style="text-align:left;"> 1.000 días hábiles bursátiles y 1.400 continuos eléctricos </td>
   </tr>
   <tr>
-   <td style="text-align:left;"> Granger COLCAP </td>
-   <td style="text-align:left;"> diagnóstico estimable </td>
-   <td style="text-align:left;"> COLCAP oficial disponible; interpretar como precedencia predictiva </td>
+   <td style="text-align:left;"> Pruebas ADF / KPSS </td>
+   <td style="text-align:left;"> estimado y validado </td>
+   <td style="text-align:left;"> Niveles I(1) y diferencias I(0) </td>
   </tr>
   <tr>
-   <td style="text-align:left;"> Granger TES 10Y </td>
-   <td style="text-align:left;"> diagnóstico estimable </td>
-   <td style="text-align:left;"> TES 10Y oficial disponible; mide renta fija soberana de largo plazo </td>
+   <td style="text-align:left;"> Cointegración Johansen </td>
+   <td style="text-align:left;"> estimado y validado </td>
+   <td style="text-align:left;"> r = 0 no rechazado; descarta VECM </td>
   </tr>
   <tr>
-   <td style="text-align:left;"> Granger pendiente TES </td>
-   <td style="text-align:left;"> diagnóstico estimable </td>
-   <td style="text-align:left;"> pendiente derivada como TES 10Y menos TES 1Y </td>
+   <td style="text-align:left;"> VAR(1) en Diferencias </td>
+   <td style="text-align:left;"> estimado y validado </td>
+   <td style="text-align:left;"> p = 1 unánime por criterios de información </td>
   </tr>
   <tr>
-   <td style="text-align:left;"> Granger precio energía XM </td>
-   <td style="text-align:left;"> diagnóstico estimable </td>
-   <td style="text-align:left;"> Precio Bolsa Nacional Ponderado XM disponible; interpretar como precedencia predictiva </td>
+   <td style="text-align:left;"> Diagnóstico ARCH-LM / JB </td>
+   <td style="text-align:left;"> estimado y validado </td>
+   <td style="text-align:left;"> Rechazo de normalidad y efectos ARCH severos </td>
   </tr>
   <tr>
-   <td style="text-align:left;"> VAR </td>
-   <td style="text-align:left;"> estimable </td>
-   <td style="text-align:left;"> requiere observaciones completas para todas las series </td>
+   <td style="text-align:left;"> ARMA-GARCH Univariados </td>
+   <td style="text-align:left;"> estimado y validado </td>
+   <td style="text-align:left;"> sGARCH(1,1) parsimonioso sin dummies endógenas </td>
   </tr>
   <tr>
-   <td style="text-align:left;"> IRF </td>
-   <td style="text-align:left;"> estimable </td>
-   <td style="text-align:left;"> depende del VAR estimable </td>
+   <td style="text-align:left;"> DCC-GARCH Multivariado </td>
+   <td style="text-align:left;"> estimado y validado </td>
+   <td style="text-align:left;"> Persistencia a+b=0.999; correlación cercana a cero </td>
   </tr>
   <tr>
-   <td style="text-align:left;"> Markov Switching </td>
-   <td style="text-align:left;"> extensión futura </td>
-   <td style="text-align:left;"> requiere series financieras largas y completas </td>
+   <td style="text-align:left;"> Precedencia Granger FDR </td>
+   <td style="text-align:left;"> estimado y validado </td>
+   <td style="text-align:left;"> 0 relaciones significativas bajo control FDR </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Markov-Switching (MS-AR) </td>
+   <td style="text-align:left;"> estimado y validado </td>
+   <td style="text-align:left;"> 2 regímenes persistentes (desacople vs tensión) </td>
   </tr>
   <tr>
    <td style="text-align:left;"> Event Study </td>
-   <td style="text-align:left;"> descriptivo </td>
-   <td style="text-align:left;"> puede describir ventanas aunque haya datos de mercado parciales </td>
+   <td style="text-align:left;"> estimado y validado </td>
+   <td style="text-align:left;"> Ventanas descriptivas a 1, 3, 5 y 7 días </td>
   </tr>
 </tbody>
 </table>

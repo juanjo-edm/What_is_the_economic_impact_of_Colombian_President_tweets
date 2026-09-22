@@ -2,25 +2,37 @@
 <html lang="es">
 <head>
 <meta charset="utf-8">
-<title>Diagnóstico VAR</title>
+<title>Diagnóstico de residuos del VAR(1)</title>
 <style>body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;margin:24px;color:#222}table{border-collapse:collapse;width:100%;font-size:13px}th,td{border:1px solid #ddd;padding:6px 8px;text-align:left;vertical-align:top}th{background:#f3f5f2}caption{text-align:left;font-weight:700;font-size:18px;margin-bottom:4px}.subtitle{color:#666;margin:0 0 14px 0}</style>
 </head>
 <body>
-<h1>Diagnóstico VAR</h1><p class="subtitle">Sólo interpretable con cobertura suficiente</p><table>
+<h1>Diagnóstico de residuos del VAR(1)</h1><p class="subtitle">Pruebas de correlación, normalidad y efectos ARCH</p><table>
  <thead>
   <tr>
-   <th style="text-align:left;"> modelo </th>
-   <th style="text-align:left;"> status </th>
-   <th style="text-align:right;"> observaciones </th>
-   <th style="text-align:left;"> variables </th>
+   <th style="text-align:left;"> prueba </th>
+   <th style="text-align:right;"> estadistico </th>
+   <th style="text-align:right;"> p_value </th>
+   <th style="text-align:left;"> conclusion </th>
   </tr>
  </thead>
 <tbody>
   <tr>
-   <td style="text-align:left;"> VAR(2); IRF no implementada </td>
-   <td style="text-align:left;"> ok </td>
-   <td style="text-align:right;"> 1285 </td>
-   <td style="text-align:left;"> polaridad, ipi, trm, colcap, tes_10y, tes_slope_10y_1y </td>
+   <td style="text-align:left;"> Portmanteau Autocorrelación (PT) </td>
+   <td style="text-align:right;"> 405.4505 </td>
+   <td style="text-align:right;"> 0.0013913 </td>
+   <td style="text-align:left;"> Presencia de correlación serial remanente </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Jarque-Bera Multivariado (Normalidad) </td>
+   <td style="text-align:right;"> 18002.0600 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:left;"> Rechazo contundente de normalidad </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ARCH-LM Multivariado (Heterocedasticidad) </td>
+   <td style="text-align:right;"> 3105.7236 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:left;"> Efectos ARCH severos (Volatilidad agrupada) </td>
   </tr>
 </tbody>
 </table>

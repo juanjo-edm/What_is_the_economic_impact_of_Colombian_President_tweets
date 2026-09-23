@@ -447,21 +447,34 @@ market_daily <- purrr::reduce(
 
 ## 3.2 Imputacion de fines de semana financieros ----
 
+for (series_name in market_series) {
+  market_daily[[paste0(series_name, "_observed")]] <- !is.na(market_daily[[series_name]])
+}
+
 market_carried <- market_daily |>
   tidyr::fill(dplyr::all_of(financial_series), .direction = "down")
 
 weekend_dates <- lubridate::wday(market_daily$date, week_start = 1) >= 6
 
 for (series_name in financial_series) {
+  carried_col <- paste0(series_name, "_carried_forward")
+  observed_col <- paste0(series_name, "_observed")
+  market_daily[[carried_col]] <- weekend_dates & is.na(market_daily[[series_name]]) & !is.na(market_carried[[series_name]])
   market_daily[[series_name]] <- dplyr::if_else(
-    weekend_dates & is.na(market_daily[[series_name]]),
+    market_daily[[carried_col]],
     market_carried[[series_name]],
     market_daily[[series_name]]
   )
+  market_daily[[observed_col]] <- market_daily[[observed_col]] & !market_daily[[carried_col]]
 }
 
 market_daily <- market_daily |>
-  dplyr::mutate(tes_slope_10y_1y = tes_10y - tes_1y)
+  dplyr::mutate(
+    energy_spot_price_carried_forward = FALSE,
+    tes_slope_10y_1y = tes_10y - tes_1y,
+    tes_slope_10y_1y_observed = tes_10y_observed & tes_1y_observed,
+    tes_slope_10y_1y_carried_forward = tes_10y_carried_forward | tes_1y_carried_forward
+  )
 
 ## 3.3 Fuentes y cobertura ----
 
@@ -526,7 +539,9 @@ market_coverage <- purrr::pmap_dfr(series_map, function(series, column) {
 
 expected_market_cols <- c(
   "date", "trm", "colcap", "tes_1y", "tes_5y", "tes_10y",
-  "energy_spot_price", "tes_slope_10y_1y"
+  "energy_spot_price", "tes_slope_10y_1y",
+  paste0(c(financial_series, "energy_spot_price", "tes_slope_10y_1y"), "_observed"),
+  paste0(c(financial_series, "energy_spot_price", "tes_slope_10y_1y"), "_carried_forward")
 )
 missing_market_cols <- setdiff(expected_market_cols, names(market_daily))
 

@@ -196,8 +196,18 @@ La función `save_audit_table()` recibe una tabla, sus rutas y sus títulos. Esc
 ```{r exportacion-tablas-auditables}
 # Exportación HTML/CSV reutilizable para tablas auditables
 save_audit_table <- function(data, csv_path, html_path, title, subtitle) {
+  dir.create(dirname(csv_path), recursive = TRUE, showWarnings = FALSE)
+  dir.create(dirname(html_path), recursive = TRUE, showWarnings = FALSE)
   # Guardar la tabla en CSV conservando la representación indicada de los faltantes.
-  write_csv(data, csv_path, na = "")
+  tryCatch(
+    write_csv(data, csv_path, na = ""),
+    error = function(e) {
+      if (file.exists(csv_path)) {
+        unlink(csv_path, force = TRUE)
+      }
+      write_csv(data, csv_path, na = "")
+    }
+  )
   table_html <- paste0(
     "<!doctype html>\n<html lang=\"es\">\n<head>\n<meta charset=\"utf-8\">\n",
     "<title>", title, "</title>\n",
@@ -211,7 +221,15 @@ save_audit_table <- function(data, csv_path, html_path, title, subtitle) {
     "\n</body>\n</html>\n"
   )
   # Escribir el documento HTML ensamblado, conservando su codificación.
-  writeLines(table_html, html_path, useBytes = TRUE)
+  tryCatch(
+    writeLines(table_html, html_path, useBytes = TRUE),
+    error = function(e) {
+      if (file.exists(html_path)) {
+        unlink(html_path, force = TRUE)
+      }
+      writeLines(table_html, html_path, useBytes = TRUE)
+    }
+  )
 }
 
 # Registro explícito de fuentes y métricas: una fila por producto final.
@@ -830,8 +848,12 @@ tweets_master <- read_csv(
 ) |>
   mutate(
     date = as.Date(date),
+    date_bogota = coalesce(as.Date(date_bogota), date),
     month = as.Date(month),
-    created_at = suppressWarnings(ymd_hms(created_at, tz = "UTC", quiet = TRUE))
+    created_at = suppressWarnings(ymd_hms(created_at, tz = "UTC", quiet = TRUE)),
+    timestamp_utc = suppressWarnings(ymd_hms(coalesce(timestamp_utc, created_at_raw), tz = "UTC", quiet = TRUE)),
+    timestamp_bogota = with_tz(timestamp_utc, tzone = "America/Bogota"),
+    date = date_bogota
   ) |>
   filter(!is.na(date), date >= analysis_date_start, date <= analysis_date_end)
 
@@ -985,6 +1007,21 @@ El análisis económico requiere que las series financieras lleguen con reglas c
 market_master <- read_csv(market_master_path, show_col_types = FALSE) |>
   mutate(date = as.Date(date)) |>
   arrange(date)
+
+market_flag_cols <- paste0(
+  c("trm", "colcap", "tes_1y", "tes_5y", "tes_10y", "energy_spot_price", "tes_slope_10y_1y"),
+  rep(c("_observed", "_carried_forward"), each = 7)
+)
+for (flag_col in market_flag_cols) {
+  if (!flag_col %in% names(market_master)) {
+    market_master[[flag_col]] <- if (str_detect(flag_col, "_observed$")) {
+      base_col <- str_remove(flag_col, "_observed$")
+      !is.na(market_master[[base_col]])
+    } else {
+      FALSE
+    }
+  }
+}
 
 # Conservar el nombre histórico utilizado por las especificaciones.
 market_daily <- market_master
@@ -10793,21 +10830,90 @@ La evaluación del impacto financiero del discurso presidencial requiere una est
 El análisis financiero opera sobre dos calendarios económicos distintos. El Panel Bursátil comprende los días hábiles de negociación del mercado financiero colombiano (lunes a viernes, excluyendo festivos bancarios), filtrando el arrastre artificial de precios durante los fines de semana. El Panel Eléctrico abarca los siete días continuos de la semana para el precio spot de energía en la bolsa administrada por XM.
 
 ```{r model-dataset-calendario}
-# Construcción rigurosa de paneles bursátil y eléctrico a partir de model_dataset_ipi
-panel_bursatil <- model_dataset_ipi |>
+next_observed_date <- function(date_sentiment, observed_dates) {
+  idx <- findInterval(as.Date(date_sentiment), observed_dates) + 1L
+  ifelse(idx <= length(observed_dates), as.character(observed_dates[idx]), NA_character_) |>
+    as.Date()
+}
+
+build_financial_panel <- function(data) {
+  observed_dates <- data |>
+    filter(trm_observed, colcap_observed, tes_10y_observed, tes_slope_10y_1y_observed) |>
+    pull(date) |>
+    unique() |>
+    sort()
+
+  observed_market <- data |>
+    filter(date %in% observed_dates) |>
+    arrange(date) |>
+    mutate(
+      ret_trm = log(trm) - lag(log(trm)),
+      ret_colcap = log(colcap) - lag(log(colcap)),
+      diff_tes_10y = tes_10y - lag(tes_10y),
+      diff_tes_slope = tes_slope_10y_1y - lag(tes_slope_10y_1y)
+    ) |>
+    select(date, ret_trm, ret_colcap, diff_tes_10y, diff_tes_slope)
+
+  data |>
+    arrange(date) |>
+    mutate(
+      date_sentiment = date,
+      next_trading_date = next_observed_date(date_sentiment, observed_dates)
+    ) |>
+    left_join(observed_market, by = c("next_trading_date" = "date")) |>
+    filter(!is.na(next_trading_date))
+}
+
+build_electric_panel <- function(data) {
+  data |>
+    arrange(date) |>
+    mutate(
+      energy_valid = energy_spot_price_observed & !is.na(energy_spot_price) & energy_spot_price > 0,
+      ret_energy = if_else(energy_valid & lag(energy_valid), log(energy_spot_price) - lag(log(energy_spot_price)), NA_real_)
+    )
+}
+
+# Construcción rigurosa de paneles bursátil y eléctrico a partir de model_dataset_ipi.
+# La especificación principal usa S_t -> R_(siguiente día bursátil observado).
+panel_bursatil <- build_financial_panel(model_dataset_ipi)
+
+panel_bursatil_contemporaneo <- model_dataset_ipi |>
   arrange(date) |>
-  filter(wday(date) %in% 2:6) |>
+  filter(trm_observed, colcap_observed, tes_10y_observed, tes_slope_10y_1y_observed) |>
   mutate(
-    ret_trm = c(NA_real_, diff(log(trm))),
-    ret_colcap = c(NA_real_, diff(log(colcap))),
-    diff_tes_10y = c(NA_real_, diff(tes_10y)),
-    diff_tes_slope = c(NA_real_, diff(tes_slope_10y_1y)),
-    ret_energy = c(NA_real_, diff(log(energy_spot_price)))
+    ret_trm = log(trm) - lag(log(trm)),
+    ret_colcap = log(colcap) - lag(log(colcap)),
+    diff_tes_10y = tes_10y - lag(tes_10y),
+    diff_tes_slope = tes_slope_10y_1y - lag(tes_slope_10y_1y)
   )
 
-panel_electrico <- model_dataset_ipi |>
-  arrange(date) |>
-  mutate(ret_energy = c(NA_real_, diff(log(energy_spot_price))))
+panel_electrico <- build_electric_panel(model_dataset_ipi)
+
+panel_temporal_audit <- tibble(
+  componente = c("tweets", "panel_bursatil_principal", "panel_bursatil_contemporaneo", "panel_electrico"),
+  unidad_fecha = c("date_bogota", "date_sentiment -> next_trading_date", "date observado de mercado", "date calendario XM"),
+  filas = c(nrow(tweets_master), nrow(panel_bursatil), nrow(panel_bursatil_contemporaneo), nrow(panel_electrico)),
+  observaciones_modelables = c(
+    sum(!is.na(tweets_master$date_bogota)),
+    sum(complete.cases(panel_bursatil |> select(ipi, polaridad, ret_trm, ret_colcap, diff_tes_10y, diff_tes_slope))),
+    sum(complete.cases(panel_bursatil_contemporaneo |> select(ipi, polaridad, ret_trm, ret_colcap, diff_tes_10y, diff_tes_slope))),
+    sum(!is.na(panel_electrico$ret_energy))
+  ),
+  nota = c(
+    "UTC preservado; fecha analítica en America/Bogota.",
+    "Evita look-ahead: sentimiento del día calendario colombiano se enlaza al siguiente día bursátil observado.",
+    "Sólo descriptivo; no es la especificación principal de precedencia.",
+    "XM conserva calendario natural y no se fuerza al calendario bursátil."
+  )
+)
+
+save_audit_table(
+  panel_temporal_audit,
+  file.path(tables_dir, "00_auditoria_temporal_paneles.csv"),
+  file.path(tables_dir, "00_auditoria_temporal_paneles.html"),
+  "Auditoría temporal de paneles",
+  "Timezone, calendario observado y especificación S_t -> R_(t+1)"
+)
 
 model_dataset_summary <- model_dataset_by_corpus |>
   group_by(corpus, corpus_label) |>
@@ -11066,7 +11172,7 @@ $$
 Para controlar la tasa de falsos positivos derivada de 140 contrastes simultáneos, se aplica la corrección de Benjamini-Hochberg (FDR).
 
 ```{r econometrics-granger-estimation}
-financial_responses <- c("ret_trm", "ret_colcap", "diff_tes_10y", "diff_tes_slope", "ret_energy")
+financial_responses <- c("ret_trm", "ret_colcap", "diff_tes_10y", "diff_tes_slope")
 discourse_predictors <- c("ipi", "polaridad", "z_anger", "z_fear", "z_joy", "z_negative", "z_positive")
 
 granger_specs <- crossing(response = financial_responses, predictor = discourse_predictors, lag = 1:4)
@@ -11086,9 +11192,13 @@ granger_all <- granger_specs |>
   ungroup() |>
   unnest(result) |>
   mutate(
-    q_value = p.adjust(p_value, method = "BH"),
+    p_raw = p_value,
+    p_fdr = p.adjust(p_raw, method = "BH"),
+    q_value = p_fdr,
     significant_05 = !is.na(p_value) & p_value < 0.05,
-    significant_fdr = !is.na(q_value) & q_value < 0.05
+    significant_raw = significant_05,
+    significant_fdr = !is.na(p_fdr) & p_fdr < 0.05,
+    timing = "S_t -> R_siguiente_dia_bursatil"
   )
 
 granger_visible <- granger_all |> filter(status == "ok", significant_05, predictor %in% c("polaridad", "ipi"))
@@ -11104,7 +11214,7 @@ Este bloque grafica los p-values de las pruebas de Granger por rezago y respuest
 granger_plot_data <- granger_all |>
   filter(!is.na(p_value), predictor %in% c("polaridad", "ipi")) |>
   mutate(
-    response = recode(response, ret_trm = "TRM", ret_colcap = "COLCAP", diff_tes_10y = "TES 10Y", diff_tes_slope = "Pendiente TES", ret_energy = "Energía XM"),
+    response = recode(response, ret_trm = "TRM", ret_colcap = "COLCAP", diff_tes_10y = "TES 10Y", diff_tes_slope = "Pendiente TES"),
     predictor = recode(predictor, polaridad = "Polaridad", ipi = "IPI")
   )
 
@@ -11132,7 +11242,7 @@ granger_plot
 ```{r econometrics-granger-corpus-calc}
 granger_corpus_specs <- crossing(
   corpus = unique(model_dataset_by_corpus$corpus),
-  response = c("ret_trm", "ret_colcap", "diff_tes_10y", "diff_tes_slope", "ret_energy"),
+  response = c("ret_trm", "ret_colcap", "diff_tes_10y", "diff_tes_slope"),
   predictor = c("polaridad", "ipi", "log_tweets_n"),
   lag = 1:4
 ) |> left_join(model_dataset_by_corpus |> distinct(corpus, corpus_label), by = "corpus")
@@ -11140,13 +11250,11 @@ granger_corpus_specs <- crossing(
 granger_by_corpus <- granger_corpus_specs |>
   rowwise() |>
   mutate(result = list({
-    df_c <- model_dataset_by_corpus |> filter(corpus == .env$corpus) |>
-      arrange(date) |>
-      mutate(
-        ret_trm = c(NA_real_, diff(log(trm))), ret_colcap = c(NA_real_, diff(log(colcap))),
-        diff_tes_10y = c(NA_real_, diff(tes_10y)), diff_tes_slope = c(NA_real_, diff(tes_slope_10y_1y)),
-        ret_energy = c(NA_real_, diff(log(energy_spot_price)))
-      ) |> select(response = all_of(response), predictor = all_of(predictor)) |> drop_na()
+    df_c <- model_dataset_by_corpus |>
+      filter(corpus == .env$corpus) |>
+      build_financial_panel() |>
+      select(response = all_of(response), predictor = all_of(predictor)) |>
+      drop_na()
     if (nrow(df_c) < lag + 20) tibble(p_value = NA_real_, status = "insuficiente")
     else {
       fit <- tryCatch(grangertest(response ~ predictor, order = lag, data = df_c), error = function(e) e)
@@ -11154,7 +11262,15 @@ granger_by_corpus <- granger_corpus_specs |>
       else tibble(p_value = fit$`Pr(>F)`[2], status = "ok")
     }
   })) |> ungroup() |> unnest(result) |>
-  mutate(q_value = p.adjust(p_value, method = "BH"), significant_05 = !is.na(p_value) & p_value < 0.05)
+  mutate(
+    p_raw = p_value,
+    p_fdr = p.adjust(p_raw, method = "BH"),
+    q_value = p_fdr,
+    significant_05 = !is.na(p_value) & p_value < 0.05,
+    significant_raw = significant_05,
+    significant_fdr = !is.na(p_fdr) & p_fdr < 0.05,
+    timing = "S_t -> R_siguiente_dia_bursatil"
+  )
 ```
 
 Este bloque grafica pruebas de Granger separadas por corpus (opinión pública vs. cuenta presidencial).
@@ -11164,7 +11280,7 @@ granger_corpus_plot_data <- granger_by_corpus |>
   filter(status == "ok", !is.na(p_value), predictor %in% c("polaridad", "ipi")) |>
   mutate(
     predictor = recode(predictor, polaridad = "Polaridad", ipi = "IPI"),
-    response = recode(response, ret_trm = "TRM", ret_colcap = "COLCAP", diff_tes_10y = "TES 10Y", diff_tes_slope = "Pendiente TES", ret_energy = "Energía XM")
+    response = recode(response, ret_trm = "TRM", ret_colcap = "COLCAP", diff_tes_10y = "TES 10Y", diff_tes_slope = "Pendiente TES")
   )
 
 granger_corpus_plot <- granger_corpus_plot_data |>
@@ -11290,22 +11406,21 @@ $$
 R_t = \text{diag}(Q_t)^{-1/2} Q_t \text{diag}(Q_t)^{-1/2}
 $$
 
-donde $\varepsilon_t^*$ son los residuos estandarizados univariados, $\bar{Q}$ es la matriz de correlación incondicional, y $a, b \ge 0$ con $a + b < 1$ garantizan la estabilidad de la correlación condicional $R_t$. Se estima el sistema principal de 7 variables (`ipi`, `polaridad`, `ret_trm`, `ret_colcap`, `diff_tes_10y`, `diff_tes_slope`, `ret_energy`) con distribución multivariada $t$-Student (`mvt`).
+donde $\varepsilon_t^*$ son los residuos estandarizados univariados, $\bar{Q}$ es la matriz de correlación incondicional, y $a, b \ge 0$ con $a + b < 1$ garantizan la estabilidad de la correlación condicional $R_t$. Se estima el sistema financiero principal con 6 variables (`ipi`, `polaridad`, `ret_trm`, `ret_colcap`, `diff_tes_10y`, `diff_tes_slope`) con distribución multivariada $t$-Student (`mvt`). XM se mantiene fuera de este DCC bursátil por su calendario propio.
 
 ```{r econometrics-dcc-estimation, results='asis'}
 df_dcc7 <- panel_bursatil |>
-  select(ipi, polaridad, ret_trm, ret_colcap, diff_tes_10y, diff_tes_slope, ret_energy) |>
+  select(ipi, polaridad, ret_trm, ret_colcap, diff_tes_10y, diff_tes_slope) |>
   drop_na()
 
-uspec_list <- list(
-  ugarchspec(variance.model = list(model = "sGARCH", garchOrder = c(1, 1)), mean.model = list(armaOrder = c(1, 0)), distribution.model = "std"),
-  ugarchspec(variance.model = list(model = "sGARCH", garchOrder = c(1, 1)), mean.model = list(armaOrder = c(1, 0)), distribution.model = "ged"),
-  ugarchspec(variance.model = list(model = "sGARCH", garchOrder = c(1, 1)), mean.model = list(armaOrder = c(1, 0)), distribution.model = "std"),
-  ugarchspec(variance.model = list(model = "sGARCH", garchOrder = c(1, 1)), mean.model = list(armaOrder = c(1, 0)), distribution.model = "std"),
-  ugarchspec(variance.model = list(model = "sGARCH", garchOrder = c(1, 1)), mean.model = list(armaOrder = c(1, 0)), distribution.model = "std"),
-  ugarchspec(variance.model = list(model = "sGARCH", garchOrder = c(1, 1)), mean.model = list(armaOrder = c(1, 0)), distribution.model = "std"),
-  ugarchspec(variance.model = list(model = "sGARCH", garchOrder = c(1, 1)), mean.model = list(armaOrder = c(1, 0)), distribution.model = "std")
-)
+dcc_financial_vars <- colnames(df_dcc7)
+uspec_list <- lapply(dcc_financial_vars, function(nm) {
+  ugarchspec(
+    variance.model = list(model = "sGARCH", garchOrder = c(1, 1)),
+    mean.model = list(armaOrder = c(1, 0)),
+    distribution.model = dist_map[[nm]]
+  )
+})
 
 mspec7 <- multispec(uspec_list)
 dcc_spec7 <- dccspec(uspec = mspec7, dccOrder = c(1, 1), distribution = "mvt")
@@ -11321,7 +11436,7 @@ dcc_params <- tibble(
   p_value = dcc_coef7[dcc_rows, 4]
 )
 
-save_audit_table(dcc_params, file.path(tables_dir, "dcc_parametros_estimados.csv"), file.path(tables_dir, "dcc_parametros_estimados.html"), "Parámetros del modelo DCC-GARCH", "Estimación multivariada conjunta")
+save_audit_table(dcc_params, file.path(tables_dir, "07_dcc_financiero_parametros.csv"), file.path(tables_dir, "07_dcc_financiero_parametros.html"), "Parámetros del modelo DCC-GARCH financiero", "Estimación multivariada conjunta sin XM")
 
 kable(dcc_params)
 interpretacion_final_tabla("Los parámetros del DCC-GARCH son altamente significativos (p < 0,001) y satisfacen la condición de estabilidad con a = 0,0319 y b = 0,9671 (a + b = 0,9990 < 1). El parámetro b cercano a la unidad indica una alta persistencia en la dinámica de covarianza condicional, mientras que los grados de libertad multivariados (mvt.df = 7,63) confirman la presencia de colas pesadas conjuntas en el sistema financiero y discursivo.")
@@ -11337,7 +11452,7 @@ var_names7 <- colnames(df_dcc7)
 corr_series <- list()
 
 for (i in 1:2) {
-  for (j in 3:7) {
+  for (j in 3:length(var_names7)) {
     pair_name <- paste(var_names7[i], var_names7[j], sep = "_")
     vals <- rcor7[i, j, ]
     corr_series[[pair_name]] <- tibble(
@@ -11350,7 +11465,7 @@ for (i in 1:2) {
 }
 
 dcc_corr_table <- bind_rows(corr_series)
-save_audit_table(dcc_corr_table, file.path(tables_dir, "dcc_correlaciones_sentimiento_mercado.csv"), file.path(tables_dir, "dcc_correlaciones_sentimiento_mercado.html"), "Correlaciones condicionales DCC", "Estadísticos descriptivos Sentimiento vs Mercado")
+save_audit_table(dcc_corr_table, file.path(tables_dir, "08_dcc_financiero_correlaciones.csv"), file.path(tables_dir, "08_dcc_financiero_correlaciones.html"), "Correlaciones condicionales DCC financiero", "Estadísticos descriptivos Sentimiento vs Mercado")
 
 kable(dcc_corr_table |> select(sentimiento, mercado, media, sd, min, mediana, max))
 interpretacion_final_tabla("El análisis de correlaciones condicionales dinámicas revela un desacople empírico sistemático entre el discurso presidencial y el comportamiento del mercado: las correlaciones promedio se sitúan en torno a cero (entre -0,041 y +0,029 para todos los pares analizados). Aunque existen picos episódicos de co-movimiento moderado en momentos puntuales de incertidumbre política, la relación no es de dependencia estructural ni de transmisión causal permanente.")
@@ -11389,7 +11504,7 @@ series_plot
 
 ```{r econometrics-dcc-extra-plots}
 # Gráfico complementario de correlaciones dinámicas DCC guardado en la carpeta de econometría
-fechas_dcc <- panel_bursatil$date[complete.cases(panel_bursatil |> select(ipi, polaridad, ret_trm, ret_colcap, diff_tes_10y, diff_tes_slope, ret_energy))]
+fechas_dcc <- panel_bursatil$date_sentiment[complete.cases(panel_bursatil |> select(ipi, polaridad, ret_trm, ret_colcap, diff_tes_10y, diff_tes_slope))]
 df_rho_plot <- tibble(
   date = fechas_dcc,
   rho_ipi_trm = rcor7[1, 3, ],
@@ -11410,9 +11525,9 @@ ggsave(file.path(figures_dir, "econometria/dcc_correlaciones_dinamicas_panel.png
 invisible(file.copy(file.path(figures_dir, "econometria/dcc_correlaciones_dinamicas_panel.png"), file.path(paper_figures_dir, "econometria/dcc_correlaciones_dinamicas_panel.png"), overwrite = TRUE))
 ```
 
-## 9.7 Regímenes Markovianos (MS-AR) sobre Correlaciones Dinámicas
+## 9.7 Regímenes Markovianos de media/varianza sobre Correlaciones Dinámicas
 
-Para explorar si la interacción discursivo-financiera experimenta quiebres estructurales o cambios de estado latentes, se ajusta un modelo autorregresivo con cambio de régimen de Markov (MS-AR) con 2 estados sobre la correlación condicional dinámica IPI $\leftrightarrow$ TRM:
+Para explorar si la interacción discursivo-financiera experimenta quiebres estructurales o cambios de estado latentes, se ajusta un modelo de cambio de régimen de Markov con 2 estados sobre la correlación condicional dinámica IPI $\leftrightarrow$ TRM. Como la especificación estimada no incluye rezago autorregresivo de $\rho_t$, no se denomina MS-AR sino Markov-Switching de media/varianza:
 
 $$
 \rho_{t} = \mu_{S_t} + \varepsilon_t, \quad \varepsilon_t \sim \mathcal{N}(0, \sigma_{S_t}^2), \quad S_t \in \{1, 2\}
@@ -11424,43 +11539,75 @@ donde $S_t$ sigue una cadena de Markov de primer orden con probabilidades de tra
 rho_ipi_trm <- rcor7[1, 3, ]
 df_msar <- data.frame(rho = rho_ipi_trm)
 mod_lm <- lm(rho ~ 1, data = df_msar)
-mod_msar <- msmFit(mod_lm, k = 2, sw = c(TRUE, TRUE))
+mod_msar <- tryCatch({
+  setTimeLimit(elapsed = 60, transient = TRUE)
+  msmFit(mod_lm, k = 2, sw = c(TRUE, TRUE))
+}, error = function(e) e, finally = {
+  setTimeLimit(cpu = Inf, elapsed = Inf, transient = FALSE)
+})
 
-c1 <- mod_msar@Coef[1, 1]; c2 <- mod_msar@Coef[2, 1]
-s1 <- mod_msar@std[1]; s2 <- mod_msar@std[2]
-p11 <- mod_msar@transMat[1, 1]; p22 <- mod_msar@transMat[2, 2]
+msar_ok <- inherits(mod_msar, "MSM.lm")
 
-msar_params <- tibble(
-  regimen = c("Régimen 1 (Correlación Neutra / Desacople)", "Régimen 2 (Co-movimiento Moderado)"),
-  media_estimada = c(c1, c2),
-  desv_estandar = c(s1, s2),
-  prob_persistencia = c(p11, p22),
-  duracion_esperada_dias = c(1 / (1 - p11), 1 / (1 - p22))
-)
+if (msar_ok) {
+  c1 <- mod_msar@Coef[1, 1]; c2 <- mod_msar@Coef[2, 1]
+  s1 <- mod_msar@std[1]; s2 <- mod_msar@std[2]
+  p11 <- mod_msar@transMat[1, 1]; p22 <- mod_msar@transMat[2, 2]
 
-msar_trans_mat <- as_tibble(mod_msar@transMat, rownames = "De")
-colnames(msar_trans_mat) <- c("De", "Hacia Régimen 1", "Hacia Régimen 2")
+  msar_params <- tibble(
+    regimen = c("Régimen 1 (Correlación Neutra / Desacople)", "Régimen 2 (Co-movimiento Moderado)"),
+    media_estimada = c(c1, c2),
+    desv_estandar = c(s1, s2),
+    prob_persistencia = c(p11, p22),
+    duracion_esperada_dias = c(1 / (1 - p11), 1 / (1 - p22)),
+    estado = "estimado"
+  )
 
-save_audit_table(msar_params, file.path(tables_dir, "msar_regimenes_parametros.csv"), file.path(tables_dir, "msar_regimenes_parametros.html"), "Parámetros del modelo MS-AR", "Estimación de 2 regímenes markovianos")
-save_audit_table(msar_trans_mat, file.path(tables_dir, "msar_matriz_transicion.csv"), file.path(tables_dir, "msar_matriz_transicion.html"), "Matriz de transición markoviana", "Probabilidades entre regímenes")
+  msar_trans_mat <- as_tibble(mod_msar@transMat, rownames = "De")
+  colnames(msar_trans_mat) <- c("De", "Hacia Régimen 1", "Hacia Régimen 2")
+} else {
+  msar_params <- tibble(
+    regimen = "No estimado",
+    media_estimada = NA_real_,
+    desv_estandar = NA_real_,
+    prob_persistencia = NA_real_,
+    duracion_esperada_dias = NA_real_,
+    estado = paste("no estimado:", conditionMessage(mod_msar))
+  )
+  msar_trans_mat <- tibble(
+    De = "No estimado",
+    `Hacia Régimen 1` = NA_real_,
+    `Hacia Régimen 2` = NA_real_
+  )
+}
+
+save_audit_table(msar_params, file.path(tables_dir, "11_markov_regimenes.csv"), file.path(tables_dir, "11_markov_regimenes.html"), "Parámetros del modelo Markov-Switching", "Estimación de 2 regímenes de media/varianza")
+save_audit_table(msar_trans_mat, file.path(tables_dir, "11_markov_matriz_transicion.csv"), file.path(tables_dir, "11_markov_matriz_transicion.html"), "Matriz de transición markoviana", "Probabilidades entre regímenes")
 
 kable(msar_params)
-interpretacion_final_tabla("El modelo MS-AR discrimina dos regímenes altamente persistentes: el Régimen 1 corresponde a un estado de correlación neutra/desacople con media de -0,0603 y duración esperada de 83 días hábiles (P11 = 0,988), mientras que el Régimen 2 captura episodios de co-movimiento positivo moderado con media de +0,1662 y duración esperada de 52 días (P22 = 0,981). Esto demuestra que las fases de mayor sensibilidad de la TRM frente a la polaridad son transitorias y corresponden a estados de estrés político focalizados.")
+interpretacion_final_tabla("El modelo Markov-Switching de media/varianza discrimina dos regímenes persistentes de correlación condicional. Los estados se interpretan ex post por su media estimada de rho y no como eventos políticos específicos. La evidencia describe cambios de régimen en el comovimiento condicional, no causalidad estructural ni un mecanismo atribuible por sí solo a Twitter/X.")
 ```
 
 ```{r econometrics-msar-plot}
-smo_prob <- mod_msar@Fit@smoProb[, 2]
-df_msar_plot <- tibble(
-  date = fechas_dcc,
-  prob_regimen_2 = smo_prob[-1]
-)
+if (msar_ok) {
+  smo_prob <- mod_msar@Fit@smoProb[, 2]
+  df_msar_plot <- tibble(
+    date = fechas_dcc,
+    prob_regimen_2 = smo_prob[-1]
+  )
 
-msar_plot <- df_msar_plot |>
-  ggplot(aes(x = date, y = prob_regimen_2)) +
-  geom_area(fill = "#b44b4b", alpha = 0.4) +
-  geom_line(color = "#b44b4b", linewidth = 0.7) +
-  labs(title = "Probabilidad suavizada del Régimen 2: Co-movimiento Moderado IPI-TRM", x = NULL, y = expression(P(S[t] == 2 ~ "|" ~ Omega[T]))) +
-  theme_minimal(base_size = 11)
+  msar_plot <- df_msar_plot |>
+    ggplot(aes(x = date, y = prob_regimen_2)) +
+    geom_area(fill = "#b44b4b", alpha = 0.4) +
+    geom_line(color = "#b44b4b", linewidth = 0.7) +
+    labs(title = "Probabilidad suavizada del Régimen 2: Co-movimiento Moderado IPI-TRM", x = NULL, y = expression(P(S[t] == 2 ~ "|" ~ Omega[T]))) +
+    theme_minimal(base_size = 11)
+} else {
+  df_msar_plot <- tibble(date = fechas_dcc, prob_regimen_2 = NA_real_)
+  msar_plot <- ggplot(df_msar_plot, aes(x = date, y = prob_regimen_2)) +
+    geom_blank() +
+    labs(title = "Markov-Switching no estimado en este render", x = NULL, y = NULL) +
+    theme_minimal(base_size = 11)
+}
 
 ggsave(file.path(figures_dir, "econometria/msar_probabilidades_suavizadas.png"), msar_plot, width = 10, height = 4.5, dpi = 300)
 invisible(file.copy(file.path(figures_dir, "econometria/msar_probabilidades_suavizadas.png"), file.path(paper_figures_dir, "econometria/msar_probabilidades_suavizadas.png"), overwrite = TRUE))

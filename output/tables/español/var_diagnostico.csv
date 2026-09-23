@@ -1,4 +1,4 @@
 prueba,estadistico,p_value,conclusion
-Portmanteau Autocorrelación (PT),405.45045177765473,0.0013913436675448976,Presencia de correlación serial remanente
-Jarque-Bera Multivariado (Normalidad),18002.059950893014,0,Rechazo contundente de normalidad
-ARCH-LM Multivariado (Heterocedasticidad),3105.723559234727,0,Efectos ARCH severos (Volatilidad agrupada)
+Portmanteau Autocorrelación (PT),453.21554075404146,2.680329173276874e-6,Presencia de correlación serial remanente
+Jarque-Bera Multivariado (Normalidad),22398.796310767804,0,Rechazo contundente de normalidad
+ARCH-LM Multivariado (Heterocedasticidad),4003.755666261721,0,Efectos ARCH severos (Volatilidad agrupada)

@@ -157,6 +157,9 @@ empty_tweets <- function() {
     author_id = character(),
     created_at_raw = character(),
     created_at = as.POSIXct(character()),
+    timestamp_utc = character(),
+    timestamp_bogota = character(),
+    date_bogota = as.Date(character()),
     date = as.Date(character()),
     text = character(),
     lang = character()
@@ -192,6 +195,7 @@ read_tweet_files <- function(
     }
 
     parsed_time <- suppressWarnings(lubridate::ymd_hms(raw$created_at, tz = "UTC", quiet = TRUE))
+    parsed_time_bogota <- lubridate::with_tz(parsed_time, tzone = "America/Bogota")
 
     tibble::tibble(
       corpus = corpus,
@@ -203,7 +207,10 @@ read_tweet_files <- function(
       author_id = as.character(raw$author_id),
       created_at_raw = as.character(raw$created_at),
       created_at = parsed_time,
-      date = as.Date(parsed_time),
+      timestamp_utc = format(parsed_time, "%Y-%m-%dT%H:%M:%SZ", tz = "UTC"),
+      timestamp_bogota = format(parsed_time_bogota, "%Y-%m-%dT%H:%M:%S%z", tz = "America/Bogota"),
+      date_bogota = as.Date(parsed_time_bogota),
+      date = as.Date(parsed_time_bogota),
       text = as.character(raw$text),
       lang = as.character(raw$lang)
     )
@@ -216,7 +223,7 @@ read_tweet_files <- function(
       dplyr::coalesce(text, ""),
       "[\\x00-\\x08\\x0B\\x0C\\x0E-\\x1F\\x7F]"
     )) |>
-    dplyr::filter(!is.na(date), date >= start_date, date <= end_date) |>
+    dplyr::filter(!is.na(date_bogota), date_bogota >= start_date, date_bogota <= end_date) |>
     dplyr::arrange(corpus, date, created_at, id) |>
     dplyr::distinct(corpus, raw_source, id, .keep_all = TRUE)
 }
@@ -419,21 +426,34 @@ for (series_name in market_series) {
 market_daily <- market_daily |>
   dplyr::arrange(date)
 
+for (series_name in market_series) {
+  market_daily[[paste0(series_name, "_observed")]] <- !is.na(market_daily[[series_name]])
+}
+
 market_carried <- market_daily |>
   tidyr::fill(dplyr::all_of(financial_series), .direction = "down")
 
 weekend_dates <- lubridate::wday(market_daily$date, week_start = 1) >= 6
 
 for (series_name in financial_series) {
+  carried_col <- paste0(series_name, "_carried_forward")
+  observed_col <- paste0(series_name, "_observed")
+  market_daily[[carried_col]] <- weekend_dates & is.na(market_daily[[series_name]]) & !is.na(market_carried[[series_name]])
   market_daily[[series_name]] <- dplyr::if_else(
-    weekend_dates & is.na(market_daily[[series_name]]),
+    market_daily[[carried_col]],
     market_carried[[series_name]],
     market_daily[[series_name]]
   )
+  market_daily[[observed_col]] <- market_daily[[observed_col]] & !market_daily[[carried_col]]
 }
 
 market_master <- market_daily |>
-  dplyr::mutate(tes_slope_10y_1y = tes_10y - tes_1y)
+  dplyr::mutate(
+    energy_spot_price_carried_forward = FALSE,
+    tes_slope_10y_1y = tes_10y - tes_1y,
+    tes_slope_10y_1y_observed = tes_10y_observed & tes_1y_observed,
+    tes_slope_10y_1y_carried_forward = tes_10y_carried_forward | tes_1y_carried_forward
+  )
 
 ## 4.3 Fuentes y cobertura ----
 
@@ -528,15 +548,21 @@ market_sources <- market_sources |>
 
 tweet_cols <- c(
   "corpus", "corpus_label", "raw_source", "source_dir", "source_file",
-  "id", "author_id", "created_at_raw", "created_at", "date", "text", "lang"
+  "id", "author_id", "created_at_raw", "created_at", "timestamp_utc",
+  "timestamp_bogota", "date_bogota", "date", "text", "lang"
 )
 master_tweet_cols <- c(
   tweet_cols, "doc_id", "text_original", "text_topic", "text_clean", "month"
 )
-market_cols <- c(
+market_value_cols <- c(
   "date", "trm", "colcap", "tes_1y", "tes_5y", "tes_10y",
   "tes_slope_10y_1y", "energy_spot_price"
 )
+market_flag_cols <- c(
+  paste0(c(financial_series, "energy_spot_price", "tes_slope_10y_1y"), "_observed"),
+  paste0(c(financial_series, "energy_spot_price", "tes_slope_10y_1y"), "_carried_forward")
+)
+market_cols <- c(market_value_cols, market_flag_cols)
 
 if (!identical(names(tweets_master), master_tweet_cols)) {
   stop("Las columnas de tweets_master no coinciden con el contrato esperado.", call. = FALSE)
@@ -586,8 +612,14 @@ if (anyDuplicated(market_master$date) > 0 || any(diff(market_master$date) < 0)) 
 }
 
 numeric_market_cols <- setdiff(market_cols, "date")
+logical_market_cols <- market_flag_cols
+numeric_market_cols <- setdiff(market_value_cols, "date")
 if (!all(vapply(market_master[numeric_market_cols], is.numeric, logical(1)))) {
   stop("Las series de market_master deben ser numericas.", call. = FALSE)
+}
+
+if (!all(vapply(market_master[logical_market_cols], is.logical, logical(1)))) {
+  stop("Las banderas de observacion/carry-forward de market_master deben ser logicas.", call. = FALSE)
 }
 
 if (any(vapply(market_master[numeric_market_cols], function(x) all(is.na(x)), logical(1)))) {

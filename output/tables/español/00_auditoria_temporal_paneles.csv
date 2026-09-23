@@ -1,0 +1,5 @@
+componente,unidad_fecha,filas,observaciones_modelables,nota
+tweets,date_bogota,28304,28304,UTC preservado; fecha analítica en America/Bogota.
+panel_bursatil_principal,date_sentiment -> next_trading_date,1397,1345,Evita look-ahead: sentimiento del día calendario colombiano se enlaza al siguiente día bursátil observado.
+panel_bursatil_contemporaneo,date observado de mercado,935,899,Sólo descriptivo; no es la especificación principal de precedencia.
+panel_electrico,date calendario XM,1400,1399,XM conserva calendario natural y no se fuerza al calendario bursátil.

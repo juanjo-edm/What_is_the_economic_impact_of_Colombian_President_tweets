@@ -1,261 +1,209 @@
-response,predictor,lag,p_value,f_stat,n_obs,status,q_value,significant_05,significant_fdr,dataset,corpus,corpus_label
-diff_tes_10y,ipi,1,0.4363093081449875,0.6065501346134766,843,ok,0.7359434113288946,FALSE,FALSE,opinión temática,opinion,
-diff_tes_10y,ipi,2,0.30176808915064224,1.1998151426872103,843,ok,0.7359434113288946,FALSE,FALSE,opinión temática,opinion,
-diff_tes_10y,ipi,3,0.36267934638525245,1.0660491456700625,843,ok,0.7359434113288946,FALSE,FALSE,opinión temática,opinion,
-diff_tes_10y,ipi,4,0.5326070596406751,0.7887185312982684,843,ok,0.7767186286426512,FALSE,FALSE,opinión temática,opinion,
-diff_tes_10y,polaridad,1,0.4067900021600571,0.6888293479717618,876,ok,0.7359434113288946,FALSE,FALSE,opinión temática,opinion,
-diff_tes_10y,polaridad,2,0.602247835135242,0.5073822465140465,876,ok,0.7815935676193749,FALSE,FALSE,opinión temática,opinion,
-diff_tes_10y,polaridad,3,0.5444956528576581,0.7127480095630888,876,ok,0.7815935676193749,FALSE,FALSE,opinión temática,opinion,
-diff_tes_10y,polaridad,4,0.5745370521178581,0.7256142467983359,876,ok,0.7815935676193749,FALSE,FALSE,opinión temática,opinion,
-diff_tes_10y,z_anger,1,0.7305151250376785,0.11871530204065867,876,ok,0.848403583902367,FALSE,FALSE,opinión temática,opinion,
-diff_tes_10y,z_anger,2,0.9695255176950608,0.03094958639900209,876,ok,0.9811820043146995,FALSE,FALSE,opinión temática,opinion,
-diff_tes_10y,z_anger,3,0.9137454194796406,0.1743824787802287,876,ok,0.9618372836627795,FALSE,FALSE,opinión temática,opinion,
-diff_tes_10y,z_anger,4,0.9723565089971278,0.1278035860092339,876,ok,0.9811820043146995,FALSE,FALSE,opinión temática,opinion,
-diff_tes_10y,z_fear,1,0.2030791201838828,1.6225275701673527,876,ok,0.7290019698908614,FALSE,FALSE,opinión temática,opinion,
-diff_tes_10y,z_fear,2,0.42657225205902366,0.8528093463131231,876,ok,0.7359434113288946,FALSE,FALSE,opinión temática,opinion,
-diff_tes_10y,z_fear,3,0.5908343600271637,0.6377264067728231,876,ok,0.7815935676193749,FALSE,FALSE,opinión temática,opinion,
-diff_tes_10y,z_fear,4,0.7166628699693227,0.5259974122821811,876,ok,0.8431327881992032,FALSE,FALSE,opinión temática,opinion,
-diff_tes_10y,z_joy,1,0.33451052033803397,0.9323894093994172,876,ok,0.7359434113288946,FALSE,FALSE,opinión temática,opinion,
-diff_tes_10y,z_joy,2,0.6105142917144409,0.49373388498585363,876,ok,0.7841467966974471,FALSE,FALSE,opinión temática,opinion,
-diff_tes_10y,z_joy,3,0.7020444820281224,0.4717483338189443,876,ok,0.8329341312198062,FALSE,FALSE,opinión temática,opinion,
-diff_tes_10y,z_joy,4,0.6558548510465194,0.6095385632842033,876,ok,0.8054357819869536,FALSE,FALSE,opinión temática,opinion,
-diff_tes_10y,z_negative,1,0.3892741808860165,0.7419485837809439,876,ok,0.7359434113288946,FALSE,FALSE,opinión temática,opinion,
-diff_tes_10y,z_negative,2,0.7347463066426274,0.30833935389417144,876,ok,0.848403583902367,FALSE,FALSE,opinión temática,opinion,
-diff_tes_10y,z_negative,3,0.9210485850501509,0.16333749066741088,876,ok,0.9622895664703068,FALSE,FALSE,opinión temática,opinion,
-diff_tes_10y,z_negative,4,0.9739135877568841,0.12382917012302931,876,ok,0.9811820043146995,FALSE,FALSE,opinión temática,opinion,
-diff_tes_10y,z_positive,1,0.055430258470715026,3.6789380690020552,876,ok,0.6069938604581853,FALSE,FALSE,opinión temática,opinion,
-diff_tes_10y,z_positive,2,0.11880452043018483,2.135506547719321,876,ok,0.688864276413649,FALSE,FALSE,opinión temática,opinion,
-diff_tes_10y,z_positive,3,0.15884343979459117,1.7320107897071242,876,ok,0.688864276413649,FALSE,FALSE,opinión temática,opinion,
-diff_tes_10y,z_positive,4,0.188364489840146,1.5406994146274844,876,ok,0.7118522220671079,FALSE,FALSE,opinión temática,opinion,
-diff_tes_slope,ipi,1,0.5071046720545913,0.4404147037775894,843,ok,0.7587523979151305,FALSE,FALSE,opinión temática,opinion,
-diff_tes_slope,ipi,2,0.38845862452521057,0.946638919942388,843,ok,0.7359434113288946,FALSE,FALSE,opinión temática,opinion,
-diff_tes_slope,ipi,3,0.32384806276667993,1.1604928049304504,843,ok,0.7359434113288946,FALSE,FALSE,opinión temática,opinion,
-diff_tes_slope,ipi,4,0.5028390551083284,0.8353245294116017,843,ok,0.7587523979151305,FALSE,FALSE,opinión temática,opinion,
-diff_tes_slope,polaridad,1,0.37957141680538975,0.7728746357729039,876,ok,0.7359434113288946,FALSE,FALSE,opinión temática,opinion,
-diff_tes_slope,polaridad,2,0.3852206202578119,0.9549870163430707,876,ok,0.7359434113288946,FALSE,FALSE,opinión temática,opinion,
-diff_tes_slope,polaridad,3,0.5094480386001591,0.7726124934910561,876,ok,0.7587523979151305,FALSE,FALSE,opinión temática,opinion,
-diff_tes_slope,polaridad,4,0.26887435998870324,1.2985462352413986,876,ok,0.7359434113288946,FALSE,FALSE,opinión temática,opinion,
-diff_tes_slope,z_anger,1,0.9741735614267374,0.001048696745803884,876,ok,0.9811820043146995,FALSE,FALSE,opinión temática,opinion,
-diff_tes_slope,z_anger,2,0.6029436093063749,0.5062262711571587,876,ok,0.7815935676193749,FALSE,FALSE,opinión temática,opinion,
-diff_tes_slope,z_anger,3,0.3101229475000062,1.1962032394219697,876,ok,0.7359434113288946,FALSE,FALSE,opinión temática,opinion,
-diff_tes_slope,z_anger,4,0.42853092308985075,0.9602426285744253,876,ok,0.7359434113288946,FALSE,FALSE,opinión temática,opinion,
-diff_tes_slope,z_fear,1,0.8128740162240435,0.05607030214447486,876,ok,0.8835556184814598,FALSE,FALSE,opinión temática,opinion,
-diff_tes_slope,z_fear,2,0.6438324777423083,0.44053989547847977,876,ok,0.8054357819869536,FALSE,FALSE,opinión temática,opinion,
-diff_tes_slope,z_fear,3,0.1888445449886,1.5959325031619638,876,ok,0.7118522220671079,FALSE,FALSE,opinión temática,opinion,
-diff_tes_slope,z_fear,4,0.21465575221274602,1.4529904468237975,876,ok,0.7359434113288946,FALSE,FALSE,opinión temática,opinion,
-diff_tes_slope,z_joy,1,0.335353800050752,0.929139714974768,876,ok,0.7359434113288946,FALSE,FALSE,opinión temática,opinion,
-diff_tes_slope,z_joy,2,0.58436272318316,0.5375656530977881,876,ok,0.7815935676193749,FALSE,FALSE,opinión temática,opinion,
-diff_tes_slope,z_joy,3,0.6995274843588228,0.4753419932282252,876,ok,0.8329341312198062,FALSE,FALSE,opinión temática,opinion,
-diff_tes_slope,z_joy,4,0.7990597438898794,0.41341164819402104,876,ok,0.8808532609809695,FALSE,FALSE,opinión temática,opinion,
-diff_tes_slope,z_negative,1,0.4803172553632614,0.498571074320943,876,ok,0.7587523979151305,FALSE,FALSE,opinión temática,opinion,
-diff_tes_slope,z_negative,2,0.5854485771958662,0.5357068995941776,876,ok,0.7815935676193749,FALSE,FALSE,opinión temática,opinion,
-diff_tes_slope,z_negative,3,0.6526272465118799,0.5435008271598717,876,ok,0.8054357819869536,FALSE,FALSE,opinión temática,opinion,
-diff_tes_slope,z_negative,4,0.568248800323162,0.7349071048233592,876,ok,0.7815935676193749,FALSE,FALSE,opinión temática,opinion,
-diff_tes_slope,z_positive,1,0.7744404213640129,0.08217421178224753,876,ok,0.8673732719276945,FALSE,FALSE,opinión temática,opinion,
-diff_tes_slope,z_positive,2,0.761842503967502,0.27210059673632286,876,ok,0.8601447625439539,FALSE,FALSE,opinión temática,opinion,
-diff_tes_slope,z_positive,3,0.3757673685675485,1.0361475584781805,876,ok,0.7359434113288946,FALSE,FALSE,opinión temática,opinion,
-diff_tes_slope,z_positive,4,0.42424320809825433,0.9679063885880972,876,ok,0.7359434113288946,FALSE,FALSE,opinión temática,opinion,
-ret_colcap,ipi,1,0.5050637245981875,0.44466295718479687,843,ok,0.7587523979151305,FALSE,FALSE,opinión temática,opinion,
-ret_colcap,ipi,2,0.07376601675880662,2.615002888476806,843,ok,0.688864276413649,FALSE,FALSE,opinión temática,opinion,
-ret_colcap,ipi,3,0.15592721841043133,1.7466742638040744,843,ok,0.688864276413649,FALSE,FALSE,opinión temática,opinion,
-ret_colcap,ipi,4,0.16237515086893156,1.6391227527487473,843,ok,0.688864276413649,FALSE,FALSE,opinión temática,opinion,
-ret_colcap,polaridad,1,0.14503133376371083,2.1275561898996322,876,ok,0.688864276413649,FALSE,FALSE,opinión temática,opinion,
-ret_colcap,polaridad,2,0.27509435227760926,1.292559904033057,876,ok,0.7359434113288946,FALSE,FALSE,opinión temática,opinion,
-ret_colcap,polaridad,3,0.39150656820644425,1.0014127140679165,876,ok,0.7359434113288946,FALSE,FALSE,opinión temática,opinion,
-ret_colcap,polaridad,4,0.11092443861487301,1.8854829486820883,876,ok,0.688864276413649,FALSE,FALSE,opinión temática,opinion,
-ret_colcap,z_anger,1,0.13694440976109473,2.2160414756467173,876,ok,0.688864276413649,FALSE,FALSE,opinión temática,opinion,
-ret_colcap,z_anger,2,0.3401152008331472,1.0798104352114228,876,ok,0.7359434113288946,FALSE,FALSE,opinión temática,opinion,
-ret_colcap,z_anger,3,0.3706471198233881,1.047716275593233,876,ok,0.7359434113288946,FALSE,FALSE,opinión temática,opinion,
-ret_colcap,z_anger,4,0.35812469912791467,1.0942398794940598,876,ok,0.7359434113288946,FALSE,FALSE,opinión temática,opinion,
-ret_colcap,z_fear,1,0.7453831487142225,0.10551839387292229,876,ok,0.848403583902367,FALSE,FALSE,opinión temática,opinion,
-ret_colcap,z_fear,2,0.48766198740468564,0.7187265465792432,876,ok,0.7587523979151305,FALSE,FALSE,opinión temática,opinion,
-ret_colcap,z_fear,3,0.6947102192542607,0.48223623885047284,876,ok,0.8329341312198062,FALSE,FALSE,opinión temática,opinion,
-ret_colcap,z_fear,4,0.8141333913150595,0.3924587440094627,876,ok,0.8835556184814598,FALSE,FALSE,opinión temática,opinion,
-ret_colcap,z_joy,1,0.2634616674065756,1.25209076398608,876,ok,0.7359434113288946,FALSE,FALSE,opinión temática,opinion,
-ret_colcap,z_joy,2,0.11463660747006278,2.1713958101599022,876,ok,0.688864276413649,FALSE,FALSE,opinión temática,opinion,
-ret_colcap,z_joy,3,0.18578302697011193,1.6088496052845827,876,ok,0.7118522220671079,FALSE,FALSE,opinión temática,opinion,
-ret_colcap,z_joy,4,0.022795742056096722,2.855627534405677,876,ok,0.5858650899129688,TRUE,FALSE,opinión temática,opinion,
-ret_colcap,z_negative,1,0.3379631969443966,0.9191530257347994,876,ok,0.7359434113288946,FALSE,FALSE,opinión temática,opinion,
-ret_colcap,z_negative,2,0.5774520442693729,0.5494770272084573,876,ok,0.7815935676193749,FALSE,FALSE,opinión temática,opinion,
-ret_colcap,z_negative,3,0.7814467311037625,0.3606483402025366,876,ok,0.8682741456708473,FALSE,FALSE,opinión temática,opinion,
-ret_colcap,z_negative,4,0.8768815185623564,0.3017074644053027,876,ok,0.9371252870132053,FALSE,FALSE,opinión temática,opinion,
-ret_colcap,z_positive,1,0.4070233489497609,0.6881442077687554,876,ok,0.7359434113288946,FALSE,FALSE,opinión temática,opinion,
-ret_colcap,z_positive,2,0.5826412978293161,0.540519477044521,876,ok,0.7815935676193749,FALSE,FALSE,opinión temática,opinion,
-ret_colcap,z_positive,3,0.23350473922942233,1.4268536560338907,876,ok,0.7359434113288946,FALSE,FALSE,opinión temática,opinion,
-ret_colcap,z_positive,4,0.0069017820599170535,3.5565656947848114,876,ok,0.4137349857870296,TRUE,FALSE,opinión temática,opinion,
-ret_energy,ipi,1,0.010955627433185818,6.497814902852619,962,ok,0.4137349857870296,TRUE,FALSE,opinión temática,opinion,
-ret_energy,ipi,2,0.02929325449564844,3.543481240574647,962,ok,0.5858650899129688,TRUE,FALSE,opinión temática,opinion,
-ret_energy,ipi,3,0.0773299263042045,2.2854962213438297,962,ok,0.688864276413649,FALSE,FALSE,opinión temática,opinion,
-ret_energy,ipi,4,0.14300853814671538,1.721509046281358,962,ok,0.688864276413649,FALSE,FALSE,opinión temática,opinion,
-ret_energy,polaridad,1,0.1317415877220115,2.275601336204521,999,ok,0.688864276413649,FALSE,FALSE,opinión temática,opinion,
-ret_energy,polaridad,2,0.15067587746305444,1.8962397671639761,999,ok,0.688864276413649,FALSE,FALSE,opinión temática,opinion,
-ret_energy,polaridad,3,0.23691978328384244,1.4148627664609261,999,ok,0.7359434113288946,FALSE,FALSE,opinión temática,opinion,
-ret_energy,polaridad,4,0.375906469728806,1.058433533564681,999,ok,0.7359434113288946,FALSE,FALSE,opinión temática,opinion,
-ret_energy,z_anger,1,0.3636050691401397,0.8261610172399104,999,ok,0.7359434113288946,FALSE,FALSE,opinión temática,opinion,
-ret_energy,z_anger,2,0.46943065041666526,0.7568114967360315,999,ok,0.7587523979151305,FALSE,FALSE,opinión temática,opinion,
-ret_energy,z_anger,3,0.37970932468428664,1.027179628554477,999,ok,0.7359434113288946,FALSE,FALSE,opinión temática,opinion,
-ret_energy,z_anger,4,0.29623815121511077,1.2303115047312725,999,ok,0.7359434113288946,FALSE,FALSE,opinión temática,opinion,
-ret_energy,z_fear,1,0.13405190781233836,2.2486074934918925,999,ok,0.688864276413649,FALSE,FALSE,opinión temática,opinion,
-ret_energy,z_fear,2,0.3218362816130312,1.135008961614709,999,ok,0.7359434113288946,FALSE,FALSE,opinión temática,opinion,
-ret_energy,z_fear,3,0.042308751991051,2.7388011701165103,999,ok,0.6069938604581853,TRUE,FALSE,opinión temática,opinion,
-ret_energy,z_fear,4,0.05636371561397434,2.307614339618258,999,ok,0.6069938604581853,FALSE,FALSE,opinión temática,opinion,
-ret_energy,z_joy,1,0.0499227814628012,3.8534245563599874,999,ok,0.6069938604581853,TRUE,FALSE,opinión temática,opinion,
-ret_energy,z_joy,2,0.0035958431484756563,5.660027449470654,999,ok,0.4137349857870296,TRUE,FALSE,opinión temática,opinion,
-ret_energy,z_joy,3,0.011820999593915131,3.6793596795172445,999,ok,0.4137349857870296,TRUE,FALSE,opinión temática,opinion,
-ret_energy,z_joy,4,0.02569129190742958,2.782513959920982,999,ok,0.5858650899129688,TRUE,FALSE,opinión temática,opinion,
-ret_energy,z_negative,1,0.1932170317039293,1.695209178682983,999,ok,0.7118522220671079,FALSE,FALSE,opinión temática,opinion,
-ret_energy,z_negative,2,0.40825907522467614,0.8966628304672645,999,ok,0.7359434113288946,FALSE,FALSE,opinión temática,opinion,
-ret_energy,z_negative,3,0.4326991607928671,0.9156779181315237,999,ok,0.7359434113288946,FALSE,FALSE,opinión temática,opinion,
-ret_energy,z_negative,4,0.3465969725252672,1.1178993084234083,999,ok,0.7359434113288946,FALSE,FALSE,opinión temática,opinion,
-ret_energy,z_positive,1,0.66211726481411,0.19107619724128547,999,ok,0.8060558006432644,FALSE,FALSE,opinión temática,opinion,
-ret_energy,z_positive,2,0.126510567839762,2.071744161213618,999,ok,0.688864276413649,FALSE,FALSE,opinión temática,opinion,
-ret_energy,z_positive,3,0.24344277976228784,1.3930226193718793,999,ok,0.7359434113288946,FALSE,FALSE,opinión temática,opinion,
-ret_energy,z_positive,4,0.16061635073963554,1.6455613369398883,999,ok,0.688864276413649,FALSE,FALSE,opinión temática,opinion,
-ret_trm,ipi,1,0.13033686569790542,2.2924205784643266,962,ok,0.688864276413649,FALSE,FALSE,opinión temática,opinion,
-ret_trm,ipi,2,0.21628502685541515,1.5336157150791419,962,ok,0.7359434113288946,FALSE,FALSE,opinión temática,opinion,
-ret_trm,ipi,3,0.09045566973848546,2.166218494999397,962,ok,0.688864276413649,FALSE,FALSE,opinión temática,opinion,
-ret_trm,ipi,4,0.11034191582806419,1.8882921027904513,962,ok,0.688864276413649,FALSE,FALSE,opinión temática,opinion,
-ret_trm,polaridad,1,0.49053588244030355,0.4757032069924353,999,ok,0.7587523979151305,FALSE,FALSE,opinión temática,opinion,
-ret_trm,polaridad,2,0.42545780162307534,0.8553261454484322,999,ok,0.7359434113288946,FALSE,FALSE,opinión temática,opinion,
-ret_trm,polaridad,3,0.48823090403496916,0.8103029242714861,999,ok,0.7587523979151305,FALSE,FALSE,opinión temática,opinion,
-ret_trm,polaridad,4,0.6003493873747219,0.6879700646406529,999,ok,0.7815935676193749,FALSE,FALSE,opinión temática,opinion,
-ret_trm,z_anger,1,0.9909539786910748,1.2860917873439023e-4,999,ok,0.9909539786910748,FALSE,FALSE,opinión temática,opinion,
-ret_trm,z_anger,2,0.3618453117405107,1.0175808700555868,999,ok,0.7359434113288946,FALSE,FALSE,opinión temática,opinion,
-ret_trm,z_anger,3,0.3246945272873881,1.1580595045919495,999,ok,0.7359434113288946,FALSE,FALSE,opinión temática,opinion,
-ret_trm,z_anger,4,0.4312936817333449,0.9552087642805611,999,ok,0.7359434113288946,FALSE,FALSE,opinión temática,opinion,
-ret_trm,z_fear,1,0.6252410725745929,0.23871823550514643,999,ok,0.7957613650949364,FALSE,FALSE,opinión temática,opinion,
-ret_trm,z_fear,2,0.8885974674894448,0.1181250022966694,999,ok,0.942451859458502,FALSE,FALSE,opinión temática,opinion,
-ret_trm,z_fear,3,0.48262419278011504,0.8204944739107338,999,ok,0.7587523979151305,FALSE,FALSE,opinión temática,opinion,
-ret_trm,z_fear,4,0.644998052390805,0.624652147586241,999,ok,0.8054357819869536,FALSE,FALSE,opinión temática,opinion,
-ret_trm,z_joy,1,0.5819868671688537,0.3032320760660314,999,ok,0.7815935676193749,FALSE,FALSE,opinión temática,opinion,
-ret_trm,z_joy,2,0.08934713920296702,2.421115971794754,999,ok,0.688864276413649,FALSE,FALSE,opinión temática,opinion,
-ret_trm,z_joy,3,0.1800005761892296,1.6333440862146527,999,ok,0.7118522220671079,FALSE,FALSE,opinión temática,opinion,
-ret_trm,z_joy,4,0.3118880172647766,1.1937950487785856,999,ok,0.7359434113288946,FALSE,FALSE,opinión temática,opinion,
-ret_trm,z_negative,1,0.7441904422684968,0.10653690441701129,999,ok,0.848403583902367,FALSE,FALSE,opinión temática,opinion,
-ret_trm,z_negative,2,0.9643423501507731,0.036310241407228154,999,ok,0.9811820043146995,FALSE,FALSE,opinión temática,opinion,
-ret_trm,z_negative,3,0.4437673846026703,0.8938373872780692,999,ok,0.7396123076711172,FALSE,FALSE,opinión temática,opinion,
-ret_trm,z_negative,4,0.5205525704786833,0.8072966118714687,999,ok,0.7671301038633227,FALSE,FALSE,opinión temática,opinion,
-ret_trm,z_positive,1,0.8491499389437777,0.03619608254228197,999,ok,0.9144691650163759,FALSE,FALSE,opinión temática,opinion,
-ret_trm,z_positive,2,0.4282044766591149,0.8488800291086336,999,ok,0.7359434113288946,FALSE,FALSE,opinión temática,opinion,
-ret_trm,z_positive,3,0.047304415907478074,2.655398539732497,999,ok,0.6069938604581853,TRUE,FALSE,opinión temática,opinion,
-ret_trm,z_positive,4,0.05312878139627729,2.3438472246707973,999,ok,0.6069938604581853,FALSE,FALSE,opinión temática,opinion,
-diff_tes_10y,ipi,1,0.047484784901942745,,,ok,0.6808064904181997,TRUE,,panel por corpus,opinion,Conversación pública sobre Gustavo Petro
-diff_tes_10y,ipi,2,0.13003590190394684,,,ok,0.7481668615151303,FALSE,,panel por corpus,opinion,Conversación pública sobre Gustavo Petro
-diff_tes_10y,ipi,3,0.043043930635034894,,,ok,0.6808064904181997,TRUE,,panel por corpus,opinion,Conversación pública sobre Gustavo Petro
-diff_tes_10y,ipi,4,0.07567179642793728,,,ok,0.6808064904181997,FALSE,,panel por corpus,opinion,Conversación pública sobre Gustavo Petro
-diff_tes_10y,log_tweets_n,1,0.8542766597133992,,,ok,0.940488065739522,FALSE,,panel por corpus,opinion,Conversación pública sobre Gustavo Petro
-diff_tes_10y,log_tweets_n,2,0.2552545218640649,,,ok,0.7481668615151303,FALSE,,panel por corpus,opinion,Conversación pública sobre Gustavo Petro
-diff_tes_10y,log_tweets_n,3,0.16690132743232902,,,ok,0.7481668615151303,FALSE,,panel por corpus,opinion,Conversación pública sobre Gustavo Petro
-diff_tes_10y,log_tweets_n,4,0.1706366113757372,,,ok,0.7481668615151303,FALSE,,panel por corpus,opinion,Conversación pública sobre Gustavo Petro
-diff_tes_10y,polaridad,1,0.07262192857677614,,,ok,0.6808064904181997,FALSE,,panel por corpus,opinion,Conversación pública sobre Gustavo Petro
-diff_tes_10y,polaridad,2,0.18260028140891144,,,ok,0.7481668615151303,FALSE,,panel por corpus,opinion,Conversación pública sobre Gustavo Petro
-diff_tes_10y,polaridad,3,0.1000127391925385,,,ok,0.6808064904181997,FALSE,,panel por corpus,opinion,Conversación pública sobre Gustavo Petro
-diff_tes_10y,polaridad,4,0.2331873952390248,,,ok,0.7481668615151303,FALSE,,panel por corpus,opinion,Conversación pública sobre Gustavo Petro
-diff_tes_slope,ipi,1,0.3231325757995389,,,ok,0.7481668615151303,FALSE,,panel por corpus,opinion,Conversación pública sobre Gustavo Petro
-diff_tes_slope,ipi,2,0.3735276248868627,,,ok,0.7481668615151303,FALSE,,panel por corpus,opinion,Conversación pública sobre Gustavo Petro
-diff_tes_slope,ipi,3,0.32500414789445464,,,ok,0.7481668615151303,FALSE,,panel por corpus,opinion,Conversación pública sobre Gustavo Petro
-diff_tes_slope,ipi,4,0.4917172246214697,,,ok,0.7630554914306196,FALSE,,panel por corpus,opinion,Conversación pública sobre Gustavo Petro
-diff_tes_slope,log_tweets_n,1,0.40370146780349747,,,ok,0.7481668615151303,FALSE,,panel por corpus,opinion,Conversación pública sobre Gustavo Petro
-diff_tes_slope,log_tweets_n,2,0.45762225967412834,,,ok,0.7481668615151303,FALSE,,panel por corpus,opinion,Conversación pública sobre Gustavo Petro
-diff_tes_slope,log_tweets_n,3,0.324202294686591,,,ok,0.7481668615151303,FALSE,,panel por corpus,opinion,Conversación pública sobre Gustavo Petro
-diff_tes_slope,log_tweets_n,4,0.2799242411680728,,,ok,0.7481668615151303,FALSE,,panel por corpus,opinion,Conversación pública sobre Gustavo Petro
-diff_tes_slope,polaridad,1,0.39569177755153584,,,ok,0.7481668615151303,FALSE,,panel por corpus,opinion,Conversación pública sobre Gustavo Petro
-diff_tes_slope,polaridad,2,0.41499463493408395,,,ok,0.7481668615151303,FALSE,,panel por corpus,opinion,Conversación pública sobre Gustavo Petro
-diff_tes_slope,polaridad,3,0.3128863339678816,,,ok,0.7481668615151303,FALSE,,panel por corpus,opinion,Conversación pública sobre Gustavo Petro
-diff_tes_slope,polaridad,4,0.46130385393586015,,,ok,0.7481668615151303,FALSE,,panel por corpus,opinion,Conversación pública sobre Gustavo Petro
-ret_colcap,ipi,1,0.5749504546366486,,,ok,0.7822505526697133,FALSE,,panel por corpus,opinion,Conversación pública sobre Gustavo Petro
-ret_colcap,ipi,2,0.8445624060415823,,,ok,0.940488065739522,FALSE,,panel por corpus,opinion,Conversación pública sobre Gustavo Petro
-ret_colcap,ipi,3,0.8166510908730891,,,ok,0.9347353121426755,FALSE,,panel por corpus,opinion,Conversación pública sobre Gustavo Petro
-ret_colcap,ipi,4,0.7582160644755773,,,ok,0.9122204504268354,FALSE,,panel por corpus,opinion,Conversación pública sobre Gustavo Petro
-ret_colcap,log_tweets_n,1,0.25411550966089574,,,ok,0.7481668615151303,FALSE,,panel por corpus,opinion,Conversación pública sobre Gustavo Petro
-ret_colcap,log_tweets_n,2,0.46136956460099704,,,ok,0.7481668615151303,FALSE,,panel por corpus,opinion,Conversación pública sobre Gustavo Petro
-ret_colcap,log_tweets_n,3,0.6466706140106968,,,ok,0.8527524580360837,FALSE,,panel por corpus,opinion,Conversación pública sobre Gustavo Petro
-ret_colcap,log_tweets_n,4,0.5753114856743997,,,ok,0.7822505526697133,FALSE,,panel por corpus,opinion,Conversación pública sobre Gustavo Petro
-ret_colcap,polaridad,1,0.8169860549364342,,,ok,0.9347353121426755,FALSE,,panel por corpus,opinion,Conversación pública sobre Gustavo Petro
-ret_colcap,polaridad,2,0.9520697820654541,,,ok,0.9718658445174734,FALSE,,panel por corpus,opinion,Conversación pública sobre Gustavo Petro
-ret_colcap,polaridad,3,0.9556680804421822,,,ok,0.9718658445174734,FALSE,,panel por corpus,opinion,Conversación pública sobre Gustavo Petro
-ret_colcap,polaridad,4,0.9365231716021826,,,ok,0.9718658445174734,FALSE,,panel por corpus,opinion,Conversación pública sobre Gustavo Petro
-ret_energy,ipi,1,0.0315655395856544,,,ok,0.6808064904181997,TRUE,,panel por corpus,opinion,Conversación pública sobre Gustavo Petro
-ret_energy,ipi,2,0.07648027209559131,,,ok,0.6808064904181997,FALSE,,panel por corpus,opinion,Conversación pública sobre Gustavo Petro
-ret_energy,ipi,3,0.14331976347373293,,,ok,0.7481668615151303,FALSE,,panel por corpus,opinion,Conversación pública sobre Gustavo Petro
-ret_energy,ipi,4,0.2250476204224765,,,ok,0.7481668615151303,FALSE,,panel por corpus,opinion,Conversación pública sobre Gustavo Petro
-ret_energy,log_tweets_n,1,0.7083275190923728,,,ok,0.894729497800892,FALSE,,panel por corpus,opinion,Conversación pública sobre Gustavo Petro
-ret_energy,log_tweets_n,2,0.764955204992804,,,ok,0.9122204504268354,FALSE,,panel por corpus,opinion,Conversación pública sobre Gustavo Petro
-ret_energy,log_tweets_n,3,0.891264685733804,,,ok,0.9635293899824909,FALSE,,panel por corpus,opinion,Conversación pública sobre Gustavo Petro
-ret_energy,log_tweets_n,4,0.5023448651918245,,,ok,0.7630554914306196,FALSE,,panel por corpus,opinion,Conversación pública sobre Gustavo Petro
-ret_energy,polaridad,1,0.028585887864758235,,,ok,0.6808064904181997,TRUE,,panel por corpus,opinion,Conversación pública sobre Gustavo Petro
-ret_energy,polaridad,2,0.07574477936968528,,,ok,0.6808064904181997,FALSE,,panel por corpus,opinion,Conversación pública sobre Gustavo Petro
-ret_energy,polaridad,3,0.1513113160026705,,,ok,0.7481668615151303,FALSE,,panel por corpus,opinion,Conversación pública sobre Gustavo Petro
-ret_energy,polaridad,4,0.24308234224673392,,,ok,0.7481668615151303,FALSE,,panel por corpus,opinion,Conversación pública sobre Gustavo Petro
-ret_trm,ipi,1,0.2108119627694409,,,ok,0.7481668615151303,FALSE,,panel por corpus,opinion,Conversación pública sobre Gustavo Petro
-ret_trm,ipi,2,0.19367936457137236,,,ok,0.7481668615151303,FALSE,,panel por corpus,opinion,Conversación pública sobre Gustavo Petro
-ret_trm,ipi,3,0.2762671256961653,,,ok,0.7481668615151303,FALSE,,panel por corpus,opinion,Conversación pública sobre Gustavo Petro
-ret_trm,ipi,4,0.36708259664085535,,,ok,0.7481668615151303,FALSE,,panel por corpus,opinion,Conversación pública sobre Gustavo Petro
-ret_trm,log_tweets_n,1,0.7610376760086062,,,ok,0.9122204504268354,FALSE,,panel por corpus,opinion,Conversación pública sobre Gustavo Petro
-ret_trm,log_tweets_n,2,0.2977237531214443,,,ok,0.7481668615151303,FALSE,,panel por corpus,opinion,Conversación pública sobre Gustavo Petro
-ret_trm,log_tweets_n,3,0.45242383220716087,,,ok,0.7481668615151303,FALSE,,panel por corpus,opinion,Conversación pública sobre Gustavo Petro
-ret_trm,log_tweets_n,4,0.5352754063791982,,,ok,0.7822505526697133,FALSE,,panel por corpus,opinion,Conversación pública sobre Gustavo Petro
-ret_trm,polaridad,1,0.45312903644825997,,,ok,0.7481668615151303,FALSE,,panel por corpus,opinion,Conversación pública sobre Gustavo Petro
-ret_trm,polaridad,2,0.32318912322424365,,,ok,0.7481668615151303,FALSE,,panel por corpus,opinion,Conversación pública sobre Gustavo Petro
-ret_trm,polaridad,3,0.38175999484370104,,,ok,0.7481668615151303,FALSE,,panel por corpus,opinion,Conversación pública sobre Gustavo Petro
-ret_trm,polaridad,4,0.5014186991239311,,,ok,0.7630554914306196,FALSE,,panel por corpus,opinion,Conversación pública sobre Gustavo Petro
-diff_tes_10y,ipi,1,0.10212097356272996,,,ok,0.6808064904181997,FALSE,,panel por corpus,presidente,Tweets escritos por @petrogustavo
-diff_tes_10y,ipi,2,0.2786172117971358,,,ok,0.7481668615151303,FALSE,,panel por corpus,presidente,Tweets escritos por @petrogustavo
-diff_tes_10y,ipi,3,0.08716897006839898,,,ok,0.6808064904181997,FALSE,,panel por corpus,presidente,Tweets escritos por @petrogustavo
-diff_tes_10y,ipi,4,0.14949964807251684,,,ok,0.7481668615151303,FALSE,,panel por corpus,presidente,Tweets escritos por @petrogustavo
-diff_tes_10y,log_tweets_n,1,0.40895414562739607,,,ok,0.7481668615151303,FALSE,,panel por corpus,presidente,Tweets escritos por @petrogustavo
-diff_tes_10y,log_tweets_n,2,0.16768048942029515,,,ok,0.7481668615151303,FALSE,,panel por corpus,presidente,Tweets escritos por @petrogustavo
-diff_tes_10y,log_tweets_n,3,0.3530955505190385,,,ok,0.7481668615151303,FALSE,,panel por corpus,presidente,Tweets escritos por @petrogustavo
-diff_tes_10y,log_tweets_n,4,0.24101445223338341,,,ok,0.7481668615151303,FALSE,,panel por corpus,presidente,Tweets escritos por @petrogustavo
-diff_tes_10y,polaridad,1,0.171513635726888,,,ok,0.7481668615151303,FALSE,,panel por corpus,presidente,Tweets escritos por @petrogustavo
-diff_tes_10y,polaridad,2,0.3926640308318047,,,ok,0.7481668615151303,FALSE,,panel por corpus,presidente,Tweets escritos por @petrogustavo
-diff_tes_10y,polaridad,3,0.4538393344866116,,,ok,0.7481668615151303,FALSE,,panel por corpus,presidente,Tweets escritos por @petrogustavo
-diff_tes_10y,polaridad,4,0.56694076067915955,,,ok,0.7822505526697133,FALSE,,panel por corpus,presidente,Tweets escritos por @petrogustavo
-diff_tes_slope,ipi,1,0.912355854187043,,,ok,0.9718658445174734,FALSE,,panel por corpus,presidente,Tweets escritos por @petrogustavo
-diff_tes_slope,ipi,2,0.5657344333923695,,,ok,0.7822505526697133,FALSE,,panel por corpus,presidente,Tweets escritos por @petrogustavo
-diff_tes_slope,ipi,3,0.3671796207359235,,,ok,0.7481668615151303,FALSE,,panel por corpus,presidente,Tweets escritos por @petrogustavo
-diff_tes_slope,ipi,4,0.5673757467575531,,,ok,0.7822505526697133,FALSE,,panel por corpus,presidente,Tweets escritos por @petrogustavo
-diff_tes_slope,log_tweets_n,1,0.3942026292444323,,,ok,0.7481668615151303,FALSE,,panel por corpus,presidente,Tweets escritos por @petrogustavo
-diff_tes_slope,log_tweets_n,2,0.09900985641788221,,,ok,0.6808064904181997,FALSE,,panel por corpus,presidente,Tweets escritos por @petrogustavo
-diff_tes_slope,log_tweets_n,3,0.14492514201208526,,,ok,0.7481668615151303,FALSE,,panel por corpus,presidente,Tweets escritos por @petrogustavo
-diff_tes_slope,log_tweets_n,4,0.2111265177385681,,,ok,0.7481668615151303,FALSE,,panel por corpus,presidente,Tweets escritos por @petrogustavo
-diff_tes_slope,polaridad,1,0.22823914473351017,,,ok,0.7481668615151303,FALSE,,panel por corpus,presidente,Tweets escritos por @petrogustavo
-diff_tes_slope,polaridad,2,0.4943830104755166,,,ok,0.7630554914306196,FALSE,,panel por corpus,presidente,Tweets escritos por @petrogustavo
-diff_tes_slope,polaridad,3,0.580169159896704,,,ok,0.7822505526697133,FALSE,,panel por corpus,presidente,Tweets escritos por @petrogustavo
-diff_tes_slope,polaridad,4,0.6774417040563095,,,ok,0.874118327814593,FALSE,,panel por corpus,presidente,Tweets escritos por @petrogustavo
-ret_colcap,ipi,1,0.5192755417883033,,,ok,0.7789133126824549,FALSE,,panel por corpus,presidente,Tweets escritos por @petrogustavo
-ret_colcap,ipi,2,0.8178933981248411,,,ok,0.9347353121426755,FALSE,,panel por corpus,presidente,Tweets escritos por @petrogustavo
-ret_colcap,ipi,3,0.7850751598685918,,,ok,0.9236178351395198,FALSE,,panel por corpus,presidente,Tweets escritos por @petrogustavo
-ret_colcap,ipi,4,0.8622709971902164,,,ok,0.9406592696620542,FALSE,,panel por corpus,presidente,Tweets escritos por @petrogustavo
-ret_colcap,log_tweets_n,1,0.8542341896126382,,,ok,0.940488065739522,FALSE,,panel por corpus,presidente,Tweets escritos por @petrogustavo
-ret_colcap,log_tweets_n,2,0.7453163676947008,,,ok,0.9122204504268354,FALSE,,panel por corpus,presidente,Tweets escritos por @petrogustavo
-ret_colcap,log_tweets_n,3,0.700462155763546,,,ok,0.8942070073577183,FALSE,,panel por corpus,presidente,Tweets escritos por @petrogustavo
-ret_colcap,log_tweets_n,4,0.6615404649720823,,,ok,0.86287886735489,FALSE,,panel por corpus,presidente,Tweets escritos por @petrogustavo
-ret_colcap,polaridad,1,0.43588383160262567,,,ok,0.7481668615151303,FALSE,,panel por corpus,presidente,Tweets escritos por @petrogustavo
-ret_colcap,polaridad,2,0.5521052986637436,,,ok,0.7822505526697133,FALSE,,panel por corpus,presidente,Tweets escritos por @petrogustavo
-ret_colcap,polaridad,3,0.3548751409423466,,,ok,0.7481668615151303,FALSE,,panel por corpus,presidente,Tweets escritos por @petrogustavo
-ret_colcap,polaridad,4,0.4801782355383004,,,ok,0.7630554914306196,FALSE,,panel por corpus,presidente,Tweets escritos por @petrogustavo
-ret_energy,ipi,1,0.7191841534078742,,,ok,0.8989801917598428,FALSE,,panel por corpus,presidente,Tweets escritos por @petrogustavo
-ret_energy,ipi,2,0.9333158966734939,,,ok,0.9718658445174734,FALSE,,panel por corpus,presidente,Tweets escritos por @petrogustavo
-ret_energy,ipi,3,0.9726970140522144,,,ok,0.9808709385400481,FALSE,,panel por corpus,presidente,Tweets escritos por @petrogustavo
-ret_energy,ipi,4,0.9858299345538462,,,ok,0.9858299345538462,FALSE,,panel por corpus,presidente,Tweets escritos por @petrogustavo
-ret_energy,log_tweets_n,1,0.009602307831567004,,,ok,0.6808064904181997,TRUE,,panel por corpus,presidente,Tweets escritos por @petrogustavo
-ret_energy,log_tweets_n,2,0.013254793370336295,,,ok,0.6808064904181997,TRUE,,panel por corpus,presidente,Tweets escritos por @petrogustavo
-ret_energy,log_tweets_n,3,0.023238659879970494,,,ok,0.6808064904181997,TRUE,,panel por corpus,presidente,Tweets escritos por @petrogustavo
-ret_energy,log_tweets_n,4,0.03820592737441966,,,ok,0.6808064904181997,TRUE,,panel por corpus,presidente,Tweets escritos por @petrogustavo
-ret_energy,polaridad,1,0.09661669083989081,,,ok,0.6808064904181997,FALSE,,panel por corpus,presidente,Tweets escritos por @petrogustavo
-ret_energy,polaridad,2,0.2693082448215781,,,ok,0.7481668615151303,FALSE,,panel por corpus,presidente,Tweets escritos por @petrogustavo
-ret_energy,polaridad,3,0.4094129927903716,,,ok,0.7481668615151303,FALSE,,panel por corpus,presidente,Tweets escritos por @petrogustavo
-ret_energy,polaridad,4,0.5313152722457632,,,ok,0.7822505526697133,FALSE,,panel por corpus,presidente,Tweets escritos por @petrogustavo
-ret_trm,ipi,1,0.2683849006484371,,,ok,0.7481668615151303,FALSE,,panel por corpus,presidente,Tweets escritos por @petrogustavo
-ret_trm,ipi,2,0.4437981184943239,,,ok,0.7481668615151303,FALSE,,panel por corpus,presidente,Tweets escritos por @petrogustavo
-ret_trm,ipi,3,0.6419138366416937,,,ok,0.8527524580360837,FALSE,,panel por corpus,presidente,Tweets escritos por @petrogustavo
-ret_trm,ipi,4,0.0762887606786891,,,ok,0.6808064904181997,FALSE,,panel por corpus,presidente,Tweets escritos por @petrogustavo
-ret_trm,log_tweets_n,1,0.438946502226915,,,ok,0.7481668615151303,FALSE,,panel por corpus,presidente,Tweets escritos por @petrogustavo
-ret_trm,log_tweets_n,2,0.8513430730482278,,,ok,0.940488065739522,FALSE,,panel por corpus,presidente,Tweets escritos por @petrogustavo
-ret_trm,log_tweets_n,3,0.9173047658371324,,,ok,0.9718658445174734,FALSE,,panel por corpus,presidente,Tweets escritos por @petrogustavo
-ret_trm,log_tweets_n,4,0.9547935528696556,,,ok,0.9718658445174734,FALSE,,panel por corpus,presidente,Tweets escritos por @petrogustavo
-ret_trm,polaridad,1,0.7677855457759198,,,ok,0.9122204504268354,FALSE,,panel por corpus,presidente,Tweets escritos por @petrogustavo
-ret_trm,polaridad,2,0.26033556396743424,,,ok,0.7481668615151303,FALSE,,panel por corpus,presidente,Tweets escritos por @petrogustavo
-ret_trm,polaridad,3,0.4277447612059101,,,ok,0.7481668615151303,FALSE,,panel por corpus,presidente,Tweets escritos por @petrogustavo
-ret_trm,polaridad,4,0.3013460463909855,,,ok,0.7481668615151303,FALSE,,panel por corpus,presidente,Tweets escritos por @petrogustavo
+response,predictor,lag,p_value,f_stat,n_obs,status,p_raw,p_fdr,q_value,significant_05,significant_raw,significant_fdr,timing,dataset,corpus,corpus_label
+diff_tes_10y,ipi,1,0.2085891612680348,1.5827143018190386,1345,ok,0.2085891612680348,0.5991668699938192,0.5991668699938192,FALSE,FALSE,FALSE,S_t -> R_siguiente_dia_bursatil,opinión temática,opinion,
+diff_tes_10y,ipi,2,0.03397465947183808,3.390703999709169,1345,ok,0.03397465947183808,0.5426271580621381,0.5426271580621381,TRUE,TRUE,FALSE,S_t -> R_siguiente_dia_bursatil,opinión temática,opinion,
+diff_tes_10y,ipi,3,0.05037913274808507,2.605918472543644,1345,ok,0.05037913274808507,0.5426271580621381,0.5426271580621381,FALSE,FALSE,FALSE,S_t -> R_siguiente_dia_bursatil,opinión temática,opinion,
+diff_tes_10y,ipi,4,0.01700428453068906,3.023163739391742,1345,ok,0.01700428453068906,0.5426271580621381,0.5426271580621381,TRUE,TRUE,FALSE,S_t -> R_siguiente_dia_bursatil,opinión temática,opinion,
+diff_tes_10y,polaridad,1,0.44937457159289684,0.5725519479510642,1397,ok,0.44937457159289684,0.7625750305818856,0.7625750305818856,FALSE,FALSE,FALSE,S_t -> R_siguiente_dia_bursatil,opinión temática,opinion,
+diff_tes_10y,polaridad,2,0.564345173005512,0.5723247280257397,1397,ok,0.564345173005512,0.8080897845473678,0.8080897845473678,FALSE,FALSE,FALSE,S_t -> R_siguiente_dia_bursatil,opinión temática,opinion,
+diff_tes_10y,polaridad,3,0.7654848739408946,0.3827096159288719,1397,ok,0.7654848739408946,0.941356723213786,0.941356723213786,FALSE,FALSE,FALSE,S_t -> R_siguiente_dia_bursatil,opinión temática,opinion,
+diff_tes_10y,polaridad,4,0.48690571399086424,0.8606983532672431,1397,ok,0.48690571399086424,0.7790372888532484,0.7790372888532484,FALSE,FALSE,FALSE,S_t -> R_siguiente_dia_bursatil,opinión temática,opinion,
+diff_tes_10y,z_anger,1,0.23877023175724388,1.389030147801214,1397,ok,0.23877023175724388,0.5991668699938192,0.5991668699938192,FALSE,FALSE,FALSE,S_t -> R_siguiente_dia_bursatil,opinión temática,opinion,
+diff_tes_10y,z_anger,2,0.3852800533364228,0.9544395616999919,1397,ok,0.3852800533364228,0.72778039105596,0.72778039105596,FALSE,FALSE,FALSE,S_t -> R_siguiente_dia_bursatil,opinión temática,opinion,
+diff_tes_10y,z_anger,3,0.5400384237614566,0.7200189691547129,1397,ok,0.5400384237614566,0.8080897845473678,0.8080897845473678,FALSE,FALSE,FALSE,S_t -> R_siguiente_dia_bursatil,opinión temática,opinion,
+diff_tes_10y,z_anger,4,0.37088251453169946,1.0680071542257115,1397,ok,0.37088251453169946,0.72778039105596,0.72778039105596,FALSE,FALSE,FALSE,S_t -> R_siguiente_dia_bursatil,opinión temática,opinion,
+diff_tes_10y,z_fear,1,0.06606752243883539,3.3834311896337415,1397,ok,0.06606752243883539,0.5426271580621381,0.5426271580621381,FALSE,FALSE,FALSE,S_t -> R_siguiente_dia_bursatil,opinión temática,opinion,
+diff_tes_10y,z_fear,2,0.07852336936444095,2.549022071523301,1397,ok,0.07852336936444095,0.5426271580621381,0.5426271580621381,FALSE,FALSE,FALSE,S_t -> R_siguiente_dia_bursatil,opinión temática,opinion,
+diff_tes_10y,z_fear,3,0.13882184122455665,1.8352860497519305,1397,ok,0.13882184122455665,0.5426271580621381,0.5426271580621381,FALSE,FALSE,FALSE,S_t -> R_siguiente_dia_bursatil,opinión temática,opinion,
+diff_tes_10y,z_fear,4,0.08042106405087776,2.0856376545843953,1397,ok,0.08042106405087776,0.5426271580621381,0.5426271580621381,FALSE,FALSE,FALSE,S_t -> R_siguiente_dia_bursatil,opinión temática,opinion,
+diff_tes_10y,z_joy,1,0.9809688475477605,5.692308102859026e-4,1397,ok,0.9809688475477605,0.9932659880621102,0.9932659880621102,FALSE,FALSE,FALSE,S_t -> R_siguiente_dia_bursatil,opinión temática,opinion,
+diff_tes_10y,z_joy,2,0.9721908790320022,0.028203688445612222,1397,ok,0.9721908790320022,0.9932659880621102,0.9932659880621102,FALSE,FALSE,FALSE,S_t -> R_siguiente_dia_bursatil,opinión temática,opinion,
+diff_tes_10y,z_joy,3,0.9884702589384837,0.042172436360216316,1397,ok,0.9884702589384837,0.9932659880621102,0.9932659880621102,FALSE,FALSE,FALSE,S_t -> R_siguiente_dia_bursatil,opinión temática,opinion,
+diff_tes_10y,z_joy,4,0.8950191000909805,0.2737325939134889,1397,ok,0.8950191000909805,0.970974678401049,0.970974678401049,FALSE,FALSE,FALSE,S_t -> R_siguiente_dia_bursatil,opinión temática,opinion,
+diff_tes_10y,z_negative,1,0.1019331647232795,2.678565923909,1397,ok,0.1019331647232795,0.5426271580621381,0.5426271580621381,FALSE,FALSE,FALSE,S_t -> R_siguiente_dia_bursatil,opinión temática,opinion,
+diff_tes_10y,z_negative,2,0.19156527805663737,1.6544928451315148,1397,ok,0.19156527805663737,0.5959808650650941,0.5959808650650941,FALSE,FALSE,FALSE,S_t -> R_siguiente_dia_bursatil,opinión temática,opinion,
+diff_tes_10y,z_negative,3,0.35707756430526105,1.078533672791644,1397,ok,0.35707756430526105,0.72778039105596,0.72778039105596,FALSE,FALSE,FALSE,S_t -> R_siguiente_dia_bursatil,opinión temática,opinion,
+diff_tes_10y,z_negative,4,0.49031039146530686,0.8551730431243411,1397,ok,0.49031039146530686,0.7790372888532484,0.7790372888532484,FALSE,FALSE,FALSE,S_t -> R_siguiente_dia_bursatil,opinión temática,opinion,
+diff_tes_10y,z_positive,1,0.25885623500722615,1.2759052989353161,1397,ok,0.25885623500722615,0.5991668699938192,0.5991668699938192,FALSE,FALSE,FALSE,S_t -> R_siguiente_dia_bursatil,opinión temática,opinion,
+diff_tes_10y,z_positive,2,0.38988235235140717,0.9425488041646959,1397,ok,0.38988235235140717,0.72778039105596,0.72778039105596,FALSE,FALSE,FALSE,S_t -> R_siguiente_dia_bursatil,opinión temática,opinion,
+diff_tes_10y,z_positive,3,0.6123361735877666,0.604162891318886,1397,ok,0.6123361735877666,0.828211438855755,0.828211438855755,FALSE,FALSE,FALSE,S_t -> R_siguiente_dia_bursatil,opinión temática,opinion,
+diff_tes_10y,z_positive,4,0.037969379136122874,2.545078485811632,1397,ok,0.037969379136122874,0.5426271580621381,0.5426271580621381,TRUE,TRUE,FALSE,S_t -> R_siguiente_dia_bursatil,opinión temática,opinion,
+diff_tes_slope,ipi,1,0.7922846428134194,0.06937827043795654,1345,ok,0.7922846428134194,0.941356723213786,0.941356723213786,FALSE,FALSE,FALSE,S_t -> R_siguiente_dia_bursatil,opinión temática,opinion,
+diff_tes_slope,ipi,2,0.9209041940228073,0.08240434667772338,1345,ok,0.9209041940228073,0.970974678401049,0.970974678401049,FALSE,FALSE,FALSE,S_t -> R_siguiente_dia_bursatil,opinión temática,opinion,
+diff_tes_slope,ipi,3,0.9126880459101288,0.1759841940917077,1345,ok,0.9126880459101288,0.970974678401049,0.970974678401049,FALSE,FALSE,FALSE,S_t -> R_siguiente_dia_bursatil,opinión temática,opinion,
+diff_tes_slope,ipi,4,0.5568958606364461,0.7516730065339485,1345,ok,0.5568958606364461,0.8080897845473678,0.8080897845473678,FALSE,FALSE,FALSE,S_t -> R_siguiente_dia_bursatil,opinión temática,opinion,
+diff_tes_slope,polaridad,1,0.5875807333730434,0.29427497315865997,1397,ok,0.5875807333730434,0.8124573103429735,0.8124573103429735,FALSE,FALSE,FALSE,S_t -> R_siguiente_dia_bursatil,opinión temática,opinion,
+diff_tes_slope,polaridad,2,0.14230698038758902,1.9525062430729052,1397,ok,0.14230698038758902,0.5426271580621381,0.5426271580621381,FALSE,FALSE,FALSE,S_t -> R_siguiente_dia_bursatil,opinión temática,opinion,
+diff_tes_slope,polaridad,3,0.11869304007087304,1.9563098220319253,1397,ok,0.11869304007087304,0.5426271580621381,0.5426271580621381,FALSE,FALSE,FALSE,S_t -> R_siguiente_dia_bursatil,opinión temática,opinion,
+diff_tes_slope,polaridad,4,0.04348017716682845,2.463216160131049,1397,ok,0.04348017716682845,0.5426271580621381,0.5426271580621381,TRUE,TRUE,FALSE,S_t -> R_siguiente_dia_bursatil,opinión temática,opinion,
+diff_tes_slope,z_anger,1,0.44177058538507974,0.5920171932788806,1397,ok,0.44177058538507974,0.7612047009712144,0.7612047009712144,FALSE,FALSE,FALSE,S_t -> R_siguiente_dia_bursatil,opinión temática,opinion,
+diff_tes_slope,z_anger,2,0.4645129718727901,0.7671889212484306,1397,ok,0.4645129718727901,0.7764992962649625,0.7764992962649625,FALSE,FALSE,FALSE,S_t -> R_siguiente_dia_bursatil,opinión temática,opinion,
+diff_tes_slope,z_anger,3,0.40435834352917066,0.9735147885036423,1397,ok,0.40435834352917066,0.730453781859147,0.730453781859147,FALSE,FALSE,FALSE,S_t -> R_siguiente_dia_bursatil,opinión temática,opinion,
+diff_tes_slope,z_anger,4,0.5768736635200364,0.7220351315885485,1397,ok,0.5768736635200364,0.8080897845473678,0.8080897845473678,FALSE,FALSE,FALSE,S_t -> R_siguiente_dia_bursatil,opinión temática,opinion,
+diff_tes_slope,z_fear,1,0.3999313099677273,0.7089675296498527,1397,ok,0.3999313099677273,0.730453781859147,0.730453781859147,FALSE,FALSE,FALSE,S_t -> R_siguiente_dia_bursatil,opinión temática,opinion,
+diff_tes_slope,z_fear,2,0.25860676570004165,1.3537634120446769,1397,ok,0.25860676570004165,0.5991668699938192,0.5991668699938192,FALSE,FALSE,FALSE,S_t -> R_siguiente_dia_bursatil,opinión temática,opinion,
+diff_tes_slope,z_fear,3,0.14534656019521558,1.7996266629214641,1397,ok,0.14534656019521558,0.5426271580621381,0.5426271580621381,FALSE,FALSE,FALSE,S_t -> R_siguiente_dia_bursatil,opinión temática,opinion,
+diff_tes_slope,z_fear,4,0.2396575418733368,1.3769449891425851,1397,ok,0.2396575418733368,0.5991668699938192,0.5991668699938192,FALSE,FALSE,FALSE,S_t -> R_siguiente_dia_bursatil,opinión temática,opinion,
+diff_tes_slope,z_joy,1,0.5720147128948967,0.3194743782926937,1397,ok,0.5720147128948967,0.8080897845473678,0.8080897845473678,FALSE,FALSE,FALSE,S_t -> R_siguiente_dia_bursatil,opinión temática,opinion,
+diff_tes_slope,z_joy,2,0.7013421859353285,0.3548499293468307,1397,ok,0.7013421859353285,0.8889507089459318,0.8889507089459318,FALSE,FALSE,FALSE,S_t -> R_siguiente_dia_bursatil,opinión temática,opinion,
+diff_tes_slope,z_joy,3,0.7908979453593343,0.3476043062395337,1397,ok,0.7908979453593343,0.941356723213786,0.941356723213786,FALSE,FALSE,FALSE,S_t -> R_siguiente_dia_bursatil,opinión temática,opinion,
+diff_tes_slope,z_joy,4,0.7150834969197364,0.5281367100219856,1397,ok,0.7150834969197364,0.889881685055672,0.889881685055672,FALSE,FALSE,FALSE,S_t -> R_siguiente_dia_bursatil,opinión temática,opinion,
+diff_tes_slope,z_negative,1,0.4321884789243331,0.6172933821221414,1397,ok,0.4321884789243331,0.7563298381175829,0.7563298381175829,FALSE,FALSE,FALSE,S_t -> R_siguiente_dia_bursatil,opinión temática,opinion,
+diff_tes_slope,z_negative,2,0.38067408855988133,0.9664830650207032,1397,ok,0.38067408855988133,0.72778039105596,0.72778039105596,FALSE,FALSE,FALSE,S_t -> R_siguiente_dia_bursatil,opinión temática,opinion,
+diff_tes_slope,z_negative,3,0.21955124340124382,1.4751032154449926,1397,ok,0.21955124340124382,0.5991668699938192,0.5991668699938192,FALSE,FALSE,FALSE,S_t -> R_siguiente_dia_bursatil,opinión temática,opinion,
+diff_tes_slope,z_negative,4,0.12587702301672782,1.8024260979213498,1397,ok,0.12587702301672782,0.5426271580621381,0.5426271580621381,FALSE,FALSE,FALSE,S_t -> R_siguiente_dia_bursatil,opinión temática,opinion,
+diff_tes_slope,z_positive,1,0.6578299974850288,0.19625454069510057,1397,ok,0.6578299974850288,0.8468616059577382,0.8468616059577382,FALSE,FALSE,FALSE,S_t -> R_siguiente_dia_bursatil,opinión temática,opinion,
+diff_tes_slope,z_positive,2,0.1785353700183628,1.7251060102675924,1397,ok,0.1785353700183628,0.5881165130016657,0.5881165130016657,FALSE,FALSE,FALSE,S_t -> R_siguiente_dia_bursatil,opinión temática,opinion,
+diff_tes_slope,z_positive,3,0.263125000217064,1.3296510278166414,1397,ok,0.263125000217064,0.5991668699938192,0.5991668699938192,FALSE,FALSE,FALSE,S_t -> R_siguiente_dia_bursatil,opinión temática,opinion,
+diff_tes_slope,z_positive,4,0.1894247411439785,1.5355717880337214,1397,ok,0.1894247411439785,0.5959808650650941,0.5959808650650941,FALSE,FALSE,FALSE,S_t -> R_siguiente_dia_bursatil,opinión temática,opinion,
+ret_colcap,ipi,1,0.05312271322971619,3.7466731740976225,1345,ok,0.05312271322971619,0.5426271580621381,0.5426271580621381,FALSE,FALSE,FALSE,S_t -> R_siguiente_dia_bursatil,opinión temática,opinion,
+ret_colcap,ipi,2,0.12129779597467004,2.112836004851788,1345,ok,0.12129779597467004,0.5426271580621381,0.5426271580621381,FALSE,FALSE,FALSE,S_t -> R_siguiente_dia_bursatil,opinión temática,opinion,
+ret_colcap,ipi,3,0.29085790648739795,1.2481850673433612,1345,ok,0.29085790648739795,0.6387467750311485,0.6387467750311485,FALSE,FALSE,FALSE,S_t -> R_siguiente_dia_bursatil,opinión temática,opinion,
+ret_colcap,ipi,4,0.36569097251114113,1.0784017874354026,1345,ok,0.36569097251114113,0.72778039105596,0.72778039105596,FALSE,FALSE,FALSE,S_t -> R_siguiente_dia_bursatil,opinión temática,opinion,
+ret_colcap,polaridad,1,0.80687719132610225,0.05978177775240208,1397,ok,0.80687719132610225,0.941356723213786,0.941356723213786,FALSE,FALSE,FALSE,S_t -> R_siguiente_dia_bursatil,opinión temática,opinion,
+ret_colcap,polaridad,2,0.8627012344942493,0.1477025347033486,1397,ok,0.8627012344942493,0.9662253826335593,0.9662253826335593,FALSE,FALSE,FALSE,S_t -> R_siguiente_dia_bursatil,opinión temática,opinion,
+ret_colcap,polaridad,3,0.5772069889624056,0.6592116267017614,1397,ok,0.5772069889624056,0.8080897845473678,0.8080897845473678,FALSE,FALSE,FALSE,S_t -> R_siguiente_dia_bursatil,opinión temática,opinion,
+ret_colcap,polaridad,4,0.6240412376084996,0.6540751161198856,1397,ok,0.6240412376084996,0.828211438855755,0.828211438855755,FALSE,FALSE,FALSE,S_t -> R_siguiente_dia_bursatil,opinión temática,opinion,
+ret_colcap,z_anger,1,0.6229883298610104,0.2417975177158362,1397,ok,0.6229883298610104,0.828211438855755,0.828211438855755,FALSE,FALSE,FALSE,S_t -> R_siguiente_dia_bursatil,opinión temática,opinion,
+ret_colcap,z_anger,2,0.7942518441404512,0.23039286321113306,1397,ok,0.7942518441404512,0.941356723213786,0.941356723213786,FALSE,FALSE,FALSE,S_t -> R_siguiente_dia_bursatil,opinión temática,opinion,
+ret_colcap,z_anger,3,0.5187341287946434,0.7562504285004605,1397,ok,0.5187341287946434,0.8069197559027786,0.8069197559027786,FALSE,FALSE,FALSE,S_t -> R_siguiente_dia_bursatil,opinión temática,opinion,
+ret_colcap,z_anger,4,0.656048324862408,0.609211498289122,1397,ok,0.656048324862408,0.8468616059577382,0.8468616059577382,FALSE,FALSE,FALSE,S_t -> R_siguiente_dia_bursatil,opinión temática,opinion,
+ret_colcap,z_fear,1,0.8342742339734881,0.04379062646154575,1397,ok,0.8342742339734881,0.9632857134539243,0.9632857134539243,FALSE,FALSE,FALSE,S_t -> R_siguiente_dia_bursatil,opinión temática,opinion,
+ret_colcap,z_fear,2,0.4311703731037356,0.8417613154514548,1397,ok,0.4311703731037356,0.7563298381175829,0.7563298381175829,FALSE,FALSE,FALSE,S_t -> R_siguiente_dia_bursatil,opinión temática,opinion,
+ret_colcap,z_fear,3,0.11271312302198203,1.9960580572265458,1397,ok,0.11271312302198203,0.5426271580621381,0.5426271580621381,FALSE,FALSE,FALSE,S_t -> R_siguiente_dia_bursatil,opinión temática,opinion,
+ret_colcap,z_fear,4,0.2111462245112274,1.4628997501139467,1397,ok,0.2111462245112274,0.5991668699938192,0.5991668699938192,FALSE,FALSE,FALSE,S_t -> R_siguiente_dia_bursatil,opinión temática,opinion,
+ret_colcap,z_joy,1,0.05587395393449834,3.661927774386467,1397,ok,0.05587395393449834,0.5426271580621381,0.5426271580621381,FALSE,FALSE,FALSE,S_t -> R_siguiente_dia_bursatil,opinión temática,opinion,
+ret_colcap,z_joy,2,0.14069996956146205,1.9638950516411957,1397,ok,0.14069996956146205,0.5426271580621381,0.5426271580621381,FALSE,FALSE,FALSE,S_t -> R_siguiente_dia_bursatil,opinión temática,opinion,
+ret_colcap,z_joy,3,0.23293256552638625,1.4278071096969105,1397,ok,0.23293256552638625,0.5991668699938192,0.5991668699938192,FALSE,FALSE,FALSE,S_t -> R_siguiente_dia_bursatil,opinión temática,opinion,
+ret_colcap,z_joy,4,0.16752799210736777,1.6168199166941413,1397,ok,0.16752799210736777,0.5863479723757872,0.5863479723757872,FALSE,FALSE,FALSE,S_t -> R_siguiente_dia_bursatil,opinión temática,opinion,
+ret_colcap,z_negative,1,0.8455983819637259,0.037936860185009386,1397,ok,0.8455983819637259,0.9662253826335593,0.9662253826335593,FALSE,FALSE,FALSE,S_t -> R_siguiente_dia_bursatil,opinión temática,opinion,
+ret_colcap,z_negative,2,0.9080069222258791,0.09650997703865467,1397,ok,0.9080069222258791,0.970974678401049,0.970974678401049,FALSE,FALSE,FALSE,S_t -> R_siguiente_dia_bursatil,opinión temática,opinion,
+ret_colcap,z_negative,3,0.4938539956123271,0.8000105856653089,1397,ok,0.4938539956123271,0.7790372888532484,0.7790372888532484,FALSE,FALSE,FALSE,S_t -> R_siguiente_dia_bursatil,opinión temática,opinion,
+ret_colcap,z_negative,4,0.6285533241315998,0.6476977588164493,1397,ok,0.6285533241315998,0.828211438855755,0.828211438855755,FALSE,FALSE,FALSE,S_t -> R_siguiente_dia_bursatil,opinión temática,opinion,
+ret_colcap,z_positive,1,0.34053854857984844,0.9090254081668395,1397,ok,0.34053854857984844,0.72778039105596,0.72778039105596,FALSE,FALSE,FALSE,S_t -> R_siguiente_dia_bursatil,opinión temática,opinion,
+ret_colcap,z_positive,2,0.11691301073500115,2.1496427139487286,1397,ok,0.11691301073500115,0.5426271580621381,0.5426271580621381,FALSE,FALSE,FALSE,S_t -> R_siguiente_dia_bursatil,opinión temática,opinion,
+ret_colcap,z_positive,3,0.1750248300180312,1.6544597831770795,1397,ok,0.1750248300180312,0.5881165130016657,0.5881165130016657,FALSE,FALSE,FALSE,S_t -> R_siguiente_dia_bursatil,opinión temática,opinion,
+ret_colcap,z_positive,4,0.2580012526035241,1.3262475940116882,1397,ok,0.2580012526035241,0.5991668699938192,0.5991668699938192,FALSE,FALSE,FALSE,S_t -> R_siguiente_dia_bursatil,opinión temática,opinion,
+ret_trm,ipi,1,0.13764269124076092,2.206752556619322,1345,ok,0.13764269124076092,0.5426271580621381,0.5426271580621381,FALSE,FALSE,FALSE,S_t -> R_siguiente_dia_bursatil,opinión temática,opinion,
+ret_trm,ipi,2,0.08159444789378482,2.5106935030139423,1345,ok,0.08159444789378482,0.5426271580621381,0.5426271580621381,FALSE,FALSE,FALSE,S_t -> R_siguiente_dia_bursatil,opinión temática,opinion,
+ret_trm,ipi,3,0.06672242535678198,2.3949632682725865,1345,ok,0.06672242535678198,0.5426271580621381,0.5426271580621381,FALSE,FALSE,FALSE,S_t -> R_siguiente_dia_bursatil,opinión temática,opinion,
+ret_trm,ipi,4,0.06839721842298496,2.1863642419677127,1345,ok,0.06839721842298496,0.5426271580621381,0.5426271580621381,FALSE,FALSE,FALSE,S_t -> R_siguiente_dia_bursatil,opinión temática,opinion,
+ret_trm,polaridad,1,0.255111074279629,1.2961628416885682,1397,ok,0.255111074279629,0.5991668699938192,0.5991668699938192,FALSE,FALSE,FALSE,S_t -> R_siguiente_dia_bursatil,opinión temática,opinion,
+ret_trm,polaridad,2,0.34605369452615614,1.0619718594701213,1397,ok,0.34605369452615614,0.72778039105596,0.72778039105596,FALSE,FALSE,FALSE,S_t -> R_siguiente_dia_bursatil,opinión temática,opinion,
+ret_trm,polaridad,3,0.5368756205910088,0.725330314865179,1397,ok,0.5368756205910088,0.8080897845473678,0.8080897845473678,FALSE,FALSE,FALSE,S_t -> R_siguiente_dia_bursatil,opinión temática,opinion,
+ret_trm,polaridad,4,0.5445423483187267,0.7702787708727014,1397,ok,0.5445423483187267,0.8080897845473678,0.8080897845473678,FALSE,FALSE,FALSE,S_t -> R_siguiente_dia_bursatil,opinión temática,opinion,
+ret_trm,z_anger,1,0.04486249776672218,4.031066534770585,1397,ok,0.04486249776672218,0.5426271580621381,0.5426271580621381,TRUE,TRUE,FALSE,S_t -> R_siguiente_dia_bursatil,opinión temática,opinion,
+ret_trm,z_anger,2,0.13996741403879615,1.9691299311474009,1397,ok,0.13996741403879615,0.5426271580621381,0.5426271580621381,FALSE,FALSE,FALSE,S_t -> R_siguiente_dia_bursatil,opinión temática,opinion,
+ret_trm,z_anger,3,0.26748520981866925,1.316334767214357,1397,ok,0.26748520981866925,0.5991668699938192,0.5991668699938192,FALSE,FALSE,FALSE,S_t -> R_siguiente_dia_bursatil,opinión temática,opinion,
+ret_trm,z_anger,4,0.3614427901893749,1.0869301323669645,1397,ok,0.3614427901893749,0.72778039105596,0.72778039105596,FALSE,FALSE,FALSE,S_t -> R_siguiente_dia_bursatil,opinión temática,opinion,
+ret_trm,z_fear,1,0.9932659880621102,7.12580360497291e-5,1397,ok,0.9932659880621102,0.9932659880621102,0.9932659880621102,FALSE,FALSE,FALSE,S_t -> R_siguiente_dia_bursatil,opinión temática,opinion,
+ret_trm,z_fear,2,0.858958151652904,0.1520517061691086,1397,ok,0.858958151652904,0.9662253826335593,0.9662253826335593,FALSE,FALSE,FALSE,S_t -> R_siguiente_dia_bursatil,opinión temática,opinion,
+ret_trm,z_fear,3,0.9276275945438595,0.1532407700871856,1397,ok,0.9276275945438595,0.970974678401049,0.970974678401049,FALSE,FALSE,FALSE,S_t -> R_siguiente_dia_bursatil,opinión temática,opinion,
+ret_trm,z_fear,4,0.9615236860735552,0.15336046185339847,1397,ok,0.9615236860735552,0.9932659880621102,0.9932659880621102,FALSE,FALSE,FALSE,S_t -> R_siguiente_dia_bursatil,opinión temática,opinion,
+ret_trm,z_joy,1,0.03535318964653416,4.436674509259685,1397,ok,0.03535318964653416,0.5426271580621381,0.5426271580621381,TRUE,TRUE,FALSE,S_t -> R_siguiente_dia_bursatil,opinión temática,opinion,
+ret_trm,z_joy,2,0.07548973269536906,2.5885673199318133,1397,ok,0.07548973269536906,0.5426271580621381,0.5426271580621381,FALSE,FALSE,FALSE,S_t -> R_siguiente_dia_bursatil,opinión temática,opinion,
+ret_trm,z_joy,3,0.15741572697690218,1.7374896208028925,1397,ok,0.15741572697690218,0.5687277877875175,0.5687277877875175,FALSE,FALSE,FALSE,S_t -> R_siguiente_dia_bursatil,opinión temática,opinion,
+ret_trm,z_joy,4,0.2531910668431904,1.339232687025709,1397,ok,0.2531910668431904,0.5991668699938192,0.5991668699938192,FALSE,FALSE,FALSE,S_t -> R_siguiente_dia_bursatil,opinión temática,opinion,
+ret_trm,z_negative,1,0.7063983312159636,0.14195927277255718,1397,ok,0.7063983312159636,0.8889507089459318,0.8889507089459318,FALSE,FALSE,FALSE,S_t -> R_siguiente_dia_bursatil,opinión temática,opinion,
+ret_trm,z_negative,2,0.8006706320100686,0.22234117006395543,1397,ok,0.8006706320100686,0.941356723213786,0.941356723213786,FALSE,FALSE,FALSE,S_t -> R_siguiente_dia_bursatil,opinión temática,opinion,
+ret_trm,z_negative,3,0.871659515695518,0.23549565233378175,1397,ok,0.871659515695518,0.9665927302762181,0.9665927302762181,FALSE,FALSE,FALSE,S_t -> R_siguiente_dia_bursatil,opinión temática,opinion,
+ret_trm,z_negative,4,0.9000379260629228,0.26575525540050277,1397,ok,0.9000379260629228,0.970974678401049,0.970974678401049,FALSE,FALSE,FALSE,S_t -> R_siguiente_dia_bursatil,opinión temática,opinion,
+ret_trm,z_positive,1,0.47396963418420845,0.5129848505178007,1397,ok,0.47396963418420845,0.7790372888532484,0.7790372888532484,FALSE,FALSE,FALSE,S_t -> R_siguiente_dia_bursatil,opinión temática,opinion,
+ret_trm,z_positive,2,0.12673366055135993,2.0687403707744023,1397,ok,0.12673366055135993,0.5426271580621381,0.5426271580621381,FALSE,FALSE,FALSE,S_t -> R_siguiente_dia_bursatil,opinión temática,opinion,
+ret_trm,z_positive,3,0.23517246040950576,1.4201359441789443,1397,ok,0.23517246040950576,0.5991668699938192,0.5991668699938192,FALSE,FALSE,FALSE,S_t -> R_siguiente_dia_bursatil,opinión temática,opinion,
+ret_trm,z_positive,4,0.12034396928540418,1.8312288315431808,1397,ok,0.12034396928540418,0.5426271580621381,0.5426271580621381,FALSE,FALSE,FALSE,S_t -> R_siguiente_dia_bursatil,opinión temática,opinion,
+diff_tes_10y,ipi,1,0.38169840137909405,,,ok,0.38169840137909405,0.7880786634320386,0.7880786634320386,FALSE,FALSE,FALSE,S_t -> R_siguiente_dia_bursatil,panel por corpus,opinion,Conversación pública sobre Gustavo Petro
+diff_tes_10y,ipi,2,0.5108395832739272,,,ok,0.5108395832739272,0.7882626159265258,0.7882626159265258,FALSE,FALSE,FALSE,S_t -> R_siguiente_dia_bursatil,panel por corpus,opinion,Conversación pública sobre Gustavo Petro
+diff_tes_10y,ipi,3,0.5424192381280462,,,ok,0.5424192381280462,0.7882626159265258,0.7882626159265258,FALSE,FALSE,FALSE,S_t -> R_siguiente_dia_bursatil,panel por corpus,opinion,Conversación pública sobre Gustavo Petro
+diff_tes_10y,ipi,4,0.4229933902352161,,,ok,0.4229933902352161,0.7882626159265258,0.7882626159265258,FALSE,FALSE,FALSE,S_t -> R_siguiente_dia_bursatil,panel por corpus,opinion,Conversación pública sobre Gustavo Petro
+diff_tes_10y,log_tweets_n,1,0.9205911492903538,,,ok,0.9205911492903538,0.9302815824407786,0.9302815824407786,FALSE,FALSE,FALSE,S_t -> R_siguiente_dia_bursatil,panel por corpus,opinion,Conversación pública sobre Gustavo Petro
+diff_tes_10y,log_tweets_n,2,0.18067357225122715,,,ok,0.18067357225122715,0.6480708806344315,0.6480708806344315,FALSE,FALSE,FALSE,S_t -> R_siguiente_dia_bursatil,panel por corpus,opinion,Conversación pública sobre Gustavo Petro
+diff_tes_10y,log_tweets_n,3,0.008554296128419507,,,ok,0.008554296128419507,0.6053181148702742,0.6053181148702742,TRUE,TRUE,FALSE,S_t -> R_siguiente_dia_bursatil,panel por corpus,opinion,Conversación pública sobre Gustavo Petro
+diff_tes_10y,log_tweets_n,4,0.01261079405979738,,,ok,0.01261079405979738,0.6053181148702742,0.6053181148702742,TRUE,TRUE,FALSE,S_t -> R_siguiente_dia_bursatil,panel por corpus,opinion,Conversación pública sobre Gustavo Petro
+diff_tes_10y,polaridad,1,0.44937457159289684,,,ok,0.44937457159289684,0.7882626159265258,0.7882626159265258,FALSE,FALSE,FALSE,S_t -> R_siguiente_dia_bursatil,panel por corpus,opinion,Conversación pública sobre Gustavo Petro
+diff_tes_10y,polaridad,2,0.564345173005512,,,ok,0.564345173005512,0.7882626159265258,0.7882626159265258,FALSE,FALSE,FALSE,S_t -> R_siguiente_dia_bursatil,panel por corpus,opinion,Conversación pública sobre Gustavo Petro
+diff_tes_10y,polaridad,3,0.7654848739408946,,,ok,0.7654848739408946,0.891917486649692,0.891917486649692,FALSE,FALSE,FALSE,S_t -> R_siguiente_dia_bursatil,panel por corpus,opinion,Conversación pública sobre Gustavo Petro
+diff_tes_10y,polaridad,4,0.48690571399086424,,,ok,0.48690571399086424,0.7882626159265258,0.7882626159265258,FALSE,FALSE,FALSE,S_t -> R_siguiente_dia_bursatil,panel por corpus,opinion,Conversación pública sobre Gustavo Petro
+diff_tes_slope,ipi,1,0.6355589701555097,,,ok,0.6355589701555097,0.7923852095445315,0.7923852095445315,FALSE,FALSE,FALSE,S_t -> R_siguiente_dia_bursatil,panel por corpus,opinion,Conversación pública sobre Gustavo Petro
+diff_tes_slope,ipi,2,0.18246027370924728,,,ok,0.18246027370924728,0.6480708806344315,0.6480708806344315,FALSE,FALSE,FALSE,S_t -> R_siguiente_dia_bursatil,panel por corpus,opinion,Conversación pública sobre Gustavo Petro
+diff_tes_slope,ipi,3,0.22198294750181358,,,ok,0.22198294750181358,0.6659488425054407,0.6659488425054407,FALSE,FALSE,FALSE,S_t -> R_siguiente_dia_bursatil,panel por corpus,opinion,Conversación pública sobre Gustavo Petro
+diff_tes_slope,ipi,4,0.1143269032482777,,,ok,0.1143269032482777,0.6480708806344315,0.6480708806344315,FALSE,FALSE,FALSE,S_t -> R_siguiente_dia_bursatil,panel por corpus,opinion,Conversación pública sobre Gustavo Petro
+diff_tes_slope,log_tweets_n,1,0.36495669235112727,,,ok,0.36495669235112727,0.7785742770157381,0.7785742770157381,FALSE,FALSE,FALSE,S_t -> R_siguiente_dia_bursatil,panel por corpus,opinion,Conversación pública sobre Gustavo Petro
+diff_tes_slope,log_tweets_n,2,0.34818476425488426,,,ok,0.34818476425488426,0.7596758492833838,0.7596758492833838,FALSE,FALSE,FALSE,S_t -> R_siguiente_dia_bursatil,panel por corpus,opinion,Conversación pública sobre Gustavo Petro
+diff_tes_slope,log_tweets_n,3,0.06865155825360994,,,ok,0.06865155825360994,0.6480708806344315,0.6480708806344315,FALSE,FALSE,FALSE,S_t -> R_siguiente_dia_bursatil,panel por corpus,opinion,Conversación pública sobre Gustavo Petro
+diff_tes_slope,log_tweets_n,4,0.11983658580437549,,,ok,0.11983658580437549,0.6480708806344315,0.6480708806344315,FALSE,FALSE,FALSE,S_t -> R_siguiente_dia_bursatil,panel por corpus,opinion,Conversación pública sobre Gustavo Petro
+diff_tes_slope,polaridad,1,0.5875807333730434,,,ok,0.5875807333730434,0.7882626159265258,0.7882626159265258,FALSE,FALSE,FALSE,S_t -> R_siguiente_dia_bursatil,panel por corpus,opinion,Conversación pública sobre Gustavo Petro
+diff_tes_slope,polaridad,2,0.14230698038758902,,,ok,0.14230698038758902,0.6480708806344315,0.6480708806344315,FALSE,FALSE,FALSE,S_t -> R_siguiente_dia_bursatil,panel por corpus,opinion,Conversación pública sobre Gustavo Petro
+diff_tes_slope,polaridad,3,0.11869304007087304,,,ok,0.11869304007087304,0.6480708806344315,0.6480708806344315,FALSE,FALSE,FALSE,S_t -> R_siguiente_dia_bursatil,panel por corpus,opinion,Conversación pública sobre Gustavo Petro
+diff_tes_slope,polaridad,4,0.04348017716682845,,,ok,0.04348017716682845,0.6480708806344315,0.6480708806344315,TRUE,TRUE,FALSE,S_t -> R_siguiente_dia_bursatil,panel por corpus,opinion,Conversación pública sobre Gustavo Petro
+ret_colcap,ipi,1,0.6159377695512045,,,ok,0.6159377695512045,0.7882626159265258,0.7882626159265258,FALSE,FALSE,FALSE,S_t -> R_siguiente_dia_bursatil,panel por corpus,opinion,Conversación pública sobre Gustavo Petro
+ret_colcap,ipi,2,0.8369044947716975,,,ok,0.8369044947716975,0.9168905754933274,0.9168905754933274,FALSE,FALSE,FALSE,S_t -> R_siguiente_dia_bursatil,panel por corpus,opinion,Conversación pública sobre Gustavo Petro
+ret_colcap,ipi,3,0.6225028885013864,,,ok,0.6225028885013864,0.7882626159265258,0.7882626159265258,FALSE,FALSE,FALSE,S_t -> R_siguiente_dia_bursatil,panel por corpus,opinion,Conversación pública sobre Gustavo Petro
+ret_colcap,ipi,4,0.7312833622356499,,,ok,0.7312833622356499,0.8667062070941036,0.8667062070941036,FALSE,FALSE,FALSE,S_t -> R_siguiente_dia_bursatil,panel por corpus,opinion,Conversación pública sobre Gustavo Petro
+ret_colcap,log_tweets_n,1,0.39165499595258235,,,ok,0.39165499595258235,0.7880786634320386,0.7880786634320386,FALSE,FALSE,FALSE,S_t -> R_siguiente_dia_bursatil,panel por corpus,opinion,Conversación pública sobre Gustavo Petro
+ret_colcap,log_tweets_n,2,0.20927288853820186,,,ok,0.20927288853820186,0.6480708806344315,0.6480708806344315,FALSE,FALSE,FALSE,S_t -> R_siguiente_dia_bursatil,panel por corpus,opinion,Conversación pública sobre Gustavo Petro
+ret_colcap,log_tweets_n,3,0.12273134481201306,,,ok,0.12273134481201306,0.6480708806344315,0.6480708806344315,FALSE,FALSE,FALSE,S_t -> R_siguiente_dia_bursatil,panel por corpus,opinion,Conversación pública sobre Gustavo Petro
+ret_colcap,log_tweets_n,4,0.2076560842924485,,,ok,0.2076560842924485,0.6480708806344315,0.6480708806344315,FALSE,FALSE,FALSE,S_t -> R_siguiente_dia_bursatil,panel por corpus,opinion,Conversación pública sobre Gustavo Petro
+ret_colcap,polaridad,1,0.80687719132610225,,,ok,0.80687719132610225,0.911296592556539,0.911296592556539,FALSE,FALSE,FALSE,S_t -> R_siguiente_dia_bursatil,panel por corpus,opinion,Conversación pública sobre Gustavo Petro
+ret_colcap,polaridad,2,0.8627012344942493,,,ok,0.8627012344942493,0.9168905754933274,0.9168905754933274,FALSE,FALSE,FALSE,S_t -> R_siguiente_dia_bursatil,panel por corpus,opinion,Conversación pública sobre Gustavo Petro
+ret_colcap,polaridad,3,0.5772069889624056,,,ok,0.5772069889624056,0.7882626159265258,0.7882626159265258,FALSE,FALSE,FALSE,S_t -> R_siguiente_dia_bursatil,panel por corpus,opinion,Conversación pública sobre Gustavo Petro
+ret_colcap,polaridad,4,0.6240412376084996,,,ok,0.6240412376084996,0.7882626159265258,0.7882626159265258,FALSE,FALSE,FALSE,S_t -> R_siguiente_dia_bursatil,panel por corpus,opinion,Conversación pública sobre Gustavo Petro
+ret_trm,ipi,1,0.2402096341508189,,,ok,0.2402096341508189,0.6987916629842005,0.6987916629842005,FALSE,FALSE,FALSE,S_t -> R_siguiente_dia_bursatil,panel por corpus,opinion,Conversación pública sobre Gustavo Petro
+ret_trm,ipi,2,0.2964676628555352,,,ok,0.2964676628555352,0.7489709377402994,0.7489709377402994,FALSE,FALSE,FALSE,S_t -> R_siguiente_dia_bursatil,panel por corpus,opinion,Conversación pública sobre Gustavo Petro
+ret_trm,ipi,3,0.45054601406305184,,,ok,0.45054601406305184,0.7882626159265258,0.7882626159265258,FALSE,FALSE,FALSE,S_t -> R_siguiente_dia_bursatil,panel por corpus,opinion,Conversación pública sobre Gustavo Petro
+ret_trm,ipi,4,0.5123079050983146,,,ok,0.5123079050983146,0.7882626159265258,0.7882626159265258,FALSE,FALSE,FALSE,S_t -> R_siguiente_dia_bursatil,panel por corpus,opinion,Conversación pública sobre Gustavo Petro
+ret_trm,log_tweets_n,1,0.708901959292888,,,ok,0.708901959292888,0.8506823511514656,0.8506823511514656,FALSE,FALSE,FALSE,S_t -> R_siguiente_dia_bursatil,panel por corpus,opinion,Conversación pública sobre Gustavo Petro
+ret_trm,log_tweets_n,2,0.8982723218638616,,,ok,0.8982723218638616,0.9173844989247948,0.9173844989247948,FALSE,FALSE,FALSE,S_t -> R_siguiente_dia_bursatil,panel por corpus,opinion,Conversación pública sobre Gustavo Petro
+ret_trm,log_tweets_n,3,0.8410404004738382,,,ok,0.8410404004738382,0.9168905754933274,0.9168905754933274,FALSE,FALSE,FALSE,S_t -> R_siguiente_dia_bursatil,panel por corpus,opinion,Conversación pública sobre Gustavo Petro
+ret_trm,log_tweets_n,4,0.5180999885023044,,,ok,0.5180999885023044,0.7882626159265258,0.7882626159265258,FALSE,FALSE,FALSE,S_t -> R_siguiente_dia_bursatil,panel por corpus,opinion,Conversación pública sobre Gustavo Petro
+ret_trm,polaridad,1,0.255111074279629,,,ok,0.255111074279629,0.7060955148413564,0.7060955148413564,FALSE,FALSE,FALSE,S_t -> R_siguiente_dia_bursatil,panel por corpus,opinion,Conversación pública sobre Gustavo Petro
+ret_trm,polaridad,2,0.34605369452615614,,,ok,0.34605369452615614,0.7596758492833838,0.7596758492833838,FALSE,FALSE,FALSE,S_t -> R_siguiente_dia_bursatil,panel por corpus,opinion,Conversación pública sobre Gustavo Petro
+ret_trm,polaridad,3,0.5368756205910088,,,ok,0.5368756205910088,0.7882626159265258,0.7882626159265258,FALSE,FALSE,FALSE,S_t -> R_siguiente_dia_bursatil,panel por corpus,opinion,Conversación pública sobre Gustavo Petro
+ret_trm,polaridad,4,0.5445423483187267,,,ok,0.5445423483187267,0.7882626159265258,0.7882626159265258,FALSE,FALSE,FALSE,S_t -> R_siguiente_dia_bursatil,panel por corpus,opinion,Conversación pública sobre Gustavo Petro
+diff_tes_10y,ipi,1,0.4079706887024884,,,ok,0.4079706887024884,0.7882626159265258,0.7882626159265258,FALSE,FALSE,FALSE,S_t -> R_siguiente_dia_bursatil,panel por corpus,presidente,Tweets escritos por @petrogustavo
+diff_tes_10y,ipi,2,0.11548236921666606,,,ok,0.11548236921666606,0.6480708806344315,0.6480708806344315,FALSE,FALSE,FALSE,S_t -> R_siguiente_dia_bursatil,panel por corpus,presidente,Tweets escritos por @petrogustavo
+diff_tes_10y,ipi,3,0.18321128700962896,,,ok,0.18321128700962896,0.6480708806344315,0.6480708806344315,FALSE,FALSE,FALSE,S_t -> R_siguiente_dia_bursatil,panel por corpus,presidente,Tweets escritos por @petrogustavo
+diff_tes_10y,ipi,4,0.13443852343021556,,,ok,0.13443852343021556,0.6480708806344315,0.6480708806344315,FALSE,FALSE,FALSE,S_t -> R_siguiente_dia_bursatil,panel por corpus,presidente,Tweets escritos por @petrogustavo
+diff_tes_10y,log_tweets_n,1,0.1415887294697669,,,ok,0.1415887294697669,0.6480708806344315,0.6480708806344315,FALSE,FALSE,FALSE,S_t -> R_siguiente_dia_bursatil,panel por corpus,presidente,Tweets escritos por @petrogustavo
+diff_tes_10y,log_tweets_n,2,0.19644814847820957,,,ok,0.19644814847820957,0.6480708806344315,0.6480708806344315,FALSE,FALSE,FALSE,S_t -> R_siguiente_dia_bursatil,panel por corpus,presidente,Tweets escritos por @petrogustavo
+diff_tes_10y,log_tweets_n,3,0.3184567288688893,,,ok,0.3184567288688893,0.7596758492833838,0.7596758492833838,FALSE,FALSE,FALSE,S_t -> R_siguiente_dia_bursatil,panel por corpus,presidente,Tweets escritos por @petrogustavo
+diff_tes_10y,log_tweets_n,4,0.3940393317160193,,,ok,0.3940393317160193,0.7880786634320386,0.7880786634320386,FALSE,FALSE,FALSE,S_t -> R_siguiente_dia_bursatil,panel por corpus,presidente,Tweets escritos por @petrogustavo
+diff_tes_10y,polaridad,1,0.6140880287722842,,,ok,0.6140880287722842,0.7882626159265258,0.7882626159265258,FALSE,FALSE,FALSE,S_t -> R_siguiente_dia_bursatil,panel por corpus,presidente,Tweets escritos por @petrogustavo
+diff_tes_10y,polaridad,2,0.29095747080132484,,,ok,0.29095747080132484,0.7489709377402994,0.7489709377402994,FALSE,FALSE,FALSE,S_t -> R_siguiente_dia_bursatil,panel por corpus,presidente,Tweets escritos por @petrogustavo
+diff_tes_10y,polaridad,3,0.543568317170089,,,ok,0.543568317170089,0.7882626159265258,0.7882626159265258,FALSE,FALSE,FALSE,S_t -> R_siguiente_dia_bursatil,panel por corpus,presidente,Tweets escritos por @petrogustavo
+diff_tes_10y,polaridad,4,0.6652311877650373,,,ok,0.6652311877650373,0.8187460772492767,0.8187460772492767,FALSE,FALSE,FALSE,S_t -> R_siguiente_dia_bursatil,panel por corpus,presidente,Tweets escritos por @petrogustavo
+diff_tes_slope,ipi,1,0.19739804159395313,,,ok,0.19739804159395313,0.6480708806344315,0.6480708806344315,FALSE,FALSE,FALSE,S_t -> R_siguiente_dia_bursatil,panel por corpus,presidente,Tweets escritos por @petrogustavo
+diff_tes_slope,ipi,2,0.08546607311835176,,,ok,0.08546607311835176,0.6480708806344315,0.6480708806344315,FALSE,FALSE,FALSE,S_t -> R_siguiente_dia_bursatil,panel por corpus,presidente,Tweets escritos por @petrogustavo
+diff_tes_slope,ipi,3,0.19667495817231895,,,ok,0.19667495817231895,0.6480708806344315,0.6480708806344315,FALSE,FALSE,FALSE,S_t -> R_siguiente_dia_bursatil,panel por corpus,presidente,Tweets escritos por @petrogustavo
+diff_tes_slope,ipi,4,0.02568136852239543,,,ok,0.02568136852239543,0.6163528445374903,0.6163528445374903,TRUE,TRUE,FALSE,S_t -> R_siguiente_dia_bursatil,panel por corpus,presidente,Tweets escritos por @petrogustavo
+diff_tes_slope,log_tweets_n,1,0.30435390694227377,,,ok,0.30435390694227377,0.7491788478579047,0.7491788478579047,FALSE,FALSE,FALSE,S_t -> R_siguiente_dia_bursatil,panel por corpus,presidente,Tweets escritos por @petrogustavo
+diff_tes_slope,log_tweets_n,2,0.02410966974190318,,,ok,0.02410966974190318,0.6163528445374903,0.6163528445374903,TRUE,TRUE,FALSE,S_t -> R_siguiente_dia_bursatil,panel por corpus,presidente,Tweets escritos por @petrogustavo
+diff_tes_slope,log_tweets_n,3,0.057764643295967734,,,ok,0.057764643295967734,0.6480708806344315,0.6480708806344315,FALSE,FALSE,FALSE,S_t -> R_siguiente_dia_bursatil,panel por corpus,presidente,Tweets escritos por @petrogustavo
+diff_tes_slope,log_tweets_n,4,0.1084961227683835,,,ok,0.1084961227683835,0.6480708806344315,0.6480708806344315,FALSE,FALSE,FALSE,S_t -> R_siguiente_dia_bursatil,panel por corpus,presidente,Tweets escritos por @petrogustavo
+diff_tes_slope,polaridad,1,0.6001707660399943,,,ok,0.6001707660399943,0.7882626159265258,0.7882626159265258,FALSE,FALSE,FALSE,S_t -> R_siguiente_dia_bursatil,panel por corpus,presidente,Tweets escritos por @petrogustavo
+diff_tes_slope,polaridad,2,0.5377241749307073,,,ok,0.5377241749307073,0.7882626159265258,0.7882626159265258,FALSE,FALSE,FALSE,S_t -> R_siguiente_dia_bursatil,panel por corpus,presidente,Tweets escritos por @petrogustavo
+diff_tes_slope,polaridad,3,0.4766831177559572,,,ok,0.4766831177559572,0.7882626159265258,0.7882626159265258,FALSE,FALSE,FALSE,S_t -> R_siguiente_dia_bursatil,panel por corpus,presidente,Tweets escritos por @petrogustavo
+diff_tes_slope,polaridad,4,0.5077013080880975,,,ok,0.5077013080880975,0.7882626159265258,0.7882626159265258,FALSE,FALSE,FALSE,S_t -> R_siguiente_dia_bursatil,panel por corpus,presidente,Tweets escritos por @petrogustavo
+ret_colcap,ipi,1,0.8369520408855948,,,ok,0.8369520408855948,0.9168905754933274,0.9168905754933274,FALSE,FALSE,FALSE,S_t -> R_siguiente_dia_bursatil,panel por corpus,presidente,Tweets escritos por @petrogustavo
+ret_colcap,ipi,2,0.6933138895351734,,,ok,0.6933138895351734,0.8425080176629955,0.8425080176629955,FALSE,FALSE,FALSE,S_t -> R_siguiente_dia_bursatil,panel por corpus,presidente,Tweets escritos por @petrogustavo
+ret_colcap,ipi,3,0.8646953526328686,,,ok,0.8646953526328686,0.9168905754933274,0.9168905754933274,FALSE,FALSE,FALSE,S_t -> R_siguiente_dia_bursatil,panel por corpus,presidente,Tweets escritos por @petrogustavo
+ret_colcap,ipi,4,0.886191241638041,,,ok,0.886191241638041,0.9168905754933274,0.9168905754933274,FALSE,FALSE,FALSE,S_t -> R_siguiente_dia_bursatil,panel por corpus,presidente,Tweets escritos por @petrogustavo
+ret_colcap,log_tweets_n,1,0.888237745009161,,,ok,0.888237745009161,0.9168905754933274,0.9168905754933274,FALSE,FALSE,FALSE,S_t -> R_siguiente_dia_bursatil,panel por corpus,presidente,Tweets escritos por @petrogustavo
+ret_colcap,log_tweets_n,2,0.8692445884944008,,,ok,0.8692445884944008,0.9168905754933274,0.9168905754933274,FALSE,FALSE,FALSE,S_t -> R_siguiente_dia_bursatil,panel por corpus,presidente,Tweets escritos por @petrogustavo
+ret_colcap,log_tweets_n,3,0.969956981439924,,,ok,0.969956981439924,0.969956981439924,0.969956981439924,FALSE,FALSE,FALSE,S_t -> R_siguiente_dia_bursatil,panel por corpus,presidente,Tweets escritos por @petrogustavo
+ret_colcap,log_tweets_n,4,0.7711369936658795,,,ok,0.7711369936658795,0.891917486649692,0.891917486649692,FALSE,FALSE,FALSE,S_t -> R_siguiente_dia_bursatil,panel por corpus,presidente,Tweets escritos por @petrogustavo
+ret_colcap,polaridad,1,0.07524773647050911,,,ok,0.07524773647050911,0.6480708806344315,0.6480708806344315,FALSE,FALSE,FALSE,S_t -> R_siguiente_dia_bursatil,panel por corpus,presidente,Tweets escritos por @petrogustavo
+ret_colcap,polaridad,2,0.17153015302885885,,,ok,0.17153015302885885,0.6480708806344315,0.6480708806344315,FALSE,FALSE,FALSE,S_t -> R_siguiente_dia_bursatil,panel por corpus,presidente,Tweets escritos por @petrogustavo
+ret_colcap,polaridad,3,0.28603616065078497,,,ok,0.28603616065078497,0.7489709377402994,0.7489709377402994,FALSE,FALSE,FALSE,S_t -> R_siguiente_dia_bursatil,panel por corpus,presidente,Tweets escritos por @petrogustavo
+ret_colcap,polaridad,4,0.34557220873398115,,,ok,0.34557220873398115,0.7596758492833838,0.7596758492833838,FALSE,FALSE,FALSE,S_t -> R_siguiente_dia_bursatil,panel por corpus,presidente,Tweets escritos por @petrogustavo
+ret_trm,ipi,1,0.6045238875987197,,,ok,0.6045238875987197,0.7882626159265258,0.7882626159265258,FALSE,FALSE,FALSE,S_t -> R_siguiente_dia_bursatil,panel por corpus,presidente,Tweets escritos por @petrogustavo
+ret_trm,ipi,2,0.47188303316900404,,,ok,0.47188303316900404,0.7882626159265258,0.7882626159265258,FALSE,FALSE,FALSE,S_t -> R_siguiente_dia_bursatil,panel por corpus,presidente,Tweets escritos por @petrogustavo
+ret_trm,ipi,3,0.16925098034763147,,,ok,0.16925098034763147,0.6480708806344315,0.6480708806344315,FALSE,FALSE,FALSE,S_t -> R_siguiente_dia_bursatil,panel por corpus,presidente,Tweets escritos por @petrogustavo
+ret_trm,ipi,4,0.1789682230414634,,,ok,0.1789682230414634,0.6480708806344315,0.6480708806344315,FALSE,FALSE,FALSE,S_t -> R_siguiente_dia_bursatil,panel por corpus,presidente,Tweets escritos por @petrogustavo
+ret_trm,log_tweets_n,1,0.4293983243415116,,,ok,0.4293983243415116,0.7882626159265258,0.7882626159265258,FALSE,FALSE,FALSE,S_t -> R_siguiente_dia_bursatil,panel por corpus,presidente,Tweets escritos por @petrogustavo
+ret_trm,log_tweets_n,2,0.6160295159861164,,,ok,0.6160295159861164,0.7882626159265258,0.7882626159265258,FALSE,FALSE,FALSE,S_t -> R_siguiente_dia_bursatil,panel por corpus,presidente,Tweets escritos por @petrogustavo
+ret_trm,log_tweets_n,3,0.7976577757304016,,,ok,0.7976577757304016,0.911296592556539,0.911296592556539,FALSE,FALSE,FALSE,S_t -> R_siguiente_dia_bursatil,panel por corpus,presidente,Tweets escritos por @petrogustavo
+ret_trm,log_tweets_n,4,0.5822536688730733,,,ok,0.5822536688730733,0.7882626159265258,0.7882626159265258,FALSE,FALSE,FALSE,S_t -> R_siguiente_dia_bursatil,panel por corpus,presidente,Tweets escritos por @petrogustavo
+ret_trm,polaridad,1,0.20790839374532197,,,ok,0.20790839374532197,0.6480708806344315,0.6480708806344315,FALSE,FALSE,FALSE,S_t -> R_siguiente_dia_bursatil,panel por corpus,presidente,Tweets escritos por @petrogustavo
+ret_trm,polaridad,2,0.3418697708746941,,,ok,0.3418697708746941,0.7596758492833838,0.7596758492833838,FALSE,FALSE,FALSE,S_t -> R_siguiente_dia_bursatil,panel por corpus,presidente,Tweets escritos por @petrogustavo
+ret_trm,polaridad,3,0.14687795299153913,,,ok,0.14687795299153913,0.6480708806344315,0.6480708806344315,FALSE,FALSE,FALSE,S_t -> R_siguiente_dia_bursatil,panel por corpus,presidente,Tweets escritos por @petrogustavo
+ret_trm,polaridad,4,0.25743065645257784,,,ok,0.25743065645257784,0.7060955148413564,0.7060955148413564,FALSE,FALSE,FALSE,S_t -> R_siguiente_dia_bursatil,panel por corpus,presidente,Tweets escritos por @petrogustavo

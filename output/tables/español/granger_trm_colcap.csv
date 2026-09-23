@@ -1,3 +1,4 @@
-response,predictor,lag,p_value,f_stat,n_obs,status,q_value,significant_05,significant_fdr
-ret_energy,ipi,1,0.010955627433185818,6.497814902852619,962,ok,0.4137349857870296,TRUE,FALSE
-ret_energy,ipi,2,0.02929325449564844,3.543481240574647,962,ok,0.5858650899129688,TRUE,FALSE
+response,predictor,lag,p_value,f_stat,n_obs,status,p_raw,p_fdr,q_value,significant_05,significant_raw,significant_fdr,timing
+diff_tes_10y,ipi,2,0.03397465947183808,3.390703999709169,1345,ok,0.03397465947183808,0.5426271580621381,0.5426271580621381,TRUE,TRUE,FALSE,S_t -> R_siguiente_dia_bursatil
+diff_tes_10y,ipi,4,0.01700428453068906,3.023163739391742,1345,ok,0.01700428453068906,0.5426271580621381,0.5426271580621381,TRUE,TRUE,FALSE,S_t -> R_siguiente_dia_bursatil
+diff_tes_slope,polaridad,4,0.04348017716682845,2.463216160131049,1397,ok,0.04348017716682845,0.5426271580621381,0.5426271580621381,TRUE,TRUE,FALSE,S_t -> R_siguiente_dia_bursatil

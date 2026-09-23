@@ -1,27 +1,27 @@
 corpus,corpus_label,red,nodo,grado,grado_ponderado,intermediacion,cercania,pagerank,eigenvector,clustering_local,comunidad,componente,status
 opinion,Lo que opinan de Petro,Temas - Lo que opinan de Petro,institucionalidad,12,5411,0.014393939393939393,196.63570804898254,0.13051295579223404,1,1,1,1,ok
-opinion,Lo que opinan de Petro,Temas - Lo que opinan de Petro,internacional,12,5150,0.006818181818181818,194.96199331033182,0.12488127633326053,0.9584708688602641,1,1,1,ok
-opinion,Lo que opinan de Petro,Temas - Lo que opinan de Petro,seguridad,12,4836,0.014393939393939393,194.07015629275088,0.11827022159877637,0.8947824147852411,1,1,1,ok
-opinion,Lo que opinan de Petro,Temas - Lo que opinan de Petro,salud,12,4562,0.006818181818181818,192.22241573290788,0.11245654744161371,0.8402337675443378,1,1,1,ok
-opinion,Lo que opinan de Petro,Temas - Lo que opinan de Petro,laboral,12,4044,0.0030303030303030303,187.6446335539974,0.10143801085496652,0.7365961984302979,1,1,1,ok
-opinion,Lo que opinan de Petro,Temas - Lo que opinan de Petro,paz total,12,3246,0,173.57885840992728,0.0842980236045828,0.5773845630819331,1,2,1,ok
-opinion,Lo que opinan de Petro,Temas - Lo que opinan de Petro,economia,12,2812,0,160.62541816349608,0.07485103737575809,0.49256940810953875,1,2,1,ok
-opinion,Lo que opinan de Petro,Temas - Lo que opinan de Petro,energia ambiente,12,2210,0,137.7812708618237,0.06156916741764441,0.37827066950137883,1,2,1,ok
-opinion,Lo que opinan de Petro,Temas - Lo que opinan de Petro,tributaria,12,2024,0,129.50190075526686,0.05745956719771794,0.34348623116870747,1,2,1,ok
-opinion,Lo que opinan de Petro,Temas - Lo que opinan de Petro,reforma general,12,1259,0,92.49278094582739,0.040337251427627965,0.2048340155762331,1,2,1,ok
-opinion,Lo que opinan de Petro,Temas - Lo que opinan de Petro,pensional,12,998,0,76.86195985881038,0.03451962510412959,0.1589438701475852,1,2,1,ok
-opinion,Lo que opinan de Petro,Temas - Lo que opinan de Petro,constituyente,12,836,0,66.48622209175103,0.030656142704754422,0.13440616354443585,1,2,1,ok
-opinion,Lo que opinan de Petro,Temas - Lo que opinan de Petro,energia tarifas,12,748,0,60.217652678104166,0.028750173146933594,0.11617593085245934,1,2,1,ok
-presidente,Lo que Petro opina,Temas - Lo que Petro opina,seguridad,12,8049,0.0202020202020202,305.47848186273166,0.1307560639482189,0.9999999999999999,1,1,1,ok
-presidente,Lo que Petro opina,Temas - Lo que Petro opina,institucionalidad,12,7945,0.0202020202020202,304.738969425986,0.12923497830115802,0.9898469723633406,1,1,1,ok
+opinion,Lo que opinan de Petro,Temas - Lo que opinan de Petro,internacional,12,5150,0.006818181818181818,194.96199331033182,0.12488127633326053,0.9584708688602638,1,1,1,ok
+opinion,Lo que opinan de Petro,Temas - Lo que opinan de Petro,seguridad,12,4836,0.014393939393939393,194.07015629275088,0.11827022159877641,0.8947824147852408,1,1,1,ok
+opinion,Lo que opinan de Petro,Temas - Lo que opinan de Petro,salud,12,4562,0.006818181818181818,192.22241573290788,0.11245654744161372,0.8402337675443378,1,1,1,ok
+opinion,Lo que opinan de Petro,Temas - Lo que opinan de Petro,laboral,12,4044,0.0030303030303030303,187.6446335539974,0.10143801085496655,0.7365961984302977,1,1,1,ok
+opinion,Lo que opinan de Petro,Temas - Lo que opinan de Petro,paz total,12,3246,0,173.57885840992728,0.08429802360458283,0.577384563081933,1,2,1,ok
+opinion,Lo que opinan de Petro,Temas - Lo que opinan de Petro,economia,12,2812,0,160.62541816349608,0.07485103737575809,0.4925694081095387,1,2,1,ok
+opinion,Lo que opinan de Petro,Temas - Lo que opinan de Petro,energia ambiente,12,2210,0,137.7812708618237,0.06156916741764441,0.3782706695013789,1,2,1,ok
+opinion,Lo que opinan de Petro,Temas - Lo que opinan de Petro,tributaria,12,2024,0,129.50190075526686,0.05745956719771794,0.3434862311687073,1,2,1,ok
+opinion,Lo que opinan de Petro,Temas - Lo que opinan de Petro,reforma general,12,1259,0,92.49278094582739,0.040337251427627965,0.20483401557623307,1,2,1,ok
+opinion,Lo que opinan de Petro,Temas - Lo que opinan de Petro,pensional,12,998,0,76.86195985881038,0.0345196251041296,0.15894387014758515,1,2,1,ok
+opinion,Lo que opinan de Petro,Temas - Lo que opinan de Petro,constituyente,12,836,0,66.48622209175103,0.030656142704754415,0.13440616354443582,1,2,1,ok
+opinion,Lo que opinan de Petro,Temas - Lo que opinan de Petro,energia tarifas,12,748,0,60.217652678104166,0.028750173146933598,0.11617593085245925,1,2,1,ok
+presidente,Lo que Petro opina,Temas - Lo que Petro opina,seguridad,12,8049,0.0202020202020202,305.47848186273166,0.13075606394821887,1,1,1,1,ok
+presidente,Lo que Petro opina,Temas - Lo que Petro opina,institucionalidad,12,7945,0.0202020202020202,304.738969425986,0.12923497830115802,0.9898469723633408,1,1,1,ok
 presidente,Lo que Petro opina,Temas - Lo que Petro opina,salud,12,6556,0.00505050505050505,293.28853325480674,0.1092957446187953,0.813543116908148,1,1,1,ok
-presidente,Lo que Petro opina,Temas - Lo que Petro opina,laboral,12,6195,0,288.9345341532142,0.10411889757376748,0.7647707888840636,1,1,1,ok
-presidente,Lo que Petro opina,Temas - Lo que Petro opina,internacional,12,6184,0,289.3658766788619,0.10391626788995144,0.7677506090941713,1,1,1,ok
-presidente,Lo que Petro opina,Temas - Lo que Petro opina,economia,12,6097,0,289.9159445704413,0.10278369220930893,0.7481521519696809,1,1,1,ok
-presidente,Lo que Petro opina,Temas - Lo que Petro opina,energia ambiente,12,4558,0,260.3125741059362,0.08053050472039533,0.5426314920994567,1,2,1,ok
-presidente,Lo que Petro opina,Temas - Lo que Petro opina,paz total,12,2509,0,181.11959299219063,0.05030037825542952,0.2769175148833496,1,2,1,ok
-presidente,Lo que Petro opina,Temas - Lo que Petro opina,tributaria,12,2275,0,165.77391004417407,0.0465643049807552,0.25229311437429663,1,2,1,ok
-presidente,Lo que Petro opina,Temas - Lo que Petro opina,pensional,12,1824,0,141.0633234940663,0.03991607017088212,0.19393692605152973,1,2,1,ok
-presidente,Lo que Petro opina,Temas - Lo que Petro opina,energia tarifas,12,1643,0,127.91786907795706,0.03697550605771762,0.17576024954101732,1,2,1,ok
-presidente,Lo que Petro opina,Temas - Lo que Petro opina,constituyente,12,1402,0,112.46898413019058,0.03305352446779526,0.15440500161575332,1,2,1,ok
-presidente,Lo que Petro opina,Temas - Lo que Petro opina,reforma general,12,1353,0,108.80785137002611,0.032554066805824844,0.14154982294497104,1,2,1,ok
+presidente,Lo que Petro opina,Temas - Lo que Petro opina,laboral,12,6195,0,288.9345341532142,0.10411889757376751,0.7647707888840634,1,1,1,ok
+presidente,Lo que Petro opina,Temas - Lo que Petro opina,internacional,12,6184,0,289.3658766788619,0.10391626788995145,0.7677506090941714,1,1,1,ok
+presidente,Lo que Petro opina,Temas - Lo que Petro opina,economia,12,6097,0,289.9159445704413,0.10278369220930893,0.7481521519696813,1,1,1,ok
+presidente,Lo que Petro opina,Temas - Lo que Petro opina,energia ambiente,12,4558,0,260.3125741059362,0.08053050472039534,0.5426314920994569,1,2,1,ok
+presidente,Lo que Petro opina,Temas - Lo que Petro opina,paz total,12,2509,0,181.11959299219063,0.05030037825542951,0.27691751488334976,1,2,1,ok
+presidente,Lo que Petro opina,Temas - Lo que Petro opina,tributaria,12,2275,0,165.77391004417407,0.0465643049807552,0.25229311437429675,1,2,1,ok
+presidente,Lo que Petro opina,Temas - Lo que Petro opina,pensional,12,1824,0,141.0633234940663,0.039916070170882126,0.19393692605152976,1,2,1,ok
+presidente,Lo que Petro opina,Temas - Lo que Petro opina,energia tarifas,12,1643,0,127.91786907795706,0.03697550605771763,0.17576024954101735,1,2,1,ok
+presidente,Lo que Petro opina,Temas - Lo que Petro opina,constituyente,12,1402,0,112.46898413019058,0.03305352446779526,0.15440500161575327,1,2,1,ok
+presidente,Lo que Petro opina,Temas - Lo que Petro opina,reforma general,12,1353,0,108.80785137002611,0.03255406680582486,0.14154982294497112,1,2,1,ok

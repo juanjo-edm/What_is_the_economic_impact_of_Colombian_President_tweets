@@ -1,4 +1,4 @@
 hipotesis,estadistico_traza,critico_10pct,critico_5pct,critico_1pct,decision_5pct
-r = 0 (Sin cointegración),28.311787376976056,32,34.91,41.07,No rechaza H0
-r <= 1,9.372013433233871,17.85,19.96,24.6,No rechaza H0
-r <= 2,2.300972835869516,7.52,9.24,12.97,No rechaza H0
+r = 0 (Sin cointegración),27.85185244046849,32,34.91,41.07,No rechaza H0
+r <= 1,10.067660844895341,17.85,19.96,24.6,No rechaza H0
+r <= 2,2.588272566267431,7.52,9.24,12.97,No rechaza H0

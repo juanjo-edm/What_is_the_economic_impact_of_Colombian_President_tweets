@@ -1,6 +1,6 @@
 # Guía de lectura y mantenimiento del cuaderno
 
-El archivo `Cuaderno_Paper_Español.Rmd` documenta la relación entre el discurso presidencial, la conversación pública sobre Gustavo Petro y las series económicas colombianas. Su propósito es permitir que un par evaluador siga los datos, las transformaciones y las especificaciones del estudio hasta sus resultados y limitaciones. El HTML es la versión de lectura; el R Markdown es la fuente ejecutable y la referencia para revisar el código.
+El archivo `Cuaderno_Paper_Español.qmd` documenta la relación entre el discurso presidencial, la conversación pública sobre Gustavo Petro y las series económicas colombianas. Su propósito es permitir que un par evaluador siga los datos, las transformaciones y las especificaciones del estudio hasta sus resultados y limitaciones. El HTML es la versión de lectura; el documento Quarto (.qmd) es la fuente ejecutable y la referencia para revisar el código.
 
 ## Requisitos y dependencias
 
@@ -15,7 +15,7 @@ Las dependencias directas están declaradas mediante `library(paquete)` al inici
 | Análisis textual y matrices | quanteda, quanteda.textstats, quanteda.textmodels, quanteda.textplots, syuzhet, sentometrics, stm, spacyr, reticulate, Matrix |
 | Econometría y presentación | stats, tseries, lmtest, vars, zoo, ca, methods, knitr, utils |
 
-Para renderizar también se necesita `rmarkdown` y una instalación accesible de Pandoc. Pandoc puede proceder de Quarto o RStudio; `RSTUDIO_PANDOC` debe apuntar al directorio que contiene su ejecutable. El archivo `notebook-style.css` y la bibliografía relativa al proyecto forman parte de la presentación.
+Para renderizar se utiliza Quarto CLI con el motor Pandoc integrado. El archivo `notebook-style.css` y la bibliografía relativa al proyecto forman parte de la presentación.
 
 La anotación lingüística requiere Python, spaCy y el modelo español `es_core_news_sm`. El entorno validado utiliza Python 3.11, spaCy 3.8.16 y el modelo 3.8.0. La variable `SPACYR_PYTHON` permite indicar el ejecutable; si no está definida, el cuaderno usa el entorno de `reticulate` llamado `petro-spacyr`. Debe comprobarse que ese mismo Python pueda importar spaCy y cargar el modelo antes de comenzar. La instalación se realiza fuera del cuaderno.
 
@@ -28,16 +28,15 @@ El notebook consume únicamente `data/processed/tweets_master.csv` y `data/proce
 3. Abrir una terminal en la raíz que contiene `Paper_Twitter.Rproj`. Configurar las rutas del entorno y ejecutar una sesión nueva, sin restaurar un espacio de trabajo anterior.
 
 ```sh
-export RSTUDIO_PANDOC="/Applications/quarto/bin/tools/aarch64"
 export SPACYR_PYTHON="$HOME/.virtualenvs/petro-spacyr/bin/python"
 "$SPACYR_PYTHON" -c 'import spacy; spacy.load("es_core_news_sm"); print(spacy.__version__)'
-Rscript --vanilla -e 'library(rmarkdown); render("notebooks/español/Cuaderno_Paper_Español.Rmd", output_format="html_notebook", envir=new.env(parent=globalenv()))'
+quarto render notebooks/español/Cuaderno_Paper_Español.qmd
 ```
 
 Las rutas anteriores corresponden al equipo de referencia y deben ajustarse al entorno del evaluador. En cada ejecución se recalculan los bloques pesados con sus muestras, semillas y parámetros existentes; no se leen resultados guardados como sustituto de esos cálculos.
 
 4. Conservar el registro de errores, mensajes y advertencias por chunk. Un render terminado no demuestra, por sí solo, la validez de la inferencia. Ante un error, identificar el bloque, el insumo y la dependencia; no convertir el fallo en un resultado vacío presentado como exitoso.
-5. Abrir `Cuaderno_Paper_Español.nb.html` y revisar portada, TOC, tablas, ecuaciones y figuras estáticas, incluidas todas las redes. Contrastar los productos con la referencia antes de incorporarlos al proyecto.
+5. Abrir `Cuaderno_Paper_Español.html` y revisar portada, TOC, tablas, ecuaciones y figuras estáticas, incluidas todas las redes. Contrastar los productos con la referencia antes de incorporarlos al proyecto.
 
 ## Recorrido sugerido para el par evaluador
 

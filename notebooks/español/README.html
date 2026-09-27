@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
 <head>
   <meta charset="utf-8" />
   <meta name="generator" content="pandoc" />
@@ -236,13 +236,13 @@
 <body>
 <h1 id="guía-de-lectura-y-mantenimiento-del-cuaderno">Guía de lectura y
 mantenimiento del cuaderno</h1>
-<p>El archivo <code>Cuaderno_Paper_Español.Rmd</code> documenta la
+<p>El archivo <code>Cuaderno_Paper_Español.qmd</code> documenta la
 relación entre el discurso presidencial, la conversación pública sobre
 Gustavo Petro y las series económicas colombianas. Su propósito es
 permitir que un par evaluador siga los datos, las transformaciones y las
 especificaciones del estudio hasta sus resultados y limitaciones. El
-HTML es la versión de lectura; el R Markdown es la fuente ejecutable y
-la referencia para revisar el código.</p>
+HTML es la versión de lectura; el documento Quarto (.qmd) es la fuente
+ejecutable y la referencia para revisar el código.</p>
 <h2 id="requisitos-y-dependencias">Requisitos y dependencias</h2>
 <p>El entorno validado utiliza R 4.6.1. Los pipes nativos
 <code>|&gt;</code> requieren R 4.1 o posterior; esto no garantiza por sí
@@ -257,6 +257,10 @@ instalados antes de ejecutar el documento. Una dependencia ausente
 produce un error identificable. Las dependencias transitivas son
 gestionadas por R al instalar y cargar los paquetes.</p>
 <table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
 <thead>
 <tr>
 <th>Finalidad</th>
@@ -287,11 +291,9 @@ Matrix</td>
 </tr>
 </tbody>
 </table>
-<p>Para renderizar también se necesita <code>rmarkdown</code> y una
-instalación accesible de Pandoc. Pandoc puede proceder de Quarto o
-RStudio; <code>RSTUDIO_PANDOC</code> debe apuntar al directorio que
-contiene su ejecutable. El archivo <code>notebook-style.css</code> y la
-bibliografía relativa al proyecto forman parte de la presentación.</p>
+<p>Para renderizar se utiliza Quarto CLI con el motor Pandoc integrado.
+El archivo <code>notebook-style.css</code> y la bibliografía relativa al
+proyecto forman parte de la presentación.</p>
 <p>La anotación lingüística requiere Python, spaCy y el modelo español
 <code>es_core_news_sm</code>. El entorno validado utiliza Python 3.11,
 spaCy 3.8.16 y el modelo 3.8.0. La variable <code>SPACYR_PYTHON</code>
@@ -323,10 +325,9 @@ de los cálculos del notebook.</li>
 ejecutar una sesión nueva, sin restaurar un espacio de trabajo
 anterior.</li>
 </ol>
-<div class="sourceCode" id="cb1"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="bu">export</span> <span class="va">RSTUDIO_PANDOC</span><span class="op">=</span><span class="st">&quot;/Applications/quarto/bin/tools/aarch64&quot;</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="bu">export</span> <span class="va">SPACYR_PYTHON</span><span class="op">=</span><span class="st">&quot;</span><span class="va">$HOME</span><span class="st">/.virtualenvs/petro-spacyr/bin/python&quot;</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="st">&quot;</span><span class="va">$SPACYR_PYTHON</span><span class="st">&quot;</span> <span class="at">-c</span> <span class="st">&#39;import spacy; spacy.load(&quot;es_core_news_sm&quot;); print(spacy.__version__)&#39;</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="ex">Rscript</span> <span class="at">--vanilla</span> <span class="at">-e</span> <span class="st">&#39;library(rmarkdown); render(&quot;notebooks/español/Cuaderno_Paper_Español.Rmd&quot;, output_format=&quot;html_notebook&quot;, envir=new.env(parent=globalenv()))&#39;</span></span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="bu">export</span> <span class="va">SPACYR_PYTHON</span><span class="op">=</span><span class="st">&quot;</span><span class="va">$HOME</span><span class="st">/.virtualenvs/petro-spacyr/bin/python&quot;</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="st">&quot;</span><span class="va">$SPACYR_PYTHON</span><span class="st">&quot;</span> <span class="at">-c</span> <span class="st">&#39;import spacy; spacy.load(&quot;es_core_news_sm&quot;); print(spacy.__version__)&#39;</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> render notebooks/español/Cuaderno_Paper_Español.qmd</span></code></pre></div>
 <p>Las rutas anteriores corresponden al equipo de referencia y deben
 ajustarse al entorno del evaluador. En cada ejecución se recalculan los
 bloques pesados con sus muestras, semillas y parámetros existentes; no
@@ -337,7 +338,7 @@ Un render terminado no demuestra, por sí solo, la validez de la
 inferencia. Ante un error, identificar el bloque, el insumo y la
 dependencia; no convertir el fallo en un resultado vacío presentado como
 exitoso.</li>
-<li>Abrir <code>Cuaderno_Paper_Español.nb.html</code> y revisar portada,
+<li>Abrir <code>Cuaderno_Paper_Español.html</code> y revisar portada,
 TOC, tablas, ecuaciones y figuras estáticas, incluidas todas las redes.
 Contrastar los productos con la referencia antes de incorporarlos al
 proyecto.</li>

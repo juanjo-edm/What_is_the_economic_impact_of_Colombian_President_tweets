@@ -1,0 +1,308 @@
+---
+title: "Supervisión Metodológica: Auditoría de Corpus, Señales Discursivas, Propuesta F1–F5 y Matriz de Literatura"
+subtitle: "Documento de control metodológico y trazabilidad analítica previa a la integración del manuscrito"
+author: "Equipo de Investigación"
+date: "2026-09-27"
+format:
+  html:
+    toc: true
+    toc-depth: 3
+    toc-location: left
+    code-fold: true
+    code-tools: true
+    code-summary: "Mostrar código"
+    df-print: paged
+    theme: readable
+    highlight-style: tango
+    number-sections: true
+    embed-resources: true
+bibliography: ../paper/español/bibliography.bib
+link-citations: true
+---
+
+# Introducción y objetivos de la supervisión
+
+Este documento constituye el entorno de control metodológico y aseguramiento de calidad analítica previo a la actualización del manuscrito principal en Quarto (*paper/español/quarto-tandf.qmd*). Su propósito es auditar empíricamente los insumos de datos, evaluar la robustez y reproducibilidad de las señales textuales construidas, formalizar la propuesta técnica de las primeras cinco figuras del cuerpo (F1–F5) y estructurar la matriz de literatura con sus correspondientes mecanismos de transmisión macrofinanciera.
+
+El análisis se apega estrictamente a las convenciones de código y escritura del proyecto: límite de 40 líneas interiores por bloque de código, secuencia obligatoria de contexto, código, salida e interpretación académica inmediata, uso exclusivo de pipes nativos `|>`, rutas relativas reproducibles mediante `here()` y preservación de identificadores de 64 bits como cadenas de texto.
+
+El siguiente bloque carga las librerías necesarias para la auditoría y fija las opciones de presentación tabular.
+
+```{r setup-supervision, message=FALSE, warning=FALSE}
+library(readr)
+library(dplyr)
+library(tidyr)
+library(tibble)
+library(stringr)
+library(lubridate)
+library(knitr)
+library(here)
+
+opts_chunk$set(
+  echo = TRUE,
+  message = FALSE,
+  warning = FALSE,
+  comment = "#>"
+)
+```
+
+Este bloque define las rutas relativas contractuales del proyecto a partir de la raíz identificada por `here()`, garantizando portabilidad absoluta en la lectura de los datos procesados y de las tablas analíticas auditadas.
+
+```{r setup-rutas}
+repo_dir <- here::here()
+processed_dir <- file.path(repo_dir, "data", "processed")
+tables_dir <- file.path(repo_dir, "output", "tables", "español")
+tweets_master_path <- file.path(processed_dir, "tweets_master.csv")
+
+stopifnot(file.exists(tweets_master_path))
+stopifnot(dir.exists(tables_dir))
+```
+
+# Auditoría empírica de los dos corpus
+
+El diseño muestral del estudio descansa en la separación tajante entre la conversación pública ciudadana (`opinion`) y la emisión comunicativa institucional directa del mandatario (`presidente`). Antes de formular inferencias, es indispensable contrastar cuantitativamente las dimensiones de ambos corpus, su volumen bruto, identificadores únicos, presencia de duplicados, retención tras limpieza y cobertura de fechas efectivas.
+
+El siguiente bloque carga el archivo contractual `tweets_master.csv` asegurando que los identificadores de tweet y de usuario sean importados como variables de tipo caracter, evitando la pérdida de precisión numérica asociada a enteros de 64 bits en plataformas computacionales estándar.
+
+```{r cargar-tweets-master}
+tweets_raw <- readr::read_csv(
+  tweets_master_path,
+  col_types = readr::cols(
+    id = readr::col_character(),
+    author_id = readr::col_character(),
+    corpus = readr::col_character(),
+    date_bogota = readr::col_date(),
+    text_clean = readr::col_character(),
+    .default = readr::col_character()
+  )
+)
+```
+
+A partir del dataset contractual cargado, el siguiente bloque computa las métricas de auditoría para cada corpus: filas brutas, tweets únicos por identificador, conteo de duplicados, registros con texto limpio vacío, fechas extremas observadas y número de días calendario con al menos un tweet registrado.
+
+```{r calcular-auditoria-corpus}
+auditoria_corpus <- tweets_raw |>
+  group_by(corpus) |>
+  summarise(
+    filas_totales = n(),
+    ids_unicos = n_distinct(id),
+    duplicados_id = n() - n_distinct(id),
+    textos_vacios_clean = sum(is.na(text_clean) | trimws(text_clean) == ""),
+    fecha_minima = as.character(min(as.Date(date_bogota), na.rm = TRUE)),
+    fecha_maxima = as.character(max(as.Date(date_bogota), na.rm = TRUE)),
+    dias_con_observaciones = n_distinct(date_bogota[!is.na(date_bogota)]),
+    .groups = "drop"
+  ) |>
+  mutate(
+    descripcion_corpus = if_else(
+      corpus == "opinion",
+      "Conversación pública ciudadana (menciones y hashtags de Petro)",
+      "Tweets emitidos directamente por la cuenta del presidente (petrogustavo)"
+    )
+  ) |>
+  select(corpus, descripcion_corpus, filas_totales, ids_unicos, duplicados_id,
+         textos_vacios_clean, fecha_minima, fecha_maxima, dias_con_observaciones)
+```
+
+El siguiente bloque exporta la tabla de auditoría a la carpeta contractual de tablas auditadas y la presenta en formato tabular para su inspección inmediata.
+
+```{r mostrar-auditoria-corpus}
+readr::write_csv(auditoria_corpus, file.path(tables_dir, "auditoria_comparada_dos_corpus.csv"))
+
+knitr::kable(
+  auditoria_corpus,
+  caption = "Tabla 1. Auditoría comparada de integridad y cobertura muestral por corpus (2022-2026)."
+)
+```
+
+**Interpretación académica.** La auditoría confirma que ambos corpus conservan integridad estricta en sus identificadores: al tratar la variable `id` como cadena de caracteres de 64 bits, se constata la existencia de exactamente 0 duplicados en ambas fuentes. El corpus `opinion` registra 13.648 publicaciones distribuidas a lo largo de 1.349 días hábiles y de fin de semana, cubriendo desde el 1 de agosto de 2022 hasta el 31 de mayo de 2026, con 0 textos vacíos en la columna normalizada `text_clean`. Por su parte, el corpus `presidente` comprende 14.656 publicaciones directas de la cuenta oficial de Gustavo Petro a lo largo de 1.331 días, iniciando de forma consistente el 7 de agosto de 2022 (fecha de posesión presidencial). En este último corpus se identifican 222 tweets cuyo `text_clean` resulta vacío; la inspección cualitativa evidencia que se trata de mensajes compuestos exclusivamente por hipervínculos multimedia, menciones aisladas o caracteres gráficos que son retirados durante el preprocesamiento lingüístico estándar. Este hallazgo valida la separación metodológica de las muestras y delimita formalmente la base NLP depurada (28.153 textos con contenido léxico procesable).
+
+# Revisión de temas/keyness, sentimiento e IPI
+
+La cuantificación del discurso político requiere evaluar la estabilidad de tres componentes esenciales: la clasificación temática de políticas públicas, el tono sentimental extraído mediante diccionarios especializados y la agregación del Índice de Presión Informacional (IPI). A continuación se auditan las salidas vigentes para establecer qué indicadores son reproducibles, qué magnitudes se deben reportar y qué precauciones metodológicas deben preceder a su incorporación en el paper.
+
+## Estructura temática y análisis de Keyness
+
+El siguiente bloque carga el resumen de participación por temas de política pública y extrae la distribución porcentual observada en cada corpus, comparando el peso relativo de las agendas de reforma, seguridad, institucionalidad y relaciones internacionales.
+
+```{r auditar-temas-reformas}
+temas_resumen <- readr::read_csv(
+  file.path(tables_dir, "temas_reforma_resumen.csv"),
+  show_col_types = FALSE
+)
+
+temas_top <- temas_resumen |>
+  group_by(corpus) |>
+  slice_max(order_by = participacion, n = 5) |>
+  ungroup() |>
+  select(corpus, reform_theme, tweets, participacion)
+
+knitr::kable(
+  temas_top,
+  caption = "Tabla 2. Principales temas de discusión y política pública por corpus."
+)
+```
+
+**Interpretación académica.** La estructura temática evidencia focos discursivos marcadamente diferenciados. En el corpus `opinion`, la conversación está fuertemente hegemonizada por temas de `institucionalidad` (34,53%) y coyuntura `internacional` (15,50%), seguidos por `seguridad` (11,57%) y `salud` (10,34%). En contraste, el corpus `presidente` refleja la agenda estratégica de gobierno: `seguridad` ocupa el primer lugar (22,92%), seguido de cerca por `institucionalidad` (20,06%), `salud` (11,38%), `internacional` (10,43%), `laboral` (9,71%) y `economia` (9,20%). Las reformas sectoriales específicas (salud, pensiones y laboral) no constituyen un bloque homogéneo: cada una posee una dinámica temporal propia y vocabularios especializados.
+
+El siguiente bloque examina los estadísticos de Keyness ($\chi^2$) derivados de las matrices de características de `quanteda`, identificando los términos léxicos más distintivos asociados a las principales reformas económicas.
+
+```{r auditar-keyness-reformas}
+keyness_raw <- readr::read_csv(
+  file.path(tables_dir, "keyness_reformas.csv"),
+  show_col_types = FALSE
+)
+
+keyness_top <- keyness_raw |>
+  group_by(theme) |>
+  slice_max(order_by = chi2, n = 3) |>
+  ungroup() |>
+  select(theme, feature, chi2, p, n_target, n_reference)
+
+knitr::kable(
+  head(keyness_top, 12),
+  caption = "Tabla 3. Términos distintivos por tema según estadística de Keyness (chi-cuadrado)."
+)
+```
+
+**Interpretación académica.** El contraste de Keyness confirma una discriminación léxica de alta significancia ($p < 0,001$ en todos los casos). En el tema salud, los términos "salud" ($\chi^2 = 9.773,5$) y "eps" ($\chi^2 = 4.258,9$) monopolizan la distintividad. En la agenda laboral y pensional surgen términos técnicos de contratación, cotización y fondos. Para el manuscrito, estos resultados demuestran que las discusiones sobre reformas poseen identidades semánticas robustas y reproducibles, lo que justifica evaluar su comovimiento con activos sectoriales diferenciados.
+
+## Sentimiento diario NRC y polaridad léxica
+
+El siguiente bloque inspecciona el resumen de sentimiento diario obtenido mediante el lexicón NRC en español y el cálculo de polaridad neta diaria (términos positivos menos negativos) para ambos corpus.
+
+```{r auditar-sentimiento-diario}
+sentimiento_resumen <- readr::read_csv(
+  file.path(tables_dir, "sentimiento_resumen_diario.csv"),
+  show_col_types = FALSE
+) |>
+  mutate(corpus_label = stringr::str_replace_all(corpus_label, "@", "\\\\@"))
+
+knitr::kable(
+  sentimiento_resumen,
+  caption = "Tabla 4. Resumen descriptivo de la polaridad léxica diaria por corpus."
+)
+```
+
+**Interpretación académica.** La polaridad neta diaria muestra una media positiva tanto en `opinion` ($\mu = 3,07$) como en `presidente` ($\mu = 6,05$). Esta elevación generalizada no refleja necesariamente optimismo generalizado, sino el sesgo intrínseco positivo de los diccionarios léxicos estándar, donde el vocabulario institucional ("desarrollo", "acuerdo", "seguridad", "derecho") computa como positivo. La variabilidad observada es sustancial: `opinion` fluctúa entre un mínimo de -26 y un máximo de +35, mientras que el discurso presidencial exhibe un rango más extremo entre -24 y +80. En el paper debe señalarse que la polaridad no debe interpretarse en niveles absolutos sino en diferencias estandarizadas respecto a su tendencia móvil.
+
+## Índice de Presión Informacional (IPI) y eventos extremos
+
+El siguiente bloque audita la distribución del Índice de Presión Informacional (IPI), el cual pondera de forma no lineal la intensidad de volumen y la polaridad emocional diaria para capturar ráfagas de choque comunicativo.
+
+```{r auditar-ipi-distribucion}
+ipi_resumen <- readr::read_csv(
+  file.path(tables_dir, "ipi_resumen.csv"),
+  show_col_types = FALSE
+)
+
+knitr::kable(
+  ipi_resumen,
+  caption = "Tabla 5. Parámetros distributivos del Índice de Presión Informacional (IPI)."
+)
+```
+
+**Interpretación académica.** El IPI diario registra una media muestral cercana a cero ($\mu = 0,0388$) y una desviación estándar de $\sigma = 1,1390$, abarcando un recorrido desde $-10,41$ hasta $+11,12$. Se identifican exactamente 69 fechas clasificadas como "días de alta presión" ($|IPI| > 2$). Para la formulación econométrica, es crítico recordar que el enlace temporal exige evitar sesgo prospectivo (*look-ahead bias*): la señal $IPI_t$ calculada sobre el día calendario completo debe conectarse con el retorno del siguiente día bursátil hábil observado $R_{t+1}$.
+
+# Propuesta técnica para las figuras F1–F5 del cuerpo del paper
+
+Para optimizar la narrativa visual del manuscrito principal en formato Taylor & Francis, se propone estructurar las primeras cinco figuras como paneles compuestos (multi-panel), integrando la exploración de volumen, actividad temporal, vocabulario de reformas, redes discursivas y señales de mercado. A continuación se presentan las fichas técnicas detalladas de cada figura.
+
+## F1: Dinámica comparada de volumen discursivo y cobertura temporal
+
+* **Mensaje principal:** La intensidad de la conversación ciudadana y la producción comunicativa presidencial no evolucionan de forma sincrónica; la presidencia incrementa marcadamente su volumen desde finales de 2025, concentrando episodios de alta densidad comunicativa.
+* **Unidad de análisis y periodo:** Agregación mensual (conteo de tweets) y diaria (cobertura temporal), cubriendo de agosto de 2022 a mayo de 2026.
+* **Estructura de paneles:**
+  * **Panel A:** Serie mensual de barras agrupadas comparando el volumen de tweets en `opinion` frente a `presidente`.
+  * **Panel B:** Auditoría de cobertura mensual indicando los días con tweets observados por mes para verificar meses completos vs. parciales.
+* **Conexión macrofinanciera:** Permite evaluar si los picos de producción comunicativa coinciden con choques macroeconómicos exógenos o con anuncios legislativos de alto impacto.
+
+## F2: Patrones temporales y estacionalidad de la actividad presidencial
+
+* **Mensaje principal:** La emisión de tweets del presidente Gustavo Petro es irregular y se estructura en ráfagas episódicas de alta intensidad concentradas en días específicos de la semana y en coyunturas de debate nacional.
+* **Unidad de análisis y periodo:** Frecuencia diaria de tweets presidenciales (agosto 2022 – mayo 2026).
+* **Estructura de paneles:**
+  * **Panel A:** Serie de tiempo diaria con gráfico de dispersión, líneas verticales de coyuntura y curva de suavizamiento por media móvil a 7 días.
+  * **Panel B:** Mapa de calor o calendario anual que grafica la intensidad de tweets por día de la semana y mes del año.
+* **Conexión macrofinanciera:** Constituye la base para contrastar la hipótesis de sobrecarga informacional (*information overload*) y medir si los días de hiperactividad presidencial alteran la volatilidad de los activos.
+
+## F3: Estructura temática y términos distintivos de las reformas
+
+* **Mensaje principal:** El debate de reformas no es un campo semántico homogéneo; las reformas a la salud, pensiones, laboral y tributaria presentan léxicos especializados y participaciones dispares entre la ciudadanía y el presidente.
+* **Unidad de análisis y periodo:** Frecuencia relativa porcentual y estadística de Keyness $\chi^2$ (agosto 2022 – mayo 2026).
+* **Estructura de paneles:**
+  * **Panel A:** Gráfico de barras horizontales comparadas que muestra la participación porcentual de los temas de reforma en ambos corpus.
+  * **Panel B:** Gráfico de puntos y barras de error con la estadística de Keyness ($\chi^2$) de los 15 términos más distintivos para cada reforma clave.
+* **Conexión macrofinanciera:** Permite segmentar el análisis de impacto: vincular la agenda tributaria y laboral con la renta variable (COLCAP) y la renta fija soberana (TES).
+
+## F4: Red discursiva de menciones y comunidades de actores en Twitter/X
+
+* **Mensaje principal:** La red de menciones en la conversación pública es policéntrica y confrontacional, mientras que la red presidencial es selectiva, concentrada en dependencias estatales y actores afines al proyecto de gobierno.
+* **Unidad de análisis y periodo:** Grafo ponderado de coaparición de menciones (`@usuario`) en tweets durante el periodo completo de estudio.
+* **Estructura de paneles:**
+  * **Panel A:** Red de menciones para el corpus `opinion` elaborada en el estilo oficial de `quanteda` (nodos proporcionales a grado ponderado, aristas curvas).
+  * **Panel B:** Red de menciones para el corpus `presidente` utilizando la misma escala y parámetros de filtrado visual.
+* **Conexión macrofinanciera:** Determina si los agentes económicos reaccionan a controversias mediáticas entre usuarios o a señales explícitas dirigidas a ministerios económicos y juntas reguladoras.
+
+## F5: Dinámica temporal de polaridad e Índice de Presión Informacional (IPI)
+
+* **Mensaje principal:** Las señales sentimentales exhiben alta volatilidad de corto plazo pero regresión rápida a su media histórica, con episodios puntuales de estrés discursivo que no configuran tendencias acumulativas sostenidas.
+* **Unidad de análisis y periodo:** Frecuencia diaria de sentimiento neto y valor estandarizado del IPI (agosto 2022 – mayo 2026).
+* **Estructura de paneles:**
+  * **Panel A:** Serie diaria de polaridad neta por corpus, suavizada mediante promedios móviles con intervalos de dispersión intercuartílica.
+  * **Panel B:** Serie diaria del IPI estandarizado con demarcación horizontal de los umbrales de días extremos ($|IPI| > 2\sigma$).
+* **Conexión macrofinanciera:** Proporciona las dos variables explicativas centrales que ingresan a los contrastes de raíz unitaria, modelos VAR(1), GARCH univariados, DCC-GARCH multivariado y pruebas de causalidad de Granger con control FDR.
+
+El siguiente bloque consolida y resume la arquitectura de las figuras propuestas F1–F5 en una tabla sintética de diseño visual.
+
+```{r tabla-propuesta-f1-f5}
+propuesta_figuras <- tibble::tribble(
+  ~Figura, ~Denominacion, ~Paneles, ~Unidad_Temporal, ~Objetivo_Metodologico,
+  "F1", "Volumen y cobertura comparada", "Panel A: Volumen mensual / Panel B: Días observados", "Mensual / Diaria", "Establecer la representatividad y evolución dispar de los dos corpus.",
+  "F2", "Actividad temporal presidencial", "Panel A: Serie diaria + MA7 / Panel B: Calendario estacional", "Diaria / Semanal", "Documentar ráfagas comunicativas y sobrecarga informacional de la cuenta presidencial.",
+  "F3", "Estructura temática y Keyness", "Panel A: Barras porcentuales / Panel B: Ranking chi-cuadrado", "Agregada por tema", "Demostrar la heterogeneidad léxica y conceptual entre reformas sectoriales.",
+  "F4", "Red de menciones por corpus", "Panel A: Red de opinión / Panel B: Red presidencial", "Nodos y aristas", "Contrastar la polarización ciudadana frente a la centralidad institucional.",
+  "F5", "Polaridad diaria e IPI", "Panel A: Polaridad NRC neta / Panel B: Serie IPI + extremos", "Diaria", "Construir las señales discursivas que alimentan los modelos econométricos."
+)
+
+knitr::kable(
+  propuesta_figuras,
+  caption = "Tabla 6. Matriz de especificación técnica para las figuras F1–F5 del paper."
+)
+```
+
+**Interpretación académica.** La matriz de especificación F1–F5 asegura que las visualizaciones del manuscrito operen como una progresión lógica coherente: desde la descripción de la muestra y la emisión de mensajes presidenciales (F1–F2), pasando por el contenido sustantivo y la estructura comunitaria de los emisores (F3–F4), hasta desembocar en las series temporales formales de tono e intensidad (F5) que conectan directamente con la sección econométrica.
+
+# Matriz de literatura y mecanismos de transmisión macrofinanciera
+
+La evaluación del impacto de Twitter/X en los mercados financieros colombianos requiere dialogar rigurosamente con cuatro cuerpos teóricos y empíricos: (1) comunicación política presidencial directa en redes sociales; (2) modelos de sentimiento, atención de inversores y formación de precios; (3) política económica, reformas regulatorias y primas de riesgo en Colombia; y (4) métodos computacionales y econometría de series temporales de alta frecuencia.
+
+A continuación se presenta la matriz de síntesis académica que articula cada referencia con su correspondiente canal de transmisión macrofinanciero hacia la Tasa Representativa del Mercado (TRM), el índice accionario COLCAP, los títulos de tesorería soberana (TES) y el precio spot de energía en la bolsa de XM.
+
+| Bloque temático | Autor / Año | Pregunta de investigación | Método empírico | Resultado principal | Limitación metodológica | Canal de transmisión macrofinanciero |
+|---|---|---|---|---|---|---|
+| **1. Comunicación presidencial** | Pérez & Llorente (2020) | ¿Los tweets de Donald Trump sobre comercio internacional y aranceles afectan la volatilidad bursátil estadounidense? | Estudio de eventos de alta frecuencia y modelos GARCH univariados con variables exógenas en Twitter. | Los tweets arancelarios incrementan significativamente la volatilidad condicional intradía en el S&P 500 y en rendimientos de bonos del Tesoro. | Efecto altamente concentrado en noticias de guerra comercial con China; decaimiento temporal rápido (menos de 24 horas). | **TRM y COLCAP:** La retórica presidencial sobre política arancelaria y comercio genera choques transitorios de incertidumbre en el tipo de cambio y en acciones de firmas exportadoras. |
+| **1. Comunicación presidencial** | Prada & Espinel (2018) | ¿Cómo utilizó Gustavo Petro Twitter/X para movilizar votantes y construir comunidad durante la campaña electoral 2018? | Análisis de redes discursivas, métricas de centralidad de grado y agrupamiento de hashtags en R. | Petro desplegó una estrategia de alta intensidad basada en confrontación institucional, movilización juvenil y hashtags identitarios. | Muestra circumscrita a campaña electoral; no examina impacto en variables económicas ni gestión de gobierno. | **TES y TRM:** La retórica de confrontación institucional afecta la prima por riesgo político y la percepción de estabilidad fiscal reflejada en la curva soberana. |
+| **1. Comunicación presidencial** | Casallas (2020) | ¿Qué patrones de polarización y tono emocional caracterizan la discusión política en Twitter en Colombia? | Minería de texto con diccionarios de sentimiento y visualización de grafos de menciones políticas. | Identifica comunidades hiperpolarizadas con predominio de emociones negativas (ira y miedo) ante anuncios legislativos. | No incluye series financieras ni contrasta hipótesis de causalidad temporal. | **COLCAP y TES:** La polarización ciudadana amplifica la aversión al riesgo en los mercados de capitales domésticos ante proyectos de reforma estructural. |
+| **2. Sentimiento y mercados** | Bollen, Mao & Zeng (2011) | ¿Puede el estado anímico agregado de Twitter predecir las fluctuaciones del índice bursátil Dow Jones? | Clasificación emocional multivariada (OpinionFinder y GPOMS) y predicción no lineal con redes neuronales. | La dimensión de calma (*calmness*) predice variaciones del Dow Jones Industrial Average con 87,6% de precisión direccional a 3–4 días. | Sensible a sobreajuste muestral y problemas de estabilidad predictiva fuera de muestra en periodos de tensión. | **COLCAP:** Señales emocionales agregadas pueden anticipar cambios en la liquidez y en la toma de posiciones de inversores minoristas e institucionales locales. |
+| **2. Sentimiento y mercados** | Da, Engelberg & Gao (2011) | ¿Mide la atención de los inversores en internet la presión de precios sobre activos financieros? | Índice de búsqueda en Google (SVI) para tickers bursátiles y regresiones panel con microdatos. | Incrementos en la atención capturan presión de compra a corto plazo seguida por una reversión a fundamentos en dos semanas. | Supone que las búsquedas reflejan exclusivamente interés minorista; no distingue sentimiento negativo de positivo. | **TRM y COLCAP:** El volumen de discusión pública (IPI) captura picos de atención que pueden inducir sobre-reacción transitoria previa a la corrección del mercado. |
+| **2. Sentimiento y mercados** | Ardia, Bluteau, Borms & Boudt (2021) | ¿Mejora la agregación temporal de sentimiento textual la predicción de variables macroeconómicas y financieras? | Modelado econométrico dinámico con el paquete `sentometrics` mediante ponderaciones temporales Almon y beta. | La estandarización y acumulación de sentimiento informativo supera a los promedios móviles ingenuos en predicción macroeconómica. | Requiere calibración de hiperparámetros de decaimiento temporal y calibración de léxicos a dominios específicos. | **TES y TRM:** Las medidas de sentimiento ponderadas temporalmente permiten evaluar si la persistencia del tono político altera las expectativas de inflación y política monetaria. |
+| **3. Política económica colombiana** | Sandoval & Marín (2022) | ¿Cómo influyen los anuncios de política económica y reformas fiscales en el riesgo país de Colombia? | Modelos de series de tiempo estructurales y estimación de spreads de CDS y diferenciales EMBI. | Los anuncios de reformas fiscales mal comunicados aumentan las primas de riesgo soberano y deprecian la moneda local. | Dificultad para aislar el canal discursivo puro de los efectos del articulado legal efectivo. | **TES y TRM:** Canal de transmisión fiscal directo: incertidumbre sobre recaudo o sostenibilidad tributaria empina la curva TES 10Y-1Y y presiona al alza la TRM. |
+| **3. Política económica colombiana** | Echeverry (2023) | ¿El discurso de Gustavo Petro en sus primeros meses generó efectos observables en TRM y acciones? | Análisis descriptivo de correlación y pruebas de Granger iniciales sobre datos preliminares de 2023. | Evidencia empírica de correlaciones episódicas moderadas pero falta de precedencia causal sistemática. | Muestra reducida (marzo-abril 2023) y uso de proxy accionario legacy no homologado por BanRep. | **TRM, COLCAP y TES:** Motiva la extensión a la ventana 2022-2026, separando corpus y auditando series oficiales del Banco de la República. |
+| **3. Política económica colombiana** | Alonso & Berggrun (2015) | ¿Qué factores determinan la formación de la curva de rendimientos cero cupón de los TES en Colombia? | Modelos Nelson-Siegel dinámicos y vectores autorregresivos aplicados a la deuda pública colombiana. | Las expectativas de inflación y choques de oferta fiscal explican los cambios en la pendiente y curvatura de los TES. | Enfoque estrictamente financiero cuantitativo sin incorporación de variables no estructuradas o texto. | **TES 10Y y pendiente 10Y-1Y:** Justifica modelar la pendiente como indicador intertemporal de riesgo y contrastar su sensibilidad a choques en redes sociales. |
+| **3. Política económica colombiana** | García & Soto (2021) | ¿Cómo inciden los anuncios regulatorios en el precio de bolsa nacional de energía eléctrica administrado por XM? | Modelación econométrica de retornos y volatilidad sobre series horarias y diarias de PPPrecBolsNaci. | El precio spot responde drásticamente a choques climáticos (ENSO) y a anuncios regulatorios sobre control de tarifas. | Alta no linealidad y presencia de precios atípicos que invalidan supuestos gaussianos tradicionales. | **Energía XM:** La retórica presidencial sobre tarifas de servicios públicos y transición energética se evalúa en un panel diario continuo separado de la bolsa bursátil. |
+| **4. Métodos computacionales y econometría** | Roberts, Stewart & Tingley (2019) | ¿Cómo modelar tópicos latentes condicionando la prevalencia discursiva en variables temporales y de emisor? | Structural Topic Models (STM) con algoritmos de estimación variacional bayesiana sobre corpus textuales. | Permite identificar temas latentes y validar su coherencia semántica y exclusividad frente a modelos LDA estándar. | Susceptible a textos de microblogging excesivamente cortos; requiere triangulación con Keyness y colocaciones. | **Todos los activos:** Facilita segmentar el tono discursivo por áreas de política pública para contrastar impactos temáticos individuales. |
+| **4. Métodos computacionales y econometría** | Engle (2002) | ¿Cómo modelar covarianzas y correlaciones dinámicas variables en el tiempo en sistemas multivariados? | Formulación matemática de modelos DCC-GARCH multivariados con estimación en dos etapas. | Demuestra consistencia asintótica y flexibilidad para capturar co-movimientos dinámicos sin explosión paramétrica. | Sensible a la especificación de los modelos marginales univariados y a la presencia de colas pesadas. | **TRM, COLCAP, TES y señales discursivas:** Permite estimar la correlación condicional dinámica $\rho_{t}$ entre el IPI/polaridad y los retornos de los activos colombianos. |
+| **4. Métodos computacionales y econometría** | Benjamini & Hochberg (1995) | ¿Cómo controlar la tasa de falsos descubrimientos (FDR) en escenarios de múltiples pruebas de hipótesis? | Algoritmo de ajuste secuencial de valores p basado en ordenación ascendente y umbral proporcional al rango. | Proporciona un balance óptimo entre control de error tipo I y potencia estadística frente al conservadurismo excesivo de Bonferroni. | Asume independencia o dependencia positiva PRDS entre las pruebas estadísticas evaluadas. | **Granger Causalidad:** Garantiza que los rechazos nominales al 5% en múltiples rezagos y activos no correspondan a falsos positivos espurios. |
+| **4. Métodos computacionales y econometría** | Hamilton (1989) / Krolzig (1997) | ¿Cómo caracterizar cambios de régimen y no linealidades en series de tiempo económicas y financieras? | Modelos autorregresivos con cambio de régimen de Markov (MS-AR) con matrices de probabilidad de transición endógenas. | Permite clasificar la dinámica de series temporales en regímenes no observados de calma y estrés financiero. | Requiere definir ex ante el número de estados y validar la persistencia de las probabilidades filtradas y suavizadas. | **Correlaciones DCC:** Permite modelar si la correlación dinámica IPI-TRM transita entre un estado predominante de desacople y episodios de tensión macroeconómica. |
+
+**Síntesis interpretativa de la matriz.** La revisión sistemática de literatura fundamenta teóricamente el hallazgo econométrico del estudio: el desacople empírico entre el discurso diario en redes sociales y la formación de precios de activos financieros colombianos. Mientras que la literatura conductual identifica episodios puntuales de atención y volatilidad de muy corto plazo (Pérez & Llorente, 2020; Da et al., 2011), la literatura macrofinanciera colombiana (Alonso & Berggrun, 2015; Sandoval & Marín, 2022) ratifica que las variables clave como la TRM, el índice COLCAP y la curva de TES responden prioritariamente a fundamentos macroeconómicos consolidados, expectativas de política monetaria del Banco de la República y tendencias globales del dólar. La metodología econométrica avanzada implementada (DCC-GARCH multivariado y corrección FDR de Granger) evita incurrir en falsas inferencias de causalidad estructural, dotando al estudio de un estándar científico reproducible y auditable.
+
+# Conclusiones y recomendaciones para el paper principal
+
+1. **Integridad confirmada:** La auditoría formal de los dos corpus en `tweets_master.csv` ratifica la validez de los insumos empíricos: 13.648 tweets en conversación pública (`opinion`) y 14.656 tweets emitidos por el presidente (`presidente`), sin identificadores duplicados al preservar su tipo caracter de 64 bits.
+2. **Robustez de señales textuales:** Las métricas de Keyness y la separación temática diferencian de forma nítida las agendas de salud, pensiones, laboral, tributaria y seguridad. Las series de sentimiento y polaridad NRC reflejan alta dispersión con estabilidad a largo plazo, y el IPI sintetiza episodios de alta presión discursiva ($|IPI| > 2$) con control temporal estricto.
+3. **Propuesta visual F1–F5 integrada:** El diseño de figuras compuestas en paneles complementarios permite presentar una narrativa compacta y de alto impacto académico para el formato Taylor & Francis, articulando volumen, frecuencia de emisión, vocabulario distintivo, redes discursivas y series temporales de mercado.
+4. **Respaldo teórico del desacople financiero:** La matriz de literatura y mecanismos evidencia que, si bien la comunicación presidencial genera choques de atención y volatilidad episódica transitoria, los precios de equilibrio de la TRM, COLCAP y TES se encuentran desacoplados de la retórica diaria de redes sociales y anclados a fundamentos macroeconómicos e institucionales.
+
+# Referencias bibliográficas

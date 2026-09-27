@@ -47,17 +47,25 @@ extracted <- knitr::purl(commandArgs(TRUE)[1], output=tempfile(fileext=".R"), qu
 invisible(parse(extracted))
 """
 if rscript:
-    ascii_notebook = destination.parent / "notebook-validation.tmp.Rmd"
+    suffix = notebook.suffix or ".Rmd"
+    ascii_notebook = destination.parent / f"notebook-validation.tmp{suffix}"
     validation_script = destination.parent / "notebook-validation.tmp.R"
     ascii_notebook.write_text(text, encoding="utf-8")
     validation_script.write_text(r_code, encoding="utf-8")
     powershell = shutil.which("pwsh") or shutil.which("powershell")
-    command = f'& "{rscript}" --vanilla "{validation_script}" "{ascii_notebook}"'
-    parsed = subprocess.run(
-        [powershell, "-NoProfile", "-Command", command],
-        stdout=subprocess.DEVNULL,
-        stderr=subprocess.DEVNULL,
-    )
+    if powershell:
+        command = f'& "{rscript}" --vanilla "{validation_script}" "{ascii_notebook}"'
+        parsed = subprocess.run(
+            [powershell, "-NoProfile", "-Command", command],
+            stdout=subprocess.DEVNULL,
+            stderr=subprocess.DEVNULL,
+        )
+    else:
+        parsed = subprocess.run(
+            [rscript, "--vanilla", str(validation_script), str(ascii_notebook)],
+            stdout=subprocess.DEVNULL,
+            stderr=subprocess.DEVNULL,
+        )
     ascii_notebook.unlink(missing_ok=True)
     validation_script.unlink(missing_ok=True)
 else:

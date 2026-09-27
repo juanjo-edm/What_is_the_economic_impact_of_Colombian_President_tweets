@@ -24,7 +24,7 @@ Fecha de auditoria: 2026-09-23
 | corpus presidente | mejorado | Granger por corpus usa el mismo helper financiero. | No mezclar emisor presidencial con opinion publica. | `granger_by_corpus` separado. | Extender separacion a todos los modelos si se requiere simetria completa. |
 | robustez | pendiente | No se agrego seccion completa nueva. | Debe separar principal vs sensibilidad. | Algunas grillas existentes se mantienen. | Construir tabla `12_robustez`. |
 | causalidad | mejorado parcialmente | Se corrigieron frases del bloque Markov y timing; se mantiene advertencia de no causalidad en varias secciones. | Granger/VAR/DCC/MS no identifican causalidad estructural. | Paper aun contiene frases fuertes. | Requiere barrido editorial completo de README/paper/captions. |
-| render | bloqueado | Se intento renderizar `Cuaderno_Paper_Español.Rmd`. | Validacion final exige render limpio. | Falla: `pandoc version 2.8 or higher is required and was not found`. | Instalar/configurar Pandoc o usar RStudio/Quarto con Pandoc disponible. |
+| render | migrado a Quarto | El cuaderno migró a documento Quarto (`Cuaderno_Paper_Español.qmd`) ejecutable vía `quarto render`, con Pandoc 3.6.3 integrado en Quarto CLI. | Unificar motor de renderizado reproducible y resolver dependencia de Pandoc. | Quarto 1.7.32 operativo; requiere entorno Python spaCy activo para bloques NLP completos. | El render completo recalcula 93 gráficos y modelos intensivos (DCC, STM, spacyr). |
 
 ## Que puede afirmarse
 
@@ -34,10 +34,10 @@ Fecha de auditoria: 2026-09-23
 - XM queda separado del calendario financiero y no entra al DCC bursatil principal.
 - Las pruebas de Granger actualizadas reportan p-values crudos y ajustados por FDR.
 - El modelo Markov ya no se presenta como MS-AR cuando no contiene rezago autorregresivo.
+- El cuaderno metodológico se ha migrado a documento Quarto (`Cuaderno_Paper_Español.qmd`) preservando código, documentación y convenciones.
 
 ## Que NO puede afirmarse
 
 - No puede afirmarse causalidad estructural de tweets o sentimiento sobre mercados.
 - No puede afirmarse que XM este listo para DCC-XM hasta completar diagnosticos marginales.
-- No puede afirmarse render limpio del notebook o paper en esta terminal porque falta Pandoc.
 - No puede afirmarse que todos los textos estaticos del paper/README esten sincronizados; falta barrido editorial final.

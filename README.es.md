@@ -97,7 +97,7 @@ El árbol siguiente se produce desde el repositorio actual con
 namespace existe en su instalación local de R.
 
 ``` text
-What-is-the-economic-impact-of-Colombian-President-tweets/
+What_is_the_economic_impact_of_Colombian_President_tweets/
 |-- data/
 |   |-- Archive/
 |   |-- processed/
@@ -105,25 +105,22 @@ What-is-the-economic-impact-of-Colombian-President-tweets/
 |-- docs/
 |   |-- assets/
 |   `-- paper/
-|-- figure/
 |-- notebooks/
 |   `-- español/
 |-- paper/
 |   |-- English/
-|   `-- español/
+|   |-- español/
+|   `-- figures/
 |-- scripts/
 |   |-- api_data_extraction/
 |   `-- data/
-|-- Paper_Twitter.Rproj
 |-- README 2.Rmd
-|-- README.es.html
 |-- README.es.md
 |-- README.es.Rmd
 |-- README.html
 |-- README.md
-`-- README.Rmd
-
-16 directories, 8 files
+|-- README.Rmd
+`-- What_is_the_economic_impact_of_Colombian_President_tweets.Rproj
 ```
 
 | Ruta | Propósito |
@@ -154,7 +151,7 @@ bajo `output/tables/español/`.
 ### ¿Cuál es el papel de `scripts/`?
 
 El análisis principal está autocontenido en
-`notebooks/español/Cuaderno_Paper_Español.Rmd`. Las funciones de
+`notebooks/español/Cuaderno_Paper_Español.qmd`. Las funciones de
 limpieza, clasificación, visualización, NLP, redes, series, econometría
 y validación de modelos viven dentro del cuaderno.
 
@@ -170,7 +167,7 @@ Orden de ejecución recomendado:
 2.  Ejecute `Rscript scripts/data/twitter_process_raw_data.R` para
     preparar Twitter y mercado raw.
 3.  Confirme que los CSV requeridos existen en `data/processed/`.
-4.  Renderice `notebooks/español/Cuaderno_Paper_Español.Rmd`.
+4.  Renderice `notebooks/español/Cuaderno_Paper_Español.qmd`.
 5.  Revise figuras y tablas generadas bajo `output/`.
 
 ### ¿El cuaderno depende de `source()`?
@@ -253,7 +250,7 @@ y se persisten como tablas o figuras bajo `output/`.
 Renderice el cuaderno metodológico en español:
 
 ``` bash
-Rscript -e 'rmarkdown::render("notebooks/español/Cuaderno_Paper_Español.Rmd")'
+quarto render notebooks/español/Cuaderno_Paper_Español.qmd
 ```
 
 Renderice el paper Quarto activo:
@@ -272,7 +269,7 @@ Rscript -e 'rmarkdown::render("README.es.Rmd", output_file = "README.es.md")'
 ## Metodología
 
 El artefacto académico principal es el cuaderno:
-[`notebooks/español/Cuaderno_Paper_Español.Rmd`](notebooks/español/Cuaderno_Paper_Español.Rmd).
+[`notebooks/español/Cuaderno_Paper_Español.qmd`](notebooks/español/Cuaderno_Paper_Español.qmd).
 Está escrito en español y organizado en secciones numeradas que explican
 cada bloque antes de ejecutar el código.
 
@@ -401,7 +398,7 @@ expuesto previamente debe rotarse antes de volver a usar la API de X.
 - Paper original de referencia:
   [`docs/paper/Impacto_discurso_petro__ENG_.pdf`](docs/paper/Impacto_discurso_petro__ENG_.pdf)
 - Cuaderno metodológico en español:
-  [`notebooks/español/Cuaderno_Paper_Español.Rmd`](notebooks/español/Cuaderno_Paper_Español.Rmd)
+  [`notebooks/español/Cuaderno_Paper_Español.qmd`](notebooks/español/Cuaderno_Paper_Español.qmd)
 - Paper Quarto activo:
   [`paper/español/quarto-tandf.qmd`](paper/español/quarto-tandf.qmd)
 - PDF renderizado del paper:

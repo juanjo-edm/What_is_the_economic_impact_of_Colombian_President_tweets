@@ -98,7 +98,7 @@ The tree below is produced from the live repository with
 namespace is available in your local R installation).
 
 ``` text
-What-is-the-economic-impact-of-Colombian-President-tweets/
+What_is_the_economic_impact_of_Colombian_President_tweets/
 |-- data/
 |   |-- Archive/
 |   |-- processed/
@@ -106,25 +106,21 @@ What-is-the-economic-impact-of-Colombian-President-tweets/
 |-- docs/
 |   |-- assets/
 |   `-- paper/
-|-- figure/
 |-- notebooks/
 |   `-- español/
 |-- paper/
 |   |-- English/
-|   `-- español/
+|   |-- español/
+|   `-- figures/
 |-- scripts/
 |   |-- api_data_extraction/
 |   `-- data/
-|-- Paper_Twitter.Rproj
 |-- README 2.Rmd
-|-- README.es.html
 |-- README.es.md
 |-- README.es.Rmd
-|-- README.html
 |-- README.md
-`-- README.Rmd
-
-16 directories, 8 files
+|-- README.Rmd
+`-- What_is_the_economic_impact_of_Colombian_President_tweets.Rproj
 ```
 
 | Path | Purpose |
@@ -154,7 +150,7 @@ provenance is persisted under `output/tables/español/`.
 ### What is the role of `scripts/`?
 
 The main analysis is intentionally self-contained in
-`notebooks/español/Cuaderno_Paper_Español.Rmd`. Functions for cleaning,
+`notebooks/español/Cuaderno_Paper_Español.qmd`. Functions for cleaning,
 classification, visualization, NLP, networks, series, econometrics, and
 model validation live in the notebook.
 
@@ -170,7 +166,7 @@ Recommended execution order:
 2.  Run `Rscript scripts/data/twitter_process_raw_data.R` to prepare raw
     Twitter and market data.
 3.  Confirm the required CSVs exist in `data/processed/`.
-4.  Render `notebooks/español/Cuaderno_Paper_Español.Rmd`.
+4.  Render `notebooks/español/Cuaderno_Paper_Español.qmd`.
 5.  Review generated figures and tables under `output/`.
 
 ### Does the notebook depend on `source()`?
@@ -249,7 +245,7 @@ or figures under `output/`.
 Render the Spanish paper notebook:
 
 ``` bash
-Rscript -e 'rmarkdown::render("notebooks/español/Cuaderno_Paper_Español.Rmd")'
+quarto render notebooks/español/Cuaderno_Paper_Español.qmd
 ```
 
 Render the active Quarto paper:
@@ -268,7 +264,7 @@ Rscript -e 'rmarkdown::render("README.es.Rmd", output_file = "README.es.md")'
 ## Methodology
 
 The methodological notebook is the main academic artifact:
-[`notebooks/español/Cuaderno_Paper_Español.Rmd`](notebooks/español/Cuaderno_Paper_Español.Rmd).
+[`notebooks/español/Cuaderno_Paper_Español.qmd`](notebooks/español/Cuaderno_Paper_Español.qmd).
 It is written in Spanish and organized into numbered sections that
 explain each step before running the code.
 
@@ -300,6 +296,10 @@ Every relevant notebook result is persisted. The project does not rely
 on figures or tables that only exist inside an interactive notebook
 session.
 
+The validated notebook surface contains **93 final figures**, **7
+visible tables**, and **100 immediate interpretations**: one for every
+figure and every visible table.
+
 Selected generated figures:
 
 | Output | Description |
@@ -313,6 +313,7 @@ Selected generated figures:
 | [`output/figures/español/red_hashtags_quanteda.png`](output/figures/español/red_hashtags_quanteda.png) | Global hashtag network in the `quanteda` style. |
 | [`output/figures/español/red_menciones_quanteda.png`](output/figures/español/red_menciones_quanteda.png) | Global mention network in the `quanteda` style. |
 | [`output/figures/español/red_hashtags_quanteda_por_corpus.png`](output/figures/español/red_hashtags_quanteda_por_corpus.png) | Hashtag networks split by corpus. |
+| [`output/figures/español/red_temas_hashtags_por_corpus.png`](output/figures/español/red_temas_hashtags_por_corpus.png) | Bipartite theme-to-hashtag networks by corpus, weighted by distinct tweets. |
 | [`output/figures/español/red_menciones_quanteda_por_corpus.png`](output/figures/español/red_menciones_quanteda_por_corpus.png) | Mention networks split by corpus. |
 | [`output/figures/español/wordcloud_corpus_general.png`](output/figures/español/wordcloud_corpus_general.png) | Corpus-level word clouds weighted by cumulative TF-IDF. |
 | [`output/figures/español/wordcloud_temporal_periodos.png`](output/figures/español/wordcloud_temporal_periodos.png) | Semiannual distinctive-word clouds as the reproducible word-stream view. |
@@ -397,7 +398,7 @@ rotated before using the X API again.
 - Original paper reference:
   [`docs/paper/Impacto_discurso_petro__ENG_.pdf`](docs/paper/Impacto_discurso_petro__ENG_.pdf)
 - Spanish methodological notebook:
-  [`notebooks/español/Cuaderno_Paper_Español.Rmd`](notebooks/español/Cuaderno_Paper_Español.Rmd)
+  [`notebooks/español/Cuaderno_Paper_Español.qmd`](notebooks/español/Cuaderno_Paper_Español.qmd)
 - Active Quarto paper:
   [`paper/español/quarto-tandf.qmd`](paper/español/quarto-tandf.qmd)
 - Rendered paper PDF:

@@ -1,17 +1,20 @@
 ---
 title: "Impacto económico de los tweets presidenciales en Colombia"
 subtitle: "Cuaderno metodológico autocontenido para actualizar el paper original, 2022-2026"
-output:
-  html_notebook:
+format:
+  html:
     toc: true
-    toc_depth: 3
-    toc_float: true
-    code_folding: hide
-    df_print: paged
+    toc-depth: 3
+    toc-location: left
+    code-fold: true
+    code-tools: true
+    code-summary: "Mostrar código"
+    df-print: paged
     theme: readable
-    highlight: tango
+    highlight-style: tango
     css: notebook-style.css
-    number_sections: false
+    number-sections: false
+    embed-resources: true
 bibliography: ../../paper/español/bibliography.bib
 link-citations: true
 ---
@@ -6221,6 +6224,8 @@ red_temas_hashtags_por_corpus_plot <- ggplot() +
   network_void_theme()
 ```
 
+Este bloque exporta la red visual de temas y hashtags por corpus al directorio de figuras para su conservación estática y uso en el informe y manuscrito general.
+
 ```{r network-theme-hashtag-by-corpus-save}
 {
   plot_path <- file.path(figures_dir, "red_temas_hashtags_por_corpus.png")
@@ -11373,6 +11378,8 @@ kable(armagarch_table |> select(serie, distribucion, omega, alpha1, beta1, persi
 interpretacion_final_tabla("Todos los modelos ARMA-GARCH univariados convergen satisfactoriamente cumpliendo la condición de estacionariedad en covarianza (alpha1 + beta1 < 1). Los parámetros de forma confirman colas pesadas significativas (shape en Student-t entre 3,34 y 8,17). La prueba ARCH-LM sobre los residuos estandarizados arroja p > 0,05 para todas las series, demostrando que la especificación sGARCH(1,1) elimina completamente los efectos ARCH remanentes.")
 ```
 
+A partir de las volatilidades condicionales estimadas en los modelos ARMA-GARCH univariados, este bloque extrae la serie de dispersión diaria para cada activo y genera su representación comparada.
+
 ```{r econometrics-armagarch-plot}
 vol_list <- lapply(names(armagarch_models), function(nm) {
   fit <- armagarch_models[[nm]]
@@ -11586,6 +11593,8 @@ save_audit_table(msar_trans_mat, file.path(tables_dir, "11_markov_matriz_transic
 kable(msar_params)
 interpretacion_final_tabla("El modelo Markov-Switching de media/varianza discrimina dos regímenes persistentes de correlación condicional. Los estados se interpretan ex post por su media estimada de rho y no como eventos políticos específicos. La evidencia describe cambios de régimen en el comovimiento condicional, no causalidad estructural ni un mecanismo atribuible por sí solo a Twitter/X.")
 ```
+
+Con el modelo de cambio de régimen estimado, este bloque extrae las probabilidades suavizadas del segundo régimen a lo largo del tiempo para evaluar los periodos de tensión condicional.
 
 ```{r econometrics-msar-plot}
 if (msar_ok) {

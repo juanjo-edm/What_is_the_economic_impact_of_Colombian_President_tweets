@@ -115,11 +115,8 @@ What_is_the_economic_impact_of_Colombian_President_tweets/
 |-- scripts/
 |   |-- api_data_extraction/
 |   `-- data/
-|-- README 2.Rmd
 |-- README.es.md
-|-- README.es.Rmd
 |-- README.md
-|-- README.Rmd
 `-- What_is_the_economic_impact_of_Colombian_President_tweets.Rproj
 ```
 
@@ -254,13 +251,6 @@ Render the active Quarto paper:
 quarto render paper/español/quarto-tandf.qmd
 ```
 
-Render the bilingual README files from their R Markdown sources:
-
-``` bash
-Rscript -e 'rmarkdown::render("README.Rmd", output_file = "README.md")'
-Rscript -e 'rmarkdown::render("README.es.Rmd", output_file = "README.es.md")'
-```
-
 ## Methodology
 
 The methodological notebook is the main academic artifact:
@@ -391,10 +381,8 @@ rotated before using the X API again.
 
 ## Documentation
 
-- Main English README source: [`README.Rmd`](README.Rmd)
-- Spanish README source: [`README.es.Rmd`](README.es.Rmd)
-- English README output: [`README.md`](README.md)
-- Spanish README output: [`README.es.md`](README.es.md)
+- English README: [`README.md`](README.md)
+- Spanish README: [`README.es.md`](README.es.md)
 - Original paper reference:
   [`docs/paper/Impacto_discurso_petro__ENG_.pdf`](docs/paper/Impacto_discurso_petro__ENG_.pdf)
 - Spanish methodological notebook:
@@ -412,7 +400,7 @@ rotated before using the X API again.
 | `pandoc` not found | Install RStudio/Positron or set `RSTUDIO_PANDOC` to Quarto’s Pandoc path; for example `/Applications/quarto/bin/tools/aarch64`. |
 | Market coverage is missing | Check internet access, the manual BanRep updater, the endpoint/ID reference, and `output/tables/español/ingesta_mercado_fuentes.csv`; refresh market data manually if needed. |
 | Tables or figures are missing | Render the notebook again after confirming the required CSVs exist in `data/processed/`. |
-| README diagram is missing | Render `README.Rmd`; it regenerates `docs/assets/readme_project_flow_en.png`. |
+| README diagram is missing | Verify `docs/assets/readme_project_flow_en.png` exists or regenerate it using DiagrammeR in R. |
 
 ## Credits
 

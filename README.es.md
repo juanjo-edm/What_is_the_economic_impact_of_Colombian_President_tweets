@@ -114,12 +114,8 @@ What_is_the_economic_impact_of_Colombian_President_tweets/
 |-- scripts/
 |   |-- api_data_extraction/
 |   `-- data/
-|-- README 2.Rmd
 |-- README.es.md
-|-- README.es.Rmd
-|-- README.html
 |-- README.md
-|-- README.Rmd
 `-- What_is_the_economic_impact_of_Colombian_President_tweets.Rproj
 ```
 
@@ -259,13 +255,6 @@ Renderice el paper Quarto activo:
 quarto render paper/español/quarto-tandf.qmd
 ```
 
-Renderice los README bilingües desde sus fuentes R Markdown:
-
-``` bash
-Rscript -e 'rmarkdown::render("README.Rmd", output_file = "README.md")'
-Rscript -e 'rmarkdown::render("README.es.Rmd", output_file = "README.es.md")'
-```
-
 ## Metodología
 
 El artefacto académico principal es el cuaderno:
@@ -391,8 +380,6 @@ expuesto previamente debe rotarse antes de volver a usar la API de X.
 
 ## Documentación
 
-- Fuente del README en inglés: [`README.Rmd`](README.Rmd)
-- Fuente del README en español: [`README.es.Rmd`](README.es.Rmd)
 - README en inglés: [`README.md`](README.md)
 - README en español: [`README.es.md`](README.es.md)
 - Paper original de referencia:
@@ -412,7 +399,7 @@ expuesto previamente debe rotarse antes de volver a usar la API de X.
 | `pandoc` no aparece | Instale RStudio/Positron o configure `RSTUDIO_PANDOC` apuntando al Pandoc de Quarto; por ejemplo `/Applications/quarto/bin/tools/aarch64`. |
 | Falta cobertura de mercado | Revise la conexión a internet, el actualizador manual de BanRep, la referencia de endpoints/IDs y `output/tables/español/ingesta_mercado_fuentes.csv`; actualice datos de mercado manualmente si hace falta. |
 | Faltan tablas o figuras | Renderice de nuevo el cuaderno después de confirmar que existen los CSV requeridos en `data/processed/`. |
-| Falta el diagrama del README | Renderice `README.es.Rmd`; esto regenera `docs/assets/readme_project_flow_es.png`. |
+| Falta el diagrama del README | Verifique que exista `docs/assets/readme_project_flow_es.png` o regenérelo con DiagrammeR en R. |
 
 ## Créditos
 

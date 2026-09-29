@@ -1,26 +1,26 @@
 corpus,corpus_label,reform_theme,tweets,participacion
-opinion,Conversación pública sobre Gustavo Petro,institucionalidad,2883,0.34531081566654687
-presidente,Tweets escritos por @petrogustavo,seguridad,2471,0.22922077922077921
-presidente,Tweets escritos por @petrogustavo,institucionalidad,2163,0.20064935064935066
-opinion,Conversación pública sobre Gustavo Petro,internacional,1294,0.15498862139178346
-presidente,Tweets escritos por @petrogustavo,salud,1227,0.11382189239332097
-presidente,Tweets escritos por @petrogustavo,internacional,1124,0.10426716141001856
-presidente,Tweets escritos por @petrogustavo,laboral,1047,0.09712430426716141
-presidente,Tweets escritos por @petrogustavo,economia,992,0.09202226345083488
+opinion,Conversación pública sobre Gustavo Petro,institucionalidad,2884,0.345430590489879
+presidente,Tweets escritos por @petrogustavo,seguridad,2471,0.22913575667655786
+presidente,Tweets escritos por @petrogustavo,institucionalidad,2167,0.20094584569732937
+opinion,Conversación pública sobre Gustavo Petro,internacional,1293,0.15486884656845132
+presidente,Tweets escritos por @petrogustavo,salud,1227,0.11377967359050445
+presidente,Tweets escritos por @petrogustavo,internacional,1124,0.10422848664688428
+presidente,Tweets escritos por @petrogustavo,laboral,1047,0.09708827893175075
+presidente,Tweets escritos por @petrogustavo,economia,992,0.09198813056379822
 opinion,Conversación pública sobre Gustavo Petro,seguridad,966,0.11570247933884298
 opinion,Conversación pública sobre Gustavo Petro,salud,863,0.10336567253563302
 opinion,Conversación pública sobre Gustavo Petro,laboral,646,0.07737453587255959
-presidente,Tweets escritos por @petrogustavo,energia_ambiente,605,0.05612244897959184
+presidente,Tweets escritos por @petrogustavo,energia_ambiente,605,0.05610163204747774
 opinion,Conversación pública sobre Gustavo Petro,paz_total,449,0.053778895676128875
 opinion,Conversación pública sobre Gustavo Petro,economia,367,0.04395736016289376
-presidente,Tweets escritos por @petrogustavo,paz_total,271,0.025139146567717995
+presidente,Tweets escritos por @petrogustavo,paz_total,271,0.025129821958456974
 opinion,Conversación pública sobre Gustavo Petro,energia_ambiente,261,0.03126122888968739
-presidente,Tweets escritos por @petrogustavo,tributaria,247,0.022912801484230055
+presidente,Tweets escritos por @petrogustavo,tributaria,247,0.022904302670623145
 opinion,Conversación pública sobre Gustavo Petro,tributaria,232,0.027787759013055455
-presidente,Tweets escritos por @petrogustavo,pensional,184,0.017068645640074213
-presidente,Tweets escritos por @petrogustavo,energia_tarifas,166,0.015398886827458255
-presidente,Tweets escritos por @petrogustavo,constituyente,151,0.014007421150278292
-presidente,Tweets escritos por @petrogustavo,reforma_general,132,0.012244897959183673
+presidente,Tweets escritos por @petrogustavo,pensional,184,0.017062314540059347
+presidente,Tweets escritos por @petrogustavo,energia_tarifas,166,0.015393175074183977
+presidente,Tweets escritos por @petrogustavo,constituyente,151,0.014002225519287833
+presidente,Tweets escritos por @petrogustavo,reforma_general,132,0.012240356083086053
 opinion,Conversación pública sobre Gustavo Petro,reforma_general,131,0.01569050185650976
 opinion,Conversación pública sobre Gustavo Petro,pensional,101,0.012097257156545695
 opinion,Conversación pública sobre Gustavo Petro,constituyente,85,0.010180859983231524

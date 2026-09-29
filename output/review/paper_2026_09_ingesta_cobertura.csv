@@ -1,0 +1,8 @@
+series,column,provider,source_url,retrieved_at,rows,non_missing_days,expected_days,coverage_ratio,first_date,last_date,status
+TRM,trm,Banco de la Republica / Superintendencia Financiera de Colombia,https://www.banrep.gov.co/es/como-consultar-datos-historicos-tasa-representativa-mercado-trm-nuevo-portal-estadisticas,2026-09-29T02:18:30Z,1400,1400,1400,1,2022-08-01,2026-05-31,complete
+COLCAP,colcap,Banco de la Republica / Bolsa de Valores de Colombia - BVC,https://www.banrep.gov.co/en/node/50428,2026-09-29T02:18:36Z,935,1335,1400,0.954,2022-08-01,2026-05-31,complete
+TES 1Y,tes_1y,"Banco de la Republica / SEN y MEC, con cálculos Banco de la República.",https://www.banrep.gov.co/en/node/50444,2026-09-29T02:18:38Z,935,1335,1400,0.954,2022-08-01,2026-05-31,complete
+TES 5Y,tes_5y,"Banco de la Republica / SEN y MEC, con cálculos Banco de la República.",https://www.banrep.gov.co/en/node/50444,2026-09-29T02:18:41Z,935,1335,1400,0.954,2022-08-01,2026-05-31,complete
+TES 10Y,tes_10y,"Banco de la Republica / SEN y MEC, con cálculos Banco de la República.",https://www.banrep.gov.co/en/node/50444,2026-09-29T02:18:44Z,935,1335,1400,0.954,2022-08-01,2026-05-31,complete
+TES slope 10Y-1Y,tes_slope_10y_1y,Banco de la Republica,https://www.banrep.gov.co/en/node/50444,2026-09-29T02:19:00Z,1335,1335,1400,0.954,2022-08-01,2026-05-31,complete
+XM energy spot price,energy_spot_price,XM S.A. E.S.P.,https://servapibi.xm.com.co/daily,2026-09-29T02:18:47Z,1400,1400,1400,1,2022-08-01,2026-05-31,complete

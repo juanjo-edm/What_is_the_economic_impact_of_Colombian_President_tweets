@@ -1,0 +1,300 @@
+{
+  "study_window": [
+    "2022-08-01",
+    "2026-05-31"
+  ],
+  "files_sha256": {
+    "data/processed/tweets_master.csv": "a1097de8c79ec3e48e4c065f3e68e971c8c9e55f2e2f44a5fe3276e697b2691a",
+    "data/processed/market_master.csv": "d6a7c4747d6c286f3902c3d4e362123f9d2a15cb0502cfa94cde00ca881f9b4b"
+  },
+  "raw_market": {
+    "trm": {
+      "path": "data/raw/market/trm_raw.csv",
+      "sha256": "1708892b08373236ffec2d937a88ae98a298ff575219c82fe5cbeae1a28d8858",
+      "rows": 1400,
+      "nonmissing_values": 1400,
+      "duplicate_dates": 0,
+      "first_date": "2022-08-01",
+      "last_date": "2026-05-31"
+    },
+    "colcap": {
+      "path": "data/raw/market/colcap_raw.csv",
+      "sha256": "1dae3187246a29219da569df963b96719453d2b517bc7abe200d5584ec5d0d3e",
+      "rows": 935,
+      "nonmissing_values": 935,
+      "duplicate_dates": 0,
+      "first_date": "2022-08-01",
+      "last_date": "2026-05-29"
+    },
+    "tes_1y": {
+      "path": "data/raw/market/tes_1y_raw.csv",
+      "sha256": "32d546b7122c5d0f0b0ec1661024de6d2f7ed70505945d6681eb042a6f311312",
+      "rows": 935,
+      "nonmissing_values": 935,
+      "duplicate_dates": 0,
+      "first_date": "2022-08-01",
+      "last_date": "2026-05-29"
+    },
+    "tes_5y": {
+      "path": "data/raw/market/tes_5y_raw.csv",
+      "sha256": "184bcc892b4d74d040d3cc1c7334a649e7b1838a47fcf6e5b4c7b18a29750796",
+      "rows": 935,
+      "nonmissing_values": 935,
+      "duplicate_dates": 0,
+      "first_date": "2022-08-01",
+      "last_date": "2026-05-29"
+    },
+    "tes_10y": {
+      "path": "data/raw/market/tes_10y_raw.csv",
+      "sha256": "695ede02f43ddc0ebc511362028854cde8fb93f0ecee1ca37a81ba8bb8051eae",
+      "rows": 935,
+      "nonmissing_values": 935,
+      "duplicate_dates": 0,
+      "first_date": "2022-08-01",
+      "last_date": "2026-05-29"
+    },
+    "energy_spot_price": {
+      "path": "data/raw/market/energy_spot_price_raw.csv",
+      "sha256": "48ae4702e0030c3c8b5f43112b6bda3d68129073fe9669d67ebbbc595fb20832",
+      "rows": 1400,
+      "nonmissing_values": 1400,
+      "duplicate_dates": 0,
+      "first_date": "2022-08-01",
+      "last_date": "2026-05-31"
+    }
+  },
+  "market_master": {
+    "rows": 1400,
+    "first_date": "2022-08-01",
+    "last_date": "2026-05-31",
+    "duplicate_dates": 0,
+    "weekdays": 1000,
+    "weekends": 400,
+    "series": {
+      "trm": {
+        "nonmissing": 1400,
+        "observed": 1400,
+        "carried_forward": 0,
+        "weekday_missing": 0,
+        "weekend_missing": 0
+      },
+      "colcap": {
+        "nonmissing": 1335,
+        "observed": 935,
+        "carried_forward": 400,
+        "weekday_missing": 65,
+        "weekend_missing": 0
+      },
+      "tes_1y": {
+        "nonmissing": 1335,
+        "observed": 935,
+        "carried_forward": 400,
+        "weekday_missing": 65,
+        "weekend_missing": 0
+      },
+      "tes_5y": {
+        "nonmissing": 1335,
+        "observed": 935,
+        "carried_forward": 400,
+        "weekday_missing": 65,
+        "weekend_missing": 0
+      },
+      "tes_10y": {
+        "nonmissing": 1335,
+        "observed": 935,
+        "carried_forward": 400,
+        "weekday_missing": 65,
+        "weekend_missing": 0
+      },
+      "energy_spot_price": {
+        "nonmissing": 1400,
+        "observed": 1400,
+        "carried_forward": 0,
+        "weekday_missing": 0,
+        "weekend_missing": 0
+      },
+      "tes_slope_10y_1y": {
+        "nonmissing": 1335,
+        "observed": 935,
+        "carried_forward": 400,
+        "weekday_missing": 65,
+        "weekend_missing": 0
+      }
+    },
+    "flag_violations": {}
+  },
+  "tweets_master": {
+    "rows": 28304,
+    "duplicate_corpus_ids": 0,
+    "corpora": {
+      "opinion": {
+        "rows": 13648,
+        "first_date": "2022-08-01",
+        "last_date": "2026-05-31",
+        "observed_days": 1349,
+        "calendar_span_days": 1400,
+        "days_without_tweets": 51,
+        "days_with_exactly_10_tweets": 1293,
+        "empty_text_clean": 0,
+        "non_spanish_lang": 10,
+        "bogota_hour_18_rows": 13305,
+        "utc_date_differs_from_bogota": 10,
+        "date_differs_from_timestamp_bogota": 10,
+        "date_bogota_alias_errors": 0,
+        "source_files": 46,
+        "author_ids": 7560
+      },
+      "presidente": {
+        "rows": 14656,
+        "first_date": "2022-08-07",
+        "last_date": "2026-05-31",
+        "observed_days": 1331,
+        "calendar_span_days": 1394,
+        "days_without_tweets": 63,
+        "days_with_exactly_10_tweets": 66,
+        "empty_text_clean": 222,
+        "non_spanish_lang": 321,
+        "bogota_hour_18_rows": 845,
+        "utc_date_differs_from_bogota": 2926,
+        "date_differs_from_timestamp_bogota": 2926,
+        "date_bogota_alias_errors": 0,
+        "source_files": 1,
+        "author_ids": 1
+      }
+    }
+  },
+  "raw_market_reconciliation": {
+    "trm": {
+      "value_mismatches": 0,
+      "raw_dates_without_observed_flag": 0,
+      "observed_dates_without_raw": 0
+    },
+    "colcap": {
+      "value_mismatches": 0,
+      "raw_dates_without_observed_flag": 0,
+      "observed_dates_without_raw": 0
+    },
+    "tes_1y": {
+      "value_mismatches": 0,
+      "raw_dates_without_observed_flag": 0,
+      "observed_dates_without_raw": 0
+    },
+    "tes_5y": {
+      "value_mismatches": 0,
+      "raw_dates_without_observed_flag": 0,
+      "observed_dates_without_raw": 0
+    },
+    "tes_10y": {
+      "value_mismatches": 0,
+      "raw_dates_without_observed_flag": 0,
+      "observed_dates_without_raw": 0
+    },
+    "energy_spot_price": {
+      "value_mismatches": 0,
+      "raw_dates_without_observed_flag": 0,
+      "observed_dates_without_raw": 0
+    }
+  },
+  "isolated_rebuild": {
+    "tweets_sha256_original": "a1097de8c79ec3e48e4c065f3e68e971c8c9e55f2e2f44a5fe3276e697b2691a",
+    "tweets_sha256_rebuilt": "564252c0407677716db61cefe6c6e87ce82e53fcc97c6086be133562c948c6ac",
+    "tweets_byte_equal": false,
+    "tweet_keys_missing_from_rebuild": 0,
+    "tweet_keys_new_in_rebuild": 0,
+    "tweet_changed_fields": {
+      "text": 4898,
+      "text_original": 4898
+    },
+    "tweet_newline_only_changes": {
+      "text": 4898,
+      "text_original": 4898
+    },
+    "market_sha256_original": "d6a7c4747d6c286f3902c3d4e362123f9d2a15cb0502cfa94cde00ca881f9b4b",
+    "market_sha256_rebuilt": "d6a7c4747d6c286f3902c3d4e362123f9d2a15cb0502cfa94cde00ca881f9b4b",
+    "market_byte_equal": true
+  },
+  "official_redownload": {
+    "trm": {
+      "sha256_versioned": "1708892b08373236ffec2d937a88ae98a298ff575219c82fe5cbeae1a28d8858",
+      "sha256_downloaded": "1708892b08373236ffec2d937a88ae98a298ff575219c82fe5cbeae1a28d8858",
+      "byte_equal": true,
+      "versioned_rows": 1400,
+      "downloaded_rows": 1400,
+      "missing_dates": 0,
+      "new_dates": 0,
+      "value_changes": 0,
+      "changed_months": {},
+      "max_abs_difference": "0",
+      "max_abs_relative_difference": "0"
+    },
+    "colcap": {
+      "sha256_versioned": "1dae3187246a29219da569df963b96719453d2b517bc7abe200d5584ec5d0d3e",
+      "sha256_downloaded": "1dae3187246a29219da569df963b96719453d2b517bc7abe200d5584ec5d0d3e",
+      "byte_equal": true,
+      "versioned_rows": 935,
+      "downloaded_rows": 935,
+      "missing_dates": 0,
+      "new_dates": 0,
+      "value_changes": 0,
+      "changed_months": {},
+      "max_abs_difference": "0",
+      "max_abs_relative_difference": "0"
+    },
+    "tes_1y": {
+      "sha256_versioned": "32d546b7122c5d0f0b0ec1661024de6d2f7ed70505945d6681eb042a6f311312",
+      "sha256_downloaded": "32d546b7122c5d0f0b0ec1661024de6d2f7ed70505945d6681eb042a6f311312",
+      "byte_equal": true,
+      "versioned_rows": 935,
+      "downloaded_rows": 935,
+      "missing_dates": 0,
+      "new_dates": 0,
+      "value_changes": 0,
+      "changed_months": {},
+      "max_abs_difference": "0",
+      "max_abs_relative_difference": "0"
+    },
+    "tes_5y": {
+      "sha256_versioned": "184bcc892b4d74d040d3cc1c7334a649e7b1838a47fcf6e5b4c7b18a29750796",
+      "sha256_downloaded": "184bcc892b4d74d040d3cc1c7334a649e7b1838a47fcf6e5b4c7b18a29750796",
+      "byte_equal": true,
+      "versioned_rows": 935,
+      "downloaded_rows": 935,
+      "missing_dates": 0,
+      "new_dates": 0,
+      "value_changes": 0,
+      "changed_months": {},
+      "max_abs_difference": "0",
+      "max_abs_relative_difference": "0"
+    },
+    "tes_10y": {
+      "sha256_versioned": "695ede02f43ddc0ebc511362028854cde8fb93f0ecee1ca37a81ba8bb8051eae",
+      "sha256_downloaded": "695ede02f43ddc0ebc511362028854cde8fb93f0ecee1ca37a81ba8bb8051eae",
+      "byte_equal": true,
+      "versioned_rows": 935,
+      "downloaded_rows": 935,
+      "missing_dates": 0,
+      "new_dates": 0,
+      "value_changes": 0,
+      "changed_months": {},
+      "max_abs_difference": "0",
+      "max_abs_relative_difference": "0"
+    },
+    "energy_spot_price": {
+      "sha256_versioned": "48ae4702e0030c3c8b5f43112b6bda3d68129073fe9669d67ebbbc595fb20832",
+      "sha256_downloaded": "0e278d425a37f9ad9c736caa184c5e9819d9e982a1a8368b14d6751ffae9c652",
+      "byte_equal": false,
+      "versioned_rows": 1400,
+      "downloaded_rows": 1400,
+      "missing_dates": 0,
+      "new_dates": 0,
+      "value_changes": 90,
+      "changed_months": {
+        "2025-12": 31,
+        "2026-02": 28,
+        "2026-05": 31
+      },
+      "max_abs_difference": "4.73770",
+      "max_abs_relative_difference": "0.01749171204751312690649305185"
+    }
+  }
+}

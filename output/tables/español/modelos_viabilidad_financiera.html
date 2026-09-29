@@ -16,54 +16,54 @@
  </thead>
 <tbody>
   <tr>
-   <td style="text-align:left;"> Panel Bursátil / Eléctrico </td>
-   <td style="text-align:left;"> estimado y validado </td>
-   <td style="text-align:left;"> 1.000 días hábiles bursátiles y 1.400 continuos eléctricos </td>
+   <td style="text-align:left;"> Panel bursátil / eléctrico </td>
+   <td style="text-align:left;"> ejecutado; interpretar con diagnósticos </td>
+   <td style="text-align:left;"> 934 respuestas bursátiles únicas; 1.400 días eléctricos </td>
   </tr>
   <tr>
    <td style="text-align:left;"> Pruebas ADF / KPSS </td>
-   <td style="text-align:left;"> estimado y validado </td>
-   <td style="text-align:left;"> Niveles I(1) y diferencias I(0) </td>
+   <td style="text-align:left;"> ejecutado; interpretar con diagnósticos </td>
+   <td style="text-align:left;"> Niveles financieros compatibles con I(1); IPI y energía en nivel con diagnóstico mixto </td>
   </tr>
   <tr>
    <td style="text-align:left;"> Cointegración Johansen </td>
-   <td style="text-align:left;"> estimado y validado </td>
-   <td style="text-align:left;"> r = 0 no rechazado; descarta VECM </td>
+   <td style="text-align:left;"> ejecutado; interpretar con diagnósticos </td>
+   <td style="text-align:left;"> r = 0 no rechazado en TRM, COLCAP y TES 10Y </td>
   </tr>
   <tr>
-   <td style="text-align:left;"> VAR(1) en Diferencias </td>
-   <td style="text-align:left;"> estimado y validado </td>
-   <td style="text-align:left;"> p = 1 unánime por criterios de información </td>
+   <td style="text-align:left;"> VAR(1) en transformadas </td>
+   <td style="text-align:left;"> ejecutado; interpretar con diagnósticos </td>
+   <td style="text-align:left;"> p = 1 conservado; AIC/FPE prefieren p = 2 </td>
   </tr>
   <tr>
-   <td style="text-align:left;"> Diagnóstico ARCH-LM / JB </td>
-   <td style="text-align:left;"> estimado y validado </td>
-   <td style="text-align:left;"> Rechazo de normalidad y efectos ARCH severos </td>
+   <td style="text-align:left;"> Diagnóstico del VAR </td>
+   <td style="text-align:left;"> ejecutado; interpretar con diagnósticos </td>
+   <td style="text-align:left;"> Autocorrelación, no normalidad y ARCH residuales </td>
   </tr>
   <tr>
-   <td style="text-align:left;"> ARMA-GARCH Univariados </td>
-   <td style="text-align:left;"> estimado y validado </td>
-   <td style="text-align:left;"> sGARCH(1,1) parsimonioso sin dummies endógenas </td>
+   <td style="text-align:left;"> ARMA-GARCH univariados </td>
+   <td style="text-align:left;"> ejecutado; interpretar con diagnósticos </td>
+   <td style="text-align:left;"> Siete convergencias; polaridad conserva ARCH y otras series autocorrelación </td>
   </tr>
   <tr>
-   <td style="text-align:left;"> DCC-GARCH Multivariado </td>
-   <td style="text-align:left;"> estimado y validado </td>
-   <td style="text-align:left;"> Persistencia a+b=0.999; correlación cercana a cero </td>
+   <td style="text-align:left;"> DCC-GARCH multivariado </td>
+   <td style="text-align:left;"> ejecutado; interpretar con diagnósticos </td>
+   <td style="text-align:left;"> a no significativo; correlaciones medias pequeñas condicionadas al modelo </td>
   </tr>
   <tr>
-   <td style="text-align:left;"> Precedencia Granger FDR </td>
-   <td style="text-align:left;"> estimado y validado </td>
-   <td style="text-align:left;"> 0 relaciones significativas bajo control FDR </td>
+   <td style="text-align:left;"> Precedencia Granger y FDR </td>
+   <td style="text-align:left;"> ejecutado; interpretar con diagnósticos </td>
+   <td style="text-align:left;"> 19 rechazos nominales de 208; cero tras FDR en dos familias </td>
   </tr>
   <tr>
-   <td style="text-align:left;"> Markov-Switching (MS-AR) </td>
-   <td style="text-align:left;"> estimado y validado </td>
-   <td style="text-align:left;"> 2 regímenes persistentes (desacople vs tensión) </td>
+   <td style="text-align:left;"> Markov-Switching de media/varianza </td>
+   <td style="text-align:left;"> ejecutado; interpretar con diagnósticos </td>
+   <td style="text-align:left;"> Dos estados de correlación baja; matriz de transición con origen en filas </td>
   </tr>
   <tr>
-   <td style="text-align:left;"> Event Study </td>
-   <td style="text-align:left;"> estimado y validado </td>
-   <td style="text-align:left;"> Ventanas descriptivas a 1, 3, 5 y 7 días </td>
+   <td style="text-align:left;"> Estudio de eventos </td>
+   <td style="text-align:left;"> ejecutado; interpretar con diagnósticos </td>
+   <td style="text-align:left;"> Ventanas descriptivas de 1, 3, 5 y 7 días calendario; sin prueba causal </td>
   </tr>
 </tbody>
 </table>

@@ -1,5 +1,5 @@
 corpus,corpus_label,from,to,weight,meses_coaparicion
-opinion,Lo que opinan de Petro,institucionalidad,internacional,1239,46
+opinion,Lo que opinan de Petro,institucionalidad,internacional,1238,46
 opinion,Lo que opinan de Petro,institucionalidad,seguridad,966,46
 opinion,Lo que opinan de Petro,internacional,seguridad,877,46
 opinion,Lo que opinan de Petro,institucionalidad,salud,863,46
@@ -77,48 +77,48 @@ opinion,Lo que opinan de Petro,energia tarifas,reforma general,48,23
 opinion,Lo que opinan de Petro,energia tarifas,pensional,45,22
 opinion,Lo que opinan de Petro,constituyente,reforma general,43,24
 opinion,Lo que opinan de Petro,constituyente,energia tarifas,32,21
-presidente,Lo que Petro opina,institucionalidad,seguridad,1988,46
-presidente,Lo que Petro opina,salud,seguridad,1167,46
-presidente,Lo que Petro opina,institucionalidad,salud,1152,46
-presidente,Lo que Petro opina,internacional,seguridad,1106,46
-presidente,Lo que Petro opina,institucionalidad,internacional,1074,46
+presidente,Lo que Petro opina,institucionalidad,seguridad,1994,46
+presidente,Lo que Petro opina,salud,seguridad,1166,46
+presidente,Lo que Petro opina,institucionalidad,salud,1153,46
+presidente,Lo que Petro opina,internacional,seguridad,1104,46
+presidente,Lo que Petro opina,institucionalidad,internacional,1078,46
 presidente,Lo que Petro opina,laboral,seguridad,1043,46
-presidente,Lo que Petro opina,institucionalidad,laboral,1017,46
+presidente,Lo que Petro opina,institucionalidad,laboral,1021,46
 presidente,Lo que Petro opina,economia,seguridad,989,46
-presidente,Lo que Petro opina,economia,institucionalidad,958,46
-presidente,Lo que Petro opina,laboral,salud,862,46
-presidente,Lo que Petro opina,economia,laboral,853,46
-presidente,Lo que Petro opina,internacional,salud,833,46
+presidente,Lo que Petro opina,economia,institucionalidad,956,46
+presidente,Lo que Petro opina,laboral,salud,863,46
+presidente,Lo que Petro opina,economia,laboral,850,46
+presidente,Lo que Petro opina,internacional,salud,828,46
 presidente,Lo que Petro opina,economia,salud,827,46
-presidente,Lo que Petro opina,economia,internacional,752,46
-presidente,Lo que Petro opina,internacional,laboral,735,46
+presidente,Lo que Petro opina,economia,internacional,753,46
+presidente,Lo que Petro opina,internacional,laboral,734,46
 presidente,Lo que Petro opina,energia ambiente,institucionalidad,605,45
 presidente,Lo que Petro opina,energia ambiente,seguridad,605,45
-presidente,Lo que Petro opina,energia ambiente,salud,582,45
+presidente,Lo que Petro opina,energia ambiente,salud,583,45
 presidente,Lo que Petro opina,economia,energia ambiente,580,45
-presidente,Lo que Petro opina,energia ambiente,internacional,554,45
-presidente,Lo que Petro opina,energia ambiente,laboral,553,45
+presidente,Lo que Petro opina,energia ambiente,internacional,553,45
+presidente,Lo que Petro opina,energia ambiente,laboral,552,45
 presidente,Lo que Petro opina,economia,paz total,271,44
 presidente,Lo que Petro opina,institucionalidad,paz total,271,44
 presidente,Lo que Petro opina,paz total,seguridad,271,44
 presidente,Lo que Petro opina,laboral,paz total,268,44
 presidente,Lo que Petro opina,paz total,salud,267,44
-presidente,Lo que Petro opina,internacional,paz total,264,44
+presidente,Lo que Petro opina,internacional,paz total,262,44
 presidente,Lo que Petro opina,energia ambiente,paz total,258,44
 presidente,Lo que Petro opina,economia,tributaria,247,44
 presidente,Lo que Petro opina,institucionalidad,tributaria,247,44
 presidente,Lo que Petro opina,seguridad,tributaria,247,44
+presidente,Lo que Petro opina,internacional,tributaria,245,44
 presidente,Lo que Petro opina,laboral,tributaria,245,44
-presidente,Lo que Petro opina,internacional,tributaria,243,44
 presidente,Lo que Petro opina,salud,tributaria,238,44
 presidente,Lo que Petro opina,energia ambiente,tributaria,227,43
-presidente,Lo que Petro opina,institucionalidad,pensional,184,38
-presidente,Lo que Petro opina,laboral,pensional,184,38
-presidente,Lo que Petro opina,pensional,salud,184,38
-presidente,Lo que Petro opina,pensional,seguridad,184,38
-presidente,Lo que Petro opina,energia ambiente,pensional,179,38
-presidente,Lo que Petro opina,internacional,pensional,179,38
-presidente,Lo que Petro opina,economia,pensional,178,38
+presidente,Lo que Petro opina,institucionalidad,pensional,184,39
+presidente,Lo que Petro opina,laboral,pensional,184,39
+presidente,Lo que Petro opina,pensional,salud,184,39
+presidente,Lo que Petro opina,pensional,seguridad,184,39
+presidente,Lo que Petro opina,energia ambiente,pensional,179,39
+presidente,Lo que Petro opina,internacional,pensional,179,39
+presidente,Lo que Petro opina,economia,pensional,178,39
 presidente,Lo que Petro opina,economia,energia tarifas,166,38
 presidente,Lo que Petro opina,energia tarifas,institucionalidad,166,38
 presidente,Lo que Petro opina,energia tarifas,internacional,166,38
@@ -132,26 +132,26 @@ presidente,Lo que Petro opina,constituyente,salud,151,26
 presidente,Lo que Petro opina,constituyente,seguridad,151,26
 presidente,Lo que Petro opina,constituyente,internacional,146,26
 presidente,Lo que Petro opina,constituyente,economia,144,26
-presidente,Lo que Petro opina,constituyente,laboral,141,26
+presidente,Lo que Petro opina,constituyente,laboral,140,26
 presidente,Lo que Petro opina,constituyente,energia ambiente,136,26
-presidente,Lo que Petro opina,pensional,tributaria,135,38
-presidente,Lo que Petro opina,energia tarifas,paz total,134,36
+presidente,Lo que Petro opina,pensional,tributaria,134,38
+presidente,Lo que Petro opina,energia tarifas,paz total,133,36
 presidente,Lo que Petro opina,economia,reforma general,132,40
 presidente,Lo que Petro opina,institucionalidad,reforma general,132,40
 presidente,Lo que Petro opina,internacional,reforma general,132,40
 presidente,Lo que Petro opina,laboral,reforma general,132,40
 presidente,Lo que Petro opina,reforma general,seguridad,132,40
-presidente,Lo que Petro opina,paz total,pensional,131,37
+presidente,Lo que Petro opina,paz total,pensional,131,38
 presidente,Lo que Petro opina,reforma general,salud,127,40
 presidente,Lo que Petro opina,energia ambiente,reforma general,124,39
 presidente,Lo que Petro opina,energia tarifas,tributaria,122,36
 presidente,Lo que Petro opina,paz total,reforma general,120,38
-presidente,Lo que Petro opina,energia tarifas,pensional,99,31
 presidente,Lo que Petro opina,constituyente,paz total,98,26
-presidente,Lo que Petro opina,pensional,reforma general,95,34
+presidente,Lo que Petro opina,energia tarifas,pensional,98,32
+presidente,Lo que Petro opina,pensional,reforma general,95,35
+presidente,Lo que Petro opina,constituyente,pensional,94,24
 presidente,Lo que Petro opina,reforma general,tributaria,93,39
-presidente,Lo que Petro opina,constituyente,pensional,92,24
 presidente,Lo que Petro opina,energia tarifas,reforma general,79,33
-presidente,Lo que Petro opina,constituyente,tributaria,75,25
-presidente,Lo que Petro opina,constituyente,energia tarifas,62,22
+presidente,Lo que Petro opina,constituyente,tributaria,77,25
+presidente,Lo que Petro opina,constituyente,energia tarifas,64,22
 presidente,Lo que Petro opina,constituyente,reforma general,55,22

@@ -209,8 +209,8 @@ read_tweet_files <- function(
       created_at = parsed_time,
       timestamp_utc = format(parsed_time, "%Y-%m-%dT%H:%M:%SZ", tz = "UTC"),
       timestamp_bogota = format(parsed_time_bogota, "%Y-%m-%dT%H:%M:%S%z", tz = "America/Bogota"),
-      date_bogota = as.Date(parsed_time_bogota),
-      date = as.Date(parsed_time_bogota),
+      date_bogota = as.Date(parsed_time_bogota, tz = "America/Bogota"),
+      date = as.Date(parsed_time_bogota, tz = "America/Bogota"),
       text = as.character(raw$text),
       lang = as.character(raw$lang)
     )

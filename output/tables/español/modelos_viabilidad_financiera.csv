@@ -1,11 +1,11 @@
 modelo,estado,alcance
-Panel Bursátil / Eléctrico,estimado y validado,1.000 días hábiles bursátiles y 1.400 continuos eléctricos
-Pruebas ADF / KPSS,estimado y validado,Niveles I(1) y diferencias I(0)
-Cointegración Johansen,estimado y validado,r = 0 no rechazado; descarta VECM
-VAR(1) en Diferencias,estimado y validado,p = 1 unánime por criterios de información
-Diagnóstico ARCH-LM / JB,estimado y validado,Rechazo de normalidad y efectos ARCH severos
-ARMA-GARCH Univariados,estimado y validado,"sGARCH(1,1) parsimonioso sin dummies endógenas"
-DCC-GARCH Multivariado,estimado y validado,Persistencia a+b=0.999; correlación cercana a cero
-Precedencia Granger FDR,estimado y validado,0 relaciones significativas bajo control FDR
-Markov-Switching (MS-AR),estimado y validado,2 regímenes persistentes (desacople vs tensión)
-Event Study,estimado y validado,"Ventanas descriptivas a 1, 3, 5 y 7 días"
+Panel bursátil / eléctrico,ejecutado; interpretar con diagnósticos,934 respuestas bursátiles únicas; 1.400 días eléctricos
+Pruebas ADF / KPSS,ejecutado; interpretar con diagnósticos,Niveles financieros compatibles con I(1); IPI y energía en nivel con diagnóstico mixto
+Cointegración Johansen,ejecutado; interpretar con diagnósticos,"r = 0 no rechazado en TRM, COLCAP y TES 10Y"
+VAR(1) en transformadas,ejecutado; interpretar con diagnósticos,p = 1 conservado; AIC/FPE prefieren p = 2
+Diagnóstico del VAR,ejecutado; interpretar con diagnósticos,"Autocorrelación, no normalidad y ARCH residuales"
+ARMA-GARCH univariados,ejecutado; interpretar con diagnósticos,Siete convergencias; polaridad conserva ARCH y otras series autocorrelación
+DCC-GARCH multivariado,ejecutado; interpretar con diagnósticos,a no significativo; correlaciones medias pequeñas condicionadas al modelo
+Precedencia Granger y FDR,ejecutado; interpretar con diagnósticos,19 rechazos nominales de 208; cero tras FDR en dos familias
+Markov-Switching de media/varianza,ejecutado; interpretar con diagnósticos,Dos estados de correlación baja; matriz de transición con origen en filas
+Estudio de eventos,ejecutado; interpretar con diagnósticos,"Ventanas descriptivas de 1, 3, 5 y 7 días calendario; sin prueba causal"

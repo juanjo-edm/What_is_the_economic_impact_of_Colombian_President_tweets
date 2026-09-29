@@ -13,4 +13,4 @@ Event Study,ejecutado,diez extremos por criterio; ventanas descriptivas
 Granger,ejecutado,contrastes bivariados con control FDR
 VAR,ejecutado,VAR(1) en diferencias estacionarias con diagnósticos de residuos
 IRF,no implementada,sin identificación de shocks
-Markov Switching,ejecutado,MS-AR de 2 regímenes sobre correlación condicional dinámica
+Markov Switching,ejecutado,dos estados de media/varianza sobre correlación condicional dinámica

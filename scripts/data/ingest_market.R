@@ -435,6 +435,23 @@ series_results <- list(
   energy_spot_price = fetch_xm_energy_spot_price()
 )
 
+# No reemplazar los insumos raw versionados si alguna descarga falló.
+missing_series <- names(series_results)[vapply(names(series_results), function(series_name) {
+  result <- series_results[[series_name]]
+  nrow(result$data) == 0L ||
+    !series_name %in% names(result$data) ||
+    all(is.na(result$data[[series_name]]))
+}, logical(1))]
+
+if (length(missing_series) > 0L) {
+  stop(
+    "No se actualizaron los archivos raw: faltan observaciones para ",
+    paste(missing_series, collapse = ", "),
+    ". Revise las fuentes y reintente la ingesta.",
+    call. = FALSE
+  )
+}
+
 date_frame <- tibble::tibble(date = seq(date_start, date_end, by = "day"))
 
 market_daily <- purrr::reduce(

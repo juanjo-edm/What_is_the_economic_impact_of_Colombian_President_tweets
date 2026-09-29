@@ -1,0 +1,70 @@
+{
+  "tweets": {
+    "rows": 28307,
+    "corpora": {
+      "opinion": 13648,
+      "presidente": 14659
+    },
+    "local_dates_valid": true
+  },
+  "panel": {
+    "sessions": 934,
+    "old_repeated_returns": 463,
+    "multidate_sessions": 209
+  },
+  "granger": {
+    "tests": 208,
+    "families": {
+      "opinión temática": 112,
+      "panel por corpus": 96
+    },
+    "nominal": 19,
+    "fdr": 0
+  },
+  "dcc": {
+    "observations": 898,
+    "convergence_code": 0,
+    "reaction_p": 0.20148677717762098
+  },
+  "markov": {
+    "row_sums_valid": true,
+    "duration_unit": "sessions"
+  },
+  "classifier": {
+    "support_by_model": {
+      "Baseline clase mayoritaria": 2361,
+      "Naive Bayes TF-IDF debil": 2361
+    }
+  },
+  "events": {
+    "rows": 40,
+    "horizons_calendar_days": [
+      1,
+      3,
+      5,
+      7
+    ],
+    "units": [
+      "cambio en puntos porcentuales",
+      "retorno en fracción"
+    ]
+  },
+  "text_signals": {
+    "classified_by_corpus": {
+      "opinion": 8349,
+      "presidente": 10784
+    },
+    "ipi_days": 1347
+  },
+  "references": {
+    "cited": 26,
+    "printed": 26,
+    "exact_match": true
+  },
+  "manuscript": {
+    "figures": 5,
+    "tables": 6,
+    "authors": 3,
+    "declarations_checked": true
+  }
+}

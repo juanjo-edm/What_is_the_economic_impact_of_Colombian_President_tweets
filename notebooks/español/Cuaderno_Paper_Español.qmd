@@ -815,7 +815,12 @@ flow_svg <- export_svg(flow_graph)
 flow_png_path <- here("output", "figures", "español", "flujo_cuaderno_autocontenido.png")
   rsvg_png(charToRaw(flow_svg), flow_png_path, width = 1800, height = 650)
 file.copy(flow_png_path, here("paper", "español", "figures", "flujo_cuaderno_autocontenido.png"), overwrite = TRUE)
-include_graphics(flow_png_path, rel_path = FALSE)
+```
+
+![Flujo reproducible del cuaderno.](../../output/figures/español/flujo_cuaderno_autocontenido.png){width="100%"}
+
+```{r flow-interpretation, results='asis', echo=FALSE}
+cat(interpretacion_final_grafico())
 ```
 
 ## 1.3 Hipótesis y contribución esperada
@@ -839,7 +844,7 @@ Los datos de mercado y la limpieza textual base se actualizan antes de correr el
 
 ### 2.1.1 Tweets y clasificación temática
 
-La sección empieza fijando el universo textual contractual y delimitando las muestras analíticas. El archivo `tweets_master.csv` consolida 28.304 publicaciones en total, correspondientes a dos corpus diferenciados: conversación pública ciudadana (`opinion`, 13.648 tweets) y emisión institucional directa del presidente Gustavo Petro (`presidente`, 14.656 tweets). Los identificadores de tweet y de autor se importan estrictamente como cadenas de texto para evitar truncamientos derivados de la representación en punto flotante de enteros de 64 bits, certificando la existencia de exactamente 0 duplicados en ambas fuentes.
+La sección empieza fijando el universo textual contractual y delimitando las muestras analíticas. El archivo `tweets_master.csv` consolida 28.307 publicaciones en total, correspondientes a dos corpus diferenciados: conversación pública ciudadana (`opinion`, 13.648 tweets) y emisión institucional directa del presidente Gustavo Petro (`presidente`, 14.659 tweets). Los identificadores de tweet y de autor se importan estrictamente como cadenas de texto para evitar truncamientos derivados de la representación en punto flotante de enteros de 64 bits, certificando la existencia de exactamente 0 duplicados en ambas fuentes.
 
 En términos de cobertura temporal, el corpus de opinión comprende observaciones desde el 1 de agosto de 2022 (capturando los seis días de transición y expectativa previos a la posesión presidencial), mientras que el corpus presidencial inicia formalmente el 7 de agosto de 2022 con el inicio constitucional del mandato, finalizando ambos el 31 de mayo de 2026. Para análisis comparativos y de precedencia sincrónica, la ventana común efectiva se delimita a partir del 7 de agosto de 2022.
 
@@ -872,7 +877,7 @@ tweets_presidente <- tweets_all_normalized |>
 
 La clasificación temática es una decisión analítica y por ello se calcula aquí, no en el master, conservando la precedencia de las reglas léxicas que alimentan la supervisión débil posterior.
 
-En este punto se formaliza la delimitación de la **muestra léxica efectiva para NLP**: mientras que el conteo bruto de actividad preserva los 28.304 tweets para evaluar ritmos de emisión, exactamente 222 tweets del corpus presidencial están compuestos por enlaces multimedia, menciones aisladas o símbolos gráficos que se retiran durante el preprocesamiento, dejando `text_clean` vacío. Al aplicar el filtro `filter(!is.na(text_clean), text_clean != "")`, el universo textual depurado para clasificación temática, sentimiento NRC, STM, Wordfish y modelos de redes queda fijado en **28.153 textos efectivos** (14.434 del presidente y 13.648 de opinión), garantizando denominadores estrictos y reproducibles.
+En este punto se formaliza la delimitación de la **muestra léxica efectiva para NLP**: mientras que el conteo bruto de actividad preserva los 28.307 tweets para evaluar ritmos de emisión, exactamente 222 tweets del corpus presidencial están compuestos por enlaces multimedia, menciones aisladas o símbolos gráficos que se retiran durante el preprocesamiento, dejando `text_clean` vacío. Al aplicar el filtro `filter(!is.na(text_clean), text_clean != "")`, el universo textual depurado para clasificación temática, sentimiento NRC, STM, Wordfish y modelos de redes queda fijado en **28.085 textos efectivos** (14.437 del presidente y 13.648 de opinión), garantizando denominadores estrictos y reproducibles.
 
 ```{r construir-sentimiento-diario}
 # Reconstruir exactamente las etiquetas débiles del análisis original.
@@ -1984,9 +1989,7 @@ if (ready_weak_supervision_topic_model_01) {
     tibble(modelo = "Baseline clase mayoritaria", verdad = as.character(y_test), prediccion = baseline_pred)
   )
   # Partir de ml_predictions_long para construir ml_metrics_by_class.
-  ml_metrics_by_class <- ml_predictions_long |>
-    # Construir todas las combinaciones de las dimensiones indicadas.
-    crossing(clase = nb_classes) |>
+  ml_metrics_by_class <- tidyr::expand_grid(ml_predictions_long, clase = nb_classes) |>
     # Separar los cálculos por modelo, clase.
     group_by(modelo, clase) |>
     # Calcular los resúmenes y reducir las observaciones al nivel de agrupación.
@@ -2000,13 +2003,15 @@ if (ready_weak_supervision_topic_model_01) {
 
     # Crear o actualizar las variables indicadas sin reducir las filas.
     mutate(
-      precision = if_else((tp + fp) == 0, NA_real_, tp / (tp + fp)),
-      recall = if_else((tp + fn) == 0, NA_real_, tp / (tp + fn)),
-      f1 = if_else(is.na(precision) | is.na(recall) | (precision + recall) == 0, NA_real_, 2 * precision * recall / (precision + recall)),
+      precision = if_else((tp + fp) == 0, 0, tp / (tp + fp)),
+      recall = if_else((tp + fn) == 0, 0, tp / (tp + fn)),
+      f1 = if_else((precision + recall) == 0, 0, 2 * precision * recall / (precision + recall)),
       accuracy = NA_real_
     ) |>
 
     select(modelo, clase, precision, recall, f1, soporte, accuracy) # Seleccionar las columnas modelo, clase, precision, recall, f1, soporte, accuracy.
+  stopifnot(all(tapply(ml_metrics_by_class$soporte,
+                       ml_metrics_by_class$modelo, sum) == length(y_test)))
 }
 ```
 
@@ -9662,7 +9667,10 @@ model_dataset_ipi <- model_dataset |>
   # Conservar o retirar las columnas indicadas para la etapa siguiente.
   select(-any_of(c("sentimiento_promedio_diario", "sentimiento_estandarizado", "volumen_estandarizado", "ipi"))) |>
   # Incorporar los campos coincidentes conservando las filas de la tabla izquierda.
-  left_join(ipi_daily |> select(date, sentimiento_promedio_diario, sentimiento_estandarizado, volumen_estandarizado, ipi), by = "date")
+  left_join(ipi_daily |>
+              transmute(date, sentimiento_promedio_diario, sentimiento_estandarizado,
+                        volumen_estandarizado, ipi, ipi_tweets_n = tweets_n,
+                        ipi_polaridad = polaridad), by = "date")
 
 save_audit_table( # Exportar la tabla en CSV y HTML para su revisión fuera del cuaderno.
   ipi_summary,
@@ -10832,13 +10840,15 @@ spacy_finalize()
 
 # 9. Econometría y series de tiempo
 
-La evaluación del impacto financiero del discurso presidencial requiere una estrategia econométrica que concilie la naturaleza de alta frecuencia del texto con las propiedades dinámicas de los mercados de activos. La especificación metodológica adoptada sigue una secuencia rigurosa: (i) definición de calendarios de negociación y paneles analíticos; (ii) contrastes formales de estacionariedad univariada e integración multivariada (Johansen); (iii) estimación de un modelo de media vectorial (VAR) y auditoría de residuos para contrastar supuestos de homocedasticidad y normalidad; (iv) modelación marginal de volatilidad condicional mediante ARMA-GARCH; (v) estimación multivariada de correlación condicional dinámica (DCC-GARCH); (vi) evaluación de precedencia predictiva de Granger directa con control de tasa de falso descubrimiento (FDR); (vii) identificación de regímenes de co-movimiento mediante modelos autorregresivos con cambio de régimen de Markov (MS-AR); y (viii) estudio de eventos alrededor de choques discursivos extremos.
+La evaluación de la asociación entre discurso y mercados exige conciliar calendarios y propiedades dinámicas. La secuencia es: (i) definir paneles; (ii) examinar estacionariedad y cointegración; (iii) estimar un VAR y auditar sus residuos; (iv) modelar volatilidad marginal mediante ARMA-GARCH; (v) estimar correlaciones condicionales DCC-GARCH; (vi) contrastar precedencia predictiva de Granger con control de tasa de falso descubrimiento (FDR); (vii) explorar estados latentes con un modelo Markov-Switching de media/varianza; y (viii) describir ventanas posteriores a eventos discursivos extremos. Ninguna de estas etapas identifica por sí sola efectos causales.
 
 ## 9.1 Dataset diario y disponibilidad
 
 El análisis financiero opera sobre dos calendarios económicos distintos para conciliar la naturaleza continua de las redes sociales con la dinámica de negociación bursátil. Mientras que Twitter/X opera en tiempo continuo los siete días de la semana (24/7) registrando con frecuencia ráfagas y debates durante fines de semana y festivos, los mercados de activos en Colombia (TRM, COLCAP y TES) transan exclusivamente en días hábiles bancarios.
 
-Para garantizar contractualmente la **ausencia de sesgo prospectivo (*look-ahead bias*)** y preservar la precedencia temporal causal, el algoritmo `next_observed_date()` y la función `build_financial_panel()` enlazan de forma estricta la señal discursiva del día calendario $S_t$ con el retorno del mercado del siguiente día hábil observado $R_{t+1}$. Bajo esta regla, las publicaciones emitidas entre la tarde del viernes y la noche del domingo se acumulan y mapean hacia la apertura bursátil del lunes hábil. Por su parte, el Panel Eléctrico conserva el calendario natural continuo de siete días para el precio de bolsa nacional de energía eléctrica administrado por XM, evitando imponerle artificios de calendario financiero.
+Para respetar el orden temporal, `next_observed_date()` asigna cada fecha discursiva a la siguiente fecha financiera con observaciones reales de TRM, COLCAP y TES. `build_financial_panel()` reúne luego todas las fechas discursivas asignadas a esa misma sesión bursátil en **una sola fila** y enlaza los retornos calculados entre sesiones observadas. Por ejemplo, las señales de viernes, sábado y domingo se agregan para la sesión siguiente si esta ocurre el lunes. Este alineamiento evita utilizar el cierre bursátil del mismo día para explicar mensajes emitidos más tarde, pero no identifica por sí solo un efecto causal ni resuelve todos los problemas de sincronización intradía. El panel eléctrico conserva el calendario natural de XM.
+
+La agregación mantiene el significado de las señales: la polaridad suma conteos positivos menos negativos; las tasas emocionales se calculan con conteos y palabras totales del intervalo y después se estandarizan entre sesiones; el volumen es la suma de tweets y `log_tweets_n` es su logaritmo transformado. El IPI principal se recalcula con su fórmula original $z(\bar{s})z(\log(1+n))$, usando polaridad y tweets del subconjunto temático del intervalo. `ipi_promedio_diario` conserva, como sensibilidad, la media de los IPI diarios previamente calculados. Ambos pueden diferir porque la estandarización depende de la unidad temporal.
 
 ```{r model-dataset-calendario}
 next_observed_date <- function(date_sentiment, observed_dates) {
@@ -10847,12 +10857,59 @@ next_observed_date <- function(date_sentiment, observed_dates) {
     as.Date()
 }
 
+```
+
+El siguiente bloque convierte las señales diarias en señales por intervalo bursátil. Conserva además la media del IPI diario y de las tasas estandarizadas como sensibilidades; las especificaciones principales usan las señales reconstruidas con sus conteos originales.
+
+```{r agregar-senales-intervalo-bursatil}
+aggregate_discourse_window <- function(data, observed_dates) {
+  score_cols <- c("anger", "fear", "joy", "negative", "positive")
+  has_topic_ipi <- "ipi_tweets_n" %in% names(data)
+  if (!has_topic_ipi) {
+    data <- data |> mutate(ipi_tweets_n = tweets_n, ipi_polaridad = polaridad)
+  }
+
+  data |>
+    mutate(next_trading_date = next_observed_date(date, observed_dates)) |>
+    filter(!is.na(next_trading_date)) |>
+    group_by(next_trading_date) |>
+    summarise(
+      date_sentiment_start = min(date), date_sentiment_end = max(date),
+      dias_calendario = n(), tweets_n = sum(tweets_n, na.rm = TRUE),
+      total_palabras = sum(total_palabras, na.rm = TRUE),
+      polaridad = sum(polaridad, na.rm = TRUE),
+      ipi_tweets_n = sum(ipi_tweets_n, na.rm = TRUE),
+      ipi_polaridad = sum(ipi_polaridad, na.rm = TRUE),
+      across(all_of(score_cols), ~ sum(.x, na.rm = TRUE)),
+      ipi_promedio_diario = if (all(is.na(ipi))) NA_real_ else mean(ipi, na.rm = TRUE),
+      across(all_of(paste0("z_", score_cols)),
+             ~ if (all(is.na(.x))) NA_real_ else mean(.x, na.rm = TRUE),
+             .names = "{.col}_promedio_diario"),
+      .groups = "drop"
+    ) |>
+    mutate(
+      sentimiento_promedio_intervalo = if_else(ipi_tweets_n > 0, ipi_polaridad / ipi_tweets_n, NA_real_),
+      volumen_log_intervalo = if (has_topic_ipi) if_else(ipi_tweets_n > 0, log1p(ipi_tweets_n), NA_real_) else log1p(ipi_tweets_n),
+      sentimiento_estandarizado = as.numeric(scale(sentimiento_promedio_intervalo)),
+      volumen_estandarizado = as.numeric(scale(volumen_log_intervalo)),
+      ipi = sentimiento_estandarizado * volumen_estandarizado,
+      log_tweets_n = log1p(tweets_n),
+      across(all_of(score_cols), ~ if_else(total_palabras > 0, .x / total_palabras * 1000, 0),
+             .names = "tasa1k_{.col}")
+    ) |>
+    mutate(across(starts_with("tasa1k_"), ~ as.numeric(scale(.x)),
+                  .names = "z_{sub('^tasa1k_', '', .col)}")) |>
+    rename(date_sentiment = date_sentiment_end)
+}
+```
+
+Las fechas financieras observadas determinan una única respuesta para cada intervalo bursátil. El retorno del día objetivo se calcula respecto de la sesión observada anterior y se une a la señal agregada de los días previos.
+
+```{r construir-panel-bursatil-observado}
 build_financial_panel <- function(data) {
   observed_dates <- data |>
     filter(trm_observed, colcap_observed, tes_10y_observed, tes_slope_10y_1y_observed) |>
-    pull(date) |>
-    unique() |>
-    sort()
+    pull(date) |> unique() |> sort()
 
   observed_market <- data |>
     filter(date %in% observed_dates) |>
@@ -10863,16 +10920,13 @@ build_financial_panel <- function(data) {
       diff_tes_10y = tes_10y - lag(tes_10y),
       diff_tes_slope = tes_slope_10y_1y - lag(tes_slope_10y_1y)
     ) |>
-    select(date, ret_trm, ret_colcap, diff_tes_10y, diff_tes_slope)
+    select(date, trm, colcap, tes_10y, tes_slope_10y_1y,
+           ret_trm, ret_colcap, diff_tes_10y, diff_tes_slope)
 
-  data |>
-    arrange(date) |>
-    mutate(
-      date_sentiment = date,
-      next_trading_date = next_observed_date(date_sentiment, observed_dates)
-    ) |>
-    left_join(observed_market, by = c("next_trading_date" = "date")) |>
-    filter(!is.na(next_trading_date))
+  aggregate_discourse_window(data, observed_dates) |>
+    left_join(observed_market, by = c("next_trading_date" = "date"), relationship = "one-to-one") |>
+    mutate(date = next_trading_date) |>
+    arrange(date)
 }
 
 build_electric_panel <- function(data) {
@@ -10884,9 +10938,14 @@ build_electric_panel <- function(data) {
     )
 }
 
-# Construcción rigurosa de paneles bursátil y eléctrico a partir de model_dataset_ipi.
-# La especificación principal usa S_t -> R_(siguiente día bursátil observado).
+```
+
+Los paneles resultantes se cuentan y comparan antes de estimar modelos. La auditoría informa tanto sesiones financieras únicas como días del calendario eléctrico.
+
+```{r model-dataset-paneles}
+# Construir los paneles desde las señales y las marcas de observación reales.
 panel_bursatil <- build_financial_panel(model_dataset_ipi)
+stopifnot(!anyDuplicated(panel_bursatil$next_trading_date))
 
 panel_bursatil_contemporaneo <- model_dataset_ipi |>
   arrange(date) |>
@@ -10902,7 +10961,7 @@ panel_electrico <- build_electric_panel(model_dataset_ipi)
 
 panel_temporal_audit <- tibble(
   componente = c("tweets", "panel_bursatil_principal", "panel_bursatil_contemporaneo", "panel_electrico"),
-  unidad_fecha = c("date_bogota", "date_sentiment -> next_trading_date", "date observado de mercado", "date calendario XM"),
+  unidad_fecha = c("date_bogota", "intervalo discursivo -> fecha bursátil observada", "fecha observada de mercado", "fecha calendario XM"),
   filas = c(nrow(tweets_master), nrow(panel_bursatil), nrow(panel_bursatil_contemporaneo), nrow(panel_electrico)),
   observaciones_modelables = c(
     sum(!is.na(tweets_master$date_bogota)),
@@ -10912,7 +10971,7 @@ panel_temporal_audit <- tibble(
   ),
   nota = c(
     "UTC preservado; fecha analítica en America/Bogota.",
-    "Evita look-ahead: sentimiento del día calendario colombiano se enlaza al siguiente día bursátil observado.",
+    "Una respuesta de mercado por sesión; señales de fechas previas agregadas sin usar mensajes del cierre objetivo.",
     "Sólo descriptivo; no es la especificación principal de precedencia.",
     "XM conserva calendario natural y no se fuerza al calendario bursátil."
   )
@@ -10923,8 +10982,34 @@ save_audit_table(
   file.path(tables_dir, "00_auditoria_temporal_paneles.csv"),
   file.path(tables_dir, "00_auditoria_temporal_paneles.html"),
   "Auditoría temporal de paneles",
-  "Timezone, calendario observado y especificación S_t -> R_(t+1)"
+  "Timezone, sesiones observadas y señales de intervalos previos"
 )
+```
+
+Se compara el IPI recalculado sobre cada intervalo bursátil con la media de sus IPI diarios. La comparación es una sensibilidad de agregación: una correlación alta no convierte ambos índices en la misma variable, y ninguno identifica causalidad.
+
+```{r auditoria-ipi-intervalos}
+ipi_intervalo_sensibilidad <- panel_bursatil |>
+  summarise(
+    sesiones_bursatiles = n(),
+    intervalos_multidia = sum(dias_calendario > 1),
+    max_dias_por_intervalo = max(dias_calendario),
+    pares_ipi = sum(complete.cases(ipi, ipi_promedio_diario)),
+    correlacion_ipi = cor(ipi, ipi_promedio_diario, use = "complete.obs"),
+    diferencia_absoluta_media = mean(abs(ipi - ipi_promedio_diario), na.rm = TRUE)
+  )
+save_audit_table(
+  ipi_intervalo_sensibilidad,
+  file.path(tables_dir, "ipi_intervalo_sensibilidad.csv"),
+  file.path(tables_dir, "ipi_intervalo_sensibilidad.html"),
+  "Sensibilidad del IPI al intervalo bursátil",
+  "Reestimación de la fórmula frente a la media del índice diario"
+)
+```
+
+La disponibilidad por corpus se conserva en el calendario diario original para distinguir los días con actividad de las sesiones financieras que entran en la estimación.
+
+```{r model-dataset-resumen-por-corpus}
 
 model_dataset_summary <- model_dataset_by_corpus |>
   group_by(corpus, corpus_label) |>
@@ -10979,7 +11064,7 @@ availability_plot <- model_dataset_ipi |>
 availability_plot
 ```
 
-<p class="interpretacion-final"><strong>Interpretación.</strong> La figura de disponibilidad confirma que las series financieras oficiales (TRM, COLCAP y TES) presentan cobertura plena en días hábiles de mercado, mientras que el IPI y las señales textuales cubren la totalidad del calendario continuo. La energía spot exhibe negociación los 365 días del año. Esta divergencia de calendarios justifica la separación entre el panel bursátil de 1.000 días hábiles y el panel eléctrico continuo de 1.400 días.</p>
+<p class="interpretacion-final"><strong>Interpretación.</strong> La TRM y el precio XM tienen valor en los 1.400 días calendario; COLCAP y TES presentan 935 observaciones reales, 400 arrastres de fin de semana y 65 faltantes de lunes a viernes. El IPI existe solo cuando hay mensajes elegibles para su universo. El panel bursátil corregido reúne 934 fechas de respuesta distintas y el eléctrico conserva 1.400 fechas. La disponibilidad de un nivel no equivale a negociación efectiva en esa fecha.</p>
 
 ## 9.2 Estacionariedad y Cointegración
 
@@ -11018,7 +11103,7 @@ stationarity <- tibble(variable = names(test_series)) |>
     conclusion = case_when(
       adf_p_value < 0.05 & kpss_p_value >= 0.05 ~ "Estacionaria I(0)",
       adf_p_value >= 0.05 & kpss_p_value < 0.05 ~ "No estacionaria I(1)",
-      adf_p_value < 0.05 & kpss_p_value < 0.05 ~ "Estacionaria con quiebres",
+      adf_p_value < 0.05 & kpss_p_value < 0.05 ~ "Diagnóstico mixto (ADF/KPSS)",
       TRUE ~ "Inconcluso"
     )
   ) |>
@@ -11056,7 +11141,7 @@ stationarity_plot <- stationarity_plot_data |>
 stationarity_plot
 ```
 
-<p class="interpretacion-final"><strong>Interpretación.</strong> Las pruebas confirmatorias ADF y KPSS demuestran que las series financieras en niveles (TRM, COLCAP, TES 10Y y pendiente TES) son procesos integrados de orden 1, $I(1)$, con p-values ADF superiores a 0,30 y rechazo de estacionariedad en KPSS ($p < 0,01$). Sus transformaciones en retornos logarítmicos y primeras diferencias son estrictamente estacionarias $I(0)$ ($p < 0,01$ en ADF y no rechazo en KPSS). Por su parte, las series discursivas (IPI y polaridad) son directamente estacionarias en niveles.</p>
+<p class="interpretacion-final"><strong>Interpretación.</strong> En TRM, COLCAP, TES 10Y y pendiente, ADF no rechaza raíz unitaria en niveles y KPSS rechaza estacionariedad; las transformaciones muestran el patrón opuesto, compatible con integración de primer orden en esta muestra. El precio XM en nivel, el IPI y la polaridad ofrecen un diagnóstico mixto porque ambas pruebas rechazan sus respectivas hipótesis nulas. Ese conflicto no demuestra por sí mismo quiebres ni permite calificarlas de estacionarias sin reserva. Los valores límite devueltos por las funciones de prueba se interpretan como cotas.</p>
 
 La presencia de series $I(1)$ exige evaluar cointegración antes de formular modelos vectoriales. Si existe cointegración, la formulación correcta es un Modelo de Corrección de Error Vectorial (VECM); de lo contrario, el sistema debe estimarse en diferencias estacionarias mediante un VAR.
 
@@ -11083,7 +11168,7 @@ save_audit_table(
 )
 
 kable(johansen_summary)
-interpretacion_final_tabla("La prueba de traza de Johansen para las variables financieras en niveles arroja un estadístico de 28,31 frente a un valor crítico al 5 % de 34,91. En consecuencia, no se rechaza la hipótesis nula de ausencia de vectores de cointegración (r = 0). Este resultado rechaza empíricamente la pertinencia de un modelo VECM y obliga metodológicamente a especificar el sistema vectorial en diferencias estacionarias.")
+interpretacion_final_tabla("Para TRM, COLCAP y TES 10Y en niveles, el estadístico de traza de r = 0 es 27,85, inferior al crítico de 34,91 al 5 %. No se rechaza el rango cero en esta especificación; no se justifica un término de corrección de error para este sistema, aunque la prueba no demuestra inexistencia universal de vínculos de largo plazo.")
 ```
 
 ## 9.3 Modelo de media VAR(p), diagnóstico de residuos y precedencia de Granger
@@ -11108,10 +11193,10 @@ save_audit_table(
 )
 
 kable(var_criteria)
-interpretacion_final_tabla("Los criterios de información multivariados seleccionan unánimemente un orden de rezago p = 1 (mínimo AIC, HQ, SC y FPE). Un modelo VAR(1) en diferencias proporciona la parametrización más parsimoniosa para capturar la dinámica de media sin sobreajustar la muestra.")
+interpretacion_final_tabla("Los criterios no coinciden: HQ y SC favorecen un rezago, mientras AIC y FPE favorecen dos. Se conserva el VAR(1) de la especificación vigente y se informa esta discrepancia; no se atribuye unanimidad a los criterios ni se cambia el orden por conveniencia.")
 ```
 
-Con $p = 1$ seleccionado, se estima el sistema multivariado y se realiza una auditoría diagnóstica sobre sus residuos vectoriales: prueba de Portmanteau para autocorrelación residual, Jarque-Bera para normalidad multivariada y prueba ARCH-LM multivariada para heterocedasticidad condicional.
+Con $p = 1$ conservado, se estima el sistema multivariado y se realiza una auditoría diagnóstica sobre sus residuos vectoriales: prueba de Portmanteau para autocorrelación residual, Jarque-Bera para normalidad multivariada y prueba ARCH-LM multivariada para heterocedasticidad condicional.
 
 ```{r econometrics-var-estimation, results='asis'}
 fit_var <- VAR(df_var_diff, p = 1, type = "const")
@@ -11138,7 +11223,7 @@ save_audit_table(
 )
 
 kable(var_diag)
-interpretacion_final_tabla("El diagnóstico de residuos arroja un rechazo contundente de los supuestos del VAR lineal estándar: la prueba Jarque-Bera multivariada arroja p = 0 (leptocurtosis extrema) y la prueba ARCH-LM multivariada arroja p = 0 (efectos ARCH masivos). Estos resultados demuestran formalmente que el supuesto de covarianza condicional constante del VAR es inválido, proporcionando la justificación econométrica indispensable para modelar la volatilidad condicional mediante GARCH y la correlación dinámica con DCC.")
+interpretacion_final_tabla("El VAR(1) es estable según sus raíces, pero la prueba de Portmanteau rechaza ausencia de autocorrelación residual (p = 5,80 × 10⁻⁶). Jarque-Bera y ARCH-LM también rechazan sus hipótesis nulas, con valores p inferiores a la precisión numérica reportada. La inferencia convencional del VAR queda limitada; los modelos de volatilidad siguientes no eliminan por sí solos la autocorrelación del sistema de media.")
 ```
 
 Se exportan las tablas de validación numérica, residuos y coeficientes del sistema VAR en diferencias estacionarias para la auditoría de estabilidad.
@@ -11180,7 +11265,7 @@ $$
 y_t = \alpha + \sum_{i=1}^p \phi_i y_{t-i} + \sum_{i=1}^p \beta_i x_{t-i} + \varepsilon_t, \quad H_0: \beta_1 = \cdots = \beta_p = 0
 $$
 
-Para controlar la tasa de falsos positivos derivada de 140 contrastes simultáneos, se aplica la corrección de Benjamini-Hochberg (FDR).
+Se aplica Benjamini-Hochberg a las 112 pruebas del panel temático (cuatro respuestas × siete predictores × cuatro rezagos). Por separado, las 96 pruebas del panel por corpus (dos corpus × cuatro respuestas × tres predictores × cuatro rezagos) forman la segunda familia FDR. Esta delimitación reproduce las dos llamadas a `p.adjust()` del código y no une familias después de conocer los resultados.
 
 ```{r econometrics-granger-estimation}
 financial_responses <- c("ret_trm", "ret_colcap", "diff_tes_10y", "diff_tes_slope")
@@ -11248,7 +11333,7 @@ granger_plot <- granger_plot_data |>
 granger_plot
 ```
 
-<p class="interpretacion-final"><strong>Interpretación.</strong> La inspección visual de p-values nominales muestra que la inmensa mayoría de contrastes de Granger se ubica holgadamente por encima del umbral de 0,05. Aunque aparecen rechazos nominales aislados en el primer rezago para el IPI sobre TES y TRM, ninguno sobrevive a la corrección de comparaciones múltiples de Benjamini-Hochberg (FDR q > 0,05). Por ende, no existe precedencia predictiva robusta del discurso presidencial hacia los precios financieros.</p>
+<p class="interpretacion-final"><strong>Interpretación.</strong> En las 112 pruebas de la serie temática de opinión hay 12 rechazos nominales y ninguno tras FDR; el menor valor p es 0,00425 (IPI frente al retorno COLCAP, rezago 3), con q = 0,21643. El gráfico muestra valores p nominales, no umbrales ajustados. Esta familia describe la conversación pública temática y no debe atribuirse a mensajes de la cuenta presidencial.</p>
 
 ```{r econometrics-granger-corpus-calc}
 granger_corpus_specs <- crossing(
@@ -11312,7 +11397,7 @@ granger_corpus_plot <- granger_corpus_plot_data |>
 granger_corpus_plot
 ```
 
-<p class="interpretacion-final"><strong>Interpretación.</strong> Al desagregar los contrastes por emisor (cuenta presidencial frente a opinión pública agregada), se constata que ni los tweets directos de Gustavo Petro ni la conversación ciudadana muestran capacidad de predicción lineal estadísticamente significativa sobre las variables financieras tras la corrección de multiplicidad. La evidencia descarta una influencia mecánica diaria sistemática.</p>
+<p class="interpretacion-final"><strong>Interpretación.</strong> El panel separado por corpus contiene 96 pruebas, con siete rechazos nominales y ninguno después de FDR. El menor p es 0,00747 para polaridad presidencial y retorno TRM a un rezago, pero su q es 0,47510. No se observa precedencia lineal robusta bajo estas pruebas; ello no permite descartar todos los mecanismos de influencia ni horizontes diferentes.</p>
 
 ```{r econometrics-granger-export-audit, results='asis'}
 granger_complete <- bind_rows(
@@ -11329,7 +11414,7 @@ granger_calendar <- tibble(
 )
 save_audit_table(granger_calendar, file.path(tables_dir, "granger_auditoria_temporal.csv"), file.path(tables_dir, "granger_auditoria_temporal.html"), "Auditoría temporal y multiplicidad", "Balance de significancia nominal vs FDR")
 kable(granger_calendar)
-interpretacion_final_tabla("La tabla resume la auditoría de comparaciones múltiples: de los contrastes evaluados, únicamente 8 presentan significancia nominal al 5 %, pero exactamente 0 contrastes sobreviven al control de tasa de falso descubrimiento (FDR) de Benjamini-Hochberg. Esto demuestra que los hallazgos iniciales obedecían a fluctuaciones muestrales aleatorias y no a relaciones de precedencia genuinas.")
+interpretacion_final_tabla("La auditoría reúne 208 pruebas en dos familias preexistentes: 112 del panel temático y 96 del panel por corpus. Diecinueve tienen p nominal inferior a 0,05 y ninguna conserva q inferior a 0,05 tras Benjamini-Hochberg en su familia respectiva. La ausencia de rechazos ajustados limita la evidencia predictiva en estas especificaciones; no identifica la causa de los rechazos nominales.")
 ```
 
 ## 9.4 Modelos Univariados ARMA-GARCH Marginales
@@ -11381,7 +11466,7 @@ armagarch_table <- bind_rows(armagarch_specs)
 save_audit_table(armagarch_table, file.path(tables_dir, "armagarch_especificaciones_seleccionadas.csv"), file.path(tables_dir, "armagarch_especificaciones_seleccionadas.html"), "Modelos ARMA-GARCH marginales", "Parámetros y persistencia")
 
 kable(armagarch_table |> select(serie, distribucion, omega, alpha1, beta1, persistencia, shape, arch_lm_p, convergencia))
-interpretacion_final_tabla("Todos los modelos ARMA-GARCH univariados convergen satisfactoriamente cumpliendo la condición de estacionariedad en covarianza (alpha1 + beta1 < 1). Los parámetros de forma confirman colas pesadas significativas (shape en Student-t entre 3,34 y 8,17). La prueba ARCH-LM sobre los residuos estandarizados arroja p > 0,05 para todas las series, demostrando que la especificación sGARCH(1,1) elimina completamente los efectos ARCH remanentes.")
+interpretacion_final_tabla("Las siete estimaciones marginales reportan convergencia y persistencia α+β inferior a uno, aunque la energía se aproxima al límite (0,999). El residuo estandarizado de polaridad conserva efectos ARCH (p = 8,06 × 10⁻⁷); Ljung–Box también rechaza ausencia de autocorrelación en polaridad, TRM y energía. Por tanto, convergencia computacional no equivale a adecuación diagnóstica de todas las especificaciones.")
 ```
 
 A partir de las volatilidades condicionales estimadas en los modelos ARMA-GARCH univariados, este bloque extrae la serie de dispersión diaria para cada activo y genera su representación comparada.
@@ -11439,6 +11524,13 @@ mspec7 <- multispec(uspec_list)
 dcc_spec7 <- dccspec(uspec = mspec7, dccOrder = c(1, 1), distribution = "mvt")
 dcc_fit7 <- dccfit(dcc_spec7, data = df_dcc7, solver = "solnp")
 
+dcc_diagnostico <- tibble(
+  observaciones = nrow(df_dcc7),
+  convergencia = if ("convergence" %in% names(dcc_fit7@mfit)) as.character(dcc_fit7@mfit$convergence) else "no reportada",
+  nota = "El éxito de optimización no sustituye diagnósticos multivariados de residuos."
+)
+save_audit_table(dcc_diagnostico, file.path(tables_dir, "07_dcc_financiero_diagnostico.csv"), file.path(tables_dir, "07_dcc_financiero_diagnostico.html"), "Estado de estimación DCC", "Muestra y código de convergencia del optimizador")
+
 dcc_coef7 <- dcc_fit7@mfit$matcoef
 dcc_rows <- grep("dcc|mvt", rownames(dcc_coef7))
 dcc_params <- tibble(
@@ -11452,7 +11544,7 @@ dcc_params <- tibble(
 save_audit_table(dcc_params, file.path(tables_dir, "07_dcc_financiero_parametros.csv"), file.path(tables_dir, "07_dcc_financiero_parametros.html"), "Parámetros del modelo DCC-GARCH financiero", "Estimación multivariada conjunta sin XM")
 
 kable(dcc_params)
-interpretacion_final_tabla("Los parámetros del DCC-GARCH son altamente significativos (p < 0,001) y satisfacen la condición de estabilidad con a = 0,0319 y b = 0,9671 (a + b = 0,9990 < 1). El parámetro b cercano a la unidad indica una alta persistencia en la dinámica de covarianza condicional, mientras que los grados de libertad multivariados (mvt.df = 7,63) confirman la presencia de colas pesadas conjuntas en el sistema financiero y discursivo.")
+interpretacion_final_tabla("En el DCC, a = 0,00441 (p = 0,20149) y b = 0,93009 (p inferior a la precisión numérica reportada); a+b = 0,93450. La persistencia estimada es alta, pero el parámetro de reacción a innovaciones no se distingue de cero al 5 %. La lectura de correlaciones queda condicionada a la especificación y a los diagnósticos adversos de algunas series marginales.")
 ```
 
 ## 9.6 Correlaciones Condicionales Dinámicas (DCC)
@@ -11481,7 +11573,7 @@ dcc_corr_table <- bind_rows(corr_series)
 save_audit_table(dcc_corr_table, file.path(tables_dir, "08_dcc_financiero_correlaciones.csv"), file.path(tables_dir, "08_dcc_financiero_correlaciones.html"), "Correlaciones condicionales DCC financiero", "Estadísticos descriptivos Sentimiento vs Mercado")
 
 kable(dcc_corr_table |> select(sentimiento, mercado, media, sd, min, mediana, max))
-interpretacion_final_tabla("El análisis de correlaciones condicionales dinámicas revela un desacople empírico sistemático entre el discurso presidencial y el comportamiento del mercado: las correlaciones promedio se sitúan en torno a cero (entre -0,041 y +0,029 para todos los pares analizados). Aunque existen picos episódicos de co-movimiento moderado en momentos puntuales de incertidumbre política, la relación no es de dependencia estructural ni de transmisión causal permanente.")
+interpretacion_final_tabla("Las ocho correlaciones condicionales medias entre IPI o polaridad de la conversación temática y mercados se sitúan entre -0,01746 y 0,05705. Son magnitudes descriptivas pequeñas en esta especificación; no constituyen estimaciones de efecto causal ni prueba de independencia. La serie presidencial no entra en este DCC.")
 ```
 
 Este bloque grafica conjuntamente las series normalizadas y las correlaciones condicionales dinámicas para contrastar visualmente su comportamiento temporal.
@@ -11513,7 +11605,7 @@ series_plot <- model_dataset_ipi |>
 series_plot
 ```
 
-<p class="interpretacion-final"><strong>Interpretación.</strong> La serie histórica integrada muestra que los picos de intensidad discursiva y polaridad no coinciden sistemáticamente con movimientos sincronizados en la TRM, el índice COLCAP o los títulos soberanos TES. Si bien se observan episodios donde ambos grupos se tensionan simultáneamente (como durante el debate de reformas en el Congreso), los ciclos financieros responden predominantemente a condiciones macroeconómicas globales e institucionales locales más amplias.</p>
+<p class="interpretacion-final"><strong>Interpretación.</strong> La figura pone las series en una escala común 0–1 solo para comparar su trayectoria visual. La coincidencia de picos no es uniforme y esta normalización no mide correlaciones ni permite atribuir los movimientos a mensajes. Los shocks macroeconómicos comunes permanecen como explicación alternativa no identificada.</p>
 
 ```{r econometrics-dcc-extra-plots}
 # Gráfico complementario de correlaciones dinámicas DCC guardado en la carpeta de econometría
@@ -11567,23 +11659,26 @@ if (msar_ok) {
   p11 <- mod_msar@transMat[1, 1]; p22 <- mod_msar@transMat[2, 2]
 
   msar_params <- tibble(
-    regimen = c("Régimen 1 (Correlación Neutra / Desacople)", "Régimen 2 (Co-movimiento Moderado)"),
+    regimen = c("Régimen 1", "Régimen 2"),
     media_estimada = c(c1, c2),
     desv_estandar = c(s1, s2),
     prob_persistencia = c(p11, p22),
-    duracion_esperada_dias = c(1 / (1 - p11), 1 / (1 - p22)),
+    duracion_esperada_sesiones = c(1 / (1 - p11), 1 / (1 - p22)),
     estado = "estimado"
   )
 
-  msar_trans_mat <- as_tibble(mod_msar@transMat, rownames = "De")
+  # MSwM guarda las probabilidades de origen por columnas; transponer para
+  # mostrar una matriz con origen en filas y suma de cada fila igual a uno.
+  msar_trans_mat <- as_tibble(t(mod_msar@transMat), rownames = "De")
   colnames(msar_trans_mat) <- c("De", "Hacia Régimen 1", "Hacia Régimen 2")
+  stopifnot(all(abs(rowSums(as.matrix(msar_trans_mat[, 2:3])) - 1) < 1e-6))
 } else {
   msar_params <- tibble(
     regimen = "No estimado",
     media_estimada = NA_real_,
     desv_estandar = NA_real_,
     prob_persistencia = NA_real_,
-    duracion_esperada_dias = NA_real_,
+    duracion_esperada_sesiones = NA_real_,
     estado = paste("no estimado:", conditionMessage(mod_msar))
   )
   msar_trans_mat <- tibble(
@@ -11614,7 +11709,7 @@ if (msar_ok) {
     ggplot(aes(x = date, y = prob_regimen_2)) +
     geom_area(fill = "#b44b4b", alpha = 0.4) +
     geom_line(color = "#b44b4b", linewidth = 0.7) +
-    labs(title = "Probabilidad suavizada del Régimen 2: Co-movimiento Moderado IPI-TRM", x = NULL, y = expression(P(S[t] == 2 ~ "|" ~ Omega[T]))) +
+    labs(title = "Probabilidad suavizada del régimen 2: correlación IPI–TRM", x = NULL, y = expression(P(S[t] == 2 ~ "|" ~ Omega[T]))) +
     theme_minimal(base_size = 11)
 } else {
   df_msar_plot <- tibble(date = fechas_dcc, prob_regimen_2 = NA_real_)
@@ -11700,7 +11795,7 @@ event_study_plot <- event_study_plot_data |>
 event_study_plot
 ```
 
-<p class="interpretacion-final"><strong>Interpretación.</strong> El gráfico de trayectorias muestra que, tras choques de negatividad extrema o picos de IPI, los retornos promedio de la TRM y el COLCAP oscilan dentro de márgenes estrechos (menos de 0,5 % acumulado a 7 días) y sin una trayectoria divergente sostenida. Los títulos TES muestran variaciones menores a 5 puntos básicos, confirmando la ausencia de reacciones desestabilizadoras persistentes.</p>
+<p class="interpretacion-final"><strong>Interpretación.</strong> A siete días calendario, los episodios de IPI extremo tienen un cambio medio de -0,92 % en TRM, -1,14 % en COLCAP y +17,34 % en el precio XM; los de negatividad extrema muestran -0,43 %, +0,10 % y +23,39 %, respectivamente. TES 10Y cambia -0,026 y -0,039 puntos porcentuales en esas dos selecciones. Los promedios combinan entre ocho y diez eventos con dato según la serie y no tienen contraste de significación ni control por hechos simultáneos.</p>
 
 ```{r event-study-plot-etapa-2}
 event_study_heatmap <- event_study_plot_data |>
@@ -11721,7 +11816,7 @@ event_study_heatmap <- event_study_plot_data |>
 event_study_heatmap
 ```
 
-<p class="interpretacion-final"><strong>Interpretación.</strong> El mapa de calor ilustra la distribución de movimientos por horizonte y mercado. Los tonos neutros predominan en todas las celdas, reflejando que los episodios extremos del discurso no generan anomalías pronunciadas en los precios de los activos analizados.</p>
+<p class="interpretacion-final"><strong>Interpretación.</strong> El mapa de calor muestra diferencias por activo y horizonte; la energía tiene cambios medios descriptivos mayores que TRM y COLCAP, con escalas y calendarios distintos. Esos contrastes no permiten concluir que los mensajes originaron las variaciones: los eventos se eligieron por el propio índice y no existe un contrafactual de mercado.</p>
 
 ```{r exportar-resumen-eventos, results='asis'}
 event_study_summary <- event_study_plot_data |>
@@ -11730,26 +11825,26 @@ event_study_summary <- event_study_plot_data |>
 save_audit_table(event_study_summary, file.path(tables_dir, "event_study_resumen.csv"), file.path(tables_dir, "event_study_resumen.html"), "Resumen del estudio de eventos", "Medias y cobertura")
 
 modelos_viabilidad_financiera <- tibble(
-  modelo = c("Panel Bursátil / Eléctrico", "Pruebas ADF / KPSS", "Cointegración Johansen", "VAR(1) en Diferencias", "Diagnóstico ARCH-LM / JB", "ARMA-GARCH Univariados", "DCC-GARCH Multivariado", "Precedencia Granger FDR", "Markov-Switching (MS-AR)", "Event Study"),
-  estado = "estimado y validado",
+  modelo = c("Panel bursátil / eléctrico", "Pruebas ADF / KPSS", "Cointegración Johansen", "VAR(1) en transformadas", "Diagnóstico del VAR", "ARMA-GARCH univariados", "DCC-GARCH multivariado", "Precedencia Granger y FDR", "Markov-Switching de media/varianza", "Estudio de eventos"),
+  estado = "ejecutado; interpretar con diagnósticos",
   alcance = c(
-    "1.000 días hábiles bursátiles y 1.400 continuos eléctricos",
-    "Niveles I(1) y diferencias I(0)",
-    "r = 0 no rechazado; descarta VECM",
-    "p = 1 unánime por criterios de información",
-    "Rechazo de normalidad y efectos ARCH severos",
-    "sGARCH(1,1) parsimonioso sin dummies endógenas",
-    "Persistencia a+b=0.999; correlación cercana a cero",
-    "0 relaciones significativas bajo control FDR",
-    "2 regímenes persistentes (desacople vs tensión)",
-    "Ventanas descriptivas a 1, 3, 5 y 7 días"
+    "934 respuestas bursátiles únicas; 1.400 días eléctricos",
+    "Niveles financieros compatibles con I(1); IPI y energía en nivel con diagnóstico mixto",
+    "r = 0 no rechazado en TRM, COLCAP y TES 10Y",
+    "p = 1 conservado; AIC/FPE prefieren p = 2",
+    "Autocorrelación, no normalidad y ARCH residuales",
+    "Siete convergencias; polaridad conserva ARCH y otras series autocorrelación",
+    "a no significativo; correlaciones medias pequeñas condicionadas al modelo",
+    "19 rechazos nominales de 208; cero tras FDR en dos familias",
+    "Dos estados de correlación baja; matriz de transición con origen en filas",
+    "Ventanas descriptivas de 1, 3, 5 y 7 días calendario; sin prueba causal"
   )
 )
 
 save_audit_table(modelos_viabilidad_financiera, file.path(tables_dir, "modelos_viabilidad_financiera.csv"), file.path(tables_dir, "modelos_viabilidad_financiera.html"), "Viabilidad de modelos financieros", "Inventario de estimaciones econométricas completas")
 
 kable(event_study_summary |> filter(horizonte %in% c(1, 7)))
-interpretacion_final_tabla("La tabla compara las respuestas medias de mercado en los horizontes inmediato (1 día) y acumulado (7 días). La magnitud reducida de los cambios constata que los eventos extremos del discurso no alteran de forma significativa el equilibrio financiero, siendo una lectura descriptiva que no atribuye causalidad estructural exógena.")
+interpretacion_final_tabla("La tabla muestra medias y número de eventos con datos en uno y siete días calendario. La energía alcanza cambios medios de +17,34 % y +23,39 % a siete días según el tipo de evento, mientras TRM y COLCAP tienen signos distintos. No hay estimación de error estándar, prueba de significación ni ajuste por shocks comunes; por tanto, la tabla no permite afirmar presencia o ausencia de efectos financieros de los mensajes.")
 ```
 
 
@@ -11806,7 +11901,7 @@ method_status <- tibble(
     "agregación diaria y promedio móvil por serie", "entidades y lemas de la muestra original",
     "diez extremos por criterio; ventanas descriptivas", "contrastes bivariados con control FDR",
     "VAR(1) en diferencias estacionarias con diagnósticos de residuos", "sin identificación de shocks",
-    "MS-AR de 2 regímenes sobre correlación condicional dinámica"
+    "dos estados de media/varianza sobre correlación condicional dinámica"
   )
 )
 ```
@@ -11947,10 +12042,10 @@ write_csv(auditoria_visual_93, file.path(tables_dir, "auditoria_visual_93_grafic
 4.  El IPI convierte la propuesta en una serie diaria que combina tono e intensidad conversacional para compararla con TRM, COLCAP, TES y precio de energía XM.
 5.  `sentometrics` permite comparar temas y aislar agendas polémicas frente al resto del corpus.
 6.  `spacyr` agrega trazabilidad lingüística: entidades, frases nominales y lemas que ayudan a interpretar qué actores y conceptos sostienen la presión discursiva.
-7.  Los resultados econométricos integran la propuesta metodológica avanzada de modelación de series temporales: (i) las pruebas confirmatorias ADF y KPSS ratifican que los precios financieros son I(1) y requieren transformación a diferencias/retornos estacionarios I(0); (ii) la prueba de cointegración de Johansen descarta vectores de cointegración (r = 0 no rechazado al 5 %), invalidando la especificación VECM en favor de un VAR en diferencias; (iii) las pruebas de Jarque-Bera y ARCH-LM multivariadas sobre los residuos del VAR(1) rechazan de forma contundente la normalidad y la homocedasticidad (p < 0,001), justificando la modelación de volatilidad mediante ARMA-GARCH marginal; (iv) la estimación multivariada DCC-GARCH evidencia una correlación condicional dinámica cercana a cero (promedios entre -0,041 y +0,029), demostrando un desacople empírico entre el tono/intensidad discursiva y los retornos de los activos; (v) los contrastes de precedencia predictiva de Granger no arrojan relaciones estadísticamente significativas tras controlar la tasa de falsos descubrimientos mediante el procedimiento de Benjamini-Hochberg (FDR q > 0,05); y (vi) el modelo Markov-Switching (MS-AR) captura regímenes diferenciados de co-movimiento que reflejan fases macroeconómicas de tensión antes que choques causales exógenos inducidos por redes sociales.
-8.  Delimitación muestral y auditoría de integridad: la auditoría formaliza la distinción entre el universo contractual de emisión bruta (28.304 publicaciones en total; 14.656 presidenciales y 13.648 de opinión, con 0 duplicados al importar identificadores como texto de 64 bits) y la muestra léxica procesable para NLP (28.153 textos efectivos), tras excluir 222 tweets del mandatario compuestos únicamente por imágenes o enlaces multimedia sin texto limpio. La ventana común sincrónica inicia formalmente el 7 de agosto de 2022.
+7.  La evidencia econométrica requiere una lectura condicionada por diagnósticos: (i) TRM, COLCAP y TES en niveles muestran patrones compatibles con I(1), mientras IPI, polaridad y energía en nivel ofrecen resultados ADF/KPSS mixtos; (ii) Johansen no rechaza rango cero para TRM, COLCAP y TES 10Y; (iii) el VAR(1) estable conserva autocorrelación, no normalidad y ARCH en sus residuos, y AIC/FPE favorecen dos rezagos aunque HQ/SC favorecen uno; (iv) los GARCH marginales convergen, pero algunos residuos mantienen ARCH o autocorrelación; (v) las correlaciones DCC medias entre señales temáticas de opinión y mercados van de -0,01746 a 0,05705, con parámetro de reacción a innovaciones no significativo; (vi) diecinueve de 208 pruebas Granger son nominales al 5 % y ninguna sobrevive FDR en las dos familias; y (vii) el modelo de estados cambia media y varianza de una correlación estimada, sin identificar hechos causales. Estos resultados no prueban independencia de la comunicación y los mercados fuera del diseño observado.
+8.  Delimitación muestral y auditoría de integridad: la auditoría formaliza la distinción entre el universo contractual de emisión bruta (28.307 publicaciones en total; 14.659 presidenciales y 13.648 de opinión, con 0 duplicados al importar identificadores como texto de 64 bits) y la muestra léxica procesable para NLP (28.085 textos efectivos), tras excluir 222 tweets del mandatario compuestos únicamente por imágenes o enlaces multimedia sin texto limpio. La ventana común sincrónica inicia formalmente el 7 de agosto de 2022.
 9.  Calibración del sesgo sentimental de nivel: la media positiva observada en polaridad neta no representa optimismo generalizado, sino el sesgo de valencia estructural inherente a diccionarios léxicos generales frente a vocabulario institucional y normativo. El análisis econométrico resuelve este sesgo modelando innovaciones estandarizadas ($z$-scores) y el IPI ponderado en lugar de niveles absolutos de tono.
-10. Alineación temporal causal y síntesis visual hacia el manuscrito: el enlace temporal estricto $S_t \to R_{t+1}$ mediante `next_observed_date()` garantiza que el flujo continuo 24/7 de redes sociales (incluyendo ráfagas de fin de semana) se alinee cronológicamente con la siguiente apertura de negociación bursátil hábil, erradicando sesgos prospectivos (*look-ahead bias*). La batería exhaustiva de 93 figuras analíticas de este cuaderno provee el soporte empírico auditable que se sintetiza en las cinco figuras compuestas F1–F5 (volumen comparado, actividad presidencial, keyness de reformas, redes discursivas y señales de mercado/IPI) para el manuscrito formal del artículo.
+10. La alineación asigna cada fecha discursiva a la siguiente sesión bursátil observada y agrega los días que comparten respuesta, reduciendo 1.397 filas del panel anterior a 934 respuestas únicas. Esta corrección evita repetir retornos y conserva el orden diario declarado; no resuelve la confusión por noticias comunes ni sustituye identificación intradía. Las figuras del cuaderno ofrecen un inventario para seleccionar únicamente las que sostengan las preguntas del manuscrito.
 
 # 12. Referencias metodológicas
 

@@ -100,14 +100,26 @@ auditoria_corpus <- tweets_raw |>
       "Tweets emitidos directamente por la cuenta del presidente (petrogustavo)"
     )
   ) |>
-  select(corpus, descripcion_corpus, filas_totales, ids_unicos, duplicados_id,
-         textos_vacios_clean, fecha_minima, fecha_maxima, dias_con_observaciones)
+  select(
+    corpus,
+    descripcion_corpus,
+    filas_totales,
+    ids_unicos,
+    duplicados_id,
+    textos_vacios_clean,
+    fecha_minima,
+    fecha_maxima,
+    dias_con_observaciones
+  )
 ```
 
 El siguiente bloque exporta la tabla de auditoría a la carpeta contractual de tablas auditadas y la presenta en formato tabular para su inspección inmediata.
 
 ```{r mostrar-auditoria-corpus}
-readr::write_csv(auditoria_corpus, file.path(tables_dir, "auditoria_comparada_dos_corpus.csv"))
+readr::write_csv(
+  auditoria_corpus,
+  file.path(tables_dir, "auditoria_comparada_dos_corpus.csv")
+)
 
 knitr::kable(
   auditoria_corpus,
@@ -257,12 +269,12 @@ El siguiente bloque consolida y resume la arquitectura de las figuras propuestas
 
 ```{r tabla-propuesta-f1-f5}
 propuesta_figuras <- tibble::tribble(
-  ~Figura, ~Denominacion, ~Paneles, ~Unidad_Temporal, ~Objetivo_Metodologico,
-  "F1", "Volumen y cobertura comparada", "Panel A: Volumen mensual / Panel B: Días observados", "Mensual / Diaria", "Establecer la representatividad y evolución dispar de los dos corpus.",
-  "F2", "Actividad temporal presidencial", "Panel A: Serie diaria + MA7 / Panel B: Calendario estacional", "Diaria / Semanal", "Documentar ráfagas comunicativas y sobrecarga informacional de la cuenta presidencial.",
-  "F3", "Estructura temática y Keyness", "Panel A: Barras porcentuales / Panel B: Ranking chi-cuadrado", "Agregada por tema", "Demostrar la heterogeneidad léxica y conceptual entre reformas sectoriales.",
-  "F4", "Red de menciones por corpus", "Panel A: Red de opinión / Panel B: Red presidencial", "Nodos y aristas", "Contrastar la polarización ciudadana frente a la centralidad institucional.",
-  "F5", "Polaridad diaria e IPI", "Panel A: Polaridad NRC neta / Panel B: Serie IPI + extremos", "Diaria", "Construir las señales discursivas que alimentan los modelos econométricos."
+  ~Figura , ~Denominacion                     , ~Paneles                                                       , ~Unidad_Temporal    , ~Objetivo_Metodologico                                                                   ,
+  "F1"    , "Volumen y cobertura comparada"   , "Panel A: Volumen mensual / Panel B: Días observados"          , "Mensual / Diaria"  , "Establecer la representatividad y evolución dispar de los dos corpus."                  ,
+  "F2"    , "Actividad temporal presidencial" , "Panel A: Serie diaria + MA7 / Panel B: Calendario estacional" , "Diaria / Semanal"  , "Documentar ráfagas comunicativas y sobrecarga informacional de la cuenta presidencial." ,
+  "F3"    , "Estructura temática y Keyness"   , "Panel A: Barras porcentuales / Panel B: Ranking chi-cuadrado" , "Agregada por tema" , "Demostrar la heterogeneidad léxica y conceptual entre reformas sectoriales."            ,
+  "F4"    , "Red de menciones por corpus"     , "Panel A: Red de opinión / Panel B: Red presidencial"          , "Nodos y aristas"   , "Contrastar la polarización ciudadana frente a la centralidad institucional."            ,
+  "F5"    , "Polaridad diaria e IPI"          , "Panel A: Polaridad NRC neta / Panel B: Serie IPI + extremos"  , "Diaria"            , "Construir las señales discursivas que alimentan los modelos econométricos."
 )
 
 knitr::kable(
@@ -304,5 +316,6 @@ A continuación se presenta la matriz de síntesis académica que articula cada 
 2. **Robustez de señales textuales:** Las métricas de Keyness y la separación temática diferencian de forma nítida las agendas de salud, pensiones, laboral, tributaria y seguridad. Las series de sentimiento y polaridad NRC reflejan alta dispersión con estabilidad a largo plazo, y el IPI sintetiza episodios de alta presión discursiva ($|IPI| > 2$) con control temporal estricto.
 3. **Propuesta visual F1–F5 integrada:** El diseño de figuras compuestas en paneles complementarios permite presentar una narrativa compacta y de alto impacto académico para el formato Taylor & Francis, articulando volumen, frecuencia de emisión, vocabulario distintivo, redes discursivas y series temporales de mercado.
 4. **Respaldo teórico del desacople financiero:** La matriz de literatura y mecanismos evidencia que, si bien la comunicación presidencial genera choques de atención y volatilidad episódica transitoria, los precios de equilibrio de la TRM, COLCAP y TES se encuentran desacoplados de la retórica diaria de redes sociales y anclados a fundamentos macroeconómicos e institucionales.
+5. **Trazabilidad de mejoras incorporadas en el cuaderno:** Las cuatro decisiones metodológicas derivadas de esta supervisión (distinción de muestra léxica de 28.153 textos vs. emisión bruta de 28.304 publicaciones; ventana sincronizada a partir del 7 de agosto de 2022; neutralización del sesgo de nivel de NRC mediante $z$-scores e IPI; y formalización causal del protocolo $S_t \to R_{t+1}$ sin *look-ahead bias*) han quedado contractualmente documentadas en el cuaderno metodológico (`Cuaderno_Paper_Español.qmd`), blindando la trazabilidad analítica de la investigación.
 
 # Referencias bibliográficas

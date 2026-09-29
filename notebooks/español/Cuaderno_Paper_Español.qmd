@@ -839,8 +839,9 @@ Los datos de mercado y la limpieza textual base se actualizan antes de correr el
 
 ### 2.1.1 Tweets y clasificación temática
 
+La sección empieza fijando el universo textual contractual y delimitando las muestras analíticas. El archivo `tweets_master.csv` consolida 28.304 publicaciones en total, correspondientes a dos corpus diferenciados: conversación pública ciudadana (`opinion`, 13.648 tweets) y emisión institucional directa del presidente Gustavo Petro (`presidente`, 14.656 tweets). Los identificadores de tweet y de autor se importan estrictamente como cadenas de texto para evitar truncamientos derivados de la representación en punto flotante de enteros de 64 bits, certificando la existencia de exactamente 0 duplicados en ambas fuentes.
 
-La sección empieza fijando el universo textual que será auditado. Las bases procesadas se restringen al periodo de análisis y se separan en dos corpus —opinión pública y discurso presidencial— para que la comparación posterior no mezcle fuentes con naturalezas distintas.
+En términos de cobertura temporal, el corpus de opinión comprende observaciones desde el 1 de agosto de 2022 (capturando los seis días de transición y expectativa previos a la posesión presidencial), mientras que el corpus presidencial inicia formalmente el 7 de agosto de 2022 con el inicio constitucional del mandato, finalizando ambos el 31 de mayo de 2026. Para análisis comparativos y de precedencia sincrónica, la ventana común efectiva se delimita a partir del 7 de agosto de 2022.
 
 ```{r cargar-tweets}
 # Cargar el contrato de tweets con tipos explícitos.
@@ -869,7 +870,9 @@ tweets_presidente <- tweets_all_normalized |>
 ```
 
 
-La clasificación temática es una decisión analítica y por ello se calcula aquí, no en el master. Se conserva sin cambios la precedencia de las reglas que alimentan la supervisión débil posterior.
+La clasificación temática es una decisión analítica y por ello se calcula aquí, no en el master, conservando la precedencia de las reglas léxicas que alimentan la supervisión débil posterior.
+
+En este punto se formaliza la delimitación de la **muestra léxica efectiva para NLP**: mientras que el conteo bruto de actividad preserva los 28.304 tweets para evaluar ritmos de emisión, exactamente 222 tweets del corpus presidencial están compuestos por enlaces multimedia, menciones aisladas o símbolos gráficos que se retiran durante el preprocesamiento, dejando `text_clean` vacío. Al aplicar el filtro `filter(!is.na(text_clean), text_clean != "")`, el universo textual depurado para clasificación temática, sentimiento NRC, STM, Wordfish y modelos de redes queda fijado en **28.153 textos efectivos** (14.434 del presidente y 13.648 de opinión), garantizando denominadores estrictos y reproducibles.
 
 ```{r construir-sentimiento-diario}
 # Reconstruir exactamente las etiquetas débiles del análisis original.
@@ -9446,8 +9449,9 @@ $$
 
 Este bloque calcula sentimientos NRC por documento. Produce columnas de emociones y polaridad que después se agregan por fecha, tema y corpus.
 
-
 `nrc_initial` ya contiene las puntuaciones NRC por documento. Se enlazan por `doc_id` con el subconjunto temático de `tweets_text_analysis`, manteniendo sus textos y su clasificación. `daily_nrc` agrega esos mismos conteos y alimenta el IPI de esta sección; no reemplaza el sentimiento del calendario completo construido antes.
+
+En términos metodológicos, la polaridad neta diaria resultante exhibe promedios positivos en ambos corpus ($\mu = +3,07$ en opinión y $\mu = +6,05$ en presidente). Se advierte al lector que esta elevación no denota optimismo ciudadano generalizado, sino el sesgo estructural positivo de los diccionarios léxicos generales (NRC), donde términos normativos e institucionales ("desarrollo", "acuerdo", "seguridad", "reforma", "derecho") puntúan como positivos. Por ello, la especificación econométrica posterior descarta niveles absolutos y opera sobre variaciones estandarizadas ($z$-scores) y el IPI ponderado.
 
 ```{r nrc-sentiment}
 # Comprobar que la dependencia necesaria esté disponible en esta sesión.
@@ -10832,7 +10836,9 @@ La evaluación del impacto financiero del discurso presidencial requiere una est
 
 ## 9.1 Dataset diario y disponibilidad
 
-El análisis financiero opera sobre dos calendarios económicos distintos. El Panel Bursátil comprende los días hábiles de negociación del mercado financiero colombiano (lunes a viernes, excluyendo festivos bancarios), filtrando el arrastre artificial de precios durante los fines de semana. El Panel Eléctrico abarca los siete días continuos de la semana para el precio spot de energía en la bolsa administrada por XM.
+El análisis financiero opera sobre dos calendarios económicos distintos para conciliar la naturaleza continua de las redes sociales con la dinámica de negociación bursátil. Mientras que Twitter/X opera en tiempo continuo los siete días de la semana (24/7) registrando con frecuencia ráfagas y debates durante fines de semana y festivos, los mercados de activos en Colombia (TRM, COLCAP y TES) transan exclusivamente en días hábiles bancarios.
+
+Para garantizar contractualmente la **ausencia de sesgo prospectivo (*look-ahead bias*)** y preservar la precedencia temporal causal, el algoritmo `next_observed_date()` y la función `build_financial_panel()` enlazan de forma estricta la señal discursiva del día calendario $S_t$ con el retorno del mercado del siguiente día hábil observado $R_{t+1}$. Bajo esta regla, las publicaciones emitidas entre la tarde del viernes y la noche del domingo se acumulan y mapean hacia la apertura bursátil del lunes hábil. Por su parte, el Panel Eléctrico conserva el calendario natural continuo de siete días para el precio de bolsa nacional de energía eléctrica administrado por XM, evitando imponerle artificios de calendario financiero.
 
 ```{r model-dataset-calendario}
 next_observed_date <- function(date_sentiment, observed_dates) {
@@ -11942,6 +11948,9 @@ write_csv(auditoria_visual_93, file.path(tables_dir, "auditoria_visual_93_grafic
 5.  `sentometrics` permite comparar temas y aislar agendas polémicas frente al resto del corpus.
 6.  `spacyr` agrega trazabilidad lingüística: entidades, frases nominales y lemas que ayudan a interpretar qué actores y conceptos sostienen la presión discursiva.
 7.  Los resultados econométricos integran la propuesta metodológica avanzada de modelación de series temporales: (i) las pruebas confirmatorias ADF y KPSS ratifican que los precios financieros son I(1) y requieren transformación a diferencias/retornos estacionarios I(0); (ii) la prueba de cointegración de Johansen descarta vectores de cointegración (r = 0 no rechazado al 5 %), invalidando la especificación VECM en favor de un VAR en diferencias; (iii) las pruebas de Jarque-Bera y ARCH-LM multivariadas sobre los residuos del VAR(1) rechazan de forma contundente la normalidad y la homocedasticidad (p < 0,001), justificando la modelación de volatilidad mediante ARMA-GARCH marginal; (iv) la estimación multivariada DCC-GARCH evidencia una correlación condicional dinámica cercana a cero (promedios entre -0,041 y +0,029), demostrando un desacople empírico entre el tono/intensidad discursiva y los retornos de los activos; (v) los contrastes de precedencia predictiva de Granger no arrojan relaciones estadísticamente significativas tras controlar la tasa de falsos descubrimientos mediante el procedimiento de Benjamini-Hochberg (FDR q > 0,05); y (vi) el modelo Markov-Switching (MS-AR) captura regímenes diferenciados de co-movimiento que reflejan fases macroeconómicas de tensión antes que choques causales exógenos inducidos por redes sociales.
+8.  Delimitación muestral y auditoría de integridad: la auditoría formaliza la distinción entre el universo contractual de emisión bruta (28.304 publicaciones en total; 14.656 presidenciales y 13.648 de opinión, con 0 duplicados al importar identificadores como texto de 64 bits) y la muestra léxica procesable para NLP (28.153 textos efectivos), tras excluir 222 tweets del mandatario compuestos únicamente por imágenes o enlaces multimedia sin texto limpio. La ventana común sincrónica inicia formalmente el 7 de agosto de 2022.
+9.  Calibración del sesgo sentimental de nivel: la media positiva observada en polaridad neta no representa optimismo generalizado, sino el sesgo de valencia estructural inherente a diccionarios léxicos generales frente a vocabulario institucional y normativo. El análisis econométrico resuelve este sesgo modelando innovaciones estandarizadas ($z$-scores) y el IPI ponderado en lugar de niveles absolutos de tono.
+10. Alineación temporal causal y síntesis visual hacia el manuscrito: el enlace temporal estricto $S_t \to R_{t+1}$ mediante `next_observed_date()` garantiza que el flujo continuo 24/7 de redes sociales (incluyendo ráfagas de fin de semana) se alinee cronológicamente con la siguiente apertura de negociación bursátil hábil, erradicando sesgos prospectivos (*look-ahead bias*). La batería exhaustiva de 93 figuras analíticas de este cuaderno provee el soporte empírico auditable que se sintetiza en las cinco figuras compuestas F1–F5 (volumen comparado, actividad presidencial, keyness de reformas, redes discursivas y señales de mercado/IPI) para el manuscrito formal del artículo.
 
 # 12. Referencias metodológicas
 

@@ -234,10 +234,12 @@ save_audit_table <- function(data, csv_path, html_path, title, subtitle) {
     }
   )
 }
+```
 
-# Registro explícito de fuentes y métricas: una fila por producto final.
-# La fuente y la métrica se declaran por archivo; no se infieren del PNG.
-plot_interpretation_registry <- tribble(
+El catálogo de interpretación visual vincula de forma explícita cada gráfico con su objeto de origen, dimensión focal y pregunta analítica de partida. A continuación se registran los metadatos correspondientes a las figuras G01 hasta G24 (correspondencias, series de cobertura, colocaciones y análisis exploratorio inicial).
+
+```{r registro-interpretaciones-g01-g24}
+plot_registry_part1 <- tribble(
   ~identificador, ~archivo, ~objeto_fuente, ~foco, ~valor, ~grupo, ~fecha, ~pregunta,
   "G01", "ca_temas_quanteda.png", "ca_temas_plot_data", "ca temas quanteda", "Dim1", "corpus_label", "", "La figura ubica términos o temas en las dimensiones de correspondencias; la separación relativa es el patrón principal.",
   "G02", "cobertura_mercado_series.png", "market_coverage_interpreted", "cobertura mercado series", "coverage_ratio", "status", "month_date", "La figura muestra la cobertura observada y permite comparar estados o corpus a lo largo del calendario.",
@@ -262,7 +264,15 @@ plot_interpretation_registry <- tribble(
   "G21", "eda_petro_tweets_mensuales.png", "petro_monthly_frequency", "eda petro tweets mensuales", "tweets", "corpus_label", "month", "La figura compara el volumen de tweets entre corpus o periodos y permite localizar concentraciones de actividad.",
   "G22", "eda_sentimiento_inicial.png", "eda_sentimiento", "eda sentimiento inicial", "tweets", "corpus_label", "date", "La figura compara el volumen de tweets entre corpus o periodos y permite localizar concentraciones de actividad.",
   "G23", "eda_temas_volumen.png", "tweets_text", "eda temas volumen", "tweets", "corpus_label", "date", "La figura compara el volumen de tweets entre corpus o periodos y permite localizar concentraciones de actividad.",
-  "G24", "eda_tweets_diarios.png", "eda_daily_volume", "eda tweets diarios", "tweets", "corpus_label", "date", "La figura compara el volumen de tweets entre corpus o periodos y permite localizar concentraciones de actividad.",
+  "G24", "eda_tweets_diarios.png", "eda_daily_volume", "eda tweets diarios", "tweets", "corpus_label", "date", "La figura compara el volumen de tweets entre corpus o periodos y permite localizar concentraciones de actividad."
+)
+```
+
+El segundo bloque del registro incorpora las especificaciones de las figuras G25 hasta G48, cubriendo volumen financiero, estacionariedad, estudios de eventos, frecuencias léxicas, causalidad de Granger, keyness y modelos de clasificación supervisada.
+
+```{r registro-interpretaciones-g25-g48}
+plot_registry_part2 <- tribble(
+  ~identificador, ~archivo, ~objeto_fuente, ~foco, ~valor, ~grupo, ~fecha, ~pregunta,
   "G25", "eda_volumen_mercado.png", "eda_volume_market_data", "eda volumen mercado", "tweets", "corpus_label", "date", "La figura compara el volumen de tweets entre corpus o periodos y permite localizar concentraciones de actividad.",
   "G26", "estacionariedad_series.png", "stationarity_plot_data", "estacionariedad series", "p_value_plot", "variable", "", "La figura compara los p-values de las pruebas de estacionariedad por variable.",
   "G27", "estado_metodologico.png", "method_status", "estado metodologico", "bloques", "estado", "", "La figura compara el número de bloques metodológicos por estado de ejecución.",
@@ -286,7 +296,15 @@ plot_interpretation_registry <- tribble(
   "G45", "ml_metricas_temas.png", "ml_metrics", "ml metricas temas", "valor", "metrica", "", "La figura compara las métricas de desempeño del clasificador temático.",
   "G46", "ml_reduccion_otros.png", "tweets_text", "ml reduccion otros", "participacion", "escenario", "", "La figura cuantifica la participación conservada y reasignada en la reducción de clases.",
   "G47", "pesos_redes_discursivas.png", "network_centrality_table", "pesos redes discursivas", "weight", "red", "", "La figura compara el peso o fuerza de las relaciones discursivas.",
-  "G48", "polaridad_diaria.png", "daily_nrc", "polaridad diaria", "polaridad", "", "date", "La figura compara la evolución temporal del tono, sentimiento o IPI y sus diferencias visibles entre series.",
+  "G48", "polaridad_diaria.png", "daily_nrc", "polaridad diaria", "polaridad", "", "date", "La figura compara la evolución temporal del tono, sentimiento o IPI y sus diferencias visibles entre series."
+)
+```
+
+El tercer bloque del catálogo registra las figuras G49 hasta G72, que comprenden el análisis de redes discursivas, centralidades, comunidades, polaridad léxica, índices de sentometrics, curvas de deuda soberana y representaciones de spaCy.
+
+```{r registro-interpretaciones-g49-g72}
+plot_registry_part3 <- tribble(
+  ~identificador, ~archivo, ~objeto_fuente, ~foco, ~valor, ~grupo, ~fecha, ~pregunta,
   "G49", "red_centralidad_comparada.png", "red_centralidad_comparada", "red centralidad comparada", "grado_ponderado", "familia_red", "", "La figura compara la centralidad ponderada de los nodos y permite identificar los más conectados.",
   "G50", "red_coocurrencias_corpus.png", "cooc_edges", "red coocurrencias corpus", "weight", "red", "", "La figura muestra las aristas principales de la red y su peso de coaparición.",
   "G51", "red_hashtags_quanteda.png", "hashtag_edges_quanteda", "red hashtags quanteda", "frecuencia", "hashtag", "", "La figura ordena los hashtags o menciones por frecuencia observada.",
@@ -310,7 +328,15 @@ plot_interpretation_registry <- tribble(
   "G69", "similitud_temas_heatmap.png", "similitud_temas_plot_data", "similitud temas heatmap", "coseno", "doc_a_plot", "", "La figura compara la similitud coseno entre los documentos o temas representados.",
   "G70", "spacyr_entidades_tipo.png", "spacy_entities", "spacyr entidades tipo", "frecuencia", "entity_type", "", "La figura compara la frecuencia de tipos de entidad reconocidos por spaCy.",
   "G71", "spacyr_lemas_paz_total.png", "spacy_lemmas", "spacyr lemas paz total", "frecuencia", "lemma", "", "La figura ordena los lemas más frecuentes en el corpus Paz Total.",
-  "G72", "spacyr_red_entidades.png", "spacy_edges", "spacyr red entidades", "weight", "red", "", "La figura muestra las aristas principales de la red y su peso de coaparición.",
+  "G72", "spacyr_red_entidades.png", "spacy_edges", "spacyr red entidades", "weight", "red", "", "La figura muestra las aristas principales de la red y su peso de coaparición."
+)
+```
+
+El cuarto bloque finaliza el catálogo con las figuras G73 hasta G93, abarcando modelos STM, curvas cero cupón TES, TF-IDF, nubes de palabras, escalamiento Wordfish, wordstreams continuos y redes bipartitas tema-hashtag.
+
+```{r registro-interpretaciones-g73-g93}
+plot_registry_part4 <- tribble(
+  ~identificador, ~archivo, ~objeto_fuente, ~foco, ~valor, ~grupo, ~fecha, ~pregunta,
   "G73", "stm_diagnostico.png", "stm_diagnostics", "stm diagnostico", "semantic_coherence", "topic", "", "La figura contrasta coherencia semántica y exclusividad de los tópicos.",
   "G74", "stm_searchk_diagnostico.png", "stm_searchk_results", "stm searchk diagnostico", "score", "K", "", "La figura compara el criterio de selección de K en la búsqueda STM.",
   "G75", "stm_topicos_reformas.png", "stm_topics", "stm topicos reformas", "prevalence", "topic_label", "", "La figura compara la prevalencia estimada de los tópicos STM.",
@@ -333,9 +359,12 @@ plot_interpretation_registry <- tribble(
   "G92", "wordstream_tfidf_temporal.png", "word_tfidf_time_plot_data", "wordstream tfidf temporal", "tfidf", "termino", "month", "La figura muestra qué términos concentran el TF-IDF en cada periodo.",
   "G93", "red_temas_hashtags_por_corpus.png", "theme_hashtag_edges_by_corpus", "red temas hashtags por corpus", "weight", "corpus_label", "", "La figura compara las asociaciones observadas entre temas y hashtags en cada corpus; el peso de cada arista corresponde al número de tweets distintos que respaldan la combinación."
 )
+plot_interpretation_registry <- bind_rows(plot_registry_part1, plot_registry_part2, plot_registry_part3, plot_registry_part4)
+```
 
-# Especificación explícita del tipo de lectura y de las métricas secundarias.
-# Ningún campo se elige por posición, por el nombre del PNG o por un CSV.
+Para cada figura se definen formalmente las dimensiones de lectura secundaria y el tipo de regla analítica (posicional, jerárquica, ranking, red o temporal). Esta parametrización previene inferencias automatizadas a partir del nombre del archivo o heurísticas no auditadas.
+
+```{r registro-especificaciones-metricas}
 plot_metric_specs <- tribble(
   ~identificador, ~tipo_metrica, ~valor2, ~transformacion,
   "G01", "posicion", "Dim2", "directa", "G02", "disponibilidad", "", "directa", "G03", "temporal", "", "directa",
@@ -371,53 +400,58 @@ plot_metric_specs <- tribble(
   "G91", "terminos", "", "directa", "G92", "terminos", "", "directa",
   "G93", "red", "", "tweets_distintos"
 )
+```
 
+El ensamblado final combina las descripciones y especificaciones de métricas, aplicando las transformaciones de objetos requeridas para los 93 productos gráficos y validando la completitud de la tabla de metadatos.
+
+```{r registro-interpretaciones-ensamblado}
 plot_interpretation_registry <- plot_interpretation_registry |>
   left_join(plot_metric_specs, by = "identificador") |>
   mutate(
     objeto_fuente = recode(identificador,
-      G14 = "cooccurrence_dendrogram_terms", G15 = "tweet_audit_by_corpus",
-      G16 = "eda_market_availability", G17 = "eda_heatmap_data", G18 = "tweets_text",
-      G19 = "petro_frequency_heatmap_data", G22 = "eda_sentimiento", G23 = "tweets_text",
-      G27 = "method_status", G31 = "term_frequencies", G32 = "theme_monthly",
-      G47 = "mention_edges", G51 = "hashtag_edges_quanteda", G52 = "social_quanteda_edges_by_corpus",
-      G08 = "model_dataset_by_corpus", G27 = "method_status", G55 = "mention_corpus_centrality", G56 = "mention_corpus_edges_plot",
-      G58 = "social_quanteda_edges_by_corpus", G68 = "model_dataset_ipi",
-      G72 = "spacy_entity_edges", G74 = "stm_search_plot_data", G76 = "theme_summary",
-      G79 = "tfidf_theme_terms", G84 = "network_community_wordcloud_data", G85 = "sentiment_wordcloud_plot_data",
+      G08 = "model_dataset_by_corpus", G14 = "cooccurrence_dendrogram_terms", G15 = "tweet_audit_by_corpus", G16 = "eda_market_availability",
+      G17 = "eda_heatmap_data", G18 = "tweets_text", G19 = "petro_frequency_heatmap_data", G22 = "eda_sentimiento", G23 = "tweets_text",
+      G27 = "method_status", G31 = "term_frequencies", G32 = "theme_monthly", G47 = "mention_edges", G51 = "hashtag_edges_quanteda",
+      G52 = "social_quanteda_edges_by_corpus", G55 = "mention_corpus_centrality", G56 = "mention_corpus_edges_plot",
+      G58 = "social_quanteda_edges_by_corpus", G68 = "model_dataset_ipi", G72 = "spacy_entity_edges", G74 = "stm_search_plot_data",
+      G76 = "theme_summary", G79 = "tfidf_theme_terms", G84 = "network_community_wordcloud_data", G85 = "sentiment_wordcloud_plot_data",
       G89 = "wordfish_table", G91 = "wordstream_continuo_data", .default = objeto_fuente
     ),
     valor = recode(identificador,
       G08 = "tweets", G10 = "orden", G14 = "orden", G15 = "rows", G16 = "disponible", G18 = "palabras", G19 = "tweets", G20 = "tweets",
-      G21 = "tweets", G22 = "sentimiento_promedio", G23 = "tweets", G25 = "valor_normalizado",
-      G31 = "frequency", G36 = "archivos", G37 = "ipi_medio_abs", G42 = "palabras_recortadas", G47 = "weight", G51 = "weight", G52 = "weight", G56 = "weight",
-      G58 = "weight", G68 = "valor_normalizado", G72 = "weight", G74 = "score", G85 = "peso_plot",
-      G82 = "componentes", G84 = "peso_plot", G89 = "theta", G91 = "tfidf", .default = valor
+      G21 = "tweets", G22 = "sentimiento_promedio", G23 = "tweets", G25 = "valor_normalizado", G31 = "frequency", G36 = "archivos",
+      G37 = "ipi_medio_abs", G42 = "palabras_recortadas", G47 = "weight", G51 = "weight", G52 = "weight", G56 = "weight",
+      G58 = "weight", G68 = "valor_normalizado", G72 = "weight", G74 = "score", G85 = "peso_plot", G82 = "componentes",
+      G84 = "peso_plot", G89 = "theta", G91 = "tfidf", .default = valor
     ),
     grupo = recode(identificador,
-      G08 = "serie", G10 = "cluster", G14 = "cluster", G15 = "status", G16 = "serie", G17 = "dia_semana", G18 = "reform_theme", G19 = "dia_semana",
-      G20 = "corpus_label", G21 = "corpus_label", G22 = "", G23 = "reform_theme", G25 = "serie",
-      G31 = "feature", G32 = "reform_theme", G47 = "red", G51 = "", G52 = "corpus_label",
-      G56 = "corpus_label", G58 = "corpus_label", G68 = "serie", G72 = "", G74 = "K", G76 = "reform_theme",
-      G82 = "estado", G84 = "termino_plot", G85 = "termino", G89 = "reform_theme", G91 = "termino", .default = grupo
+      G08 = "serie", G10 = "cluster", G14 = "cluster", G15 = "status", G16 = "serie", G17 = "dia_semana", G18 = "reform_theme",
+      G19 = "dia_semana", G20 = "corpus_label", G21 = "corpus_label", G22 = "", G23 = "reform_theme", G25 = "serie",
+      G31 = "feature", G32 = "reform_theme", G47 = "red", G51 = "", G52 = "corpus_label", G56 = "corpus_label",
+      G58 = "corpus_label", G68 = "serie", G72 = "", G74 = "K", G76 = "reform_theme", G82 = "estado",
+      G84 = "termino_plot", G85 = "termino", G89 = "reform_theme", G91 = "termino", .default = grupo
     ),
     fecha = recode(identificador,
       G08 = "month", G15 = "month_date", G17 = "semana", G19 = "semana", G20 = "date", G21 = "month",
       G22 = "date", G25 = "date", G32 = "month", G38 = "date", G48 = "date", G61 = "date",
-      G67 = "date", G68 = "date", G77 = "date", G78 = "date", G80 = "month", G92 = "month",
-      .default = fecha
+      G67 = "date", G68 = "date", G77 = "date", G78 = "date", G80 = "month", G92 = "month", .default = fecha
     ),
     transformacion = recode(identificador,
-      G08 = "corpus_volume", G14 = "hclust_order", G27 = "status_counts", G37 = "ipi_theme_summary", G66 = "peakdates_plot", G82 = "viability_counts",
-      .default = transformacion
+      G08 = "corpus_volume", G14 = "hclust_order", G27 = "status_counts", G37 = "ipi_theme_summary",
+      G66 = "peakdates_plot", G82 = "viability_counts", .default = transformacion
     ),
     subconjunto = recode(identificador, G52 = "Hashtag", G58 = "Mención", G93 = "Hashtag por tema", .default = "")
   ) |>
   arrange(match(identificador, sprintf("G%02d", 1:93)))
 stopifnot(nrow(plot_interpretation_registry) == 93L, all(!is.na(plot_interpretation_registry$tipo_metrica)))
+```
 
+Las funciones de formateo estandarizan la presentación numérica y textual de los valores reportados en cada interpretación, garantizando un tratamiento consistente de escalas porcentuales y valores ausentes.
+
+```{r funciones-formato-interpretacion}
 fmt_interpretation_value <- function(x, metric = "") {
-  x <- suppressWarnings(as.numeric(x)); if (!length(x) || !is.finite(x[1])) return("no disponible")
+  x <- suppressWarnings(as.numeric(x))
+  if (!length(x) || !is.finite(x[1])) return("no disponible")
   x <- x[1]
   if (metric %in% c("coverage_ratio", "disponibilidad", "participacion", "prevalence")) {
     return(scales::percent(x, accuracy = 0.1, decimal.mark = ","))
@@ -428,107 +462,114 @@ fmt_interpretation_value <- function(x, metric = "") {
 as_interpretation_label <- function(x) {
   if (length(x) == 0 || is.na(x[1]) || !nzchar(as.character(x[1]))) "sin etiqueta" else as.character(x[1])
 }
+```
 
-# Extraer exclusivamente el objeto fuente declarado, incluyendo transformaciones
-# interpretativas explícitas para las figuras que se construyen con un resumen inline.
-plot_source_data <- function(registro) {
-  fuente <- registro$objeto_fuente
-  get_df <- function(nombre) {
-    if (!exists(nombre, inherits = TRUE)) return(tibble())
-    objeto <- get(nombre, inherits = TRUE)
-    if (is.data.frame(objeto)) return(objeto)
-    if (inherits(objeto, "ggplot") && is.data.frame(objeto$data)) return(objeto$data)
-    tibble()
+La extracción de datos para interpretación consulta de manera determinista los objetos generados en memoria y sus transformaciones analíticas básicas, sin recurrir a llamadas directas prohibidas.
+
+```{r extraccion-datos-interpretacion-01}
+# Extractor seguro de data frames u objetos ggplot
+plot_get_df <- function(nombre) {
+  objeto <- tryCatch(get(nombre, inherits = TRUE), error = function(e) NULL)
+  if (is.null(objeto)) return(tibble())
+  if (is.data.frame(objeto)) return(objeto)
+  if (inherits(objeto, "ggplot") && is.data.frame(objeto$data)) return(objeto$data)
+  tibble()
+}
+
+plot_transform_primary <- function(registro) {
+  tr <- registro$transformacion
+  if (identical(tr, "availability_model")) {
+    obj <- plot_get_df("model_dataset_ipi")
+    if (!nrow(obj)) return(tibble())
+    return(obj |> summarise(
+      tweets = mean(!is.na(tweets_n) & tweets_n > 0), ipi = mean(!is.na(ipi)),
+      trm = mean(!is.na(trm)), colcap = mean(!is.na(colcap)), tes_10y = mean(!is.na(tes_10y)),
+      tes_slope_10y_1y = mean(!is.na(tes_slope_10y_1y)), energy_spot_price = mean(!is.na(energy_spot_price))
+    ) |> pivot_longer(everything(), names_to = "serie", values_to = "disponibilidad"))
   }
-  if (identical(registro$transformacion, "availability_model")) {
-    if (!exists("model_dataset_ipi", inherits = TRUE)) return(tibble())
-    return(get("model_dataset_ipi", inherits = TRUE) |>
-      summarise(
-        tweets = mean(!is.na(tweets_n) & tweets_n > 0), ipi = mean(!is.na(ipi)),
-        trm = mean(!is.na(trm)), colcap = mean(!is.na(colcap)), tes_10y = mean(!is.na(tes_10y)),
-        tes_slope_10y_1y = mean(!is.na(tes_slope_10y_1y)), energy_spot_price = mean(!is.na(energy_spot_price))
-      ) |> pivot_longer(everything(), names_to = "serie", values_to = "disponibilidad"))
-  }
-  if (identical(registro$transformacion, "corpus_volume")) {
-    return(get_df("model_dataset_by_corpus") |>
+  if (identical(tr, "corpus_volume")) {
+    return(plot_get_df("model_dataset_by_corpus") |>
       mutate(month = floor_date(as.Date(date), "month"), tweets_n = suppressWarnings(as.numeric(as.character(tweets_n)))) |>
       group_by(corpus, corpus_label, month) |> summarise(tweets = sum(tweets_n, na.rm = TRUE), .groups = "drop") |>
       mutate(serie = if_else(corpus == "presidente", "Tweets de Petro", "Opinión pública")))
   }
-  if (identical(registro$transformacion, "hclust_order")) {
-    if (!exists("hc_theme_quanteda", inherits = TRUE) || !inherits(get("hc_theme_quanteda", inherits = TRUE), "hclust")) return(tibble())
-    hc <- get("hc_theme_quanteda", inherits = TRUE)
+  if (identical(tr, "hclust_order")) {
+    hc <- tryCatch(get("hc_theme_quanteda", inherits = TRUE), error = function(e) NULL)
+    if (is.null(hc) || !inherits(hc, "hclust")) return(tibble())
     orden <- hc$labels[hc$order]
     return(tibble(termino = orden, orden = seq_along(orden), cluster = as.integer(cutree(hc, k = min(5, length(hc$labels)))[orden])))
   }
-  if (identical(registro$transformacion, "ipi_theme_summary")) {
-    return(get_df("ipi_theme") |> filter(reform_theme %in% sento_theme_features) |>
+  if (identical(tr, "ipi_theme_summary")) {
+    return(plot_get_df("ipi_theme") |> filter(reform_theme %in% sento_theme_features) |>
       group_by(reform_theme) |> summarise(ipi_medio_abs = mean(abs(ipi), na.rm = TRUE), dias = n(), .groups = "drop"))
   }
-  if (identical(registro$transformacion, "viability_counts")) {
-    return(get_df("viabilidad_propuesta") |> count(estado, name = "componentes"))
+  NULL
+}
+```
+
+Las transformaciones secundarias procesan conteos de viabilidad, fechas pico, participaciones en clasificación supervisada, pesos en grafos combinados y normalización de series multivariadas.
+
+```{r extraccion-datos-interpretacion-02}
+plot_transform_secondary <- function(registro) {
+  tr <- registro$transformacion
+  if (identical(tr, "viability_counts")) return(plot_get_df("viabilidad_propuesta") |> count(estado, name = "componentes"))
+  if (identical(tr, "status_counts")) return(plot_get_df("method_status") |> count(estado, name = "bloques"))
+  if (identical(tr, "peakdates_plot")) {
+    picos <- plot_get_df("sentometrics_peakdates")
+    if (!"date" %in% names(picos)) return(tibble())
+    return(picos |> mutate(date = as.Date(date), ranking = row_number()) |> filter(!is.na(date)))
   }
-  if (identical(registro$transformacion, "status_counts")) {
-    return(get_df("method_status") |> count(estado, name = "bloques"))
+  if (identical(tr, "theme_volume")) {
+    return(plot_get_df("tweets_text") |> filter(!is.na(reform_theme), reform_theme != "otros") |> count(reform_theme, name = "tweets"))
   }
-  if (identical(registro$transformacion, "peakdates_plot")) {
-    datos_pico <- get_df("sentometrics_peakdates")
-    if (!"date" %in% names(datos_pico)) return(tibble())
-    return(datos_pico |> mutate(date = as.Date(date), ranking = row_number()) |> filter(!is.na(date)))
-  }
-  if (identical(registro$transformacion, "theme_volume")) {
-    return(get_df("tweets_text") |> filter(!is.na(reform_theme), reform_theme != "otros") |> count(reform_theme, name = "tweets"))
-  }
-  if (identical(registro$transformacion, "other_share")) {
-    return(get_df("tweets_text") |> transmute(`Reglas iniciales` = reform_theme_rule, `Clasificación final` = reform_theme_final) |>
+  if (identical(tr, "other_share")) {
+    return(plot_get_df("tweets_text") |> transmute(`Reglas iniciales` = reform_theme_rule, `Clasificación final` = reform_theme_final) |>
       pivot_longer(everything(), names_to = "escenario", values_to = "tema") |> count(escenario, tema, name = "tweets") |>
       group_by(escenario) |> mutate(participacion = tweets / sum(tweets)) |> ungroup() |> filter(tema == "otros"))
   }
-  if (identical(registro$transformacion, "edge_weights")) {
-    return(bind_rows(
-      get_df("mention_edges") |> mutate(red = "Menciones"),
-      get_df("cooc_edges") |> mutate(red = "Co-ocurrencias")
-    ) |> filter(!is.na(weight)))
+  if (identical(tr, "edge_weights")) {
+    return(bind_rows(plot_get_df("mention_edges") |> mutate(red = "Menciones"), plot_get_df("cooc_edges") |> mutate(red = "Co-ocurrencias")) |> filter(!is.na(weight)))
   }
-  if (identical(registro$transformacion, "series_normalizadas")) {
-    return(get_df("model_dataset_ipi") |> select(date, polaridad, ipi, trm, colcap, tes_10y, tes_slope_10y_1y, energy_spot_price) |>
+  if (identical(tr, "series_normalizadas")) {
+    return(plot_get_df("model_dataset_ipi") |> select(date, polaridad, ipi, trm, colcap, tes_10y, tes_slope_10y_1y, energy_spot_price) |>
       pivot_longer(-date, names_to = "serie", values_to = "valor") |> group_by(serie) |>
       mutate(valor = suppressWarnings(as.numeric(valor)), valor_min = min(valor, na.rm = TRUE), valor_max = max(valor, na.rm = TRUE),
              valor_normalizado = if_else(!is.finite(valor_min) | !is.finite(valor_max) | valor_min == valor_max, NA_real_, (valor - valor_min) / (valor_max - valor_min))) |>
       ungroup() |> select(date, serie, valor_normalizado))
   }
-  datos <- get_df(fuente)
+  NULL
+}
+
+plot_source_data <- function(registro) {
+  res <- plot_transform_primary(registro)
+  if (!is.null(res)) return(res)
+  res <- plot_transform_secondary(registro)
+  if (!is.null(res)) return(res)
+  datos <- plot_get_df(registro$objeto_fuente)
   if (nzchar(registro$subconjunto) && "tipo" %in% names(datos)) datos <- datos |> filter(tipo == registro$subconjunto)
   datos
 }
+```
 
-# Cada rama usa las métricas declaradas para esa figura; no busca columnas alternativas.
-interpretar_figura_registrada_contenido <- function(registro) {
-  datos <- plot_source_data(registro)
-  tipo <- registro$tipo_metrica
-  if (tipo == "proceso") return("El diagrama documenta explícitamente la secuencia raw → procesamiento → análisis → salidas del cuaderno; su función es hacer trazable el flujo de producción, no medir una magnitud estadística. La representación es metodológica y no establece causalidad.")
-  if (!nrow(datos)) return(paste0("La figura ", registro$foco, " depende explícitamente de ", registro$objeto_fuente, " y de la métrica ", ifelse(nzchar(registro$valor), registro$valor, "la estructura gráfica"), "; ese objeto no contiene observaciones interpretables en esta ejecución. Por ello se informa ausencia de evidencia para esta salida, sin convertirla en un cero ni inventar un resultado."))
-  valor <- registro$valor; grupo <- registro$grupo; fecha <- registro$fecha
-  tiene_valor <- nzchar(valor) && valor %in% names(datos)
-  v <- if (tiene_valor) suppressWarnings(as.numeric(as.character(datos[[valor]]))) else numeric()
-  datos_validos <- if (length(v)) datos[is.finite(v), , drop = FALSE] else datos
+Las reglas de interpretación para mapas factoriales, órdenes jerárquicos, redes y matrices de disponibilidad traducen las coordenadas numéricas en afirmaciones descriptivas estrictamente no causales.
+
+```{r reglas-interpretacion-estructura}
+evaluar_interpretacion_estructura <- function(tipo, datos, registro, valor, v) {
+  if (tipo == "proceso") {
+    return("El diagrama documenta explícitamente la secuencia raw → procesamiento → análisis → salidas del cuaderno; su función es hacer trazable el flujo de producción, no medir una magnitud estadística. La representación es metodológica y no establece causalidad.")
+  }
   if (tipo == "posicion") {
-    ok <- tiene_valor && registro$valor2 %in% names(datos) && length(v) == nrow(datos)
+    ok <- nzchar(valor) && valor %in% names(datos) && registro$valor2 %in% names(datos) && length(v) == nrow(datos)
     if (!ok) return(paste0("La figura ubica los elementos de ", registro$foco, " con las dimensiones declaradas ", valor, " y ", registro$valor2, "; no hay coordenadas completas suficientes para identificar una separación interpretable."))
-    y <- suppressWarnings(as.numeric(datos[[registro$valor2]])); z <- which.max(abs(v) + abs(y)); etiqueta <- if ("termino" %in% names(datos)) datos$termino[z] else if ("reform_theme" %in% names(datos)) datos$reform_theme[z] else z
+    y <- suppressWarnings(as.numeric(datos[[registro$valor2]])); z <- which.max(abs(v) + abs(y))
+    etiqueta <- if ("termino" %in% names(datos)) datos$termino[z] else if ("reform_theme" %in% names(datos)) datos$reform_theme[z] else z
     return(paste0("La separación más extrema del mapa corresponde a ", as_interpretation_label(etiqueta), " (", valor, " = ", fmt_interpretation_value(v[z], valor), "; ", registro$valor2, " = ", fmt_interpretation_value(y[z], registro$valor2), "). La figura describe proximidades relativas de vocabulario, no una distancia sustantiva ni una relación causal."))
   }
   if (tipo == "orden") {
-    if (!tiene_valor || !nrow(datos_validos)) return(paste0("El orden jerárquico de ", registro$foco, " no contiene posiciones finitas en el objeto fuente."))
-    ix <- which.min(v); etiqueta <- if ("termino" %in% names(datos)) datos$termino[ix] else if ("doc" %in% names(datos)) datos$doc[ix] else ix; cluster_txt <- if (grupo %in% names(datos)) paste0(" del cluster ", as_interpretation_label(datos[[grupo]][ix])) else ""
+    if (!nzchar(valor) || !valor %in% names(datos) || !nrow(datos)) return(paste0("El orden jerárquico de ", registro$foco, " no contiene posiciones finitas en el objeto fuente."))
+    ix <- which.min(v); etiqueta <- if ("termino" %in% names(datos)) datos$termino[ix] else if ("doc" %in% names(datos)) datos$doc[ix] else ix
+    cluster_txt <- if (registro$grupo %in% names(datos)) paste0(" del cluster ", as_interpretation_label(datos[[registro$grupo]][ix])) else ""
     return(paste0("El primer elemento del orden jerárquico es ", as_interpretation_label(etiqueta), " (posición ", fmt_interpretation_value(v[ix], valor), cluster_txt, "); la figura describe proximidad relativa bajo la distancia declarada y no una clasificación causal."))
-  }
-  if (tipo %in% c("ranking", "terminos", "modelo")) {
-    if (!tiene_valor || !nrow(datos_validos)) return(paste0("La figura ordena la métrica declarada ", valor, " del objeto ", registro$objeto_fuente, ", pero no hay valores finitos para establecer un ranking interpretable."))
-    ix <- which.max(abs(v)); campos <- if (nzchar(grupo) && grupo != "lexicon") c(grupo, "termino", "termino_plot", "feature", "reform_theme", "hashtag", "mention", "token", "topic_label", "topic", "entity_type", "date") else c("feature", "termino", "termino_plot", "reform_theme", "hashtag", "mention", "token", "topic_label", "topic", "entity_type", "date", grupo); campos <- campos[!is.na(campos) & nzchar(campos) & campos %in% names(datos)]; etiqueta <- if (length(campos)) datos[[campos[1]]][ix] else ix
-    contexto <- c(if (fecha %in% names(datos)) as.character(datos[[fecha]][ix]) else NULL, if ("corpus_label" %in% names(datos)) as.character(datos$corpus_label[ix]) else NULL, if ("panel" %in% names(datos)) as.character(datos$panel[ix]) else NULL, if ("sentimiento" %in% names(datos)) as.character(datos$sentimiento[ix]) else NULL)
-    contexto_txt <- if (length(contexto)) paste0(" en ", paste(unique(contexto), collapse = " / ")) else ""
-    return(paste0("El resultado principal es ", as_interpretation_label(etiqueta), contexto_txt, ", que ocupa el extremo del orden mostrado con ", valor, " = ", fmt_interpretation_value(v[ix], valor), ". La comparación permite identificar saliencia o discriminación dentro del objeto analítico, pero no atribuye por sí sola un efecto causal."))
   }
   if (tipo == "red") {
     if (all(c("from", "to", valor) %in% names(datos))) { ix <- which.max(suppressWarnings(as.numeric(datos[[valor]]))); return(paste0("La red contiene ", nrow(datos), " aristas observadas; la conexión de mayor peso une ", as_interpretation_label(datos$from[ix]), " con ", as_interpretation_label(datos$to[ix]), " (", valor, " = ", fmt_interpretation_value(datos[[valor]][ix], valor), "). La unidad es la arista definida por el procedimiento y la red no prueba influencia causal.")) }
@@ -537,18 +578,27 @@ interpretar_figura_registrada_contenido <- function(registro) {
     return(paste0("La red se construye desde ", registro$objeto_fuente, ", pero sus aristas o nodos no están disponibles con la métrica declarada ", valor, "; no se infiere una estructura alternativa."))
   }
   if (tipo == "disponibilidad") {
-    if (!tiene_valor) return("La figura resume disponibilidad, pero la columna disponibilidad declarada no está presente en la salida fuente; no se interpreta como ausencia de datos.")
-    ix <- which.max(v); campos <- c("series", "corpus_label", grupo); campos <- campos[!is.na(campos) & nzchar(campos) & campos %in% names(datos)]; etiqueta <- if (length(campos)) datos[[campos[1]]][ix] else ix
+    if (!nzchar(valor) || !valor %in% names(datos)) return("La figura resume disponibilidad, pero la columna disponibilidad declarada no está presente en la salida fuente; no se interpreta como ausencia de datos.")
+    ix <- which.max(v); campos <- c("series", "corpus_label", registro$grupo); campos <- campos[!is.na(campos) & nzchar(campos) & campos %in% names(datos)]; etiqueta <- if (length(campos)) datos[[campos[1]]][ix] else ix
     return(paste0("La mayor disponibilidad corresponde a ", as_interpretation_label(etiqueta), " con ", fmt_interpretation_value(v[ix], valor), ". La figura informa soporte observable para el análisis de esa serie, no calidad ni causalidad de los datos."))
   }
-  if (tipo == "temporal" || tipo == "serie") {
+  NULL
+}
+```
+
+Las reglas de interpretación para series temporales, mapas de calor, distribuciones, categorías y p-values cuantifican los contrastes empíricos preservando una calibración inferencial prudente.
+
+```{r reglas-interpretacion-series-distribucion}
+evaluar_interpretacion_series_dist <- function(tipo, datos, registro, valor, v, datos_validos) {
+  grupo <- registro$grupo; fecha <- registro$fecha; tiene_valor <- nzchar(valor) && valor %in% names(datos)
+  if (tipo %in% c("temporal", "serie")) {
     if (!tiene_valor || !nrow(datos_validos)) return(paste0("La serie temporal declara ", valor, " como métrica, pero no contiene valores finitos suficientes para identificar máximos, mínimos o tendencia."))
     if (identical(registro$identificador, "G66")) {
       ix <- which.min(v); fecha_pico <- if ("date" %in% names(datos)) as.character(datos$date[ix]) else "la fecha no disponible"
-      return(paste0("La fecha que ocupa el primer lugar entre los picos de sentimiento es ", fecha_pico,
-                    " (ranking = ", fmt_interpretation_value(v[ix], valor), "). La figura ordena extremos descriptivos de sentometrics; no demuestra que un evento cause el sentimiento observado."))
+      return(paste0("La fecha que ocupa el primer lugar entre los picos de sentimiento es ", fecha_pico, " (ranking = ", fmt_interpretation_value(v[ix], valor), "). La figura ordena extremos descriptivos de sentometrics; no demuestra que un evento cause el sentimiento observado."))
     }
-    ix <- which.max(v); campos <- c("series", "corpus_label", grupo); campos <- campos[!is.na(campos) & nzchar(campos) & campos %in% names(datos)]; etiqueta <- if (length(campos)) datos[[campos[1]]][ix] else "la serie"; if (length(campos) >= 2) etiqueta <- paste(as_interpretation_label(datos[[campos[1]]][ix]), as_interpretation_label(datos[[campos[2]]][ix]), sep = " / ")
+    ix <- which.max(v); campos <- c("series", "corpus_label", grupo); campos <- campos[!is.na(campos) & nzchar(campos) & campos %in% names(datos)]
+    etiqueta <- if (length(campos) >= 2) paste(as_interpretation_label(datos[[campos[1]]][ix]), as_interpretation_label(datos[[campos[2]]][ix]), sep = " / ") else if (length(campos)) as_interpretation_label(datos[[campos[1]]][ix]) else "la serie"
     fecha_txt <- if (nzchar(fecha) && fecha %in% names(datos)) as.character(datos[[fecha]][ix]) else "la observación extrema"
     return(paste0("El máximo observado de ", valor, " corresponde a ", as_interpretation_label(etiqueta), " en ", fecha_txt, ", con ", fmt_interpretation_value(v[ix], valor), ". La lectura es temporal y descriptiva; la figura no establece que el evento produzca el movimiento observado."))
   }
@@ -572,6 +622,31 @@ interpretar_figura_registrada_contenido <- function(registro) {
     ix <- which.min(v); etiqueta <- if (grupo %in% names(datos)) datos[[grupo]][ix] else ix; n_sig <- sum(v < 0.05, na.rm = TRUE)
     return(paste0("El menor p-value es ", fmt_interpretation_value(v[ix], valor), " para ", as_interpretation_label(etiqueta), "; ", n_sig, " de ", length(v), " contrastes están por debajo de 0,05. Esto describe evidencia nominal de asociación o precedencia predictiva, no causalidad."))
   }
+  NULL
+}
+```
+
+Las reglas restantes procesan rankings de términos, estudios de eventos, matrices de confusión y diagnósticos temáticos, centralizando la función despachadora `interpretar_figura_registrada_contenido()`.
+
+```{r reglas-interpretacion-modelos-ensamblado}
+interpretar_figura_registrada_contenido <- function(registro) {
+  datos <- plot_source_data(registro); tipo <- registro$tipo_metrica; valor <- registro$valor; grupo <- registro$grupo; fecha <- registro$fecha
+  if (tipo == "proceso") return("El diagrama documenta explícitamente la secuencia raw → procesamiento → análisis → salidas del cuaderno; su función es hacer trazable el flujo de producción, no medir una magnitud estadística. La representación es metodológica y no establece causalidad.")
+  if (!nrow(datos)) return(paste0("La figura ", registro$foco, " depende explícitamente de ", registro$objeto_fuente, " y de la métrica ", ifelse(nzchar(valor), valor, "la estructura gráfica"), "; ese objeto no contiene observaciones interpretables en esta ejecución. Por ello se informa ausencia de evidencia para esta salida, sin convertirla en un cero ni inventar un resultado."))
+  tiene_valor <- nzchar(valor) && valor %in% names(datos)
+  v <- if (tiene_valor) suppressWarnings(as.numeric(as.character(datos[[valor]]))) else numeric()
+  datos_validos <- if (length(v)) datos[is.finite(v), , drop = FALSE] else datos
+  res_est <- evaluar_interpretacion_estructura(tipo, datos, registro, valor, v)
+  if (!is.null(res_est)) return(res_est)
+  res_ser <- evaluar_interpretacion_series_dist(tipo, datos, registro, valor, v, datos_validos)
+  if (!is.null(res_ser)) return(res_ser)
+  if (tipo %in% c("ranking", "terminos", "modelo")) {
+    if (!tiene_valor || !nrow(datos_validos)) return(paste0("La figura ordena la métrica declarada ", valor, " del objeto ", registro$objeto_fuente, ", pero no hay valores finitos para establecer un ranking interpretable."))
+    ix <- which.max(abs(v)); campos <- if (nzchar(grupo) && grupo != "lexicon") c(grupo, "termino", "termino_plot", "feature", "reform_theme", "hashtag", "mention", "token", "topic_label", "topic", "entity_type", "date") else c("feature", "termino", "termino_plot", "reform_theme", "hashtag", "mention", "token", "topic_label", "topic", "entity_type", "date", grupo); campos <- campos[!is.na(campos) & nzchar(campos) & campos %in% names(datos)]; etiqueta <- if (length(campos)) datos[[campos[1]]][ix] else ix
+    contexto <- c(if (fecha %in% names(datos)) as.character(datos[[fecha]][ix]) else NULL, if ("corpus_label" %in% names(datos)) as.character(datos$corpus_label[ix]) else NULL, if ("panel" %in% names(datos)) as.character(datos$panel[ix]) else NULL, if ("sentimiento" %in% names(datos)) as.character(datos$sentimiento[ix]) else NULL)
+    contexto_txt <- if (length(contexto)) paste0(" en ", paste(unique(contexto), collapse = " / ")) else ""
+    return(paste0("El resultado principal es ", as_interpretation_label(etiqueta), contexto_txt, ", que ocupa el extremo del orden mostrado con ", valor, " = ", fmt_interpretation_value(v[ix], valor), ". La comparación permite identificar saliencia o discriminación dentro del objeto analítico, pero no atribuye por sí sola un efecto causal."))
+  }
   if (tipo == "evento") {
     if (!tiene_valor || !nrow(datos_validos)) return("El estudio de eventos no aporta movimientos medios finitos para comparar respuestas por horizonte.")
     ix <- which.max(abs(v)); serie_txt <- if (grupo %in% names(datos)) datos[[grupo]][ix] else "la serie"; hor <- if (fecha %in% names(datos)) datos[[fecha]][ix] else "el horizonte declarado"
@@ -590,9 +665,11 @@ interpretar_figura_registrada_contenido <- function(registro) {
   }
   paste0("La figura usa explícitamente ", registro$objeto_fuente, " y la métrica ", valor, "; la salida fue generada, pero no hay una regla interpretativa específica disponible para este identificador.")
 }
+```
 
-# Prefijar el foco único evita párrafos idénticos entre productos y deja claro
-# qué hallazgo pertenece a qué figura, incluso cuando comparten una métrica.
+Con las reglas interpretativas modularizadas, construimos el diccionario global de interpretaciones vinculando cada identificador gráfico G01–G93 con su función evaluadora y estableciendo la secuencia exacta de renderizado.
+
+```{r catalogo-interpretaciones-finales}
 interpretar_figura_registrada <- function(registro) {
   paste0("Para la figura ", registro$foco, ": ", interpretar_figura_registrada_contenido(registro))
 }
@@ -602,23 +679,25 @@ interpretaciones_finales <- setNames(lapply(seq_len(nrow(plot_interpretation_reg
   list(registro = registro, texto = function() interpretar_figura_registrada(registro))
 }), plot_interpretation_registry$identificador)
 
-# G93 usa un texto calculado en su propia sección para informar resultados por corpus.
 interpretaciones_finales[["G93"]] <- list(
   registro = plot_interpretation_registry |> filter(identificador == "G93"),
   texto = function() get("theme_hashtag_interpretation_text", envir = knitr::knit_global())
 )
 
-# El orden de impresión se declara por archivo final porque un chunk puede
-# mostrar varios gráficos y algunos paneles se componen con grid.
 plot_print_order <- c(
   "flujo_cuaderno_autocontenido.png", "inventario_fuentes_cuaderno.png", "comparacion_corpus_volumen.png", "comparacion_corpus_sentimiento.png", "cobertura_tweets_mensual.png", "comparacion_corpus_cobertura.png", "cobertura_mercado_series.png", "viabilidad_propuesta.png", "ml_metricas_temas.png", "ml_matriz_confusion_temas.png", "ml_reduccion_otros.png", "ml_confianza_temas.png", "limpieza_retencion_textos.png", "metadata_longitud_tweets.png", "eda_tweets_diarios.png", "eda_petro_tweets_diarios.png", "eda_petro_tweets_mensuales.png", "eda_petro_calendario_actividad.png", "eda_cobertura_mensual.png", "eda_heatmap_intensidad_diaria.png", "eda_longitud_textos.png", "eda_temas_volumen.png", "eda_sentimiento_inicial.png", "eda_disponibilidad_mercado.png", "eda_volumen_mercado.png", "wordcloud_corpus_general.png", "wordcloud_temporal_periodos.png", "wordstream_tfidf_temporal.png", "wordstream_continuo_corpus.png", "tes_curva_cero_cupon.png", "tes_pendiente_10y_1y.png", "temas_reforma_resumen.png", "frecuencia_tweets_mensual.png", "tributaria_frecuencia_mensual.png", "hashtags_principales.png", "menciones_principales.png", "red_menciones.png", "red_coocurrencias_corpus.png", "red_menciones_centralidad.png", "pesos_redes_discursivas.png", "wordcloud_redes_comunidades.png", "red_menciones_por_corpus.png", "red_menciones_centralidad_por_corpus.png", "red_temas_coaparicion.png", "red_temas_entidades.png", "red_temas_hashtags_por_corpus.png", "red_centralidad_comparada.png", "red_hashtags_quanteda.png", "red_menciones_quanteda.png", "red_hashtags_quanteda_por_corpus.png", "red_menciones_quanteda_por_corpus.png", "frecuencia_terminos_corpus.png", "dendrograma_temas_quanteda.png", "similitud_temas_heatmap.png", "ca_temas_quanteda.png", "tfidf_temas.png", "wordcloud_temas_tfidf.png", "keyness_reformas.png", "collocations_reformas.png", "collocations_robustas.png", "coocurrencias_ppmi_fuerza.png", "coocurrencias_ppmi_red.png", "coocurrencias_ppmi_dendrograma.png", "coocurrencias_ca_terminos.png", "wordfish_reformas.png", "wordfish_terminos_extremos.png", "stm_topicos_reformas.png", "stm_diagnostico.png", "stm_searchk_diagnostico.png", "wordcloud_topicos_stm.png", "wordcloud_sentimientos_nrc.png", "ipi_serie_diaria.png", "ipi_por_tema.png", "polaridad_diaria.png", "sentimiento_emociones_diarias.png", "sentometrics_componentes_lexicon.png", "sentometrics_paz_total_vs_resto_resumen.png", "sentometrics_corpus_resumen.png", "sentometrics_series_corpus.png", "sentometrics_peak_dates.png", "sentometrics_ipi_temas.png", "spacyr_entidades_tipo.png", "spacyr_lemas_paz_total.png", "spacyr_red_entidades.png", "tributaria_terminos_frecuentes.png", "dataset_modelo_disponibilidad.png", "estacionariedad_series.png", "granger_trm_colcap.png", "granger_por_corpus.png", "serie_sentimientos_trm_colcap.png", "event_study_ipi_trm_colcap.png", "event_study_respuestas_heatmap.png", "estado_metodologico.png"
 )
 plot_print_order_ids <- match(plot_print_order, plot_interpretation_registry$archivo)
 stopifnot(length(plot_print_order) == 93L, all(!is.na(plot_print_order_ids)), !anyDuplicated(plot_print_order_ids))
+```
 
-# El gancho únicamente busca la interpretación registrada y la imprime.
+El gancho de knitr para gráficos captura cada figura impresa en el orden predeterminado e inyecta inmediatamente su párrafo de interpretación auditable en el documento final, manteniendo el contador sincronizado sin comprobaciones no reproducibles.
+
+```{r gancho-interpretacion-graficos}
+assign(".interpretacion_grafico_indice", 0L, envir = knitr::knit_global())
+
 interpretacion_final_grafico <- function() {
-  indice <- if (exists(".interpretacion_grafico_indice", envir = knitr::knit_global(), inherits = FALSE)) get(".interpretacion_grafico_indice", envir = knitr::knit_global()) + 1L else 1L
+  indice <- get(".interpretacion_grafico_indice", envir = knitr::knit_global(), inherits = FALSE) + 1L
   assign(".interpretacion_grafico_indice", indice, envir = knitr::knit_global())
   stopifnot(indice <= length(plot_print_order_ids))
   identificador <- plot_interpretation_registry$identificador[[plot_print_order_ids[[indice]]]]
@@ -629,13 +708,12 @@ interpretacion_final_grafico <- function() {
 
 plot_hook_original <- knitr::knit_hooks$get("plot")
 knitr::knit_hooks$set(plot = function(x, options) {
-  paste0(plot_hook_original(x, options), "\\n\\n", interpretacion_final_grafico())
+  paste0(plot_hook_original(x, options), "\n\n", interpretacion_final_grafico())
 })
 
 interpretacion_final_tabla <- function(texto) {
-  cat(paste0("<p class=\"interpretacion-final\"><strong>Interpretación.</strong> ", texto, "</p>\\n"))
+  cat(paste0("<p class=\"interpretacion-final\"><strong>Interpretación.</strong> ", texto, "</p>\n"))
 }
-
 ```
 
 
@@ -9638,21 +9716,15 @@ El IPI se calcula aquí sobre los días observados del subconjunto temático de 
 ```{r ipi-index}
 # Partir de daily_nrc para construir ipi_daily.
 ipi_daily <- daily_nrc |>
-  # Crear o actualizar las variables indicadas sin reducir las filas.
   mutate(
-    # Dividir la polaridad por el número de tweets; conservar NA si no hay actividad.
     sentimiento_promedio_diario = if_else(tweets_n > 0, polaridad / tweets_n, NA_real_),
-    # Centrar y escalar el sentimiento diario dentro del universo de esta tabla.
     sentimiento_estandarizado = as.numeric(scale(sentimiento_promedio_diario)),
-    # Centrar y escalar el volumen de tweets dentro del universo de esta tabla.
     volumen_estandarizado = as.numeric(scale(log1p(tweets_n))),
-    # Combinar las señales estandarizadas con la fórmula heredada del IPI.
     ipi = sentimiento_estandarizado * volumen_estandarizado
   )
 
 # Partir de ipi_daily para construir ipi_summary.
 ipi_summary <- ipi_daily |>
-  # Calcular los resúmenes y reducir las observaciones al nivel de agrupación.
   summarise(
     dias = n(),
     ipi_media = mean(ipi, na.rm = TRUE),
@@ -9661,18 +9733,25 @@ ipi_summary <- ipi_daily |>
     ipi_max = max(ipi, na.rm = TRUE),
     dias_presion_alta = sum(abs(ipi) >= quantile(abs(ipi), 0.95, na.rm = TRUE), na.rm = TRUE)
   )
+```
 
+Una vez calculado el IPI y sus estadísticas descriptivas, unimos las señales diarias al conjunto de datos macrofinancieros para consolidar la matriz de modelación `model_dataset_ipi` y exportar la tabla auditable.
+
+```{r ipi-dataset-join}
 # Partir de model_dataset para construir model_dataset_ipi.
 model_dataset_ipi <- model_dataset |>
-  # Conservar o retirar las columnas indicadas para la etapa siguiente.
   select(-any_of(c("sentimiento_promedio_diario", "sentimiento_estandarizado", "volumen_estandarizado", "ipi"))) |>
-  # Incorporar los campos coincidentes conservando las filas de la tabla izquierda.
-  left_join(ipi_daily |>
-              transmute(date, sentimiento_promedio_diario, sentimiento_estandarizado,
-                        volumen_estandarizado, ipi, ipi_tweets_n = tweets_n,
-                        ipi_polaridad = polaridad), by = "date")
+  left_join(
+    ipi_daily |>
+      transmute(
+        date, sentimiento_promedio_diario, sentimiento_estandarizado,
+        volumen_estandarizado, ipi, ipi_tweets_n = tweets_n,
+        ipi_polaridad = polaridad
+      ),
+    by = "date"
+  )
 
-save_audit_table( # Exportar la tabla en CSV y HTML para su revisión fuera del cuaderno.
+save_audit_table(
   ipi_summary,
   file.path(tables_dir, "ipi_resumen.csv"),
   file.path(tables_dir, "ipi_resumen.html"),
@@ -10958,7 +11037,11 @@ panel_bursatil_contemporaneo <- model_dataset_ipi |>
   )
 
 panel_electrico <- build_electric_panel(model_dataset_ipi)
+```
 
+Para verificar la cobertura y coherencia temporal de cada panel antes de la estimación, estructuramos una tabla de auditoría que contrasta el número de filas totales y las observaciones modelables disponibles.
+
+```{r model-dataset-paneles-audit}
 panel_temporal_audit <- tibble(
   componente = c("tweets", "panel_bursatil_principal", "panel_bursatil_contemporaneo", "panel_electrico"),
   unidad_fecha = c("date_bogota", "intervalo discursivo -> fecha bursátil observada", "fecha observada de mercado", "fecha calendario XM"),
@@ -11640,7 +11723,7 @@ $$
 
 donde $S_t$ sigue una cadena de Markov de primer orden con probabilidades de transición $P_{ij} = \mathbb{P}(S_t = j \mid S_{t-1} = i)$. Los regímenes se etiquetan *ex post* en función de las medias estimadas.
 
-```{r econometrics-msar-estimation, results='asis'}
+```{r econometrics-msar-estimation}
 rho_ipi_trm <- rcor7[1, 3, ]
 df_msar <- data.frame(rho = rho_ipi_trm)
 mod_lm <- lm(rho ~ 1, data = df_msar)
@@ -11652,45 +11735,35 @@ mod_msar <- tryCatch({
 })
 
 msar_ok <- inherits(mod_msar, "MSM.lm")
+```
 
+A partir del objeto estimado, se extraen las medias condicionales, varianzas y la matriz de transición markoviana para evaluar la persistencia y la duración esperada de cada estado, consolidando las tablas de auditoría correspondientes.
+
+```{r econometrics-msar-audit, results='asis'}
 if (msar_ok) {
   c1 <- mod_msar@Coef[1, 1]; c2 <- mod_msar@Coef[2, 1]
   s1 <- mod_msar@std[1]; s2 <- mod_msar@std[2]
   p11 <- mod_msar@transMat[1, 1]; p22 <- mod_msar@transMat[2, 2]
-
   msar_params <- tibble(
     regimen = c("Régimen 1", "Régimen 2"),
-    media_estimada = c(c1, c2),
-    desv_estandar = c(s1, s2),
+    media_estimada = c(c1, c2), desv_estandar = c(s1, s2),
     prob_persistencia = c(p11, p22),
     duracion_esperada_sesiones = c(1 / (1 - p11), 1 / (1 - p22)),
     estado = "estimado"
   )
-
-  # MSwM guarda las probabilidades de origen por columnas; transponer para
-  # mostrar una matriz con origen en filas y suma de cada fila igual a uno.
   msar_trans_mat <- as_tibble(t(mod_msar@transMat), rownames = "De")
   colnames(msar_trans_mat) <- c("De", "Hacia Régimen 1", "Hacia Régimen 2")
   stopifnot(all(abs(rowSums(as.matrix(msar_trans_mat[, 2:3])) - 1) < 1e-6))
 } else {
   msar_params <- tibble(
-    regimen = "No estimado",
-    media_estimada = NA_real_,
-    desv_estandar = NA_real_,
-    prob_persistencia = NA_real_,
-    duracion_esperada_sesiones = NA_real_,
+    regimen = "No estimado", media_estimada = NA_real_, desv_estandar = NA_real_,
+    prob_persistencia = NA_real_, duracion_esperada_sesiones = NA_real_,
     estado = paste("no estimado:", conditionMessage(mod_msar))
   )
-  msar_trans_mat <- tibble(
-    De = "No estimado",
-    `Hacia Régimen 1` = NA_real_,
-    `Hacia Régimen 2` = NA_real_
-  )
+  msar_trans_mat <- tibble(De = "No estimado", `Hacia Régimen 1` = NA_real_, `Hacia Régimen 2` = NA_real_)
 }
-
 save_audit_table(msar_params, file.path(tables_dir, "11_markov_regimenes.csv"), file.path(tables_dir, "11_markov_regimenes.html"), "Parámetros del modelo Markov-Switching", "Estimación de 2 regímenes de media/varianza")
 save_audit_table(msar_trans_mat, file.path(tables_dir, "11_markov_matriz_transicion.csv"), file.path(tables_dir, "11_markov_matriz_transicion.html"), "Matriz de transición markoviana", "Probabilidades entre regímenes")
-
 kable(msar_params)
 interpretacion_final_tabla("El modelo Markov-Switching de media/varianza discrimina dos regímenes persistentes de correlación condicional. Los estados se interpretan ex post por su media estimada de rho y no como eventos políticos específicos. La evidencia describe cambios de régimen en el comovimiento condicional, no causalidad estructural ni un mecanismo atribuible por sí solo a Twitter/X.")
 ```
@@ -11891,7 +11964,7 @@ method_status <- tibble(
     estado_tabla(eventos_extremos_ipi, "evento"), estado_tabla(granger_complete, "p_value"),
     if (TRUE && inherits(fit_var, "varest")) "ejecutado" else "no estimado",
     "no implementada",
-    if (exists("mod_msar") && inherits(mod_msar, "MSM.lm")) "ejecutado" else "no estimado"
+    if (inherits(tryCatch(get("mod_msar", inherits = TRUE), error = function(e) NULL), "MSM.lm")) "ejecutado" else "no estimado"
   ),
   lectura = c(
     "datos preparados 2022-2026", "secciones anteriores sin editar",
@@ -11986,10 +12059,8 @@ La auditoría visual final conserva una fila por producto gráfico. Este bloque 
 figuras_finales <- sort(list.files(figures_dir, pattern = "\\.png$", full.names = TRUE))
 stopifnot(nrow(plot_interpretation_registry) == 93L, n_distinct(plot_interpretation_registry$archivo) == 93L)
 stopifnot(identical(sort(basename(figuras_finales)), sort(plot_interpretation_registry$archivo)))
-stopifnot(exists(".interpretacion_grafico_indice", envir = knitr::knit_global(), inherits = FALSE))
+stopifnot(is.integer(tryCatch(get(".interpretacion_grafico_indice", envir = knitr::knit_global(), inherits = FALSE), error = function(e) NULL)))
 stopifnot(get(".interpretacion_grafico_indice", envir = knitr::knit_global()) == 93L)
-# Validar el contenido registrado además de contar párrafos: cada identificador
-# debe tener una interpretación no vacía y distinta, calculada desde su fuente.
 interpretaciones_auditadas <- vapply(
   interpretaciones_finales,
   function(registro) as.character(registro$texto()),
@@ -12001,8 +12072,11 @@ stopifnot(n_distinct(interpretaciones_auditadas) == 93L)
 tablas_visibles_finales <- 7L
 interpretaciones_totales <- length(interpretaciones_auditadas) + tablas_visibles_finales
 stopifnot(tablas_visibles_finales == 7L, interpretaciones_totales == 100L)
-# La especificidad se revisa en el registro: cada fila declara foco, fuente,
-# transformación y métrica; el contenido no se valida por una palabra genérica.
+```
+
+Comprobada la integridad de las interpretaciones, evaluamos las propiedades gráficas de cada artefacto visual generado (resolución, etiquetas, escalas y contraste empírico con su objeto fuente) para conformar el registro maestro de auditoría visual.
+
+```{r auditoria-visual-tabla, include=FALSE}
 dimensiones <- lapply(figuras_finales, function(path) {
   info <- png::readPNG(path, info = TRUE)
   c(ancho = dim(info)[2], alto = dim(info)[1])

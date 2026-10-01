@@ -5,7 +5,7 @@
 
 <p>
   <img src="https://img.shields.io/badge/R-4.x-276DC3?logo=r&logoColor=white" alt="R">
-  <img src="https://img.shields.io/badge/R%20Markdown-reproducible-75AADB?logo=r&logoColor=white" alt="R Markdown">
+  <img src="https://img.shields.io/badge/Quarto-reproducible-447099?logo=quarto&logoColor=white" alt="Quarto">
   <img src="https://img.shields.io/badge/cuaderno-analisis%20autocontenido-2f7d50" alt="Cuaderno autocontenido">
   <img src="https://img.shields.io/badge/mercado-actualizacion%20manual-bd5d38" alt="Actualizacion manual de mercado">
   <img src="https://img.shields.io/badge/salidas-figuras%20%2B%20tablas%20gt-2a7a80" alt="Salidas">
@@ -42,6 +42,12 @@ sentimientos, tópicos y diagnósticos financieros exploratorios.
 - [Flujo del Proyecto](#flujo-del-proyecto)
 - [Estructura del Repositorio](#estructura-del-repositorio)
 - [Trazabilidad metodológica](#trazabilidad-metodológica)
+- [Estándar pedagógico de código y documentación](#estándar-pedagógico-de-código-y-documentación)
+  - [5.1 Prueba humana de cinco preguntas](#51-prueba-humana-de-cinco-preguntas)
+  - [5.2 Documentación en tres capas](#52-documentación-en-tres-capas)
+  - [5.3 Calibración del lenguaje inferencial](#53-calibración-del-lenguaje-inferencial)
+  - [5.4 Resultados dinámicos y legibilidad humana sobre compactación](#54-resultados-dinámicos-y-legibilidad-humana-sobre-compactación)
+  - [5.5 Checklist de verificación de 25 puntos](#55-checklist-de-verificación-de-25-puntos)
 - [Instalación](#instalación)
 - [Reproducir el Análisis](#reproducir-el-análisis)
 - [Metodología](#metodología)
@@ -199,6 +205,99 @@ Si se necesita congelar una extracción exacta para réplica cerrada,
 deben conservarse ambos master junto con los insumos raw y las
 auditorías de ingesta.
 
+## Estándar pedagógico de código y documentación
+
+Este repositorio adopta formalmente como política contractual de desarrollo la **Guía pedagógica para escribir código y documentación en R**. Todo script en `scripts/`, cuaderno metodológico en `notebooks/` y manuscrito en `paper/` debe ajustarse rigurosamente a los siguientes principios de legibilidad humana, rigor metodológico y reproducibilidad:
+
+### 5.1 Prueba humana de cinco preguntas
+
+Ninguna sección analítica, script de datos o bloque de modelado se considera concluido si un revisor técnico o par evaluador no puede responder de manera inmediata a cinco interrogantes esenciales antes de examinar el código:
+
+1. **¿Qué problema se resuelve?** (Propósito sustantivo de la sección).
+2. **¿Qué datos entran?** (Fuentes, rutas contractuales, llaves y filtros aplicados).
+3. **¿Qué transformación o modelo se aplica?** (Regla de negocio, algoritmo o especificación econométrica).
+4. **¿Qué evidencia sale?** (Tablas, gráficos, matrices o indicadores persistidos).
+5. **¿Qué decisión o paso sigue?** (Interpretación metodológica y conexión con la siguiente etapa).
+
+Si cualquiera de estas respuestas solo puede deducirse inspeccionando el código línea a línea, la documentación se considera insuficiente y no conforme. La unidad de lectura útil es la acción analítica completa, no la línea de código aislada.
+
+### 5.2 Documentación en tres capas
+
+La articulación técnica del código y la narrativa se estructura obligatoriamente en tres niveles complementarios:
+
+```
+[ Capa 1: Markdown antes del bloque ] -> Propósito, datos de entrada, regla/modelo y salida esperada
+                 ↓
+[ Capa 2: Comentarios dentro del código ] -> Justificación de decisiones, unidades, denominadores y excepciones
+                 ↓
+[ Capa 3: Interpretación tras el resultado ] -> Análisis académico inmediato de magnitudes, patrones y límites
+```
+
+- **Capa 1 (Markdown previo al código):** Explica el contexto sustantivo, los insumos recibidos, la transformación aplicada y el artefacto producido. Quedan expresamente prohibidas las introducciones mecánicas o vacías (tales como *"A continuación se ejecuta el siguiente código"* o *"Comprobar que la dependencia necesaria esté disponible"*).
+- **Capa 2 (Comentarios en el código):** Explican el *por qué* de la operación, unidades de medida, denominadores de ratios, ventanas temporales, tratamiento de observaciones incompletas y reglas de excepciones. No se limitan a describir la sintaxis elemental de R.
+- **Capa 3 (Interpretación posterior inmediata):** Toda tabla o figura final visible debe estar sucedida inmediatamente por un párrafo de interpretación académica que evalúe magnitudes numéricas o patrones gráficos, explicite limitaciones y vincule la evidencia con la hipótesis central siguiendo la secuencia obligatoria: `contexto → código → salida → interpretación`. Queda prohibido saltar de una figura al siguiente código sin interpretar.
+
+### 5.3 Calibración del lenguaje inferencial
+
+La fuerza de las afirmaciones analíticas debe corresponderse estrictamente con el grado de identificación del diseño empírico. Se prohíbe categóricamente afirmar causalidad en ausencia de una estrategia formal de identificación contrafactual. Un p-valor, una correlación, un modelo predictivo o un contraste de precedencia temporal no transforman automáticamente una relación en un efecto causal. El lenguaje técnico debe catalogar con precisión:
+
+- **Descripción:** Caracterización cuantitativa de la muestra observada (conteos, distribuciones, frecuencias).
+- **Asociación / Correlación:** Co-variación estadística entre variables (correlaciones, coeficientes OLS sin exogeneidad).
+- **Predicción:** Capacidad de anticipación algorítmica fuera de muestra bajo una métrica de error específica.
+- **Precedencia temporal:** Orden cronológico e informatividad estadística en rezagos (p. ej., contrastes de causalidad de Granger y modelos VAR). **La precedencia temporal no demuestra causalidad económica estructural.**
+- **Causalidad:** Efecto atribuible exclusivamente a la variación exógena de un tratamiento bajo supuestos de identificación formalmente demostrados.
+
+Todo resultado econométrico debe articularse según la cadena:
+$$\text{Referencia teórica} \longrightarrow \text{Pregunta} \longrightarrow \text{Ecuación/Modelo} \longrightarrow \text{Muestra/Datos} \longrightarrow \text{Código} \longrightarrow \text{Resultado} \longrightarrow \text{Interpretación}$$
+
+Queda expresamente prohibido el uso de verbos causales (*"causa"*, *"determina"*, *"impacta"*, *"genera"*) ante salidas descriptivas, correlacionales o contrastes de Granger/VAR no identificados estructuralmente.
+
+### 5.4 Resultados dinámicos y legibilidad humana sobre compactación
+
+- **Legibilidad sobre compactación:** Se priorizan nombres de objetos descriptivos en `snake_case`, pasos analíticos explícitos y estructuras auditables frente a sintaxis hiper-compactas o metaprogramación oscura.
+- **Resultados dinámicos:** Ningún valor estadístico clave debe redactarse como una constante fija en el texto que corra el riesgo de desactualizarse. Las conclusiones numéricas deben derivarse de las salidas generadas en la corrida reproducible.
+- **Foco modular de chunks:** Como estándar pedagógico, cada bloque de código se mantiene en un máximo aproximado de **40 líneas interiores**, delimitando una única responsabilidad analítica. **Jamás se dividen llamadas completas, funciones o tuberías sintácticas a la mitad únicamente por acatar el conteo de líneas.**
+- **Figuras y tablas autocontenidas:** Los gráficos y tablas deben ser interpretables de manera autónoma, incorporando títulos informativos, ejes con unidades explícitas, períodos muestrales y notas explicativas. Los objetos auxiliares intermedios no deben imprimirse en el documento renderizado.
+
+### 5.5 Checklist de verificación de 25 puntos
+
+Antes de integrar cambios o publicar versiones definitivas del código y documentación, debe auditarse el cumplimiento de la siguiente lista de control organizada en cinco dimensiones:
+
+#### Dimensión 1: Prueba humana (Puntos 1–5)
+- [ ] **1. Claridad de objetivo y problema:** La pregunta y el propósito de cada sección son comprensibles sin leer el código línea por línea.
+- [ ] **2. Transparencia de insumos:** Las fuentes de datos, rutas contractuales, llaves y filtros aplicados se identifican con anterioridad a la ejecución.
+- [ ] **3. Especificación de transformación o modelo:** La regla de negocio, algoritmo o especificación econométrica se explicita con claridad antes de los chunks de código.
+- [ ] **4. Evidencia y salidas autónomas:** Las tablas, gráficos o indicadores producidos emergen transparentemente del flujo y están catalogados.
+- [ ] **5. Conexión decisional y paso siguiente:** Cada sección analítica establece un puente explícito hacia la siguiente fase y declara la incertidumbre metodológica remanente.
+
+#### Dimensión 2: Estructura y legibilidad (Puntos 6–10)
+- [ ] **6. Convención de nombres:** Objetos y variables siguen una convención `snake_case` descriptiva e informativa, evitando abreviaturas crípticas (`tmp`, `df2`).
+- [ ] **7. Estilo R estable:** Asignaciones con `<-`, indentación de 2 espacios y uso consistente del pipe nativo `|>`.
+- [ ] **8. Dependencias directas y control de conflictos:** Paquetes directos declarados al inicio con comentarios sobre su finalidad analítica; desambiguación documentada con `conflict_prefer()`.
+- [ ] **9. Rutas portables y parámetros centralizados:** Rutas construidas estrictamente mediante `here::here()` sin `setwd()` ni rutas absolutas locales; parámetros globales, semillas y umbrales unificados al inicio.
+- [ ] **10. Modularidad, tamaño y etiquetas de chunks:** Chunks breves (~40 líneas interiores) orientados a una única tarea, con etiquetas únicas en `kebab-case` y preservación de la integridad sintáctica sin divisiones artificiales.
+
+#### Dimensión 3: Calibración inferencial (Puntos 11–15)
+- [ ] **11. Capa 1 (Markdown previo al código):** Prosa introductoria sustantiva con insumo, objetivo, transformación y salida esperada (sin introducciones vacías).
+- [ ] **12. Capa 2 (Comentarios en el código):** Justificación del *por qué*, unidades de medida, denominadores de ratios, ventanas temporales y manejo de excepciones en el código.
+- [ ] **13. Capa 3 (Interpretación posterior inmediata):** Párrafo de análisis académico inmediato tras cada resultado final visible siguiendo `contexto → código → salida → interpretación`.
+- [ ] **14. Gráficos y tablas autocontenidas:** Figuras con títulos descriptivos, ejes rotulados con unidades explícitas, leyendas y notas de muestra interpretables por sí solas.
+- [ ] **15. Calibración estricta del lenguaje inferencial:** Distinción rigurosa de descripción, asociación, predicción, precedencia temporal y causalidad, sin afirmaciones causales no demostradas.
+
+#### Dimensión 4: Metodología y econometría (Puntos 16–20)
+- [ ] **16. Validación de insumos y tipos seguros:** Verificación programática de existencia de archivos, esquemas, cobertura y tipos seguros (`col_character` para IDs de 64 bits).
+- [ ] **17. Auditoría de cruces (joins):** Verificación explícita de cardinalidad esperada, conteos de filas antes/después y control de registros sin correspondencia.
+- [ ] **18. Aserciones críticas con `stopifnot()`:** Controles críticos explícitos que detienen la ejecución ante fallos de precondiciones, esquemas o supuestos.
+- [ ] **19. Trazabilidad de estados analíticos:** Conservación de estados intermedios identificables (`_raw`, `_master`, etc.) a lo largo de las transformaciones de datos.
+- [ ] **20. Cadena metodológica econométrica:** Trazabilidad formal: referencia teórica $\to$ pregunta $\to$ ecuación/modelo $\to$ muestra/datos $\to$ código $\to$ diagnóstico adverso $\to$ interpretación.
+
+#### Dimensión 5: Gobernanza y reproducibilidad (Puntos 21–25)
+- [ ] **21. Supresión de salidas accesorias:** Supresión de objetos auxiliares intermedios y tablas borrador en el documento renderizado.
+- [ ] **22. Transparencia de limitaciones y diagnósticos adversos:** Declaración explícita de diagnósticos desfavorables (p. ej., inestabilidad VAR, Johansen $r=0$, Granger FDR nulos), sesgos léxicos y supuestos no cumplidos.
+- [ ] **23. Reproducibilidad desde sesión limpia:** Compilación exitosa en entorno limpio (`quarto render` / `Rscript --vanilla`) sin dependencia del Global Environment ni variables residuales.
+- [ ] **24. Transparencia de advertencias y mensajes:** Errores y advertencias sustantivas no silenciados artificialmente para simular ejecuciones limpias.
+- [ ] **25. Verificación de artefactos persistidos y consistencia del README:** Reapertura y validación de tablas y figuras persistidas en disco, asegurando total coherencia con los README y la documentación.
+
 ## Instalación
 
 Instale R y los paquetes usados por el actualizador manual de mercado,
@@ -223,7 +322,7 @@ install.packages(
 ```
 
 La solicitud del README menciona `printree`. El paquete disponible
-actualmente en R es `printtree`; el Rmd busca primero `printree` y luego
+actualmente en R es `printtree`; `Cuaderno_Paper_Español.qmd` busca primero `printree` y luego
 usa `printtree` como implementación compatible.
 
 ## Reproducir el Análisis

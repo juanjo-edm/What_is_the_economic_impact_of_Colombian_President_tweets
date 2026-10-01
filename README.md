@@ -5,7 +5,7 @@
 
 <p>
   <img src="https://img.shields.io/badge/R-4.x-276DC3?logo=r&logoColor=white" alt="R">
-  <img src="https://img.shields.io/badge/R%20Markdown-reproducible-75AADB?logo=r&logoColor=white" alt="R Markdown">
+  <img src="https://img.shields.io/badge/Quarto-reproducible-447099?logo=quarto&logoColor=white" alt="Quarto">
   <img src="https://img.shields.io/badge/notebook-autocontained%20analysis-2f7d50" alt="Autocontained notebook">
   <img src="https://img.shields.io/badge/market%20data-manual%20update-bd5d38" alt="Manual market update">
   <img src="https://img.shields.io/badge/outputs-figures%20%2B%20gt%20tables-2a7a80" alt="Outputs">
@@ -42,6 +42,12 @@ sentiment, topics, and exploratory financial diagnostics.
 - [Project Workflow](#project-workflow)
 - [Repository Structure](#repository-structure)
 - [Methodological Traceability](#methodological-traceability)
+- [Pedagogical Standard for Code and Documentation](#pedagogical-standard-for-code-and-documentation)
+  - [5.1 Human Test: Five Guiding Questions](#51-human-test-five-guiding-questions)
+  - [5.2 Three-Layer Documentation Framework](#52-three-layer-documentation-framework)
+  - [5.3 Inferential Language Calibration](#53-inferential-language-calibration)
+  - [5.4 Dynamic Results and Readability over Compactness](#54-dynamic-results-and-readability-over-compactness)
+  - [5.5 25-Point Verification Checklist](#55-25-point-verification-checklist)
 - [Installation](#installation)
 - [Reproduce the Analysis](#reproduce-the-analysis)
 - [Methodology](#methodology)
@@ -197,6 +203,99 @@ Market traceability lives in:
 For a closed replication snapshot, freeze both master CSVs together with
 the raw market inputs and refresh audits.
 
+## Pedagogical Standard for Code and Documentation
+
+This repository formally establishes the **Pedagogical Guide for Writing Code and Documentation in R** as its contractual development policy. All data scripts in `scripts/`, methodological notebooks in `notebooks/`, and manuscripts in `paper/` must adhere strictly to the following principles of human readability, methodological rigor, and reproducibility:
+
+### 5.1 Human Test: Five Guiding Questions
+
+No analytical section, data script, or modeling block is considered complete unless an external reviewer or peer evaluator can immediately answer five core questions before inspecting the source code:
+
+1. **What problem is being solved?** (Substantive purpose of the section).
+2. **What data enters?** (Sources, contractual file paths, primary keys, and sample filters).
+3. **What transformation or model is applied?** (Business rule, algorithm, or econometric specification).
+4. **What evidence comes out?** (Persisted tables, figures, matrices, or summary metrics).
+5. **What decision or next step follows?** (Methodological interpretation and bridge to the next analytical stage).
+
+If any of these answers can only be obtained by mentally parsing the code line by line, the documentation is deemed incomplete and non-compliant. The primary reading unit of the project is the complete analytical action rather than isolated lines of code.
+
+### 5.2 Three-Layer Documentation Framework
+
+Technical code and narrative explanation are structured across three mandatory, complementary layers:
+
+```
+[ Layer 1: Markdown before code ] -> Purpose, inputs, applied transformation/model, and expected output
+                 ↓
+[ Layer 2: Comments within code ] -> Rationale behind decisions, units, denominators, and edge-case handling
+                 ↓
+[ Layer 3: Interpretation after output ] -> Immediate academic analysis of magnitudes, visual patterns, and limits
+```
+
+- **Layer 1 (Markdown before code):** Details the substantive context, incoming inputs, transformation applied, and produced artifact. Generic or empty introductory statements (e.g., *"The following code is executed"* or *"Check that the necessary dependency is available"*) are strictly prohibited.
+- **Layer 2 (Inline code comments):** Explains the *why* of the operation, measurement units, ratio denominators, temporal rolling windows, missing-value handling, and exception rules. Comments must not merely echo elementary R syntax.
+- **Layer 3 (Immediate post-result interpretation):** Every visible final table or figure must be immediately succeeded by an academic interpretation paragraph analyzing numeric magnitudes or graphical patterns, declaring empirical limitations, and relating findings to the central hypothesis following the mandatory sequence: `context → code → output → interpretation`. Jumping from a figure to subsequent code without interpretation is prohibited.
+
+### 5.3 Inferential Language Calibration
+
+The strength of analytical claims must remain strictly proportional to the empirical design's degree of identification. Stating causal impacts without a credible counterfactual identification strategy is expressly prohibited. A p-value, correlation, predictive model, or temporal precedence test does not automatically transform a statistical relationship into a causal effect. Technical prose must rigorously discriminate among:
+
+- **Description:** Quantitative characterization of observed sample data (counts, distributions, frequencies).
+- **Association / Correlation:** Statistical co-variation across variables without inferring causal direction or ruling out confounders.
+- **Prediction:** Out-of-sample algorithmic forecasting ability under a predefined error metric.
+- **Temporal precedence:** Chronological ordering and lag informativeness (e.g., Granger causality tests and VAR models). **Temporal precedence does not establish structural economic causality.**
+- **Causality:** Effect attributable strictly to exogenous treatment variation under formally validated identification assumptions.
+
+All econometric results must follow the formal methodological chain:
+$$\text{Theoretical reference} \longrightarrow \text{Research question} \longrightarrow \text{Equation/Model} \longrightarrow \text{Sample/Data} \longrightarrow \text{Code} \longrightarrow \text{Result} \longrightarrow \text{Interpretation}$$
+
+Causal verbs (*"causes"*, *"drives"*, *"determines"*, *"impacts"*) are prohibited when interpreting descriptive, correlational, or non-structurally identified Granger/VAR models.
+
+### 5.4 Dynamic Results and Readability over Compactness
+
+- **Readability over compactness:** Self-explanatory `snake_case` naming conventions, explicit analytical workflows, and auditable pipelines take precedence over dense one-liners or opaque metaprogramming.
+- **Dynamic results:** Key statistical estimates must not be hardcoded as static narrative constants susceptible to obsolescence upon data updates. Quantitative takeaways must derive dynamically from reproducible execution outputs.
+- **Modular chunk scope:** As a pedagogical guideline, code chunks are bounded to an approximate limit of **~40 internal lines**, encapsulating a single analytical task. **Complete function calls, conditionals, or graphics pipelines must never be split across chunks solely to satisfy line limits.**
+- **Self-contained outputs:** All exported figures and tables must be fully interpretable on their own, featuring informative titles, labeled axes with explicit units, sample period definitions, and comprehensive notes. Intermediate scratch tables and duplicate outputs are suppressed from the rendered document.
+
+### 5.5 25-Point Verification Checklist
+
+Before integrating modifications or publishing releases, compliance with the following 25 verification points categorized across five core dimensions must be audited:
+
+#### Dimension 1: Human Test (Points 1–5)
+- [ ] **1. Problem and purpose clarity:** The problem and research question of each section are readily understood without parsing code line by line.
+- [ ] **2. Input data transparency:** Ingoing datasets, file paths, primary keys, and sample restrictions are explicitly identified prior to execution.
+- [ ] **3. Transformation and model specification:** The applied business logic, algorithmic transformation, or statistical equation is clearly stated before code chunks.
+- [ ] **4. Autonomous evidence and outputs:** Resulting tables, figures, or metrics clearly emerge from the workflow and are explicitly cataloged.
+- [ ] **5. Decisional bridge and next step:** Each analytical section establishes an explicit bridge to the subsequent step and states remaining methodological uncertainty.
+
+#### Dimension 2: Structure and Readability (Points 6–10)
+- [ ] **6. Consistent naming:** Objects and variables follow informative, self-describing `snake_case`, avoiding opaque abbreviations (`tmp`, `df2`).
+- [ ] **7. Stable R styling:** Assignments use `<-`, indentation is set to 2 spaces, and pipelines leverage the native pipe `|>`.
+- [ ] **8. Direct dependencies and conflict resolution:** Required libraries are declared upfront with their analytical purpose; namespace clashes are resolved via `conflict_prefer()`.
+- [ ] **9. Portable paths and centralized parameters:** File paths rely strictly on `here::here()` without `setwd()` or absolute paths; sample dates, seeds, and thresholds are centralized upfront.
+- [ ] **10. Modular chunk scope and semantic labels:** Chunks remain concise (~40 internal lines), focus on a single task, carry unique `kebab-case` labels, and preserve syntactic integrity without artificial line splits.
+
+#### Dimension 3: Inferential Calibration (Points 11–15)
+- [ ] **11. Layer 1 (Markdown context):** Substantive prose precedes code, specifying input, question, transformation, and output (no boilerplate or empty introductions).
+- [ ] **12. Layer 2 (Inline code comments):** Rationale behind decisions, denominators, units, rolling windows, and edge cases are thoroughly documented.
+- [ ] **13. Layer 3 (Immediate academic interpretation):** Academic interpretation paragraphs follow immediately after every visible result following `context → code → output → interpretation`.
+- [ ] **14. Self-contained visuals and tables:** Figures provide descriptive titles, labeled axes with explicit units, and autonomous legends and notes.
+- [ ] **15. Calibrated inferential language:** Description, association, prediction, temporal precedence, and causality are rigorously separated, with zero unverified causal claims.
+
+#### Dimension 4: Methodology and Econometrics (Points 16–20)
+- [ ] **16. Input schema validation and safe types:** Programmatic checks verify file existence, column schemas, coverage, and safe types (`col_character` on 64-bit IDs).
+- [ ] **17. Join integrity audit:** Table merges explicitly control for expected cardinality, row count changes, and unmatched records.
+- [ ] **18. Critical stop assertions (`stopifnot()`):** Explicit assertions halt execution with informative diagnostics upon schema anomalies or precondition failures.
+- [ ] **19. Analytical state traceability:** Multi-stage data pipelines preserve clear intermediate states (`_raw`, `_master`, etc.) for auditability.
+- [ ] **20. Econometric traceability chain:** Models follow the formal chain: theoretical reference $\to$ question $\to$ equation $\to$ sample $\to$ code $\to$ adverse diagnostic $\to$ interpretation.
+
+#### Dimension 5: Governance and Reproducibility (Points 21–25)
+- [ ] **21. Auxiliary output suppression:** Intermediate scratch tables and duplicate outputs are suppressed from the rendered document.
+- [ ] **22. Transparent limitations and adverse diagnostics:** Adverse diagnostic results (e.g., VAR instability, Johansen $r=0$, Granger FDR nulls), dictionary lexical biases, and unresolved assumptions are clearly disclosed.
+- [ ] **23. Clean-session reproducibility:** The entire workflow renders cleanly (`quarto render` / `Rscript --vanilla`) without environment leakage or Global Environment dependencies.
+- [ ] **24. Unmasked diagnostic messages:** Substantive warnings and data issues are preserved rather than silenced to simulate clean runs.
+- [ ] **25. Persisted artifact integrity and README fidelity:** Persisted artifacts are validated upon disk reload, and documentation faithfully mirrors the repository layout.
+
 ## Installation
 
 Install R and the R packages used by the manual market updater,
@@ -220,7 +319,7 @@ install.packages(
 ```
 
 The user-facing README request referred to `printree`. The currently
-available R package is `printtree`; the Rmd checks for `printree` first
+available R package is `printtree`; `Cuaderno_Paper_Español.qmd` checks for `printree` first
 and then uses `printtree` as the compatible implementation.
 
 ## Reproduce the Analysis

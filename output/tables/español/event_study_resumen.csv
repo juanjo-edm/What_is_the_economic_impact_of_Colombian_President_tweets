@@ -1,41 +1,41 @@
 evento,serie,horizonte,movimiento_medio,eventos_con_dato,unidad
-IPI extremo,COLCAP,1,0.0015316856852913713,8,retorno en fracción
-IPI extremo,COLCAP,3,-0.011372563999315287,8,retorno en fracción
-IPI extremo,COLCAP,5,-0.01271166758731511,8,retorno en fracción
-IPI extremo,COLCAP,7,-0.011376239099274993,8,retorno en fracción
-IPI extremo,Pendiente TES 10Y-1Y,1,-0.03374999999999995,8,cambio en puntos porcentuales
-IPI extremo,Pendiente TES 10Y-1Y,3,-0.007500000000000673,8,cambio en puntos porcentuales
-IPI extremo,Pendiente TES 10Y-1Y,5,-0.025000000000000085,8,cambio en puntos porcentuales
-IPI extremo,Pendiente TES 10Y-1Y,7,-0.026250000000000384,8,cambio en puntos porcentuales
-IPI extremo,Precio energía XM,1,0.060714125284922225,10,retorno en fracción
-IPI extremo,Precio energía XM,3,0.07895173196470519,10,retorno en fracción
-IPI extremo,Precio energía XM,5,0.0741303639018512,10,retorno en fracción
-IPI extremo,Precio energía XM,7,0.1733857029672252,10,retorno en fracción
-IPI extremo,TES 10Y,1,0.016250000000000098,8,cambio en puntos porcentuales
-IPI extremo,TES 10Y,3,0.03249999999999953,8,cambio en puntos porcentuales
-IPI extremo,TES 10Y,5,-0.03125000000000022,8,cambio en puntos porcentuales
-IPI extremo,TES 10Y,7,-0.026250000000000107,8,cambio en puntos porcentuales
-IPI extremo,TRM,1,-0.0013771941477593453,10,retorno en fracción
-IPI extremo,TRM,3,-0.007252505334990299,10,retorno en fracción
-IPI extremo,TRM,5,-0.007062841222370354,10,retorno en fracción
-IPI extremo,TRM,7,-0.009178606237861594,10,retorno en fracción
-negatividad extrema,COLCAP,1,-0.0017040355239669703,9,retorno en fracción
-negatividad extrema,COLCAP,3,0.0025054812666849445,9,retorno en fracción
-negatividad extrema,COLCAP,5,0.0012581058937468671,10,retorno en fracción
-negatividad extrema,COLCAP,7,9.731876856027936e-4,9,retorno en fracción
-negatividad extrema,Pendiente TES 10Y-1Y,1,-0.0811111111111111,9,cambio en puntos porcentuales
-negatividad extrema,Pendiente TES 10Y-1Y,3,-0.08222222222222267,9,cambio en puntos porcentuales
-negatividad extrema,Pendiente TES 10Y-1Y,5,-0.13500000000000018,10,cambio en puntos porcentuales
-negatividad extrema,Pendiente TES 10Y-1Y,7,-0.06666666666666685,9,cambio en puntos porcentuales
-negatividad extrema,Precio energía XM,1,-0.019998675733152865,10,retorno en fracción
-negatividad extrema,Precio energía XM,3,0.13624414986683925,10,retorno en fracción
-negatividad extrema,Precio energía XM,5,0.0484611654449875,10,retorno en fracción
-negatividad extrema,Precio energía XM,7,0.23394207133220524,10,retorno en fracción
-negatividad extrema,TES 10Y,1,-0.03777777777777776,9,cambio en puntos porcentuales
-negatividad extrema,TES 10Y,3,-0.07444444444444463,9,cambio en puntos porcentuales
-negatividad extrema,TES 10Y,5,-0.10600000000000007,10,cambio en puntos porcentuales
-negatividad extrema,TES 10Y,7,-0.03888888888888905,9,cambio en puntos porcentuales
-negatividad extrema,TRM,1,-0.0030897666181454926,10,retorno en fracción
-negatividad extrema,TRM,3,-0.0016832094448538354,10,retorno en fracción
-negatividad extrema,TRM,5,-0.0037122567849584695,10,retorno en fracción
-negatividad extrema,TRM,7,-0.004256372123897919,10,retorno en fracción
+IPI extremo,COLCAP,1,-0.0011824171055751726,9,retorno en fracción
+IPI extremo,COLCAP,3,0.002472931024792607,10,retorno en fracción
+IPI extremo,COLCAP,5,0.008553759352804904,10,retorno en fracción
+IPI extremo,COLCAP,7,0.007612765444831197,9,retorno en fracción
+IPI extremo,Pendiente TES 10Y-1Y,1,0.03666666666666653,9,cambio en puntos porcentuales
+IPI extremo,Pendiente TES 10Y-1Y,3,-0.0600000000000005,10,cambio en puntos porcentuales
+IPI extremo,Pendiente TES 10Y-1Y,5,-0.03800000000000022,10,cambio en puntos porcentuales
+IPI extremo,Pendiente TES 10Y-1Y,7,-0.06444444444444444,9,cambio en puntos porcentuales
+IPI extremo,Precio energía XM,1,0.060373585480039724,10,retorno en fracción
+IPI extremo,Precio energía XM,3,0.20501278935043576,10,retorno en fracción
+IPI extremo,Precio energía XM,5,0.31240142178645836,10,retorno en fracción
+IPI extremo,Precio energía XM,7,0.31893511738505337,10,retorno en fracción
+IPI extremo,TES 10Y,1,0.023333333333333227,9,cambio en puntos porcentuales
+IPI extremo,TES 10Y,3,-0.08600000000000013,10,cambio en puntos porcentuales
+IPI extremo,TES 10Y,5,-0.01899999999999977,10,cambio en puntos porcentuales
+IPI extremo,TES 10Y,7,0.017777777777778173,9,cambio en puntos porcentuales
+IPI extremo,TRM,1,-0.0016085229142686055,10,retorno en fracción
+IPI extremo,TRM,3,-0.0033470831946999227,10,retorno en fracción
+IPI extremo,TRM,5,-0.008915507265933893,10,retorno en fracción
+IPI extremo,TRM,7,-0.012762083977495686,10,retorno en fracción
+negatividad extrema,COLCAP,1,0.005950617452256829,10,retorno en fracción
+negatividad extrema,COLCAP,3,0.01237768331993875,9,retorno en fracción
+negatividad extrema,COLCAP,5,0.015126364974157603,10,retorno en fracción
+negatividad extrema,COLCAP,7,0.0115940968442781,10,retorno en fracción
+negatividad extrema,Pendiente TES 10Y-1Y,1,-0.016999999999999776,10,cambio en puntos porcentuales
+negatividad extrema,Pendiente TES 10Y-1Y,3,-0.07555555555555551,9,cambio en puntos porcentuales
+negatividad extrema,Pendiente TES 10Y-1Y,5,-0.04099999999999996,10,cambio en puntos porcentuales
+negatividad extrema,Pendiente TES 10Y-1Y,7,-0.03199999999999985,10,cambio en puntos porcentuales
+negatividad extrema,Precio energía XM,1,0.11871711894052989,10,retorno en fracción
+negatividad extrema,Precio energía XM,3,0.10950228749901349,10,retorno en fracción
+negatividad extrema,Precio energía XM,5,0.14916213235653966,10,retorno en fracción
+negatividad extrema,Precio energía XM,7,0.12174129466950645,10,retorno en fracción
+negatividad extrema,TES 10Y,1,-0.023999999999999848,10,cambio en puntos porcentuales
+negatividad extrema,TES 10Y,3,0.08444444444444463,9,cambio en puntos porcentuales
+negatividad extrema,TES 10Y,5,0.11800000000000033,10,cambio en puntos porcentuales
+negatividad extrema,TES 10Y,7,0.17500000000000032,10,cambio en puntos porcentuales
+negatividad extrema,TRM,1,-9.423991971789198e-4,10,retorno en fracción
+negatividad extrema,TRM,3,-7.444867717544955e-4,10,retorno en fracción
+negatividad extrema,TRM,5,-0.004336732931635076,10,retorno en fracción
+negatividad extrema,TRM,7,-0.008382175244861035,10,retorno en fracción

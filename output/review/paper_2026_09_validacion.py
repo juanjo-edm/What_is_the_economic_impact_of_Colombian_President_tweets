@@ -57,28 +57,28 @@ def check():
 
     audit = rows(TABLES / "00_auditoria_temporal_paneles.csv")
     main = next(row for row in audit if row["componente"] == "panel_bursatil_principal")
-    assert (int(main["filas"]), int(main["observaciones_modelables"])) == (934, 898)
+    assert (int(main["filas"]), int(main["observaciones_modelables"])) == (934, 882)
 
     granger = rows(TABLES / "granger_resultados_completos.csv")
     assert len(granger) == 208
     families = defaultdict(list)
     for row in granger:
         families[row["dataset"]].append(row)
-    assert {key: len(value) for key, value in families.items()} == {"opinión temática": 112, "panel por corpus": 96}
+    assert {key: len(value) for key, value in families.items()} == {"comunicación presidencial": 112, "panel por corpus": 96}
     for family in families.values():
         adjusted = bh([float(row["p_value"]) for row in family])
         for row, q in zip(family, adjusted):
             assert math.isclose(float(row["q_value"]), q, rel_tol=1e-10, abs_tol=1e-10)
     nominal = sum(float(row["p_value"]) < 0.05 for row in granger)
     adjusted = sum(float(row["q_value"]) < 0.05 for row in granger)
-    assert (nominal, adjusted) == (19, 0)
+    assert (nominal, adjusted) == (12, 0)
     report["granger"] = {"tests": len(granger), "families": {key: len(value) for key, value in families.items()}, "nominal": nominal, "fdr": adjusted}
 
     dcc = rows(TABLES / "07_dcc_financiero_diagnostico.csv")
-    assert len(dcc) == 1 and (int(dcc[0]["observaciones"]), int(dcc[0]["convergencia"])) == (898, 0)
+    assert len(dcc) == 1 and (int(dcc[0]["observaciones"]), int(dcc[0]["convergencia"])) == (882, 0)
     dcc_params = {row["parametro"]: row for row in rows(TABLES / "07_dcc_financiero_parametros.csv")}
     assert float(dcc_params["[Joint]dcca1"]["p_value"]) > 0.05
-    report["dcc"] = {"observations": 898, "convergence_code": 0, "reaction_p": float(dcc_params["[Joint]dcca1"]["p_value"])}
+    report["dcc"] = {"observations": 882, "convergence_code": 0, "reaction_p": float(dcc_params["[Joint]dcca1"]["p_value"])}
 
     transition = rows(TABLES / "11_markov_matriz_transicion.csv")
     assert len(transition) == 2
@@ -100,9 +100,9 @@ def check():
     assert {int(row["horizonte"]) for row in events} == {1, 3, 5, 7}
     assert all(0 <= int(row["eventos_con_dato"]) <= 10 for row in events)
     seven_day = {(row["evento"], row["serie"]): row for row in events if row["horizonte"] == "7"}
-    assert round(100 * float(seven_day[("IPI extremo", "COLCAP")]["movimiento_medio"]), 2) == -1.14
-    assert round(100 * float(seven_day[("IPI extremo", "Precio energía XM")]["movimiento_medio"]), 2) == 17.34
-    assert round(100 * float(seven_day[("negatividad extrema", "Precio energía XM")]["movimiento_medio"]), 2) == 23.39
+    assert round(100 * float(seven_day[("IPI extremo", "COLCAP")]["movimiento_medio"]), 2) == 0.76
+    assert round(100 * float(seven_day[("IPI extremo", "Precio energía XM")]["movimiento_medio"]), 2) == 31.89
+    assert round(100 * float(seven_day[("negatividad extrema", "Precio energía XM")]["movimiento_medio"]), 2) == 12.17
     report["events"] = {"rows": len(events), "horizons_calendar_days": [1, 3, 5, 7], "units": sorted({row["unidad"] for row in events})}
 
     themes = rows(TABLES / "temas_reforma_resumen.csv")
@@ -111,12 +111,12 @@ def check():
         by_corpus[row["corpus"]] += int(row["tweets"])
     assert dict(by_corpus) == {"opinion": 8349, "presidente": 10784}
     ipi = rows(TABLES / "ipi_resumen.csv")
-    assert len(ipi) == 1 and int(ipi[0]["dias"]) == 1347
-    assert round(float(ipi[0]["ipi_media"]), 3) == 0.037
-    report["text_signals"] = {"classified_by_corpus": dict(by_corpus), "ipi_days": 1347}
+    assert len(ipi) == 1 and int(ipi[0]["dias"]) == 1271
+    assert round(float(ipi[0]["ipi_media"]), 3) == 0.005
+    report["text_signals"] = {"classified_by_corpus": dict(by_corpus), "ipi_days": 1271}
 
     text = PAPER.read_text(encoding="utf-8")
-    for literal in ["13.648", "14.659", "934", "898", "463", "208", "19"]:
+    for literal in ["13.648", "14.659", "934", "882", "463", "208", "12"]:
         assert literal in text
     bib = (ROOT / "paper/español/bibliography.bib").read_text(encoding="utf-8")
     bib_keys = set(re.findall(r"(?m)^@\w+\s*\{\s*([^,]+),", bib))

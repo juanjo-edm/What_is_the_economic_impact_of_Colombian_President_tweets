@@ -1,11 +1,11 @@
 modelo,estado,alcance
-Panel bursátil / eléctrico,ejecutado; interpretar con diagnósticos,934 respuestas bursátiles únicas; 1.400 días eléctricos
+Panel bursátil / eléctrico,ejecutado; interpretar con diagnósticos,934 respuestas bursátiles únicas (841 casos completos); 1.400 días eléctricos
 Pruebas ADF / KPSS,ejecutado; interpretar con diagnósticos,Niveles financieros compatibles con I(1); IPI y energía en nivel con diagnóstico mixto
-Cointegración Johansen,ejecutado; interpretar con diagnósticos,"r = 0 no rechazado en TRM, COLCAP y TES 10Y"
+Cointegración Johansen,ejecutado; interpretar con diagnósticos,"r = 0 no rechazado en TRM, COLCAP y TES 10Y (estadístico 27,85 < 34,91)"
 VAR(1) en transformadas,ejecutado; interpretar con diagnósticos,p = 1 conservado; AIC/FPE prefieren p = 2
 Diagnóstico del VAR,ejecutado; interpretar con diagnósticos,"Autocorrelación, no normalidad y ARCH residuales"
-ARMA-GARCH univariados,ejecutado; interpretar con diagnósticos,Siete convergencias; polaridad conserva ARCH y otras series autocorrelación
-DCC-GARCH multivariado,ejecutado; interpretar con diagnósticos,a no significativo; correlaciones medias pequeñas condicionadas al modelo
-Precedencia Granger y FDR,ejecutado; interpretar con diagnósticos,19 rechazos nominales de 208; cero tras FDR en dos familias
-Markov-Switching de media/varianza,ejecutado; interpretar con diagnósticos,Dos estados de correlación baja; matriz de transición con origen en filas
-Estudio de eventos,ejecutado; interpretar con diagnósticos,"Ventanas descriptivas de 1, 3, 5 y 7 días calendario; sin prueba causal"
+ARMA-GARCH univariados,ejecutado; interpretar con diagnósticos,"Siete convergencias; polaridad presidencial sin ARCH residual (p = 0,175), autocorrelación en 3 series"
+DCC-GARCH multivariado,ejecutado; interpretar con diagnósticos,"a no significativo (a = 0,0095, p = 0,166); correlaciones medias pequeñas (-0,044 a +0,056)"
+Precedencia Granger y FDR,ejecutado; interpretar con diagnósticos,12 rechazos nominales de 208 (5 de 112 en familia presidencial); cero tras FDR
+Markov-Switching de media/varianza,ejecutado; interpretar con diagnósticos,"Dos regímenes de correlación condicional IPI-TRM; régimen 1 persistente (29,0 sesiones)"
+Estudio de eventos,ejecutado; interpretar con diagnósticos,"Ventanas descriptivas de 1, 3, 5 y 7 días calendario sobre extremos presidenciales; sin prueba causal"

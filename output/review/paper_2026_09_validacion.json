@@ -15,16 +15,16 @@
   "granger": {
     "tests": 208,
     "families": {
-      "opinión temática": 112,
+      "comunicación presidencial": 112,
       "panel por corpus": 96
     },
-    "nominal": 19,
+    "nominal": 12,
     "fdr": 0
   },
   "dcc": {
-    "observations": 898,
+    "observations": 882,
     "convergence_code": 0,
-    "reaction_p": 0.20148677717762098
+    "reaction_p": 0.06916619809101654
   },
   "markov": {
     "row_sums_valid": true,
@@ -54,7 +54,7 @@
       "opinion": 8349,
       "presidente": 10784
     },
-    "ipi_days": 1347
+    "ipi_days": 1271
   },
   "references": {
     "cited": 26,

@@ -1,7 +1,7 @@
 
 <p><strong>🌐 Leer en:</strong> <a href="README.md">English</a> | <a href="README.es.md">Español</a></p>
 
-# Impacto económico de los tweets del presidente Petro
+# Comunicación presidencial y mercados financieros en Colombia: evidencia textual y de series de tiempo
 
 <p>
   <img src="https://img.shields.io/badge/R-4.x-276DC3?logo=r&logoColor=white" alt="R">
@@ -11,30 +11,13 @@
   <img src="https://img.shields.io/badge/salidas-figuras%20%2B%20tablas%20gt-2a7a80" alt="Salidas">
 </p>
 
-Este repositorio actualiza el paper **`Impacto_discurso_petro__ENG_`**
-para estudiar si la conversación en Twitter/X alrededor del presidente
-colombiano Gustavo Petro se asocia con movimientos de corto plazo en
-indicadores financieros de Colombia.
+Este repositorio investiga en qué medida la comunicación publicada por el presidente colombiano Gustavo Petro en Twitter/X (`@petrogustavo`) precede o se asocia con variaciones de corto plazo en los principales indicadores financieros de Colombia.
 
-El proyecto está organizado como un flujo reproducible en R para los
-snapshots mensuales de tweets entre **agosto de 2022 y mayo de 2026**.
-El diseño actual distingue dos corpus: `opinion`, con conversación
-pública sobre Petro en `data/raw/twitter/Opinión sobre Petro/`, y
-`presidente`, con tweets escritos por `@petrogustavo` en
-`data/raw/twitter/Tweets de Gustavo Petro/`. El bloque financiero usa
-`TRM` como serie cambiaria, `COLCAP` como proxy bursátil principal,
-tasas cero cupón `TES` en pesos como bloque de renta fija soberana y el
-precio diario ponderado nacional de energía de XM como serie del mercado
-eléctrico. Esas series se descargan como CSV oficiales en bruto en
-`data/raw/market/`. El script de procesamiento consolida después todos
-los insumos en dos contratos estables en `data/processed/`, y las
-auditorías de descarga y procedencia quedan en `output/tables/español/`.
-El paper original de 2023 se conserva como referencia conceptual e
-histórica en
-[`docs/paper/Impacto_discurso_petro__ENG_.pdf`](docs/paper/Impacto_discurso_petro__ENG_.pdf).
-La versión activa del paper está en Quarto y actualiza la narrativa con
-redes estilo `quanteda`, EDA de frecuencia de tweets presidenciales,
-sentimientos, tópicos y diagnósticos financieros exploratorios.
+El proyecto está organizado como un flujo reproducible en R para los snapshots mensuales de tweets entre **agosto de 2022 y mayo de 2026**. Metodológicamente, el análisis separa de forma estricta dos corpus:
+1. **Corpus principal (`presidente`):** Publicaciones emitidas directamente por `@petrogustavo` en `data/raw/twitter/Tweets de Gustavo Petro/`. Constituye el insumo exclusivo para todo el procesamiento de lenguaje natural orientado a la pregunta de investigación, los índices de presión informacional ($IPI_d$) y toda la modelación econométrica y de series de tiempo.
+2. **Corpus complementario (`opinion`):** Mensajes públicos recuperados mediante la consulta sobre "Gustavo Petro" en `data/raw/twitter/Opinión sobre Petro/`. Este corpus se conserva con fines de exploración textual descriptiva y auditoría de calidad de datos, pero queda estrictamente excluido de la econometría financiera e inferencia predictiva debido a un artefacto empírico de recolección (el 97,49% de los registros se concentran artificialmente a las 18:00 hora de Bogotá y existen topes diarios de 10 tweets).
+
+El bloque financiero integra series oficiales diarias: `TRM` (tasa de cambio), `COLCAP` (índice bursátil), rendimientos de bonos soberanos `TES` cero cupón (1, 5, 10 años y la pendiente 10Y-1Y) del Banco de la República, y el precio de bolsa nacional de energía de XM. Todos los insumos se consolidan en dos contratos estables en `data/processed/` (`tweets_master.csv` y `market_master.csv`). El documento activo es un artículo académico en Quarto siguiendo las normas de Taylor & Francis, acompañado de un cuaderno computacional reproducible.
 
 ## Tabla de Contenido
 
@@ -59,35 +42,20 @@ sentimientos, tópicos y diagnósticos financieros exploratorios.
 
 ## Descripción del Proyecto
 
-**Pregunta de investigación.** ¿Los tweets presidenciales y la
-conversación pública relacionada producen movimientos medibles de corto
-plazo en los mercados financieros colombianos?
+**Pregunta de investigación.** ¿En qué medida el contenido, el tono y la actividad observada en las publicaciones de `@petrogustavo` preceden o acompañan variaciones de la TRM, COLCAP, rendimientos TES y precio de bolsa de energía en Colombia durante la ventana empírica disponible?
 
-El análisis actualizado se concentra en:
+La investigación se concentra en:
 
-- frecuencia diaria de tweets y calidad de metadata;
-- frecuencia diaria, semanal y mensual de tweets emitidos por
-  `@petrogustavo`;
-- hashtags, menciones, co-menciones y redes de co-ocurrencia léxica;
-- redes de hashtags y menciones con el estilo visual del ejemplo de
-  Twitter de `quanteda`;
-- nubes de palabras por corpus, tiempo, temas, sentimientos, tópicos y
-  comunidades;
-- evolución temporal TF-IDF como apoyo reproducible al word stream;
-- clasificación temática con supervisión débil y evaluación holdout;
-- sentimiento NRC en español, polaridad y sentimiento diario ponderado;
-- minería de texto con `quanteda`, `quanteda.textstats` y
-  `quanteda.textplots`;
-- escalamiento Wordfish con `quanteda.textmodels`;
-- modelado de tópicos con `stm`;
-- diagnósticos de estacionariedad, pruebas de Granger y diagnósticos VAR
-  para `TRM`, `COLCAP`, `TES 10Y`, la pendiente `TES 10Y - TES 1Y` y el
-  precio de energía XM.
+- caracterización empírica de cobertura y frecuencia diaria, semanal y mensual de los mensajes de `@petrogustavo`;
+- redes discursivas de hashtags, menciones, co-menciones y co-ocurrencia léxica presidencial;
+- clasificación temática débilmente supervisada del discurso presidencial en agendas de reformas;
+- análisis de sentimiento NRC en español, polaridad y cálculo del Índice de Presión Informacional ($IPI_d$) presidencial;
+- auditoría empírica que documenta las limitaciones de extracción y concentración horaria del corpus secundario de `opinion`;
+- diagnósticos de estacionariedad, cointegración de Johansen, modelos VAR y contrastes de precedencia temporal de Granger con corrección FDR de Benjamini-Hochberg;
+- modelación multivariada de correlaciones condicionales dinámicas (DCC-GARCH) y cambios de régimen de Markov;
+- estudios de eventos para evaluar las trayectorias de mercado ante choques extremos de tono e intensidad discursiva bajo un enfoque observacional y no causal.
 
-El flujo actual usa series oficiales de BanRep para `TRM`, `COLCAP` y
-`TES`, además del precio oficial de energía de XM; el análisis activo ya
-no depende del proxy accionario antiguo usado en el estudio de caso
-original.
+El flujo actual usa series oficiales de BanRep para `TRM`, `COLCAP` y `TES`, además del precio oficial de energía de XM; toda la econometría empírica se basa exclusivamente en el corpus presidencial.
 
 ## Flujo del Proyecto
 

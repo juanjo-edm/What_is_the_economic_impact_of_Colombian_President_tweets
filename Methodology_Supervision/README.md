@@ -24,7 +24,8 @@ El documento `Supervision_Metodologica.qmd` aborda sistemáticamente cuatro comp
 * **Resultados auditados:**
   * **Corpus `opinion`:** 13.648 tweets, 13.648 IDs únicos, 0 duplicados, 0 textos vacíos tras limpieza, cubriendo 1.349 días entre el 2022-08-01 y el 2026-05-31.
   * **Corpus `presidente`:** 14.656 tweets, 14.656 IDs únicos, 0 duplicados, 222 textos vacíos en `text_clean` (mensajes compuestos exclusivamente por hipervínculos multimedia o menciones aisladas retiradas en el preprocesamiento), cubriendo 1.331 días a partir del 2022-08-07 (posesión presidencial).
-* **Salida persistida:** `output/tables/español/auditoria_comparada_dos_corpus.csv`.
+* **Hallazgo crítico de recolección (sesgo de extracción en `opinion`):** Se identificó que 13.305 de los 13.648 tweets (97,49%) en `opinion` se concentran artificialmente a las 18:00 horas (Bogotá) y el 95,77% de los días exhiben un tope diario de 10 tweets. En consecuencia, se estableció contractualmente que el corpus `opinion` queda restringido a exploración textual descriptiva y auditoría, siendo estrictamente excluido de modelos VAR, pruebas de Granger, GARCH/DCC, Markov-Switching y estudios de eventos, los cuales se ejecutan exclusivamente con el corpus `presidente` (`@petrogustavo`).
+* **Salidas persistidas:** `output/tables/español/auditoria_comparada_dos_corpus.csv`, `output/tables/español/auditoria_sesgo_horario_opinion.csv` y `output/tables/español/auditoria_sesgo_horario_opinion_resumen.csv`.
 
 ### B. Revisión de temas/keyness, sentimiento e IPI
 * **Temas y Keyness:** Diagnóstico de participación relativa (institucionalidad 34,5% en opinión vs 20,1% en presidente; seguridad 22,9% en presidente; salud 11,4%; internacional 10,4%; laboral 9,7%). Confirmación de distintividad léxica mediante estadístico $\chi^2$ de Keyness ($p < 0,001$).

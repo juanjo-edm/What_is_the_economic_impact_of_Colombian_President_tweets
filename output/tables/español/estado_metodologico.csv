@@ -6,7 +6,7 @@ corpus,ejecutado,matriz documento-término
 Wordfish,ejecutado,posición discursiva por tema
 STM,ejecutado,tópicos con prevalencia constante
 NRC,ejecutado,conteos NRC del subconjunto temático
-IPI,ejecutado,IPI temático de opinión; panel heredado preservado
+IPI,ejecutado,IPI temático presidencial; panel complementario de opinión preservado
 sentometrics,ejecutado,agregación diaria y promedio móvil por serie
 spacyr,ejecutado,entidades y lemas de la muestra original
 Event Study,ejecutado,diez extremos por criterio; ventanas descriptivas

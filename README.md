@@ -1,7 +1,7 @@
 
 <p><strong>🌐 Read this in:</strong> <a href="README.md">English</a> | <a href="README.es.md">Español</a></p>
 
-# Economic Impact of President Petro’s Tweets
+# Presidential Communication and Financial Markets in Colombia: Textual and Time Series Evidence
 
 <p>
   <img src="https://img.shields.io/badge/R-4.x-276DC3?logo=r&logoColor=white" alt="R">
@@ -11,30 +11,13 @@
   <img src="https://img.shields.io/badge/outputs-figures%20%2B%20gt%20tables-2a7a80" alt="Outputs">
 </p>
 
-This repository updates the paper **`Impacto_discurso_petro__ENG_`** by
-studying whether Twitter/X discussion around Colombian President Gustavo
-Petro is associated with short-run movements in Colombian financial
-indicators.
+This repository investigates whether the communication published by Colombian President Gustavo Petro on Twitter/X (`@petrogustavo`) precedes or is associated with short-run variations in key Colombian financial indicators.
 
-The project is now organized as a reproducible R workflow for the
-**August 2022-May 2026** monthly tweet snapshots. The current design
-separates two corpora: `opinion`, with public discussion about Petro in
-`data/raw/twitter/Opinión sobre Petro/`, and `presidente`, with tweets
-written by `@petrogustavo` in
-`data/raw/twitter/Tweets de Gustavo Petro/`. The financial block uses
-`TRM` as the exchange-rate series, `COLCAP` as the main stock-market
-proxy, peso-denominated zero-coupon `TES` rates as the sovereign
-fixed-income block, and XM’s daily weighted national energy spot price
-as the electricity-market series. Those market series are downloaded as
-raw official CSVs into `data/raw/market/`. The processing script then
-consolidates all inputs into two stable contracts in `data/processed/`;
-download and provenance audits are written under
-`output/tables/español/`. The original 2023 paper remains available as
-conceptual and historical context in
-[`docs/paper/Impacto_discurso_petro__ENG_.pdf`](docs/paper/Impacto_discurso_petro__ENG_.pdf).
-The active paper is a Quarto manuscript that updates the narrative with
-`quanteda`-style networks, EDA of presidential tweet frequency,
-sentiment, topics, and exploratory financial diagnostics.
+The project is organized as a reproducible R workflow for the **August 2022–May 2026** monthly tweet snapshots. Methodologically, the analysis strictly differentiates between two corpora:
+1. **Principal corpus (`presidente`):** Tweets published directly by `@petrogustavo` in `data/raw/twitter/Tweets de Gustavo Petro/`. This is the exclusive input for all natural language processing oriented toward the research question, daily information pressure indices (IPI), and all econometric and time-series modeling.
+2. **Complementary corpus (`opinion`):** Public tweets recovered via the search query for "Gustavo Petro" in `data/raw/twitter/Opinión sobre Petro/`. This corpus is preserved for descriptive textual exploration and explicit quality auditing, but is strictly excluded from all financial econometrics and predictive inference due to a known historical extraction artifact (97.49% of records artificially concentrated at 18:00 Bogota time and daily collection quotas of 10 tweets).
+
+The financial block integrates official daily series: `TRM` (exchange rate), `COLCAP` (stock market index), zero-coupon `TES` sovereign bond yields (1Y, 5Y, 10Y and the 10Y-1Y slope) from Banco de la República, and the XM national electricity spot price. All inputs are consolidated into two stable contracts in `data/processed/` (`tweets_master.csv` and `market_master.csv`). The active paper is an academic Quarto manuscript written in Spanish following Taylor & Francis standards, accompanied by a fully reproducible computational notebook.
 
 ## Table of Contents
 
@@ -59,36 +42,20 @@ sentiment, topics, and exploratory financial diagnostics.
 
 ## Project Overview
 
-**Research question.** Do presidential tweets and related public
-discussion produce measurable short-run movements in Colombian financial
-markets?
+**Research question.** To what extent do the content, tone, and observed activity in the publications of `@petrogustavo` precede or accompany variations in the TRM, COLCAP, TES yields, and the XM electricity spot price in Colombia during the available empirical window?
 
-The updated analysis focuses on:
+The core investigation focuses on:
 
-- daily tweet frequency and metadata quality;
-- daily, weekly, and monthly frequency of tweets issued by
-  `@petrogustavo`;
-- hashtags, mentions, co-mentions, and lexical co-occurrence networks;
-- hashtag and mention networks using the visual style of the official
-  `quanteda` Twitter example;
-- word clouds by corpus, time, themes, sentiment, topics, and network
-  communities;
-- temporal TF-IDF evolution as supporting evidence for the word-stream
-  view;
-- weakly supervised thematic classification with holdout evaluation;
-- Spanish NRC sentiment, polarity, and daily weighted sentiment;
-- text mining with `quanteda`, `quanteda.textstats`, and
-  `quanteda.textplots`;
-- Wordfish scaling with `quanteda.textmodels`;
-- topic modeling with `stm`;
-- stationarity diagnostics, Granger tests, and VAR diagnostics for
-  `TRM`, `COLCAP`, `TES 10Y`, the `TES 10Y - TES 1Y` slope, and XM
-  energy price.
+- empirical characterization of coverage, daily, weekly, and monthly frequency of tweets issued by `@petrogustavo`;
+- presidential hashtags, mentions, co-mentions, and lexical co-occurrence networks;
+- weakly supervised thematic classification of presidential discourse across reform agendas;
+- Spanish NRC sentiment, polarity, and daily presidential Information Pressure Index ($IPI_d$);
+- empirical audit documenting the extraction limitations and hourly concentration of the secondary `opinion` corpus;
+- stationarity diagnostics, Johansen cointegration tests, VAR modeling, and Benjamini-Hochberg FDR-corrected Granger causality tests relating presidential signals to financial series;
+- multivariate DCC-GARCH conditional correlation modeling and Markov-Switching regimes;
+- event studies evaluating market trajectories following extreme presidential tone and intensity shocks under an observational, non-causal framework.
 
-The current workflow uses BanRep official series for `TRM`, `COLCAP`,
-and `TES`, and XM official energy spot price data; the active analysis
-no longer depends on the older equity proxy used in the original case
-study.
+The current workflow uses BanRep official series for `TRM`, `COLCAP`, and `TES`, and XM official energy spot price data; all empirical econometrics rely exclusively on the presidential corpus.
 
 ## Project Workflow
 

@@ -1,6 +1,6 @@
 # Guía de lectura y mantenimiento del cuaderno
 
-El archivo `Cuaderno_Paper_Español.qmd` documenta la relación entre el discurso presidencial, la conversación pública sobre Gustavo Petro y las series económicas colombianas. Su propósito es permitir que un par evaluador siga los datos, las transformaciones y las especificaciones del estudio hasta sus resultados y limitaciones. El HTML es la versión de lectura; el documento Quarto (.qmd) es la fuente ejecutable y la referencia para revisar el código.
+El archivo `Cuaderno_Paper_Español.qmd` documenta la relación observacional y de precedencia temporal entre la comunicación directa emitida por la cuenta presidencial `@petrogustavo` (`corpus == "presidente"`) y las series financieras colombianas (`TRM`, `COLCAP`, tasas `TES` y precio de energía de XM). El corpus complementario `opinion` ("Conversación pública sobre Gustavo Petro") se conserva exclusivamente para exploración textual descriptiva y para auditar las limitaciones empíricas de su proceso de recolección (sesgo de concentración horaria al 97,49% a las 18:00 horas y cuotas diarias de 10 tweets), quedando estrictamente excluido de toda modelación econométrica e inferencia financiera. Su propósito es permitir que un par evaluador siga los datos, las transformaciones y las especificaciones del estudio hasta sus resultados y limitaciones. El HTML es la versión de lectura; el documento Quarto (.qmd) es la fuente ejecutable y la referencia para revisar el código.
 
 ## Requisitos y dependencias
 

@@ -1,5 +1,0 @@
-"check","passed"
-"Sintaxis independiente en todos los chunks",TRUE
-"Número de expresiones analíticas conservado",TRUE
-"Expresiones y orden idénticos salvo prefijos y dependencias",TRUE
-"Librerías: únicamente library y conflict_prefer",TRUE

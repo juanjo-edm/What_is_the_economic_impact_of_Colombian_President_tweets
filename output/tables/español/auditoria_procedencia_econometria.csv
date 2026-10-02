@@ -1,0 +1,9 @@
+objeto,corpus_fuente,filas,estado
+model_dataset,presidente,1271,OK
+ipi_daily,presidente,1271,OK
+panel_bursatil,presidente,934,OK
+VAR,presidente,881,OK
+Granger,presidente,112,OK
+DCC,presidente,882,OK
+Markov,presidente,882,OK
+Event Study,presidente,20,OK

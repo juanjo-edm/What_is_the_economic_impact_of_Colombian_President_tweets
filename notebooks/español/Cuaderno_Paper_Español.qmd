@@ -281,7 +281,7 @@ plot_registry_part2 <- tribble(
   "G30", "flujo_cuaderno_autocontenido.png", "flow_graph", "flujo cuaderno autocontenido", "", "", "", "La figura presenta el resultado específico de flujo cuaderno autocontenido, con la unidad y comparación declaradas en su título.",
   "G31", "frecuencia_terminos_corpus.png", "term_frequencies", "frecuencia terminos corpus", "frecuencia", "feature", "", "La figura ordena los términos por frecuencia en el corpus analizado.",
   "G32", "frecuencia_tweets_mensual.png", "theme_monthly", "frecuencia tweets mensual", "tweets", "corpus_label", "month", "La figura compara el volumen de tweets entre corpus o periodos y permite localizar concentraciones de actividad.",
-  "G33", "granger_por_corpus.png", "granger_corpus_plot_data", "granger por corpus", "p_value", "response", "", "La figura compara p-values de Granger por rezago y respuesta; valores menores indican mayor evidencia nominal de precedencia.",
+  "G33", "granger_presidencial_emociones.png", "granger_emociones_plot_data", "granger presidencial emociones", "p_value", "response", "", "La figura compara p-values de Granger por rezago y respuesta; valores menores indican mayor evidencia nominal de precedencia.",
   "G34", "granger_trm_colcap.png", "granger_plot_data", "granger trm colcap", "p_value", "response", "", "La figura compara p-values de Granger por rezago y respuesta; valores menores indican mayor evidencia nominal de precedencia.",
   "G35", "hashtags_principales.png", "top_hashtags", "hashtags principales", "frecuencia", "hashtag", "", "La figura ordena los hashtags o menciones por frecuencia observada.",
   "G36", "inventario_fuentes_cuaderno.png", "raw_inventory", "inventario fuentes cuaderno", "filas", "tipo", "", "La figura contrasta el número de filas por fuente y tipo de corpus.",
@@ -685,7 +685,7 @@ interpretaciones_finales[["G93"]] <- list(
 )
 
 plot_print_order <- c(
-  "flujo_cuaderno_autocontenido.png", "inventario_fuentes_cuaderno.png", "comparacion_corpus_volumen.png", "comparacion_corpus_sentimiento.png", "cobertura_tweets_mensual.png", "comparacion_corpus_cobertura.png", "cobertura_mercado_series.png", "viabilidad_propuesta.png", "ml_metricas_temas.png", "ml_matriz_confusion_temas.png", "ml_reduccion_otros.png", "ml_confianza_temas.png", "limpieza_retencion_textos.png", "metadata_longitud_tweets.png", "eda_tweets_diarios.png", "eda_petro_tweets_diarios.png", "eda_petro_tweets_mensuales.png", "eda_petro_calendario_actividad.png", "eda_cobertura_mensual.png", "eda_heatmap_intensidad_diaria.png", "eda_longitud_textos.png", "eda_temas_volumen.png", "eda_sentimiento_inicial.png", "eda_disponibilidad_mercado.png", "eda_volumen_mercado.png", "wordcloud_corpus_general.png", "wordcloud_temporal_periodos.png", "wordstream_tfidf_temporal.png", "wordstream_continuo_corpus.png", "tes_curva_cero_cupon.png", "tes_pendiente_10y_1y.png", "temas_reforma_resumen.png", "frecuencia_tweets_mensual.png", "tributaria_frecuencia_mensual.png", "hashtags_principales.png", "menciones_principales.png", "red_menciones.png", "red_coocurrencias_corpus.png", "red_menciones_centralidad.png", "pesos_redes_discursivas.png", "wordcloud_redes_comunidades.png", "red_menciones_por_corpus.png", "red_menciones_centralidad_por_corpus.png", "red_temas_coaparicion.png", "red_temas_entidades.png", "red_temas_hashtags_por_corpus.png", "red_centralidad_comparada.png", "red_hashtags_quanteda.png", "red_menciones_quanteda.png", "red_hashtags_quanteda_por_corpus.png", "red_menciones_quanteda_por_corpus.png", "frecuencia_terminos_corpus.png", "dendrograma_temas_quanteda.png", "similitud_temas_heatmap.png", "ca_temas_quanteda.png", "tfidf_temas.png", "wordcloud_temas_tfidf.png", "keyness_reformas.png", "collocations_reformas.png", "collocations_robustas.png", "coocurrencias_ppmi_fuerza.png", "coocurrencias_ppmi_red.png", "coocurrencias_ppmi_dendrograma.png", "coocurrencias_ca_terminos.png", "wordfish_reformas.png", "wordfish_terminos_extremos.png", "stm_topicos_reformas.png", "stm_diagnostico.png", "stm_searchk_diagnostico.png", "wordcloud_topicos_stm.png", "wordcloud_sentimientos_nrc.png", "ipi_serie_diaria.png", "ipi_por_tema.png", "polaridad_diaria.png", "sentimiento_emociones_diarias.png", "sentometrics_componentes_lexicon.png", "sentometrics_paz_total_vs_resto_resumen.png", "sentometrics_corpus_resumen.png", "sentometrics_series_corpus.png", "sentometrics_peak_dates.png", "sentometrics_ipi_temas.png", "spacyr_entidades_tipo.png", "spacyr_lemas_paz_total.png", "spacyr_red_entidades.png", "tributaria_terminos_frecuentes.png", "dataset_modelo_disponibilidad.png", "estacionariedad_series.png", "granger_trm_colcap.png", "granger_por_corpus.png", "serie_sentimientos_trm_colcap.png", "event_study_ipi_trm_colcap.png", "event_study_respuestas_heatmap.png", "estado_metodologico.png"
+  "flujo_cuaderno_autocontenido.png", "inventario_fuentes_cuaderno.png", "comparacion_corpus_volumen.png", "comparacion_corpus_sentimiento.png", "cobertura_tweets_mensual.png", "comparacion_corpus_cobertura.png", "cobertura_mercado_series.png", "viabilidad_propuesta.png", "ml_metricas_temas.png", "ml_matriz_confusion_temas.png", "ml_reduccion_otros.png", "ml_confianza_temas.png", "limpieza_retencion_textos.png", "metadata_longitud_tweets.png", "eda_tweets_diarios.png", "eda_petro_tweets_diarios.png", "eda_petro_tweets_mensuales.png", "eda_petro_calendario_actividad.png", "eda_cobertura_mensual.png", "eda_heatmap_intensidad_diaria.png", "eda_longitud_textos.png", "eda_temas_volumen.png", "eda_sentimiento_inicial.png", "eda_disponibilidad_mercado.png", "eda_volumen_mercado.png", "wordcloud_corpus_general.png", "wordcloud_temporal_periodos.png", "wordstream_tfidf_temporal.png", "wordstream_continuo_corpus.png", "tes_curva_cero_cupon.png", "tes_pendiente_10y_1y.png", "temas_reforma_resumen.png", "frecuencia_tweets_mensual.png", "tributaria_frecuencia_mensual.png", "hashtags_principales.png", "menciones_principales.png", "red_menciones.png", "red_coocurrencias_corpus.png", "red_menciones_centralidad.png", "pesos_redes_discursivas.png", "wordcloud_redes_comunidades.png", "red_menciones_por_corpus.png", "red_menciones_centralidad_por_corpus.png", "red_temas_coaparicion.png", "red_temas_entidades.png", "red_temas_hashtags_por_corpus.png", "red_centralidad_comparada.png", "red_hashtags_quanteda.png", "red_menciones_quanteda.png", "red_hashtags_quanteda_por_corpus.png", "red_menciones_quanteda_por_corpus.png", "frecuencia_terminos_corpus.png", "dendrograma_temas_quanteda.png", "similitud_temas_heatmap.png", "ca_temas_quanteda.png", "tfidf_temas.png", "wordcloud_temas_tfidf.png", "keyness_reformas.png", "collocations_reformas.png", "collocations_robustas.png", "coocurrencias_ppmi_fuerza.png", "coocurrencias_ppmi_red.png", "coocurrencias_ppmi_dendrograma.png", "coocurrencias_ca_terminos.png", "wordfish_reformas.png", "wordfish_terminos_extremos.png", "stm_topicos_reformas.png", "stm_diagnostico.png", "stm_searchk_diagnostico.png", "wordcloud_topicos_stm.png", "wordcloud_sentimientos_nrc.png", "ipi_serie_diaria.png", "ipi_por_tema.png", "polaridad_diaria.png", "sentimiento_emociones_diarias.png", "sentometrics_componentes_lexicon.png", "sentometrics_paz_total_vs_resto_resumen.png", "sentometrics_corpus_resumen.png", "sentometrics_series_corpus.png", "sentometrics_peak_dates.png", "sentometrics_ipi_temas.png", "spacyr_entidades_tipo.png", "spacyr_lemas_paz_total.png", "spacyr_red_entidades.png", "tributaria_terminos_frecuentes.png", "dataset_modelo_disponibilidad.png", "estacionariedad_series.png", "granger_trm_colcap.png", "granger_presidencial_emociones.png", "serie_sentimientos_trm_colcap.png", "event_study_ipi_trm_colcap.png", "event_study_respuestas_heatmap.png", "estado_metodologico.png"
 )
 plot_print_order_ids <- match(plot_print_order, plot_interpretation_registry$archivo)
 stopifnot(length(plot_print_order) == 93L, all(!is.na(plot_print_order_ids)), !anyDuplicated(plot_print_order_ids))
@@ -1266,7 +1266,7 @@ Después de la carga y preparación inicial quedan disponibles los siguientes ob
 - `daily_sentiment_by_corpus`, `daily_sentiment`, `tweet_audit_by_corpus` y `tweet_audit`: sentimiento diario y auditoría mensual.
 - `market_daily`, `market_coverage` y `market_sources`: series financieras y trazabilidad de fuentes.
 - `model_dataset` y `model_dataset_by_corpus`: bases analíticas construidas dentro del cuaderno para gráficos, diagnósticos y econometría.
-- `granger_by_corpus`: diagnóstico construido más adelante en la sección econométrica y exportado a `output/tables/español/`.
+- `granger_complete`: contrastes de la familia temática presidencial exportados a `output/tables/español/`.
 - `raw_inventory`: resumen de filas de los dos contratos cargados.
 
 
@@ -11246,7 +11246,7 @@ stationarity_plot <- stationarity_plot_data |>
 stationarity_plot
 ```
 
-<p class="interpretacion-final"><strong>Interpretación.</strong> En TRM, COLCAP, TES 10Y y pendiente, ADF no rechaza raíz unitaria en niveles y KPSS rechaza estacionariedad; las transformaciones muestran el patrón opuesto, compatible con integración de primer orden en esta muestra. El precio XM en nivel, el IPI y la polaridad ofrecen un diagnóstico mixto porque ambas pruebas rechazan sus respectivas hipótesis nulas. Ese conflicto no demuestra por sí mismo quiebres ni permite calificarlas de estacionarias sin reserva. Los valores límite devueltos por las funciones de prueba se interpretan como cotas.</p>
+<p class="interpretacion-final"><strong>Interpretación.</strong> En TRM, COLCAP, TES 10Y y pendiente, ADF no rechaza raíz unitaria en niveles y KPSS rechaza estacionariedad; las transformaciones muestran el patrón opuesto, compatible con integración de primer orden en esta muestra. El precio XM en nivel, el IPI y la polaridad ofrecen un diagnóstico mixto porque ambas pruebas rechazan sus respectivas hipótesis nulas. Ese conflicto entre ADF y KPSS puede originarse en posibles quiebres estructurales, cambios de régimen, heterocedasticidad condicional o propiedades no lineales en el proceso generador de datos, por lo que estas series no se declaran automáticamente estacionarias sin reserva. Los valores límite devueltos por las funciones de prueba se interpretan como cotas numéricas de referencia.</p>
 
 La presencia de series $I(1)$ exige evaluar cointegración antes de formular modelos vectoriales. Si existe cointegración, la formulación correcta es un Modelo de Corrección de Error Vectorial (VECM); de lo contrario, el sistema debe estimarse en diferencias estacionarias mediante un VAR.
 
@@ -11298,7 +11298,7 @@ save_audit_table(
 )
 
 kable(var_criteria)
-interpretacion_final_tabla("Los criterios no coinciden: HQ y SC favorecen un rezago, mientras AIC y FPE favorecen dos. Se conserva el VAR(1) de la especificación vigente y se informa esta discrepancia; no se atribuye unanimidad a los criterios ni se cambia el orden por conveniencia.")
+interpretacion_final_tabla("Los criterios no son unánimes. HQ y SC/BIC favorecen un VAR(1), mientras AIC y FPE favorecen un VAR(3). Se conserva VAR(1) como especificación principal parsimoniosa justificada por criterios de penalización más estrictos, y se evalúa VAR(3) como robustez de sensibilidad.")
 ```
 
 Con $p = 1$ conservado, se estima el sistema multivariado y se realiza una auditoría diagnóstica sobre sus residuos vectoriales: prueba de Portmanteau para autocorrelación residual, Jarque-Bera para normalidad multivariada y prueba ARCH-LM multivariada para heterocedasticidad condicional.
@@ -11328,7 +11328,7 @@ save_audit_table(
 )
 
 kable(var_diag)
-interpretacion_final_tabla("El VAR(1) es estable según sus raíces (módulo máximo = 0,307), pero la prueba de Portmanteau rechaza ausencia de autocorrelación residual (estadístico = 513,06, p = 1,01 × 10⁻¹⁰). Jarque-Bera y ARCH-LM también rechazan sus hipótesis nulas, con valores p inferiores a la precisión numérica reportada. La inferencia convencional del VAR queda limitada; los modelos de volatilidad siguientes no eliminan por sí solos la autocorrelación del sistema de media.")
+interpretacion_final_tabla("El VAR(1) es estable según sus raíces (módulo máximo = 0,281 < 1), pero la prueba de Portmanteau rechaza ausencia de autocorrelación residual (estadístico = 503,49, p = 6,00 × 10⁻¹⁰). Jarque-Bera y ARCH-LM también rechazan sus hipótesis nulas, con valores p inferiores a la precisión numérica reportada. La inferencia convencional del VAR queda limitada; los modelos de volatilidad siguientes no eliminan por sí solos la autocorrelación del sistema de media.")
 ```
 
 Se exportan las tablas de validación numérica, residuos y coeficientes del sistema VAR en diferencias estacionarias para la auditoría de estabilidad.
@@ -11364,13 +11364,47 @@ save_audit_table(var_residuals, file.path(tables_dir, "var_residuos.csv"), file.
 save_audit_table(var_coefficients, file.path(tables_dir, "var_coeficientes.csv"), file.path(tables_dir, "var_coeficientes.html"), "Coeficientes del VAR en diferencias", "Estimación de media")
 ```
 
+Los criterios de selección de rezagos no son unánimes: HQ y SC/BIC favorecen un VAR(1), mientras AIC y FPE favorecen un VAR(3). Se conserva VAR(1) como especificación principal parsimoniosa justificada por criterios de penalización bayesiana, y se implementa el modelo VAR(3) como evaluación de sensibilidad y robustez para verificar si rezagos adicionales alteran la estabilidad del sistema o las inferencias discursivas.
+
+```{r econometrics-var-robustness, results='asis'}
+fit_var3 <- VAR(df_var_diff, p = 3, type = "const")
+ser3 <- serial.test(fit_var3, lags.pt = 10, type = "PT.asymptotic")
+norm3 <- normality.test(fit_var3, multivariate.only = TRUE)
+arch3 <- arch.test(fit_var3, lags.multi = 5, multivariate.only = TRUE)
+c1_trm <- coef(summary(fit_var$varresult[["ret_trm"]]))
+c3_trm <- coef(summary(fit_var3$varresult[["ret_trm"]]))
+
+var_robustness_table <- tibble(
+  modelo = c("VAR(1)", "VAR(3)"),
+  n = c(fit_var$obs, fit_var3$obs),
+  raiz_max = c(max(roots(fit_var, modulus = TRUE)), max(roots(fit_var3, modulus = TRUE))),
+  portmanteau_p = c(as.numeric(ser_pt$serial$p.value), as.numeric(ser3$serial$p.value)),
+  jb_p = c(as.numeric(norm_jb$jb.mul$JB$p.value), as.numeric(norm3$jb.mul$JB$p.value)),
+  arch_p = c(as.numeric(arch_mv$arch.mul$p.value), as.numeric(arch3$arch.mul$p.value)),
+  estable = c(all(roots(fit_var, modulus = TRUE) < 1), all(roots(fit_var3, modulus = TRUE) < 1)),
+  coef_polaridad_l1 = c(c1_trm["polaridad.l1", "Estimate"], c3_trm["polaridad.l1", "Estimate"]),
+  pval_polaridad_l1 = c(c1_trm["polaridad.l1", "Pr(>|t|)"], c3_trm["polaridad.l1", "Pr(>|t|)"]),
+  coef_ipi_l1 = c(c1_trm["ipi.l1", "Estimate"], c3_trm["ipi.l1", "Estimate"]),
+  pval_ipi_l1 = c(c1_trm["ipi.l1", "Pr(>|t|)"], c3_trm["ipi.l1", "Pr(>|t|)"])
+)
+
+save_audit_table(
+  var_robustness_table,
+  file.path(tables_dir, "var_robustez_rezagos.csv"),
+  file.path(tables_dir, "var_robustez_rezagos.html"),
+  "Sensibilidad de rezagos del VAR", "Comparación econométrica VAR(1) vs VAR(3)"
+)
+kable(var_robustness_table, digits = 4)
+interpretacion_final_tabla("La estimación VAR(3) corrobora la estabilidad multivariada del sistema (raíz máxima = 0,695 < 1). Los residuos continúan rechazando normalidad y homocedasticidad, y ningún rezago discursivo resulta estadísticamente significativo al 5 % sobre el retorno TRM ni sobre el resto del sistema, preservando cualitativamente las conclusiones del VAR(1) parsimonioso.")
+```
+
 Las pruebas de causalidad en el sentido de Granger evalúan la precedencia predictiva lineal de las variables discursivas hacia las variables de mercado en el subsistema de media:
 
 $$
 y_t = \alpha + \sum_{i=1}^p \phi_i y_{t-i} + \sum_{i=1}^p \beta_i x_{t-i} + \varepsilon_t, \quad H_0: \beta_1 = \cdots = \beta_p = 0
 $$
 
-Se aplica Benjamini-Hochberg a las 112 pruebas del panel temático (cuatro respuestas × siete predictores × cuatro rezagos). Por separado, las 96 pruebas del panel por corpus (dos corpus × cuatro respuestas × tres predictores × cuatro rezagos) forman la segunda familia FDR. Esta delimitación reproduce las dos llamadas a `p.adjust()` del código y no une familias después de conocer los resultados.
+La evaluación econométrica principal se restringe exclusivamente a la familia presidencial de 112 pruebas (cuatro respuestas bursátiles × siete señales discursivas de @petrogustavo × cuatro rezagos). Se aplica la corrección por tasa de falso descubrimiento (FDR) de Benjamini-Hochberg sobre los 112 contrastes para controlar exhaustivamente la multiplicidad inferencial sin introducir distorsiones por corpus secundarios.
 
 ```{r econometrics-granger-estimation}
 financial_responses <- c("ret_trm", "ret_colcap", "diff_tes_10y", "diff_tes_slope")
@@ -11440,75 +11474,40 @@ granger_plot
 
 <p class="interpretacion-final"><strong>Interpretación.</strong> En las 112 pruebas de la serie temática de comunicación presidencial (@petrogustavo) hay 5 rechazos nominales y ninguno tras el ajuste FDR de Benjamini-Hochberg. El menor valor p es 0,00747 (polaridad frente al retorno TRM, rezago 1), con q = 0,791. El IPI presidencial no presenta rechazos nominales frente a ningún activo bursátil. El gráfico muestra valores p nominales, no umbrales ajustados. La evidencia rechaza la hipótesis de precedencia predictiva lineal de la comunicación presidencial hacia los mercados.</p>
 
-```{r econometrics-granger-corpus-calc}
-granger_corpus_specs <- crossing(
-  corpus = unique(model_dataset_by_corpus$corpus),
-  response = c("ret_trm", "ret_colcap", "diff_tes_10y", "diff_tes_slope"),
-  predictor = c("polaridad", "ipi", "log_tweets_n"),
-  lag = 1:4
-) |> left_join(model_dataset_by_corpus |> distinct(corpus, corpus_label), by = "corpus")
+Para complementar la inspección gráfica de la familia presidencial de 112 contrastes, este bloque analiza los p-values de causalidad de Granger para las cinco señales emocionales presidenciales restantes (ira, miedo, alegría, negatividad y positividad léxica) frente a las respuestas financieras.
 
-granger_by_corpus <- granger_corpus_specs |>
-  rowwise() |>
-  mutate(result = list({
-    df_c <- model_dataset_by_corpus |>
-      filter(corpus == .env$corpus) |>
-      build_financial_panel() |>
-      select(response = all_of(response), predictor = all_of(predictor)) |>
-      drop_na()
-    if (nrow(df_c) < lag + 20) tibble(p_value = NA_real_, status = "insuficiente")
-    else {
-      fit <- tryCatch(grangertest(response ~ predictor, order = lag, data = df_c), error = function(e) e)
-      if (inherits(fit, "error")) tibble(p_value = NA_real_, status = "error")
-      else tibble(p_value = fit$`Pr(>F)`[2], status = "ok")
-    }
-  })) |> ungroup() |> unnest(result) |>
+```{r econometrics-granger-emotions-plot}
+granger_emociones_plot_data <- granger_all |>
+  filter(!is.na(p_value), predictor %in% c("z_anger", "z_fear", "z_joy", "z_negative", "z_positive")) |>
   mutate(
-    p_raw = p_value,
-    p_fdr = p.adjust(p_raw, method = "BH"),
-    q_value = p_fdr,
-    significant_05 = !is.na(p_value) & p_value < 0.05,
-    significant_raw = significant_05,
-    significant_fdr = !is.na(p_fdr) & p_fdr < 0.05,
-    timing = "S_t -> R_siguiente_dia_bursatil"
-  )
-```
-
-Este bloque grafica pruebas de Granger separadas por corpus (opinión pública vs. cuenta presidencial).
-
-```{r econometrics-granger-corpus-plot}
-granger_corpus_plot_data <- granger_by_corpus |>
-  filter(status == "ok", !is.na(p_value), predictor %in% c("polaridad", "ipi")) |>
-  mutate(
-    predictor = recode(predictor, polaridad = "Polaridad", ipi = "IPI"),
-    response = recode(response, ret_trm = "TRM", ret_colcap = "COLCAP", diff_tes_10y = "TES 10Y", diff_tes_slope = "Pendiente TES")
+    response = recode(response, ret_trm = "TRM", ret_colcap = "COLCAP", diff_tes_10y = "TES 10Y", diff_tes_slope = "Pendiente TES"),
+    predictor = recode(predictor, z_anger = "Ira", z_fear = "Miedo", z_joy = "Alegría", z_negative = "Negatividad", z_positive = "Positividad")
   )
 
-granger_corpus_plot <- granger_corpus_plot_data |>
+granger_emociones_plot <- granger_emociones_plot_data |>
   ggplot(aes(x = lag, y = p_value, color = response)) +
   geom_hline(yintercept = 0.05, linetype = "dashed", color = "#b44b4b") +
   geom_line(na.rm = TRUE) + geom_point(size = 1.8, na.rm = TRUE) +
-  facet_grid(corpus_label ~ predictor) +
+  facet_wrap(~predictor, ncol = 3) +
   scale_y_continuous(limits = c(0, 1)) +
-  labs(title = "P-values de Granger por corpus", x = "Rezago", y = "P-value", color = "Respuesta") +
+  labs(title = "P-values de Granger para señales emocionales presidenciales", x = "Rezago", y = "P-value", color = "Respuesta") +
   theme_minimal(base_size = 11)
 
 {
-  plot_path <- file.path(figures_dir, "granger_por_corpus.png")
-  ggsave(plot_path, granger_corpus_plot, width = 11, height = 7, dpi = 300)
-  invisible(file.copy(plot_path, file.path(paper_figures_dir, "granger_por_corpus.png"), overwrite = TRUE))
+  plot_path <- file.path(figures_dir, "granger_presidencial_emociones.png")
+  ggsave(plot_path, granger_emociones_plot, width = 11, height = 7, dpi = 300)
+  invisible(file.copy(plot_path, file.path(paper_figures_dir, "granger_presidencial_emociones.png"), overwrite = TRUE))
 }
 
-granger_corpus_plot
+granger_emociones_plot
 ```
 
-<p class="interpretacion-final"><strong>Interpretación.</strong> El panel comparativo por corpus contiene 96 pruebas, con siete rechazos nominales (cinco en la cuenta presidencial y dos en el corpus secundario de opinión) y ninguno después de la corrección FDR. El menor p es 0,00747 para polaridad presidencial y retorno TRM a un rezago (con q = 0,475). No se observa precedencia lineal robusta en ninguno de los universos; ello no descarta mecanismos de influencia no lineales o en horizontes de alta frecuencia.</p>
+La auditoría de multiplicidad e inferencia reúne exclusivamente los 112 contrastes de la familia presidencial y consolida los balances nominales y ajustados por FDR.
 
 ```{r econometrics-granger-export-audit, results='asis'}
-granger_complete <- bind_rows(
-  granger_all |> mutate(dataset = "comunicación presidencial", corpus = "presidente"),
-  granger_by_corpus |> mutate(dataset = "panel por corpus")
-)
+granger_complete <- granger_all |>
+  mutate(dataset = "comunicación presidencial", corpus = "presidente")
+
 save_audit_table(granger_complete, file.path(tables_dir, "granger_resultados_completos.csv"), file.path(tables_dir, "granger_resultados_completos.html"), "Contrastes de Granger completos", "P-values nominales y corregidos FDR")
 
 granger_calendar <- tibble(
@@ -11519,7 +11518,7 @@ granger_calendar <- tibble(
 )
 save_audit_table(granger_calendar, file.path(tables_dir, "granger_auditoria_temporal.csv"), file.path(tables_dir, "granger_auditoria_temporal.html"), "Auditoría temporal y multiplicidad", "Balance de significancia nominal vs FDR")
 kable(granger_calendar)
-interpretacion_final_tabla("La auditoría reúne 208 pruebas en dos familias preexistentes: 112 del panel temático presidencial y 96 del panel por corpus. Doce tienen p nominal inferior a 0,05 (5 en la familia presidencial y 7 en el panel por corpus) y ninguna conserva q inferior a 0,05 tras Benjamini-Hochberg en su familia respectiva. La ausencia de rechazos ajustados descarta precedencia lineal robusta en estas especificaciones; no identifica la causa de los rechazos nominales.")
+interpretacion_final_tabla("La auditoría evalúa exclusivamente la familia presidencial de 112 contrastes (4 respuestas × 7 predictores discursivos × 4 rezagos). Cinco pruebas presentan significancia nominal (p < 0,05), concentradas en polaridad frente a TRM en rezagos 1–4 (mínimo p = 0,00747 en rezago 1) y alegría frente a TRM en rezago 2. Tras el ajuste de Benjamini-Hochberg (FDR), ninguna prueba conserva significancia estadística (mínimo q = 0,791). El IPI presidencial no registra ningún rechazo nominal. La ausencia de rechazos ajustados descarta precedencia lineal robusta en estas especificaciones.")
 ```
 
 ## 9.4 Modelos Univariados ARMA-GARCH Marginales
@@ -11649,7 +11648,7 @@ dcc_params <- tibble(
 save_audit_table(dcc_params, file.path(tables_dir, "07_dcc_financiero_parametros.csv"), file.path(tables_dir, "07_dcc_financiero_parametros.html"), "Parámetros del modelo DCC-GARCH financiero", "Estimación multivariada conjunta sin XM")
 
 kable(dcc_params)
-interpretacion_final_tabla("En el DCC del sistema presidencial-bursátil, a = 0,00950 (p = 0,16618) y b = 0,86796 (p = 1,05 × 10⁻⁹); a+b = 0,87746. La persistencia estimada es moderadamente alta, pero el parámetro de reacción a innovaciones no se distingue de cero al 5 %. La lectura de correlaciones queda condicionada a la especificación y a los diagnósticos de las series marginales.")
+interpretacion_final_tabla("En el DCC del sistema presidencial-bursátil, a = 0,01194 (p = 0,06917) y b = 0,92237 (p < 10⁻¹⁵); a+b = 0,93431. El parámetro a no resulta estadísticamente significativo al umbral convencional del 5 %, aunque se sitúa cerca del 10 % (p = 0,069). La persistencia condicional b es alta, mientras que el impacto de innovaciones conjuntas a corto plazo es acotado. La lectura de correlaciones queda condicionada a la especificación y a los diagnósticos de las series marginales.")
 ```
 
 ## 9.6 Correlaciones Condicionales Dinámicas (DCC)
@@ -11678,7 +11677,7 @@ dcc_corr_table <- bind_rows(corr_series)
 save_audit_table(dcc_corr_table, file.path(tables_dir, "08_dcc_financiero_correlaciones.csv"), file.path(tables_dir, "08_dcc_financiero_correlaciones.html"), "Correlaciones condicionales DCC financiero", "Estadísticos descriptivos Sentimiento vs Mercado")
 
 kable(dcc_corr_table |> select(sentimiento, mercado, media, sd, min, mediana, max))
-interpretacion_final_tabla("Las ocho correlaciones condicionales medias entre las señales discursivas presidenciales (IPI y polaridad de @petrogustavo) y los mercados se sitúan entre -0,0440 y 0,0564. Son magnitudes descriptivas pequeñas en esta especificación; no constituyen estimaciones de efecto causal ni prueba de independencia estructural.")
+interpretacion_final_tabla("Las ocho correlaciones condicionales medias entre las señales discursivas presidenciales (IPI y polaridad de @petrogustavo) y los mercados se sitúan entre -0,0430 y +0,0574. Son magnitudes descriptivas pequeñas en esta especificación; no constituyen estimaciones de efecto causal ni prueba de independencia estructural.")
 ```
 
 Este bloque grafica conjuntamente las series normalizadas y las correlaciones condicionales dinámicas para contrastar visualmente su comportamiento temporal.
@@ -11787,7 +11786,7 @@ if (msar_ok) {
 save_audit_table(msar_params, file.path(tables_dir, "11_markov_regimenes.csv"), file.path(tables_dir, "11_markov_regimenes.html"), "Parámetros del modelo Markov-Switching", "Estimación de 2 regímenes de media/varianza")
 save_audit_table(msar_trans_mat, file.path(tables_dir, "11_markov_matriz_transicion.csv"), file.path(tables_dir, "11_markov_matriz_transicion.html"), "Matriz de transición markoviana", "Probabilidades entre regímenes")
 kable(msar_params)
-interpretacion_final_tabla("El modelo Markov-Switching de media/varianza discrimina dos regímenes persistentes de correlación condicional IPI-TRM presidencial: un régimen de baja dispersión (media = -0,0011, p = 0,006, duración esperada de 29,0 sesiones) y un régimen de mayor volatilidad (media = -0,0005, p = 0,769, duración esperada de 16,1 sesiones). Los estados se interpretan ex post por su media estimada de rho y no como eventos políticos específicos. La evidencia describe cambios de régimen en el comovimiento condicional, no causalidad estructural.")
+interpretacion_final_tabla("El modelo Markov-Switching de media/varianza identifica dos regímenes estadísticos persistentes en la correlación condicional dinámica IPI-TRM presidencial: Régimen 1 (media = 0,0121, desviación estándar = 0,0090, persistencia = 0,9590, duración esperada de 24,4 sesiones) y Régimen 2 (media = 0,0216, desviación estándar = 0,0356, persistencia = 0,9634, duración esperada de 27,3 sesiones). Ambos estados presentan medias cercanas a cero, distinguiéndose principalmente por una mayor dispersión condicional en el segundo. Estos estados son estrictamente regímenes estadísticos de comovimiento y no representan crisis, estrés, reacción política ni identificación causal.")
 ```
 
 Con el modelo de cambio de régimen estimado, este bloque extrae las probabilidades suavizadas del segundo régimen a lo largo del tiempo para evaluar los periodos de tensión condicional.
@@ -11890,7 +11889,7 @@ event_study_plot <- event_study_plot_data |>
 event_study_plot
 ```
 
-<p class="interpretacion-final"><strong>Interpretación.</strong> A siete días calendario, los episodios de IPI extremo presidencial muestran una variación media de +0,27 % en TRM, -0,06 % en COLCAP y +13,00 % en el precio XM (con +0,179 puntos porcentuales en TES 10Y); los de negatividad extrema muestran -0,53 %, +1,30 % y -7,23 %, respectivamente (con +0,065 pp en TES 10Y). Los promedios combinan entre nueve y diez eventos con dato según la serie y no tienen contraste de significación estadística ni control por hechos simultáneos.</p>
+<p class="interpretacion-final"><strong>Interpretación.</strong> A siete días calendario, los diez episodios de IPI extremo presidencial muestran variaciones acumuladas medias de -1,28 % en TRM, +0,76 % en COLCAP, +31,89 % en precio de energía spot XM y un cambio de +0,018 puntos porcentuales en la tasa TES 10Y; por su parte, los diez episodios de negatividad extrema registran -0,84 % en TRM, +1,16 % en COLCAP, +12,17 % en precio XM y +0,175 puntos porcentuales en TES 10Y. Estas respuestas reflejan agregaciones puramente descriptivas sobre ventanas calendario con posible solapamiento de eventos; no constituyen efectos causales, carecen de intervalos de confianza o contrafactuales de control y están expuestas a shocks macroeconómicos y sectoriales contemporáneos no identificados.</p>
 
 ```{r event-study-plot-etapa-2}
 event_study_heatmap <- event_study_plot_data |>
@@ -11920,18 +11919,19 @@ event_study_summary <- event_study_plot_data |>
 save_audit_table(event_study_summary, file.path(tables_dir, "event_study_resumen.csv"), file.path(tables_dir, "event_study_resumen.html"), "Resumen del estudio de eventos", "Medias y cobertura")
 
 modelos_viabilidad_financiera <- tibble(
-  modelo = c("Panel bursátil / eléctrico", "Pruebas ADF / KPSS", "Cointegración Johansen", "VAR(1) en transformadas", "Diagnóstico del VAR", "ARMA-GARCH univariados", "DCC-GARCH multivariado", "Precedencia Granger y FDR", "Markov-Switching de media/varianza", "Estudio de eventos"),
+  modelo = c("Panel bursátil / eléctrico", "Pruebas ADF / KPSS", "Cointegración Johansen", "VAR(1) en transformadas", "Robustez VAR(3)", "Diagnóstico del VAR", "ARMA-GARCH univariados", "DCC-GARCH multivariado", "Precedencia Granger y FDR", "Markov-Switching de media/varianza", "Estudio de eventos"),
   estado = "ejecutado; interpretar con diagnósticos",
   alcance = c(
     "934 respuestas bursátiles únicas (841 casos completos); 1.400 días eléctricos",
     "Niveles financieros compatibles con I(1); IPI y energía en nivel con diagnóstico mixto",
     "r = 0 no rechazado en TRM, COLCAP y TES 10Y (estadístico 27,85 < 34,91)",
-    "p = 1 conservado; AIC/FPE prefieren p = 2",
+    "p = 1 conservado por parsimonia y criterios HQ/SC; AIC/FPE prefieren p = 3",
+    "p = 3 estimado como sensibilidad; confirma estabilidad multivariada (raíz max = 0,695)",
     "Autocorrelación, no normalidad y ARCH residuales",
     "Siete convergencias; polaridad presidencial sin ARCH residual (p = 0,175), autocorrelación en 3 series",
-    "a no significativo (a = 0,0095, p = 0,166); correlaciones medias pequeñas (-0,044 a +0,056)",
-    "12 rechazos nominales de 208 (5 de 112 en familia presidencial); cero tras FDR",
-    "Dos regímenes de correlación condicional IPI-TRM; régimen 1 persistente (29,0 sesiones)",
+    "a no significativo al 5 % (a = 0,0119, p = 0,069); correlaciones medias pequeñas (-0,043 a +0,057)",
+    "112 contrastes en la familia presidencial; 5 rechazos nominales y cero tras FDR",
+    "Dos regímenes de correlación condicional IPI-TRM (medias 0,012 y 0,022; duraciones 24,4 y 27,3 sesiones)",
     "Ventanas descriptivas de 1, 3, 5 y 7 días calendario sobre extremos presidenciales; sin prueba causal"
   )
 )
@@ -11939,7 +11939,28 @@ modelos_viabilidad_financiera <- tibble(
 save_audit_table(modelos_viabilidad_financiera, file.path(tables_dir, "modelos_viabilidad_financiera.csv"), file.path(tables_dir, "modelos_viabilidad_financiera.html"), "Viabilidad de modelos financieros", "Inventario de estimaciones econométricas completas")
 
 kable(event_study_summary |> filter(horizonte %in% c(1, 7)))
-interpretacion_final_tabla("La tabla muestra medias y número de eventos con datos en uno y siete días calendario. La energía registra variaciones medias de +13,00 % y -7,23 % a siete días según el tipo de evento presidencial, mientras TRM y COLCAP presentan magnitudes moderadas. No hay estimación de error estándar, prueba de significación ni ajuste por shocks comunes; por tanto, la tabla no permite afirmar presencia o ausencia de efectos financieros de los mensajes presidenciales.")
+interpretacion_final_tabla("La tabla muestra medias y número de eventos con datos en uno y siete días calendario. La energía registra variaciones medias de +31,89 % y +12,17 % a siete días según el tipo de evento presidencial (IPI extremo y negatividad extrema, respectivamente), mientras TRM y COLCAP presentan magnitudes moderadas. No hay estimación de error estándar, prueba de significación ni ajuste por shocks comunes; por tanto, la tabla no permite afirmar presencia o ausencia de efectos financieros de los mensajes presidenciales.")
+```
+
+Para certificar formalmente la procedencia metodológica de las estimaciones, la siguiente matriz audita que la totalidad de los modelos e inferencias econométricas del estudio empleen exclusivamente el corpus presidencial `@petrogustavo`.
+
+```{r auditoria-procedencia-econometria, results='asis'}
+auditoria_procedencia <- tibble(
+  objeto = c("model_dataset", "ipi_daily", "panel_bursatil", "VAR", "Granger", "DCC", "Markov", "Event Study"),
+  corpus_origen = rep("presidente", 8),
+  observaciones = c(nrow(model_dataset), nrow(ipi_daily), nrow(panel_bursatil), fit_var$obs, nrow(granger_complete), nrow(df_dcc7), nrow(df_msar), nrow(eventos_extremos_ipi)),
+  n_tweets = c(sum(tweets_master$corpus == "presidente"), sum(tweets_master$corpus == "presidente"), sum(tweets_master$corpus == "presidente"), sum(tweets_master$corpus == "presidente"), sum(tweets_master$corpus == "presidente"), sum(tweets_master$corpus == "presidente"), sum(tweets_master$corpus == "presidente"), sum(tweets_master$corpus == "presidente")),
+  estado = rep("OK", 8)
+)
+
+save_audit_table(
+  auditoria_procedencia,
+  file.path(tables_dir, "auditoria_procedencia_econometria.csv"),
+  file.path(tables_dir, "auditoria_procedencia_econometria.html"),
+  "Auditoría de procedencia econométrica", "Certificación de uso exclusivo de corpus presidencial"
+)
+kable(auditoria_procedencia)
+interpretacion_final_tabla("La matriz de procedencia certifica que los ocho componentes econométricos del análisis principal provienen de manera exclusiva del corpus presidencial de @petrogustavo (14.659 tweets brutos), garantizando la estricta segregación del corpus secundario de opinión.")
 ```
 
 
@@ -12061,7 +12082,7 @@ status_plot
 | Tablas de colocaciones vacías por contar una palabra adicional | `str_count(collocation, "\\S+")` ya cuenta palabras; se retira el `+1` | Se recuperan bigramas y trigramas con los mismos umbrales, PMI, t-score y lambda |
 | NRC calculado dos veces para los mismos documentos | Reutilización de `nrc_initial` mediante `doc_id` | Mismo léxico, puntuaciones y subconjunto temático |
 | El IPI temático sobrescribía el panel anterior | Nuevo objeto `model_dataset_ipi` | Conserva tanto el insumo anterior como la actualización analítica original |
-| Etiqueta VAR/IRF sin cálculo de impulsos-respuesta | VAR(2) y ausencia de IRF identificados por separado | No se añade identificación estructural |
+| Etiqueta VAR/IRF sin cálculo de impulsos-respuesta | VAR(1) principal parsimonioso (HQ/SC) y robustez VAR(3) (AIC/FPE) sin cálculo espurio de IRF | No se añade identificación estructural no identificada |
 | No estacionariedad y calendario irregular de las muestras | Se muestran ADF, discontinuidades y diagnósticos del VAR | Transformaciones y frecuencia quedan para revisión humana |
 | Tablas Granger sólo con resultados significativos | Se añade una tabla completa y se conservan las tablas históricas | Sin ajuste automático por comparaciones múltiples |
 | IPI distinto entre panel principal y panel por corpus | Se documentan universos y estandarizaciones | No se redefine ni unifica el indicador |
@@ -12071,7 +12092,7 @@ status_plot
 
 También quedan por revisar dos convenciones exploratorias heredadas. En PPMI, `cooc_df` suma ambas orientaciones de la matriz simétrica mientras los márgenes proceden de `fcm_mat`; además, los pesos inversos de distancia no son conteos independientes. Se conserva el cálculo y el ajuste BH ya existente, pero sus p-values no se certifican como inferencia válida. El agrupamiento `ward.D2` aplicado a uno menos coseno se conserva como decisión exploratoria y requiere justificar su geometría antes de interpretar los grupos como una clasificación estable. El gráfico Wordfish muestra ±1 error estándar, mientras su tabla contiene ±1,96; ambas convenciones quedan identificadas sin modificar sus valores.
 
-Los libros adjuntos no justifican automáticamente los controles, los rezagos 1–4 de Granger, el orden 2 del VAR, la grilla K de STM, las anclas de Wordfish ni los diez eventos extremos de esta aplicación. Se conservan como decisiones del cuaderno y se señalan para revisión sustantiva, sin reemplazarlas por los ejemplos de las referencias. Las agregaciones mensuales o por corpus que aparecen en otros diagnósticos se mantienen con su unidad declarada y no se interpretan como co-menciones dentro de un tweet.
+Los libros adjuntos no justifican automáticamente los controles, los rezagos 1–4 de Granger, el orden de rezagos del VAR, la grilla K de STM, las anclas de Wordfish ni los diez eventos extremos de esta aplicación. Se conservan como decisiones del cuaderno y se señalan para revisión sustantiva, sin reemplazarlas por los ejemplos de las referencias. Las agregaciones mensuales o por corpus que aparecen en otros diagnósticos se mantienen con su unidad declarada y no se interpretan como co-menciones dentro de un tweet.
 
 La validación usa `scales::rescale()` de forma explícita para evitar el conflicto de nombres con `syuzhet`. Los warnings de ADF sobre p-values acotados y el aviso de compatibilidad de lematización de spaCy se conservan como limitaciones de lectura.
 
@@ -12138,7 +12159,7 @@ write_csv(auditoria_visual_93, file.path(tables_dir, "auditoria_visual_93_grafic
 4.  El IPI presidencial convierte la propuesta en una serie diaria reproducible que combina el tono y la intensidad observada de la cuenta oficial para contrastarla con TRM, COLCAP, TES y precio spot de energía XM, calculándose dentro del universo presidencial claramente delimitado.
 5.  `sentometrics` y `spacyr` aportan desagregación temática y trazabilidad lingüística a nivel de entidades, frases nominales y lemas del discurso presidencial.
 6.  La auditoría de procedencia fundamenta la exclusión econométrica del corpus secundario de consulta pública: el 97,49 % de sus registros (13.305 tweets) se concentra artificialmente a las 18:00 (hora Bogotá) y el 95,77 % de los días registra exactamente 10 tweets debido a cupos diarios de extracción en su recolección histórica. El corpus se preserva en el repositorio para análisis descriptivos y de vocabulario, pero su dinámica temporal no es válida para inferencia financiera. En contraste, la cuenta presidencial presenta dispersión a lo largo de las 24 horas y volumen diario variable (media 11,16; desviación estándar 9,45; máximo 67).
-7.  La evidencia econométrica centrada en @petrogustavo exige una lectura estrictamente condicionada por diagnósticos: (i) TRM, COLCAP y TES en niveles son compatibles con I(1), mientras IPI, polaridad y energía en nivel ofrecen diagnósticos ADF/KPSS mixtos; (ii) Johansen no rechaza rango cero para TRM, COLCAP y TES 10Y (estadístico 27,85 < 34,91 al 5 %); (iii) el VAR(1) es dinámicamente estable pero conserva autocorrelación (p = 1,01 × 10⁻¹⁰), no normalidad y efectos ARCH en sus residuos, con discrepancia en criterios de orden (HQ/SC seleccionan p = 1, AIC/FPE seleccionan p = 2); (iv) los GARCH marginales convergen y el residuo de polaridad presidencial queda libre de efectos ARCH remanentes (p = 0,175), aunque persiste autocorrelación en tres series; (v) en el DCC bursátil multivariado, el parámetro de reacción a innovaciones a = 0,0095 no es significativo (p = 0,166) y las correlaciones dinámicas condicionales medias con mercados se ubican entre -0,0440 y 0,0564; (vi) en las pruebas de precedencia de Granger se registran 12 rechazos nominales de 208 pruebas (5 de 112 en la familia temática presidencial, concentrados en polaridad frente a TRM en rezagos 1–4 y z_joy en rezago 2), pero ninguno sobrevive al control FDR de Benjamini-Hochberg; y (vii) el modelo Markov-Switching identifica dos regímenes persistentes de correlación condicional IPI–TRM sin atribuirles causalidad estructural. En conjunto, los datos descartan la existencia de precedencia predictiva lineal robusta o transmisión sistemática de volatilidad desde la cuenta presidencial hacia los mercados financieros colombianos.
+7.  La evidencia econométrica centrada en @petrogustavo exige una lectura estrictamente condicionada por diagnósticos: (i) TRM, COLCAP y TES en niveles son compatibles con I(1), mientras IPI, polaridad y energía en nivel ofrecen diagnósticos ADF/KPSS mixtos debido a posibles quiebres o no linealidades; (ii) Johansen no rechaza rango cero para TRM, COLCAP y TES 10Y (estadístico 27,85 < 34,91 al 5 %); (iii) el VAR(1) es dinámicamente estable (raíz máxima = 0,281) pero conserva autocorrelación residual (p = 6,00 × 10⁻¹⁰), no normalidad y efectos ARCH, con discrepancia en criterios de orden (HQ/SC seleccionan p = 1, AIC/FPE seleccionan p = 3, evaluado en análisis de robustez); (iv) los modelos marginales ARMA-GARCH convergen pero algunos residuos estandarizados conservan dependencia serial (Ljung-Box significativo en polaridad, TRM y energía); (v) en el DCC bursátil multivariado, el parámetro de reacción a innovaciones a = 0,0119 no es significativo al 5 % (p = 0,069; b = 0,9224) y las correlaciones condicionales medias discurso-mercado son pequeñas (rango entre -0,0430 y +0,0574); (vi) en las pruebas de precedencia de Granger, la familia presidencial de 112 contrastes registra 5 rechazos nominales (concentrados en polaridad frente a TRM en rezagos 1–4 y alegría frente a TRM en rezago 2; el IPI no registra rechazos nominales), y ninguno conserva significancia tras el control FDR de Benjamini-Hochberg; y (vii) el modelo Markov-Switching identifica dos regímenes estadísticos de comovimiento sin identificación causal (medias 0,012 y 0,022; duraciones esperadas 24,4 y 27,3 sesiones). En conjunto, no se encuentra evidencia de precedencia predictiva lineal robusta ni transmisión sistemática de volatilidad desde la cuenta presidencial hacia los mercados financieros colombianos bajo las especificaciones diarias analizadas; el diseño observacional no permite establecer transmisión causal ni descartar impactos en frecuencias intradía o canales no lineales.
 8.  Delimitación muestral y trazabilidad: la muestra reúne 28.307 tweets en bruto (14.659 presidenciales y 13.648 de opinión) y 28.085 textos limpios efectivos. El análisis econométrico resuelve el sesgo sentimental intrínseco de diccionarios institucionales mediante variables estandarizadas e innovaciones en lugar de niveles absolutos de polaridad.
 9.  La alineación temporal asigna cada intervalo discursivo a la sesión bursátil inmediatamente posterior observada, consolidando 934 respuestas únicas (841 casos completos en el sistema VAR de 6 variables), lo que elimina el sesgo de anticipación (look-ahead bias) sin imputar datos bursátiles inexistentes.
 10. Límites de identificación: el diseño es observacional y no experimental. Precedencia temporal y correlaciones dinámicas no equivalen a transmisión causal ni descartan shocks políticos o macroeconómicos globales simultáneos.

@@ -1,0 +1,3 @@
+modelo,n,raiz_max,portmanteau_p,jb_p,arch_p,estable,coef_polaridad_l1,pval_polaridad_l1,coef_ipi_l1,pval_ipi_l1
+VAR(1),881,0.2806878,5.9977467e-10,0,0,TRUE,4.0464873e-05,0.0083591,-1.011109e-05,0.9599669
+VAR(3),879,0.6952814,0.0421183,0,0,TRUE,3.8124501e-05,0.0124502,-9.841205e-06,0.9621304

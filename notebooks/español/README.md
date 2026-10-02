@@ -45,7 +45,7 @@ Las rutas anteriores corresponden al equipo de referencia y deben ajustarse al e
 - **Modelos:** vincular cada referencia y pregunta con su ecuación, variables, muestra, código de estimación y resultado. La disponibilidad de una estimación no certifica los supuestos que permitirían interpretarla.
 - **Resultados y límites:** contrastar magnitudes, signos, cobertura y diagnósticos con la interpretación escrita. Distinguir asociación descriptiva, capacidad predictiva y causalidad; un contraste de Granger no identifica por sí mismo un efecto causal ni su magnitud económica.
 
-La revisión debe conservar las decisiones metodológicas pendientes: tratamiento de series no estacionarias, calendario después de eliminar faltantes, comparaciones múltiples y limitaciones del IPI heredado. En el VAR se mantienen la constante y el orden 2; no se calculan IRF. Los eventos son descriptivos, conservan sus horizontes y deben leerse junto a sus unidades y cobertura efectiva. No añadir diferencias, cointegración, controles, HAC o ajustes de significancia sin una decisión metodológica documentada.
+La revisión debe conservar las decisiones metodológicas pendientes: tratamiento de series no estacionarias, calendario después de eliminar faltantes, comparaciones múltiples y limitaciones del IPI heredado. En el VAR se mantiene la especificación principal parsimoniosa VAR(1) con evaluación de robustez en VAR(3); no se calculan IRF estructurales no identificadas. Los eventos son descriptivos, conservan sus horizontes y deben leerse junto a sus unidades y cobertura efectiva. No añadir diferencias, cointegración, controles, HAC o ajustes de significancia sin una decisión metodológica documentada.
 
 ## Convenciones de código y escritura
 

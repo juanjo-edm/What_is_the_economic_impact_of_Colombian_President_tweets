@@ -13,12 +13,8 @@
     "multidate_sessions": 209
   },
   "granger": {
-    "tests": 208,
-    "families": {
-      "comunicación presidencial": 112,
-      "panel por corpus": 96
-    },
-    "nominal": 12,
+    "tests": 112,
+    "nominal": 5,
     "fdr": 0
   },
   "dcc": {

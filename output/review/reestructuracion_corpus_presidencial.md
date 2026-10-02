@@ -45,14 +45,14 @@ La siguiente tabla resume el impacto cuantitativo de reestimar todo el pipeline 
 | **Objeto de estudio principal** | Conversación pública y mensajes presidenciales indistintos | Comunicación directa y verificable de `@petrogustavo` | Elimina la contaminación del sesgo horario y delimita la responsabilidad discursiva al mandatario. |
 | **Casos completos modelables** | $N = 898$ sesiones bursátiles | $N = 882$ sesiones bursátiles ($N = 881$ en VAR) | Reducción debida a días hábiles sin publicaciones presidenciales registradas en la ventana empírica. |
 | **Índice discursivo (IPI)** | IPI opinión ($\bar{x} = 0,037$, $\sigma = 1,054$, rango $[-3,72; 5,28]$) | IPI presidencial ($\bar{x} = 0,005$, $\sigma = 1,226$, rango $[-11,47; 10,68]$) | Estandarizado estrictamente dentro del universo presidencial ($z(\bar{s}_d) \cdot z(\log(1+n_d^{pres}))$). |
-| **Cointegración (Johansen)** | Traza $= 29,83 < 34,91$ ($r=0$ no rechazado) | Traza $= 27,8548 < 34,91$ ($r=0$ no rechazado) | Se confirma la ausencia de relaciones de cointegración entre el discurso y las series financieras. |
-| **Estabilidad VAR(1)** | Raíz máxima $= 0,3060$; Portmanteau $p = 2,45 \times 10^{-12}$ | Raíz máxima $= 0,2807$; Portmanteau $p = 6,00 \times 10^{-10}$ | El sistema en diferencias es estrictamente estable y libre de raíces unitarias residuales. |
-| **Causalidad de Granger (Total)** | 208 contrastes: 19 nominales ($p < 0,05$), **0 significativos tras FDR** ($q < 0,05$) | 208 contrastes: 12 nominales ($p < 0,05$), **0 significativos tras FDR** ($q < 0,05$) | El contenido predictivo marginal del discurso sobre los mercados se desvanece por completo al controlar comparaciones múltiples. |
-| **Granger: Familia Presidencial** | 11 nominales / 0 FDR en subconjunto temático | 5 nominales / 0 FDR en subconjunto temático | Específicamente, el IPI presidencial no rechaza la hipótesis nula frente a ningún activo financiero. |
-| **Modelos GARCH Marginales** | 7 modelos convergentes; ARCH-LM residual polaridad $p = 0,354$ | 7 modelos convergentes; ARCH-LM residual polaridad $p = 0,1751$ | Se modela adecuadamente la heterocedasticidad condicional sin remanentes ARCH en residuos estandarizados. |
-| **DCC-GARCH Discurso-Mercado** | $a = 0,00938$ ($p = 0,165$), $b = 0,86903$ ($p < 10^{-8}$) | $a = 0,01194$ ($p = 0,069$), $b = 0,92237$ ($p < 10^{-10}$) | El parámetro $a$ (reacción de corto plazo) es estadísticamente nulo. La correlación condicional media oscila entre $-0,043$ y $+0,057$. |
-| **Markov Switching (IPI-TRM)** | Régimen 1: $\mu_1 = 0,006$, dur. $= 28,9$ ses; Régimen 2: $\mu_2 = 0,022$, dur. $= 16,0$ ses | Régimen 1: $\mu_1 = 0,0121$, dur. $= 24,4$ ses; Régimen 2: $\mu_2 = 0,0216$, dur. $= 27,3$ ses | Los regímenes capturan la persistencia condicional de la covariación discursivo-cambiaria. |
-| **Event Study: IPI Extremo (7d)** | TRM: $+0,55\%$; COLCAP: $-1,14\%$; TES 10Y: $+0,111$ pp; XM: $+17,34\%$ | TRM: $-1,28\%$; COLCAP: $+0,76\%$; TES 10Y: $+0,018$ pp; XM: $+31,89\%$ | Las trayectorias acumuladas a 7 días muestran variaciones moderadas compatibles con la deriva natural de los mercados. |
+| **Cointegración (Johansen)** | Traza $= 29,83 < 34,91$ ($r=0$ no rechazado) | Traza $= 27,8548 < 34,91$ ($r=0$ no rechazado) | Sistema financiero (TRM, COLCAP, TES 10Y en niveles): sin vectores de cointegración que justifiquen VECM. |
+| **Estabilidad VAR(1)** | Raíz máxima $= 0,3060$; Portmanteau $p = 2,45 \times 10^{-12}$ | Raíz máxima $= 0,2807$; Portmanteau $p = 6,00 \times 10^{-10}$ | El sistema en diferencias es estrictamente estable (raíz máxima $< 1$). En robustez, VAR(3) mantiene estabilidad (raíz $= 0,695$). |
+| **Causalidad de Granger (Total)** | 208 contrastes (incluyendo 96 de opinión): 19 nominales | 112 contrastes presidenciales puros: 5 nominales ($p < 0,05$), **0 significativos tras FDR** ($q < 0,05$) | Se eliminó la familia de 96 pruebas de opinión del pipeline inferencial. El resultado descarta precedencia lineal robusta. |
+| **Granger: Familia Presidencial** | 11 nominales / 0 FDR en subconjunto temático | 5 nominales / 0 FDR (mínimo $p = 0,007465$, $q = 0,791$) | Específicamente, el IPI presidencial no rechaza la hipótesis nula frente a ningún activo bursátil. |
+| **Modelos GARCH Marginales** | 7 modelos convergentes; ARCH-LM residual polaridad $p = 0,354$ | 7 modelos convergentes; polaridad libre de ARCH ($p = 0,1751$) | Convergencia numérica lograda, pero persiste dependencia serial en residuos de polaridad, TRM y energía (Ljung-Box). |
+| **DCC-GARCH Discurso-Mercado** | $a = 0,00938$ ($p = 0,165$), $b = 0,86903$ ($p < 10^{-8}$) | $a = 0,01194$ ($p = 0,069$), $b = 0,92237$ ($p < 10^{-10}$) | Parámetro $a$ no significativo al 5% ($a+b = 0,93431$). Correlaciones condicionales medias entre $-0,0430$ y $+0,0574$. |
+| **Markov Switching (IPI-TRM)** | Régimen 1: $\mu_1 = 0,006$, dur. $= 28,9$ ses; Régimen 2: $\mu_2 = 0,022$, dur. $= 16,0$ ses | Régimen 1: $\mu_1 = 0,0121$, dur. $= 24,4$ ses; Régimen 2: $\mu_2 = 0,0216$, dur. $= 27,3$ ses | Dos regímenes estadísticos persistentes con medias cercanas a cero y diferencia en dispersión condicional. |
+| **Event Study: IPI Extremo (7d)** | TRM: $+0,55\%$; COLCAP: $-1,14\%$; TES 10Y: $+0,111$ pp; XM: $+17,34\%$ | TRM: $-1,28\%$; COLCAP: $+0,76\%$; TES 10Y: $+0,018$ pp; XM: $+31,89\%$ | Respuestas acumuladas medias a 7 días calendario sobre 10 eventos presidenciales extremos sin contrafactual. |
 | **Event Study: Negatividad (7d)** | TRM: $-0,42\%$; COLCAP: $+0,86\%$; TES 10Y: $+0,038$ pp; XM: $+23,39\%$ | TRM: $-0,84\%$; COLCAP: $+1,16\%$; TES 10Y: $+0,175$ pp; XM: $+12,17\%$ | Movimientos observacionales promedio sin significación causal ni distribución contrafactual. |
 
 ---
@@ -61,17 +61,19 @@ La siguiente tabla resume el impacto cuantitativo de reestimar todo el pipeline 
 
 Siguiendo las pautas de supervisión metodológica y las directrices editoriales para publicaciones en revistas indexadas (e.g., Taylor & Francis / Applied Economics), se ha depurado cualquier afirmación causal:
 
-1. **Rechazo explícito de afirmaciones causales:** Queda terminantemente descartado afirmar que las publicaciones de Gustavo Petro "causan", "impactan", "afectan" o "mueven" los mercados financieros colombianos.
-2. **Uso riguroso de terminología observacional:** Las asociaciones encontradas se denominan exclusivamente:
-   - *Precedencia temporal estadística* (en el sentido de Wiener-Granger).
-   - *Contenido predictivo lineal incremental* (evaluado respecto al conjunto de información autorregresiva de mercado).
+1. **Rechazo explícito de afirmaciones causales:** Queda terminantemente descartado afirmar que las publicaciones de Gustavo Petro "causan", "impactan", "afectan" o "mueven" los mercados financieros colombianos, así como afirmar que se haya "descartado la causalidad" en términos absolutos.
+2. **Uso riguroso de terminología observacional:** Las asociaciones evaluadas se denominan exclusivamente:
+   - *Precedencia predictiva lineal estadística* (en el sentido de Wiener-Granger).
+   - *Contenido predictivo marginal* (evaluado respecto al conjunto de información autorregresiva de mercado).
    - *Covariación condicional de segundo orden* (en el contexto DCC-GARCH).
-3. **Control estricto de comparaciones múltiples:** Todo contraste de hipótesis se somete a la tasa de falso descubrimiento (FDR) mediante el procedimiento de Benjamini-Hochberg (1995). El hecho de que de 208 contrastes iniciales se observen 12 significancias nominales y **exactamente 0 tras corrección FDR** es el resultado empírico central del documento: no existe evidencia econométrica robusta de que la actividad en Twitter de `@petrogustavo` proporcione capacidad predictiva sistemática sobre los precios de los activos colombianos.
+3. **Control estricto de comparaciones múltiples:** La familia de contrastes de Granger se restringe exclusivamente a las 112 pruebas presidenciales, sometidas a control de tasa de falso descubrimiento (FDR) mediante Benjamini-Hochberg (1995). El hecho de que se observen 5 significancias nominales y **exactamente 0 tras corrección FDR** es el resultado empírico central del documento: no existe evidencia econométrica robusta de que la actividad en Twitter de `@petrogustavo` proporcione capacidad predictiva sistemática sobre los precios de los activos colombianos.
 
 ---
 
 ## 4. Archivos de Auditoría Generados
 
+* `output/tables/español/auditoria_procedencia_econometria.csv`: Certificación de uso exclusivo del corpus presidencial en los 8 componentes econométricos.
 * `output/tables/español/auditoria_sesgo_horario_opinion.csv`: Desglose horario completo del corpus `opinion` frente a `presidente`.
 * `output/tables/español/auditoria_sesgo_horario_opinion_resumen.csv`: Resumen cuantitativo del sesgo (97,49% a las 18:00; 95,77% días con 10 tweets).
+* `output/tables/español/var_robustez_rezagos.csv`: Evaluación de sensibilidad y comparación econométrica VAR(1) vs VAR(3).
 * `output/review/reestructuracion_corpus_presidencial.md`: El presente informe comprensivo.

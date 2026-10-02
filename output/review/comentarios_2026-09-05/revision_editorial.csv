@@ -1,9 +1,0 @@
-familia,operaciones_revisadas,criterio
-Texto y corpus,"Mayúsculas, espacios, entidades, tokenización, vocabulario y matrices",Comentarios de normalización existentes conservados
-Preparación de datos,"Selecciones por corpus, agrupaciones, uniones, calendarios y faltantes",Sin cambios de muestras o columnas
-Naive Bayes,"Suavizado aditivo, log-probabilidades, priors y normalización estable","Se mantienen entrenamiento, prueba y umbral"
-Redes y PPMI,"Simetrización, márgenes, asociaciones, centralidades y comunidades",Las convenciones heredadas no se presentan como inferencia validada
-STM y Wordfish,"Grilla K, prevalencia, inicialización, anclas y términos representativos",No se modifican parámetros
-Sentimiento y eventos,"NRC, IPI, media móvil por serie, retornos y cambios de tasas",Se conservan ventanas y unidades
-Econometría,"ADF, Granger, VAR, residuos y casos insuficientes",Ejecución e inferencia diferenciadas
-Presentación y exportación,"Capas gráficas, paneles, CSV, HTML y copias de figuras","Nombres, rutas y orden preservados"

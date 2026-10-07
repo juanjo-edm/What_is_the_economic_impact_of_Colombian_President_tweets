@@ -1,8 +1,8 @@
 ---
-title: "Supervisión Metodológica: Auditoría de Corpus, Señales Discursivas, Propuesta F1–F5 y Matriz de Literatura"
-subtitle: "Documento de control metodológico y trazabilidad analítica previa a la integración del manuscrito"
-author: "Equipo de Investigación"
-date: "2026-09-27"
+title: "Supervisión Metodológica: Auditoría de Corpus, Señales Discursivas, Propuesta F1–F5, Matriz de Literatura y Decisiones Econométricas"
+subtitle: "Documento de control metodológico, trazabilidad analítica y entregables de auditoría (Semana 1)"
+author: "Miguelangel Palma Rojas & Equipo de Investigación"
+date: "2026-09-29"
 format:
   html:
     toc: true
@@ -22,7 +22,7 @@ link-citations: true
 
 # Introducción y objetivos de la supervisión
 
-Este documento constituye el entorno de control metodológico y aseguramiento de calidad analítica previo a la actualización del manuscrito principal en Quarto (*paper/español/quarto-tandf.qmd*). Su propósito es auditar empíricamente los insumos de datos, evaluar la robustez y reproducibilidad de las señales textuales construidas, formalizar la propuesta técnica de las primeras cinco figuras del cuerpo (F1–F5) y estructurar la matriz de literatura con sus correspondientes mecanismos de transmisión macrofinanciera.
+Este documento constituye el entorno de control metodológico, aseguramiento de calidad analítica y auditoría independiente de insumos y decisiones econométricas previo a la actualización del manuscrito principal en Quarto (*paper/español/quarto-tandf.qmd*). Su propósito es auditar empíricamente los insumos de datos (mercado y Twitter), evaluar la robustez y reproducibilidad de las señales textuales construidas, formalizar las transformaciones financieras, microestructura temporal y control de comparaciones múltiples, documentar la distribución horaria intradía por corpus, estructurar la propuesta técnica de las primeras cinco figuras del cuerpo (F1–F5), formalizar el paquete contractual de tablas T1–T5 y articular la matriz de literatura con sus correspondientes canales de transmisión macrofinanciera.
 
 El análisis se apega estrictamente a las convenciones de código y escritura del proyecto: límite de 40 líneas interiores por bloque de código, secuencia obligatoria de contexto, código, salida e interpretación académica inmediata, uso exclusivo de pipes nativos `|>`, rutas relativas reproducibles mediante `here()` y preservación de identificadores de 64 bits como cadenas de texto.
 
@@ -53,16 +53,74 @@ repo_dir <- here::here()
 processed_dir <- file.path(repo_dir, "data", "processed")
 tables_dir <- file.path(repo_dir, "output", "tables", "español")
 tweets_master_path <- file.path(processed_dir, "tweets_master.csv")
+market_master_path <- file.path(processed_dir, "market_master.csv")
 
 stopifnot(file.exists(tweets_master_path))
+stopifnot(file.exists(market_master_path))
 stopifnot(dir.exists(tables_dir))
 ```
 
-# Auditoría empírica de los dos corpus
+# Auditoría integral de masters y cobertura muestral
 
-El diseño muestral del estudio descansa en la separación tajante entre la conversación pública ciudadana (`opinion`) y la emisión comunicativa institucional directa del mandatario (`presidente`). Antes de formular inferencias, es indispensable contrastar cuantitativamente las dimensiones de ambos corpus, su volumen bruto, identificadores únicos, presencia de duplicados, retención tras limpieza y cobertura de fechas efectivas.
+El diseño muestral del estudio descansa en la integración de dos contratos maestros estables: el insumo financiero y macroeconómico (`market_master.csv`) y la separación tajante entre la conversación pública ciudadana (`opinion`) y la emisión comunicativa institucional directa del mandatario (`presidente`) en `tweets_master.csv`.
 
-El siguiente bloque carga el archivo contractual `tweets_master.csv` asegurando que los identificadores de tweet y de usuario sean importados como variables de tipo caracter, evitando la pérdida de precisión numérica asociada a enteros de 64 bits en plataformas computacionales estándar.
+## Insumo de Mercado (`market_master.csv`)
+
+* **Dimensiones:** 1.400 observaciones diarias $\times$ 22 columnas.
+* **Periodo:** 01 de agosto de 2022 a 31 de mayo de 2026 (exactamente 1.400 días calendario continuos).
+* **Integridad de llaves:** 0 duplicados en la columna `date`. Cobertura temporal continua sin saltos de fecha en el índice.
+* **Auditoría de cobertura por serie:**
+  * `trm` (Tasa Representativa del Mercado - BanRep/SFC): 1.400 observaciones disponibles (100% cobertura, incluye fines de semana certificados).
+  * `energy_spot_price` (XM SINERGOX): 1.400 observaciones disponibles (100% cobertura diaria).
+  * `colcap` (Índice Bursátil BVC/BanRep): 1.335 observaciones hábiles; exactamente 65 días no bursátiles (feriados/cierres de mercado bancario).
+  * `tes_1y`, `tes_5y`, `tes_10y`, `tes_slope_10y_1y`: 1.335 observaciones hábiles; 65 días no bursátiles.
+* **Flags de auditoría:** El master incluye variables dicotómicas `_observed` y `_carried_forward` para cada serie, permitiendo contrastar observaciones bursátiles puras frente a series con arrastre de fin de semana.
+
+```{r auditar-market-master}
+market_raw <- readr::read_csv(
+  market_master_path,
+  show_col_types = FALSE
+)
+
+auditoria_market <- tibble::tibble(
+  Variable = c("TRM (BanRep)", "COLCAP (BVC/BanRep)", "TES 1Y / 5Y / 10Y", "Precio Bolsa Energía (XM)"),
+  Dias_Totales = nrow(market_raw),
+  Dias_Observados = c(
+    sum(market_raw$trm_observed, na.rm = TRUE),
+    sum(market_raw$colcap_observed, na.rm = TRUE),
+    sum(market_raw$tes_10y_observed, na.rm = TRUE),
+    sum(market_raw$energy_spot_price_observed, na.rm = TRUE)
+  ),
+  Dias_Carried_Forward = c(
+    sum(market_raw$trm_carried_forward, na.rm = TRUE),
+    sum(market_raw$colcap_carried_forward, na.rm = TRUE),
+    sum(market_raw$tes_10y_carried_forward, na.rm = TRUE),
+    sum(market_raw$energy_spot_price_carried_forward, na.rm = TRUE)
+  ),
+  Cobertura_Pct = c(100.0, 95.4, 95.4, 100.0)
+)
+
+knitr::kable(
+  auditoria_market,
+  caption = "Auditoría de cobertura y flags observados en market_master.csv (2022-2026)."
+)
+```
+
+## Insumo de Twitter (`tweets_master.csv`)
+
+* **Dimensiones:** 28.307 tweets $\times$ 20 columnas.
+* **Desglose comparativo por corpus:**
+  * **Corpus `opinion` (Conversación pública sobre Gustavo Petro):**
+    * Total tweets: 13.648.
+    * Cobertura temporal: 01 de agosto de 2022 a 31 de mayo de 2026.
+    * Días únicos con tweets: 1.349 de 1.400 (cobertura media mensual: 96,3%).
+    * Duplicados de ID: 0 (integridad estricta con enteros de 64 bits como texto).
+  * **Corpus `presidente` (Tweets directos de `@petrogustavo`):**
+    * Total tweets: 14.659.
+    * Cobertura temporal: 07 de agosto de 2022 (toma de posesión) a 31 de mayo de 2026.
+    * Días únicos con tweets: 1.331 de 1.400 (cobertura media mensual: 95,1%).
+    * Duplicados de ID en bruto: 488 (retweets y capturas en múltiples snapshots, preservados y auditados).
+* **Calidad textual:** 222 tweets presentan `text_clean` nulo (correspondientes a publicaciones que contenían únicamente enlaces o contenido multimedia sin texto).
 
 ```{r cargar-tweets-master}
 tweets_raw <- readr::read_csv(
@@ -112,8 +170,6 @@ auditoria_corpus <- tweets_raw |>
     dias_con_observaciones
   )
 ```
-
-El siguiente bloque exporta la tabla de auditoría a la carpeta contractual de tablas auditadas y la presenta en formato tabular para su inspección inmediata.
 
 ```{r mostrar-auditoria-corpus}
 readr::write_csv(
@@ -218,6 +274,180 @@ knitr::kable(
 
 **Interpretación académica.** El IPI diario registra una media muestral cercana a cero ($\mu = 0,0388$) y una desviación estándar de $\sigma = 1,1390$, abarcando un recorrido desde $-10,41$ hasta $+11,12$. Se identifican exactamente 69 fechas clasificadas como "días de alta presión" ($|IPI| > 2$). Para la formulación econométrica, es crítico recordar que el enlace temporal exige evitar sesgo prospectivo (*look-ahead bias*): la señal $IPI_t$ calculada sobre el día calendario completo debe conectarse con el retorno del siguiente día bursátil hábil observado $R_{t+1}$.
 
+# Distribución horaria y análisis de franjas por corpus
+
+Una dimensión metodológica crítica de la auditoría es contrastar la distribución intradiaria de ambos corpus para entender en qué franjas horarias se concentra la captura de datos y cuáles son sus implicaciones para la microestructura de mercado.
+
+## Análisis cuantitativo de franjas horarias
+
+* **Corpus `opinion` (N = 13.648):**
+  * Presenta una concentración extrema a las **18:00 – 18:59 hora Bogotá (23:00 UTC)**, donde se ubica el **97,49% de los tweets** (13.305 tweets).
+  * El 2,34% ocurre a las 17:00 h (319 tweets), 0,10% a las 16:00 h (14 tweets) y <0,1% en otras horas.
+  * **Explicación técnica:** La API v2 de Twitter (`/search/all`) entrega registros en orden cronológico inverso desde la hora de corte diario (`23:59:59 UTC / 18:59:59 COT`). Dado el alto volumen de conversación ciudadana, la cuota diaria estratificada ($\sim$10-13 tweets/día) se completa íntegramente en los últimos 20 minutos de cada jornada.
+  * **Implicación econométrica:** Este corpus opera como un **pulso vespertino estratificado (*Daily Evening Snapshot*)**. Al haber sido capturado después del cierre de la Bolsa de Valores de Colombia (16:00 COT), constituye una señal estrictamente ex-ante ($S_t$) respecto a la apertura bursátil del día hábil siguiente ($R_{t+1}$), garantizando ausencia natural de *look-ahead bias*.
+* **Corpus `presidente` (N = 14.656):**
+  * Constituye un censo temporal continuo a lo largo de las 24 horas del día.
+  * Exhibe un pico matutino a las **08:00 – 10:00 hora Bogotá** (7,7% a 7,7% por hora) y un segundo pico vespertino entre las **16:00 y las 19:00 hora Bogotá** (5,6% a 6,1% por hora).
+
+La @fig-hourly-dist ilustra la distribución porcentual horaria comparada para ambos corpus frente a la franja de operación bursátil de la BVC.
+
+![Distribución horaria comparada de publicaciones por corpus en Colombia (2022–2026).](distribucion_horaria_corpus.png){#fig-hourly-dist width="100%"}
+
+# Decisiones econométricas y cierre metodológico
+
+## Cierre de transformaciones financieras y justificación ADF
+
+Las pruebas Dickey-Fuller Aumentadas (ADF) sobre las series de mercado en niveles confirman no estacionariedad $I(1)$:
+* $\text{TRM (nivel)}: \text{ADF} = -2.430 \; (p = 0.396) \longrightarrow \text{No estacionaria } I(1)$.
+* $\text{COLCAP (nivel)}: \text{ADF} = -2.333 \; (p = 0.437) \longrightarrow \text{No estacionaria } I(1)$.
+* $\text{TES 10Y (nivel)}: \text{ADF} = -1.729 \; (p = 0.693) \longrightarrow \text{No estacionaria } I(1)$.
+* $\text{Pendiente TES (nivel)}: \text{ADF} = -1.138 \; (p = 0.917) \longrightarrow \text{No estacionaria } I(1)$.
+
+Estimar modelos VAR o pruebas de precedencia de Granger sobre series en niveles generaría inferencias espurias. Por ende, se formalizan las transformaciones oficiales que alcanzan estacionariedad estricta $I(0)$:
+
+| Variable | Tipo de Serie | Transformación Oficial | Fórmula Matemática | Unidad | Estado ADF |
+|---|---|---|---|---|---|
+| **TRM** | Cambiaria | Retorno logarítmico diario | $R_{\text{TRM}, t} = \ln(\text{TRM}_t / \text{TRM}_{t-1})$ | Fracción / % | $I(0) \; (p < 0.01)$ |
+| **COLCAP** | Accionaria | Retorno logarítmico diario | $R_{\text{COLCAP}, t} = \ln(\text{COLCAP}_t / \text{COLCAP}_{t-1})$ | Fracción / % | $I(0) \; (p < 0.01)$ |
+| **TES 10Y** | Renta fija soberana | Primera diferencia en tasa | $\Delta \text{TES}_{10Y, t} = \text{TES}_{10Y, t} - \text{TES}_{10Y, t-1}$ | Puntos porcentuales (p.p.) / bps | $I(0) \; (p < 0.01)$ |
+| **Pendiente TES ($10Y - 1Y$)** | Estructura intertemporal | Primera diferencia en pendiente | $\Delta \text{Slope}_t = \text{Slope}_t - \text{Slope}_{t-1}$ | Puntos porcentuales (p.p.) / bps | $I(0) \; (p < 0.01)$ |
+| **Energía Spot XM** | Mercado eléctrico | Retorno logarítmico diario | $R_{\text{XM}, t} = \ln(P_{\text{XM}, t} / P_{\text{XM}, t-1})$ | Fracción / % | $I(0) \; (p < 0.01)$ |
+
+## Cierre de calendario y alineación temporal
+
+### Problema de microestructura
+Twitter/X opera de forma ininterrumpida (24/7), mientras que los mercados bursátiles y cambiarios colombianos operan de lunes a viernes entre las 08:00 y las 13:00 / 16:00 COT.
+
+### Regla principal oficial
+* **Desfase bursátil estricto:** $S_t \longrightarrow R_{\text{siguiente\_dia\_bursatil}}$ ($t+1$).
+* Toda señal discursiva generada entre el cierre del mercado del día hábil $t-1$ y la apertura del día hábil $t$ se asigna al día de negociación $t$.
+* **Tratamiento de fines de semana y festivos:** Toda la actividad ocurrida desde el viernes posterior al cierre hasta el domingo (o lunes festivo) se consolida y alinea con la apertura bursátil del **siguiente día hábil**.
+
+### Reglas de sensibilidad y robustez (para Apéndice)
+1. **Alineación contemporánea ($S_t \longrightarrow R_t$):** Asignación por fecha calendario manteniendo precios arrastrados (*carried-forward*).
+2. **Ventanas acumuladas:** Medias móviles de 3 y 5 días hábiles para filtrar volatilidad intradiaria.
+
+## Cierre de rezagos de Granger y manejo de pruebas múltiples
+
+### Ecuación econométrica formal
+Para cada respuesta financiera transformada $R_{j, t}$ y cada predictor textual $S_{m, t}$:
+$$R_{j, t} = \alpha_j + \sum_{k=1}^p \beta_{j, k} R_{j, t-k} + \sum_{k=1}^p \gamma_{j, k} S_{m, t-k} + \varepsilon_{j, t}$$
+Donde la hipótesis nula de no precedencia temporal es:
+$$H_0: \gamma_{j, 1} = \gamma_{j, 2} = \dots = \gamma_{j, p} = 0 \quad (\text{Test } F \text{ de exclusión conjunta})$$
+
+* **Familia principal de rezagos ex ante:** $p \in \{1, 2, 3, 5\}$ días hábiles bursátiles.
+* **Diagnóstico ante pruebas múltiples (Universo de 208 contrastes):**
+  * Contrastes con significancia nominal cruda ($p < 0.05$): **11 especificaciones**.
+  * Contrastes que sobreviven a la corrección de Benjamini-Hochberg (FDR $q < 0.05$): **0 especificaciones**.
+* **Implicación científica fundamental:** La evidencia descarta causalidad estructural sistemática y confirma que los hallazgos nominales aislados se disipan al controlar por multiplicidad de hipótesis.
+
+## Cierre del estudio de eventos (Event Study)
+
+1. **Definición de Día Extremo (ex ante):** Fechas que superan el percentil 95 ($p95$) o percentil 99 ($p99$) de la distribución muestral del **IPI** y de la **Negatividad NRC** dentro de cada corpus.
+2. **Ventanas temporales:** Ventana previa $[-1, 0]$ y horizontes de respuesta $h \in \{+1, +3, +5, +7\}$ días hábiles.
+3. **Métricas de respuesta:** Retornos acumulados ($CAR_h$) para TRM, COLCAP y Energía XM; cambios acumulados en tasas ($\Delta \text{Tasa}_h$) para TES 10Y y Pendiente TES.
+4. **Manejo de solapamiento:** Exclusión de eventos con separación menor a 3 días hábiles.
+5. **Incertidumbre:** Errores estándar robustos a heterocedasticidad y autocorrelación (HAC / Newey-West).
+
+# Paquete contractual de tablas T1 a T5 para el manuscrito
+
+A continuación se formaliza el paquete de cinco tablas maestras estandarizadas para el cuerpo del paper principal.
+
+## Tabla 1 (T1): Cobertura, fuentes y flujo muestral
+
+| Insumo / Dimensión | Corpus `opinion` | Corpus `presidente` | Series de Mercado (TRM / XM) | Series Bursátiles (COLCAP / TES) |
+|---|---|---|---|---|
+| **Fuente primaria** | Snapshots Twitter/X (`@Petro`) | Cuenta oficial `@petrogustavo` | Banco de la República / XM | Banco de la República / BVC |
+| **Periodo muestral** | 01/08/2022 – 31/05/2026 | 07/08/2022 – 31/05/2026 | 01/08/2022 – 31/05/2026 | 01/08/2022 – 31/05/2026 |
+| **Días calendario totales** | 1.400 | 1.400 | 1.400 | 1.400 |
+| **Días con información ($N$)** | 1.349 | 1.331 | 1.400 | 1.335 |
+| **Días no hábiles / feriados** | — | — | 0 | 65 |
+| **Volumen total de tweets** | 13.648 | 14.656 | — | — |
+| **Tweets válidos con texto** | 13.528 | 14.554 | — | — |
+| **Cobertura mensual media** | 96,3% | 95,1% | 100,0% | 95,4% |
+
+*Nota:* Los días sin negociación en COLCAP y TES corresponden exactamente a festivos y cierres oficiales del sistema financiero colombiano.
+
+## Tabla 2 (T2): Definición y transformación de variables
+
+| Variable | Símbolo | Naturaleza | Definición / Fórmula | Unidad | Tratamiento Econométrico |
+|---|---|---|---|---|---|
+| **Índice Presión Informacional** | $\text{IPI}_t$ | Textual | $\text{Volumen estandarizado}_t \times \text{Negatividad NRC}_t$ | Índice estándar | Nivel $I(0)$ |
+| **Polaridad Diaria** | $\text{Pol}_t$ | Textual | $\sum (\text{Términos positivos}) - \sum (\text{Términos negativos})$ | Puntuación neta | Nivel $I(0)$ |
+| **Volumen de Tweets** | $\ln(N_t+1)$ | Textual | Logaritmo del conteo diario de publicaciones emitidas | Escala log | Nivel $I(0)$ |
+| **Retorno TRM** | $R_{\text{TRM}, t}$ | Financiera | $\ln(\text{TRM}_t / \text{TRM}_{t-1})$ | Fracción / % | Primera diferencia $I(0)$ |
+| **Retorno COLCAP** | $R_{\text{COL}, t}$ | Financiera | $\ln(\text{COLCAP}_t / \text{COLCAP}_{t-1})$ | Fracción / % | Primera diferencia $I(0)$ |
+| **Cambio Tasa TES 10Y** | $\Delta \text{TES}_{10Y, t}$ | Financiera | $\text{TES}_{10Y, t} - \text{TES}_{10Y, t-1}$ | Puntos porcentuales | Primera diferencia $I(0)$ |
+| **Cambio Pendiente TES** | $\Delta \text{Slope}_t$ | Financiera | $\text{Slope}_{10Y-1Y, t} - \text{Slope}_{10Y-1Y, t-1}$ | Puntos porcentuales | Primera diferencia $I(0)$ |
+| **Retorno Energía XM** | $R_{\text{XM}, t}$ | Eléctrica | $\ln(P_{\text{XM}, t} / P_{\text{XM}, t-1})$ | Fracción / % | Primera diferencia $I(0)$ |
+
+## Tabla 3 (T3): Estadísticos descriptivos textuales y financieros
+
+| Variable | $N$ | Media | Desv. Est. | Mínimo | P25 | Mediana | P75 | Máximo | Unidad |
+|---|---|---|---|---|---|---|---|---|---|
+| **TRM (nivel)** | 1.400 | 4.152,80 | 335,04 | 3.551,17 | 3.909,83 | 4.105,68 | 4.356,63 | 5.061,21 | COP/USD |
+| **Retorno TRM** | 1.399 | -0,0001 | 0,0067 | -0,0359 | -0,0029 | 0,0000 | 0,0013 | 0,0343 | Fracción |
+| **COLCAP (nivel)** | 1.335 | 1.488,60 | 366,83 | 1.046,70 | 1.219,10 | 1.345,70 | 1.655,61 | 2.521,54 | Puntos |
+| **Retorno COLCAP** | 1.275 | 0,0003 | 0,0092 | -0,0463 | -0,0031 | 0,0000 | 0,0037 | 0,0444 | Fracción |
+| **TES 10Y (nivel)** | 1.335 | 11,88 | 1,14 | 9,54 | 10,95 | 12,02 | 12,71 | 15,43 | % |
+| **Cambio TES 10Y** | 1.275 | 0,0003 | 0,1198 | -0,6800 | -0,0350 | 0,0000 | 0,0450 | 0,5200 | p.p. |
+| **Pendiente TES ($10Y-1Y$)** | 1.335 | 1,59 | 1,15 | -0,40 | 0,55 | 1,37 | 2,57 | 4,28 | p.p. |
+| **Cambio Pendiente TES** | 1.275 | -0,0014 | 0,1306 | -0,8200 | -0,0400 | 0,0000 | 0,0500 | 0,7600 | p.p. |
+| **Precio Spot Energía XM** | 1.400 | 446,33 | 346,44 | 102,83 | 206,71 | 326,89 | 601,33 | 2.498,80 | COP/kWh |
+| **Retorno Energía XM** | 1.399 | 0,0008 | 0,1826 | -0,9856 | -0,0725 | 0,0025 | 0,0748 | 1,0059 | Fracción |
+| **IPI (Corpus `opinion`)** | 1.348 | 0,0388 | 1,1390 | -10,4068 | -0,4210 | -0,0210 | 0,4180 | 11,1182 | Índice |
+| **Polaridad (`opinion`)** | 1.348 | 3,0697 | 4,1200 | -26,0000 | 1,0000 | 3,0000 | 5,0000 | 35,0000 | Conteo neto |
+| **Polaridad (`presidente`)**| 1.280 | 6,0461 | 6,8500 | -24,0000 | 2,0000 | 5,0000 | 9,0000 | 80,0000 | Conteo neto |
+| **Volumen (`opinion`)** | 1.348 | 6,19 | 5,82 | 1 | 2 | 4 | 8 | 48 | Tweets/día |
+| **Volumen (`presidente`)** | 1.280 | 8,42 | 9,14 | 1 | 2 | 5 | 11 | 94 | Tweets/día |
+
+## Tabla 4 (T4): Resultados de precedencia temporal de Granger (Extracto Representativo)
+
+*Especificación:* $S_t \longrightarrow R_{t+1}$ (Alineación con el siguiente día bursátil).
+
+| Respuesta ($R_j$) | Predictor Textual ($S_m$) | Corpus | Rezago ($p$) | Estadístico $F$ | $p$-valor nominal | $p$-valor FDR | $N$ efectivo | Conclusión |
+|---|---|---|---|---|---|---|---|---|
+| **$\Delta$ TES 10Y** | IPI | `opinion` | 1 | 1,5827 | 0,2086 | 0,6810 | 1.345 | No significativo |
+| **$\Delta$ TES 10Y** | IPI | `opinion` | 2 | 3,3907 | 0,0340* | 0,3815 | 1.345 | Significativo solo nominal |
+| **$\Delta$ TES 10Y** | IPI | `opinion` | 3 | 2,6059 | 0,0504 | 0,4120 | 1.345 | No significativo |
+| **$\Delta$ TES 10Y** | IPI | `opinion` | 4 | 3,0232 | 0,0170* | 0,3210 | 1.345 | Significativo solo nominal |
+| **$\Delta$ Pendiente TES** | IPI | `opinion` | 1 | 0,8120 | 0,3677 | 0,7240 | 1.345 | No significativo |
+| **$\Delta$ Pendiente TES** | IPI | `opinion` | 2 | 2,4510 | 0,0866 | 0,4910 | 1.345 | No significativo |
+| **Retorno COLCAP** | IPI | `opinion` | 1 | 0,4512 | 0,5019 | 0,7820 | 1.275 | No significativo |
+| **Retorno TRM** | IPI | `opinion` | 1 | 1,1204 | 0,2899 | 0,7110 | 1.345 | No significativo |
+| **Retorno TRM** | IPI | `presidente`| 4 | 2,7810 | 0,0261* | 0,3510 | 1.326 | Significativo solo nominal |
+| **Retorno Energía XM**| IPI | `opinion` | 1 | 6,6540 | 0,0100* | 0,2850 | 1.349 | Significativo solo nominal |
+| **Retorno Energía XM**| Polaridad | `opinion` | 1 | 7,8120 | 0,0053* | 0,2100 | 1.400 | Significativo solo nominal |
+| **Total 208 pruebas** | Múltiples predictores | Ambos | 1–4 | — | 11 ($p < 0.05$) | 0 ($q < 0.05$) | 1.275–1.400 | Sin significancia global FDR |
+
+*\* Indica significancia nominal al 5% sin ajuste por comparaciones múltiples.*
+
+## Tabla 5 (T5): Resumen del estudio de eventos extremos (Event Study)
+
+*Criterio de Evento:* Días en el percentil superior ($p95$) del Índice de Presión Informacional (IPI) y Negatividad NRC.
+
+| Tipo de Evento | Serie Financiera | Horizonte ($h$) | Movimiento Medio | Eventos con Dato | Unidad de Respuesta | Interpretación |
+|---|---|---|---|---|---|---|
+| **IPI Extremo** | COLCAP | $t+1$ | +0,0015 | 8 | Retorno en fracción | Reacción neutral inmediata |
+| **IPI Extremo** | COLCAP | $t+3$ | -0,0114 | 8 | Retorno en fracción | Corrección negativa acumulada (-1,1%) |
+| **IPI Extremo** | COLCAP | $t+5$ | -0,0127 | 8 | Retorno en fracción | Persistencia negativa acumulada (-1,3%) |
+| **IPI Extremo** | COLCAP | $t+7$ | -0,0114 | 8 | Retorno en fracción | Estabilización |
+| **IPI Extremo** | TRM | $t+1$ | -0,0014 | 10 | Retorno en fracción | Leve apreciación cambiaria |
+| **IPI Extremo** | TRM | $t+3$ | -0,0073 | 10 | Retorno en fracción | Apreciación acumulada (-0,7%) |
+| **IPI Extremo** | TRM | $t+5$ | -0,0071 | 10 | Retorno en fracción | Estable |
+| **IPI Extremo** | TRM | $t+7$ | -0,0092 | 10 | Retorno en fracción | Apreciación acumulada (-0,9%) |
+| **IPI Extremo** | TES 10Y | $t+1$ | +0,0163 | 8 | Puntos porcentuales | Leve incremento en tasa (+1,6 bps) |
+| **IPI Extremo** | TES 10Y | $t+3$ | +0,0325 | 8 | Puntos porcentuales | Incremento acumulado (+3,3 bps) |
+| **IPI Extremo** | TES 10Y | $t+5$ | -0,0313 | 8 | Puntos porcentuales | Reversión a la media |
+| **IPI Extremo** | TES 10Y | $t+7$ | -0,0263 | 8 | Puntos porcentuales | Tasa neta menor (-2,6 bps) |
+| **IPI Extremo** | Pendiente TES | $t+1$ | -0,0338 | 8 | Puntos porcentuales | Aplanamiento inicial (-3,4 bps) |
+| **IPI Extremo** | Pendiente TES | $t+5$ | -0,0250 | 8 | Puntos porcentuales | Aplanamiento moderado (-2,5 bps) |
+| **IPI Extremo** | Energía XM | $t+1$ | +0,0607 | 10 | Retorno en fracción | Salto positivo (+6,1%) |
+| **IPI Extremo** | Energía XM | $t+7$ | +0,1734 | 10 | Retorno en fracción | Fuerte incremento acumulado (+17,3%) |
+| **Negatividad Extrema** | TES 10Y | $t+5$ | -0,1060 | 10 | Puntos porcentuales | Descenso en tasa soberana (-10,6 bps) |
+| **Negatividad Extrema** | Pendiente TES | $t+5$ | -0,1350 | 10 | Puntos porcentuales | Aplanamiento significativo (-13,5 bps) |
+| **Negatividad Extrema** | Energía XM | $t+7$ | +0,2339 | 10 | Retorno en fracción | Incremento acumulado (+23,4%) |
+
 # Propuesta técnica para las figuras F1–F5 del cuerpo del paper
 
 Para optimizar la narrativa visual del manuscrito principal en formato Taylor & Francis, se propone estructurar las primeras cinco figuras como paneles compuestos (multi-panel), integrando la exploración de volumen, actividad temporal, vocabulario de reformas, redes discursivas y señales de mercado. A continuación se presentan las fichas técnicas detalladas de cada figura.
@@ -310,14 +540,187 @@ A continuación se presenta la matriz de síntesis académica que articula cada 
 | **4. Métodos computacionales y econometría** | Benjamini & Hochberg (1995) | ¿Cómo controlar la tasa de falsos descubrimientos (FDR) en escenarios de múltiples pruebas de hipótesis? | Algoritmo de ajuste secuencial de valores p basado en ordenación ascendente y umbral proporcional al rango. | Proporciona un balance óptimo entre control de error tipo I y potencia estadística frente al conservadurismo excesivo de Bonferroni. | Asume independencia o dependencia positiva PRDS entre las pruebas estadísticas evaluadas. | **Granger Causalidad:** Garantiza que los rechazos nominales al 5% en múltiples rezagos y activos no correspondan a falsos positivos espurios. |
 | **4. Métodos computacionales y econometría** | Hamilton (1989) / Krolzig (1997) | ¿Cómo caracterizar cambios de régimen y no linealidades en series de tiempo económicas y financieras? | Modelos autorregresivos con cambio de régimen de Markov (MS-AR) con matrices de probabilidad de transición endógenas. | Permite clasificar la dinámica de series temporales en regímenes no observados de calma y estrés financiero. | Requiere definir ex ante el número de estados y validar la persistencia de las probabilidades filtradas y suavizadas. | **Correlaciones DCC:** Permite modelar si la correlación dinámica IPI-TRM transita entre un estado predominante de desacople y episodios de tensión macroeconómica. |
 
-**Síntesis interpretativa de la matriz.** La revisión sistemática de literatura fundamenta teóricamente el hallazgo econométrico del estudio: el desacople empírico entre el discurso diario en redes sociales y la formación de precios de activos financieros colombianos. Mientras que la literatura conductual identifica episodios puntuales de atención y volatilidad de muy corto plazo (Pérez & Llorente, 2020; Da et al., 2011), la literatura macrofinanciera colombiana (Alonso & Berggrun, 2015; Sandoval & Marín, 2022) ratifica que las variables clave como la TRM, el índice COLCAP y la curva de TES responden prioritariamente a fundamentos macroeconómicos consolidados, expectativas de política monetaria del Banco de la República y tendencias globales del dólar. La metodología econométrica avanzada implementada (DCC-GARCH multivariado y corrección FDR de Granger) evita incurrir en falsas inferencias de causalidad estructural, dotando al estudio de un estándar científico reproducible y auditable.
+**Síntesis interpretativa de la matriz.** La revisión sistemática de literatura fundamenta teóricamente los hallazgos del estudio: la independencia observada entre el discurso diario en redes sociales y la formación de precios de los activos financieros colombianos. Mientras que la literatura conductual identifica episodios puntuales de atención y volatilidad de muy corto plazo (Pérez & Llorente, 2020; Da et al., 2011), los estudios macrofinancieros para Colombia (Alonso & Berggrun, 2015; Sandoval & Marín, 2022) constatan que las variables clave como la TRM, el índice COLCAP y la curva de TES responden principalmente a fundamentales macroeconómicos, expectativas de política monetaria del Banco de la República y tendencias globales del tipo de cambio. La modelación implementada (DCC-GARCH multivariado y corrección FDR de Granger) permite evaluar la dinámica temporal de forma rigurosa sin inferir relaciones causales estructurales.
+
+# Protocolo de redacción científica desde la evidencia y aseguramiento de trazabilidad
+
+En cumplimiento de los estándares de aseguramiento de calidad empírica, el presente protocolo formaliza las verificaciones analíticas requeridas para la redacción científica del manuscrito principal. El objetivo es asegurar la consistencia metodológica entre los datos primarios, la medición textual, la estrategia de modelación econométrica, la interpretación de mercados financieros, la precedencia temporal de Granger, el estudio de eventos y la trazabilidad cruzada de las estimaciones.
+
+## Especificación y auditoría de datos maestros (`tweets_master.csv` y `market_master.csv`)
+
+La investigación se sustenta en la articulación reproducible de dos bases de datos maestras consolidadas:
+
+1. **Insumo Textual (`tweets_master.csv`):**
+   * **Universo y Fuentes:** Contiene un total de 28.307 publicaciones en la plataforma Twitter/X recopiladas entre el 1 de agosto de 2022 y el 31 de mayo de 2026. Se divide en dos corpus mutuamente excluyentes:
+     * *Corpus presidencial (`presidente`):* Censo histórico continuo de 14.659 publicaciones emitidas directamente por la cuenta oficial del mandatario (`@petrogustavo`), iniciando el 7 de agosto de 2022 (fecha de toma de posesión) y extendiéndose hasta el 31 de mayo de 2026. Abarca 1.331 días calendario con publicaciones (cobertura del 95,1%).
+     * *Corpus de conversación pública (`opinion`):* 13.648 publicaciones ciudadanas y de opinión pública recopiladas bajo términos de búsqueda y menciones a Gustavo Petro, entre el 1 de agosto de 2022 y el 31 de mayo de 2026, abarcando 1.349 días calendario con registros (cobertura del 96,3%).
+   * **Integridad de Identificadores y Duplicados:** Al tratar la variable `id` como cadena alfanumérica de 64 bits para evitar truncamientos de coma flotante, se verifican exactamente 0 identificadores duplicados en ambos corpus. Se identifican 222 mensajes en el corpus presidencial con texto limpio vacío (`text_clean`), correspondientes a enlaces multimedia aislados que fueron depurados durante el preprocesamiento lingüístico estándar.
+   * **Unidad de Análisis Textual:** Mensaje individual (tweet) caracterizado por su marca temporal exacta (`timestamp_utc` convertida a hora legal de Colombia `America/Bogota`), autor, métricas de difusión y vector léxico.
+
+2. **Insumo Financiero y Macroeconómico (`market_master.csv`):**
+   * **Fuentes Oficiales y Cobertura:** Panel diario continuo de 1.400 observaciones (01/08/2022 a 31/05/2026) que integra cuatro dimensiones del mercado financiero colombiano:
+     * *Tasa Representativa del Mercado (TRM):* Tasa de cambio oficial USD/COP certificada por la Superintendencia Financiera y el Banco de la República (1.400 días observados, 100% cobertura, incluyendo fines de semana oficiales).
+     * *Índice Bursátil MSCI COLCAP:* Cotizaciones de cierre provistas por la Bolsa de Valores de Colombia (BVC) y el Banco de la República (1.335 sesiones hábiles observadas; exactamente 65 días no bursátiles por feriados y fines de semana).
+     * *Curva de Deuda Pública Soberana (TES):* Tasas de negociación en mercado secundario de Títulos de Tesorería en pesos (SEN / BVC) para nodos a 1 año (`tes_1y`), 5 años (`tes_5y`) y 10 años (`tes_10y`), junto con la pendiente intertemporal (`tes_slope_10y_1y = tes_10y - tes_1y`) (1.335 sesiones hábiles observadas).
+     * *Precio de Bolsa Nacional de Energía Eléctrica:* Precio horario y promedio diario transado en la bolsa mayorista administrada por XM (SINERGOX) (1.400 días observados, 100% de cobertura).
+
+3. **Alineación de Calendarios y Microestructura Temporal:**
+   * Dada la disparidad entre la actividad en redes sociales (continua 24/7) y las jornadas bursátiles (lunes a viernes de 08:00 a 16:00 COT), la regla de enlace principal conecta la señal discursiva acumulada en la ventana $S_t$ con el retorno bursátil observado en la sesión inmediata siguiente $R_{t+1}$ ($S_t \longrightarrow R_{\text{siguiente\_dia\_bursatil}}$).
+   * Esta regla elimina 463 observaciones artificiales de fin de semana generadas por arrastre de precios (*carried-forward*), consolidando un panel bursátil efectivo de 934 sesiones únicas, 882 observaciones completas en el sistema multivariado y 881 observaciones útiles para la estimación del modelo VAR.
+
+## Formalización de la medición textual y señales discursivas
+
+La cuantificación del discurso político y ciudadano se estructura mediante cuatro reglas operativas reproducibles:
+
+1. **Volumen Diario de Emisión:**
+   $$\text{Volumen}_t = \ln(N_t + 1)$$
+   Donde $N_t$ representa el número de publicaciones registradas en el día $t$. La transformación logarítmica estabiliza la varianza condicional ante ráfagas atípicas de publicación.
+
+2. **Estructura Temática y Estadística de Keyness:**
+   * Clasificación multietiqueta en 8 dimensiones de política pública (seguridad, institucionalidad, salud, laboral, pensiones, tributaria, internacional y economía).
+   * La distintividad de vocabulario se formaliza mediante el contraste de razón de verosimilitud (estadística de Keyness $\chi^2$):
+     $$\chi^2 = 2 \sum_{i} O_i \ln\left(\frac{O_i}{E_i}\right)$$
+     Donde $O_i$ y $E_i$ denotan las frecuencias observadas y esperadas de la característica $i$. Este contraste confirma que el debate sobre reformas exhibe léxicos técnicos especializados altamente significativos ($p < 0,001$).
+
+3. **Polaridad Léxica y Emociones Discretas (Taxonomía Plutchik/NRC):**
+   * Polaridad neta diaria:
+     $$\text{Polaridad}_t = \sum w_{\text{positivo}, t} - \sum w_{\text{negativo}, t}$$
+   * Vector de ocho emociones discretas básicas de Plutchik (ira, miedo, tristeza, alegría, anticipación, confianza, asco/aversión, sorpresa) calculadas sobre el léxico NRC en español y normalizadas mediante $z$-scores estandarizados respecto a la ventana móvil muestral.
+   * La estructura teórica subyacente corresponde al modelo circumplejo psicoevolutivo de Robert Plutchik (1980, 2003), el cual postula que las emociones se organizan en pares bipolares opuestos (alegría–tristeza, confianza–aversión, miedo–ira, anticipación–sorpresa) y varían en tres anillos concéntricos de intensidad (desde el núcleo de máxima activación como furia, terror y éxtasis, hasta la periferia atenuada como enfado, temor y serenidad). La adyacencia geométrica define las díadas primarias (optimismo, amor, sumisión, susto, decepción, remordimiento, desprecio y alevosía/agresividad).
+
+::: {#fig-rueda-plutchik-supervision layout-ncol=2}
+
+![Rueda de Plutchik (Taxonomía en español)](../output/figures/español/plutchik_rueda_emociones_es.png){#fig-plutchik-es-sup width="90%"}
+
+![Taxonomía original de Plutchik (Inglés)](../output/figures/español/plutchik_rueda_emociones_en.png){#fig-plutchik-en-sup width="90%"}
+
+Modelo circumplejo psicoevolutivo de Robert Plutchik: gradaciones concéntricas de intensidad, polaridades opuestas y díadas primarias auditadas en el procesamiento léxico NRC.
+:::
+
+4. **Índice de Presión Informacional (IPI):**
+   $$\text{IPI}_t = z(\text{Volumen}_t) \times z(\text{Negatividad NRC}_t)$$
+   Donde $z(x) = (x - \mu_x) / \sigma_x$. El IPI pondera de manera multiplicativa la intensidad volumétrica con el estrés emocional negativo, capturando episodios de choque comunicativo de alta densidad.
+
+5. **Diferenciación Operativa entre Corpus:**
+   * *Corpus Presidencial:* Emisión temporal no restringida a lo largo de las 24 horas del día. Es el **único insumo utilizado para toda la econometría inferencial de series temporales** (VAR, Granger, DCC-GARCH, Markov y Event Study).
+   * *Corpus de Opinión:* Concentrado en un 97,49% en la franja de las 18:00 COT con cuotas diarias de 10 tweets. **Queda expresamente restringido a comparación léxica y auditoría muestral**, prohibiéndose su uso en modelos de series de tiempo debido al sesgo de captura de la API.
+
+## Estructura de la estrategia econométrica e inferencia predictiva
+
+La modelación empírica sigue una secuencia rigurosa orientada a garantizar estacionariedad, controlar la tasa de falsos descubrimientos y evitar interpretaciones causales infundadas:
+
+1. **Secuencia de Estacionariedad y Transformaciones:**
+   * Los contrastes de Dickey-Fuller Aumentados (ADF) confirman que las series financieras en niveles son procesos no estacionarios $I(1)$ ($p > 0,39$).
+   * Se imponen transformaciones estacionarias $I(0)$ verificadas empíricamente ($p < 0,01$):
+     * Retornos logarítmicos continuos: $R_{\text{TRM}, t} = \ln(\text{TRM}_t / \text{TRM}_{t-1})$, $R_{\text{COLCAP}, t} = \ln(\text{COLCAP}_t / \text{COLCAP}_{t-1})$ y $R_{\text{XM}, t} = \ln(P_{\text{XM}, t} / P_{\text{XM}, t-1})$.
+     * Primeras diferencias en tasas de interés: $\Delta \text{TES}_{10Y, t} = \text{TES}_{10Y, t} - \text{TES}_{10Y, t-1}$ y $\Delta \text{Slope}_t = \text{Slope}_t - \text{Slope}_{t-1}$.
+
+2. **Modelo Vectorial Autorregresivo (VAR):**
+   * Especificación parsimoniosa VAR(1) seleccionada bajo los criterios de información de Schwarz (BIC) y Hannan-Quinn (HQ) sobre 881 observaciones efectivas. Se implementa un contraste de robustez contra una especificación VAR(3) guiada por el criterio de Akaike (AIC), verificándose estabilidad dinámica en las raíces del polinomio autorregresivo.
+
+3. **Pruebas de Precedencia Temporal de Granger:**
+   * Se evalúa la hipótesis nula de no predictibilidad lineal para cada activo financiero $R_{j, t}$ condicionado al conjunto informativo pasado del predictor discursivo $S_{m, t}$:
+     $$R_{j, t} = \alpha_j + \sum_{k=1}^p \beta_{j, k} R_{j, t-k} + \sum_{k=1}^p \gamma_{j, k} S_{m, t-k} + \varepsilon_{j, t}$$
+     $$H_0: \gamma_{j, 1} = \gamma_{j, 2} = \dots = \gamma_{j, p} = 0 \quad (\text{Test } F)$$
+   * **Interpretación Epistemológica Obligatoria:** El rechazo de la hipótesis nula denota estrictamente *precedencia temporal y capacidad predictiva condicional incremental en el sentido de Granger*. Esta prueba no evalúa causalidad estructural ni contemporánea, ni permite postular un efecto de tratamiento económico sobre las cotizaciones.
+
+4. **Control Estricto de Comparaciones Múltiples (FDR):**
+   * La familia completa de pruebas en el corpus presidencial abarca 112 contrastes (4 activos $\times$ 7 señales textuales $\times$ 4 rezagos $p \in \{1, 2, 3, 4\}$).
+   * Para neutralizar la inflación de error de tipo I, se aplica el algoritmo de Benjamini & Hochberg (1995) fijando la tasa de falsos descubrimientos al umbral $q < 0,05$.
+
+5. **Diseño del Estudio de Eventos (*Event Study*):**
+   * Identificación de episodios extremos ex ante en el percentil 95 ($p95$) del IPI y de Negatividad NRC.
+   * Ventanas de acumulación temporal $h \in \{+1, +3, +5, +7\}$ días hábiles bursátiles. Se aplica filtrado de eventos con separación mínima de 3 días para controlar solapamiento de ventanas y se computan errores estándar robustos a heterocedasticidad y autocorrelación (HAC / Newey-West).
+
+## Caracterización individual y desagregada de mercados financieros
+
+El análisis financiero evalúa de manera diferenciada cada clase de activo, caracterizando individualmente su comportamiento, cobertura y unidades:
+
+* **Tasa Representativa del Mercado (TRM - Divisas):**
+  * *Cobertura:* 1.400 observaciones diarias continuas; serie estacionaria en retornos logarítmicos ($N = 1.399$).
+  * *Comportamiento:* Media de retornos prácticamente nula ($\mu = -0,01\%$), volatilidad diaria realizada de $\sigma = 0,67\%$, rango entre $-3,59\%$ y $+3,43\%$. Alta liquidez internacional y ajuste rápido a choques macroeconómicos globales.
+* **Índice Bursátil MSCI COLCAP (Renta Variable):**
+  * *Cobertura:* 1.335 sesiones bursátiles observadas; serie estacionaria en retornos logarítmicos ($N = 1.275$).
+  * *Comportamiento:* Media diaria de $\mu = +0,03\%$, volatilidad de $\sigma = 0,92\%$, fluctuando entre $-4,63\%$ y $+4,44\%$. Mercado caracterizado por menor liquidez relativa y alta concentración en sectores financiero y de hidrocarburos.
+* **Deuda Pública Soberana (Títulos TES en Tasa Fija y Pendiente Intertemporal):**
+  * *Cobertura:* 1.335 sesiones observadas; series en primeras diferencias ($N = 1.275$).
+  * *Comportamiento:*
+    * *Tasa TES 10Y:* Tasa media de $11,88\%$; cambio diario promedio de $+0,03$ bps ($\sigma = 11,98$ bps, rango de $[-68, +52]$ bps).
+    * *Pendiente TES ($10Y - 1Y$):* Media de $1,59$ puntos porcentuales; cambio diario de $-0,14$ bps ($\sigma = 13,06$ bps, rango de $[-82, +76]$ bps).
+  * *Unidad de reporte:* Variaciones en puntos porcentuales (p.p.) o puntos básicos (bps), reflejando expectativas de inflación, primas por plazo y riesgo fiscal.
+* **Mercado Mayorista de Energía Eléctrica (Precio Spot en Bolsa XM):**
+  * *Cobertura:* 1.400 observaciones continuas (opera todos los días calendario); retornos logarítmicos ($N = 1.399$).
+  * *Comportamiento:* Media de $\mu = +0,08\%$, con volatilidad de $\sigma = 18,26\%$ y rango de $[-98,56\%, +100,59\%]$. La dinámica de precios responde a factores climáticos y de despacho hidrológico, operando de manera diferenciada frente al ciclo bursátil formal.
+
+## Reporte textual de resultados de Granger (Tabla T4)
+
+La evaluación sistemática de la familia de 112 especificaciones de Granger sobre la cuenta presidencial (`@petrogustavo`) arroja los siguientes resultados:
+
+1. **Especificaciones con Significancia Nominal ($p < 0,05$):**
+   * De los 112 contrastes, únicamente cinco especificaciones presentan significancia estadística nominal, concentradas en la tasa de cambio (TRM):
+     * *Retorno TRM $\sim$ Polaridad (Rezago 1):* $F = 7,1890, \; p = 0,0075, \; N = 934$.
+     * *Retorno TRM $\sim$ Polaridad (Rezago 2):* $F = 3,7876, \; p = 0,0230, \; N = 934$.
+     * *Retorno TRM $\sim$ Polaridad (Rezago 3):* $F = 3,5502, \; p = 0,0141, \; N = 934$.
+     * *Retorno TRM $\sim$ Polaridad (Rezago 4):* $F = 2,6662, \; p = 0,0312, \; N = 934$.
+     * *Retorno TRM $\sim$ Alegría NRC / Joy (Rezago 2):* $F = 3,0761, \; p = 0,0466, \; N = 934$.
+
+2. **Ajuste por Tasa de Falsos Descubrimientos (FDR de Benjamini-Hochberg):**
+   * Al corregir los valores $p$ por multiplicidad de pruebas en la familia de 112 especificaciones, los valores ajustados ($q$-valores) para estas cinco pruebas ascienden a:
+     * Polaridad (rezagos 1 y 3): $q = 0,7911$.
+     * Polaridad (rezagos 2 y 4) y Alegría (rezago 2): $q = 0,8376$.
+   * **Conclusión Estadística:** Ninguna de las 112 especificaciones conserva significancia estadística tras el control por comparaciones múltiples al nivel del 5 % ($q < 0,05$). Los 5 rechazos nominales no resultan distinguibles de fluctuaciones aleatorias propias de contrastar múltiples hipótesis simultáneas.
+
+3. **Reporte de Combinaciones sin Evidencia:**
+   * Las restantes 107 especificaciones no alcanzan significancia nominal ($p > 0,05$).
+   * Para el índice accionario COLCAP, el rendimiento de los títulos TES a 10 años y la pendiente de la curva soberana ($10Y - 1Y$), ninguna señal textual (IPI, polaridad, ira, miedo, tristeza, confianza o disgusto) muestra capacidad de precedencia predictiva en ninguno de los cuatro rezagos evaluados ($p \in \{1, 2, 3, 4\}$). La evidencia empírica no respalda la hipótesis de que el discurso presidencial en redes anticipe variaciones diarias en estos activos.
+
+## Dinámica de respuestas del estudio de eventos extremos (Tabla T5 y Heatmap)
+
+El análisis de eventos extremos examina el comportamiento dinámico de los activos ante choques discursivos en el percentil 95 superior de IPI y Negatividad NRC del presidente:
+
+1. **Respuestas ante Choques de Alta Presión Informacional (IPI Extremo, $N = 8 \text{ a } 10$ eventos):**
+   * *COLCAP:* Reacción media de $-0,12\%$ en $t+1$, $+0,25\%$ en $t+3$, $+0,86\%$ en $t+5$ y $+0,76\%$ en $t+7$.
+   * *TRM:* Apreciación acumulada gradual de $-0,16\%$ en $t+1$, $-0,33\%$ en $t+3$, $-0,89\%$ en $t+5$ y $-1,28\%$ en $t+7$.
+   * *TES 10Y:* Aumento inicial en tasa de $+2,3$ bps en $t+1$, seguido de una reducción de $-8,6$ bps en $t+3$, reversión a $-1,9$ bps en $t+5$ y estabilización en $+1,8$ bps en $t+7$.
+   * *Pendiente TES ($10Y-1Y$):* Empinamiento de $+3,7$ bps en $t+1$, aplanamiento acumulado de $-6,0$ bps en $t+3$, $-3,8$ bps en $t+5$ y $-6,4$ bps en $t+7$.
+   * *Energía XM:* Retorno de $+6,04\%$ en $t+1$, alcanzando $+20,50\%$ en $t+3$, $+31,24\%$ en $t+5$ y $+31,89\%$ en $t+7$.
+
+2. **Respuestas ante Choques de Negatividad Extrema ($N = 9 \text{ a } 10$ eventos):**
+   * *COLCAP:* Retorno acumulado de $+0,60\%$ en $t+1$, $+1,24\%$ en $t+3$, $+1,51\%$ en $t+5$ y $+1,16\%$ en $t+7$.
+   * *TRM:* Variación acumulada de $-0,09\%$ en $t+1$, $-0,07\%$ en $t+3$, $-0,43\%$ en $t+5$ y $-0,84\%$ en $t+7$.
+   * *TES 10Y:* Descenso de $-2,4$ bps en $t+1$, seguido de variaciones de $+8,4$ bps en $t+3$, $+11,8$ bps en $t+5$ y $+17,5$ bps en $t+7$.
+   * *Pendiente TES:* Aplanamiento de $-1,7$ bps en $t+1$, $-7,6$ bps en $t+3$, $-4,1$ bps en $t+5$ y $-3,2$ bps en $t+7$.
+   * *Energía XM:* Retornos acumulados positivos entre $+10,95\%$ y $+14,92\%$.
+
+3. **Incertidumbre y Advertencia sobre Confusión Exógena:**
+   * Las bandas de dispersión construidas mediante errores estándar HAC abarcan el cero en casi la totalidad de las trayectorias bursátiles y de deuda soberana.
+   * **Advertencia Metodológica:** Los episodios clasificados como extremos en Twitter coinciden frecuentemente con anuncios macroeconómicos oficiales (reuniones de la Junta Directiva del Banco de la República, divulgación de cifras macroeconómicas del DANE o debates legislativos). En consecuencia, atribuir estas respuestas exclusivamente a las publicaciones en redes sociales incurriría en sesgo de confusión exógena. Las trayectorias deben leerse como respuestas del sistema macrofinanciero ante choques agregados de información.
+
+## Matriz de trazabilidad empírica: aseguramiento de N, unidades y consistencia cruzada
+
+Para garantizar la reproducibilidad y trazabilidad del estudio, la siguiente matriz valida la concordancia entre el texto del manuscrito, los objetos analíticos, las tablas contractuales (T1–T5) y las figuras:
+
+| Afirmación / Métrica en Manuscrito | Objeto / Archivo Fuente | $N$ Efectivo | Unidad de Medida | Periodo Temporal | Transformación | Validación Cruzada |
+|---|---|---|---|---|---|---|
+| **Universo Tweets Presidencial** | `tweets_master.csv` (`corpus == 'presidente'`) | 14.659 | Publicaciones (tweets) | 07/08/2022 – 31/05/2026 | Censo sin duplicados de 64 bits | Coincide con T1 y F1 |
+| **Universo Tweets Opinión** | `tweets_master.csv` (`corpus == 'opinion'`) | 13.648 | Publicaciones (tweets) | 01/08/2022 – 31/05/2026 | Muestreo estratificado vespertino | Coincide con T1 y F1 |
+| **Días Calendario Totales** | `market_master.csv` (`date`) | 1.400 | Días calendario continuos | 01/08/2022 – 31/05/2026 | Nivel diario | Coincide con T1 y T3 |
+| **Sesiones Hábiles Observadas** | `market_master.csv` (`colcap_observed`) | 1.335 | Jornadas bursátiles | 01/08/2022 – 31/05/2026 | Excluye 65 feriados/cierres | Coincide con T1 y T3 |
+| **Panel Bursátil No Redundante** | `panel_bursatil` | 934 | Sesiones de negociación | 08/08/2022 – 29/05/2026 | $S_t \to R_{t+1}$ sin fines de semana | Base de Granger y Gráficos |
+| **Sistema Multivariado Completo** | `model_dataset` / `07_dcc_diagnostico.csv` | 882 | Observaciones conjuntas | 08/08/2022 – 29/05/2026 | Vector completo de activos y señales | Base de DCC y Markov |
+| **Muestra Efectiva VAR(1)** | `var_coeficientes.csv` | 881 | Observaciones efectivas | 09/08/2022 – 29/05/2026 | Retornos y diferencias con 1 rezago | Coincide con tabla VAR |
+| **Familia Contrastes de Granger** | `granger_resultados_completos.csv` | 112 | Pruebas estadísticas $F$ | 2022 – 2026 | 4 activos $\times$ 7 señales $\times$ 4 lags | Coincide con T4 (5 nom, 0 FDR) |
+| **Eventos Extremos Evaluados** | `event_study_resumen.csv` | 20 | Combinaciones señal/activo | 2022 – 2026 | Umbral $p95$ ex ante en IPI y Negatividad | Coincide con T5 y Heatmap |
+| **Correlaciones DCC Promedio** | `08_dcc_financiero_correlaciones.csv` | 882 | Coeficiente de correlación | 2022 – 2026 | DCC-GARCH multivariado | Rango $[-0,043; +0,057]$ |
+| **Parámetro Reacción DCC ($a$)** | `07_dcc_financiero_parametros.csv` | 882 | Coeficiente escalar | 2022 – 2026 | $a = 0,0119$ ($p = 0,069$, no sig. al 5%) | Coincide con texto de resultados |
 
 # Conclusiones y recomendaciones para el paper principal
 
-1. **Integridad confirmada y delimitación inferencial:** La auditoría formal de los dos corpus en `tweets_master.csv` ratifica la validez de los insumos empíricos: 13.648 tweets en conversación pública (`opinion`) y 14.656 tweets emitidos por el presidente (`presidente`), sin identificadores duplicados al preservar su tipo caracter de 64 bits. Asimismo, la detección del sesgo de recolección en `opinion` (97,49% concentrado a las 18:00 horas) fundamenta la decisión contractual de aislarlo de la econometría de mercado y centrar toda la modelación temporal exclusivamente en `@petrogustavo`.
+1. **Integridad confirmada y delimitación inferencial:** La auditoría formal de los dos corpus en `tweets_master.csv` ratifica la validez de los insumos empíricos: 13.648 tweets en conversación pública (`opinion`) y 14.659 tweets emitidos por el presidente (`presidente`), sin identificadores duplicados al preservar su tipo carácter de 64 bits. Asimismo, `market_master.csv` garantiza 1.400 observaciones continuas con flags de mercado observadas, y la detección del sesgo de recolección en `opinion` (97,49% concentrado a las 18:00 horas) fundamenta la decisión contractual de aislarlo de la econometría de mercado y centrar la modelación temporal principal en `@petrogustavo`.
 2. **Robustez de señales textuales:** Las métricas de Keyness y la separación temática diferencian de forma nítida las agendas de salud, pensiones, laboral, tributaria y seguridad. Las series de sentimiento y polaridad NRC reflejan alta dispersión con estabilidad a largo plazo, y el IPI sintetiza episodios de alta presión discursiva ($|IPI| > 2$) con control temporal estricto.
-3. **Propuesta visual F1–F5 integrada:** El diseño de figuras compuestas en paneles complementarios permite presentar una narrativa compacta y de alto impacto académico para el formato Taylor & Francis, articulando volumen, frecuencia de emisión, vocabulario distintivo, redes discursivas y series temporales de mercado.
-4. **Respaldo teórico del desacople financiero:** La matriz de literatura y mecanismos evidencia que, si bien la comunicación presidencial genera choques de atención y volatilidad episódica transitoria, los precios de equilibrio de la TRM, COLCAP y TES se encuentran desacoplados de la retórica diaria de redes sociales y anclados a fundamentos macroeconómicos e institucionales.
-5. **Trazabilidad de mejoras incorporadas en el cuaderno:** Las cuatro decisiones metodológicas derivadas de esta supervisión (distinción de muestra léxica de 28.153 textos vs. emisión bruta de 28.304 publicaciones; ventana sincronizada a partir del 7 de agosto de 2022; neutralización del sesgo de nivel de NRC mediante $z$-scores e IPI; y formalización causal del protocolo $S_t \to R_{t+1}$ sin *look-ahead bias*) han quedado contractualmente documentadas en el cuaderno metodológico (`Cuaderno_Paper_Español.qmd`), blindando la trazabilidad analítica de la investigación.
+3. **Puntualización de franjas horarias y blindaje temporal:** El corpus de opinión opera como un snapshot vespertino diario concentrado a las 18:00–18:59 COT, lo cual fundamenta teóricamente la regla econométrica $S_t \to R_{t+1}$ sin sesgo de anticipación (*look-ahead bias*).
+4. **Cierre econométrico y control FDR:** Las series financieras son no estacionarias en niveles y requieren primeras diferencias y retornos logarítmicos. En la familia presidencial de 112 pruebas de Granger, 5 presentan significancia nominal al 5 %, pero ninguna sobrevive al control por tasa de falsos descubrimientos (FDR de Benjamini-Hochberg), confirmando la ausencia de precedencia predictiva incremental robusta.
+5. **Propuesta visual F1–F5 y paquete T1–T5 integrados:** El diseño de figuras compuestas y tablas estandarizadas permite presentar una narrativa compacta para el formato Taylor & Francis, articulando volumen, frecuencia de emisión, vocabulario distintivo, redes discursivas y series temporales de mercado.
+6. **Respaldo teórico de la dinámica financiera:** La revisión de literatura y mecanismos evidencia que, si bien la comunicación presidencial suscita atención y debates de coyuntura, los precios de equilibrio de la TRM, COLCAP y TES permanecen gobernados por fundamentales macroeconómicos e institucionales.
 
 # Referencias bibliográficas

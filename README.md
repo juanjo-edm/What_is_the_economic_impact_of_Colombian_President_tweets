@@ -295,8 +295,8 @@ Rscript scripts/generate_english_figures.R
 
 Both notebook directories contain a dedicated `manifest.json` configured for automated static deployment (`appmode: "static"`). This architecture enables continuous deployment directly from GitHub to Posit Connect Cloud or an on-premise Posit Connect server:
 
-- **English Notebook:** Directory `notebooks/English` (serves `index.html` backed by `Cuaderno_Paper_English.html`).
-- **Spanish Notebook:** Directory `notebooks/español` (serves `index.html` backed by `Cuaderno_Paper_Español.html`).
+- **English Notebook:** Directory `notebooks/English` ([Live Deployment on Posit Connect Cloud](https://connect.posit.cloud/juanjoseecheverrydemendoza/content/01a140a9-c071-6310-c238-e5187fcc7968)).
+- **Spanish Notebook:** Directory `notebooks/español` ([Live Deployment on Posit Connect Cloud](https://connect.posit.cloud/juanjoseecheverrydemendoza/content/01a140a9-08ac-cc3e-c91a-f01d56ee39bb)).
 
 To configure automated tracking in Posit Connect Cloud:
 1. Select **New Content** -> **From Git Repository**.

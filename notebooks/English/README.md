@@ -124,6 +124,9 @@ The deployment bundle tracks the following auditable files:
 - `notebook-style.css`: Custom typography and layout stylesheet.
 - `README.md`: Architecture overview and execution guide.
 
+Live deployment on Posit Connect Cloud:
+- **Direct Web Link:** [`https://connect.posit.cloud/juanjoseecheverrydemendoza/content/01a140a9-c071-6310-c238-e5187fcc7968`](https://connect.posit.cloud/juanjoseecheverrydemendoza/content/01a140a9-c071-6310-c238-e5187fcc7968)
+
 ### Setup Instructions for GitHub Continuous Deployment:
 
 1. Log into your Posit Connect Cloud account (or local Posit Connect server).

@@ -124,6 +124,9 @@ El paquete del despliegue incluye los siguientes archivos auditables:
 - `notebook-style.css`: hoja de estilos tipográficos del cuaderno.
 - `README.md`: guía arquitectónica y metodológica.
 
+Publicación activa en Posit Connect Cloud:
+- **Enlace web directo:** [`https://connect.posit.cloud/juanjoseecheverrydemendoza/content/01a140a9-08ac-cc3e-c91a-f01d56ee39bb`](https://connect.posit.cloud/juanjoseecheverrydemendoza/content/01a140a9-08ac-cc3e-c91a-f01d56ee39bb)
+
 ### Pasos para configurar el despliegue automático desde GitHub:
 
 1. Ingrese a su cuenta de Posit Connect Cloud (o servidor local de Posit Connect).

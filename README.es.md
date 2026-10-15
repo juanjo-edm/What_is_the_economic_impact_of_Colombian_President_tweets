@@ -293,8 +293,8 @@ Rscript scripts/generate_english_figures.R
 
 Ambas carpetas de cuadernos incorporan su respectivo archivo `manifest.json` configurado bajo modalidad estática (`appmode: "static"`). Esta arquitectura facilita el despliegue continuo desde GitHub hacia Posit Connect Cloud o un servidor local de Posit Connect:
 
-- **Cuaderno en inglés:** Directorio `notebooks/English` (sirve `index.html` respaldado por `Cuaderno_Paper_English.html`).
-- **Cuaderno en español:** Directorio `notebooks/español` (sirve `index.html` respaldado por `Cuaderno_Paper_Español.html`).
+- **Cuaderno en inglés:** Directorio `notebooks/English` ([Publicación activa en Posit Connect Cloud](https://connect.posit.cloud/juanjoseecheverrydemendoza/content/01a140a9-c071-6310-c238-e5187fcc7968)).
+- **Cuaderno en español:** Directorio `notebooks/español` ([Publicación activa en Posit Connect Cloud](https://connect.posit.cloud/juanjoseecheverrydemendoza/content/01a140a9-08ac-cc3e-c91a-f01d56ee39bb)).
 
 Para configurar el seguimiento automático en Posit Connect Cloud:
 1. Seleccione **New Content** -> **From Git Repository**.

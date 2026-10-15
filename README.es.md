@@ -138,10 +138,14 @@ What_is_the_economic_impact_of_Colombian_President_tweets/
 |   |-- English/
 |   |   |-- Cuaderno_Paper_English.qmd          # Motor computacional en inglés
 |   |   |-- Cuaderno_Paper_English.html         # Versión HTML renderizada (inglés)
+|   |   |-- index.html                          # Documento raíz de entrada para Posit Connect
+|   |   |-- manifest.json                       # Contrato de despliegue para Posit Connect Cloud
 |   |   `-- README.md                           # Guía del cuaderno en inglés
 |   `-- español/
 |       |-- Cuaderno_Paper_Español.qmd          # Motor computacional en español
 |       |-- Cuaderno_Paper_Español.html         # Versión HTML renderizada (español)
+|       |-- index.html                          # Documento raíz de entrada para Posit Connect
+|       |-- manifest.json                       # Contrato de despliegue para Posit Connect Cloud
 |       `-- README.md                           # Guía del cuaderno en español
 |-- paper/
 |   |-- English/                                # Manuscrito académico formal en inglés (Taylor & Francis)
@@ -284,6 +288,20 @@ quarto render paper/español/quarto-tandf.qmd
 ```bash
 Rscript scripts/generate_english_figures.R
 ```
+
+### Despliegue continuo en Posit Connect Cloud
+
+Ambas carpetas de cuadernos incorporan su respectivo archivo `manifest.json` configurado bajo modalidad estática (`appmode: "static"`). Esta arquitectura facilita el despliegue continuo desde GitHub hacia Posit Connect Cloud o un servidor local de Posit Connect:
+
+- **Cuaderno en inglés:** Directorio `notebooks/English` (sirve `index.html` respaldado por `Cuaderno_Paper_English.html`).
+- **Cuaderno en español:** Directorio `notebooks/español` (sirve `index.html` respaldado por `Cuaderno_Paper_Español.html`).
+
+Para configurar el seguimiento automático en Posit Connect Cloud:
+1. Seleccione **New Content** -> **From Git Repository**.
+2. Conecte el repositorio: `https://github.com/juanjo-edm/What_is_the_economic_impact_of_Colombian_President_tweets`.
+3. Defina la rama de seguimiento en `main`.
+4. Indique `notebooks/English` o `notebooks/español` en el campo del directorio de la aplicación.
+5. Posit Connect Cloud procesará el archivo `manifest.json` correspondiente y publicará el documento de inmediato. Cada nuevo push a la rama `main` actualizará el contenido desplegado sin demoras ni errores de compilación.
 
 ## Resumen metodológico
 

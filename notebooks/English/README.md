@@ -113,6 +113,37 @@ quarto render notebooks/English/Cuaderno_Paper_English.qmd
 
 The rendering routine evaluates all code blocks, estimates the econometric specifications, writes graphics to `output/figures/English/`, and exports structured summary tables to `output/tables/English/`.
 
+## Continuous Deployment to Posit Connect and Posit Connect Cloud
+
+This directory includes a pre-configured [`manifest.json`](manifest.json) under static mode (`appmode: "static"`). This enables automated continuous deployment to Posit Connect or Posit Connect Cloud directly from GitHub without requiring Python spaCy installation or lengthy server-side re-execution.
+
+The deployment bundle tracks the following auditable files:
+- `index.html`: Exact copy of the compiled notebook served by default at the root URL.
+- `Cuaderno_Paper_English.html`: Standalone self-contained HTML file embedding all high-resolution figures and styled tables (`embed-resources: true`).
+- `Cuaderno_Paper_English.qmd`: Complete reproducible Quarto source code.
+- `notebook-style.css`: Custom typography and layout stylesheet.
+- `README.md`: Architecture overview and execution guide.
+
+### Setup Instructions for GitHub Continuous Deployment:
+
+1. Log into your Posit Connect Cloud account (or local Posit Connect server).
+2. Click **New Content** and choose **From Git Repository**.
+3. Select the repository: `juanjo-edm/What_is_the_economic_impact_of_Colombian_President_tweets`.
+4. Set the tracking branch to `main`.
+5. In the content directory field, specify: `notebooks/English`.
+6. Posit Connect Cloud detects `manifest.json` and publishes the notebook automatically. Every subsequent push to `main` updates the deployment seamlessly.
+
+To regenerate or update the manifest locally using R:
+
+```r
+rsconnect::writeManifest(
+  appDir = "notebooks/English",
+  appFiles = c("index.html", "Cuaderno_Paper_English.html", "Cuaderno_Paper_English.qmd", "notebook-style.css", "README.md"),
+  appPrimaryDoc = "index.html",
+  appMode = "static"
+)
+```
+
 ## Output and Inferential Standards
 
 Every visible result in the notebook follows a four-part contractual sequence:

@@ -113,6 +113,37 @@ quarto render notebooks/español/Cuaderno_Paper_Español.qmd
 
 El proceso compila el documento completo, ejecuta las estimaciones deterministas y escribe las 93 figuras y las tablas en `output/`.
 
+## Despliegue continuo en Posit Connect y Posit Connect Cloud
+
+La carpeta cuenta con un archivo [`manifest.json`](manifest.json) preconfigurado bajo modalidad estática (`appmode: "static"`). Esto permite publicar y sincronizar el cuaderno automáticamente en Posit Connect o Posit Connect Cloud directamente desde el repositorio de GitHub sin requerir la instalación de modelos pesados de spaCy ni la reejecución de algoritmos de optimización en los servidores de la nube.
+
+El paquete del despliegue incluye los siguientes archivos auditables:
+- `index.html`: copia fiel del cuaderno compilado que Posit Connect sirve de forma inmediata en la ruta raíz.
+- `Cuaderno_Paper_Español.html`: documento HTML autocontenido con todas las figuras y tablas incrustadas (`embed-resources: true`).
+- `Cuaderno_Paper_Español.qmd`: código fuente Quarto reproducible.
+- `notebook-style.css`: hoja de estilos tipográficos del cuaderno.
+- `README.md`: guía arquitectónica y metodológica.
+
+### Pasos para configurar el despliegue automático desde GitHub:
+
+1. Ingrese a su cuenta de Posit Connect Cloud (o servidor local de Posit Connect).
+2. Seleccione **New Content** y elija la opción **From Git Repository**.
+3. Vincule el repositorio: `juanjo-edm/What_is_the_economic_impact_of_Colombian_President_tweets`.
+4. Defina la rama de seguimiento: `main`.
+5. En el campo de directorio del contenido, especifique: `notebooks/español`.
+6. Posit Connect Cloud leerá automáticamente `manifest.json` y desplegará el cuaderno sin fricciones de compilación. Cada nuevo push a la rama `main` actualizará la publicación de manera continua.
+
+Para regenerar o actualizar el manifiesto localmente en R:
+
+```r
+rsconnect::writeManifest(
+  appDir = "notebooks/español",
+  appFiles = c("index.html", "Cuaderno_Paper_Español.html", "Cuaderno_Paper_Español.qmd", "notebook-style.css", "README.md"),
+  appPrimaryDoc = "index.html",
+  appMode = "static"
+)
+```
+
 ## Convención obligatoria de resultados y estilo
 
 Cada bloque de resultados visibles del cuaderno sigue una secuencia contractual:

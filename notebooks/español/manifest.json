@@ -1,0 +1,31 @@
+{
+  "version": 1,
+  "locale": "C",
+  "platform": "4.4.3",
+  "metadata": {
+    "appmode": "static",
+    "primary_rmd": null,
+    "primary_html": "index.html",
+    "content_category": null,
+    "has_parameters": false
+  },
+  "packages": null,
+  "files": {
+    "Cuaderno_Paper_Español.html": {
+      "checksum": "ec3f7fb0b3814da271af6d0202b2f2e9"
+    },
+    "Cuaderno_Paper_Español.qmd": {
+      "checksum": "739791e58726b36cc925adae11ae2b89"
+    },
+    "index.html": {
+      "checksum": "ec3f7fb0b3814da271af6d0202b2f2e9"
+    },
+    "notebook-style.css": {
+      "checksum": "d7c2c72932b0f5ecf1e8d57ed366e9de"
+    },
+    "README.md": {
+      "checksum": "9e1d23b26896d6dc2a0ca5fbb064d14f"
+    }
+  },
+  "users": null
+}

@@ -138,10 +138,14 @@ What_is_the_economic_impact_of_Colombian_President_tweets/
 |   |-- English/
 |   |   |-- Cuaderno_Paper_English.qmd          # Self-contained English computational engine
 |   |   |-- Cuaderno_Paper_English.html         # Rendered HTML analysis (English)
+|   |   |-- index.html                          # Root landing document for Posit Connect
+|   |   |-- manifest.json                       # Deployment contract for Posit Connect Cloud
 |   |   `-- README.md                           # English notebook guide
 |   `-- español/
 |       |-- Cuaderno_Paper_Español.qmd          # Self-contained Spanish computational engine
 |       |-- Cuaderno_Paper_Español.html         # Rendered HTML analysis (Spanish)
+|       |-- index.html                          # Root landing document for Posit Connect
+|       |-- manifest.json                       # Deployment contract for Posit Connect Cloud
 |       `-- README.md                           # Spanish notebook guide
 |-- paper/
 |   |-- English/                                # English academic manuscript (Taylor & Francis)
@@ -286,6 +290,20 @@ quarto render paper/español/quarto-tandf.qmd
 ```bash
 Rscript scripts/generate_english_figures.R
 ```
+
+### Continuous Deployment to Posit Connect Cloud
+
+Both notebook directories contain a dedicated `manifest.json` configured for automated static deployment (`appmode: "static"`). This architecture enables continuous deployment directly from GitHub to Posit Connect Cloud or an on-premise Posit Connect server:
+
+- **English Notebook:** Directory `notebooks/English` (serves `index.html` backed by `Cuaderno_Paper_English.html`).
+- **Spanish Notebook:** Directory `notebooks/español` (serves `index.html` backed by `Cuaderno_Paper_Español.html`).
+
+To configure automated tracking in Posit Connect Cloud:
+1. Select **New Content** -> **From Git Repository**.
+2. Connect `https://github.com/juanjo-edm/What_is_the_economic_impact_of_Colombian_President_tweets`.
+3. Set branch to `main`.
+4. Enter `notebooks/English` or `notebooks/español` in the primary directory field.
+5. Posit Connect Cloud inspects the corresponding `manifest.json` and deploys the content immediately. Any push to `main` updates the public deployment automatically.
 
 ## Methodological Summary
 

@@ -3,13 +3,16 @@
   "locale": "C",
   "platform": "4.4.3",
   "metadata": {
-    "appmode": "static",
-    "primary_rmd": null,
-    "primary_html": "index.html",
+    "appmode": "quarto-static",
+    "primary_rmd": "Cuaderno_Paper_English.qmd",
+    "primary_html": "Cuaderno_Paper_English.html",
     "content_category": null,
     "has_parameters": false
   },
-  "packages": null,
+  "quarto": {
+    "version": "1.7.32",
+    "engines": []
+  },
   "files": {
     "Cuaderno_Paper_English.html": {
       "checksum": "165f198da3569e5ee888cc27d4332651"

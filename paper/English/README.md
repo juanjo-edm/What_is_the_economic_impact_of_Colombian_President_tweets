@@ -1,90 +1,102 @@
-# English Manuscript and Publication Materials
+# Formal Research Manuscript (English Edition)
 
-This folder contains the translation and international publication materials for the academic paper *Presidential Communication and Financial Markets in Colombia: Textual and Time Series Evidence*.
+This directory contains the canonical English edition of the academic paper *Presidential Emotional Communication on X/Twitter and Financial Market Dynamics in Colombia: Tone, Emotions, and Discursive Intensity*, prepared under Taylor & Francis author guidelines.
 
-The canonical manuscript is written in Spanish following Taylor & Francis author guidelines in [`paper/español/quarto-tandf.qmd`](../español/quarto-tandf.qmd). This directory houses the English adaptation assets and editorial Word packages used for journal submission and dissemination.
+The primary document is [`quarto-tandf.qmd`](quarto-tandf.qmd), which compiles reproducibly into a camera-ready PDF for peer review, an interactive standalone HTML version, and an editable Word manuscript.
 
-## Publication Package Architecture
+## Manuscript Compilation Architecture
 
-The diagram below illustrates the relationship between the canonical Quarto manuscript in Spanish, the compiled formats, and the English editorial artifacts:
+The diagram below outlines the inputs, citation assets, and rendering workflow for the English publication package:
 
 ```mermaid
 flowchart TD
-    subgraph CanonicalSource ["1. Canonical Quarto Manuscript"]
-        QMD["paper/español/quarto-tandf.qmd<br/>(Taylor & Francis Quarto template)"]
-        BIB["paper/español/bibliography.bib<br/>(49 curated academic references)"]
-        FIGS["paper/figures/español/<br/>(Embedded vector and high-res figures)"]
+    subgraph ManuscriptInputs ["Manuscript Inputs"]
+        QMD["quarto-tandf.qmd<br/>(Full paper source and tables)"]
+        BIB["bibliography.bib<br/>(49 curated BibTeX references)"]
+        CSL["apa.csl<br/>(APA 7 citation style sheet)"]
+        CLS["interact.cls<br/>(Taylor & Francis LaTeX class)"]
+        FIGS["paper/figures/español/<br/>(High-resolution figures and wheels)"]
     end
 
-    subgraph CompilationEngine ["2. Quarto Multi-Format Rendering"]
-        PDF["paper/español/quarto-tandf.pdf<br/>(Camera-ready PDF submission)"]
-        HTML["paper/español/quarto-tandf.html<br/>(Interactive standalone HTML)"]
-        DOCX["paper/español/quarto-tandf.docx<br/>(Clean editorial Word document)"]
+    subgraph CompilationEngine ["Quarto & Pandoc Engine"]
+        RENDER["quarto render paper/English/quarto-tandf.qmd"]
     end
 
-    subgraph EnglishAssets ["3. English Adaptation and Dissemination"]
-        DOCX_ES["Paper_Mensajes_Presidenciales_Mercados_Colombia_ES.docx<br/>(Master editorial Word sync)"]
-        DOCX_EN["Impacto_discurso_petro__ENG_.docx<br/>(English translated draft)"]
-        README_EN["paper/English/README.md<br/>(This package guide)"]
+    subgraph CompiledOutputs ["Compiled Output Documents"]
+        PDF["quarto-tandf.pdf<br/>(Camera-ready submission PDF)"]
+        HTML["quarto-tandf.html<br/>(Standalone interactive HTML)"]
+        DOCX["quarto-tandf.docx<br/>(Production Word manuscript)"]
+        DOCX_SYNC["Paper_Mensajes_Presidenciales_Mercados_Colombia_EN.docx<br/>(Master editorial Word copy)"]
     end
 
-    QMD --> PDF
-    QMD --> HTML
-    QMD --> DOCX
-    BIB --> QMD
-    FIGS --> QMD
+    QMD --> RENDER
+    BIB --> RENDER
+    CSL --> RENDER
+    CLS --> RENDER
+    FIGS --> RENDER
 
-    DOCX --> DOCX_ES
-    DOCX_ES --> DOCX_EN
+    RENDER --> PDF
+    RENDER --> HTML
+    RENDER --> DOCX
+    DOCX --> DOCX_SYNC
 ```
 
-## Folder Contents and Synchronization
+## Directory Structure and Artifacts
 
-| File | Description | Target Audience |
-|---|---|---|
-| [`Paper_Mensajes_Presidenciales_Mercados_Colombia_ES.docx`](Paper_Mensajes_Presidenciales_Mercados_Colombia_ES.docx) | Synchronized editorial Word version generated from `quarto-tandf.qmd` | Journal production editors and co-authors |
-| [`Impacto_discurso_petro__ENG_.docx`](Impacto_discurso_petro__ENG_.docx) | English translation draft of the complete research paper | International peer review and journal submission |
-| [`README.md`](README.md) | Architectural documentation for the manuscript package | Peer reviewers and replicating researchers |
+| File | Purpose |
+|---|---|
+| [`quarto-tandf.qmd`](quarto-tandf.qmd) | Complete Quarto source containing frontmatter, empirical text, LaTeX equations, and formatted tables |
+| [`bibliography.bib`](bibliography.bib) | BibTeX database with 49 verified and normalized academic references |
+| [`quarto-tandf.pdf`](quarto-tandf.pdf) | Camera-ready PDF compiled via XeLaTeX and `interact.cls` for peer evaluation |
+| [`quarto-tandf.html`](quarto-tandf.html) | Standalone interactive HTML document with dynamic tables and embedded vector plots |
+| [`quarto-tandf.docx`](quarto-tandf.docx) | Editorial Word version generated with `reference-apa.docx` styling |
+| [`Paper_Mensajes_Presidenciales_Mercados_Colombia_EN.docx`](Paper_Mensajes_Presidenciales_Mercados_Colombia_EN.docx) | Synchronized editorial Word document for co-authors and editorial committees |
+| [`apa.csl`](apa.csl) | Citation Style Language stylesheet implementing APA 7th edition guidelines |
+| [`interact.cls`](interact.cls) | Official Taylor & Francis LaTeX document class |
+| [`orcidlink.sty`](orcidlink.sty) | LaTeX package rendering author ORCID identification links |
+| [`reference-apa.docx`](reference-apa.docx) | Word reference document enforcing typography and table geometry |
+| [`sunflower.png`](sunflower.png) | Template graphical asset required by the Taylor & Francis LaTeX bundle |
 
 ## Key Manuscript Figures
 
-The manuscript embeds standalone figures generated directly from the reproducible R pipeline:
+The paper incorporates standalone figures generated by the reproducible research pipeline:
 
 ### Emotional Taxonomy of Presidential Communication
 
-The paper uses Plutchik's psychodevelopmental wheel of emotions as the theoretical foundation for classifying presidential language via the Spanish NRC lexicon.
+Theoretical foundation using Plutchik's psychodevelopmental wheel to structure presidential tone and sentiment classification via the Spanish NRC lexicon.
 
 <p align="center">
-  <img src="../figures/español/figura1_plutchik.png" alt="Plutchik Emotional Wheel" width="55%">
+  <img src="../figures/español/plutchik_rueda_emociones_en.png" alt="Plutchik Emotional Wheel in English" width="55%">
 </p>
 
 ### Granger Temporal Precedence Tests
 
-The 112 bivariate Granger causality tests evaluating whether presidential emotional signals precede Colombian market returns over 1 to 4 trading sessions.
+Empirical evaluation of 112 bivariate Granger causality tests assessing whether presidential emotional signals precede Colombian market returns across 1 to 4 trading sessions.
 
 <p align="center">
-  <img src="../figures/español/granger_presidencial_emociones.png" alt="Granger Causality P-Values" width="80%">
+  <img src="../figures/español/granger_presidencial_emociones.png" alt="Granger Causality P-Values Grid" width="80%">
 </p>
 
 ## Compilation Instructions
 
-To compile the canonical manuscript from the repository root:
+From the root of the repository, execute the Quarto CLI to generate any of the target formats:
 
 ```bash
-# Render camera-ready PDF
-quarto render paper/español/quarto-tandf.qmd --to pdf
+# Render camera-ready PDF for journal peer review
+quarto render paper/English/quarto-tandf.qmd --to pdf
 
-# Render interactive HTML
-quarto render paper/español/quarto-tandf.qmd --to html
+# Render interactive standalone HTML version
+quarto render paper/English/quarto-tandf.qmd --to html
 
 # Render editorial Word document
-quarto render paper/español/quarto-tandf.qmd --to docx
+quarto render paper/English/quarto-tandf.qmd --to docx
 ```
 
-## Related Links
+## Related Resources
 
-- **Canonical Spanish Manuscript:** [`quarto-tandf.qmd`](../español/quarto-tandf.qmd)
+- **Canonical Spanish Manuscript:** [`paper/español/quarto-tandf.qmd`](../español/quarto-tandf.qmd)
 - **Spanish Manuscript Documentation:** [`paper/español/README.md`](../español/README.md)
-- **Computational Notebook:** [`Cuaderno_Paper_Español.qmd`](../../notebooks/español/Cuaderno_Paper_Español.qmd)
-- **Methodological Supervision Suite:** [`Supervision_Metodologica.qmd`](../../Methodology_Supervision/Supervision_Metodologica.qmd)
-- **Master Repository Documentation:** [`README.md`](../../README.md) (English) | [`README.es.md`](../../README.es.md) (Español)
+- **Executable Computational Notebook:** [`notebooks/español/Cuaderno_Paper_Español.qmd`](../../notebooks/español/Cuaderno_Paper_Español.qmd)
+- **Computational Notebook Guide:** [`notebooks/español/README.md`](../../notebooks/español/README.md)
+- **Methodological Supervision Suite:** [`Methodology_Supervision/Supervision_Metodologica.qmd`](../../Methodology_Supervision/Supervision_Metodologica.qmd)
+- **Repository Overview:** [`README.md`](../../README.md) (English) | [`README.es.md`](../../README.es.md) (Español)

@@ -1,0 +1,359 @@
+---
+title: "Presidential emotional communication on X/Twitter and financial market dynamics in Colombia: tone, emotions, and discursive intensity"
+author:
+  - name: Juan José Echeverry De Mendoza
+  - name: Miguelangel Palma Rojas
+  - name: Luis Eduardo Sandoval Garrido
+lang: en
+bibliography: bibliography.bib
+csl: apa.csl
+link-citations: true
+crossref:
+  fig-title: Figure
+  tbl-title: Table
+format:
+  docx:
+    reference-doc: reference-apa.docx
+    number-sections: false
+  html:
+    toc: true
+    toc-depth: 3
+    number-sections: false
+    embed-resources: true
+    theme: cosmo
+  pdf:
+    pdf-engine: xelatex
+    number-sections: false
+    geometry: margin=2.54cm
+execute:
+  enabled: false
+---
+
+**Affiliation.** Faculty of Economics, Universidad Militar Nueva Granada, Bogotá, Colombia. All authors share the indicated institutional affiliation. **Corresponding author:** Luis Eduardo Sandoval Garrido, <luis.sandoval@unimilitar.edu.co>.
+
+**Abstract.**
+This article examines whether the emotional tone, discrete emotions, and communicative intensity of the official X/Twitter account of the President of Colombia, \@petrogustavo, precede or covary with the returns of four domestic financial markets: foreign exchange, equities, domestic sovereign debt, and electricity. Based on a census of 14,659 presidential posts issued between August 2022 and May 2026, we measure net sentiment polarity, the eight basic emotions of the Plutchik/NRC framework, and a standardized Informational Pressure Index (IPI). Each discursive window is linked to the return observed in the subsequent trading session. After excluding non-trading days, the sample comprises 934 unique sessions, 882 complete multivariate observations, and 881 effective observations in the VAR system. Temporal precedence tests across 112 contrasts of the presidential family identify five nominal associations ($p < 0.05$), concentrated on net polarity and joy predicting the exchange rate of the Colombian peso (TRM). However, none remain statistically significant after correction for the false discovery rate (Benjamini-Hochberg FDR, $q \ge 0.791$). Conditional dependency analyses via DCC-GARCH models show no significant reaction of dynamic conditional correlations to discursive innovations ($a = 0.0119; p = 0.069$), while regime-switching and event analyses identify only transitory fluctuations during extreme communication episodes. The results suggest that daily variation in presidential emotional communication on X/Twitter does not show a robust association with Colombian financial market returns. The study contributes to research on digital executive communication by showing that, in a polarized context, the emotional intensity of presidential messages is rapidly absorbed by markets and exerts a limited effect compared to macroeconomic and institutional fundamentals.
+
+**Keywords:** sentiment analysis, emotions, presidential communication, Twitter/X, financial markets, time series, Colombia.
+
+# 1. Introduction
+
+The relationship between the public statements of government leaders and financial market behavior has been a recurring subject of study in behavioral finance and narrative economics [@shiller_2019; @tetlock_2007]. The extensive use of microblogging platforms such as Twitter (now X) allows heads of state to communicate economic policy stances, regulatory warnings, and political assessments directly, bypassing the intermediation and editorial filters of traditional media [@bianchi_gomezcram_kung_2024; @perez_llorente_2020]. In emerging economies, where capital markets often exhibit less depth and greater sensitivity to uncertainty regarding the rules of the game, the question frequently arises as to whether the executive branch's digital rhetoric systematically impacts volatility and risk premiums, or whether asset prices discount these communications as short-term fluctuations in attention that remain subordinate to macroeconomic fundamentals.
+
+Gustavo Petro's presidential term in Colombia (2022-2026) offers a favorable context for examining this issue. Petro leads the first leftist government in the country's recent republican history and has maintained a consistent presence on Twitter/X. Through this platform, he debates structural reform proposals (regarding pensions, labor, healthcare, and taxation), comments on decisions made by the central bank's board of directors or energy sector companies, and voices objections to judicial or legislative rulings [@casallas_2020; @prada_espinel_2018; @sandoval_marin_2022]. Public discourse and local analyses often attribute an immediate impact on dollar exchange rates, stock prices, or public debt to these statements. However, such claims typically rely on informal correlations or isolated incidents, without undergoing time-series testing that accounts for the stock market trading calendar or the false discovery rate associated with testing multiple hypotheses.
+
+Against this backdrop, the study investigates the extent to which sentiment tone, discrete emotions (polarity, anger, fear, joy, and trust), and communicative pressure from the official \@petrogustavo account temporally precede or dynamically covary with returns on the Representative Market Exchange Rate (TRM), the MSCI COLCAP stock index, sovereign public debt (TES) yields, and the electricity market price in Colombia.
+
+To address this question, the empirical strategy relies on four methodological components. First, the affective dynamics of the complete set of presidential posts (14,659 tweets) are characterized, rigorously distinguishing this source from the surrounding public conversation, whose collection reflects an artificial concentration of timing. Second, standardized indicators are constructed for lexical polarity, eight emotions based on Plutchik's model (using the NRC lexicon), and an Informational Pressure Index (IPI), thereby mitigating distortions associated with communication volume and structural lexical levels. Third, a strict protocol for aligning data with market hours is established, linking messages sent on weekends and outside trading hours to the immediately following trading session: this eliminates look-ahead bias and the spurious duplication of non-traded returns. Fourth, the econometric relationship is evaluated using Granger causality tests across 112 specifications adjusted for the Benjamini-Hochberg False Discovery Rate (FDR), multivariate DCC-GARCH models, regime-switching Markov chains, and event analysis regarding extreme shocks in tone and volume.
+
+The results indicate that Colombian financial market prices do not respond systematically to the president's discursive tone on Twitter/X. While isolated signs of exchange rate predictability emerge in individual tests, these relationships vanish entirely once the bias from testing multiple hypotheses simultaneously is accounted for. Furthermore, dynamic correlations between message sentiment and asset returns are moderate, sensitivity to emotional shocks is negligible, and fluctuations accompanying periods of extreme communicative tension revert within a few business days. This behavior aligns with the semi-strong form of the efficient market hypothesis at a daily frequency, indicating that market participants treat social media statements as transitory noise and keep price formation anchored to macroeconomic fundamentals and monetary policy decisions.
+
+# 2. Literature review and conceptual framework
+
+## 2.1 Informational efficiency, noise, and limits to arbitrage
+
+The starting point is the semi-strong form efficient market hypothesis [@fama_1970]: if prices rapidly incorporate all public information, a message posted on a public account such as \@petrogustavo should be reflected in market prices within minutes, and its lagged content should not retain predictive power regarding returns on the following trading day. Under this framework, the benchmark null hypothesis posits that lagged discursive content lacks incremental predictive power regarding price variations on the subsequent trading day.
+
+This prediction weakens when some participants trade based on unfounded beliefs. @delong_shleifer_summers_waldmann_1990 demonstrate that noise traders introduce a specific type of risk that finite-horizon arbitrageurs cannot eliminate, causing prices to persistently deviate from their fundamental value. @shleifer_vishny_1997 complement this argument by showing that arbitrage is costly and capital-constrained, particularly during episodes when deviations are greatest. Empirically, @baker_wurgler_2006 find that investor sentiment has a stronger impact on assets that are difficult to value and arbitrage, a characteristic frequently shared by the shallow capital markets of emerging economies.
+
+A third mechanism is limited attention. @barber_odean_2008 document that individual investors tend to be net buyers of assets that capture their attention through news, unusual volume, or extreme returns, while @da_engelberg_gao_2011 show that increases in internet search intensity anticipate price surges followed by subsequent reversals. For the purposes of this analysis, if presidential discourse operates primarily through the channel of transient attention, one would expect short-lived fluctuations that quickly reverse, rather than sustained shifts in price levels.
+
+## 2.2 Economic policy uncertainty and government communication
+
+Macro-financial literature provides an analytical basis for government communication to affect prices even in the absence of accounting reports or prior formal decisions. @pastor_veronesi_2012 model an economy in which the government can alter its policies and demonstrate that stock prices fall upon the announcement of regulatory changes, while uncertainty regarding future policy increases volatility and asset correlations. In a complementary study, the same authors [@pastor_veronesi_2013] show that policy uncertainty demands a higher risk premium in weak macroeconomic environments. @baker_bloom_davis_2016 operationalize this concept through the Economic Policy Uncertainty (EPU) index, documenting that increases in the index are associated with higher stock market volatility and lower investment in sectors sensitive to regulation.
+
+This literature suggests three transmission channels affecting financial assets: first, the fundamental information channel, whereby statements regarding fiscal targets, structural reforms, or cabinet composition alter expected cash flows and sovereign solvency, prompting permanent valuation adjustments. Second, the policy uncertainty and risk premium channel [@baker_bloom_davis_2016; @pastor_veronesi_2012], in which ambiguity regarding the rules of the game raises the return demanded by investors, manifesting as higher volatility, elevated sovereign debt premiums, and increased conditional correlations. Third, the attention and sentiment channel [@barber_odean_2008; @da_engelberg_gao_2011], through which highly emotionally charged publications capture public attention and trigger transitory price movements that dissipate within a few days.
+
+Empirical evidence regarding social media has focused predominantly on the United States. @gjerstad_etal_2021 analyze Donald Trump's posts and find that they are associated with transitory spikes in uncertainty and trading volume. @bianchi_gomezcram_kung_2024 use messages from members of the U.S. Congress within narrow intraday windows to identify the effect of their stances on asset prices. Within the Spanish-speaking context, @perez_llorente_2020 analyzes the impact of Trump's activity on various financial markets. These studies share a methodological feature: their identification strategy relies on intraday intervals, spanning minutes or hours surrounding each post. When working at a daily frequency, microstructure effects tend to dissipate, and inference comes to depend on the systematic accumulation of tone: this requires rigorous temporal alignment and explicit control for multiple testing.
+
+## 2.3 Behavioral economics, emotions, and decisions under risk
+
+The study of passions and sympathy as factors shaping economic decisions has roots in @smith_1759 and has been formalized within behavioral finance, which demonstrates that agents operate under bounded rationality and systematic heuristics [@mullainathan_thaler_2000]. @kahneman_1979 prospect theory posits that decisions under uncertainty are evaluated relative to a reference point using a value function that is concave for gains and steeper and convex for losses. This asymmetry regarding loss aversion suggests that presidential messages framed in terms of potential risks or losses, such as warnings about fiscal crises, institutional disputes, or sectoral interventions, can elicit stronger aversion responses than favorable messages of equivalent magnitude.
+
+@loewenstein_2000 argues that emotional states act as direct determinants of economic decision-making. Experimental evidence from @lerner_keltner_2001 is crucial for empirical design: although fear and anger are both negative-valence emotions, they produce divergent effects on risk perception. While fear induces pessimistic judgments and conservative stances, anger stimulates optimism and risk-taking. This asymmetry implies that a one-dimensional negativity metric aggregating fear and anger could cancel out effects of opposite signs, thereby justifying the decomposition of emotional tone into discrete emotions.
+
+The transmission of mood to aggregate prices has been documented in relation to non-fundamental factors. @hirshleifer_shumway_2003 find that morning weather in cities hosting stock exchanges correlates with daily returns across 26 markets, while @edmans_garcia_norli_2007 observe declines in stock market indices following defeats of national soccer teams. At the macroeconomic level, @shiller_2019 proposes the concept of narrative economics, whereby widely circulating stories spread through public opinion and shape aggregate expectations. In this context, a president's continuous activity on social media represents a potential source of economic narratives that achieve broad collective dissemination.
+
+## 2.4 From text to signal: textual sentiment in finance
+
+Quantifying textual tone has demonstrated explanatory power in financial markets, albeit subject to important nuances. @tetlock_2007 constructs a pessimism index based on Wall Street Journal financial columns and finds that high levels of pessimism anticipate downward pressure on stock prices, followed by reversals toward fundamental values, as well as increases in trading volume. @garcia_2013, examining a century of New York Times financial reporting, shows that this predictability is concentrated in periods of economic recession. Both findings support the interpretation of sentiment as a signal that is transitory and contingent upon the state of the economy.
+
+@bollen_mao_zeng_2011 apply this approach to Twitter and report that indicators of collective calmness improve the directional prediction of the Dow Jones, albeit based on a sample limited to a few months in 2008. @sentometrics_jss structure the process within the framework of sentometrics, integrating document-level measurement, lexical aggregation, and time-decay schemes prior to econometric estimation.
+
+This literature also documents measurement risks. @loughran_mcdonald_2011 highlight that approximately three-quarters of the words classified as negative in general-purpose dictionaries lack an unfavorable connotation in economic and financial texts, which can lead to spurious signals. @grimmer_stewart_2013 and @gentzkow_kelly_taddy_2019 note that any quantitative model of language simplifies reality and that its validity must be assessed within its specific context of application. These challenges are intensified in the realm of political discourse [@medhat_2014; @silge_robinson_2017]: general dictionaries tend to overestimate the positivity of standard institutional vocabulary surrounding peace, justice, and development. Unigram-based schemes fail to capture irony or negation structures, and message transmission occurs in bursts that generate temporal heteroskedasticity. To address these factors, this article analyzes sentiment using standardized deviations ($z$-scores) and complements the net balance with discrete emotions.
+
+## 2.5 Discrete emotions: Plutchik's model and the NRC lexicon
+
+@plutchik_2003 psychoevolutionary theory proposes eight primary emotions structured in opposing pairs within a circumplex model featuring concentric intensity gradations (@fig-plutchik): protection (fear), destruction of obstacles (anger), reintegration following loss (sadness), rejection (disgust), incorporation (trust), exploration (anticipation), orientation toward the unexpected (surprise), and bonding (joy). Each petal of the emotional flower transitions from a high-intensity manifestation at the core (ecstasy, rage, terror, vigilance) to attenuated expressions at the periphery (serenity, annoyance, apprehension, interest). The combination of adjacent emotions within the circle generates primary affective dyads (@tbl-dyads), while opposing petals indicate poles of affective conflict.
+
+![Plutchik's psychoevolutionary circumplex model of emotions: concentric intensity gradations, opposing polar pairs, and primary affective dyads. Source: Conceptual development based on @plutchik_2003.](../../paper/español/figures/plutchik_rueda_emociones_en.png){#fig-plutchik width="80%"}
+
+| Primary dyad (Plutchik) | Compound emotion | Hypothetical interpretation in presidential economic discourse |
+|---|---|---|
+| Joy + Trust | Love | Explicit support for allied policies, institutions, or social actors |
+| Trust + Fear | Submission | Calls for political cohesion in the face of external economic threats |
+| Fear + Surprise | Awe | Official reaction to unexpected shocks (climate crises, sudden shortages) |
+| Surprise + Sadness | Disapproval | Public rejection of decisions made by third parties (Congress, courts, Central Bank) |
+| Sadness + Disgust | Remorse | Negative evaluation of inherited structural policies or historical situations |
+| Disgust + Anger | Contempt | Disqualification of political adversaries, union leadership, or economic elites |
+| Anger + Anticipation | Aggressiveness | Confrontational announcements of economic intervention or structural reforms |
+| Anticipation + Joy | Optimism | Favorable macroeconomic projections regarding reforms or social indicators |
+
+: Plutchik's model primary dyads and their hypothetical interpretation in presidential economic discourse. Source: Authors' elaboration based on @plutchik_2003. {#tbl-dyads}
+
+Plutchik's framework was not originally intended to explain financial behavior; the conceptual link to decision-making is grounded in the behavioral literature described in Section 2.3. Integrating these two frameworks yields distinct predictions: fear and disgust should correlate with greater risk aversion, manifesting as currency depreciation, stock market declines, and rising sovereign debt yields, whereas anger should correlate with a greater willingness to take risks [@lerner_keltner_2001], and trust and anticipation with lower required risk premiums.
+
+Operationalization relies on the NRC lexicon developed by @mohammad_turney_2010 and @mohammad_turney_2013, which was created through the collective annotation of over fourteen thousand terms based on Plutchik's eight dimensions and two polarities. Spanish adaptations were produced via computer-assisted translation, introducing a margin of lexical error that is explicitly acknowledged. Data extraction is performed using the `syuzhet` library [@jockers_2017], a tool widely used in empirical literature [@hirschberg_manning_2015; @misuraca_2020].
+
+## 2.6 Text-based methods for political discourse
+
+Beyond affective tone, discourse analysis requires specifying thematic content and latent stances. Regarding thematic structure, keyness metrics contrast empirical frequencies against expected distributions to identify the lexicon distinguishing a corpus [@bondi_scott_2010], while collocations identify stable co-occurrence patterns [@schweinberger_2023; @stefanowitsch_gries_2003], implemented using `quanteda` [@quanteda]. Concerning ideological positions, scaling models estimate latent coordinates based on term frequencies: Wordscores utilizes anchor texts with pre-set positions [@laver_benoit_garry_2003], whereas Wordfish estimates relative positions without reference texts via Poisson parameterization [@slapin_proksch_2008]. For latent topic detection, the LDA model [@blei_2003] and Structural Topic Models (STM) [@stm] allow topic prevalence to vary according to temporal covariates. In this study, these methods serve a descriptive control function to ensure that fluctuations in tone do not simply reflect reconfigurations of the thematic agenda [@grimmer_stewart_2013].
+
+## 2.7 Evidence from Colombia and Latin America
+
+In Colombia, research on social media and politics has focused on election campaigns and public perception. @prada_espinel_2018 examines the communication patterns of Gustavo Petro and Iván Duque during the 2018 elections, while @casallas_2020 analyzes the political perception of both leaders on Twitter. @romero_moreno_2020 apply opinion mining for political communication purposes, whereas @gomez_torres_2018 analyze public sentiment within the political context of Ecuador. In the field of applied political economy, @sandoval_marin_2022 document the impact of political electoral cycles on municipal development variables in Colombia.
+
+In the context of the region's emerging economies, existing literature lacks analyses that simultaneously integrate a full four-year presidential term on Twitter/X, a multidimensional characterization of tone based on polarity, discrete emotions, and an informational pressure index, joint coverage of four financial markets with their specific calendars, and a systematic correction of the false discovery rate across the entire family of tests.
+
+# 3. Methodology
+
+## 3.1 Design, observed population, and units
+
+The research employs a quantitative, longitudinal, and observational design, encompassing descriptive, sentiment-based, and time-series econometric analyses. As it relies on observational data, without random assignment or experimental intervention, the estimates assess predictive temporal precedence and conditional covariation, distinguishing them from direct structural causal identification.
+
+The units of analysis are structured at two levels:
+- **Textual unit:** each individual post with a unique 64-bit identifier and a timestamp recorded in Colombian legal time (`America/Bogota`, UTC-5).
+- **Financial time unit:** the observed active trading session for stock and sovereign debt markets, and the calendar day for the official exchange rate and the continuous electricity market.
+
+## 3.2 Data sources, coverage, and cleaning
+
+### 3.2.1 Textual data from Twitter/X
+
+The textual data originate from two independent sources consolidated into the project dataset:
+1. **Primary Corpus (President):** a complete historical census of posts issued directly by the official account \@petrogustavo between August 7, 2022, and May 31, 2026. It comprises 14,659 posts, of which 14,437 contain processable lexical content, excluding 222 records consisting solely of links or multimedia elements. As it covers the full 24-hour daily cycle, it serves as the exclusive source for the econometric market analysis.
+2. **Secondary Corpus (Opinion):** a sample of 13,648 posts from the public collected during the same period using the query `"Gustavo Petro" OR @petrogustavo`, while filtering out retweets, replies, quotes, and links. 97.49% of its records (13,305 posts) are concentrated at 18:00 COT, subject to a fixed daily limit of 10 messages. For this reason, this corpus is used as a descriptive reference and is not integrated into the market equations.
+
+### 3.2.2 Financial market data
+
+The financial series are derived from official records from the Banco de la República and the grid operator XM (1,400 consecutive calendar days):
+- **Representative Market Exchange Rate (TRM):** official exchange rate in COP/USD certified by the Financial Superintendence (1,400 consecutive observations).
+- **MSCI COLCAP Equity Index:** official stock market index of the Colombian Stock Exchange (935 observed trading sessions, 400 weekend carry-overs, and 65 non-trading holidays).
+- **TES Sovereign Yield Curve (in pesos):** zero-coupon rates for 1, 5, and 10-year maturities, along with the 10Y-1Y slope in percentage points (935 observed sessions).
+- **Energy Exchange Spot Price:** national weighted energy exchange price (COP/kWh) managed by XM (1,400 consecutive days).
+
+## 3.3 Operationalization of variables
+
+@tbl-variables summarizes the definition, formulation, unit, and analytical role of each variable in the study.
+
+| Variable | Nature | Mathematical Definition | Unit | Econometric Role |
+|---|---|---|---|---|
+| Daily Polarity | Textual | $\text{Pol}_d = \sum \text{Positive}_d - \sum \text{Negative}_d$ | Net word count | Discursive predictor $I(0)$ |
+| NRC Emotions | Textual | Standardized frequencies of anger, fear, joy, sadness, trust | $z$-score | Discursive predictor $I(0)$ |
+| Informational Pressure Index (IPI) | Textual | $\text{IPI}_d = z(\bar{s}_d) \cdot z(\ln(1 + n_d))$ | Standardized index | Composite discursive signal $I(0)$ |
+| TRM Return | Financial | $R_{TRM,t} = \ln(\text{TRM}_t / \text{TRM}_{t-1})$ | Fraction / % | Exchange rate response $I(0)$ |
+| COLCAP Return | Financial | $R_{COL,t} = \ln(\text{COLCAP}_t / \text{COLCAP}_{t-1})$ | Fraction / % | Equity index response $I(0)$ |
+| Change in TES Rate 10Y | Financial | $\Delta \text{TES}_{10Y,t} = \text{TES}_{10Y,t} - \text{TES}_{10Y,t-1}$ | Percentage points | Sovereign yield response $I(0)$ |
+| Change in TES Slope (10Y-1Y) | Financial | $\Delta \text{Slope}_t = \text{Slope}_t - \text{Slope}_{t-1}$ | Percentage points | Term structure response $I(0)$ |
+| XM Energy Return | Electrical | $R_{XM,t} = \ln(P_{XM,t} / P_{XM,t-1})$ | Fraction / % | Energy spot response $I(0)$ |
+
+: Formal operationalization of analytical variables. Source: Authors' elaboration. {#tbl-variables}
+
+## 3.4 Multidimensional decomposition of sentiment and emotions
+
+To capture the heterogeneity of communicative tone, the measurement is broken down into three components:
+1. **Lexical Polarity:** the algebraic balance between favorable and unfavorable terms in each post, normalized by text length.
+2. **Plutchik Taxonomy and NRC Lexicon:** quantification of eight discrete emotions: $\text{Emotions} = \{\text{anger}, \text{fear}, \text{disgust}, \text{sadness}, \text{anticipation}, \text{surprise}, \text{joy}, \text{trust}\}$. Each dimension is calculated as the proportion of terms associated with the category relative to the total number of words analyzed for the day and is normalized using standard deviations ($z$-score).
+3. **Dynamic Aggregation (sentometrics):** modeling the temporal decay of affective impact using weighted moving average structures [@sentometrics_jss].
+
+The daily temporal evolution of the eight Plutchik emotions over the analyzed period is presented in @fig-emociones, and the lexical distribution of the associated terms is illustrated in @fig-nube-emociones.
+
+![Temporal evolution of the eight NRC lexicon emotions in presidential communication (2022-2026). Source: Authors' elaboration from reproducible notebook.](../../output/figures/español/sentimiento_emociones_diarias.png){#fig-emociones width="95%"}
+
+![Word cloud classified by NRC sentiment and emotion categories. Source: Authors' elaboration from reproducible notebook.](../../output/figures/español/wordcloud_sentimientos_nrc.png){#fig-nube-emociones width="90%"}
+
+## 3.5 The Presidential Informational Pressure Index (IPI)
+
+To identify episodes characterized by the simultaneous convergence of a pronounced tone and an unusual volume of posts, the Informational Pressure Index (IPI) regarding \@petrogustavo's activity is defined as:
+
+$$\text{IPI}_d = z(\bar{s}_d) \cdot z(\ln(1 + n_d))$$
+
+Where $n_d$ is the number of posts by the president on day $d$, and $\bar{s}_d = \text{Polarity}_d / n_d$ is the average sentiment per message. The $z$-standardization is calculated based on the 1,187 days featuring presidential posts.
+
+By mathematical construction, being the product of two standardized variables, the IPI yields positive values both on days of high volume and favorable tone and on those characterized by low activity and unfavorable tone. Consequently, the indicator captures the combined intensity and anomalous nature of the communicative episode, complementing the polarity analysis.
+
+## 3.6 Temporal alignment and elimination of look-ahead bias
+
+The linkage between the issuance of social media messages and Colombian financial market sessions is governed by a principle of non-anticipation:
+
+$$S_{[t,\, t+1)} \longrightarrow R_{b(t)}$$
+
+Where $b(t)$ is the first trading session observed strictly after the discursive date $t$. Any signal issued after market close, as well as activity accumulated over weekends and holidays, is consolidated and linked to the opening of the next business trading day. This procedure consolidates 934 unique response sessions and avoids the artificial repetition of non-traded prices observed in carry-forward schemes.
+
+## 3.7 Econometric models and FDR control
+
+The econometric toolkit comprises four linked specifications:
+1. **Unit Root Tests (ADF and KPSS):** verification of non-stationarity in levels ($I(1)$) and stationarity in differences ($I(0)$).
+2. **Granger causality:** estimation of linear bivariate autoregressive equations:
+
+$$R_{j,t} = \alpha_j + \sum_{k=1}^p \beta_{j,k} R_{j,t-k} + \sum_{k=1}^p \gamma_{j,k} S_{m,t-k} + \varepsilon_{j,t}$$
+
+Evaluated using a joint $F$-test ($H_0: \gamma_{j,1} = \dots = \gamma_{j,p} = 0$) for lags $p \in \{1, 2, 3, 4\}$.
+3. **False Discovery Rate (FDR) control:** Benjamini-Hochberg sequential adjustment applied to the 112 tests in the family to control the false positive rate resulting from multiple testing.
+4. **Vector Autoregression (VAR) and DCC-GARCH:** multivariate estimation of volatility and dynamic conditional correlations to model temporal interdependence.
+
+## 3.8 Event study design
+
+The ten days with the highest negativity and the ten with the highest absolute IPI in the presidential series are selected. The trajectories of the assets are analyzed in subsequent windows of $h \in \{+1, +3, +5, +7\}$ calendar days, evaluating cumulative returns and variations in sovereign interest rates under an observational framework without counterfactuals.
+
+# 4. Results
+
+## 4.1 Coverage and publication flow
+
+The study period spans 1,400 consecutive calendar days. @tbl-cobertura summarizes the effective availability of observations across sources.
+
+| Source / Corpus | Raw Observations | Days with Information | Sample Coverage | Audited Features |
+|---|---|---|---|---|
+| Presidential (\@petrogustavo) | 14,659 tweets | 1,313 days | 95.1% monthly | 14,437 clean texts; continuous 24-hour census |
+| Public opinion | 13,648 tweets | 1,348 days | 96.3% monthly | 97.5% at 18:00 COT; quota of 10/day |
+| TRM (BanRep) | 1,400 days | 1,400 days | 100.0% | Official currency rate COP/USD; daily |
+| COLCAP and TES Rates | 1,335 records | 935 sessions | 95.4% trading days | 935 actual trading sessions; 65 holidays without trades |
+| Energy Spot Price (XM) | 1,400 days | 1,400 days | 100.0% | Continuous daily price; no carryover |
+
+: Empirical coverage audit by source and asset (2022-2026). Source: Authors' elaboration from `tweets_master.csv` and `market_master.csv`. {#tbl-cobertura}
+
+@fig-volumen compares the monthly publication volume of both corpora, highlighting the presidency's expansive dynamics and bursts of communication versus the artificial stability imposed by the quota of the opinion corpus.
+
+![Observed monthly volume of the two corpora between August 2022 and May 2026. Source: Authors' elaboration.](../../output/figures/español/comparacion_corpus_volumen.png){#fig-volumen width="95%"}
+
+## 4.2 Temporal dynamics of sentiment, polarity, and the presidential IPI
+
+Descriptive sentiment analysis confirms that \@petrogustavo's discourse exhibits a substantially positive average daily polarity ($\mu = +6.10$; range -23 to +92), double that observed in public opinion ($\mu = +3.07$). As established in the literature, this level reflects the recurrence of institutional terms related to governance (e.g., "life", "justice", "reform", "peace", "social").
+
+The daily presidential IPI (based on 1,187 observed days) shows a mean of $\mu = -0.024$ and a standard deviation of $\sigma = 1.097$, with extremes ranging from -8.295 to +7.901, thereby capturing episodes of acute communicative shock (@fig-ipi).
+
+![Daily Information Pressure Index (IPI) of the presidential account \@petrogustavo. Source: Authors' elaboration.](../../output/figures/español/ipi_serie_diaria.png){#fig-ipi width="95%"}
+
+## 4.3 Thematic classification and the language of reforms
+
+The thematic classification assigns 10,784 presidential texts to 13 non-residual agendas (@fig-temas). The security agenda dominates presidential discourse (22.9%), followed by institutional affairs (20.1%), health (11.4%), international affairs (10.4%), labor (9.7%), and the economy (9.2%). Keyness analysis confirms that each reform possesses a highly distinctive and specialized lexical identity ($p < 0.001$).
+
+![Distribution of non-residual public policy topics in presidential discourse and citizen conversation. Source: Authors' elaboration.](../../output/figures/español/temas_reforma_resumen.png){#fig-temas width="95%"}
+
+## 4.4 Series diagnostics and VAR estimation
+
+ADF and KPSS tests confirm that the financial series are non-stationary ($I(1)$) in levels and stationary ($I(0)$) in differences, while the Johansen trace statistic (27.85 against a 5% critical value of 34.91) rules out cointegration, thereby validating the estimation of a VAR model using stationary differences.
+
+The VAR(1) model based on the 881 effective observations of the adjusted stock market sample proves to be dynamically stable (maximum root modulus of 0.281). However, residual diagnostics reveal remaining autocorrelation (Portmanteau $p = 6.00 \times 10^{-10}$) and ARCH conditional heteroskedasticity ($p < 10^{-10}$); this precludes interpreting the mean equations as full causal explanations and necessitates a shift to conditional volatility models.
+
+## 4.5 Conditional volatility and dynamic correlations (DCC-GARCH)
+
+The multivariate stock-market DCC(1,1) model, based on the 882 complete sessions, yields a highly significant persistence parameter ($b = 0.9224; p < 10^{-10}$), but a parameter for the reaction to sentiment innovations that is not significant at the 5% level ($a = 0.0119; p = 0.069$), with a combined sum of $a + b = 0.9343 < 1$ satisfying covariance stationarity.
+
+The average dynamic conditional correlations between presidential signals and financial assets are moderate:
+- $\text{IPI} \leftrightarrow \text{Return TRM}$: mean of $+0.0171$.
+- $\text{IPI} \leftrightarrow \text{Return COLCAP}$: mean of $+0.0414$.
+- $\text{Polarity} \leftrightarrow \text{Change TES Rate 10Y}$: mean of $+0.0574$.
+- $\text{IPI} \leftrightarrow \text{Change TES Slope}$: mean of $-0.0430$.
+
+The time paths of the conditional correlations are plotted in @fig-dcc.
+
+![Paths of four DCC conditional correlations between presidential signals and financial variables. Source: Authors' elaboration.](../../output/figures/español/econometria/dcc_correlaciones_dinamicas_panel.png){#fig-dcc width="95%"}
+
+Furthermore, the Markov-Switching model estimates two persistence regimes for the IPI-TRM correlation: Regime 1, characterized by low dispersion ($\mu = 0.0121; \sigma = 0.0090$, average duration of 24.4 sessions) and Regime 2, characterized by transitory stress ($\mu = 0.0216; \sigma = 0.0356$, average duration of 27.3 sessions).
+
+## 4.6 Granger predictive precedence focused on sentiments and emotions
+
+Granger precedence tests across the 112 specifications within the presidential family reveal the following patterns (@tbl-granger and @fig-granger):
+
+In terms of nominal significance ($p < 0.05$), exactly five significant tests are observed. Four of these involve net polarity predicting variations in the TRM (market exchange rate) at lags of 1 to 4 sessions ($p = 0.00747$ at lag 1; $p = 0.0230$ at lag 2; $p = 0.0141$ at lag 3; $p = 0.0312$ at lag 4), while one involves the emotion of joy ($z_{joy}$) predicting the TRM at lag 2 ($p = 0.0466$). However, after applying a correction for multiple testing using the false discovery rate (Benjamini-Hochberg FDR), none of the tests remain statistically significant ($q \ge 0.791$). Meanwhile, the presidential IPI yields no nominal rejections for any of the assets evaluated ($p \ge 0.0686$).
+
+| Textual Predictor Evaluated | Tests ($N$) | Nominal Rejections ($p < 0.05$) | FDR Rejections ($q < 0.05$) | Lowest $p$-value and Associated Asset |
+|---|:---:|:---:|:---:|---|
+| Daily Net Polarity | 16 | 4 | 0 | $p = 0.00747$ (TRM, lag 1; $q = 0.791$) |
+| Standardized NRC Emotions | 80 | 1 | 0 | $p = 0.04660$ (Joy $\to$ TRM, lag 2; $q = 0.838$) |
+| Informational Pressure Index (IPI) | 16 | 0 | 0 | $p = 0.06860$ (No nominal rejections) |
+| **Total Presidential Family** | **112** | **5** | **0** | **No significant contrast after FDR control** |
+
+: Granger causality results and FDR control in the presidential discourse family. Source: Authors' elaboration from `granger_resultados_completos.csv`. {#tbl-granger}
+
+:::: {#fig-granger layout-nrow=2}
+![Panel A: Granger $p$-values for presidential IPI and Net Polarity.](../../output/figures/español/granger_trm_colcap.png){#fig-granger-a width="95%"}
+
+![Panel B: Granger $p$-values for presidential NRC affective and emotional signals.](../../output/figures/español/granger_presidencial_emociones.png){#fig-granger-b width="95%"}
+
+Granger predictive precedence tests for presidential polarity, IPI, and NRC emotional signals versus financial assets. Source: Authors' elaboration.
+::::
+
+## 4.7 Financial reaction to episodes of extreme sentiment
+
+The event study analyzes the cumulative responses of assets to the ten days characterized by the highest levels of negativity and the highest absolute IPI (@tbl-eventos and @fig-eventos).
+
+| Emotional Shock / Asset | $t + 1$ cal. day | $t + 3$ cal. days | $t + 5$ cal. days | $t + 7$ cal. days | Events with Data | Financial Interpretation |
+|---|:---:|:---:|:---:|:---:|:---:|---|
+| Extreme IPI $\to$ Return TRM | -0.16% | -0.73% | -0.71% | -1.28% | 10 / 10 | Moderate short-term cumulative appreciation |
+| Extreme IPI $\to$ Return COLCAP | -0.12% | -1.14% | -1.27% | +0.76% | 9 / 10 | Initial decline and recovery by day 7 |
+| Extreme IPI $\to$ Change TES 10Y | +1.6 bps | +3.3 bps | -3.1 bps | +1.8 bps | 9 / 10 | Yield rise with rapid stabilization |
+| Extreme IPI $\to$ Return XM Energy | +2.70% | +16.03% | +24.47% | +31.89% | 10 / 10 | Upward drift in electricity spot prices |
+| Extreme Negativity $\to$ Return TRM | -0.09% | -0.45% | -0.52% | -0.84% | 10 / 10 | Moderate transient appreciation |
+| Extreme Negativity $\to$ Return COLCAP | +0.60% | +0.85% | +1.10% | +1.16% | 9 / 10 | Absence of sustained downward pressure |
+| Extreme Negativity $\to$ Change TES 10Y | -2.4 bps | -4.5 bps | -10.6 bps | +17.5 bps | 9 / 10 | Rebound in sovereign yields at day 7 |
+| Extreme Negativity $\to$ Return XM Energy | +2.67% | +6.29% | +9.24% | +12.17% | 10 / 10 | Positive cumulative return |
+
+: Cumulative responses in the event study facing extreme discursive shocks. Source: Authors' elaboration from `event_study_resumen.csv`. Horizons strictly reflect calendar days following the shock. {#tbl-eventos}
+
+The heat map of cumulative responses (@fig-eventos) illustrates the rapid stabilization of emotional disturbances toward historical averages, without generating structural ruptures in financial valuations.
+
+![Heatmap of cumulative financial responses following extreme discursive events. Source: Authors' elaboration.](../../output/figures/español/event_study_respuestas_heatmap.png){#fig-eventos width="95%"}
+
+# 5. Discussion
+
+The empirical analysis of \@petrogustavo's posts and the four domestic financial markets allows the discussion to be structured around five fundamental analytical dimensions:
+
+**Institutional discursive orientation versus citizen debate:** Unlike citizen conversation on social media, often characterized by polarization and reactive negativity, presidential discourse exhibits, on average, a clearly positive polarity, grounded in public policy and structural reforms. This distinction indicates that the content issued by the head of state functions as a channel for setting the government agenda rather than as a source of constant emotional tension.
+
+**Statistical independence of prices and limits to linear predictability:** Contrary to the perception that presidential statements trigger direct movements in dollar exchange rates or stock prices, Granger causality tests rule out such a relationship at a daily frequency. Although five nominal rejections at the 5% level are observed, concentrated in the official exchange rate, none remain significant after adjusting for multiplicity using the Benjamini-Hochberg procedure ($q = 0.791$). This finding is consistent with the semi-strong form of the efficient market hypothesis [@fama_1970], according to which the prices of liquid assets absorb publicly available information without observable lags by the close of the trading day.
+
+**Lack of impact of the negative emotional chain on risk premiums:** Behavioral finance literature suggests that emotions such as fear or anger can increase risk aversion or trigger overreactions [@lerner_keltner_2001; @loewenstein_2000]. However, within the presidential discourse, none of the negative-valence emotions demonstrate any incremental predictive power regarding COLCAP returns, TES yields, or electricity exchange prices. Market participants distinguish between the confrontational tone of political debate and the variables that determine the fundamental value of securities.
+
+**Transience of responses and absence of structural persistence:** The multivariate DCC(1,1) estimation yields a non-significant parameter for the reaction to sentiment innovations ($a = 0.0119; p = 0.069$), along with moderate average dynamic conditional correlations ranging from -0.043 to +0.057. Furthermore, an event study concerning extreme shocks in the IPI and negativity reveals that price fluctuations revert within a window of three to seven business days. Discursive disturbances act as short-term attention shocks [@barber_odean_2008; @da_engelberg_gao_2011] that do not trigger permanent regime shifts.
+
+**Primacy of macroeconomic and institutional determinants:** The trajectories of the exchange rate (TRM), the COLCAP index, and the TES yield curve are primarily driven by the monetary policy decisions of the Banco de la República, the international sovereign risk premium, and global liquidity conditions. The market treats activity on Twitter as communicative noise, remaining anchored instead to macroeconomic fundamentals.
+
+**Theoretical and financial implications:** On a daily basis, the discursive signals issued by the presidency on Twitter/X lack the capacity to systematically sway stock and exchange rates in Colombia. This decoupling supports the hypothesis of informational efficiency and demonstrates the institutional resilience of local financial markets in the face of social media rhetoric.
+
+# 6. Limitations and future research directions
+
+This analysis presents three limitations that define its scope and point toward future work:
+
+First, the temporal concentration of the secondary public opinion corpus, with 97.49% of messages collected at 18:00 COT under a fixed daily quota, restricted the econometric modeling to the official \@petrogustavo dataset. Future extensions could implement stratified sampling distributed uniformly across the 24-hour cycle to reintegrate citizen discourse into the dynamic analysis.
+
+Second, while lexical dictionaries such as NRC and sentiment-analysis frameworks are transparent and reproducible, they struggle to capture the irony, sarcasm, and context-dependent language characteristic of political debate. Calibrating transformer-based language models specifically adapted to financial terminology represents a promising avenue for methodological refinement.
+
+Third, aggregating data at a daily frequency obscures potential intraday microstructure effects. Incorporating minute-by-minute transactional records from foreign exchange and stock markets would allow for the investigation of very short-term responses that may be absorbed before the close of each trading session.
+
+# 7. Conclusions
+
+Empirical modeling based on the full set of posts from the official \@petrogustavo account and their relationship to Colombian financial markets between August 2022 and May 2026 yields five main conclusions:
+
+1. **Institutional rhetoric:** The presidential discursive profile reflects an institutional rhetoric centered on public policy, with an average net positive polarity, a vocabulary focused on government reforms, and a prevalence of sentiments of confidence and anticipation, distinct from the patterns of reactive negativity typical of public discourse on social media.
+2. **Statistical independence:** Colombian financial variables are statistically independent of the discursive tone on social media. Granger causality tests rule out linear predictability regarding currencies, equities, fixed-income securities, and energy in the 112 specifications evaluated. None withstands rigorous control of the false discovery rate.
+3. **No negative emotional contagion:** Individual emotions with negative valence do not constitute a channel for contagion to risk premiums. Neither presidential fear nor anger demonstrates any explanatory power regarding the returns or volatility of the assets when evaluated on a daily basis.
+4. **Transient disturbances:** Disturbances associated with extreme discursive episodes are transient and revert within a few days. The DCC-GARCH model indicates low conditional sensitivity to discursive innovations, and the event study documents the absorption and stabilization of returns between days $t+3$ and $t+7$.
+5. **Macroeconomic anchoring:** Asset equilibrium prices remain anchored to macroeconomic fundamentals, reflecting the central bank's stance, sovereign risk, and international market trends, rather than short-term digital rhetoric.
+
+**Implication for the study:** The sentiment expressed in presidential discourse on Twitter/X mobilizes public attention and energizes public debate, yet it does not serve as a systematic determinant of prices in Colombian financial markets. Empirical evidence supports the semi-strong form efficiency hypothesis at a daily level and confirms the institutional robustness of domestic markets in the face of the flow of communication from social media.
+
+## Data and code availability
+
+All cleaned datasets, results tables, high-resolution figures, and the reproducible methodological notebook in Quarto are publicly available in the GitHub repository:
+<https://github.com/juanjo-edm/What_is_the_economic_impact_of_Colombian_President_tweets>.
+
+## Conflict of interest statement
+
+The authors declare that they have no conflicts of interest or financial commitments related to the publication of this article.
+
+## Funding statement
+
+This research was conducted within the framework of the Oikos Research Group at the Faculty of Economics of the Universidad Militar Nueva Granada in Bogotá, Colombia, and did not receive external funding.
+
+# References

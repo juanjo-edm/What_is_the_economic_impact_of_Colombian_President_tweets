@@ -1,0 +1,148 @@
+body {
+  color: #222;
+  font-family: "Segoe UI", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 16px;
+  line-height: 1.65;
+}
+
+.main-container {
+  max-width: 1180px;
+}
+
+#TOC {
+  border: 1px solid #e3e7ea;
+  border-radius: 8px;
+  box-shadow: 0 8px 24px rgba(31, 41, 55, 0.08);
+  font-size: 13px;
+  line-height: 1.35;
+  padding: 12px;
+}
+
+#TOC .tocify-header {
+  color: #263238;
+  font-weight: 650;
+}
+
+#TOC .tocify-subheader {
+  color: #52616b;
+}
+
+h1,
+h2,
+h3 {
+  color: #172026;
+  font-weight: 700;
+  letter-spacing: 0;
+}
+
+h1 {
+  border-bottom: 2px solid #d8dee4;
+  margin-top: 2.4rem;
+  padding-bottom: 0.35rem;
+}
+
+h2 {
+  border-left: 5px solid #2f6f73;
+  margin-top: 2rem;
+  padding-left: 0.75rem;
+}
+
+h3 {
+  color: #2f4858;
+  margin-top: 1.5rem;
+}
+
+p,
+li {
+  max-width: 88ch;
+}
+
+a {
+  color: #1f6f8b;
+}
+
+blockquote {
+  background: #f7f9fa;
+  border-left: 5px solid #2f6f73;
+  color: #34444c;
+  padding: 0.75rem 1rem;
+}
+
+pre,
+code {
+  font-family: "Cascadia Mono", "Consolas", monospace;
+}
+
+pre {
+  background: #f7f8fa;
+  border: 1px solid #e1e4e8;
+  border-radius: 8px;
+  font-size: 13px;
+  line-height: 1.45;
+  padding: 12px;
+}
+
+.sourceCode {
+  border-radius: 8px;
+}
+
+table {
+  border-collapse: collapse;
+  font-size: 13px;
+  margin: 1rem 0 1.5rem;
+  width: 100%;
+}
+
+caption {
+  color: #3c4a50;
+  font-size: 14px;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  text-align: left;
+}
+
+th {
+  background: #eef4f5;
+  color: #1d2b31;
+  font-weight: 700;
+}
+
+td,
+th {
+  border: 1px solid #dbe2e6;
+  padding: 7px 9px;
+  vertical-align: top;
+}
+
+tr:nth-child(even) td {
+  background: #fafbfc;
+}
+
+img {
+  border-radius: 6px;
+  display: block;
+  margin: 1rem auto;
+}
+
+.figure {
+  margin-bottom: 2rem;
+}
+
+.section.level1,
+.section.level2 {
+  padding-top: 0.25rem;
+}
+
+.quick-guide {
+  background: linear-gradient(135deg, #f3faf9, #f8fbfd);
+  border: 1px solid #d6e7e7;
+  border-radius: 8px;
+  margin: 1.5rem 0 2rem;
+  padding: 1rem 1.25rem;
+}
+
+.quick-guide h2 {
+  border-left: 0;
+  margin-top: 0;
+  padding-left: 0;
+}

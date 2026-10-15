@@ -10,14 +10,18 @@
   <img src="https://img.shields.io/badge/outputs-figures%20%2B%20gt%20tables-2a7a80" alt="Outputs">
 </p>
 
-This repository contains the canonical research paper, analytical codebase, and replication package investigating whether communications published by Colombian President Gustavo Petro on Twitter/X (`@petrogustavo`) precede or associate with short-run variations in key Colombian financial indicators.
+This repository contains the canonical research paper, analytical codebase, and replication package investigating whether public communications published by Colombian President Gustavo Petro on Twitter/X (`@petrogustavo`) precede or associate with short-run variations in key Colombian financial indicators.
 
-The empirical window covers **August 2022 to May 2026** (1,400 calendar days). The project establishes a strict separation between two textual corpora:
+The empirical window covers **August 2022 to May 2026** (1,400 calendar days). The research design establishes a strict separation between two textual corpora:
 
 1. **Principal corpus (`presidente`):** Tweets published directly by `@petrogustavo` in `data/raw/twitter/Tweets de Gustavo Petro/` (14,659 total tweets, 14,437 non-empty clean texts). This corpus serves as the exclusive input for all natural language processing, daily Information Pressure Indices ($IPI_d$), and all econometric time-series models.
 2. **Complementary corpus (`opinion`):** Public tweets recovered via the search query for "Gustavo Petro" in `data/raw/twitter/Opinión sobre Petro/` (13,648 tweets). This corpus is preserved exclusively for descriptive textual exploration and data quality auditing. It is strictly excluded from financial econometrics because of a documented extraction limitation: 97.49% of records concentrate at 18:00 Bogota time and daily collection quotas cap retrieval at 10 tweets per day.
 
-The financial block integrates official daily series: `TRM` (representative market exchange rate), `COLCAP` (equity market index), zero-coupon `TES` sovereign bond yields (1Y, 5Y, 10Y, and the 10Y-1Y slope) from Banco de la República, and the national electricity spot price from XM. All inputs consolidate into two stable data contracts in `data/processed/` (`tweets_master.csv` and `market_master.csv`). The academic manuscript is written in Quarto following Taylor & Francis standards in [`paper/español/quarto-tandf.qmd`](paper/español/quarto-tandf.qmd), accompanied by the self-contained computational notebook in [`notebooks/español/Cuaderno_Paper_Español.qmd`](notebooks/español/Cuaderno_Paper_Español.qmd).
+The financial block integrates official daily series: `TRM` (representative market exchange rate), `COLCAP` (equity market index), zero-coupon `TES` sovereign bond yields (1Y, 5Y, 10Y, and the 10Y-1Y slope) from Banco de la República, and the national electricity spot price from XM. All inputs consolidate into two verified data contracts in `data/processed/` (`tweets_master.csv` and `market_master.csv`).
+
+The research package is published in two parallel, fully synchronized language tracks:
+- **English Track:** Peer-reviewed academic manuscript in [`paper/English/quarto-tandf.qmd`](paper/English/quarto-tandf.qmd) ([PDF](paper/English/quarto-tandf.pdf), [HTML](paper/English/quarto-tandf.html), [DOCX](paper/English/quarto-tandf.docx)) and computational notebook in [`notebooks/English/Cuaderno_Paper_English.qmd`](notebooks/English/Cuaderno_Paper_English.qmd) ([HTML](notebooks/English/Cuaderno_Paper_English.html)).
+- **Spanish Track:** Academic manuscript in [`paper/español/quarto-tandf.qmd`](paper/español/quarto-tandf.qmd) ([PDF](paper/español/quarto-tandf.pdf), [HTML](paper/español/quarto-tandf.html), [DOCX](paper/español/quarto-tandf.docx)) and computational notebook in [`notebooks/español/Cuaderno_Paper_Español.qmd`](notebooks/español/Cuaderno_Paper_Español.qmd) ([HTML](notebooks/español/Cuaderno_Paper_Español.html)).
 
 ## Table of Contents
 
@@ -55,7 +59,7 @@ All econometrics rely on official series from Banco de la República and XM, usi
 
 ## Project Workflow
 
-The diagram below outlines the end-to-end data processing, modeling, and manuscript generation pipeline.
+The diagram below outlines the end-to-end data processing, modeling, and dual-track manuscript generation pipeline.
 
 ```mermaid
 flowchart TD
@@ -73,23 +77,21 @@ flowchart TD
         M_MASTER["data/processed/market_master.csv<br/>(Financial returns and observed flags)"]
     end
 
-    subgraph NotebookEngine ["3. Computational Engine (Cuaderno_Paper_Español.qmd)"]
-        NB_NLP["NLP and Sentiment:<br/>Text cleaning, NRC lexicon, IPI, STM"]
-        NB_CORP["Corpus Audit:<br/>Opinion bias documentation"]
-        NB_TS["Financial Series:<br/>Log returns, TES differences, ADF/KPSS"]
-        NB_ECON["Econometric Pipeline:<br/>Johansen, VAR(1), Granger FDR,<br/>DCC-GARCH, Markov-Switching, Event Study"]
+    subgraph NotebookEngines ["3. Computational Engines"]
+        NB_EN["notebooks/English/Cuaderno_Paper_English.qmd<br/>(English Standalone Analysis)"]
+        NB_ES["notebooks/español/Cuaderno_Paper_Español.qmd<br/>(Spanish Standalone Analysis)"]
     end
 
     subgraph OutputArtifacts ["4. Persisted Outputs"]
-        OUT_FIG["output/figures/español/<br/>(93 high-resolution figures)"]
-        OUT_TAB["output/tables/español/<br/>(HTML and CSV audit tables)"]
+        OUT_FIG_EN["output/figures/English/<br/>(English publication figures)"]
+        OUT_FIG_ES["output/figures/español/<br/>(93 Spanish figures)"]
+        OUT_TAB_EN["output/tables/English/<br/>(English summary tables)"]
+        OUT_TAB_ES["output/tables/español/<br/>(Spanish audit tables)"]
     end
 
-    subgraph AcademicPaper ["5. Academic Manuscript (quarto-tandf.qmd)"]
-        PAPER_SRC["paper/español/quarto-tandf.qmd<br/>(Taylor & Francis standard)"]
-        PAPER_PDF["paper/español/quarto-tandf.pdf<br/>(Peer-review ready PDF)"]
-        PAPER_HTML["paper/español/quarto-tandf.html<br/>(Standalone interactive HTML)"]
-        PAPER_DOCX["paper/español/quarto-tandf.docx<br/>(Word editorial format)"]
+    subgraph AcademicPapers ["5. Academic Manuscripts (Taylor & Francis)"]
+        PAPER_EN["paper/English/quarto-tandf.qmd<br/>(English Manuscript: PDF, HTML, DOCX)"]
+        PAPER_ES["paper/español/quarto-tandf.qmd<br/>(Spanish Manuscript: PDF, HTML, DOCX)"]
     end
 
     T_RAW --> SCRIPT_T
@@ -100,21 +102,20 @@ flowchart TD
     SCRIPT_T --> T_MASTER
     SCRIPT_M --> M_MASTER
 
-    T_MASTER --> NB_NLP
-    T_MASTER --> NB_CORP
-    M_MASTER --> NB_TS
+    T_MASTER --> NB_EN
+    M_MASTER --> NB_EN
+    T_MASTER --> NB_ES
+    M_MASTER --> NB_ES
 
-    NB_NLP --> NB_ECON
-    NB_TS --> NB_ECON
+    NB_EN --> OUT_FIG_EN
+    NB_EN --> OUT_TAB_EN
+    NB_ES --> OUT_FIG_ES
+    NB_ES --> OUT_TAB_ES
 
-    NB_ECON --> OUT_FIG
-    NB_ECON --> OUT_TAB
-
-    OUT_FIG --> PAPER_SRC
-    OUT_TAB --> PAPER_SRC
-    PAPER_SRC --> PAPER_PDF
-    PAPER_SRC --> PAPER_HTML
-    PAPER_SRC --> PAPER_DOCX
+    OUT_FIG_EN --> PAPER_EN
+    OUT_TAB_EN --> PAPER_EN
+    OUT_FIG_ES --> PAPER_ES
+    OUT_TAB_ES --> PAPER_ES
 ```
 
 ## Repository Structure
@@ -124,40 +125,56 @@ The layout separates raw data, processed contracts, computational analysis, manu
 ```text
 What_is_the_economic_impact_of_Colombian_President_tweets/
 |-- data/
-|   |-- processed/                              # Verified data contracts for the notebook
+|   |-- processed/                              # Verified data contracts for the notebooks
 |   |   |-- market_master.csv
-|   |   `-- tweets_master.csv
+|   |   |-- tweets_master.csv
+|   |   `-- daily_nrc_by_corpus.csv
 |   `-- raw/
 |       |-- market/                             # Official raw financial series
 |       `-- twitter/
 |           |-- Opinión sobre Petro/            # Complementary opinion corpus
 |           `-- Tweets de Gustavo Petro/        # Primary presidential corpus (@petrogustavo)
 |-- notebooks/
+|   |-- English/
+|   |   |-- Cuaderno_Paper_English.qmd          # Self-contained English computational engine
+|   |   |-- Cuaderno_Paper_English.html         # Rendered HTML analysis (English)
+|   |   `-- README.md                           # English notebook guide
 |   `-- español/
-|       |-- Cuaderno_Paper_Español.qmd          # Self-contained computational engine
-|       |-- Cuaderno_Paper_Español.html         # Rendered HTML analysis
-|       `-- README.md                           # Notebook execution and reproduction guide
+|       |-- Cuaderno_Paper_Español.qmd          # Self-contained Spanish computational engine
+|       |-- Cuaderno_Paper_Español.html         # Rendered HTML analysis (Spanish)
+|       `-- README.md                           # Spanish notebook guide
 |-- paper/
-|   |-- English/                                # English adaptation assets and README
-|   |   `-- README.md
-|   |-- español/                                # Canonical Quarto manuscript (Taylor & Francis)
+|   |-- English/                                # English academic manuscript (Taylor & Francis)
 |   |   |-- quarto-tandf.qmd                    # Manuscript source
 |   |   |-- quarto-tandf.pdf                    # Compiled PDF
 |   |   |-- quarto-tandf.html                   # Compiled HTML
 |   |   |-- quarto-tandf.docx                   # Compiled Word document
 |   |   |-- bibliography.bib                    # Curated BibTeX bibliography
-|   |   `-- README.md                           # Manuscript guide
-|   `-- figures/                                # Portable figures embedded in manuscript
-|       `-- español/
+|   |   `-- README.md                           # English manuscript guide
+|   |-- español/                                # Spanish academic manuscript (Taylor & Francis)
+|   |   |-- quarto-tandf.qmd                    # Manuscript source
+|   |   |-- quarto-tandf.pdf                    # Compiled PDF
+|   |   |-- quarto-tandf.html                   # Compiled HTML
+|   |   |-- quarto-tandf.docx                   # Compiled Word document
+|   |   |-- bibliography.bib                    # Curated BibTeX bibliography
+|   |   `-- README.md                           # Spanish manuscript guide
+|   `-- figures/                                # Embedded publication graphics
+|       |-- English/                            # 10 core figures with English labels
+|       `-- español/                            # Core figures with Spanish labels
 |-- Methodology_Supervision/                    # Methodological supervision and quality control
 |   |-- Supervision_Metodologica.qmd
 |   |-- Supervision_Metodologica.html
 |   `-- README.md
 |-- output/
-|   |-- figures/español/                        # 93 figures generated by the notebook
-|   |-- tables/español/                         # Persisted audit tables (HTML and CSV)
+|   |-- figures/
+|   |   |-- English/                            # Publication figures with English labels
+|   |   `-- español/                            # 93 figures generated by the Spanish notebook
+|   |-- tables/
+|   |   |-- English/                            # Summary tables in English
+|   |   `-- español/                            # Audit tables in Spanish (HTML and CSV)
 |   `-- review/                                 # Econometric and data audit reports
 |-- scripts/
+|   |-- generate_english_figures.R              # Standalone generator for English figures
 |   `-- data/
 |       |-- ingest_market.R                     # Official market series updater
 |       `-- twitter_process_raw_data.R          # Builds master CSV contracts from raw inputs
@@ -169,37 +186,42 @@ What_is_the_economic_impact_of_Colombian_President_tweets/
 | Path | Purpose | Primary Consumer |
 |---|---|---|
 | [`data/raw/twitter/Tweets de Gustavo Petro/`](data/raw/twitter/Tweets%20de%20Gustavo%20Petro/) | Primary corpus: raw CSVs of `@petrogustavo` tweets | `scripts/data/twitter_process_raw_data.R` |
-| [`data/raw/twitter/Opinión sobre Petro/`](data/raw/twitter/Opinión%20sobre%20Petro/) | Secondary opinion corpus: raw monthly CSVs | Textual audit in notebook |
+| [`data/raw/twitter/Opinión sobre Petro/`](data/raw/twitter/Opinión%20sobre%20Petro/) | Secondary opinion corpus: raw monthly CSVs | Textual audit in notebooks |
 | [`data/raw/market/`](data/raw/market/) | Official raw market downloads from BanRep and XM | `scripts/data/twitter_process_raw_data.R` |
-| [`data/processed/`](data/processed/) | Two stable contracts: `tweets_master.csv` and `market_master.csv` | `notebooks/español/Cuaderno_Paper_Español.qmd` |
-| [`notebooks/español/`](notebooks/español/) | Spanish computational engine and reproduction guide | Peer review replication |
-| [`paper/español/`](paper/español/) | Academic manuscript in Quarto (PDF, HTML, DOCX) | Peer reviewers and editors |
+| [`data/processed/`](data/processed/) | Stable contracts: `tweets_master.csv` and `market_master.csv` | Both computational notebooks |
+| [`notebooks/English/`](notebooks/English/) | English computational engine and reproduction guide | Global peer reviewers and researchers |
+| [`notebooks/español/`](notebooks/español/) | Spanish computational engine and reproduction guide | Regional peer review and replication |
+| [`paper/English/`](paper/English/) | English academic manuscript (PDF, HTML, DOCX) | International journal submission |
+| [`paper/español/`](paper/español/) | Spanish academic manuscript (PDF, HTML, DOCX) | Spanish language peer review |
 | [`Methodology_Supervision/`](Methodology_Supervision/) | Methodological audit and quality control suite | Evaluators reviewing empirical validity |
-| [`output/figures/español/`](output/figures/español/) | High-resolution figures generated by the notebook | Manuscript and visual evaluation |
-| [`output/tables/español/`](output/tables/español/) | Persisted tables in HTML and CSV format | Quantitative verification |
+| [`output/figures/English/`](output/figures/English/) | High-resolution publication figures with English labels | English manuscript and evaluation |
+| [`output/figures/español/`](output/figures/español/) | High-resolution figures generated by the Spanish notebook | Spanish manuscript and visual evaluation |
+| [`output/tables/English/`](output/tables/English/) | English summary tables | Quantitative verification in English |
+| [`output/tables/español/`](output/tables/español/) | Audit tables in HTML and CSV format | Quantitative verification in Spanish |
 
 ## Methodological Traceability
 
 ### Parameter and Source Locations
 
-The project does not use external YAML configuration files. Data ingestion scripts define sample dates, file paths, endpoint URLs, and series identifiers explicitly at the top of each file. In the notebook, analytical constants sit immediately before their consuming code chunk. Market provenance is saved directly to [`output/tables/español/ingesta_mercado_fuentes.csv`](output/tables/español/ingesta_mercado_fuentes.csv).
+The project does not use external YAML configuration files. Data ingestion scripts define sample dates, file paths, endpoint URLs, and series identifiers explicitly at the top of each file. In the notebooks, analytical constants sit immediately before their consuming code chunk. Market provenance is saved directly to [`output/tables/español/ingesta_mercado_fuentes.csv`](output/tables/español/ingesta_mercado_fuentes.csv).
 
 ### Role of `scripts/` vs `notebooks/`
 
-The analytical engine is fully self-contained in [`notebooks/español/Cuaderno_Paper_Español.qmd`](notebooks/español/Cuaderno_Paper_Español.qmd). Data cleaning, topic models, sentiment scoring, discourse networks, time series diagnostics, and econometrics execute directly inside the notebook.
+The analytical engine is fully self-contained inside the computational notebooks: [`notebooks/English/Cuaderno_Paper_English.qmd`](notebooks/English/Cuaderno_Paper_English.qmd) and [`notebooks/español/Cuaderno_Paper_Español.qmd`](notebooks/español/Cuaderno_Paper_Español.qmd). Data cleaning, topic models, sentiment scoring, discourse networks, time series diagnostics, and econometrics execute directly inside each notebook.
 
-The `scripts/` folder contains only two preparatory scripts:
+The `scripts/` folder contains supporting automation:
 1. `scripts/data/ingest_market.R` retrieves official market series when a fresh download from BanRep or XM is required.
 2. `scripts/data/twitter_process_raw_data.R` standardizes dates to `America/Bogota`, validates integer IDs as character strings, and writes `data/processed/tweets_master.csv` and `data/processed/market_master.csv`.
+3. `scripts/generate_english_figures.R` generates the complete set of publication figures rendered with English typography, axis labels, legends, and emotion dimensions.
 
-The notebook consumes only those two CSV contracts. It does not invoke `source()` or read external script files during execution.
+The notebooks consume only the verified CSV contracts. They do not invoke `source()` or read external script files during execution.
 
 ## Pedagogical Standard for Code and Documentation
 
 All scripts, notebooks, and manuscript files adhere to five core requirements:
 
 1. **Human test:** Every analytical section states the substantive problem, ingoing data, transformation or statistical model, expected output, and resulting decision before running code.
-2. **Three-layer structure:** Technical work follows the sequence: introductory Markdown context, explanatory comments within code, and immediate academic interpretation of numerical results after each output.
+2. **Four-layer structure:** Technical work follows the sequence: introductory Markdown context, explanatory comments within code, clear visual or tabular output, and immediate academic interpretation of numerical results.
 3. **Calibrated inferential language:** Claims stay strictly proportional to empirical identification. The prose separates description, correlation, prediction, temporal precedence (Granger), and causality. Causal verbs are omitted when discussing observational regressions and VAR models.
 4. **Dynamic results over hardcoding:** Statistical values, sample sizes, and p-values derive from execution outputs rather than static narrative text.
 5. **Modular code blocks:** Code chunks focus on a single analytical step (roughly 40 internal lines), keeping functions and pipelines intact without artificial splits.
@@ -215,9 +237,10 @@ install.packages(c(
   "syuzhet", "lmtest", "zoo", "scales", "janitor", "tibble",
   "quanteda", "quanteda.textstats", "quanteda.textplots",
   "quanteda.textmodels", "sentometrics", "stm", "igraph",
-  "ggraph", "tidygraph", "vars", "tseries", "urca", "sandwich",
-  "forcats", "rmarkdown", "knitr", "here", "DiagrammeR",
-  "DiagrammeRsvg", "rsvg", "ragg", "spacyr", "reticulate", "fs", "glue"
+  "ggraph", "tidygraph", "vars", "tseries", "urca", "rugarch",
+  "rmgarch", "sandwich", "forcats", "rmarkdown", "knitr", "here",
+  "DiagrammeR", "DiagrammeRsvg", "rsvg", "ragg", "spacyr",
+  "reticulate", "fs", "glue"
 ))
 
 install.packages(
@@ -237,26 +260,38 @@ python -m spacy download es_core_news_sm
 
 To reproduce the complete research paper and analytical outputs from scratch:
 
-1. Confirm the presence of the data contracts in `data/processed/` (`tweets_master.csv` and `market_master.csv`).
-2. Render the Spanish methodological notebook:
+1. Confirm the presence of data contracts in `data/processed/` (`tweets_master.csv` and `market_master.csv`).
+2. To render the English track:
 
 ```bash
-quarto render notebooks/español/Cuaderno_Paper_Español.qmd
+# Render the English computational notebook
+quarto render notebooks/English/Cuaderno_Paper_English.qmd
+
+# Render the English publication manuscript (PDF, HTML, DOCX)
+quarto render paper/English/quarto-tandf.qmd
 ```
 
-3. Render the academic manuscript:
+3. To render the Spanish track:
 
 ```bash
+# Render the Spanish computational notebook
+quarto render notebooks/español/Cuaderno_Paper_Español.qmd
+
+# Render the Spanish publication manuscript (PDF, HTML, DOCX)
 quarto render paper/español/quarto-tandf.qmd
 ```
 
-This compiles the paper into PDF, HTML, and Word documents in `paper/español/`.
+4. To regenerate all English publication figures standalone:
+
+```bash
+Rscript scripts/generate_english_figures.R
+```
 
 ## Methodological Summary
 
 - **Textual preprocessing:** Text normalization, stopword filtering, entity standardization, and lemmatization using spaCy.
 - **Thematic supervision:** Transparent Naive Bayes classification over reform agendas, reassigning unclassified tweets only when confidence exceeds calibrated thresholds.
-- **Sentiment analysis:** NRC emotion scoring (Spanish) via `syuzhet`, net polarity calculation, and daily Information Pressure Index ($IPI_d$) combining standardized sentiment and daily log tweet volume.
+- **Sentiment analysis:** NRC emotion scoring via `syuzhet`, net polarity calculation, and daily Information Pressure Index ($IPI_d$) combining standardized sentiment and daily log tweet volume.
 - **Time series and stationarity:** Augmented Dickey-Fuller (ADF) and KPSS tests establishing log-differencing for asset prices and first-differencing for bond yields.
 - **Cointegration and VAR:** Johansen trace tests ($27.85 < 34.91$, $r=0$ not rejected) confirm absence of cointegrating vectors in levels, validating a stationary VAR(1) in differences with max root $0.281$.
 - **Granger causality:** 112 bivariate tests across 4 financial responses, 7 presidential signals, and 4 lags. 5 tests show nominal significance ($p < 0.05$), and 0 remain significant after Benjamini-Hochberg False Discovery Rate correction ($q \ge 0.791$).
@@ -266,22 +301,44 @@ This compiles the paper into PDF, HTML, and Word documents in `paper/español/`.
 
 ## Key Outputs and Empirical Figures
 
-The notebook generates **93 high-resolution figures** and **7 visible tables**, each followed by immediate academic interpretations.
+### Lexical Foundations and Emotional Taxonomy
 
-### Financial Series and Presidential Discursive Dynamics
-
-The panel below displays normalized presidential sentiment, Information Pressure Index ($IPI_d$), and daily financial market series across the August 2022 to May 2026 window.
+Discursive emotion modeling relies on Plutchik's psychodevelopmental framework, operationalized using the Spanish NRC emotion lexicon.
 
 <p align="center">
-  <img src="output/figures/español/serie_sentimientos_trm_colcap.png" alt="Normalized sentiment, IPI, and market series" width="90%">
+  <img src="paper/figures/English/figura1_plutchik.png" alt="Plutchik Emotional Taxonomy" width="60%">
 </p>
 
-### Lexical Foundations and Emotional Classification
+### Monthly Corpus Volume Comparison
 
-Discursive emotion modeling relies on Plutchik's psychodevelopmental framework, adapted to Spanish text via the NRC lexicon.
+Dual vertical axis chart tracking monthly publishing volume between presidential posts and citizen public opinion observations.
 
 <p align="center">
-  <img src="paper/figures/español/figura1_plutchik.png" alt="Plutchik Emotional Taxonomy" width="60%">
+  <img src="output/figures/English/comparacion_corpus_volumen.png" alt="Monthly Corpus Volume Comparison" width="85%">
+</p>
+
+### Distribution of Presidential Discourse Across Policy Reform Agendas
+
+Percentage share and total volume of presidential posts classified across thirteen major public policy and reform agendas.
+
+<p align="center">
+  <img src="output/figures/English/temas_reforma_resumen.png" alt="Distribution of Reform Agendas" width="80%">
+</p>
+
+### Daily Trajectory of Lexical NRC Emotional Signals
+
+Time-series paths of Plutchik basic emotional dimensions (Joy, Trust, Fear, Surprise, Sadness, Disgust, Anger, and Anticipation) extracted from presidential publications.
+
+<p align="center">
+  <img src="output/figures/English/sentimiento_emociones_diarias.png" alt="Daily NRC Emotional Signals" width="85%">
+</p>
+
+### Daily Information Pressure Index (IPI)
+
+Daily presidential volume combined with emotional intensity, contrasted against the 7-day moving average and loess trend.
+
+<p align="center">
+  <img src="output/figures/English/ipi_serie_diaria.png" alt="Daily Information Pressure Index" width="85%">
 </p>
 
 ### Granger Causality Test Grid (Presidential Corpus)
@@ -289,7 +346,7 @@ Discursive emotion modeling relies on Plutchik's psychodevelopmental framework, 
 Nominal p-values for 112 presidential Granger tests across lags 1 through 4. Red dashed lines denote the nominal $\alpha = 0.05$ threshold. Zero tests survive Benjamini-Hochberg FDR correction.
 
 <p align="center">
-  <img src="output/figures/español/granger_presidencial_emociones.png" alt="Granger Causality P-Values" width="85%">
+  <img src="output/figures/English/granger_presidencial_emociones.png" alt="Granger Causality P-Values" width="85%">
 </p>
 
 ### Dynamic Conditional Correlations (DCC-GARCH)
@@ -297,23 +354,15 @@ Nominal p-values for 112 presidential Granger tests across lags 1 through 4. Red
 Estimated conditional correlations between presidential signals (IPI, net polarity) and Colombian asset prices (TRM, COLCAP, TES 10Y, TES slope).
 
 <p align="center">
-  <img src="output/figures/español/econometria/dcc_correlaciones_dinamicas_panel.png" alt="DCC-GARCH Dynamic Conditional Correlations" width="90%">
+  <img src="output/figures/English/econometria/dcc_correlaciones_dinamicas_panel.png" alt="DCC-GARCH Dynamic Conditional Correlations" width="90%">
 </p>
 
-### Markov-Switching Regime Probabilities
-
-Smoothed regime probabilities from the two-state Markov-switching model relating presidential IPI to currency fluctuations.
-
-<p align="center">
-  <img src="output/figures/español/econometria/msar_probabilidades_suavizadas.png" alt="Markov-Switching Smoothed Probabilities" width="90%">
-</p>
-
-### Event Study Heatmap
+### Event Study Cumulative Response Heatmap
 
 Observed cumulative financial responses following 10 extreme presidential IPI shocks and 10 extreme negativity shocks over 1, 3, 5, and 7 day windows.
 
 <p align="center">
-  <img src="output/figures/español/event_study_respuestas_heatmap.png" alt="Event Study Cumulative Market Response Heatmap" width="80%">
+  <img src="output/figures/English/event_study_respuestas_heatmap.png" alt="Event Study Cumulative Market Response Heatmap" width="80%">
 </p>
 
 ## Data Provenance and Coverage
@@ -327,15 +376,30 @@ Observed cumulative financial responses following 10 extreme presidential IPI sh
 
 ## Documentation Index
 
+### English Research Package
+- **English Manuscript Source:** [`paper/English/quarto-tandf.qmd`](paper/English/quarto-tandf.qmd)
+- **English Compiled Paper (PDF):** [`paper/English/quarto-tandf.pdf`](paper/English/quarto-tandf.pdf)
+- **English Compiled Paper (HTML):** [`paper/English/quarto-tandf.html`](paper/English/quarto-tandf.html)
+- **English Compiled Paper (DOCX):** [`paper/English/quarto-tandf.docx`](paper/English/quarto-tandf.docx)
+- **English Paper Guide:** [`paper/English/README.md`](paper/English/README.md)
+- **English Computational Notebook:** [`notebooks/English/Cuaderno_Paper_English.qmd`](notebooks/English/Cuaderno_Paper_English.qmd)
+- **English Notebook Output (HTML):** [`notebooks/English/Cuaderno_Paper_English.html`](notebooks/English/Cuaderno_Paper_English.html)
+- **English Notebook Guide:** [`notebooks/English/README.md`](notebooks/English/README.md)
+- **English Publication Figures:** [`output/figures/English/`](output/figures/English/)
+
+### Spanish Research Package
 - **Spanish README:** [`README.es.md`](README.es.md)
-- **Methodological Notebook:** [`notebooks/español/Cuaderno_Paper_Español.qmd`](notebooks/español/Cuaderno_Paper_Español.qmd)
-- **Notebook Guide:** [`notebooks/español/README.md`](notebooks/español/README.md)
-- **Academic Manuscript (Quarto source):** [`paper/español/quarto-tandf.qmd`](paper/español/quarto-tandf.qmd)
-- **Compiled Paper (PDF):** [`paper/español/quarto-tandf.pdf`](paper/español/quarto-tandf.pdf)
-- **Compiled Paper (HTML):** [`paper/español/quarto-tandf.html`](paper/español/quarto-tandf.html)
-- **Compiled Paper (DOCX):** [`paper/español/quarto-tandf.docx`](paper/español/quarto-tandf.docx)
-- **Manuscript Guide:** [`paper/español/README.md`](paper/español/README.md)
-- **English Package Guide:** [`paper/English/README.md`](paper/English/README.md)
+- **Spanish Manuscript Source:** [`paper/español/quarto-tandf.qmd`](paper/español/quarto-tandf.qmd)
+- **Spanish Compiled Paper (PDF):** [`paper/español/quarto-tandf.pdf`](paper/español/quarto-tandf.pdf)
+- **Spanish Compiled Paper (HTML):** [`paper/español/quarto-tandf.html`](paper/español/quarto-tandf.html)
+- **Spanish Compiled Paper (DOCX):** [`paper/español/quarto-tandf.docx`](paper/español/quarto-tandf.docx)
+- **Spanish Paper Guide:** [`paper/español/README.md`](paper/español/README.md)
+- **Spanish Computational Notebook:** [`notebooks/español/Cuaderno_Paper_Español.qmd`](notebooks/español/Cuaderno_Paper_Español.qmd)
+- **Spanish Notebook Output (HTML):** [`notebooks/español/Cuaderno_Paper_Español.html`](notebooks/español/Cuaderno_Paper_Español.html)
+- **Spanish Notebook Guide:** [`notebooks/español/README.md`](notebooks/español/README.md)
+- **Spanish Output Figures (93):** [`output/figures/español/`](output/figures/español/)
+
+### Audit, Methodology, and Data
 - **Methodological Supervision Module:** [`Methodology_Supervision/README.md`](Methodology_Supervision/README.md)
 - **Market Data Provenance:** [`data/raw/market/README.md`](data/raw/market/README.md)
 - **Econometric Audit Report:** [`output/review/auditoria_final_cierre_metodologico.md`](output/review/auditoria_final_cierre_metodologico.md)
@@ -348,10 +412,10 @@ Observed cumulative financial responses following 10 extreme presidential IPI sh
 | Pandoc not found | Pandoc execution error | Install Quarto CLI or verify that `RSTUDIO_PANDOC` points to the Quarto Pandoc binary. |
 | spaCy model missing | `spacyr` initialization error | Run `python -m spacy download es_core_news_sm` in your active Python environment. |
 | Market data refresh failure | Incomplete network download | Check connection to BanRep/XM endpoints; inspect `output/tables/español/ingesta_mercado_fuentes.csv`. |
-| Missing output figure | Unrendered chunk or file deletion | Re-render `notebooks/español/Cuaderno_Paper_Español.qmd` from a clean R session. |
+| Missing output figure | Unrendered chunk or file deletion | Re-render notebooks or run `Rscript scripts/generate_english_figures.R`. |
 
 ## Credits and License
 
-This study uses open-source R packages for text mining, natural language processing, network science, and time-series econometrics, including `quanteda`, `stm`, `sentometrics`, `syuzhet`, `vars`, `urca`, `rmgarch`, and `MSwM`.
+This study uses open-source R packages for text mining, natural language processing, network science, and time-series econometrics, including `quanteda`, `stm`, `sentometrics`, `syuzhet`, `vars`, `urca`, `rugarch`, `rmgarch`, and `MSwM`.
 
 Financial series are sourced from Banco de la República and XM SINERGOX. Data contracts, code, and documentation are structured for full computational reproducibility.

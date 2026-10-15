@@ -86,7 +86,7 @@ This literature also documents measurement risks. @loughran_mcdonald_2011 highli
 
 @plutchik_2003 psychoevolutionary theory proposes eight primary emotions structured in opposing pairs within a circumplex model featuring concentric intensity gradations (@fig-plutchik): protection (fear), destruction of obstacles (anger), reintegration following loss (sadness), rejection (disgust), incorporation (trust), exploration (anticipation), orientation toward the unexpected (surprise), and bonding (joy). Each petal of the emotional flower transitions from a high-intensity manifestation at the core (ecstasy, rage, terror, vigilance) to attenuated expressions at the periphery (serenity, annoyance, apprehension, interest). The combination of adjacent emotions within the circle generates primary affective dyads (@tbl-dyads), while opposing petals indicate poles of affective conflict.
 
-![Plutchik's psychoevolutionary circumplex model of emotions: concentric intensity gradations, opposing polar pairs, and primary affective dyads. Source: Conceptual development based on @plutchik_2003.](../../paper/español/figures/plutchik_rueda_emociones_en.png){#fig-plutchik width="80%"}
+![Plutchik's psychoevolutionary circumplex model of emotions: concentric intensity gradations, opposing polar pairs, and primary affective dyads. Source: Conceptual development based on @plutchik_2003.](../figures/English/figura1_plutchik.png){#fig-plutchik width="80%"}
 
 | Primary dyad (Plutchik) | Compound emotion | Hypothetical interpretation in presidential economic discourse |
 |---|---|---|
@@ -167,9 +167,9 @@ To capture the heterogeneity of communicative tone, the measurement is broken do
 
 The daily temporal evolution of the eight Plutchik emotions over the analyzed period is presented in @fig-emociones, and the lexical distribution of the associated terms is illustrated in @fig-nube-emociones.
 
-![Temporal evolution of the eight NRC lexicon emotions in presidential communication (2022-2026). Source: Authors' elaboration from reproducible notebook.](../../output/figures/español/sentimiento_emociones_diarias.png){#fig-emociones width="95%"}
+![Temporal evolution of the eight NRC lexicon emotions in presidential communication (2022-2026). Source: Authors' elaboration from reproducible notebook.](../figures/English/sentimiento_emociones_diarias.png){#fig-emociones width="95%"}
 
-![Word cloud classified by NRC sentiment and emotion categories. Source: Authors' elaboration from reproducible notebook.](../../output/figures/español/wordcloud_sentimientos_nrc.png){#fig-nube-emociones width="90%"}
+![Word cloud classified by NRC sentiment and emotion categories. Source: Authors' elaboration from reproducible notebook.](../figures/English/wordcloud_sentimientos_nrc.png){#fig-nube-emociones width="90%"}
 
 ## 3.5 The Presidential Informational Pressure Index (IPI)
 
@@ -223,7 +223,7 @@ The study period spans 1,400 consecutive calendar days. @tbl-cobertura summarize
 
 @fig-volumen compares the monthly publication volume of both corpora, highlighting the presidency's expansive dynamics and bursts of communication versus the artificial stability imposed by the quota of the opinion corpus.
 
-![Observed monthly volume of the two corpora between August 2022 and May 2026. Source: Authors' elaboration.](../../output/figures/español/comparacion_corpus_volumen.png){#fig-volumen width="95%"}
+![Observed monthly volume of the two corpora between August 2022 and May 2026. Source: Authors' elaboration.](../figures/English/comparacion_corpus_volumen.png){#fig-volumen width="95%"}
 
 ## 4.2 Temporal dynamics of sentiment, polarity, and the presidential IPI
 
@@ -231,13 +231,13 @@ Descriptive sentiment analysis confirms that \@petrogustavo's discourse exhibits
 
 The daily presidential IPI (based on 1,187 observed days) shows a mean of $\mu = -0.024$ and a standard deviation of $\sigma = 1.097$, with extremes ranging from -8.295 to +7.901, thereby capturing episodes of acute communicative shock (@fig-ipi).
 
-![Daily Information Pressure Index (IPI) of the presidential account \@petrogustavo. Source: Authors' elaboration.](../../output/figures/español/ipi_serie_diaria.png){#fig-ipi width="95%"}
+![Daily Information Pressure Index (IPI) of the presidential account \@petrogustavo. Source: Authors' elaboration.](../figures/English/ipi_serie_diaria.png){#fig-ipi width="95%"}
 
 ## 4.3 Thematic classification and the language of reforms
 
 The thematic classification assigns 10,784 presidential texts to 13 non-residual agendas (@fig-temas). The security agenda dominates presidential discourse (22.9%), followed by institutional affairs (20.1%), health (11.4%), international affairs (10.4%), labor (9.7%), and the economy (9.2%). Keyness analysis confirms that each reform possesses a highly distinctive and specialized lexical identity ($p < 0.001$).
 
-![Distribution of non-residual public policy topics in presidential discourse and citizen conversation. Source: Authors' elaboration.](../../output/figures/español/temas_reforma_resumen.png){#fig-temas width="95%"}
+![Distribution of non-residual public policy topics in presidential discourse and citizen conversation. Source: Authors' elaboration.](../figures/English/temas_reforma_resumen.png){#fig-temas width="95%"}
 
 ## 4.4 Series diagnostics and VAR estimation
 
@@ -257,7 +257,7 @@ The average dynamic conditional correlations between presidential signals and fi
 
 The time paths of the conditional correlations are plotted in @fig-dcc.
 
-![Paths of four DCC conditional correlations between presidential signals and financial variables. Source: Authors' elaboration.](../../output/figures/español/econometria/dcc_correlaciones_dinamicas_panel.png){#fig-dcc width="95%"}
+![Paths of four DCC conditional correlations between presidential signals and financial variables. Source: Authors' elaboration.](../figures/English/econometria/dcc_correlaciones_dinamicas_panel.png){#fig-dcc width="95%"}
 
 Furthermore, the Markov-Switching model estimates two persistence regimes for the IPI-TRM correlation: Regime 1, characterized by low dispersion ($\mu = 0.0121; \sigma = 0.0090$, average duration of 24.4 sessions) and Regime 2, characterized by transitory stress ($\mu = 0.0216; \sigma = 0.0356$, average duration of 27.3 sessions).
 
@@ -277,9 +277,9 @@ In terms of nominal significance ($p < 0.05$), exactly five significant tests ar
 : Granger causality results and FDR control in the presidential discourse family. Source: Authors' elaboration from `granger_resultados_completos.csv`. {#tbl-granger}
 
 :::: {#fig-granger layout-nrow=2}
-![Panel A: Granger $p$-values for presidential IPI and Net Polarity.](../../output/figures/español/granger_trm_colcap.png){#fig-granger-a width="95%"}
+![Panel A: Granger $p$-values for presidential IPI and Net Polarity.](../figures/English/granger_trm_colcap.png){#fig-granger-a width="95%"}
 
-![Panel B: Granger $p$-values for presidential NRC affective and emotional signals.](../../output/figures/español/granger_presidencial_emociones.png){#fig-granger-b width="95%"}
+![Panel B: Granger $p$-values for presidential NRC affective and emotional signals.](../figures/English/granger_presidencial_emociones.png){#fig-granger-b width="95%"}
 
 Granger predictive precedence tests for presidential polarity, IPI, and NRC emotional signals versus financial assets. Source: Authors' elaboration.
 ::::
@@ -303,7 +303,7 @@ The event study analyzes the cumulative responses of assets to the ten days char
 
 The heat map of cumulative responses (@fig-eventos) illustrates the rapid stabilization of emotional disturbances toward historical averages, without generating structural ruptures in financial valuations.
 
-![Heatmap of cumulative financial responses following extreme discursive events. Source: Authors' elaboration.](../../output/figures/español/event_study_respuestas_heatmap.png){#fig-eventos width="95%"}
+![Heatmap of cumulative financial responses following extreme discursive events. Source: Authors' elaboration.](../figures/English/event_study_respuestas_heatmap.png){#fig-eventos width="95%"}
 
 # 5. Discussion
 

@@ -89,8 +89,11 @@ quarto render paper/español/quarto-tandf.qmd --to docx
 
 ## Redirección y enlaces relacionados
 
-- **Cuaderno computacional ejecutable:** [`Cuaderno_Paper_Español.qmd`](../../notebooks/español/Cuaderno_Paper_Español.qmd)
-- **Guía del cuaderno computacional:** [`notebooks/español/README.md`](../../notebooks/español/README.md)
+- **Cuaderno computacional en español:** [`Cuaderno_Paper_Español.qmd`](../../notebooks/español/Cuaderno_Paper_Español.qmd)
+- **Guía del cuaderno en español:** [`notebooks/español/README.md`](../../notebooks/español/README.md)
+- **Cuaderno computacional en inglés:** [`Cuaderno_Paper_English.qmd`](../../notebooks/English/Cuaderno_Paper_English.qmd)
+- **Guía del cuaderno en inglés:** [`notebooks/English/README.md`](../../notebooks/English/README.md)
+- **Manuscrito formal en inglés:** [`paper/English/quarto-tandf.qmd`](../English/quarto-tandf.qmd)
 - **Módulo de supervisión metodológica:** [`Supervision_Metodologica.qmd`](../../Methodology_Supervision/Supervision_Metodologica.qmd)
 - **Documentación principal del proyecto:** [`README.es.md`](../../README.es.md) (Español) | [`README.md`](../../README.md) (English)
 - **Paquete de publicación en inglés:** [`paper/English/README.md`](../English/README.md)

@@ -187,6 +187,7 @@ Mapa de calor de las variaciones acumuladas de los activos financieros a 1, 3, 5
 
 - **Documentación principal del repositorio:** [`README.es.md`](../../README.es.md) (Español) | [`README.md`](../../README.md) (English)
 - **Manuscrito formal del artículo:** [`quarto-tandf.qmd`](../../paper/español/quarto-tandf.qmd)
+- **Cuaderno computacional en inglés:** [`Cuaderno_Paper_English.qmd`](../English/Cuaderno_Paper_English.qmd)
 - **Módulo de supervisión metodológica:** [`Supervision_Metodologica.qmd`](../../Methodology_Supervision/Supervision_Metodologica.qmd)
 - **Directorio de figuras generadas:** [`output/figures/español/`](../../output/figures/español/)
 - **Directorio de tablas auditadas:** [`output/tables/español/`](../../output/tables/español/)

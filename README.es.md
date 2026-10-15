@@ -17,7 +17,11 @@ La ventana temporal comprende desde **agosto de 2022 hasta mayo de 2026** (1.400
 1. **Corpus principal (`presidente`):** Publicaciones emitidas directamente por `@petrogustavo` en `data/raw/twitter/Tweets de Gustavo Petro/` (14.659 tweets en bruto; 14.437 textos limpios no vacíos). Constituye el insumo exclusivo para todo el procesamiento de lenguaje natural, los índices diarios de presión informacional ($IPI_d$) y los modelos econométricos de series de tiempo.
 2. **Corpus complementario (`opinion`):** Mensajes públicos recuperados mediante la consulta sobre "Gustavo Petro" en `data/raw/twitter/Opinión sobre Petro/` (13.648 tweets). Se conserva para exploración textual descriptiva y auditoría de calidad de datos, pero queda estrictamente excluido de la econometría financiera debido a un artefacto de recolección documentado: el 97,49% de los registros se concentran a las 18:00 hora de Bogotá y existen topes diarios de 10 tweets por día.
 
-El bloque financiero integra series oficiales diarias: tasa de cambio representativa del mercado (`TRM`), índice bursátil (`COLCAP`), rendimientos de bonos soberanos cero cupón (`TES` a 1, 5 y 10 años, junto a la pendiente 10Y-1Y) del Banco de la República, y el precio de bolsa nacional de energía de XM. Todos los insumos se consolidan en dos contratos de datos en `data/processed/` (`tweets_master.csv` y `market_master.csv`). El manuscrito académico formal sigue el estándar editorial de Taylor & Francis en [`paper/español/quarto-tandf.qmd`](paper/español/quarto-tandf.qmd), acompañado por el cuaderno computacional reproducible en [`notebooks/español/Cuaderno_Paper_Español.qmd`](notebooks/español/Cuaderno_Paper_Español.qmd).
+El bloque financiero integra series oficiales diarias: tasa de cambio representativa del mercado (`TRM`), índice bursátil (`COLCAP`), rendimientos de bonos soberanos cero cupón (`TES` a 1, 5 y 10 años, junto a la pendiente 10Y-1Y) del Banco de la República, y el precio de bolsa nacional de energía de XM. Todos los insumos se consolidan en dos contratos de datos en `data/processed/` (`tweets_master.csv` y `market_master.csv`).
+
+El paquete de investigación se publica en dos pistas idiomáticas paralelas y sincronizadas:
+- **Pista en inglés:** Manuscrito académico formal en [`paper/English/quarto-tandf.qmd`](paper/English/quarto-tandf.qmd) ([PDF](paper/English/quarto-tandf.pdf), [HTML](paper/English/quarto-tandf.html), [DOCX](paper/English/quarto-tandf.docx)) y cuaderno computacional en [`notebooks/English/Cuaderno_Paper_English.qmd`](notebooks/English/Cuaderno_Paper_English.qmd) ([HTML](notebooks/English/Cuaderno_Paper_English.html)).
+- **Pista en español:** Manuscrito académico formal en [`paper/español/quarto-tandf.qmd`](paper/español/quarto-tandf.qmd) ([PDF](paper/español/quarto-tandf.pdf), [HTML](paper/español/quarto-tandf.html), [DOCX](paper/español/quarto-tandf.docx)) y cuaderno computacional en [`notebooks/español/Cuaderno_Paper_Español.qmd`](notebooks/español/Cuaderno_Paper_Español.qmd) ([HTML](notebooks/español/Cuaderno_Paper_Español.html)).
 
 ## Tabla de Contenido
 
@@ -73,23 +77,21 @@ flowchart TD
         M_MASTER["data/processed/market_master.csv<br/>(Retornos financieros y banderas de observación)"]
     end
 
-    subgraph Motor ["3. Motor computacional (Cuaderno_Paper_Español.qmd)"]
-        NB_NLP["PLN y Sentimiento:<br/>Normalización, léxico NRC, IPI, STM"]
-        NB_CORP["Auditoría de corpus:<br/>Documentación de sesgo en opinión"]
-        NB_TS["Series financieras:<br/>Retornos log, diferencias TES, ADF/KPSS"]
-        NB_ECON["Pipeline econométrico:<br/>Johansen, VAR(1), Granger FDR,<br/>DCC-GARCH, Markov-Switching, Event Study"]
+    subgraph Motores ["3. Motores computacionales"]
+        NB_EN["notebooks/English/Cuaderno_Paper_English.qmd<br/>(Análisis autocontenido en inglés)"]
+        NB_ES["notebooks/español/Cuaderno_Paper_Español.qmd<br/>(Análisis autocontenido en español)"]
     end
 
     subgraph Salidas ["4. Artefactos persistidos"]
-        OUT_FIG["output/figures/español/<br/>(93 figuras de alta resolución)"]
-        OUT_TAB["output/tables/español/<br/>(Tablas de auditoría en HTML y CSV)"]
+        OUT_FIG_EN["output/figures/English/<br/>(Figuras de publicación en inglés)"]
+        OUT_FIG_ES["output/figures/español/<br/>(93 figuras en español)"]
+        OUT_TAB_EN["output/tables/English/<br/>(Tablas de resumen en inglés)"]
+        OUT_TAB_ES["output/tables/español/<br/>(Tablas de auditoría en español)"]
     end
 
-    subgraph Articulo ["5. Manuscrito académico (quarto-tandf.qmd)"]
-        PAPER_SRC["paper/español/quarto-tandf.qmd<br/>(Plantilla Taylor & Francis)"]
-        PAPER_PDF["paper/español/quarto-tandf.pdf<br/>(PDF listo para evaluación por pares)"]
-        PAPER_HTML["paper/español/quarto-tandf.html<br/>(HTML autocontenido e interactivo)"]
-        PAPER_DOCX["paper/español/quarto-tandf.docx<br/>(Versión Word editorial)"]
+    subgraph Manuscritos ["5. Manuscritos académicos (Taylor & Francis)"]
+        PAPER_EN["paper/English/quarto-tandf.qmd<br/>(Manuscrito en inglés: PDF, HTML, DOCX)"]
+        PAPER_ES["paper/español/quarto-tandf.qmd<br/>(Manuscrito en español: PDF, HTML, DOCX)"]
     end
 
     T_RAW --> SCRIPT_T
@@ -100,21 +102,20 @@ flowchart TD
     SCRIPT_T --> T_MASTER
     SCRIPT_M --> M_MASTER
 
-    T_MASTER --> NB_NLP
-    T_MASTER --> NB_CORP
-    M_MASTER --> NB_TS
+    T_MASTER --> NB_EN
+    M_MASTER --> NB_EN
+    T_MASTER --> NB_ES
+    M_MASTER --> NB_ES
 
-    NB_NLP --> NB_ECON
-    NB_TS --> NB_ECON
+    NB_EN --> OUT_FIG_EN
+    NB_EN --> OUT_TAB_EN
+    NB_ES --> OUT_FIG_ES
+    NB_ES --> OUT_TAB_ES
 
-    NB_ECON --> OUT_FIG
-    NB_ECON --> OUT_TAB
-
-    OUT_FIG --> PAPER_SRC
-    OUT_TAB --> PAPER_SRC
-    PAPER_SRC --> PAPER_PDF
-    PAPER_SRC --> PAPER_HTML
-    PAPER_SRC --> PAPER_DOCX
+    OUT_FIG_EN --> PAPER_EN
+    OUT_TAB_EN --> PAPER_EN
+    OUT_FIG_ES --> PAPER_ES
+    OUT_TAB_ES --> PAPER_ES
 ```
 
 ## Estructura del repositorio
@@ -124,40 +125,56 @@ La organización del proyecto separa datos en bruto, contratos procesados, motor
 ```text
 What_is_the_economic_impact_of_Colombian_President_tweets/
 |-- data/
-|   |-- processed/                              # Contratos de datos estables para el cuaderno
+|   |-- processed/                              # Contratos de datos estables para los cuadernos
 |   |   |-- market_master.csv
-|   |   `-- tweets_master.csv
+|   |   |-- tweets_master.csv
+|   |   `-- daily_nrc_by_corpus.csv
 |   `-- raw/
 |       |-- market/                             # Series de mercado descargadas de BanRep y XM
 |       `-- twitter/
 |           |-- Opinión sobre Petro/            # Corpus secundario de conversación ciudadana
 |           `-- Tweets de Gustavo Petro/        # Corpus primario presidencial (@petrogustavo)
 |-- notebooks/
+|   |-- English/
+|   |   |-- Cuaderno_Paper_English.qmd          # Motor computacional en inglés
+|   |   |-- Cuaderno_Paper_English.html         # Versión HTML renderizada (inglés)
+|   |   `-- README.md                           # Guía del cuaderno en inglés
 |   `-- español/
-|       |-- Cuaderno_Paper_Español.qmd          # Motor computacional autocontenido del paper
-|       |-- Cuaderno_Paper_Español.html         # Versión HTML renderizada
-|       `-- README.md                           # Guía de ejecución del cuaderno
+|       |-- Cuaderno_Paper_Español.qmd          # Motor computacional en español
+|       |-- Cuaderno_Paper_Español.html         # Versión HTML renderizada (español)
+|       `-- README.md                           # Guía del cuaderno en español
 |-- paper/
-|   |-- English/                                # Materiales de adaptación al inglés
-|   |   `-- README.md
-|   |-- español/                                # Manuscrito formal Quarto (Taylor & Francis)
+|   |-- English/                                # Manuscrito académico formal en inglés (Taylor & Francis)
 |   |   |-- quarto-tandf.qmd                    # Fuente Quarto del artículo
 |   |   |-- quarto-tandf.pdf                    # Manuscrito compilado en PDF
 |   |   |-- quarto-tandf.html                   # Manuscrito compilado en HTML
 |   |   |-- quarto-tandf.docx                   # Manuscrito compilado en Word
 |   |   |-- bibliography.bib                    # Bibliografía verificada en BibTeX
-|   |   `-- README.md                           # Guía del manuscrito
+|   |   `-- README.md                           # Guía del manuscrito en inglés
+|   |-- español/                                # Manuscrito académico formal en español (Taylor & Francis)
+|   |   |-- quarto-tandf.qmd                    # Fuente Quarto del artículo
+|   |   |-- quarto-tandf.pdf                    # Manuscrito compilado en PDF
+|   |   |-- quarto-tandf.html                   # Manuscrito compilado en HTML
+|   |   |-- quarto-tandf.docx                   # Manuscrito compilado en Word
+|   |   |-- bibliography.bib                    # Bibliografía verificada en BibTeX
+|   |   `-- README.md                           # Guía del manuscrito en español
 |   `-- figures/                                # Figuras portables del manuscrito
-|       `-- español/
+|       |-- English/                            # 10 figuras de publicación en inglés
+|       `-- español/                            # Figuras de publicación en español
 |-- Methodology_Supervision/                    # Módulo de supervisión metodológica y auditoría
 |   |-- Supervision_Metodologica.qmd
 |   |-- Supervision_Metodologica.html
 |   `-- README.md
 |-- output/
-|   |-- figures/español/                        # 93 figuras generadas por el cuaderno
-|   |-- tables/español/                         # Tablas persistidas en HTML y CSV
+|   |-- figures/
+|   |   |-- English/                            # Figuras de publicación en inglés
+|   |   `-- español/                            # 93 figuras generadas por el cuaderno
+|   |-- tables/
+|   |   |-- English/                            # Tablas de resumen en inglés
+|   |   `-- español/                            # Tablas persistidas en HTML y CSV
 |   `-- review/                                 # Informes de auditoría econométrica y de datos
 |-- scripts/
+|   |-- generate_english_figures.R              # Generador independiente de figuras en inglés
 |   `-- data/
 |       |-- ingest_market.R                     # Actualizador de series de BanRep y XM
 |       `-- twitter_process_raw_data.R          # Valida y construye los contratos master CSV
@@ -171,11 +188,15 @@ What_is_the_economic_impact_of_Colombian_President_tweets/
 | [`data/raw/twitter/Tweets de Gustavo Petro/`](data/raw/twitter/Tweets%20de%20Gustavo%20Petro/) | Corpus principal: CSVs de `@petrogustavo` | `scripts/data/twitter_process_raw_data.R` |
 | [`data/raw/twitter/Opinión sobre Petro/`](data/raw/twitter/Opinión%20sobre%20Petro/) | Corpus complementario de opinión ciudadana | Auditoría textual del cuaderno |
 | [`data/raw/market/`](data/raw/market/) | Descargas de series en bruto de BanRep y XM | `scripts/data/twitter_process_raw_data.R` |
-| [`data/processed/`](data/processed/) | Dos contratos estables: `tweets_master.csv` y `market_master.csv` | `notebooks/español/Cuaderno_Paper_Español.qmd` |
+| [`data/processed/`](data/processed/) | Dos contratos estables: `tweets_master.csv` y `market_master.csv` | Cuadernos computacionales |
+| [`notebooks/English/`](notebooks/English/) | Cuaderno computacional reproducible en inglés | Comunidad académica internacional |
 | [`notebooks/español/`](notebooks/español/) | Cuaderno computacional reproducible en español | Pares evaluadores para réplica |
-| [`paper/español/`](paper/español/) | Artículo académico formal (PDF, HTML, DOCX) | Evaluadores y comités editoriales |
+| [`paper/English/`](paper/English/) | Artículo académico formal en inglés (PDF, HTML, DOCX) | Envío a revistas internacionales |
+| [`paper/español/`](paper/español/) | Artículo académico formal en español (PDF, HTML, DOCX) | Evaluadores y comités editoriales |
 | [`Methodology_Supervision/`](Methodology_Supervision/) | Módulo de supervisión metodológica y calidad | Auditoría metodológica independiente |
+| [`output/figures/English/`](output/figures/English/) | Figuras de publicación con etiquetas en inglés | Manuscrito y evaluación visual |
 | [`output/figures/español/`](output/figures/español/) | Figuras de alta resolución exportadas por el cuaderno | Manuscrito y análisis visual |
+| [`output/tables/English/`](output/tables/English/) | Tablas de resumen en inglés | Comprobación numérica en inglés |
 | [`output/tables/español/`](output/tables/español/) | Tablas persistidas en formatos HTML y CSV | Comprobación numérica de estimaciones |
 
 ## Trazabilidad metodológica
@@ -238,19 +259,31 @@ python -m spacy download es_core_news_sm
 Para reconstruir el artículo y los resultados empíricos desde una sesión limpia:
 
 1. Verifique que los contratos de datos existan en `data/processed/` (`tweets_master.csv` y `market_master.csv`).
-2. Renderice el cuaderno metodológico en español:
+2. Para la pista en inglés:
 
 ```bash
-quarto render notebooks/español/Cuaderno_Paper_Español.qmd
+# Renderizar el cuaderno computacional en inglés
+quarto render notebooks/English/Cuaderno_Paper_English.qmd
+
+# Renderizar el manuscrito formal en inglés (PDF, HTML, DOCX)
+quarto render paper/English/quarto-tandf.qmd
 ```
 
-3. Renderice el manuscrito formal del artículo:
+3. Para la pista en español:
 
 ```bash
+# Renderizar el cuaderno computacional en español
+quarto render notebooks/español/Cuaderno_Paper_Español.qmd
+
+# Renderizar el manuscrito formal en español (PDF, HTML, DOCX)
 quarto render paper/español/quarto-tandf.qmd
 ```
 
-Esto generará las versiones en PDF, HTML y Word dentro de `paper/español/`.
+4. Para regenerar todas las figuras de publicación en inglés de forma independiente:
+
+```bash
+Rscript scripts/generate_english_figures.R
+```
 
 ## Resumen metodológico
 
@@ -327,18 +360,33 @@ Respuestas financieras promedio acumuladas tras 10 eventos de choque extremo de 
 
 ## Índice de documentación
 
-- **README en inglés:** [`README.md`](README.md)
-- **Cuaderno computacional:** [`notebooks/español/Cuaderno_Paper_Español.qmd`](notebooks/español/Cuaderno_Paper_Español.qmd)
-- **Guía del cuaderno:** [`notebooks/español/README.md`](notebooks/español/README.md)
-- **Manuscrito formal (fuente Quarto):** [`paper/español/quarto-tandf.qmd`](paper/español/quarto-tandf.qmd)
-- **Artículo compilado (PDF):** [`paper/español/quarto-tandf.pdf`](paper/español/quarto-tandf.pdf)
-- **Artículo compilado (HTML):** [`paper/español/quarto-tandf.html`](paper/español/quarto-tandf.html)
-- **Artículo compilado (DOCX):** [`paper/español/quarto-tandf.docx`](paper/español/quarto-tandf.docx)
-- **Guía del manuscrito:** [`paper/español/README.md`](paper/español/README.md)
-- **Paquete de adaptación al inglés:** [`paper/English/README.md`](paper/English/README.md)
+### Paquete de investigación en inglés
+- **Manuscrito en inglés (fuente Quarto):** [`paper/English/quarto-tandf.qmd`](paper/English/quarto-tandf.qmd)
+- **Artículo en inglés (PDF):** [`paper/English/quarto-tandf.pdf`](paper/English/quarto-tandf.pdf)
+- **Artículo en inglés (HTML):** [`paper/English/quarto-tandf.html`](paper/English/quarto-tandf.html)
+- **Artículo en inglés (DOCX):** [`paper/English/quarto-tandf.docx`](paper/English/quarto-tandf.docx)
+- **Guía del artículo en inglés:** [`paper/English/README.md`](paper/English/README.md)
+- **Cuaderno computacional en inglés:** [`notebooks/English/Cuaderno_Paper_English.qmd`](notebooks/English/Cuaderno_Paper_English.qmd)
+- **Salida del cuaderno en inglés (HTML):** [`notebooks/English/Cuaderno_Paper_English.html`](notebooks/English/Cuaderno_Paper_English.html)
+- **Guía del cuaderno en inglés:** [`notebooks/English/README.md`](notebooks/English/README.md)
+- **Figuras de publicación en inglés:** [`output/figures/English/`](output/figures/English/)
+
+### Paquete de investigación en español
+- **README en español:** [`README.es.md`](README.es.md)
+- **Manuscrito en español (fuente Quarto):** [`paper/español/quarto-tandf.qmd`](paper/español/quarto-tandf.qmd)
+- **Artículo en español (PDF):** [`paper/español/quarto-tandf.pdf`](paper/español/quarto-tandf.pdf)
+- **Artículo en español (HTML):** [`paper/español/quarto-tandf.html`](paper/español/quarto-tandf.html)
+- **Artículo en español (DOCX):** [`paper/español/quarto-tandf.docx`](paper/español/quarto-tandf.docx)
+- **Guía del artículo en español:** [`paper/español/README.md`](paper/español/README.md)
+- **Cuaderno computacional en español:** [`notebooks/español/Cuaderno_Paper_Español.qmd`](notebooks/español/Cuaderno_Paper_Español.qmd)
+- **Salida del cuaderno en español (HTML):** [`notebooks/español/Cuaderno_Paper_Español.html`](notebooks/español/Cuaderno_Paper_Español.html)
+- **Guía del cuaderno en español:** [`notebooks/español/README.md`](notebooks/español/README.md)
+- **Figuras generadas en español (93):** [`output/figures/español/`](output/figures/español/)
+
+### Supervisión, metodología y datos
 - **Módulo de supervisión metodológica:** [`Methodology_Supervision/README.md`](Methodology_Supervision/README.md)
-- **Datos de mercado en bruto:** [`data/raw/market/README.md`](data/raw/market/README.md)
-- **Auditoría econométrica final:** [`output/review/auditoria_final_cierre_metodologico.md`](output/review/auditoria_final_cierre_metodologico.md)
+- **Procedencia de datos de mercado:** [`data/raw/market/README.md`](data/raw/market/README.md)
+- **Informe de auditoría econométrica:** [`output/review/auditoria_final_cierre_metodologico.md`](output/review/auditoria_final_cierre_metodologico.md)
 
 ## Solución de problemas
 

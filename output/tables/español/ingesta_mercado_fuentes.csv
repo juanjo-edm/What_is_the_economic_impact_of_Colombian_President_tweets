@@ -1,0 +1,8 @@
+series,provider,source_url,retrieved_at,rows,first_date,last_date,status,source_series_id,source_series_name,message
+trm,Banco de la República,https://www.banrep.gov.co/es/estadisticas/trm,,1400,2022-08-01,2026-05-31,complete,1,TRM,Fuente del insumo raw
+colcap,Banco de la República,https://www.banrep.gov.co/en/node/50428,,1335,2022-08-01,2026-05-31,complete,6,COLCAP,Fuente del insumo raw
+tes_1y,Banco de la República,https://www.banrep.gov.co/en/node/50444,,1335,2022-08-01,2026-05-31,complete,15272,TES 1Y,Fuente del insumo raw
+tes_5y,Banco de la República,https://www.banrep.gov.co/en/node/50444,,1335,2022-08-01,2026-05-31,complete,15273,TES 5Y,Fuente del insumo raw
+tes_10y,Banco de la República,https://www.banrep.gov.co/en/node/50444,,1335,2022-08-01,2026-05-31,complete,15274,TES 10Y,Fuente del insumo raw
+tes_slope_10y_1y,Banco de la República,https://www.banrep.gov.co/en/node/50444,,1335,2022-08-01,2026-05-31,complete,,TES slope 10Y-1Y,Fuente del insumo raw
+energy_spot_price,XM S.A. E.S.P.,https://servapibi.xm.com.co/daily,,1400,2022-08-01,2026-05-31,complete,PPPrecBolsNaci,XM energy spot price,Fuente del insumo raw

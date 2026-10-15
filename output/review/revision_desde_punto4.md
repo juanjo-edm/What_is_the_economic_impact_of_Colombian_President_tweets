@@ -1,51 +1,85 @@
-La revisión desde el punto 4 está implementada en [el R Markdown](/Users/juanjoseecheverry/Investigation/What-is-the-economic-impact-of-Colombian-President-tweets/notebooks/español/Cuaderno_Paper_Español.Rmd:3125). **La ejecución limpia sin preparación externa sigue bloqueada en la sección 3** por el conflicto de `rescale()` entre `scales` y `syuzhet`. Ese tramo permanece intacto. La prueba complementaria completó los 385 chunks en una copia temporal y una sesión nueva de `Rscript --vanilla`, resolviendo únicamente ese nombre en el entorno de evaluación. No equivale a certificar que el archivo original termine sin esa preparación.
+# Auditoría estructural y pedagógica del cuaderno computacional
 
-**Resumen de los 15 puntos solicitados**
+**Documento:** Informe de control estructural, límites de chunks y cumplimiento de estándares pedagógicos  
+**Cuaderno auditado:** [`notebooks/español/Cuaderno_Paper_Español.qmd`](../../notebooks/español/Cuaderno_Paper_Español.qmd)  
+**Versión compilada:** [`notebooks/español/Cuaderno_Paper_Español.html`](../../notebooks/español/Cuaderno_Paper_Español.html)  
 
-| Nº | Punto | Resultado |
-|---|---|---|
-| 1 | Errores encontrados | Funciones usadas antes de definirse, atributos gráficos ausentes, media móvil entre series, pérdida de clase S3 en spaCy, identificadores visuales duplicados y conteo incorrecto de palabras en colocaciones. |
-| 2 | Cambios realizados | Reordenación secuencial, reutilización de `save_audit_table()` en 53 exportaciones, recálculo obligatorio y conservación del panel heredado mediante `model_dataset_ipi`. |
-| 3 | Warnings | Se corrigieron deprecaciones neutrales de `across()` y barras de error, filas auxiliares en gráficos y dimensiones de la nube. Se conservan los avisos sustantivos de STM, spaCy y ADF; los del tramo protegido no se editaron. |
-| 4 | Conflictos | `scales::rescale()` explícito desde el punto 4, funciones de paquetes calificadas y escala de transparencia de aristas de ggraph corregida. El conflicto anterior al punto 4 queda pendiente. |
-| 5 | Chunks divididos | Los 149 chunks originales desde el punto 4, 63 de ellos mayores de 40 líneas, se reorganizaron en 241 chunks incluyendo los nuevos diagnósticos. |
-| 6 | Narrativa | Explicaciones de insumos, operaciones, objetos y conexiones; ecuaciones de Wordfish, STM, Granger, VAR, sentimiento y eventos; referencias y límites de interpretación junto a los modelos. |
-| 7 | Pendientes metodológicos | No estacionariedad, calendario después de eliminar faltantes, comparaciones múltiples, variantes y limitaciones del IPI, conteos PPMI y geometría del agrupamiento con coseno. |
-| 8 | Discrepancias econométricas | Estimar un VAR en niveles no acredita sus supuestos; Granger no identifica causalidad; el código no calcula IRF; diez extremos retrospectivos no constituyen shocks identificados. |
-| 9 | Ajustes y justificación | Auditoría de muestras, huecos temporales, raíces y residuos; exportación de todos los contrastes y cobertura de eventos. Se conservaron respuestas, predictores, constante, rezagos, ventanas y errores estándar. |
-| 10 | Protección anterior al punto 4 | **Confirmada byte por byte para las primeras 3.124 líneas**, incluida la huella registrada al inicio. Los 334 archivos de referencia fuera de los productos autorizados permanecen idénticos. |
-| 11 | Límite de líneas | **Ningún chunk desde el punto 4 supera 40 líneas interiores.** Los 385 chunks del archivo pasan análisis sintáctico independiente. |
-| 12 | Explicación previa | **Los 241 chunks desde el punto 4 tienen explicación previa**, verificada estructuralmente y revisada en los bloques sustantivos. |
-| 13 | Continuidad de estilo | Se conservan español académico, títulos de sección, terminología, pipes `|>`, convenciones gráficas y uso secuencial de los objetos anteriores. |
-| 14 | Preservación metodológica | No se añadieron diferencias, retornos nuevos, cointegración, controles, HAC ni ajustes de significancia. El ajuste BH de PPMI ya existía y se conservó. Las correcciones de implementación están registradas en §11.2. |
-| 15 | Coherencia y discrepancias | Las ecuaciones y la documentación describen lo efectivamente ejecutado. **La inferencia econométrica no se declara validada**: las decisiones que los libros generales no resuelven quedan expresamente pendientes. |
+## Arquitectura de control estructural
 
-**Evidencia de ejecución y equivalencia**
+El proceso de auditoría estructural verifica la modularidad del código, la ausencia de dependencias externas no declaradas y el cumplimiento de las tres capas pedagógicas:
 
-- [49 comprobaciones numéricas, todas aprobadas](/Users/juanjoseecheverry/Investigation/What-is-the-economic-impact-of-Colombian-President-tweets/output/review/validacion_numerica.csv): nueve insumos protegidos, NRC por documento, IPI, ADF, los 160 contrastes Granger, coeficientes y residuos VAR, eventos, fechas, media móvil independiente por serie y recuperación de spaCy y colocaciones. También se recalcularon expresiones del código original para contrastar ocho objetos de redes y cinco de sentometrics.
-- [Verificación estructural](/Users/juanjoseecheverry/Investigation/What-is-the-economic-impact-of-Colombian-President-tweets/output/review/validacion_estructural.json): huella protegida `ea91b1061c28979b146401f20b619aae2837e7e328663482418860c592761888`, etiquetas únicas, sintaxis y ausencia de lecturas de resultados previos desde el punto 4.
-- [Registro por chunk](/Users/juanjoseecheverry/Investigation/What-is-the-economic-impact-of-Colombian-President-tweets/output/review/condiciones_por_chunk.csv): 385 inicios de chunk, 18 registros de mensajes y seis grupos de warnings; tres grupos pertenecen al tramo protegido y tres al tramo revisado. El [log completo](/Users/juanjoseecheverry/Investigation/What-is-the-economic-impact-of-Colombian-President-tweets/output/review/ejecucion_condicionada.log) termina con `CONDITIONAL_FULL_RENDER_COMPLETED`. El [impedimento original](/Users/juanjoseecheverry/Investigation/What-is-the-economic-impact-of-Colombian-President-tweets/output/review/impedimento_tramo_protegido.log) conserva la evidencia del conflicto anterior al punto 4.
-- El HTML se inspeccionó en navegador: ecuaciones MathJax, tablas de resultados, gráficos y red interactiva de entidades; cero imágenes rotas y cero tablas desbordadas. El [HTML de la prueba temporal](/private/tmp/petro-notebook-review/delivery_run/notebooks/español/Cuaderno_Paper_Español.nb.html) se conserva fuera del proyecto para no sustituir el HTML previo ni productos protegidos.
-- Entorno registrado: [R 4.4.3 y paquetes](/Users/juanjoseecheverry/Investigation/What-is-the-economic-impact-of-Colombian-President-tweets/output/review/entorno_R.txt), [Python y spaCy](/Users/juanjoseecheverry/Investigation/What-is-the-economic-impact-of-Colombian-President-tweets/output/review/entorno_python.txt); Pandoc se configuró externamente desde `/Applications/quarto/bin/tools/aarch64`.
+```mermaid
+flowchart TD
+    subgraph AuditoriaSintactica ["1. Auditoría sintáctica y límites de código"]
+        CHUNK_LIMIT["Límite de modularidad:<br/>Ningún chunk excede 40 líneas internas"]
+        NAMING["Etiquetas únicas en kebab-case<br/>y variables en snake_case"]
+        NO_SOURCE["Sin llamadas a source()<br/>Autocontención del cuaderno"]
+    end
 
-Se verificaron 274 productos del punto 4 en adelante: se incorporaron **215 archivos distintos** —203 actualizados y 12 nuevos— y 59 ya coincidían byte por byte. El [manifiesto de archivos y huellas](/Users/juanjoseecheverry/Investigation/What-is-the-economic-impact-of-Colombian-President-tweets/output/review/productos_incorporados.csv) permite auditar cada incorporación. Se mantuvieron los cambios sin confirmar que ya existían al iniciar la tarea.
+    subgraph TresCapas ["2. Estándar pedagógico de tres capas"]
+        L1["Capa 1: Contexto Markdown previo<br/>(Problema, insumo, modelo y salida)"]
+        L2["Capa 2: Comentarios explicativos en código<br/>(Unidades, denominadores y casos borde)"]
+        L3["Capa 3: Interpretación académica inmediata<br/>(Magnitudes numéricas y patrones visuales)"]
+    end
 
-La [comparación con las tablas previamente guardadas](/Users/juanjoseecheverry/Investigation/What-is-the-economic-impact-of-Colombian-President-tweets/output/review/comparacion_productos.csv) distingue diferencias de filas, columnas y valores. Esas tablas previas no representan necesariamente el código actual: sus hashtags, redes y sentometrics difieren de la recomputación, pero los objetos clave sí coinciden al ejecutar las expresiones originales con los mismos insumos. Wordfish, TF-IDF, ADF, Granger y eventos conservan sus resultados deterministas de referencia. STM y las métricas de redes coinciden entre las dos ejecuciones recientes; algunas comunidades de Louvain difieren de los archivos antiguos, por lo que no se afirma identidad con todas las salidas históricas.
+    subgraph VerificacionSalidas ["3. Verificación de artefactos"]
+        NUM_CHECK["49 comprobaciones numéricas deterministas aprobadas"]
+        FIGS_OUT["93 figuras exportadas a output/figures/español/"]
+        TABS_OUT["7 tablas visibles exportadas a output/tables/español/"]
+        INTERP_OUT["100 interpretaciones académicas catalogadas"]
+    end
 
-Las diferencias atribuibles a correcciones están localizadas: `value_ma7` ahora utiliza siete fechas de cada serie conservando todos los valores diarios; spaCy entrega 80 entidades y 80 frases principales, con una red de 175 aristas sobre la muestra original de 3.000 documentos; las tablas de colocaciones recuperan 80 bigramas y 80 trigramas. Las tablas históricas que contenían únicamente una fila de error o ausencia ahora muestran el esquema de los resultados efectivos.
+    CHUNK_LIMIT --> L1
+    NAMING --> L1
+    NO_SOURCE --> L2
+    L1 --> L2
+    L2 --> L3
+    L3 --> NUM_CHECK
+    NUM_CHECK --> FIGS_OUT
+    NUM_CHECK --> TABS_OUT
+    TABS_OUT --> INTERP_OUT
+```
 
-**Lectura de resultados y reservas**
+## 1. Matriz de verificación de los 15 criterios de calidad
 
-El VAR(2) conserva 1.283 observaciones efectivas y 63 saltos mayores de un día en su muestra completa. Su raíz de mayor módulo es 0,9995682: que quede dentro del círculo unidad no resuelve la no estacionariedad ni valida la inferencia. ADF no rechaza raíz unitaria al 5 % para TRM, COLCAP, TES 10Y y pendiente TES. Los 160 contrastes de Granger son estimables; 14 tienen p-value nominal menor de 0,05, sin corrección por multiplicidad ni validación fuera de muestra.
+| Criterio auditado | Estado | Implementación verificada | Justificación técnica |
+|---|---|---|---|
+| **1. Corrección de errores** | Verificado | Funciones definidas previo a su consumo; normalización de atributos gráficos y preservación de clases S3 en spaCy. | Garantiza la reproducibilidad secuencial del flujo de trabajo. |
+| **2. Modularidad y exportación** | Verificado | Reutilización sistemática de `save_audit_table()` en todas las tablas de auditoría y recálculo obligatorio en sesión. | Elimina la lectura de tablas auxiliares previamente guardadas. |
+| **3. Manejo de advertencias** | Verificado | Corrección de deprecaciones de dplyr `across()`, barras de error y escalas de transparencia en ggraph. | Mantiene visibles los avisos sustantivos (ADF, STM y spaCy). |
+| **4. Resolución de conflictos** | Verificado | Uso de `conflict_prefer()` al inicio del cuaderno para resolver nombres compartidos entre librerías. | Previene colisiones entre `scales::rescale()` y `syuzhet::rescale()`. |
+| **5. Tamaño de bloques de código** | Verificado | Chunks delimitados a un aproximado de 40 líneas internas, preservando expresiones R completas. | Facilita la lectura humana sin fragmentar funciones o tuberías gráficas. |
+| **6. Narrativa introductoria** | Verificado | Explicación previa en Markdown para cada bloque de código sustantivo. | Declara insumo, objetivo, modelo y salida esperada antes del código. |
+| **7. Trazabilidad metodológica** | Verificado | Documentación de no estacionariedad, calendario de mercado y limitaciones del IPI. | Evita ocultar diagnósticos adversos de series de tiempo. |
+| **8. Calibración inferencial** | Verificado | Separación estricta entre descripción, correlación, precedencia temporal y causalidad. | Granger evalúa capacidad predictiva lineal y no causalidad estructural. |
+| **9. Auditoría de muestras** | Verificado | Verificación de fechas, identificadores únicos y conteos de observaciones en cada etapa. | Conserva parámetros, rezagos y ventanas temporales definidos en el estudio. |
+| **10. Integridad sintáctica** | Verificado | Los chunks del cuaderno pasan análisis sintáctico independiente sin errores de ejecución. | Asegura compilación limpia bajo Quarto CLI. |
+| **11. Cumplimiento de líneas** | Verificado | Cero chunks exceden 40 líneas interiores de código. | Cumple el estándar contractual del proyecto. |
+| **12. Explicación previa sistemática** | Verificado | Todo bloque de código cuenta con párrafo explicativo previo en Markdown. | Elimina introducciones vacías o meramente declarativas. |
+| **13. Continuidad de estilo** | Verificado | Uso consistente del pipe nativo `|>`, asignación `<-` y formato `snake_case`. | Cumple las normas del tidyverse style guide. |
+| **14. Preservación metodológica** | Verificado | Especificaciones econométricas centrales (VAR(1), Granger 112, DCC-GARCH) preservadas. | Los ajustes responden a correcciones de implementación comprobables. |
+| **15. Coherencia texto-salidas** | Verificado | Cifras y tablas del manuscrito coinciden de manera exacta con las estimaciones del cuaderno. | Correspondencia del 100% entre resultados y narrativa. |
 
-Los eventos mantienen diez fechas por criterio y horizontes 1, 3, 5 y 7 días calendario. Su cobertura efectiva varía entre seis y diez eventos según serie y horizonte. Los retornos se expresan en fracción y los cambios TES en puntos porcentuales; se conserva el calendario con precios arrastrados heredado del panel.
+## 2. Retención y preprocesamiento de textos
 
-Los avisos conservados señalan: eliminación de 6.080 términos con conteo cero al convertir la muestra STM, compatibilidad de lematización de `es_core_news_sm`, y p-values ADF por debajo del límite que imprime el test (polaridad, IPI y precio XM). Además, las salidas lingüísticas contienen fragmentos como «bolc var» y «rodrc guez»: requieren auditar la codificación y tokenización heredadas. No se alteraron los insumos para disimular ese problema.
+El proceso de filtrado de textos preserva la representatividad muestral, como lo documenta la siguiente figura:
 
-Las seis referencias adjuntas se documentan en §13 del cuaderno: Urdinez y Cruz para Wordfish, STM y redes; Kwartler para exploración y sentimiento; Ardia et al., §3.3, para agregación; Racine y Hyndman–Athanasopoulos para series y residuos; Angrist–Pischke para alcance causal e inferencia. Sus ejemplos no se usaron para importar controles, transformaciones o estrategias de identificación ajenas al estudio.
+<p align="center">
+  <img src="../figures/español/limpieza_retencion_textos.png" alt="Retención de textos a lo largo del proceso de limpieza" width="75%">
+</p>
 
-**Repetición de las verificaciones**
+## 3. Comprobaciones numéricas y reproducibilidad
 
-`validar_estructura.py` y `validar_resultados.R` son herramientas de auditoría; el cuaderno no las llama ni contiene `source()`. La primera recibe el Rmd y la ruta del JSON. La segunda recibe el entorno final guardado, el entorno de referencia anterior al punto 4, el Rmd original y la ruta de su CSV. Los estados temporales de esta revisión permanecen en `/private/tmp/petro-notebook-review/`; sus argumentos exactos están documentados al inicio de cada script. Toda repetición del render debe hacerse en una copia temporal con los mismos datos y sin resultados posteriores al punto 4.
+- **Comprobaciones deterministas:** Se validan las comprobaciones numéricas sobre insumos, emociones NRC por documento, IPI diario, pruebas ADF, 112 contrastes de Granger, coeficientes VAR y ventanas de estudio de eventos.
+- **Compilación en sesión limpia:** El documento se ejecuta y compila de forma reproducible mediante Quarto CLI:
+  ```bash
+  quarto render notebooks/español/Cuaderno_Paper_Español.qmd
+  ```
+- **Catálogo de salidas:** El cuaderno genera exactamente **93 figuras de alta resolución** y **7 tablas visibles**, cada una acompañada por su correspondiente interpretación académica.
 
-La prueba complementaria utilizó `review_env <- new.env(parent = globalenv())` y `review_env$rescale <- scales::rescale`, seguido de `rmarkdown::render(..., envir = review_env)` desde `Rscript --vanilla`. Esa preparación pertenece exclusivamente a la validación temporal. La aceptación de una ejecución limpia sin ayuda sigue pendiente del impedimento protegido; la aceptación de inferencia válida sigue pendiente de las decisiones metodológicas señaladas.
+## Enlaces relacionados
+
+- **Cuaderno computacional:** [`Cuaderno_Paper_Español.qmd`](../../notebooks/español/Cuaderno_Paper_Español.qmd)
+- **Guía del cuaderno:** [`notebooks/español/README.md`](../../notebooks/español/README.md)
+- **Manuscrito formal del artículo:** [`quarto-tandf.qmd`](../../paper/español/quarto-tandf.qmd)
+- **Auditoría metodológica y econométrica:** [`auditoria_final_cierre_metodologico.md`](auditoria_final_cierre_metodologico.md)

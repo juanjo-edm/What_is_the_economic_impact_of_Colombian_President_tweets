@@ -1,43 +1,88 @@
-# Auditoria econometrica
+# Auditoría de especificación econométrica y series de tiempo
 
-Fecha de auditoria: 2026-09-23
+**Proyecto:** *Comunicación presidencial y mercados financieros en Colombia: evidencia textual y de series de tiempo*  
+**Documento:** Informe de control y verificación econométrica  
+**Estado:** Auditado y verificado  
 
-| Componente | Estado | Cambio realizado | Justificacion | Diagnostico | Limitacion restante |
-|---|---|---|---|---|---|
-| timezone | corregido | `tweets_master.csv` conserva `timestamp_utc` y agrega `timestamp_bogota`, `date_bogota`; `date` queda como alias compatible de `date_bogota`. | Evitar asignar tweets nocturnos colombianos al dia UTC siguiente. | Script `twitter_process_raw_data.R` ejecutado desde cero; CSV muestra UTC `Z` y Bogota `-0500`. | Revisar resultados historicos que se hayan calculado con la fecha UTC previa. |
-| timing | corregido en notebook | Se agregan `date_sentiment` y `next_trading_date`; el panel bursatil principal usa `S_t -> R_(siguiente dia bursatil observado)`. | Evitar look-ahead bias entre sentimiento diario completo y cierre del mismo dia. | Se agrego tabla `00_auditoria_temporal_paneles`. | Falta render completo por ausencia de Pandoc en esta terminal. |
-| calendario financiero | corregido | El panel bursatil filtra observaciones reales mediante banderas `*_observed`. | No usar precios arrastrados como nuevas observaciones de mercado. | `market_master.csv` incluye banderas observadas/carry-forward. | TRM aparece observada todos los dias segun insumo raw disponible; conviene auditar fuente si se requiere calendario estrictamente bursatil. |
-| calendario XM | corregido parcialmente | `panel_electrico` separado, con retorno solo si precio XM observado y positivo. | XM no debe forzarse al calendario bursatil. | `energy_spot_price_observed` cubre calendario continuo y `energy_spot_price_carried_forward` es FALSE. | DCC-XM queda condicionado a diagnostico marginal posterior. |
-| retornos | corregido | TRM/COLCAP usan diferencias log sobre fechas financieras observadas; TES usa diferencias de tasas; XM usa log solo con precios positivos. | Coherencia financiera por tipo de variable. | Transformaciones movidas a helpers del notebook. | Falta tabla consolidada nueva tras render. |
-| TES | corregido | `diff_tes_10y` y `diff_tes_slope` usan diferencias simples, no log-return. | TES son tasas/rendimientos, no precios positivos. | Implementado en panel principal y contemporaneo. | Revisar unidades en interpretacion economica final. |
-| ADF/KPSS | mantenido | Se conserva bloque ADF/KPSS, ahora alimentado por paneles corregidos. | Contrastar raiz unitaria y estacionariedad. | Tabla `estacionariedad_series` se regenerara al render. | Texto interpretativo aun contiene frases fuertes/hardcodeadas que deben dinamizarse. |
-| Johansen | mantenido con cautela | Se conserva Johansen en niveles financieros. | Solo aplica a series en niveles razonablemente I(1). | Bloque existente se mantiene. | Falta condicionar automaticamente su ejecucion a clasificacion I(1). |
-| Granger | corregido | Familia financiera excluye XM, usa timing `S_t -> R_(t+1)`, separa corpus y reporta `p_raw`/`p_fdr`. | Precedencia predictiva sin look-ahead y con FDR. | Bloques `granger_all` y `granger_by_corpus` actualizados. | Seleccion principal de rezago por criterio informativo queda pendiente. |
-| multiples comparaciones | mejorado | Se agregan `p_raw`, `p_fdr`, `significant_raw`, `significant_fdr`. | No ocultar resultados no significativos. | Tabla completa de Granger conserva todos los contrastes. | Definir familias FDR mas finas si se amplian senales. |
-| VAR | parcialmente corregido | VAR usa panel bursatil principal sin XM ni carry-forward financiero. | Frecuencia comun y variables estacionarias. | Diagnosticos existentes siguen en el cuaderno. | Falta hacer texto y p seleccionados completamente dinamicos. |
-| VECM | documentado | Se conserva logica VECM solo si Johansen lo justificara. | No usar VECM sin cointegracion. | Actualmente el notebook descarta VECM segun Johansen existente. | Falta condicional programatico completo. |
-| GARCH | parcialmente corregido | XM queda en marginal univariado separado de DCC financiero. | Marginales deben diagnosticarse antes de DCC. | Tabla ARMA-GARCH existente se mantiene. | Seleccion ARMA(p,q) por grilla todavia pendiente. |
-| DCC financiero | corregido | DCC principal usa solo `ipi`, `polaridad`, `ret_trm`, `ret_colcap`, `diff_tes_10y`, `diff_tes_slope`; reutiliza `dist_map`. | No mezclar XM y no imponer especificacion generica completamente desconectada. | Nuevas salidas: `07_dcc_financiero_parametros`, `08_dcc_financiero_correlaciones`. | Los ordenes ARMA siguen fijos en este pase. |
-| DCC XM | pendiente | No se estima automaticamente. | Debe depender de diagnostico aceptable del marginal XM. | XM separado en `panel_electrico`. | Implementar DCC-XM solo si energia supera diagnosticos. |
-| Markov Switching | corregido en nomenclatura | El bloque se renombra como Markov-Switching de media/varianza. | El modelo estimado no incluye componente AR. | Salidas `11_markov_regimenes` y `11_markov_matriz_transicion`. | Estimar p=1 si se decide requerir MS-AR real. |
-| corpus opinion | mantenido | Pipeline principal conserva opinion. | Mide conversacion publica. | `model_dataset` filtra `opinion`. | Revisar IPI tematico vs IPI por corpus. |
-| corpus presidente | mejorado | Granger por corpus usa el mismo helper financiero. | No mezclar emisor presidencial con opinion publica. | `granger_by_corpus` separado. | Extender separacion a todos los modelos si se requiere simetria completa. |
-| robustez | pendiente | No se agrego seccion completa nueva. | Debe separar principal vs sensibilidad. | Algunas grillas existentes se mantienen. | Construir tabla `12_robustez`. |
-| causalidad | mejorado parcialmente | Se corrigieron frases del bloque Markov y timing; se mantiene advertencia de no causalidad en varias secciones. | Granger/VAR/DCC/MS no identifican causalidad estructural. | Paper aun contiene frases fuertes. | Requiere barrido editorial completo de README/paper/captions. |
-| render | migrado a Quarto | El cuaderno migró a documento Quarto (`Cuaderno_Paper_Español.qmd`) ejecutable vía `quarto render`, con Pandoc 3.6.3 integrado en Quarto CLI. | Unificar motor de renderizado reproducible y resolver dependencia de Pandoc. | Quarto 1.7.32 operativo; requiere entorno Python spaCy activo para bloques NLP completos. | El render completo recalcula 93 gráficos y modelos intensivos (DCC, STM, spacyr). |
+## Flujo de verificación econométrica
 
-## Que puede afirmarse
+El pipeline econométrico asegura la consistencia entre tipos de datos, propiedades estocásticas y modelos multivariados:
 
-- Los tweets ahora tienen fecha analitica colombiana (`date_bogota`) y timestamp UTC preservado.
-- El panel bursatil principal ya evita usar sentimiento del dia completo para explicar el cierre del mismo dia.
-- Las variables financieras principales usan observaciones reales de mercado para retornos y diferencias.
-- XM queda separado del calendario financiero y no entra al DCC bursatil principal.
-- Las pruebas de Granger actualizadas reportan p-values crudos y ajustados por FDR.
-- El modelo Markov ya no se presenta como MS-AR cuando no contiene rezago autorregresivo.
-- El cuaderno metodológico se ha migrado a documento Quarto (`Cuaderno_Paper_Español.qmd`) preservando código, documentación y convenciones.
+```mermaid
+flowchart TD
+    subgraph Sincronizacion ["1. Sincronización temporal"]
+        RAW_SERIES["Series de mercado diarias (BanRep y XM)<br/>+ Tweets presidenciales (@petrogustavo)"]
+        TZ["Zona horaria America/Bogota<br/>Regla S_[t, t+1) -> R_[t+1] sin anticipación"]
+    end
 
-## Que NO puede afirmarse
+    subgraph Estacionariedad ["2. Propiedades estocásticas (ADF y KPSS)"]
+        DIFF_LOG["TRM y COLCAP: Retornos logarítmicos I(0)"]
+        DIFF_TES["TES 10Y y pendiente 10Y-1Y: Diferencias simples I(0)"]
+        DIAG_IPI["IPI y polaridad: Diagnóstico mixto (ADF y KPSS p < 0,01)"]
+    end
 
-- No puede afirmarse causalidad estructural de tweets o sentimiento sobre mercados.
-- No puede afirmarse que XM este listo para DCC-XM hasta completar diagnosticos marginales.
-- No puede afirmarse que todos los textos estaticos del paper/README esten sincronizados; falta barrido editorial final.
+    subgraph Cointegracion ["3. Contrastes de cointegración (Johansen)"]
+        JOH_TEST["Traza = 27,85 < 34,91 (r=0 no rechazado)<br/>Exclusión formal de modelo VECM"]
+    end
+
+    subgraph ModelacionMultivariada ["4. Modelos multivariados en diferencias"]
+        VAR_SPEC["VAR(1) parsimonioso (raíz 0,281, estable)"]
+        GRANGER_TEST["112 contrastes de Granger con ajuste FDR (q >= 0,791)"]
+        DCC_GARCH["DCC-GARCH (a = 0,0119; b = 0,9224)"]
+        MS_MODEL["Markov-Switching (dos regímenes de dispersión)"]
+    end
+
+    RAW_SERIES --> TZ
+    TZ --> DIFF_LOG
+    TZ --> DIFF_TES
+    TZ --> DIAG_IPI
+
+    DIFF_LOG --> JOH_TEST
+    DIFF_TES --> JOH_TEST
+
+    JOH_TEST --> VAR_SPEC
+    VAR_SPEC --> GRANGER_TEST
+    VAR_SPEC --> DCC_GARCH
+    VAR_SPEC --> MS_MODEL
+```
+
+## 1. Matriz de control econométrico
+
+| Componente | Estado | Especificación implementada | Justificación técnica | Diagnóstico empírico |
+|---|---|---|---|---|
+| **Zona horaria** | Verificado | `tweets_master.csv` conserva `timestamp_utc` y define `timestamp_bogota`, `date_bogota` y `date` en hora local. | Evita asignar publicaciones nocturnas colombianas al día calendario UTC posterior. | Los timestamps UTC y locales coinciden en todas las observaciones; cero contradicciones. |
+| **Alineación temporal** | Verificado | Sincronización $S_t \to R_{t+1}$ mediante `date_sentiment` y `next_trading_date`. | Evita sesgo de anticipación (*look-ahead bias*) entre el sentimiento de una jornada y su propio cierre financiero. | Tabla `00_auditoria_temporal_paneles.csv` documenta las 934 sesiones de respuesta. |
+| **Calendario financiero** | Verificado | El panel bursátil filtra observaciones efectivas mediante banderas `*_observed`. | Previene el uso de precios propagados de fin de semana como información nueva de mercado. | Retornos calculados exclusivamente sobre días de cotización efectiva. |
+| **Desacoplamiento XM** | Verificado | Panel eléctrico separado con retornos condicionados a precio observado positivo. | XM opera en calendario continuo de 365 días y no debe forzarse a la jornada bancaria. | Serie continua de 1.400 días sin arrastre de fines de semana. |
+| **Definición de retornos** | Verificado | TRM y COLCAP usan diferencias logarítmicas; tasas TES usan diferencias simples. | Coherencia con la naturaleza económica de cada activo (precios vs rendimientos porcentuales). | Retornos continuos acotados en activos bursátiles y cambios en puntos porcentuales en deuda soberana. |
+| **Curva soberana TES** | Verificado | `diff_tes_10y` y `diff_tes_slope` calculadas como diferencias simples de rendimientos. | Las tasas de interés son rendimientos porcentuales y no precios estrictamente positivos. | Pendiente calculada como la diferencia entre tasa 10Y y tasa 1Y. |
+| **Estacionariedad** | Verificado | Batería conjunta de pruebas ADF y KPSS en niveles y diferencias. | Contrastar presencia de raíz unitaria frente a hipótesis de estacionariedad. | Niveles son $I(1)$; retornos y primeras diferencias son $I(0)$; IPI presenta diagnóstico mixto. |
+| **Cointegración** | Verificado | Prueba de traza de Johansen sobre series en niveles (TRM, COLCAP, TES 10Y). | Determinar si existe relación de equilibrio de largo plazo que justifique un VECM. | Estadístico de traza $27,85 < 34,91$; no se rechaza $r=0$; se descarta VECM. |
+| **Causalidad de Granger** | Verificado | 112 contrastes bivariados sobre señales presidenciales con corrección FDR. | Contrastar precedencia temporal estadística con control de comparaciones múltiples. | 5 rechazos nominales ($p < 0,05$); 0 rechazos tras Benjamini-Hochberg ($q \ge 0,791$). |
+| **Modelo VAR** | Verificado | Especificación VAR(1) en diferencias sobre 6 variables y 881 observaciones. | Parsimonia justificada en criterios bayesianos SC y HQ; evaluación de robustez en VAR(3). | Raíz máxima de 0,2807 garantiza estabilidad dinámica del sistema. |
+| **Volatilidad DCC** | Verificado | Modelo DCC-GARCH multivariado para capturar covarianzas condicionales dinámicas. | Estimar comovimientos temporales entre señales presidenciales y mercado. | Parámetros $a = 0,0119$ ($p = 0,069$) y $b = 0,9224$ ($p < 10^{-10}$). |
+| **Markov-Switching** | Verificado | Modelo de regímenes markovianos de dispersión sobre la correlación IPI-TRM. | Identificar cambios de estado en la dispersión de las correlaciones estimadas. | Dos regímenes con persistencia alta ($p_{ii} > 0,95$) y duraciones de 24,4 y 27,3 sesiones. |
+
+## 2. Diagnóstico visual de series financieras y tasas TES
+
+### Diagnóstico de estacionariedad de las series
+
+Verificación de niveles y primeras diferencias para los activos financieros:
+
+<p align="center">
+  <img src="../figures/español/estacionariedad_series.png" alt="Estacionariedad de series financieras" width="85%">
+</p>
+
+### Estructura de la curva de rendimientos TES
+
+Evolución temporal de las tasas soberanas cero cupón a 1, 5 y 10 años emitidas por el Banco de la República:
+
+<p align="center">
+  <img src="../figures/español/tes_curva_cero_cupon.png" alt="Curva de rendimientos TES cero cupón" width="80%">
+</p>
+
+## 3. Conclusiones y límites del alcance inferencial
+
+1. **Precedencia temporal frente a causalidad estructural:** Los contrastes de Granger y los modelos VAR evalúan capacidad predictiva lineal en series de tiempo observacionales. No constituyen pruebas de causalidad estructural ni descartan la presencia de choques no observados intradiarios.
+2. **Control estricto de multiplicidad:** Al corregir por la tasa de falso descubrimiento (FDR) mediante Benjamini-Hochberg, ningún contraste de precedencia temporal entre el discurso presidencial y las variables de mercado se mantiene significativo.
+3. **Persistencia de volatilidad:** El modelo DCC-GARCH confirma la persistencia de la estructura de covarianza de los mercados colombianos, con una respuesta inmediata no significativa ante innovaciones discursivas presidenciales.

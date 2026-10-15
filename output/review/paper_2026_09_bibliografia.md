@@ -1,41 +1,84 @@
-# Auditoría bibliográfica del manuscrito español
+# Auditoría y verificación bibliográfica del manuscrito
 
-El Word inglés histórico enumera **31 obras** en sus párrafos 236–267; tres párrafos unen varias obras. Todas tienen una entrada identificable en paper/español/bibliography.bib, incluida la metodología histórica de COLEQTY, para la que se incorporó una revisión oficial de BVC. Los metadatos corregidos conservan claves BibTeX estables. «Conservar» indica cita en el artículo español; «excluir» significa solo que la obra no aparece en las referencias finales generadas por citeproc. El BibTeX puede mantenerla como antecedente del cuaderno.
+**Documento:** Informe de consistencia bibliográfica, claves BibTeX y verificación de referencias  
+**Manuscrito asociado:** *Comunicación presidencial y mercados financieros en Colombia: evidencia textual y de series de tiempo* ([`paper/español/quarto-tandf.qmd`](../../paper/español/quarto-tandf.qmd))  
+**Archivo BibTeX:** [`paper/español/bibliography.bib`](../../paper/español/bibliography.bib)  
 
-| Obra del Word original | Clave | Decisión y razón |
-|:--|:--|:--|
-| Bayod (2018) | bayod_2018 | Excluir: panorama de big data sin vínculo específico con la medición actual. |
-| Benoit et al. (2018), análisis textual | benoit_textual_2018 | Conservar: procedimiento de cuantificación textual. |
-| Benoit et al. (2018), quanteda | quanteda | Conservar: implementación empleada en el análisis. |
-| Blei et al. (2003) | blei_2003 | Conservar: fundamento del modelo probabilístico de temas. |
-| BVC (2013), COLEQTY | bvc_2018_coleqty | Conservar solo como antecedente del índice histórico; documento oficial revisado en 2018. COLCAP es una serie distinta. |
-| Cavanillas et al. (2016) | cavanillas_2016 | Excluir: economía de datos general, sin afirmación central que dependa de la obra. |
-| El-Hamdouchi y Willett (1986) | el_hamdouchi_1986 | Conservar: agrupación jerárquica. |
-| Field et al. (2012) | field_2012 | Excluir: manual estadístico general; se citan las fuentes de métodos específicos. |
-| Hirschberg y Manning (2015) | hirschberg_manning_2015 | Excluir: panorama amplio de PLN sin papel directo en el pipeline. |
-| Husson et al. (2016) | husson_2016 | Conservar: exploración multivariada y correspondencias. |
-| Ince et al. (2017) | ince_2017 | Conservar: interpretación de hashtags y acción colectiva. |
-| Jockers (2017) | jockers_2017 | Conservar: herramienta léxica citada. |
-| Kahneman y Tversky (1979) | kahneman_1979 | Conservar: decisiones bajo riesgo; se corrigió autoría, título, páginas y DOI. |
-| Kearney (2019) | kearney_2019 | Conservar: recolección y análisis de publicaciones. |
-| Marín Díaz (2020) | marin_diaz_2020 | Excluir: inferencia de género no implementada en el artículo actualizado. |
-| Medhat et al. (2014) | medhat_2014 | Conservar: alcance y límites del análisis de sentimiento. |
-| Misuraca et al. (2020) | misuraca_2020 | Excluir: aplicación educativa ajena al contraste financiero. |
-| Mohammad y Turney (2010) | mohammad_turney_2010 | Conservar: origen del léxico emocional. |
-| Mullainathan y Thaler (2000) | mullainathan_thaler_2000 | Conservar: marco conductual sin inferencia causal específica. |
-| Pérez Llorente (2020) | perez_llorente_2020 | Excluir: tesis previa sobre Trump; la comparación utiliza estudios revisados por pares con diseño intradía. |
-| Plutchik (2003) | plutchik_2003 | Conservar: categorías emocionales. |
-| Prada Espinel (2018) | prada_espinel_2018 | Conservar: antecedente colombiano de comunicación política. |
-| Roberts et al. (2019) | stm | Conservar: implementación STM. |
-| Romero Moreno et al. (2020) | romero_moreno_2020 | Excluir: sentimiento político sin el contraste financiero específico. |
-| Sandoval Garrido y Marín-Jaramillo (2022) | sandoval_marin_2022 | Excluir: desarrollo municipal y elecciones; pregunta empírica diferente. |
-| Schweinberger (2023) | schweinberger_2023 | Conservar: colocaciones y coocurrencias. |
-| Slapin y Proksch (2008) | slapin_proksch_2008 | Conservar: modelo Wordfish. |
-| Smith (1759) | smith_1759 | Excluir: historia del pensamiento moral no necesaria para los hallazgos estimados. |
-| Trott (2018) | trott_2018 | Conservar: acción conectiva en redes. |
-| Urdinez y Cruz (2020/2021) | urdinez_cruz_2020 | Conservar: método de datos políticos; se corrigieron editores, año y DOI. |
-| Wiedemann y Niekler (2017) | wiedemann_niekler_2017 | Conservar: minería de texto y colocaciones. |
+## Arquitectura de verificación bibliográfica
 
-La literatura incorporada para la comparación actual incluye Gjerstad et al. (2021), *Decision Support Systems*, DOI 10.1016/j.dss.2021.113577; Bianchi, Gómez-Cram y Kung (2024), *The Review of Financial Studies*, DOI 10.1093/rfs/hhae001; y Wang (2023), *Political Analysis*, DOI 10.1017/pan.2023.3. Se cotejaron sus autores, revista, año, páginas y DOI con las páginas de las editoriales. También se citan referencias metodológicas que ya estaban en el BibTeX y no en las 31 obras del Word (por ejemplo, *sentometrics*).
+El proceso de verificación asegura que cada afirmación teórica y metodológica cuente con respaldo bibliográfico verificable:
 
-La validación automática del DOCX confirma **26 claves citadas, 26 entradas impresas y correspondencia exacta** entre ambas listas: 21 de las 31 obras históricas, tres estudios nuevos cotejados con editoriales y dos obras metodológicas que ya estaban en el BibTeX. La lista final APA 7 incluye únicamente obras citadas, aunque el archivo BibTeX del proyecto conserve otras entradas para el cuaderno.
+```mermaid
+flowchart TD
+    subgraph FuentesBibliograficas ["1. Fuentes bibliográficas normalizadas"]
+        BIB_FILE["paper/español/bibliography.bib<br/>(49 referencias normalizadas en BibTeX)"]
+        DOI_CHECK["Verificación editorial de autores, títulos,<br/>años de publicación y enlaces DOI"]
+    end
+
+    subgraph ManuscritoQuarto ["2. Citación en el manuscrito formal"]
+        QMD_SRC["paper/español/quarto-tandf.qmd<br/>(26 obras citadas activamente en el texto)"]
+        STYLE_CSL["apa.csl (Normas de citación APA 7)"]
+    end
+
+    subgraph CompilacionCiteproc ["3. Motor de compilación Pandoc / Citeproc"]
+        PANDOC_PROC["Compilación de citas en texto y bibliografía final"]
+        DOCS_OUT["quarto-tandf.pdf / quarto-tandf.docx / quarto-tandf.html"]
+    end
+
+    BIB_FILE --> DOI_CHECK
+    DOI_CHECK --> QMD_SRC
+    QMD_SRC --> PANDOC_PROC
+    STYLE_CSL --> PANDOC_PROC
+    PANDOC_PROC --> DOCS_OUT
+```
+
+## 1. Obras del corpus de referencia y decisiones de inclusión
+
+El archivo [`paper/español/bibliography.bib`](../../paper/español/bibliography.bib) contiene 49 entradas normalizadas con claves BibTeX estables. La siguiente tabla resume las obras del marco conceptual y su estatus en el texto:
+
+| Obra de referencia | Clave BibTeX | Decisión editorial y justificación |
+|---|---|---|
+| Benoit et al. (2018), análisis textual | `benoit_textual_2018` | Citada: procedimiento de cuantificación textual y diseño metodológico. |
+| Benoit et al. (2018), quanteda | `quanteda` | Citada: paquete computacional empleado en el análisis de redes y frecuencias. |
+| Blei et al. (2003) | `blei_2003` | Citada: fundamento teórico del modelo probabilístico de asignación latente de Dirichlet (LDA). |
+| BVC (2018), COLEQTY | `bvc_2018_coleqty` | Antecedente en BibTeX: documento metodológico de la Bolsa de Valores de Colombia. |
+| El-Hamdouchi y Willett (1986) | `el_hamdouchi_1986` | Citada: algoritmo de agrupación jerárquica en minería de texto. |
+| Husson et al. (2016) | `husson_2016` | Citada: exploración multivariada y análisis de correspondencias. |
+| Ince et al. (2017) | `ince_2017` | Citada: análisis de hashtags y acción colectiva en redes sociales. |
+| Jockers (2017) | `jockers_2017` | Citada: implementación del análisis de sentimiento léxico en R. |
+| Kahneman y Tversky (1979) | `kahneman_1979` | Citada: teoría prospectiva y toma de decisiones bajo riesgo e incertidumbre. |
+| Kearney (2019) | `kearney_2019` | Citada: protocolos de recolección y análisis de publicaciones en Twitter. |
+| Medhat et al. (2014) | `medhat_2014` | Citada: alcance, limitaciones y técnicas de minería de opinión. |
+| Mohammad y Turney (2010) | `mohammad_turney_2010` | Citada: desarrollo y validación del léxico emocional NRC. |
+| Mullainathan y Thaler (2000) | `mullainathan_thaler_2000` | Citada: marco teórico de economía conductual y límites a la racionalidad. |
+| Plutchik (2003) | `plutchik_2003` | Citada: taxonomía psicoevolutiva de emociones primarias y secundarias. |
+| Prada Espinel (2018) | `prada_espinel_2018` | Citada: análisis empírico de comunicación política en Colombia. |
+| Roberts et al. (2019) | `stm` | Citada: paquete R para modelos de tópicos estructurales con covariables. |
+| Schweinberger (2023) | `schweinberger_2023` | Citada: lingüística de corpus, colocaciones y matrices de coocurrencia. |
+| Slapin y Proksch (2008) | `slapin_proksch_2008` | Citada: modelo Wordfish para escalamiento unidimensional de posiciones políticas. |
+| Trott (2018) | `trott_2018` | Citada: marcos teóricos de acción conectiva en plataformas digitales. |
+| Urdinez y Cruz (2020) | `urdinez_cruz_2020` | Citada: métodos cuantitativos aplicados a ciencia política y análisis discursivo. |
+| Wiedemann y Niekler (2017) | `wiedemann_niekler_2017` | Citada: extracción computacional de colocaciones significativas en español. |
+
+## 2. Marco teórico y figura de referencia
+
+La conceptualización del sentimiento y las emociones léxicas sigue la rueda psicoevolutiva de Plutchik, citada en el manuscrito formal:
+
+<p align="center">
+  <img src="../../paper/figures/español/figura1_plutchik.png" alt="Rueda de emociones de Plutchik" width="55%">
+</p>
+
+## 3. Literatura empírica incorporada
+
+El manuscrito incorpora literatura empírica internacional sobre comunicación gubernamental y mercados financieros:
+- **Gjerstad et al. (2021):** *Decision Support Systems*, DOI 10.1016/j.dss.2021.113577 (análisis de publicaciones políticas y volatilidad bursátil).
+- **Bianchi, Gómez-Cram y Kung (2024):** *The Review of Financial Studies*, DOI 10.1093/rfs/hhae001 (comunicación presidencial y primas de riesgo de bonos soberanos).
+- **Wang (2023):** *Political Analysis*, DOI 10.1017/pan.2023.3 (avances metodológicos en escalamiento textual).
+- **Ardia et al. (2021):** *Journal of Financial Econometrics* (metodología del paquete `sentometrics` para series temporales de sentimiento).
+
+## 4. Verificación de citas cruzadas
+
+La compilación automática del documento valida:
+- **Citas en el texto:** 26 obras citadas de manera explícita en el cuerpo del manuscrito.
+- **Entradas bibliográficas generadas:** Exactamente 26 referencias impresas en la sección final bajo formato APA 7.
+- **Correspondencia:** Correspondencia del 100% entre citas en el texto y referencias finales, sin alertas de citas huérfanas en Pandoc.

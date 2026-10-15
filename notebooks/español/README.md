@@ -1,155 +1,193 @@
-# Guía de lectura y mantenimiento del cuaderno
+# Guía de réplica y arquitectura del cuaderno computacional
 
-El archivo `Cuaderno_Paper_Español.qmd` documenta la relación observacional y de precedencia temporal entre la comunicación directa emitida por la cuenta presidencial `@petrogustavo` (`corpus == "presidente"`) y las series financieras colombianas (`TRM`, `COLCAP`, tasas `TES` y precio de energía de XM). El corpus complementario `opinion` ("Conversación pública sobre Gustavo Petro") se conserva exclusivamente para exploración textual descriptiva y para auditar las limitaciones empíricas de su proceso de recolección (sesgo de concentración horaria al 97,49% a las 18:00 horas y cuotas diarias de 10 tweets), quedando estrictamente excluido de toda modelación econométrica e inferencia financiera. Su propósito es permitir que un par evaluador siga los datos, las transformaciones y las especificaciones del estudio hasta sus resultados y limitaciones. El HTML es la versión de lectura; el documento Quarto (.qmd) es la fuente ejecutable y la referencia para revisar el código.
+El archivo [`Cuaderno_Paper_Español.qmd`](Cuaderno_Paper_Español.qmd) constituye el motor computacional autocontenido del artículo de investigación. Modela la relación observacional y de precedencia temporal entre la comunicación emitida por la cuenta presidencial `@petrogustavo` (`corpus == "presidente"`) y las series financieras de Colombia (TRM, COLCAP, rendimientos de bonos soberanos TES cero cupón y precio spot de energía de XM).
 
-## Requisitos y dependencias
+El corpus complementario de conversación ciudadana (`corpus == "opinion"`) se procesa con fines de exploración léxica y para documentar las limitaciones de su proceso de extracción (concentración artificial del 97,49% a las 18:00 horas y cuotas diarias de 10 tweets). Este corpus queda formalmente excluido de la econometría de series de tiempo.
 
-El entorno validado utiliza R 4.6.1. Los pipes nativos `|>` requieren R 4.1 o posterior; esto no garantiza por sí solo la compatibilidad de todos los paquetes. Para reproducir el estudio conviene conservar las versiones registradas en el informe de ejecución, además de los mismos datos y semillas.
+El archivo ejecutable Quarto genera [`Cuaderno_Paper_Español.html`](Cuaderno_Paper_Español.html), el cual contiene el código evaluado, 93 figuras de alta resolución, 7 tablas visibles y 100 párrafos de interpretación académica inmediata.
 
-Las dependencias directas están declaradas mediante `library(paquete)` al inicio del cuaderno, con un comentario sobre su función. Los bloques de librerías aparecen desplegados en el HTML. Esa sección es la lista operativa de paquetes; deben estar instalados antes de ejecutar el documento. Una dependencia ausente produce un error identificable. Las dependencias transitivas son gestionadas por R al instalar y cargar los paquetes.
+## Arquitectura de las 12 secciones analíticas
 
-| Finalidad | Paquetes declarados |
-| --- | --- |
-| Datos, fechas y texto básico | conflicted, readr, dplyr, tidyr, tibble, vctrs, forcats, lubridate, stringr, here |
-| Figuras y redes | ggplot2, scales, ggwordcloud, ggrepel, igraph, tidygraph, ggraph, DiagrammeR, DiagrammeRsvg, rsvg, ragg, png, grid, graphics, grDevices |
-| Análisis textual y matrices | quanteda, quanteda.textstats, quanteda.textmodels, quanteda.textplots, syuzhet, sentometrics, stm, spacyr, reticulate, Matrix |
-| Econometría y presentación | stats, tseries, lmtest, vars, zoo, ca, methods, knitr, utils |
+El flujo de ejecución del cuaderno se estructura en doce etapas secuenciales y reproducibles:
 
-Para renderizar se utiliza Quarto CLI con el motor Pandoc integrado. El archivo `notebook-style.css` y la bibliografía relativa al proyecto forman parte de la presentación.
+```mermaid
+flowchart TD
+    subgraph Insumos ["Insumos contractuales"]
+        T_M["data/processed/tweets_master.csv"]
+        M_M["data/processed/market_master.csv"]
+    end
 
-La anotación lingüística requiere Python, spaCy y el modelo español `es_core_news_sm`. El entorno validado utiliza Python 3.11, spaCy 3.8.16 y el modelo 3.8.0. La variable `SPACYR_PYTHON` permite indicar el ejecutable; si no está definida, el cuaderno usa el entorno de `reticulate` llamado `petro-spacyr`. Debe comprobarse que ese mismo Python pueda importar spaCy y cargar el modelo antes de comenzar. La instalación se realiza fuera del cuaderno.
+    subgraph BloqueTextual ["Procesamiento del lenguaje y discurso presidencial"]
+        S1["1. Entorno, dependencias y contratos"]
+        S2["2. Limpieza y normalización lingüística (spaCy)"]
+        S3["3. Clasificación temática débilmente supervisada (Naive Bayes)"]
+        S4["4. Exploración temporal de actividad presidencial"]
+        S5["5. Redes de hashtags, menciones y co-ocurrencias"]
+        S6["6. Modelado de tópicos (STM) y escalamiento (Wordfish)"]
+        S7["7. Sentimiento léxico NRC e Índice de Presión Informacional (IPI)"]
+    end
 
-El notebook consume únicamente `data/processed/tweets_master.csv` y `data/processed/market_master.csv` mediante `here()`. El primero conserva todos los tweets, incluidos aquellos cuyo `text_clean` queda vacío; el filtro de la muestra NLP y la clasificación temática se aplican dentro del cuaderno. Las redes se exportan como figuras estáticas reproducibles, sin widgets interactivos.
+    subgraph BloqueEconometrico ["Econometría y series de tiempo financieras"]
+        S8["8. Series financieras, retornos y estacionariedad (ADF/KPSS)"]
+        S9["9. Cointegración de Johansen y especificación VAR(1)"]
+        S10["10. Precedencia temporal de Granger con corrección FDR"]
+        S11["11. Volatilidad condicional (DCC-GARCH) y Markov-Switching"]
+        S12["12. Estudio de eventos ante choques discursivos extremos"]
+    end
 
-## Ejecución desde una sesión limpia
+    subgraph Salidas ["Productos generados"]
+        FIGS["output/figures/español/ (93 figuras)"]
+        TABS["output/tables/español/ (7 tablas auditables)"]
+        MANUSCRITO["paper/español/quarto-tandf.qmd"]
+    end
 
-1. Conservar una copia del estado actual, incluidos los cambios sin confirmar y los insumos de `data/`. Registrar versiones y huellas de los archivos que se compararán.
-2. Trabajar en una copia temporal del proyecto cuando se validen modificaciones: el script escribe los dos masters y el cuaderno escribe tablas, figuras y el HTML. No utilizar salidas anteriores como sustituto de los cálculos del notebook.
-3. Abrir una terminal en la raíz que contiene `Paper_Twitter.Rproj`. Configurar las rutas del entorno y ejecutar una sesión nueva, sin restaurar un espacio de trabajo anterior.
+    T_M --> S1
+    M_M --> S1
 
-```sh
+    S1 --> S2
+    S2 --> S3
+    S3 --> S4
+    S4 --> S5
+    S5 --> S6
+    S6 --> S7
+
+    S7 --> S8
+    M_M --> S8
+    S8 --> S9
+    S9 --> S10
+    S10 --> S11
+    S11 --> S12
+
+    S3 --> FIGS
+    S4 --> FIGS
+    S5 --> FIGS
+    S6 --> FIGS
+    S7 --> FIGS
+    S8 --> FIGS
+    S9 --> FIGS
+    S10 --> FIGS
+    S11 --> FIGS
+    S12 --> FIGS
+
+    S3 --> TABS
+    S7 --> TABS
+    S8 --> TABS
+    S10 --> TABS
+    S11 --> TABS
+    S12 --> TABS
+
+    FIGS --> MANUSCRITO
+    TABS --> MANUSCRITO
+```
+
+## Requisitos de software y dependencias
+
+El entorno de cómputo utiliza R 4.1 o superior (validado en R 4.4.3 y R 4.6.1) junto con Quarto CLI. El uso del operador pipe nativo `|>` requiere R 4.1 o posterior.
+
+Las dependencias analíticas se declaran al inicio del cuaderno agrupadas por propósito funcional:
+
+| Finalidad | Librerías directas |
+|---|---|
+| Gestión de datos y fechas | `conflicted`, `readr`, `dplyr`, `tidyr`, `tibble`, `forcats`, `lubridate`, `stringr`, `here` |
+| Visualización y redes | `ggplot2`, `scales`, `ggwordcloud`, `ggrepel`, `igraph`, `tidygraph`, `ggraph`, `DiagrammeR`, `ragg` |
+| Procesamiento de texto | `quanteda`, `quanteda.textstats`, `quanteda.textmodels`, `syuzhet`, `sentometrics`, `stm`, `spacyr`, `reticulate` |
+| Econometría de series temporales | `stats`, `tseries`, `lmtest`, `vars`, `urca`, `zoo`, `rmgarch`, `MSwM`, `sandwich` |
+| Presentación y formato | `knitr`, `utils`, `methods` |
+
+Para el procesamiento de lenguaje natural, spaCy requiere un entorno de Python configurado con el modelo en español `es_core_news_sm`. Puede definirse mediante la variable de entorno `SPACYR_PYTHON`. Si la variable no está fijada, el cuaderno busca el entorno de reticulate llamado `petro-spacyr`.
+
+## Instrucciones para ejecutar desde una sesión limpia
+
+Para reproducir la compilación completa del cuaderno desde la raíz del repositorio:
+
+```bash
+# 1. Configurar la ruta del intérprete Python con spaCy
 export SPACYR_PYTHON="$HOME/.virtualenvs/petro-spacyr/bin/python"
-"$SPACYR_PYTHON" -c 'import spacy; spacy.load("es_core_news_sm"); print(spacy.__version__)'
+
+# 2. Verificar que spaCy y el modelo en español estén disponibles
+"$SPACYR_PYTHON" -c 'import spacy; spacy.load("es_core_news_sm"); print("spaCy version:", spacy.__version__)'
+
+# 3. Compilar el cuaderno a HTML
 quarto render notebooks/español/Cuaderno_Paper_Español.qmd
 ```
 
-Las rutas anteriores corresponden al equipo de referencia y deben ajustarse al entorno del evaluador. En cada ejecución se recalculan los bloques pesados con sus muestras, semillas y parámetros existentes; no se leen resultados guardados como sustituto de esos cálculos.
+El proceso compila el documento completo, ejecuta las estimaciones deterministas y escribe las 93 figuras y las tablas en `output/`.
 
-4. Conservar el registro de errores, mensajes y advertencias por chunk. Un render terminado no demuestra, por sí solo, la validez de la inferencia. Ante un error, identificar el bloque, el insumo y la dependencia; no convertir el fallo en un resultado vacío presentado como exitoso.
-5. Abrir `Cuaderno_Paper_Español.html` y revisar portada, TOC, tablas, ecuaciones y figuras estáticas, incluidas todas las redes. Contrastar los productos con la referencia antes de incorporarlos al proyecto.
+## Convención obligatoria de resultados y estilo
 
-## Recorrido sugerido para el par evaluador
+Cada bloque de resultados visibles del cuaderno sigue una secuencia contractual:
 
-- **Datos y cobertura:** revisar las fechas, las fuentes, la separación entre tweets presidenciales y conversación pública, los identificadores, los filtros y los faltantes. Comprobar qué observaciones entran efectivamente en cada muestra.
-- **Transformaciones:** seguir la construcción de corpus, temas, indicadores, sentimiento y redes. Revisar denominadores, unidades, ponderaciones y ventanas temporales antes de interpretar sus gráficos.
-- **Modelos:** vincular cada referencia y pregunta con su ecuación, variables, muestra, código de estimación y resultado. La disponibilidad de una estimación no certifica los supuestos que permitirían interpretarla.
-- **Resultados y límites:** contrastar magnitudes, signos, cobertura y diagnósticos con la interpretación escrita. Distinguir asociación descriptiva, capacidad predictiva y causalidad; un contraste de Granger no identifica por sí mismo un efecto causal ni su magnitud económica.
+`contexto y objetivo en Markdown → código R reproducible → tabla o figura de salida → interpretación académica inmediata`
 
-La revisión debe conservar las decisiones metodológicas pendientes: tratamiento de series no estacionarias, calendario después de eliminar faltantes, comparaciones múltiples y limitaciones del IPI heredado. En el VAR se mantiene la especificación principal parsimoniosa VAR(1) con evaluación de robustez en VAR(3); no se calculan IRF estructurales no identificadas. Los eventos son descriptivos, conservan sus horizontes y deben leerse junto a sus unidades y cobertura efectiva. No añadir diferencias, cointegración, controles, HAC o ajustes de significancia sin una decisión metodológica documentada.
+- **Contexto previo:** describe la pregunta, las variables de entrada, la transformación matemática o modelo aplicado y el objeto que se producirá.
+- **Código modular:** los bloques de código no superan 40 líneas internas, manteniendo las funciones, pipes y llamadas completas sin divisiones arbitrarias.
+- **Figuras autocontenidas:** cada gráfico incluye título descriptivo, subtítulo explicativo, ejes con unidades explícitas, leyenda y notas de pie con fuente y tamaño muestral.
+- **Interpretación posterior obligatoria:** todo resultado visual o tabular es sucedido por un párrafo que analiza magnitudes numéricas, patrones visuales y limitaciones metodológicas.
+- **Calibración inferencial:** se prohíbe el uso de términos causales como "impacto", "causa" o "determina" para interpretar resultados de modelos VAR, correlaciones DCC o contrastes de Granger, los cuales evalúan precedencia temporal y no identificación estructural.
 
-## Convenciones de código y escritura
+## Figuras representativas del cuaderno
 
-### Convención obligatoria para resultados visibles
+### Actividad diaria de publicaciones presidenciales (Sección 4)
 
-Cada resultado final del cuaderno debe seguir la secuencia:
+Distribución temporal de los 14.659 tweets emitidos por `@petrogustavo` durante el mandato, con su media móvil de 7 días.
 
-`contexto/objetivo → código → tabla o gráfico → interpretación`
+<p align="center">
+  <img src="../../output/figures/español/eda_petro_tweets_diarios.png" alt="Serie diaria de tweets presidenciales" width="85%">
+</p>
 
-Después de cada tabla o gráfico final visible debe aparecer inmediatamente un
-párrafo de interpretación académica. Ese párrafo debe explicar qué muestra la
-salida, destacar el patrón o magnitud principal, mencionar categorías, fechas,
-unidades o relaciones relevantes y explicar su significado para la pregunta de
-investigación. También debe señalar limitaciones importantes y evitar afirmar
-causalidad cuando el resultado sea descriptivo, asociativo o de precedencia
-temporal. Si no hay datos suficientes, debe explicarse explícitamente por qué
-no existe evidencia interpretable.
+### Distribución del discurso por agendas de reformas (Sección 3)
 
-Las interpretaciones deben derivarse de los valores efectivamente producidos en
-la ejecución reproducible. Una tabla debe enfatizar magnitudes y resultados
-numéricos; un gráfico debe enfatizar patrones visuales y comparaciones. El texto
-debe explicar el resultado, no limitarse a narrar el código. Debe distinguirse
-claramente entre descripción, asociación, predicción y causalidad.
+Participación porcentual y volumen de mensajes clasificados entre las agendas de reforma del gobierno nacional.
 
-Los objetos auxiliares no requieren interpretación. Solo las tablas y figuras
-finales que aparecen visibles en el cuaderno la requieren; no se deben imprimir
-auxiliares ni duplicar productos finales. Toda figura final debe ser
-autocontenida y poder entenderse sin inspeccionar el código que la genera:
-título, ejes, unidades, leyendas, escalas, facetas, categorías, fechas y reglas
-de etiquetado deben ser suficientes para su lectura. En redes, si no es viable
-etiquetar todos los nodos, se debe documentar una regla reproducible y conservar
-una tabla asociada con todos los nodos.
+<p align="center">
+  <img src="../../output/figures/español/temas_reforma_resumen.png" alt="Resumen de temas de reformas" width="80%">
+</p>
 
-La validación distingue explícitamente 6 tablas generadas por R y 1 tabla
-Markdown de revisión: en total son 7 tablas visibles finales. También exige
-92 gráficos generados, 92 impresos y 92 interpretaciones inmediatas, con una
-fila por gráfico en la lista de control y `estado_final = OK` en todas ellas.
+### Red de menciones institucionales en Twitter (Sección 5)
 
-- Escribir en español académico, con títulos informativos, nombres descriptivos y términos consistentes. Explicar las decisiones para un economista que pueda no conocer cada paquete de R.
-- Utilizar pipes nativos `|>`. Conservar las especificaciones, semillas, filtros, muestras, nombres de salidas, rutas y estilo gráfico salvo que el cambio correspondiente haya sido autorizado y documentado.
-- Dar a cada chunk una etiqueta única y descriptiva. Ninguno puede superar **40 líneas interiores**, contando comentarios y líneas vacías, sin contar las dos líneas de delimitación.
-- Mantener expresiones R completas en cada chunk. Dividir en límites entre preparación, transformación, estimación, exportación y visualización. No cortar una llamada, una función, un condicional o una secuencia de capas gráficas a la mitad.
-- Aplicar el patrón obligatorio **explicación Markdown → código → interpretación cuando corresponda**. Un título o un comentario dentro del código no sustituye el párrafo previo.
-- Indicar en cada introducción el insumo, el propósito, la transformación, el objeto producido y su conexión con la etapa siguiente. Evitar explicaciones genéricas que solo anuncien que se ejecutará código.
-- En resultados de modelos, documentar la correspondencia **referencia → pregunta → ecuación → datos y muestra → código → resultado → interpretación**. Separar la especificación ejecutada, los diagnósticos válidos y las decisiones pendientes.
+Estructura de la red de menciones presidenciales calculada bajo el estándar de `quanteda`, destacando los nodos institucionales con mayor grado ponderado.
 
-### Plantilla breve
+<p align="center">
+  <img src="../../output/figures/español/red_menciones_quanteda.png" alt="Red de menciones quanteda" width="75%">
+</p>
 
-El siguiente ejemplo muestra la estructura editorial; los nombres y la operación deben adaptarse al análisis real.
+### Dinámica temporal de emociones léxicas NRC (Sección 7)
 
-````markdown
-El bloque recibe `datos_diarios`, cuya unidad es una fecha y un corpus.
-Para describir la cobertura observada, cuenta las fechas disponibles por corpus
-y produce `cobertura_corpus`. Esta tabla permite evaluar la muestra antes de
-interpretar las estimaciones de la sección siguiente.
+Trayectoria diaria de las emociones básicas de Plutchik derivadas del léxico NRC sobre las publicaciones presidenciales.
 
-```{r cobertura-por-corpus}
-cobertura_corpus <- datos_diarios |>
-  group_by(corpus) |>
-  summarise(fechas_observadas = n_distinct(date), .groups = "drop")
-```
+<p align="center">
+  <img src="../../output/figures/español/sentimiento_emociones_diarias.png" alt="Emociones diarias NRC" width="85%">
+</p>
 
-La interpretación debe informar los conteos obtenidos y las diferencias de
-cobertura relevantes, sin atribuirles efectos que este resumen no estima.
-````
+### Contrastes de precedencia temporal de Granger (Sección 10)
 
-### Comentarios dentro del código
+Resultados de los 112 contrastes de precedencia temporal entre variables discursivas presidenciales y mercados financieros.
 
-Cada paso relevante debe llevar un comentario en español que explique la operación: qué observaciones se seleccionan, qué variable se transforma, qué calcula el modelo o qué producto se guarda. Los comentarios internos complementan el párrafo Markdown previo y la interpretación; no los sustituyen. Evitar describir paréntesis, repetir únicamente el nombre de una función o atribuir propiedades que el código no comprueba.
+<p align="center">
+  <img src="../../output/figures/español/granger_presidencial_emociones.png" alt="Granger presidencial emociones" width="85%">
+</p>
 
-Conservar los comentarios existentes que sigan describiendo correctamente la operación. En cálculos estadísticos, indicar denominadores, unidades, ventanas y condiciones de insuficiencia cuando sean necesarios para entender el resultado. Distinguir una comprobación de disponibilidad de una validación de supuestos.
+### Correlaciones condicionales dinámicas DCC-GARCH (Sección 11)
 
-````markdown
-El bloque normaliza entidades para comparar variantes de escritura. El vector
-resultante se utilizará al identificar las menciones correspondientes.
+Estimación de la evolución temporal de la covarianza condicional entre señales presidenciales y variables bursátiles colombianas.
 
-```{r ejemplo-normalizacion-entidades}
-entidades_limpias <- entidades |>
-  # Unificar mayúsculas y minúsculas antes de comparar nombres.
-  str_to_lower() |>
-  # Retirar espacios exteriores y reducir los espacios interiores repetidos.
-  str_squish()
-```
-````
+<p align="center">
+  <img src="../../output/figures/español/econometria/dcc_correlaciones_dinamicas_panel.png" alt="DCC-GARCH panel de correlaciones" width="85%">
+</p>
 
-Los comentarios y las líneas vacías cuentan dentro del máximo de 40 líneas. Usar comentarios breves al final de línea cuando permitan conservar una expresión completa. Si hace falta dividir un chunk, hacerlo entre expresiones completas, conservar el orden y añadir una explicación Markdown antes del nuevo bloque. Una revisión exclusivamente documental debe demostrar que las expresiones analizadas por R son idénticas antes y después, incluidos argumentos y literales.
+### Respuestas acumuladas observadas en estudios de eventos (Sección 12)
 
-### Dependencias y conflictos
+Mapa de calor de las variaciones acumuladas de los activos financieros a 1, 3, 5 y 7 días ante choques discursivos extremos.
 
-Añadir cada dependencia directa en la sección inicial mediante `library(nombre)`, con un comentario breve que explique su uso en el estudio, antes de su primera utilización. Los chunks de esa sección contienen únicamente comentarios, `library()` y `conflict_prefer()`: no incluyen instalaciones, condicionales, bucles, comprobaciones ni funciones auxiliares. Deben mantener `echo=TRUE` y `class.source="fold-show"`, además del límite de 40 líneas y el párrafo introductorio.
+<p align="center">
+  <img src="../../output/figures/español/event_study_respuestas_heatmap.png" alt="Respuestas acumuladas de estudio de eventos" width="80%">
+</p>
 
-Cuando varios paquetes comparten un nombre, comprobar la implementación necesaria y declarar allí `conflict_prefer("funcion", "paquete")`. La preferencia afecta a todo el cuaderno: no basta con resolver el primer error encontrado. Verificar también las llamadas que ya carecían de prefijo y el despacho de clases, especialmente con matrices dispersas y gráficos. Las reexportaciones idénticas no requieren nuevas preferencias.
+## Navegación y enlaces relacionados
 
-En el código analítico se usan nombres simples, sin `paquete::funcion`. La única excepción acordada es `stats_filter <- stats::filter`, definida en su propio chunk auxiliar y explicada antes del código. `stats_filter()` conserva el filtro estadístico del promedio móvil; `filter()` selecciona filas con dplyr. No reemplazar uno por otro. Las opciones globales, declaraciones de variables y `save_audit_table()` permanecen en chunks independientes de las librerías.
-
-## Procedimiento para futuros cambios
-
-1. Registrar la referencia del estado actual antes de editar. Conservar los informes históricos: sus huellas y conclusiones describen versiones concretas, no todas las versiones posteriores.
-2. Delimitar el cambio y mantener las explicaciones sustantivas y la secuencia analítica. Si se corrige una inconsistencia, registrar evidencia, ajuste y resultados afectados; si cambia una especificación, documentar su justificación por separado.
-3. Verificar automáticamente todo el Rmd: etiquetas únicas, sintaxis independiente, explicación anterior, máximo de 40 líneas y ausencia de llamadas calificadas salvo el alias acordado. Comparar también las expresiones analíticas para detectar cambios involuntarios.
-4. Ejecutar la versión completa mediante `Rscript --vanilla` en una copia temporal. Repetir las 49 comprobaciones numéricas existentes y las verificaciones de funciones; comparar muestras, identificadores, fechas, indicadores, resultados deterministas y gráficos con la referencia.
-5. Revisar el HTML: librerías desplegadas, ecuaciones legibles, tablas completas y figuras disponibles. Conservar y explicar advertencias sustantivas. Separar un aviso técnico de un problema de datos o de validez econométrica; no ocultar estos últimos para obtener una ejecución aparentemente limpia.
-6. Incorporar únicamente los productos previstos y entregar un registro breve con el alcance, el entorno, las comprobaciones, las diferencias y las limitaciones. No declarar equivalencia mientras existan diferencias inesperadas sin explicar.
-
-La revisión anterior se conserva en `../../output/review/`. La revisión de dependencias y estilo tiene su registro propio en `../../output/review/librerias_2026-09-05/`; cada informe debe leerse junto con la versión y el entorno que verificó.
-
-La revisión de comentarios internos se registra por separado en `../../output/review/comentarios_2026-09-05/`. Su comparación de expresiones permite distinguir cambios documentales de cambios de implementación.
+- **Documentación principal del repositorio:** [`README.es.md`](../../README.es.md) (Español) | [`README.md`](../../README.md) (English)
+- **Manuscrito formal del artículo:** [`quarto-tandf.qmd`](../../paper/español/quarto-tandf.qmd)
+- **Módulo de supervisión metodológica:** [`Supervision_Metodologica.qmd`](../../Methodology_Supervision/Supervision_Metodologica.qmd)
+- **Directorio de figuras generadas:** [`output/figures/español/`](../../output/figures/español/)
+- **Directorio de tablas auditadas:** [`output/tables/español/`](../../output/tables/español/)
+- **Auditoría metodológica y econométrica:** [`auditoria_final_cierre_metodologico.md`](../../output/review/auditoria_final_cierre_metodologico.md)

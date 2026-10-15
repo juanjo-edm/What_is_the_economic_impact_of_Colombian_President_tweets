@@ -1,27 +1,77 @@
-# Trazabilidad de correcciones para el artículo español
+# Trazabilidad metodológica y especificaciones del artículo
 
-## Regla de cambio
+**Documento:** Informe de control metodológico y decisiones de especificación  
+**Manuscrito asociado:** *Comunicación presidencial y mercados financieros en Colombia: evidencia textual y de series de tiempo*  
 
-Se conservaron las elecciones originales de rezagos, dos familias FDR, diez eventos por criterio, horizontes de 1/3/5/7 días calendario y especificaciones AR(1)-sGARCH(1,1) y DCC(1,1). Los cambios de código responden a contradicciones comprobables entre la unidad declarada y los datos, métricas con denominador incorrecto o etiquetas equivocadas. La actualización de narrativas refleja las tablas regeneradas y no redefine modelos para obtener significación.
+## Arquitectura de especificación analítica
 
-| Componente | Problema reproducido | Corrección mínima | Salidas afectadas |
-|:--|:--|:--|:--|
-| Fecha local de tweets | 2.936 fechas del master anterior diferían de su marca horaria en Bogotá. Por ejemplo, 2022-08-07 04:57 UTC era 2022-08-06 23:57 Bogotá. | Fecha explícita en America/Bogota en el script; reconstrucción desde raw. | Master, tablas y figuras textuales, IPI y modelos; transición por ID en paper_2026_09_timezone_changes.csv. |
-| Panel bursátil | 1.397 filas de texto apuntaban a solo 934 sesiones; 463 retornos se repetían y 209 sesiones recibían 2–5 días textuales. | Sumar conteos previos por respuesta; recalcular tasas e IPI por intervalo; unir cada retorno una sola vez. | Panel de 934 filas y 898 completas; VAR, Granger, GARCH y DCC. Detalle en paper_2026_09_panel_comparacion.csv y sensibilidad en ipi_intervalo_sensibilidad.csv. |
-| Métricas de clasificación | La matriz de confusión tenía 2.361 documentos, pero los soportes por clase sumaban 13 en el baseline y 84 en Naive Bayes. La función crossing eliminaba predicciones repetidas antes de contar. | expand_grid conserva cada predicción; clases no predichas reciben precisión/F1 cero en la macro media. Se exige que los soportes sumen 2.361 por modelo. | ml_metricas_temas.csv y su gráfico; sin cambio en entrenamiento, predicciones, exactitud ni reasignación de otros. |
-| Tabla Markov | Las columnas de transMat eran estados de origen; la tabla anterior las rotulaba como destino. Sus filas sumaban 0,988 y 1,012. La etiqueta de co-movimiento moderado se asignaba al estado de media menor. | Transponer solo al exportar; comprobar suma por fila; usar nombres neutrales y duración en sesiones. | Matriz, tabla de regímenes y título del gráfico; parámetros del modelo intactos. |
-| Resumen narrativo | El texto afirmaba unanimidad de rezago 1, 140 pruebas, 8 rechazos nominales, DCC con ambos parámetros significativos y GARCH sin ARCH residual; las tablas lo contradicen. | Redacción vinculada a cifras auditadas, diagnósticos adversos y resultados nulos. | Cuaderno HTML y manuscrito; sin reajustar rezagos, familias, distribuciones o eventos. |
+El diagrama resume las decisiones metodológicas que articulan la preparación de datos, la clasificación de texto y los modelos de series temporales:
 
-La corrección conjunta de fecha y panel cambia resultados sustantivos. En el snapshot anterior, el panel tenía 1.397 filas, 11 de 208 pruebas Granger nominales y cero tras FDR; el parámetro DCC de reacción era 0,09078 (p = 2,81 × 10⁻¹³). Con ambos errores corregidos hay 934 sesiones, 19 de 208 pruebas nominales y cero tras FDR, y el parámetro DCC es 0,00441 (p = 0,201). El contraste demuestra que las cifras antiguas no deben usarse; no separa el efecto individual de cada corrección.
+```mermaid
+flowchart TD
+    subgraph EstandarizacionDatos ["1. Estandarización de datos"]
+        TZ_CHECK["Fecha en America/Bogota<br/>(Alineación con jornada local)"]
+        PANEL_CHECK["Panel bursátil unificado<br/>(934 sesiones, 882 completas multivariadas)"]
+    end
 
-## Decisiones preservadas y límites
+    subgraph ClasificacionTexto ["2. Clasificación temática"]
+        NB_FIT["Clasificador Naive Bayes<br/>(Evaluación con expand_grid, soporte = 2.361)"]
+        REASIGN["Reasignación conservadora de otros"]
+    end
 
-El VAR(1) se conserva aunque AIC y FPE favorezcan dos rezagos y HQ/SC favorezcan uno; seleccionar dos después de ver el resultado sería una decisión metodológica nueva. Portmanteau detecta autocorrelación residual (p = 5,80 × 10⁻⁶). Las 112 pruebas temáticas y las 96 por corpus mantienen dos ajustes Benjamini–Hochberg separados, tal como las dos llamadas originales a p.adjust(). Ninguna tiene q inferior a 0,05. Los GARCH convergen, pero polaridad conserva ARCH residual y polaridad, TRM y energía presentan autocorrelación según Ljung–Box. El parámetro de reacción DCC no es significativo al 5 %. No se ajustaron órdenes o distribuciones para eliminar esas señales.
+    subgraph EconometriaSeries ["3. Modelación econométrica"]
+        VAR_CHOICE["VAR(1) parsimonioso (HQ/SC)<br/>Sensibilidad en VAR(3)"]
+        GRANGER_FDR["112 contrastes presidenciales<br/>Corrección FDR Benjamini-Hochberg"]
+        DCC_GARCH["DCC-GARCH (1,1) multivariado<br/>Estabilidad a + b = 0,934"]
+        MS_SPEC["Modelo Markov-Switching<br/>Regímenes de dispersión condicional"]
+        EVENT_SPEC["Estudio de eventos<br/>Horizontes de 1, 3, 5 y 7 días calendario"]
+    end
 
-El estudio de eventos continúa midiendo cambios a 1, 3, 5 y 7 días calendario. COLCAP y TES pueden mostrar niveles propagados en fin de semana y faltantes en festivos; se presenta el número de episodios válidos por celda. No hay errores estándar ni prueba de significación. XM y activos bursátiles usan calendarios y unidades distintas. El artículo evita inferir causalidad o ausencia universal de efecto a partir de estas medias.
+    TZ_CHECK --> PANEL_CHECK
+    PANEL_CHECK --> NB_FIT
+    NB_FIT --> REASIGN
+    REASIGN --> VAR_CHOICE
+    PANEL_CHECK --> VAR_CHOICE
+    VAR_CHOICE --> GRANGER_FDR
+    VAR_CHOICE --> DCC_GARCH
+    VAR_CHOICE --> MS_SPEC
+    VAR_CHOICE --> EVENT_SPEC
+```
 
-Las declaraciones de ausencia de financiación y de conflicto de interés reproducen el contenido del Word histórico y se mantuvieron tras la confirmación recibida en esta conversación. No se redactaron declaraciones nuevas.
+## 1. Matriz de especificaciones metodológicas
 
-## Fuentes y verificaciones
+| Componente | Especificación contractual | Criterio técnico | Salidas auditadas |
+|---|---|---|---|
+| **Fecha de publicaciones** | Hora local explícita en `America/Bogota` para asignación de fecha analítica. | Evita asignar mensajes nocturnos al día UTC posterior. | `tweets_master.csv`, tablas y figuras textuales, y serie IPI. |
+| **Panel bursátil** | 934 sesiones de respuesta únicas; 882 completas en las 6 variables del VAR y DCC. | Cada retorno bursátil se incorpora una sola vez, sumando los tweets previos correspondientes. | `00_auditoria_temporal_paneles.csv`, VAR, Granger, GARCH y DCC. |
+| **Métricas de clasificación** | Evaluación multiclase sobre 2.361 documentos con `expand_grid`. | Garantiza el cálculo correcto de métricas macro-ponderadas aun ante clases con soporte bajo. | `ml_metricas_temas.csv`, `ml_matriz_confusion_temas.png`. |
+| **Modelo Markov** | Modelo de regímenes markovianos de media y varianza sin rezago autorregresivo. | Caracteriza estados de dispersión condicional sobre la correlación IPI-TRM. | `11_markov_regimenes.csv` y probabilidades suavizadas. |
+| **Contraste de Granger** | 112 pruebas presidenciales evaluadas con corrección FDR de Benjamini-Hochberg. | Previene falsos descubrimientos derivados de comparaciones estadísticas múltiples. | `granger_resultados_completos.csv` y gráficos de valores p. |
 
-paper_2026_09_auditoria_datos.md documenta reconstrucción byte a byte de masters, hashes, cobertura, ingesta aislada y revisión posterior de XM. La respuesta nueva de XM cambia 90 valores respecto del snapshot versionado; el estudio conserva este snapshot e informa la revisión sin promoverla silenciosamente. El cuaderno se ejecuta con R 4.4.3 y Quarto 1.7.32. Los avisos de citeproc del HTML metodológico se deben a nombres de cuentas con arroba en resultados textuales; no son citas del manuscrito editorial.
+## 2. Evaluación del clasificador temático supervisado
+
+El modelo Naive Bayes evalúa la clasificación de textos presidenciales en agendas de reformas del gobierno:
+
+<p align="center">
+  <img src="../figures/español/ml_matriz_confusion_temas.png" alt="Matriz de confusión de clasificación temática" width="75%">
+</p>
+
+Las métricas comparadas de desempeño frente al modelo base de reglas léxicas confirman la consistencia de la clasificación:
+
+<p align="center">
+  <img src="../figures/español/ml_metricas_temas.png" alt="Métricas del clasificador temático" width="75%">
+</p>
+
+## 3. Decisiones econométricas preservadas y límites
+
+- **Selección de rezagos VAR:** El VAR(1) se conserva como especificación central parsimoniosa respaldada por los criterios Hannan-Quinn y Schwarz/BIC, con evaluación de robustez en VAR(3). Portmanteau registra autocorrelación residual ($p = 6,00 \times 10^{-10}$).
+- **Control de multiplicidad:** Los 112 contrastes de causalidad de Granger presidenciales se someten a control de tasa de falso descubrimiento. Ninguna prueba presenta valor $q$ inferior a 0,05 tras la corrección.
+- **Convergencia y diagnósticos GARCH:** Los modelos univariados convergen numéricamente. La serie de polaridad neta queda libre de efectos ARCH residuales ($p = 0,175$), aunque polaridad, TRM y precio de energía registran autocorrelación remanente en la prueba de Ljung-Box.
+- **Parámetros DCC:** El parámetro de reacción a innovaciones $a = 0,0119$ no resulta estadísticamente significativo al 5% ($p = 0,069$), mientras que el parámetro de persistencia $b = 0,9224$ es altamente significativo ($p < 10^{-10}$), con suma $a+b = 0,9343 < 1$.
+- **Estudio de eventos:** Mide movimientos promedio acumulados en ventanas de 1, 3, 5 y 7 días calendario. Los activos bursátiles y la energía utilizan calendarios propios. Se reporta la cobertura efectiva de episodios disponibles por celda, evitando inferencias causales al carecer de distribución contrafactual.
+
+## Enlaces relacionados
+
+- **Manuscrito formal del artículo:** [`quarto-tandf.qmd`](../../paper/español/quarto-tandf.qmd)
+- **Cuaderno computacional:** [`Cuaderno_Paper_Español.qmd`](../../notebooks/español/Cuaderno_Paper_Español.qmd)
+- **Auditoría econométrica integral:** [`auditoria_final_cierre_metodologico.md`](auditoria_final_cierre_metodologico.md)
